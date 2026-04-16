@@ -1,6 +1,7 @@
 import 'package:rokctapp/core/infrastructure/models/data/links.dart';
 import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
 import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/core/infrastructure/models/data/user.dart';
 
 class WalletHistoriesResponse {
   WalletHistoriesResponse({List<WalletData>? data, Links? links, Meta? meta}) {

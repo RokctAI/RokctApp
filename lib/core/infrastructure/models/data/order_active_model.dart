@@ -3,6 +3,7 @@ import 'package:rokctapp/infrastructure/models/data/user.dart';
 import 'package:rokctapp/core/infrastructure/models/data/repeat_data.dart';
 import 'package:rokctapp/core/infrastructure/models/models.dart';
 import 'package:rokctapp/core/infrastructure/models/data/addons_data.dart';
+import 'package:rokctapp/core/infrastructure/models/data/user.dart';
 
 class OrderActiveModel {
   OrderActiveModel({

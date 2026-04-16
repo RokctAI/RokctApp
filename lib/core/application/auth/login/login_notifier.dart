@@ -11,6 +11,7 @@ import 'package:rokctapp/core/infrastructure/models/models.dart';
 import 'package:rokctapp/core/infrastructure/services/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/application/auth/login/login_state.dart';
+import 'package:rokctapp/core/infrastructure/models/data/user.dart';
 
 class LoginNotifier extends Notifier<LoginState> {
   @override
