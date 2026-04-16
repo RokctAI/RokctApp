@@ -99,7 +99,7 @@ jobs:
       run_security: true
       run_lint: true
       run_ci: true
-      run_import_healer: ${{ inputs.run_import_healer || true }}
+      run_import_healer: ${{ inputs.run_import_healer || false }}
       # Deployment Configuration (Immediate release on Main)
       release_strategy: 'weekly'
       build_android: true
