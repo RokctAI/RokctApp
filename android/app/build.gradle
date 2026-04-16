@@ -67,11 +67,11 @@ android {
         targetSdkVersion 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        resValue "string", "google_maps_api_key", dartDefines.GOOGLE_MAPS_API_KEY
-        resValue "string", "facebook_app_id", dartDefines.FACEBOOK_APP_ID
-        resValue "string", "facebook_client_token", dartDefines.FACEBOOK_CLIENT_TOKEN
-        resValue "string", "deep_link_host", dartDefines.DEEP_LINK_URL
-        resValue "string", "app_name", dartDefines.APP_NAME
+        resValue "string", "google_maps_api_key", dartDefines.GOOGLE_MAPS_API_KEY ?: ""
+        resValue "string", "facebook_app_id", dartDefines.FACEBOOK_APP_ID ?: ""
+        resValue "string", "facebook_client_token", dartDefines.FACEBOOK_CLIENT_TOKEN ?: ""
+        resValue "string", "deep_link_host", dartDefines.DEEP_LINK_URL ?: ""
+        resValue "string", "app_name", dartDefines.APP_NAME ?: "Foodyman"
     }
 
     signingConfigs {
