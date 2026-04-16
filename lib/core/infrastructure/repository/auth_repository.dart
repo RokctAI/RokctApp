@@ -6,7 +6,6 @@ import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/core/domain/interface/auth.dart';
 import 'package:rokctapp/core/infrastructure/services/services.dart';
 import 'package:rokctapp/core/infrastructure/models/models.dart';
-import 'package:rokctapp/core/infrastructure/models/data/user.dart';
 
 class AuthRepository implements AuthRepositoryFacade {
   @override

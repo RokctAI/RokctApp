@@ -5,7 +5,6 @@
 import 'package:rokctapp/core/infrastructure/models/data/review_data.dart';
 import 'package:rokctapp/infrastructure/models/data/user.dart';
 import 'package:rokctapp/core/infrastructure/models/response/parcel_response.dart';
-import 'package:rokctapp/core/infrastructure/models/data/user.dart';
 
 class ParcelOrder {
   int? id;

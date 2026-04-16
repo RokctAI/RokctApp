@@ -16,7 +16,6 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/application/auth/auth.dart';
 import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
 import 'package:rokctapp/core/presentation/pages/auth/register/register_page.dart';
-import 'package:rokctapp/core/infrastructure/models/data/user.dart';
 
 @RoutePage()
 class RegisterConfirmationPage extends ConsumerStatefulWidget {

@@ -838,7 +838,7 @@ class RegisterConfirmationRoute
     extends PageRouteInfo<RegisterConfirmationRouteArgs> {
   RegisterConfirmationRoute({
     Key? key,
-    required InvalidType userModel,
+    required UserModel userModel,
     bool isResetPassword = false,
     required String verificationId,
     bool editPhone = false,
@@ -883,7 +883,7 @@ class RegisterConfirmationRouteArgs {
 
   final Key? key;
 
-  final InvalidType userModel;
+  final UserModel userModel;
 
   final bool isResetPassword;
 
