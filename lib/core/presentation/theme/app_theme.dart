@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
 
-import 'package:rokctapp/core/presentation/theme/color_set.dart' show CustomColorSet;
+import 'package:rokctapp/core/presentation/theme/color_set.dart'
+    show CustomColorSet;
 
 class AppTheme with ChangeNotifier {
   final ThemePreference _preference;
