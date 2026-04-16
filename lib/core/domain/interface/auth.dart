@@ -2,6 +2,7 @@ import 'package:rokctapp/infrastructure/models/data/user.dart';
 import 'package:rokctapp/core/infrastructure/models/models.dart';
 
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:rokctapp/core/infrastructure/models/data/user.dart';
 
 abstract class AuthRepositoryFacade {
   Future<ApiResult<LoginResponse>> login({
