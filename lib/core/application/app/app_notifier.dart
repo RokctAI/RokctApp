@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/application/app/app_state.dart';
 
 class AppNotifier extends Notifier<AppState> {

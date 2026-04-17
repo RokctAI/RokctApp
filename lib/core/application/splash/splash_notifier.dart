@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
 import 'package:rokctapp/core/application/splash/splash_state.dart';
 

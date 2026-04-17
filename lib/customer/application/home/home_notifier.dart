@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/domain/interface/banners.dart';
-import 'package:rokctapp/domain/interface/categories.dart';
-import 'package:rokctapp/domain/interface/shops.dart';
+import 'package:rokctapp/core/domain/interface/banners.dart';
+import 'package:rokctapp/core/domain/interface/categories.dart';
+import 'package:rokctapp/core/domain/interface/shops.dart';
 
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 import 'package:rokctapp/customer/application/home/home_state.dart';
 

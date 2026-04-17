@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 import 'package:rokctapp/core/application/search/search_state.dart';
 

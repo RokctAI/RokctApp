@@ -3,10 +3,10 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/customer/application/profile/profile_state.dart';
 
 class ProfileNotifier extends Notifier<ProfileState> {

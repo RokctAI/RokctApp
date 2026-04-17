@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
-import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
-import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/infrastructure/app_links/app_links_service.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:rokctapp/customer/models/data/addons_data.dart';
+import 'package:rokctapp/customer/models/data/cart_data.dart';
+import 'package:rokctapp/customer/models/request/cart_request.dart';
+import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:rokctapp/core/infrastructure/app_links/app_links_service.dart';
+import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/customer/application/shop_order/shop_order_state.dart';
 
 class ShopOrderNotifier extends Notifier<ShopOrderState> {

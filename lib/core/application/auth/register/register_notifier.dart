@@ -5,13 +5,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/core/app_constants.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/infrastructure/models/data/user.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/firebase_service/firebase_service.dart';
+import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:rokctapp/customer/models/data/user.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/infrastructure/firebase_service/firebase_service.dart';
 import 'package:rokctapp/core/application/auth/register/register_state.dart';
 
 class RegisterNotifier extends Notifier<RegisterState> {
