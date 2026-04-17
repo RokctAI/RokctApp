@@ -6,21 +6,21 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-import 'package:foodyman/infrastructure/models/data/shop_data.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/app_assets.dart';
-import 'package:foodyman/presentation/pages/shop/group_order/group_order.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
+import 'package:rokctapp/presentation/pages/shop/group_order/group_order.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:foodyman/infrastructure/models/data/bonus_data.dart';
-import 'package:foodyman/presentation/theme/theme_wrapper.dart';
-import '../../../theme/color_set.dart';
-import 'bonus_screen.dart';
-import 'shop_description_item.dart';
+import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/bonus_screen.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/shop_description_item.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class ShopPageAvatar extends StatelessWidget {
   final ShopData shop;

@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:foodyman/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../routes/app_router.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class WebViewPage extends StatefulWidget {
   final String url;

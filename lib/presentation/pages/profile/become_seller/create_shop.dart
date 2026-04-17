@@ -6,19 +6,19 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:foodyman/application/profile/profile_notifier.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/application/profile/profile_state.dart';
-import 'package:foodyman/app_constants.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
+import 'package:rokctapp/application/profile/profile_notifier.dart';
+import 'package:rokctapp/application/profile/profile_provider.dart';
+import 'package:rokctapp/application/profile/profile_state.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import '../../../theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 @RoutePage()
 class CreateShopPage extends ConsumerStatefulWidget {

@@ -1,6 +1,6 @@
-import 'package:foodyman/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
-import 'translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 class CareerData {
   int? id;

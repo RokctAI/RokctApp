@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foodyman/application/parcel/parcel_notifier.dart';
-import 'package:foodyman/application/parcel/parcel_state.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:rokctapp/application/parcel/parcel_notifier.dart';
+import 'package:rokctapp/application/parcel/parcel_state.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
-import 'custom_expanded.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/pages/parcel/widgets/custom_expanded.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class SenderWidget extends StatelessWidget {
   final ParcelState state;

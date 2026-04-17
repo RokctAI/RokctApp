@@ -2,17 +2,17 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodyman/infrastructure/models/data/shop_data.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/app_assets.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
-import 'package:foodyman/presentation/theme/app_style.dart';
-import 'package:foodyman/presentation/theme/theme_wrapper.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
-import 'two_bonus_discount.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/pages/home/home_two/widget/two_bonus_discount.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class MarketTwoItem extends StatelessWidget {
   final ShopData shop;

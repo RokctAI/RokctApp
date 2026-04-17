@@ -5,21 +5,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-import 'package:foodyman/infrastructure/models/data/cart_data.dart';
-import 'package:foodyman/infrastructure/models/data/shop_data.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:flutter/services.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:foodyman/application/shop/shop_provider.dart';
+import 'package:rokctapp/application/shop/shop_provider.dart';
 import 'package:share_plus/share_plus.dart';
-import 'widgets/check_status_dialog.dart';
-import 'widgets/group_item.dart';
+import 'package:rokctapp/presentation/pages/shop/group_order/widgets/check_status_dialog.dart';
+import 'package:rokctapp/presentation/pages/shop/group_order/widgets/group_item.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class GroupOrderScreen extends ConsumerStatefulWidget {
   final ShopData shop;

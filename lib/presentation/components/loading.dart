@@ -1,7 +1,7 @@
 import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class Loading extends StatelessWidget {
   final Color bgColor;

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/models/response/pages_response.dart';
-import '../../../application/profile/profile_provider.dart';
-import '../../../infrastructure/services/app_helpers.dart';
-import '../../../infrastructure/services/tr_keys.dart';
-import '../../theme/app_style.dart';
-import '../../theme/color_set.dart';
+import 'package:rokctapp/infrastructure/models/response/pages_response.dart';
+import 'package:rokctapp/application/profile/profile_provider.dart';
+import 'package:rokctapp/infrastructure/services/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/tr_keys.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class AboutPage extends ConsumerStatefulWidget {
   const AboutPage({super.key});

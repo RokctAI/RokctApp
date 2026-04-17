@@ -4,18 +4,18 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/edit_profile/edit_profile_provider.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/infrastructure/models/data/user.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/components/components.dart';
-import 'package:foodyman/presentation/pages/auth/reset/set_password_page.dart';
+import 'package:rokctapp/application/edit_profile/edit_profile_provider.dart';
+import 'package:rokctapp/application/profile/profile_provider.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/components/components.dart';
+import 'package:rokctapp/presentation/pages/auth/reset/set_password_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'package:foodyman/application/auth/auth.dart';
-import '../../../theme/theme_wrapper.dart';
-import '../register/register_page.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/application/auth/auth.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
 
 @RoutePage()
 class RegisterConfirmationPage extends ConsumerStatefulWidget {

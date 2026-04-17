@@ -1,4 +1,4 @@
-import '../data/coupon_data.dart';
+import 'package:rokctapp/infrastructure/models/data/coupon_data.dart';
 
 class CouponResponse {
   CouponResponse({

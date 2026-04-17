@@ -1,8 +1,8 @@
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/domain/interface/categories.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/domain/handlers/handlers.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/interface/categories.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class CategoriesRepository implements CategoriesRepositoryFacade {
   @override

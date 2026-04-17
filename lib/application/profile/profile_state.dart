@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
-import 'package:foodyman/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
-import '../../infrastructure/models/data/career_data.dart';
-import '../../infrastructure/models/response/pages_response.dart';
+import 'package:rokctapp/infrastructure/models/data/career_data.dart';
+import 'package:rokctapp/infrastructure/models/response/pages_response.dart';
 
 part 'profile_state.freezed.dart';
 

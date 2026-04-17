@@ -1,8 +1,8 @@
-import 'package:foodyman/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 
-import 'notification_data.dart';
-import 'shop_data.dart';
-import 'currency_data.dart';
+import 'package:rokctapp/infrastructure/models/data/notification_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 
 class ProfileData {
   ProfileData({

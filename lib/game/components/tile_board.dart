@@ -1,14 +1,14 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodyman/game/models/board.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/game/models/board.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
-import '../const/colors.dart';
+import 'package:rokctapp/game/const/colors.dart';
 
-import '../game_bloc/game_bloc.dart';
-import 'animated_tile.dart';
-import 'button.dart';
+import 'package:rokctapp/game/game_bloc/game_bloc.dart';
+import 'package:rokctapp/game/components/animated_tile.dart';
+import 'package:rokctapp/game/components/button.dart';
 
 class TileBoardWidget extends StatelessWidget {
   const TileBoardWidget({

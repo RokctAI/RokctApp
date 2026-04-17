@@ -1,10 +1,10 @@
-import 'package:foodyman/domain/handlers/handlers.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/models/response/blog_response.dart';
-import 'package:foodyman/infrastructure/models/response/pages_response.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/response/blog_response.dart';
+import 'package:rokctapp/infrastructure/models/response/pages_response.dart';
 
-import '../../infrastructure/models/data/career_data.dart';
-import '../../infrastructure/models/response/career_response.dart';
+import 'package:rokctapp/infrastructure/models/data/career_data.dart';
+import 'package:rokctapp/infrastructure/models/response/career_response.dart';
 
 abstract class UserRepositoryFacade {
   Future<ApiResult<ProfileResponse>> getProfileDetails();

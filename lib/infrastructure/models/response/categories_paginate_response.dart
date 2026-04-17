@@ -1,5 +1,5 @@
-import '../data/meta.dart';
-import '../data/translation.dart';
+import 'package:rokctapp/infrastructure/models/data/meta.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 class CategoriesPaginateResponse {
   CategoriesPaginateResponse({List<CategoryData>? data, Meta? meta}) {

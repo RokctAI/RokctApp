@@ -1,4 +1,4 @@
-import '../../services/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/local_storage.dart';
 
 class CartRequest {
   final int? shopId;

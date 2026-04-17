@@ -4,18 +4,18 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:foodyman/infrastructure/models/data/addons_data.dart';
-import 'package:foodyman/infrastructure/models/data/order_active_model.dart';
-import 'package:foodyman/app_constants.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/models/request/cart_request.dart';
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
+import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
 import 'package:intl/intl.dart';
-import '../../presentation/app_assets.dart';
-import 'order_state.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
+import 'package:rokctapp/application/order/order_state.dart';
 
 class OrderNotifier extends Notifier<OrderState> {
   @override

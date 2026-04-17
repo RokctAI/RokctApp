@@ -1,6 +1,6 @@
 import 'package:flutter_remix/flutter_remix.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/app_assets.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
 
 abstract class AppConstants {
   AppConstants._();

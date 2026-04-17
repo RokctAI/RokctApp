@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/shop/shop_provider.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:rokctapp/application/shop/shop_provider.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import '../../../theme/theme_wrapper.dart';
-import 'category_tab_bar.widget.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/category_tab_bar.widget.dart';
 
 class TabSearch extends StatelessWidget {
   final TextEditingController? controller;

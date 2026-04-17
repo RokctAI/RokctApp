@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/theme/app_theme.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/theme/app_theme.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/app/app_provider.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:rokctapp/application/app/app_provider.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:provider/provider.dart' as provider;
-import 'components/custom_range_slider.dart';
-import 'routes/app_router.dart';
+import 'package:rokctapp/presentation/components/custom_range_slider.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class AppWidget extends ConsumerWidget {
   AppWidget({super.key});

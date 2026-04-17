@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'help_notifier.dart';
-import 'help_state.dart';
+import 'package:rokctapp/application/help/help_notifier.dart';
+import 'package:rokctapp/application/help/help_state.dart';
 
 final helpProvider = NotifierProvider<HelpNotifier, HelpState>(
   () => HelpNotifier(),

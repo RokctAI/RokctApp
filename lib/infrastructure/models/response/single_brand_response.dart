@@ -1,4 +1,4 @@
-import '../data/brand_data.dart';
+import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
 
 class SingleBrandResponse {
   SingleBrandResponse({

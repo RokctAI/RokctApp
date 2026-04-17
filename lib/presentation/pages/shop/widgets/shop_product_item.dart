@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/app_assets.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:foodyman/infrastructure/models/response/all_products_response.dart';
-import 'package:foodyman/presentation/theme/theme_wrapper.dart';
-import 'bonus_screen.dart';
+import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/bonus_screen.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class ShopProductItem extends StatelessWidget {
   final Product product;

@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/infrastructure/models/data/addons_data.dart';
-import 'package:foodyman/infrastructure/models/data/cart_data.dart';
-import 'package:foodyman/infrastructure/models/request/cart_request.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/infrastructure/app_links/app_links_service.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'shop_order_state.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
+import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
+import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/app_links/app_links_service.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/application/shop_order/shop_order_state.dart';
 
 class ShopOrderNotifier extends Notifier<ShopOrderState> {
   @override

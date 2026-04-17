@@ -1,6 +1,6 @@
-import 'package:foodyman/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
-import 'product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
 // To parse this JSON data, do
 //

@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/models/response/all_products_response.dart';
-import 'package:foodyman/presentation/pages/shop/widgets/shimmer_category_list.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'package:foodyman/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/shimmer_category_list.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
 
-import 'tab_search.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/tab_search.dart';
 
 class CategoryTabBar extends StatefulWidget {
   const CategoryTabBar({

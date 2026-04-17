@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:foodyman/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 import 'package:intl/intl.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/domain/interface/parcel.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/models/response/parcel_paginate_response.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/domain/handlers/handlers.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/interface/parcel.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/response/parcel_paginate_response.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:payfast/payfast.dart';
 
 class ParcelRepository implements ParcelRepositoryFacade {

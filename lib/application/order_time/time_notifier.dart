@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'time_state.dart';
+import 'package:rokctapp/application/order_time/time_state.dart';
 
 class TimeNotifier extends Notifier<TimeState> {
   @override

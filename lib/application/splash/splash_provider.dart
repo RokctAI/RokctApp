@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'splash_notifier.dart';
-import 'splash_state.dart';
+import 'package:rokctapp/application/splash/splash_notifier.dart';
+import 'package:rokctapp/application/splash/splash_state.dart';
 
 final splashProvider = NotifierProvider<SplashNotifier, SplashState>(
   () => SplashNotifier(),

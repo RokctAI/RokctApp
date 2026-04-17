@@ -1,5 +1,5 @@
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
 
 abstract class PaymentsRepositoryFacade {
   Future<ApiResult<PaymentsResponse?>> getPayments();

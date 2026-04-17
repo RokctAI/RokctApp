@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/infrastructure/models/data/user.dart';
-import 'package:foodyman/infrastructure/models/request/sign_up_request.dart';
-import 'package:foodyman/domain/handlers/handlers.dart';
-import 'package:foodyman/domain/interface/auth.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import '../models/models.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/infrastructure/models/request/sign_up_request.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/domain/interface/auth.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 class AuthRepository implements AuthRepositoryFacade {
   @override

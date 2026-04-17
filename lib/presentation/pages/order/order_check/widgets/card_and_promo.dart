@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/order/order_provider.dart';
-import 'package:foodyman/application/payment_methods/payment_provider.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/pages/order/order_check/widgets/promo_code.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/order/order_provider.dart';
+import 'package:rokctapp/application/payment_methods/payment_provider.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/promo_code.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:foodyman/presentation/theme/color_set.dart';
-import 'payment_method.dart';
-import 'order_payment_container.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/payment_method.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/order_payment_container.dart';
 
 class CardAndPromo extends StatelessWidget {
   final CustomColorSet colors;

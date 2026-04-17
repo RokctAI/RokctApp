@@ -1,6 +1,6 @@
-import 'package:foodyman/infrastructure/models/data/order_data.dart';
-import 'package:foodyman/infrastructure/models/data/shop_data.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class OrderBodyData {
   final int cartId;

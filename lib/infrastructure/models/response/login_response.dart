@@ -1,4 +1,4 @@
-import '../data/user.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
 
 class LoginResponse {
   LoginResponse({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../data/translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 class AllProductsResponse {
   DateTime? timestamp;

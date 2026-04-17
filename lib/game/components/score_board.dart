@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import '../game_bloc/game_bloc.dart';
+import 'package:rokctapp/game/game_bloc/game_bloc.dart';
 
 class ScoreBoard extends StatelessWidget {
   const ScoreBoard({super.key});

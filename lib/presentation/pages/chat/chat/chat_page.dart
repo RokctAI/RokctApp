@@ -7,14 +7,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:foodyman/application/chat/chat_provider.dart';
-import 'package:foodyman/infrastructure/models/data/chat_message_data.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:rokctapp/application/chat/chat_provider.dart';
+import 'package:rokctapp/infrastructure/models/data/chat_message_data.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import 'widgets/chat_item.dart';
+import 'package:rokctapp/presentation/pages/chat/chat/widgets/chat_item.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 @RoutePage()
 class ChatPage extends ConsumerStatefulWidget {

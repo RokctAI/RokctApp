@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/io.dart';
 
-import '../../app_constants.dart';
-import '../models/data/order_active_model.dart';
-import 'local_storage.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
+import 'package:rokctapp/infrastructure/services/local_storage.dart';
 
 class WebSocketConnection {
   IOWebSocketChannel connect(String path) {

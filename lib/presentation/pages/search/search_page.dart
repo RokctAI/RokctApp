@@ -4,24 +4,24 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/home/home_provider.dart';
-import 'package:foodyman/application/search/search_state.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'package:foodyman/application/search/search_notifier.dart';
-import 'package:foodyman/application/search/search_provider.dart';
-import 'package:foodyman/application/main/main_provider.dart';
-import 'shimmer/category_shimmer.dart';
-import 'shimmer/search_product_shimmer.dart';
-import 'shimmer/search_shop_shimmer.dart';
-import 'widgets/product_item.dart';
-import 'widgets/restaurant_item.dart';
-import 'widgets/search_result.dart';
+import 'package:rokctapp/application/home/home_provider.dart';
+import 'package:rokctapp/application/search/search_state.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/application/search/search_notifier.dart';
+import 'package:rokctapp/application/search/search_provider.dart';
+import 'package:rokctapp/application/main/main_provider.dart';
+import 'package:rokctapp/presentation/pages/search/shimmer/category_shimmer.dart';
+import 'package:rokctapp/presentation/pages/search/shimmer/search_product_shimmer.dart';
+import 'package:rokctapp/presentation/pages/search/shimmer/search_shop_shimmer.dart';
+import 'package:rokctapp/presentation/pages/search/widgets/product_item.dart';
+import 'package:rokctapp/presentation/pages/search/widgets/restaurant_item.dart';
+import 'package:rokctapp/presentation/pages/search/widgets/search_result.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 @RoutePage()
 class SearchPage extends ConsumerStatefulWidget {

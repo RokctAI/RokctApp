@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import 'components/button.dart';
-import 'components/empy_board.dart';
-import 'components/score_board.dart';
-import 'components/tile_board.dart';
-import 'game_bloc/game_bloc.dart';
+import 'package:rokctapp/game/components/button.dart';
+import 'package:rokctapp/game/components/empy_board.dart';
+import 'package:rokctapp/game/components/score_board.dart';
+import 'package:rokctapp/game/components/tile_board.dart';
+import 'package:rokctapp/game/game_bloc/game_bloc.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class Game extends StatefulWidget {
   const Game({super.key});

@@ -1,5 +1,5 @@
-import 'package:foodyman/app_constants.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class BannersRequest {
   final int page;
