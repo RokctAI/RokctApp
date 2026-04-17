@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:rokctapp/manager/presentation/app_widget.dart';
 import 'package:rokctapp/manager/presentation/phoenix_widget.dart';
-import 'package:rokctapp/manager/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();

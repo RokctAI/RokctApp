@@ -6,7 +6,7 @@ import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/driver/presentation/pages/parcel/parcel_order.dart';
-import 'package:rokctapp/driver/presentation/styles/style.dart';
+import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
 class ParcelItem extends StatelessWidget {
   final ParcelOrder? parcel;

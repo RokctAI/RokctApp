@@ -8,7 +8,7 @@ import 'package:rokctapp/driver/application/home/home_provider.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/driver/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/driver/presentation/component/maps_list.dart';
-import 'package:rokctapp/driver/presentation/styles/style.dart';
+import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/pages/home/widgets/approve_dialog.dart';

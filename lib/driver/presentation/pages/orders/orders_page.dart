@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/driver/presentation/styles/style.dart';
+import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
 @RoutePage()
 class OrdersPage extends ConsumerStatefulWidget {

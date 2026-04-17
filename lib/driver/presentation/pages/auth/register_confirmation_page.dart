@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/presentation/component/components.dart';
 
 import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/driver/presentation/styles/style.dart';
+import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 import 'package:rokctapp/driver/presentation/pages/auth/register_page.dart';
 import 'package:rokctapp/driver/presentation/pages/auth/reset/set_password_page.dart';
 

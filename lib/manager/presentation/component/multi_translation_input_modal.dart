@@ -6,7 +6,7 @@ import 'package:collection/collection.dart';
 import 'package:venderfoodyman/application/ai_translation/ai_translation_provider.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/manager/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/manager/presentation/component/helper/modal_drag.dart';
 import 'package:rokctapp/manager/presentation/component/helper/modal_wrap.dart';

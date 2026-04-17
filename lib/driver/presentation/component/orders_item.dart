@@ -7,7 +7,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 
 import 'package:rokctapp/driver/presentation/component/helper/shimmer.dart';
-import 'package:rokctapp/driver/presentation/styles/style.dart';
+import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'package:rokctapp/driver/presentation/component/order_detail.dart';

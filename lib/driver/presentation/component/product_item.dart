@@ -4,7 +4,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/driver/presentation/styles/style.dart';
+import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
 class ProductItem extends StatelessWidget {
   final Product? product;

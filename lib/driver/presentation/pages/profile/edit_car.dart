@@ -15,7 +15,7 @@ import 'package:rokctapp/driver/infrastructure/services/img_service.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/driver/presentation/styles/style.dart';
+import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
 class EditCar extends ConsumerStatefulWidget {
   const EditCar({super.key});

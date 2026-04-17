@@ -3,7 +3,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/manager/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 
 class AuthTabBar extends StatefulWidget {
   final bool isScrollable;

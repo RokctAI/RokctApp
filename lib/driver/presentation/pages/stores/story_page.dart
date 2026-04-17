@@ -7,7 +7,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/driver/presentation/styles/style.dart';
+import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
 @RoutePage()
 class StoryPage extends ConsumerStatefulWidget {

@@ -6,7 +6,7 @@ import 'package:venderfoodyman/application/foods/edit/details/kitchen/edit_food_
 
 import 'package:rokctapp/manager/presentation/pages/main/foods/edit/edit_product_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/manager/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:venderfoodyman/application/providers.dart';
 import 'package:venderfoodyman/infrastructure/services/services.dart';
 

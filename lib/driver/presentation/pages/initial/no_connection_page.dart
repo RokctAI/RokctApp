@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/routes/app_router.dart';
-import 'package:rokctapp/driver/presentation/styles/style.dart';
+import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
 @RoutePage()
 class NoConnectionPage extends ConsumerWidget {

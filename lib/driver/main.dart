@@ -10,7 +10,7 @@ import 'package:rokctapp/driver/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rokctapp/driver/presentation/app_widget.dart';
-import 'package:rokctapp/driver/presentation/styles/style.dart';
+import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 import 'package:dio/dio.dart';
 import 'dart:async';
 
