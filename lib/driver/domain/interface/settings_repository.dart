@@ -1,0 +1,18 @@
+import 'package:rokctapp/driver/infrastructure/models/models.dart';
+import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:rokctapp/driver/domain/handlers/handlers.dart';
+
+abstract class SettingsRepository {
+  Future<ApiResult<GalleryUploadResponse>> uploadImage(
+    String filePath,
+    UploadType uploadType,
+  );
+
+  Future<ApiResult<CurrenciesResponse>> getCurrencies();
+
+  Future<ApiResult<SettingsResponse>> getGlobalSettings();
+
+  Future<ApiResult<TranslationsResponse>> getTranslations();
+
+  Future<ApiResult<LanguagesResponse>> getLanguages();
+}
