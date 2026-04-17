@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/infrastructure/services/services.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
-import 'package:rokctapp/infrastructure/models/data/notification_list_data.dart';
+import 'package:rokctapp/customer/models/data/notification_list_data.dart';
 import 'package:rokctapp/customer/application/setting/setting_state.dart';
 
 class SettingNotifier extends Notifier<SettingState> {

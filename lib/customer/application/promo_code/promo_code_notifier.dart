@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/infrastructure/services/services.dart';
 import 'package:rokctapp/customer/application/promo_code/promo_code_state.dart';
 
 class PromoCodeNotifier extends Notifier<PromoCodeState> {

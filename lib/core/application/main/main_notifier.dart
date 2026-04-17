@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/core/infrastructure/services/services.dart';
 
 import 'package:rokctapp/core/application/main/main_state.dart';
 
