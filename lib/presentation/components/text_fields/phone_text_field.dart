@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class PhoneTextField extends StatelessWidget {

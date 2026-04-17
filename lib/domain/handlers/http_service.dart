@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 
 import 'package:rokctapp/domain/handlers/token_interceptor.dart';
 

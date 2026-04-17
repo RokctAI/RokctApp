@@ -7,9 +7,9 @@ import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/components/components.dart';
 import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
 import 'package:rokctapp/infrastructure/models/data/user.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/application/auth/auth.dart';
+import 'package:rokctapp/core/application/auth/auth.dart';
 import 'package:rokctapp/presentation/pages/auth/confirmation/register_confirmation_page.dart';
 
 @RoutePage()

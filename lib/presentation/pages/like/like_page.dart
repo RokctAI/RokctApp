@@ -12,7 +12,7 @@ import 'package:rokctapp/application/like/like_provider.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/pages/home/shimmer/banner_shimmer.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/application/main/main_provider.dart';
+import 'package:rokctapp/core/application/main/main_provider.dart';
 import 'package:rokctapp/presentation/pages/home/home_one/widget/market_one_item.dart';
 import 'package:rokctapp/presentation/pages/home/home_three/widgets/market_three_item.dart';
 import 'package:rokctapp/presentation/pages/home/home_two/widget/market_two_item.dart';

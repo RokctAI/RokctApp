@@ -9,7 +9,7 @@ import 'package:lottie/lottie.dart';
 import 'package:rokctapp/application/profile/profile_notifier.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/application/profile/profile_state.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';

@@ -13,7 +13,7 @@ import 'package:rokctapp/presentation/components/components.dart';
 import 'package:rokctapp/presentation/pages/auth/reset/set_password_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/application/auth/auth.dart';
+import 'package:rokctapp/core/application/auth/auth.dart';
 import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
 import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
 

@@ -13,7 +13,7 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/local_storage.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/enums.dart';
 
 abstract class AppHelpers {

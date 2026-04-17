@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/application/currency/currency_provider.dart';
+import 'package:rokctapp/core/application/currency/currency_provider.dart';
 import 'package:rokctapp/application/home/home_notifier.dart';
 import 'package:rokctapp/application/home/home_provider.dart';
 import 'package:rokctapp/application/home/home_state.dart';

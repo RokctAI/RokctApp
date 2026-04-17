@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/services/services.dart';
 
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 
 class StoryRequest {
   final int page;

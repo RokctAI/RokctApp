@@ -10,14 +10,14 @@ import 'package:rokctapp/infrastructure/models/data/location.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/application/app/app_provider.dart';
+import 'package:rokctapp/core/application/app/app_provider.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart'
     as address_selected;
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/pages/view_map/view_map_modal.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';

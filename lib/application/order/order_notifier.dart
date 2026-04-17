@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/application/orders_list/orders_list_provider.dart';
 import 'package:rokctapp/application/parcels_list/parcel_list_provider.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';

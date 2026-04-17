@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:rokctapp/application/chat/chat_provider.dart';
+import 'package:rokctapp/core/application/chat/chat_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/chat_message_data.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';

@@ -1,4 +1,4 @@
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 
 class BannersRequest {

@@ -36,7 +36,7 @@ import 'package:rokctapp/infrastructure/repository/products_repository.dart';
 import 'package:rokctapp/infrastructure/repository/settings_repository.dart';
 import 'package:rokctapp/infrastructure/repository/shops_repository.dart';
 import 'package:rokctapp/infrastructure/repository/user_repository.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/domain/handlers/http_service.dart';
 

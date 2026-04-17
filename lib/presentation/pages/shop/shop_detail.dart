@@ -11,7 +11,7 @@ import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/pages/order/order_type/widgets/order_map.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 
 import 'package:rokctapp/presentation/components/components.dart';
 

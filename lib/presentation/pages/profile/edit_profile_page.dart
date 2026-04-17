@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/edit_profile/edit_profile_provider.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/theme/theme_wrapper.dart';

@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:app_links/app_links.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 
 // Removed unused imports
 import 'package:rokctapp/presentation/routes/app_router.dart';

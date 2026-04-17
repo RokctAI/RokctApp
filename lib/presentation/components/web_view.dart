@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import 'package:rokctapp/presentation/routes/app_router.dart';

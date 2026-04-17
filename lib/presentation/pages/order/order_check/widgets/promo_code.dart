@@ -9,7 +9,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/promo_code/promo_code_notifier.dart';
 import 'package:rokctapp/application/promo_code/promo_code_provider.dart';
 import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 
 import 'package:rokctapp/presentation/theme/color_set.dart';
 

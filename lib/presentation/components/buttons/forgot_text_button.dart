@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/application/app/app_provider.dart';
+import 'package:rokctapp/core/application/app/app_provider.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
 

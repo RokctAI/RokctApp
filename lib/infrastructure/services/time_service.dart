@@ -1,4 +1,4 @@
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:intl/intl.dart';
 
 abstract class TimeService {

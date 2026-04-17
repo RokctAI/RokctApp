@@ -5,9 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/components/components.dart';
 import 'package:rokctapp/presentation/pages/auth/reset/reset_password_page.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/application/auth/auth.dart';
+import 'package:rokctapp/core/application/auth/auth.dart';
 import 'package:rokctapp/presentation/theme/color_set.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {

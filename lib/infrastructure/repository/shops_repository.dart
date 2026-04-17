@@ -5,7 +5,7 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 

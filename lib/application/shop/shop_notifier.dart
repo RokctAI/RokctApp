@@ -5,7 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/infrastructure/app_links/app_links_service.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
