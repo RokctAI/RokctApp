@@ -72,7 +72,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     children: [
                       Text(
                         AppHelpers.getAppName(),
-                        style: AppStyle.interBold(color: AppStyle.white, size: 24),
+                        style: AppStyle.interBold(
+                          color: AppStyle.white,
+                          size: 24,
+                        ),
                       ),
                     ],
                   ),

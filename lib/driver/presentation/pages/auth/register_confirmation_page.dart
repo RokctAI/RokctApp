@@ -122,17 +122,23 @@ class _RegisterConfirmationPageState
                             cursor: Cursor(
                               width: 1,
                               height: 24,
-                              color: isDarkMode ? AppStyle.white : AppStyle.black,
+                              color: isDarkMode
+                                  ? AppStyle.white
+                                  : AppStyle.black,
                               enabled: true,
                             ),
                             decoration: BoxLooseDecoration(
                               gapSpace: 10.r,
                               textStyle: AppStyle.interNormal(
                                 size: 15.sp,
-                                color: isDarkMode ? AppStyle.white : AppStyle.black,
+                                color: isDarkMode
+                                    ? AppStyle.white
+                                    : AppStyle.black,
                               ),
                               bgColorBuilder: FixedColorBuilder(
-                                isDarkMode ? AppStyle.black : AppStyle.transparent,
+                                isDarkMode
+                                    ? AppStyle.black
+                                    : AppStyle.transparent,
                               ),
                               strokeColorBuilder: FixedColorBuilder(
                                 state.isCodeError

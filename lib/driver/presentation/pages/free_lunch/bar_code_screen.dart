@@ -47,7 +47,10 @@ class BarCodeScreen extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     text: AppHelpers.getTranslation(TrKeys.youWillShow),
-                    style: AppStyle.interRegular(size: 14.sp, letterSpacing: -0.3),
+                    style: AppStyle.interRegular(
+                      size: 14.sp,
+                      letterSpacing: -0.3,
+                    ),
                     children: [
                       TextSpan(
                         text: AppHelpers.getTranslation(TrKeys.qRCode),

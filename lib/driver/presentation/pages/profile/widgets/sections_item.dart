@@ -35,7 +35,10 @@ class SectionsItem extends StatelessWidget {
               16.horizontalSpace,
               Text(
                 title,
-                style: AppStyle.interRegular(size: 16.sp, color: AppStyle.black),
+                style: AppStyle.interRegular(
+                  size: 16.sp,
+                  color: AppStyle.black,
+                ),
               ),
               const Spacer(),
               const Icon(

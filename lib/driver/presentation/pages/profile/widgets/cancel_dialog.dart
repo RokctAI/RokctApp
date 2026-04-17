@@ -42,7 +42,11 @@ class CancelDialog extends StatelessWidget {
               );
               await launchUrl(launchUri);
             },
-            icon: Icon(FlutterRemix.phone_line, color: AppStyle.white, size: 20.r),
+            icon: Icon(
+              FlutterRemix.phone_line,
+              color: AppStyle.white,
+              size: 20.r,
+            ),
           ),
         ],
       ),
