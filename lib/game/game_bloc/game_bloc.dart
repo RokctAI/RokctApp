@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
 import 'package:rokctapp/game/models/board.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/core/infrastructure/services/services.dart';
 import 'package:uuid/uuid.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:bloc/bloc.dart';

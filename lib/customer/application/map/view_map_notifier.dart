@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/presentation/theme/theme_preference.dart';
+import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
-import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
+import 'package:rokctapp/customer/models/data/address_new_data.dart';
+import 'package:rokctapp/customer/models/data/address_old_data.dart';
 
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/core/infrastructure/services/services.dart';
 
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/presentation/pages/home/widgets/add_address.dart';
-import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:rokctapp/customer/presentation/pages/home/widgets/add_address.dart';
+import 'package:rokctapp/core/presentation/theme/color_set.dart';
 import 'package:rokctapp/customer/application/map/view_map_state.dart';
 
 class ViewMapNotifier extends Notifier<ViewMapState> {

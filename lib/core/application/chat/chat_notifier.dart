@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/core/infrastructure/services/services.dart';
 
 import 'package:rokctapp/core/application/chat/chat_state.dart';
 

@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/customer/application/auto_order/auto_order_state.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/data/repeat_data.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:rokctapp/customer/models/data/repeat_data.dart';
+import 'package:rokctapp/core/infrastructure/services/services.dart';
 
 class AutoOrderNotifier extends Notifier<AutoOrderState> {
   AutoOrderNotifier();
