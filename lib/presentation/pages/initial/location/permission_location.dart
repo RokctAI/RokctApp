@@ -9,7 +9,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:lottie/lottie.dart';
 
-import 'package:rokctapp/application/home/home_provider.dart';
+import 'package:rokctapp/customer/application/home/home_provider.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 

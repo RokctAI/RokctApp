@@ -7,7 +7,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:rokctapp/presentation/theme/color_set.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/application/home/home_provider.dart';
+import 'package:rokctapp/customer/application/home/home_provider.dart';
 import 'package:rokctapp/core/application/search/search_state.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';

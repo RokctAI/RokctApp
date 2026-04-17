@@ -3,7 +3,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:rokctapp/application/order/order_provider.dart';
+import 'package:rokctapp/customer/application/order/order_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';

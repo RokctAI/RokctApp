@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/application/home/home_notifier.dart';
-import 'package:rokctapp/application/home/home_state.dart';
+import 'package:rokctapp/customer/application/home/home_notifier.dart';
+import 'package:rokctapp/customer/application/home/home_state.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/pages/home/home_one/widget/market_one_item.dart';
 import 'package:rokctapp/presentation/pages/home/home_three/widgets/market_three_item.dart';

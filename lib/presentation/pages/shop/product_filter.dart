@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:rokctapp/application/shop/shop_provider.dart';
+import 'package:rokctapp/customer/application/shop/shop_provider.dart';
 
 import 'package:rokctapp/presentation/components/components.dart';
 

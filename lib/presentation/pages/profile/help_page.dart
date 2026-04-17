@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rokctapp/application/help/help_provider.dart';
+import 'package:rokctapp/customer/application/help/help_provider.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
 import 'package:url_launcher/url_launcher.dart';

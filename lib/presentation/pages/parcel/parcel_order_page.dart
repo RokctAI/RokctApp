@@ -8,9 +8,9 @@ import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/application/parcel/parcel_notifier.dart';
-import 'package:rokctapp/application/parcel/parcel_provider.dart';
-import 'package:rokctapp/application/parcel/parcel_state.dart';
+import 'package:rokctapp/customer/application/parcel/parcel_notifier.dart';
+import 'package:rokctapp/customer/application/parcel/parcel_provider.dart';
+import 'package:rokctapp/customer/application/parcel/parcel_state.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/rating_page.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/title_price.dart';
 import 'package:rokctapp/presentation/pages/order/order_screen/widgets/order_status.dart';

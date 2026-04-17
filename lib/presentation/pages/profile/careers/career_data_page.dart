@@ -4,7 +4,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:rokctapp/application/profile/profile_provider.dart';
+import 'package:rokctapp/customer/application/profile/profile_provider.dart';
 
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';

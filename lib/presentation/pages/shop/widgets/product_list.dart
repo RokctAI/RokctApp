@@ -9,8 +9,8 @@ import 'package:lottie/lottie.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/application/shop/shop_provider.dart';
-import 'package:rokctapp/application/shop/shop_state.dart';
+import 'package:rokctapp/customer/application/shop/shop_provider.dart';
+import 'package:rokctapp/customer/application/shop/shop_state.dart';
 import 'package:rokctapp/presentation/pages/product/product_page.dart';
 import 'package:rokctapp/presentation/pages/shop/widgets/shop_product_item.dart';
 

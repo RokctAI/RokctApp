@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/order/order_provider.dart';
+import 'package:rokctapp/customer/application/order/order_provider.dart';
 import 'package:rokctapp/core/application/payment_methods/payment_provider.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/promo_code.dart';

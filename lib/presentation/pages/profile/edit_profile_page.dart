@@ -4,8 +4,8 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/application/edit_profile/edit_profile_provider.dart';
-import 'package:rokctapp/application/profile/profile_provider.dart';
+import 'package:rokctapp/customer/application/edit_profile/edit_profile_provider.dart';
+import 'package:rokctapp/customer/application/profile/profile_provider.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';

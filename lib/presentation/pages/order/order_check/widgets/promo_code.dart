@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/order/order_provider.dart';
-import 'package:rokctapp/application/promo_code/promo_code_state.dart';
+import 'package:rokctapp/customer/application/order/order_provider.dart';
+import 'package:rokctapp/customer/application/promo_code/promo_code_state.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:rokctapp/application/promo_code/promo_code_notifier.dart';
-import 'package:rokctapp/application/promo_code/promo_code_provider.dart';
-import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/customer/application/promo_code/promo_code_notifier.dart';
+import 'package:rokctapp/customer/application/promo_code/promo_code_provider.dart';
+import 'package:rokctapp/customer/application/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/core/app_constants.dart';
 
 import 'package:rokctapp/presentation/theme/color_set.dart';

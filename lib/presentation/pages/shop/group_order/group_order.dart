@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/customer/application/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
@@ -14,7 +14,7 @@ import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/color_set.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:rokctapp/application/shop/shop_provider.dart';
+import 'package:rokctapp/customer/application/shop/shop_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:rokctapp/presentation/pages/shop/group_order/widgets/check_status_dialog.dart';
 import 'package:rokctapp/presentation/pages/shop/group_order/widgets/group_item.dart';

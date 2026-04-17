@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/setting/setting_notifier.dart';
+import 'package:rokctapp/customer/application/setting/setting_notifier.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 
-import 'package:rokctapp/application/setting/setting_provider.dart';
+import 'package:rokctapp/customer/application/setting/setting_provider.dart';
 
 import 'package:rokctapp/presentation/components/components.dart';
 

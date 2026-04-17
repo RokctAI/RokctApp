@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/home/home_provider.dart';
+import 'package:rokctapp/customer/application/home/home_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'package:rokctapp/infrastructure/models/data/location.dart';
 import 'package:rokctapp/core/app_constants.dart';

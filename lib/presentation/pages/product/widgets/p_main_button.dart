@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/product/product_notifier.dart';
-import 'package:rokctapp/application/product/product_state.dart';
-import 'package:rokctapp/application/shop_order/shop_order_notifier.dart';
-import 'package:rokctapp/application/shop_order/shop_order_state.dart';
+import 'package:rokctapp/customer/application/product/product_notifier.dart';
+import 'package:rokctapp/customer/application/product/product_state.dart';
+import 'package:rokctapp/customer/application/shop_order/shop_order_notifier.dart';
+import 'package:rokctapp/customer/application/shop_order/shop_order_state.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';

@@ -7,8 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:rokctapp/application/auto_order/auto_order_provider.dart';
-import 'package:rokctapp/application/order/order_provider.dart';
+import 'package:rokctapp/customer/application/auto_order/auto_order_provider.dart';
+import 'package:rokctapp/customer/application/order/order_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/repeat_data.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 

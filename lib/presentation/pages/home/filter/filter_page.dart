@@ -2,14 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/filter/filter_notifier.dart';
-import 'package:rokctapp/application/filter/filter_state.dart';
+import 'package:rokctapp/customer/application/filter/filter_notifier.dart';
+import 'package:rokctapp/customer/application/filter/filter_state.dart';
 import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:rokctapp/application/filter/filter_provider.dart';
+import 'package:rokctapp/customer/application/filter/filter_provider.dart';
 import 'package:rokctapp/presentation/pages/home/filter/widgets/filter_item.dart';
 
 import 'package:rokctapp/presentation/components/components.dart';
