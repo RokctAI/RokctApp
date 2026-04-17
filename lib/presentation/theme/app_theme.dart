@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foodyman/presentation/theme/theme_preference.dart';
+import 'package:rokctapp/presentation/theme/theme_preference.dart';
 
-import 'color_set.dart' show CustomColorSet;
+import 'package:rokctapp/presentation/theme/color_set.dart' show CustomColorSet;
 
 class AppTheme with ChangeNotifier {
   final ThemePreference _preference;

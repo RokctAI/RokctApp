@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'app_state.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/application/app/app_state.dart';
 
 class AppNotifier extends Notifier<AppState> {
   @override

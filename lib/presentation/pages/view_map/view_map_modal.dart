@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/home/home_provider.dart';
-import 'package:foodyman/application/map/view_map_provider.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/home/home_provider.dart';
+import 'package:rokctapp/application/map/view_map_provider.dart';
+import 'package:rokctapp/application/profile/profile_provider.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class ViewMapModal extends ConsumerStatefulWidget {
   final TextEditingController controller;

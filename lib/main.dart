@@ -3,10 +3,10 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'domain/di/dependency_manager.dart';
-import 'presentation/app_widget.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/presentation/app_widget.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {

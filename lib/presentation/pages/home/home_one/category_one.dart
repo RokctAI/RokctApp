@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/home/home_notifier.dart';
-import 'package:foodyman/application/home/home_state.dart';
+import 'package:rokctapp/application/home/home_notifier.dart';
+import 'package:rokctapp/application/home/home_state.dart';
 
-import 'shimmer/category_one_shimmer.dart';
-import 'widget/category_one_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_one/shimmer/category_one_shimmer.dart';
+import 'package:rokctapp/presentation/pages/home/home_one/widget/category_one_item.dart';
 
 class CategoryOne extends StatelessWidget {
   final HomeState state;

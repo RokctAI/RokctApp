@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'shop_notifier.dart';
-import 'shop_state.dart';
+import 'package:rokctapp/application/shop/shop_notifier.dart';
+import 'package:rokctapp/application/shop/shop_state.dart';
 
 final shopProvider = NotifierProvider<ShopNotifier, ShopState>(
   () => ShopNotifier(),

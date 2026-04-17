@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/order/order_state.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
-import 'widgets/title_price.dart';
+import 'package:rokctapp/application/order/order_state.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/title_price.dart';
 
 class PriceInformation extends StatelessWidget {
   final bool isOrder;

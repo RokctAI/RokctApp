@@ -1,9 +1,9 @@
-import 'package:foodyman/infrastructure/models/data/order_body_data.dart';
-import 'package:foodyman/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 
-import '../data/links.dart';
-import '../data/meta.dart';
-import '../data/translation.dart';
+import 'package:rokctapp/infrastructure/models/data/links.dart';
+import 'package:rokctapp/infrastructure/models/data/meta.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 class BranchResponse {
   BranchResponse({this.data, this.links, this.meta});

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
 
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'animation_button_effect.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
 
 class SocialButton extends StatelessWidget {
   final IconData iconData;

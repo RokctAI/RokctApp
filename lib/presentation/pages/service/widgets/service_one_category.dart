@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodyman/application/home/home_notifier.dart';
-import 'package:foodyman/application/home/home_state.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/pages/home/filter/filter_page.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:rokctapp/application/home/home_notifier.dart';
+import 'package:rokctapp/application/home/home_state.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/pages/home/filter/filter_page.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import '../../../theme/color_set.dart';
-import '../../home/home_one/widget/category_one_item.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/pages/home/home_one/widget/category_one_item.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class ServiceOneCategory extends StatelessWidget {
   final HomeState state;

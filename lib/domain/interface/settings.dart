@@ -1,9 +1,9 @@
-import 'package:foodyman/infrastructure/models/data/help_data.dart';
-import 'package:foodyman/infrastructure/models/data/notification_list_data.dart';
+import 'package:rokctapp/infrastructure/models/data/help_data.dart';
+import 'package:rokctapp/infrastructure/models/data/notification_list_data.dart';
 
-import 'package:foodyman/domain/handlers/handlers.dart';
-import 'package:foodyman/infrastructure/models/data/translation.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 abstract class SettingsRepositoryFacade {
   Future<ApiResult<GlobalSettingsResponse>> getGlobalSettings();

@@ -1,5 +1,5 @@
-import 'bonus_data.dart';
-import 'translation.dart';
+import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 class ShopData {
   ShopData({

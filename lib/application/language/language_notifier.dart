@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
-import 'language_state.dart';
+import 'package:rokctapp/application/language/language_state.dart';
 
 class LanguageNotifier extends Notifier<LanguageState> {
   @override

@@ -2,20 +2,20 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodyman/infrastructure/models/data/shop_data.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/app_assets.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:intl/intl.dart';
-import '../theme/color_set.dart';
-import '../theme/theme_wrapper.dart';
-import 'badge_item.dart';
-import 'shop_avatar.dart';
-import 'blur_wrap.dart';
-import 'bonus_discount_popular.dart';
-import 'custom_network_image.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/presentation/components/badge_item.dart';
+import 'package:rokctapp/presentation/components/shop_avatar.dart';
+import 'package:rokctapp/presentation/components/blur_wrap.dart';
+import 'package:rokctapp/presentation/components/bonus_discount_popular.dart';
+import 'package:rokctapp/presentation/components/custom_network_image.dart';
 
 class MarketItem extends StatelessWidget {
   final ShopData shop;

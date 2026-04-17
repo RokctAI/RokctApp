@@ -4,17 +4,17 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
 import 'package:lottie/lottie.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
-import 'package:foodyman/application/shop/shop_provider.dart';
-import 'package:foodyman/application/shop/shop_state.dart';
-import '../../product/product_page.dart';
-import 'shop_product_item.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/application/shop/shop_provider.dart';
+import 'package:rokctapp/application/shop/shop_state.dart';
+import 'package:rokctapp/presentation/pages/product/product_page.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/shop_product_item.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 extension MyExtension1 on Iterable<Product> {
   List<Product> search(ShopState state) {

@@ -7,25 +7,25 @@ import 'package:flutter_remix/flutter_remix.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/shop/shop_notifier.dart';
-import 'package:foodyman/infrastructure/models/data/shop_data.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/application/like/like_notifier.dart';
-import 'package:foodyman/application/like/like_provider.dart';
-import 'package:foodyman/presentation/pages/product/product_page.dart';
-import 'package:foodyman/presentation/pages/shop/widgets/category_tab_bar.widget.dart';
-import 'package:foodyman/presentation/pages/shop/widgets/product_list.dart';
-import 'package:foodyman/presentation/pages/shop/widgets/shimmer_product_list.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/shop/shop_notifier.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/application/like/like_notifier.dart';
+import 'package:rokctapp/application/like/like_provider.dart';
+import 'package:rokctapp/presentation/pages/product/product_page.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/category_tab_bar.widget.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/product_list.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/shimmer_product_list.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-import 'package:foodyman/application/shop/shop_provider.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-import 'package:foodyman/infrastructure/models/response/all_products_response.dart';
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/application/shop/shop_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
-import 'cart/cart_order_page.dart';
-import 'widgets/shop_page_avatar.dart';
+import 'package:rokctapp/presentation/pages/shop/cart/cart_order_page.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/shop_page_avatar.dart';
 
 @RoutePage()
 class ShopPage extends ConsumerStatefulWidget {

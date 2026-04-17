@@ -1,8 +1,8 @@
-import 'package:foodyman/infrastructure/models/data/addons_data.dart';
-import 'package:foodyman/infrastructure/models/data/bonus_data.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
+import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
-import 'translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 class ProductData {
   ProductData({

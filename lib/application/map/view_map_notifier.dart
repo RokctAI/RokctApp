@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/presentation/theme/theme_preference.dart';
+import 'package:rokctapp/presentation/theme/theme_preference.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:foodyman/infrastructure/models/data/address_new_data.dart';
-import 'package:foodyman/infrastructure/models/data/address_old_data.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import '../../presentation/pages/home/widgets/add_address.dart';
-import '../../presentation/theme/color_set.dart';
-import 'view_map_state.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/presentation/pages/home/widgets/add_address.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/application/map/view_map_state.dart';
 
 class ViewMapNotifier extends Notifier<ViewMapState> {
   @override

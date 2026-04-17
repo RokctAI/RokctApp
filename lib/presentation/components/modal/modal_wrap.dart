@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
-import 'package:foodyman/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
 
 class ModalWrap extends StatelessWidget {
   final Widget Function(CustomColorSet colors) child;

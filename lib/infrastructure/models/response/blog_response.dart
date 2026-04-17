@@ -1,5 +1,5 @@
-import '../data/blog_data.dart';
-import '../data/help_data.dart';
+import 'package:rokctapp/infrastructure/models/data/blog_data.dart';
+import 'package:rokctapp/infrastructure/models/data/help_data.dart';
 
 class BlogResponse {
   final List<BlogData> data;

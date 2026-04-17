@@ -3,8 +3,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:foodyman/presentation/theme/theme_wrapper.dart';
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class OrderMap extends StatelessWidget {
   final Set<Marker> markers;

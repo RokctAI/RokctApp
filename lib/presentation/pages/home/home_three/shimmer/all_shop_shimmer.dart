@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'market_shimmer_three.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/pages/home/home_three/shimmer/market_shimmer_three.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class AllShopShimmer extends StatelessWidget {
   final bool isTitle;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class BottomNavigatorItem extends StatelessWidget {
   final VoidCallback selectItem;

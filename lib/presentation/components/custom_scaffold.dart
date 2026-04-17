@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:foodyman/presentation/pages/initial/no_connection/no_connection_page.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
-import 'package:foodyman/presentation/theme/theme_wrapper.dart';
-import 'keyboard_dismisser.dart';
+import 'package:rokctapp/presentation/pages/initial/no_connection/no_connection_page.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 
 class CustomScaffold extends StatefulWidget {
   final Widget Function(CustomColorSet colors) body;

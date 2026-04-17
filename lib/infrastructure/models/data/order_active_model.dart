@@ -1,8 +1,8 @@
-import 'package:foodyman/infrastructure/models/data/refund_data.dart';
-import 'package:foodyman/infrastructure/models/data/user.dart';
-import 'package:foodyman/infrastructure/models/data/repeat_data.dart';
-import '../models.dart';
-import 'addons_data.dart';
+import 'package:rokctapp/infrastructure/models/data/refund_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/infrastructure/models/data/repeat_data.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
 
 class OrderActiveModel {
   OrderActiveModel({

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 
-import 'package:foodyman/infrastructure/models/data/notification_list_data.dart';
-import 'setting_state.dart';
+import 'package:rokctapp/infrastructure/models/data/notification_list_data.dart';
+import 'package:rokctapp/application/setting/setting_state.dart';
 
 class SettingNotifier extends Notifier<SettingState> {
   @override

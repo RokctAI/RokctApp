@@ -1,7 +1,7 @@
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/models/response/multi_gallery_upload_response.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/response/multi_gallery_upload_response.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
 
 abstract class GalleryRepositoryFacade {
   Future<ApiResult<GalleryUploadResponse>> uploadImage(

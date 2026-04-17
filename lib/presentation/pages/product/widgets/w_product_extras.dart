@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
-import 'package:foodyman/application/product/product_provider.dart';
-import 'package:foodyman/infrastructure/models/data/typed_extra.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/product/product_provider.dart';
+import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
-import '../../../theme/theme_wrapper.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class WProductExtras extends ConsumerWidget {
   const WProductExtras({super.key});

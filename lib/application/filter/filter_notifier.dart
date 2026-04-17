@@ -3,12 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/infrastructure/models/data/filter_model.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/models/data/filter_model.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
-import 'package:foodyman/infrastructure/models/data/shop_data.dart';
-import 'filter_state.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/application/filter/filter_state.dart';
 
 class FilterNotifier extends Notifier<FilterState> {
   @override

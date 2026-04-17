@@ -5,21 +5,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/home/home_provider.dart';
-import 'package:foodyman/application/notification/notification_provider.dart';
-import 'package:foodyman/application/orders_list/orders_list_provider.dart';
-import 'package:foodyman/application/parcels_list/parcel_list_provider.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-import 'package:foodyman/app_constants.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/application/like/like_provider.dart';
-import 'package:foodyman/presentation/pages/profile/delete_screen.dart';
-import 'package:foodyman/presentation/pages/profile/widgets/profile_header.dart';
-import 'package:foodyman/presentation/pages/profile/widgets/profile_items_list.dart';
-import '../../theme/theme_wrapper.dart';
+import 'package:rokctapp/application/home/home_provider.dart';
+import 'package:rokctapp/application/notification/notification_provider.dart';
+import 'package:rokctapp/application/orders_list/orders_list_provider.dart';
+import 'package:rokctapp/application/parcels_list/parcel_list_provider.dart';
+import 'package:rokctapp/application/profile/profile_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/application/like/like_provider.dart';
+import 'package:rokctapp/presentation/pages/profile/delete_screen.dart';
+import 'package:rokctapp/presentation/pages/profile/widgets/profile_header.dart';
+import 'package:rokctapp/presentation/pages/profile/widgets/profile_items_list.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 @RoutePage()
 class ProfilePage extends ConsumerStatefulWidget {

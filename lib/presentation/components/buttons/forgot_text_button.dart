@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/application/app/app_provider.dart';
+import 'package:rokctapp/application/app/app_provider.dart';
 
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class ForgotTextButton extends ConsumerWidget {
   final String title;

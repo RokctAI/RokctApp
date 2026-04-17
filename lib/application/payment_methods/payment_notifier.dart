@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'payment_state.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/application/payment_methods/payment_state.dart';
 
 class PaymentNotifier extends Notifier<PaymentState> {
   @override

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/domain/interface/address.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/domain/handlers/handlers.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/interface/address.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
 
 class AddressRepository implements AddressRepositoryFacade {
   @override

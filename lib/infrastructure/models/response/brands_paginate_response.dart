@@ -1,5 +1,5 @@
-import '../data/brand_data.dart';
-import '../data/meta.dart';
+import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
+import 'package:rokctapp/infrastructure/models/data/meta.dart';
 
 class BrandsPaginateResponse {
   BrandsPaginateResponse({

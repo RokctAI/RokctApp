@@ -4,18 +4,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foodyman/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
-import 'package:foodyman/application/home/home_notifier.dart';
-import 'package:foodyman/application/home/home_provider.dart';
-import 'package:foodyman/presentation/app_assets.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
-import 'market_three_item.dart';
-import 'recommended_three_item.dart';
+import 'package:rokctapp/application/home/home_notifier.dart';
+import 'package:rokctapp/application/home/home_provider.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/presentation/pages/home/home_three/widgets/market_three_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_three/widgets/recommended_three_item.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 @RoutePage()
 class RecommendedThreePage extends ConsumerStatefulWidget {

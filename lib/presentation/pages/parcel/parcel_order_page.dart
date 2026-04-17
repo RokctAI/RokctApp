@@ -4,22 +4,22 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/parcel/parcel_notifier.dart';
-import 'package:foodyman/application/parcel/parcel_provider.dart';
-import 'package:foodyman/application/parcel/parcel_state.dart';
-import 'package:foodyman/presentation/pages/order/order_check/widgets/rating_page.dart';
-import 'package:foodyman/presentation/pages/order/order_check/widgets/title_price.dart';
-import 'package:foodyman/presentation/pages/order/order_screen/widgets/order_status.dart';
-import 'package:foodyman/presentation/pages/order/order_type/widgets/order_map.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:rokctapp/application/parcel/parcel_notifier.dart';
+import 'package:rokctapp/application/parcel/parcel_provider.dart';
+import 'package:rokctapp/application/parcel/parcel_state.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/rating_page.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/title_price.dart';
+import 'package:rokctapp/presentation/pages/order/order_screen/widgets/order_status.dart';
+import 'package:rokctapp/presentation/pages/order/order_type/widgets/order_map.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import '../../theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 @RoutePage()
 class ParcelProgressPage extends ConsumerStatefulWidget {

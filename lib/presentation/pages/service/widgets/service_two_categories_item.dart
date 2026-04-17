@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class ServiceTwoCategoriesItem extends StatelessWidget {
   final CategoryData category;

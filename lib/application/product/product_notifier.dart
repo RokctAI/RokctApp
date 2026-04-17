@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/infrastructure/models/data/addons_data.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/infrastructure/app_links/app_links_service.dart';
-import 'package:foodyman/infrastructure/models/request/cart_request.dart';
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/app_links/app_links_service.dart';
+import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'product_state.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/application/product/product_state.dart';
 
 class ProductNotifier extends Notifier<ProductState> {
   @override

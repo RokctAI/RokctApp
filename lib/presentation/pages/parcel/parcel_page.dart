@@ -6,16 +6,16 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:foodyman/application/parcel/parcel_provider.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/pages/parcel/widgets/recipient_widget.dart';
-import 'package:foodyman/presentation/pages/parcel/widgets/sender_widget.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
-import 'widgets/info_item.dart';
-import 'widgets/parcel_payments.dart';
-import 'widgets/time_and_type.dart';
+import 'package:rokctapp/application/parcel/parcel_provider.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/pages/parcel/widgets/recipient_widget.dart';
+import 'package:rokctapp/presentation/pages/parcel/widgets/sender_widget.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/presentation/pages/parcel/widgets/info_item.dart';
+import 'package:rokctapp/presentation/pages/parcel/widgets/parcel_payments.dart';
+import 'package:rokctapp/presentation/pages/parcel/widgets/time_and_type.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 @RoutePage()
 class ParcelPage extends ConsumerStatefulWidget {

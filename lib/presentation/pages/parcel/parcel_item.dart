@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodyman/infrastructure/models/data/parcel_order.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class ParcelItem extends StatelessWidget {
   final ParcelOrder? parcel;

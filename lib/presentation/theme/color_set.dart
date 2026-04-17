@@ -1,7 +1,7 @@
 import 'dart:ui';
-import 'package:foodyman/presentation/theme/theme_preference.dart';
+import 'package:rokctapp/presentation/theme/theme_preference.dart';
 
-import 'app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class CustomColorSet {
   final Color primary;

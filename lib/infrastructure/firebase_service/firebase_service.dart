@@ -12,8 +12,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
-import 'package:foodyman/domain/handlers/api_result.dart';
-import '../services/app_helpers.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/services/app_helpers.dart';
 
 abstract class FirebaseService {
   FirebaseService._();

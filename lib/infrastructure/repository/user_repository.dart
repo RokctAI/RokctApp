@@ -1,16 +1,16 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/domain/interface/user.dart';
-import 'package:foodyman/infrastructure/models/data/career_data.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/models/response/blog_response.dart';
-import 'package:foodyman/infrastructure/models/response/pages_response.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/domain/handlers/handlers.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/interface/user.dart';
+import 'package:rokctapp/infrastructure/models/data/career_data.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/response/blog_response.dart';
+import 'package:rokctapp/infrastructure/models/response/pages_response.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
 
-import '../models/response/career_response.dart';
+import 'package:rokctapp/infrastructure/models/response/career_response.dart';
 
 class UserRepository implements UserRepositoryFacade {
   @override

@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
-import 'chat_state.dart';
+import 'package:rokctapp/application/chat/chat_state.dart';
 
 class ChatNotifier extends Notifier<ChatState> {
   final FirebaseFirestore _fireStore = FirebaseFirestore.instance;

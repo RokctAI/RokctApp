@@ -1,6 +1,6 @@
-import 'package:foodyman/infrastructure/models/data/location.dart';
-import 'address_information.dart';
-import 'address_old_data.dart';
+import 'package:rokctapp/infrastructure/models/data/location.dart';
+import 'package:rokctapp/infrastructure/models/data/address_information.dart';
+import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 
 class AddressNewModel {
   int? id;

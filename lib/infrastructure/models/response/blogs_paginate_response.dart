@@ -1,4 +1,4 @@
-import '../data/blog_data.dart';
+import 'package:rokctapp/infrastructure/models/data/blog_data.dart';
 
 class BlogsPaginateResponse {
   BlogsPaginateResponse({List<BlogData>? data, Links? links, Meta? meta}) {

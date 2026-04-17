@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'app_theme.dart';
-import 'color_set.dart';
+import 'package:rokctapp/presentation/theme/app_theme.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
 
 class ThemeWrapper extends StatelessWidget {
   final Function(CustomColorSet colors, AppTheme controller) builder;

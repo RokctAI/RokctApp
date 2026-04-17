@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
-import 'main_state.dart';
+import 'package:rokctapp/application/main/main_state.dart';
 
 class MainNotifier extends Notifier<MainState> {
   @override

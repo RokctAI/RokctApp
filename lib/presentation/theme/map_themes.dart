@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:foodyman/presentation/theme/theme_preference.dart';
+import 'package:rokctapp/presentation/theme/theme_preference.dart';
 
 abstract class AppMapThemes {
   AppMapThemes._();

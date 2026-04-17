@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'promo_code_state.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/application/promo_code/promo_code_state.dart';
 
 class PromoCodeNotifier extends Notifier<PromoCodeState> {
   @override

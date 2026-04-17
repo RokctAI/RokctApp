@@ -4,17 +4,17 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:foodyman/application/edit_profile/edit_profile_provider.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/app_constants.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'package:foodyman/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/application/edit_profile/edit_profile_provider.dart';
+import 'package:rokctapp/application/profile/profile_provider.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
 
-import 'phone_verify.dart';
+import 'package:rokctapp/presentation/pages/profile/phone_verify.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class EditProfileScreen extends ConsumerStatefulWidget {
   final ScrollController controller;

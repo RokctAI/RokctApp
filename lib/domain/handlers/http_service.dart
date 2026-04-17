@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:foodyman/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 
-import 'token_interceptor.dart';
+import 'package:rokctapp/domain/handlers/token_interceptor.dart';
 
 class HttpService {
   Dio client({bool requireAuth = false, bool routing = false}) =>

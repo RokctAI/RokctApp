@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'help_state.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/application/help/help_state.dart';
 
 class HelpNotifier extends Notifier<HelpState> {
   @override

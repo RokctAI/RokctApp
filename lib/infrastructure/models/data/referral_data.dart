@@ -1,4 +1,4 @@
-import 'package:foodyman/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 class ReferralModel {
   int? id;

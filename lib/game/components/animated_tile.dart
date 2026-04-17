@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/tile.dart';
+import 'package:rokctapp/game/models/tile.dart';
 
 class AnimatedTile extends AnimatedWidget {
   //We use Listenable.merge in order to update the animated widget when both of the controllers have change

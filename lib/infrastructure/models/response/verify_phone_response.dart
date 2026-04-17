@@ -1,4 +1,4 @@
-import '../data/profile_data.dart';
+import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 
 class VerifyPhoneResponse {
   VerifyPhoneResponse({

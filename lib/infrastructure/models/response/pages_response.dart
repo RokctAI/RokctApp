@@ -1,4 +1,4 @@
-import '../data/translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 class PagesResponse {
   final List<PageData> data;

@@ -5,15 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/app_constants.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import '../../presentation/app_assets.dart';
-import 'parcel_state.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
+import 'package:rokctapp/application/parcel/parcel_state.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class ParcelNotifier extends Notifier<ParcelState> {
   @override

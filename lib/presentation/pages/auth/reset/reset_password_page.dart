@@ -2,14 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/components/components.dart';
-import 'package:foodyman/presentation/theme/theme_wrapper.dart';
-import 'package:foodyman/infrastructure/models/data/user.dart';
-import 'package:foodyman/app_constants.dart';
-import 'package:foodyman/presentation/pages/auth/confirmation/register_confirmation_page.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'package:foodyman/application/auth/auth.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/components/components.dart';
+import 'package:rokctapp/presentation/theme/theme_wrapper.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/presentation/pages/auth/confirmation/register_confirmation_page.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/application/auth/auth.dart';
 
 @RoutePage()
 class ResetPasswordPage extends ConsumerStatefulWidget {

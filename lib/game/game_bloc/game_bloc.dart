@@ -3,13 +3,13 @@
 import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
-import 'package:foodyman/game/models/board.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/game/models/board.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:uuid/uuid.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:bloc/bloc.dart';
 
-import '../models/tile.dart';
+import 'package:rokctapp/game/models/tile.dart';
 
 part 'game_event.dart';
 

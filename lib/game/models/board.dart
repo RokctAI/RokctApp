@@ -1,4 +1,4 @@
-import 'tile.dart';
+import 'package:rokctapp/game/models/tile.dart';
 
 class Board {
   final int score;

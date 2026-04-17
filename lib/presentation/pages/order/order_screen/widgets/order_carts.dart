@@ -2,15 +2,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/order/order_provider.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';
-import 'package:foodyman/presentation/pages/shop/cart/widgets/cart_order_item.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
-import 'package:foodyman/presentation/theme/color_set.dart';
+import 'package:rokctapp/application/order/order_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';
+import 'package:rokctapp/presentation/pages/shop/cart/widgets/cart_order_item.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/presentation/theme/color_set.dart';
 
-import 'package:foodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class OrderCarts extends StatefulWidget {
   final double lat;

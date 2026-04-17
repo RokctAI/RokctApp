@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/domain/interface/banners.dart';
-import 'package:foodyman/domain/interface/categories.dart';
-import 'package:foodyman/domain/interface/shops.dart';
+import 'package:rokctapp/domain/interface/banners.dart';
+import 'package:rokctapp/domain/interface/categories.dart';
+import 'package:rokctapp/domain/interface/shops.dart';
 
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/services/services.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 
-import 'home_state.dart';
+import 'package:rokctapp/application/home/home_state.dart';
 
 class HomeNotifier extends Notifier<HomeState> {
   CategoriesRepositoryFacade get _categoriesRepository => categoriesRepository;
