@@ -1,0 +1,9 @@
+export 'package:rokctapp/manager/infrastructure/repositories/auth_repository.dart';
+export 'package:rokctapp/manager/infrastructure/repositories/users_repository.dart';
+export 'package:rokctapp/manager/infrastructure/repositories/orders_repository.dart';
+export 'package:rokctapp/manager/infrastructure/repositories/catalog_repository.dart';
+export 'package:rokctapp/manager/infrastructure/repositories/settings_repository.dart';
+export 'package:rokctapp/manager/infrastructure/repositories/products_repository.dart';
+export 'package:rokctapp/manager/infrastructure/repositories/shops_repository.dart';
+export 'package:rokctapp/manager/infrastructure/repositories/table_repository.dart';
+export 'package:rokctapp/manager/infrastructure/repositories/notification_repository.dart';

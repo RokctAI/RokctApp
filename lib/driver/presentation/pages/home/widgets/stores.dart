@@ -5,7 +5,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/driver/presentation/routes/app_router.gr.dart';
+import 'package:rokctapp/driver/presentation/routes/app_router.dart';
 import 'package:rokctapp/driver/presentation/styles/style.dart';
 
 class StoresPage extends StatelessWidget {

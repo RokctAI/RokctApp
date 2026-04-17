@@ -3,7 +3,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/driver/presentation/routes/app_router.gr.dart';
+import 'package:rokctapp/driver/presentation/routes/app_router.dart';
 
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
