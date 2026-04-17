@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/presentation/app_assets.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:rokctapp/presentation/styles/style.dart';
 
 class NoDataInfo extends StatelessWidget {
   final String title;

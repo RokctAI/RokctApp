@@ -83,7 +83,10 @@ class UnderlinedBorderTextField extends StatelessWidget {
               color: isDarkMode ? AppStyle.white : AppStyle.textColor,
             ),
             labelText: label.toUpperCase(),
-            labelStyle: AppStyle.interNormal(size: 14.sp, color: AppStyle.black),
+            labelStyle: AppStyle.interNormal(
+              size: 14.sp,
+              color: AppStyle.black,
+            ),
             contentPadding: REdgeInsets.symmetric(horizontal: 0, vertical: 8),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             enabledBorder: const UnderlineInputBorder(

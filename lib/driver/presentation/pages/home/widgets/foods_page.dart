@@ -180,7 +180,9 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                         : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount ? AppStyle.redColor : AppStyle.black,
+                            color: isDiscount
+                                ? AppStyle.redColor
+                                : AppStyle.black,
                           ),
                   ),
                   Text(
@@ -191,7 +193,9 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                         : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount ? AppStyle.redColor : AppStyle.black,
+                            color: isDiscount
+                                ? AppStyle.redColor
+                                : AppStyle.black,
                           ),
                   ),
                 ],

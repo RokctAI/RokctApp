@@ -37,10 +37,16 @@ class SearchTextField extends StatelessWidget {
       cursorColor: AppStyle.black,
       cursorWidth: 1,
       decoration: InputDecoration(
-        hintStyle: AppStyle.interRegular(size: 16.sp, color: AppStyle.textColor),
+        hintStyle: AppStyle.interRegular(
+          size: 16.sp,
+          color: AppStyle.textColor,
+        ),
         hintText: hintText ?? AppHelpers.getTranslation(TrKeys.search),
         contentPadding: REdgeInsets.symmetric(horizontal: 15, vertical: 17),
-        prefixIcon: const Icon(FlutterRemix.search_2_line, color: AppStyle.black),
+        prefixIcon: const Icon(
+          FlutterRemix.search_2_line,
+          color: AppStyle.black,
+        ),
 
         suffixIcon: suffixIcon,
         fillColor: bgColor,

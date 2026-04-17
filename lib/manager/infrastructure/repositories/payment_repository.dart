@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:venderfoodyman/domain/di/dependency_manager.dart';
-import 'package:venderfoodyman/domain/handlers/api_result.dart';
-import 'package:venderfoodyman/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/manager/domain/interface/payment_facade.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/driver/application/providers.dart';
-import 'package:rokctapp/driver/presentation/routes/app_router.dart';
+import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
 @RoutePage()
 class SplashPage extends ConsumerStatefulWidget {

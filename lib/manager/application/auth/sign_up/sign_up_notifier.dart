@@ -3,11 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/application/auth/sign_up/sign_up_state.dart';
-import 'package:venderfoodyman/domain/interface/interfaces.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class SignUpNotifier extends StateNotifier<SignUpState> {
   final AuthInterface _authRepository;

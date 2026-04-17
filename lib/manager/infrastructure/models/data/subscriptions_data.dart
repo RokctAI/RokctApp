@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/services/extension.dart';
+import 'package:rokctapp/infrastructure/services/extension.dart';
 
 class SubscriptionData {
   int? id;

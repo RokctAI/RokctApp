@@ -1,5 +1,5 @@
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 abstract class AuthInterface {
   Future<ApiResult<LoginResponse>> login({

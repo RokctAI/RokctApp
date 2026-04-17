@@ -58,7 +58,10 @@ class _NotificationListPageState extends ConsumerState<NotificationListPage> {
                   CommonAppBar(
                     child: Text(
                       AppHelpers.getTranslation(TrKeys.notifications),
-                      style: AppStyle.interSemi(size: 18, color: AppStyle.black),
+                      style: AppStyle.interSemi(
+                        size: 18,
+                        color: AppStyle.black,
+                      ),
                     ),
                   ),
                   Expanded(
@@ -189,7 +192,10 @@ class _NotificationListPageState extends ConsumerState<NotificationListPage> {
                   children: [
                     Text(
                       '${notification.client?.firstname ?? ''} ${notification.client?.lastname?.substring(0, 1) ?? ''}.',
-                      style: AppStyle.interSemi(size: 16, color: AppStyle.black),
+                      style: AppStyle.interSemi(
+                        size: 16,
+                        color: AppStyle.black,
+                      ),
                     ),
                     15.horizontalSpace,
                     Container(
@@ -215,7 +221,10 @@ class _NotificationListPageState extends ConsumerState<NotificationListPage> {
                       '${notification.body ?? notification.title}',
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
-                      style: AppStyle.interRegular(size: 14, color: AppStyle.black),
+                      style: AppStyle.interRegular(
+                        size: 14,
+                        color: AppStyle.black,
+                      ),
                     ),
                   ),
                   if (notification.client == null)
@@ -237,7 +246,10 @@ class _NotificationListPageState extends ConsumerState<NotificationListPage> {
                 Jiffy.parseFromDateTime(
                   notification.createdAt ?? DateTime.now(),
                 ).fromNow(),
-                style: AppStyle.interRegular(size: 12, color: AppStyle.textGrey),
+                style: AppStyle.interRegular(
+                  size: 12,
+                  color: AppStyle.textGrey,
+                ),
               ),
             ],
           ),

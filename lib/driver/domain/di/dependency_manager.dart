@@ -6,7 +6,7 @@ import 'package:rokctapp/driver/infrastructure/repositories/parcel_repository.da
 
 import 'package:rokctapp/driver/infrastructure/repositories/orders_repository.dart';
 import 'package:rokctapp/driver/infrastructure/repositories/repositories.dart';
-import 'package:rokctapp/driver/presentation/routes/app_router.dart';
+import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/driver/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/domain/interface/orders.dart';

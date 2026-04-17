@@ -5,9 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/edit/stocks/edit_food_addons_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/edit/stocks/edit_group_extras_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/application/providers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class EditFoodStocksBody extends ConsumerStatefulWidget {
   final ProductData product;

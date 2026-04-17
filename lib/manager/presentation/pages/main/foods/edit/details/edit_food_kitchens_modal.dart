@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/application/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/component/components.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:rokctapp/application/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/component/components.dart';
+import 'package:rokctapp/presentation/styles/style.dart';
 
 class EditFoodKitchensModal extends ConsumerStatefulWidget {
   const EditFoodKitchensModal({super.key});

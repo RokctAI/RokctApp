@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:venderfoodyman/domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/application/main/foods/addons/create/units/create_addon_units_notifier.dart';
 import 'package:rokctapp/manager/application/main/foods/addons/create/units/create_addon_units_state.dart';
 

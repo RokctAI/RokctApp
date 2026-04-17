@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/main/foods/extras/details/extras_group_details_state.dart';
-import 'package:venderfoodyman/domain/interface/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class ExtrasGroupDetailsNotifier
     extends StateNotifier<ExtrasGroupDetailsState> {

@@ -9,7 +9,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rokctapp/driver/presentation/component/tab_bars/auth_tab_bar.dart';
 import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/driver/presentation/routes/app_router.dart';
+import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 

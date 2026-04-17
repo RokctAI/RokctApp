@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/presentation/app_assets.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class NoOrders extends StatelessWidget {
   const NoOrders({super.key});

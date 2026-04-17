@@ -57,7 +57,10 @@ class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
                 ),
                 Text(
                   AppHelpers.getTranslation(TrKeys.thereAreOrders),
-                  style: AppStyle.interRegular(size: 12.sp, letterSpacing: -0.3),
+                  style: AppStyle.interRegular(
+                    size: 12.sp,
+                    letterSpacing: -0.3,
+                  ),
                 ),
               ],
             ),

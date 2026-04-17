@@ -184,7 +184,9 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                         text: AppHelpers.getTranslation(
                                           TrKeys.areYouSure,
                                         ),
-                                        style: AppStyle.interNormal(size: 16.sp),
+                                        style: AppStyle.interNormal(
+                                          size: 16.sp,
+                                        ),
                                       ),
                                     ),
                                     Form(

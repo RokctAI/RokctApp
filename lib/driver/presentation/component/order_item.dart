@@ -529,7 +529,10 @@ class OrderItem extends StatelessWidget {
                     width: MediaQuery.sizeOf(context).width - 190.w,
                     child: Text(
                       order.address?.address ?? "",
-                      style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
+                      style: AppStyle.interSemi(
+                        size: 14.sp,
+                        letterSpacing: -0.3,
+                      ),
                       maxLines: 1,
                     ),
                   ),

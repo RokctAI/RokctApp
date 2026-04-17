@@ -1,16 +1,16 @@
 import 'package:get_it/get_it.dart';
 import 'package:google_place/google_place.dart';
-import 'package:venderfoodyman/domain/interface/notification.dart';
-import 'package:venderfoodyman/domain/interface/payment_facade.dart';
-import 'package:venderfoodyman/domain/interface/subscription_facade.dart';
-import 'package:venderfoodyman/domain/interface/table.dart';
-import 'package:venderfoodyman/infrastructure/repositories/payment_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/subscription_repository.dart';
-import 'package:venderfoodyman/infrastructure/services/local_storage.dart';
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
+import 'package:rokctapp/domain/interface/notification.dart';
+import 'package:rokctapp/domain/interface/payment_facade.dart';
+import 'package:rokctapp/domain/interface/subscription_facade.dart';
+import 'package:rokctapp/domain/interface/table.dart';
+import 'package:rokctapp/infrastructure/repositories/payment_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/subscription_repository.dart';
+import 'package:rokctapp/infrastructure/services/local_storage.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/infrastructure/repositories/repositories.dart';
+import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:rokctapp/infrastructure/repositories/repositories.dart';
 
 final GetIt getIt = GetIt.instance;
 

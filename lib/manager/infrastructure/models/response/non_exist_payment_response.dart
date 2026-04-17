@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/data/non_exist_payment.dart';
+import 'package:rokctapp/infrastructure/models/data/non_exist_payment.dart';
 
 class NonExistPaymentResponse {
   DateTime? timestamp;

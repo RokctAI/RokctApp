@@ -3,7 +3,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 class ProductsBody extends StatelessWidget {
   final RefreshController refreshController;

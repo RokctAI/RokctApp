@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:venderfoodyman/domain/di/dependency_manager.dart';
-import 'package:venderfoodyman/domain/handlers/api_result.dart';
-import 'package:venderfoodyman/domain/handlers/network_exceptions.dart';
-import 'package:venderfoodyman/domain/interface/subscription_facade.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/domain/interface/subscription_facade.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class SubscriptionsRepository implements SubscriptionsFacade {

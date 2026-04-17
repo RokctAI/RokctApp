@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/create/stocks/create_food_addons_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/create/stocks/create_food_edit_extras_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/application/providers.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class CreateFoodStocksBody extends ConsumerStatefulWidget {
   const CreateFoodStocksBody({super.key});

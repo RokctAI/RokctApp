@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/application/order/shipping/section/section_provider.dart';
-import 'package:venderfoodyman/application/order/shipping/table/table_provider.dart';
+import 'package:rokctapp/application/order/shipping/section/section_provider.dart';
+import 'package:rokctapp/application/order/shipping/table/table_provider.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/details/widgets/payment_item.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:rokctapp/presentation/styles/style.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/order/widgets/title_price.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/application/providers.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 @RoutePage()
 class DeliveryTimePage extends ConsumerStatefulWidget {

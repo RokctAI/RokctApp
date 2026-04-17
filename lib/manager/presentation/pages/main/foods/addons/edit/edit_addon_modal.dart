@@ -5,11 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/foods/addons/edit/edit_addon_units_modal.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:rokctapp/presentation/styles/style.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/application/providers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class EditAddonModal extends StatefulWidget {
   final ProductData addon;

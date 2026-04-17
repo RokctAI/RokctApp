@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/no_orders.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/order_details_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/application/providers.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class OnAWayOrdersBody extends StatefulWidget {
   final ScrollController? scrollController;

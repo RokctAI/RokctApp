@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class TokenInterceptor extends Interceptor {
   final bool requireAuth;

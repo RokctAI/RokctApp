@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:rokctapp/manager/application/restaurant/delivery_zone/delivery_zone_state.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
-import 'package:venderfoodyman/domain/interface/interfaces.dart';
+import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
   final UsersInterface _usersRepository;

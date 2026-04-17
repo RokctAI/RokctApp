@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class LoginModel {
   final String? email;

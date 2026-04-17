@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:venderfoodyman/domain/di/dependency_manager.dart';
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
-import 'package:venderfoodyman/domain/interface/table.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/domain/interface/table.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 class TableRepository extends TableInterface {
   @override

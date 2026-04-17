@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/application/foods/create/details/kitchens/create_food_kitchens_provider.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/component/components.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
-import 'package:venderfoodyman/presentation/pages/main/foods/create/details/create_food_kitchens_modal.dart';
+import 'package:rokctapp/application/foods/create/details/kitchens/create_food_kitchens_provider.dart';
+import 'package:rokctapp/application/providers.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/component/components.dart';
+import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/presentation/pages/main/foods/create/details/create_food_kitchens_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/create/details/food_categories_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/create/details/create_food_units_modal.dart';
 

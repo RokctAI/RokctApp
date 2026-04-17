@@ -6,10 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_user/widgets/user_item.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_user/widgets/create_user_modal.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:rokctapp/presentation/styles/style.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/application/providers.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 @RoutePage()
 class SelectUserPage extends ConsumerStatefulWidget {

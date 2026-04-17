@@ -5,9 +5,9 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
-import 'package:venderfoodyman/domain/interface/interfaces.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/auth/confirmation/register_confirmation_state.dart';
 
 class RegisterConfirmationNotifier

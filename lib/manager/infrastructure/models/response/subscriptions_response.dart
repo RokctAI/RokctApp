@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/data/subscriptions_data.dart';
+import 'package:rokctapp/infrastructure/models/data/subscriptions_data.dart';
 
 class SubscriptionResponse {
   DateTime? timestamp;

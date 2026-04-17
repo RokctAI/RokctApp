@@ -5,7 +5,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/driver/presentation/routes/app_router.dart';
+import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
 class StoresPage extends StatelessWidget {
@@ -52,7 +52,10 @@ class StoresPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16.r),
                 ),
                 alignment: Alignment.center,
-                child: const Icon(FlutterRemix.image_line, color: AppStyle.black),
+                child: const Icon(
+                  FlutterRemix.image_line,
+                  color: AppStyle.black,
+                ),
               );
             },
           ),

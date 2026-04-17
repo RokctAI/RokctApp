@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/order/shipping/user/create/create_user_state.dart';
-import 'package:venderfoodyman/domain/interface/interfaces.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 class CreateUserNotifier extends StateNotifier<CreateUserState> {
   final UsersInterface _usersRepository;

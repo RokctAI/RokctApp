@@ -1,6 +1,6 @@
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 abstract class OrdersInterface {
   Future<ApiResult<OrderCalculate>> getCalculate({

@@ -1,6 +1,6 @@
-import 'package:venderfoodyman/domain/interface/interfaces.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 import 'package:rokctapp/manager/application/foods/edit/stocks/edit_food_stocks_state.dart';
 import 'package:flutter/material.dart';

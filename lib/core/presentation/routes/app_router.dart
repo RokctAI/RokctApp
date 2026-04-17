@@ -1,58 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/customer/presentation/pages/home/filter/result_filter.dart';
-import 'package:rokctapp/customer/presentation/pages/home/home_two/widget/recommended_two_screen.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/core/presentation/pages/auth/login/login_page.dart';
-import 'package:rokctapp/core/presentation/pages/auth/confirmation/register_confirmation_page.dart';
-import 'package:rokctapp/core/presentation/pages/auth/register/register_page.dart';
-import 'package:rokctapp/core/presentation/pages/auth/reset/reset_password_page.dart';
-import 'package:rokctapp/customer/presentation/pages/home/home_one/widget/recommended_one_screen.dart';
-import 'package:rokctapp/customer/presentation/pages/home/home_three/widgets/recommended_three_screen.dart';
-import 'package:rokctapp/core/presentation/pages/initial/no_connection/no_connection_page.dart';
-import 'package:rokctapp/core/presentation/pages/initial/splash/splash_page.dart';
-import 'package:rokctapp/core/presentation/pages/initial/ui_type/ui_type_page.dart';
-import 'package:rokctapp/customer/presentation/pages/like/like_page.dart';
-import 'package:rokctapp/customer/presentation/pages/main/main_page.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_screen/order_screen.dart';
-import 'package:rokctapp/customer/presentation/pages/order/orders_page.dart';
-import 'package:rokctapp/customer/presentation/pages/parcel/parcel_list_page.dart';
-import 'package:rokctapp/customer/presentation/pages/parcel/parcel_order_page.dart';
-import 'package:rokctapp/customer/presentation/pages/parcel/widgets/info_screen.dart';
-import 'package:rokctapp/core/presentation/pages/policy_term/policy_page.dart';
-import 'package:rokctapp/core/presentation/pages/policy_term/term_page.dart';
-import 'package:rokctapp/customer/presentation/pages/profile/address_list.dart';
-import 'package:rokctapp/customer/presentation/pages/profile/notification_page.dart';
-import 'package:rokctapp/customer/presentation/pages/profile/profile_page.dart';
-import 'package:rokctapp/customer/presentation/pages/profile/share_referral_faq.dart';
-import 'package:rokctapp/core/presentation/pages/search/search_page.dart';
-import 'package:rokctapp/customer/presentation/pages/service/service_two_category_page.dart';
-import 'package:rokctapp/customer/presentation/pages/setting/setting_page.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/shop_detail.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/shop_page.dart';
-import 'package:rokctapp/customer/presentation/pages/view_map/map_search_page.dart';
-import 'package:rokctapp/customer/presentation/pages/view_map/view_map_page.dart';
-import 'package:rokctapp/customer/models/data/address_new_data.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
-import 'package:rokctapp/customer/models/data/user.dart';
-import 'package:rokctapp/core/presentation/pages/chat/chat/chat_page.dart';
-import 'package:rokctapp/customer/presentation/pages/home/widgets/shops_banner_page.dart';
-import 'package:rokctapp/core/presentation/pages/initial/location/permission_location.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_screen/order_progress_screen.dart';
-import 'package:rokctapp/customer/presentation/pages/parcel/parcel_page.dart';
-import 'package:rokctapp/customer/presentation/pages/profile/become_seller/create_shop.dart';
-import 'package:rokctapp/customer/presentation/pages/profile/help_page.dart';
-import 'package:rokctapp/customer/presentation/pages/home/widgets/recommended_screen.dart';
-import 'package:rokctapp/customer/presentation/pages/profile/share_referral_page.dart';
-import 'package:rokctapp/customer/presentation/pages/profile/wallet_history.dart';
-import 'package:rokctapp/core/presentation/pages/story_page/story_page.dart';
 
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
-class AppRouter extends RootStackRouter {
+class MergedAppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
+    // Core
     MaterialRoute(path: '/', page: SplashRoute.page),
     MaterialRoute(path: '/no-connection', page: NoConnectionRoute.page),
     MaterialRoute(path: '/login', page: LoginRoute.page),
@@ -110,9 +65,53 @@ class AppRouter extends RootStackRouter {
       path: '/parcel_progress_page',
       page: ParcelProgressRoute.page,
     ),
-    // MaterialRoute(path: '/sub_category_page', page: SubCategoryRoute.page),
     MaterialRoute(path: '/address_list_page', page: AddressListRoute.page),
     MaterialRoute(path: '/term', page: TermRoute.page),
     MaterialRoute(path: '/policy', page: PolicyRoute.page),
+
+    // Driver
+    CupertinoRoute(path: '/driver', page: DriverSplashRoute.page),
+    CupertinoRoute(path: '/driver/no-connection', page: DriverNoConnectionRoute.page),
+    CupertinoRoute(path: '/driver/login', page: DriverLoginRoute.page),
+    CupertinoRoute(path: '/driver/income', page: DriverIncomeRoute.page),
+    CupertinoRoute(path: '/driver/home', page: DriverHomeRoute.page),
+    CupertinoRoute(path: '/driver/story', page: DriverStoryRoute.page),
+    CupertinoRoute(path: '/driver/profile', page: DriverProfileRoute.page),
+    CupertinoRoute(
+      path: '/driver/list-notification',
+      page: DriverNotificationListRoute.page,
+    ),
+    CupertinoRoute(path: '/driver/order-history', page: DriverOrderHistoryRoute.page),
+    CupertinoRoute(path: '/driver/parcel-history', page: DriverParcelHistoryRoute.page),
+    CupertinoRoute(path: '/driver/orders', page: DriverOrdersRoute.page),
+    CupertinoRoute(path: '/driver/parcels', page: DriverParcelsRoute.page),
+    CupertinoRoute(path: '/driver/become-driver', page: DriverBecomeDriverRoute.page),
+    CupertinoRoute(path: '/driver/delivery-zone', page: DriverDeliveryZoneRoute.page),
+
+    // Manager
+    CupertinoRoute(path: '/manager', page: ManagerSplashRoute.page),
+    CupertinoRoute(path: '/manager/main', page: ManagerMainRoute.page),
+    CupertinoRoute(path: '/manager/auth', page: ManagerAuthRoute.page),
+    CupertinoRoute(path: '/manager/order', page: ManagerOrderRoute.page),
+    CupertinoRoute(path: '/manager/income', page: ManagerIncomeRoute.page),
+    CupertinoRoute(path: '/manager/select-user', page: ManagerSelectUserRoute.page),
+    CupertinoRoute(path: '/manager/delivery-time', page: ManagerDeliveryTimeRoute.page),
+    CupertinoRoute(path: '/manager/order-history', page: ManagerOrderHistoryRoute.page),
+    CupertinoRoute(path: '/manager/delivery-zone', page: ManagerDeliveryZoneRoute.page),
+    CupertinoRoute(path: '/manager/no-connection', page: ManagerNoConnectionRoute.page),
+    CupertinoRoute(path: '/manager/select-address', page: ManagerSelectAddressRoute.page),
+    CupertinoRoute(path: '/manager/order-products', page: ManagerCreateOrderRoute.page),
+    CupertinoRoute(path: '/manager/shipping-address', page: ManagerShippingAddressRoute.page),
+    CupertinoRoute(
+      path: '/manager/list-notification',
+      page: ManagerNotificationListRoute.page,
+    ),
+    CupertinoRoute(path: '/manager/view_map', page: ManagerViewMapRoute.page),
+    CupertinoRoute(path: '/manager/become_seller', page: ManagerCreateShopRoute.page),
+    CupertinoRoute(path: '/manager/search_map', page: ManagerMapSearchRoute.page),
+    MaterialRoute(path: '/manager/select-section', page: ManagerSelectSectionRoute.page),
+    MaterialRoute(path: '/manager/select-table', page: ManagerSelectTableRoute.page),
+    MaterialRoute(path: '/manager/webview', page: ManagerWebViewRoute.page),
+    MaterialRoute(path: '/manager/subscription', page: ManagerSubscriptionsRoute.page),
   ];
 }

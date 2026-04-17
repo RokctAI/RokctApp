@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/component/title_icon.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/presentation/component/title_icon.dart';
+import 'package:rokctapp/presentation/styles/style.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/create_order/details/widgets/ingredient_item.dart';
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:venderfoodyman/domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 import 'package:rokctapp/manager/application/auth/login/login_state.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class LoginNotifier extends StateNotifier<LoginState> {
   String _email = '';

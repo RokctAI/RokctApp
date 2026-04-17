@@ -19,4 +19,4 @@ export 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/s
 export 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_section/select_section_page.dart';
 export 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_table/select_table_page.dart';
 export 'package:rokctapp/manager/presentation/pages/restaurant/subscriptions/subscriptions_page.dart';
-export 'package:venderfoodyman/presentation/component/web_view_page.dart';
+export 'package:rokctapp/presentation/component/web_view_page.dart';

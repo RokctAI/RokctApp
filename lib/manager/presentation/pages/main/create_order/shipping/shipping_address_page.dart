@@ -5,15 +5,15 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:venderfoodyman/application/order/shipping/section/section_provider.dart';
-import 'package:venderfoodyman/application/order/shipping/table/table_provider.dart';
+import 'package:rokctapp/application/order/shipping/section/section_provider.dart';
+import 'package:rokctapp/application/order/shipping/table/table_provider.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:rokctapp/presentation/styles/style.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/widgets/delivery_type_item.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:rokctapp/application/providers.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 @RoutePage()
 class ShippingAddressPage extends StatefulWidget {

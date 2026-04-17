@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/main/foods/addons/edit/units/edit_addon_units_state.dart';
-import 'package:venderfoodyman/domain/interface/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {

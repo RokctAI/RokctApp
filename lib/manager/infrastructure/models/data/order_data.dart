@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/services/extension.dart';
+import 'package:rokctapp/infrastructure/services/extension.dart';
 
 import 'package:rokctapp/manager/infrastructure/models/data/kitchen_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/payment_data.dart';
