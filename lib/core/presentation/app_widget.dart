@@ -22,15 +22,27 @@ class AppWidget extends ConsumerWidget {
   Future fetchSetting() async {
     final connect = await AppConnectivity.connectivity();
     if (connect) {
+      // Fetch settings for all three roles to ensure local cache is populated
+      // Customer/Core
       settingsRepository.getGlobalSettings();
       await settingsRepository.getLanguages();
       await settingsRepository.getMobileTranslations();
+
+      // Driver
+      await driverSettingsRepository.getGlobalSettings();
+      await driverSettingsRepository.getLanguages();
+      await driverSettingsRepository.getTranslations();
+
+      // Manager
+      managerSettingsRepository.getGlobalSettings();
+      await managerSettingsRepository.getLanguages();
+      await managerSettingsRepository.getTranslations();
     }
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.refresh(appProvider);
+    final state = ref.watch(appProvider);
     return FutureBuilder(
       future: Future.wait([
         AppTheme.create,
@@ -38,17 +50,24 @@ class AppWidget extends ConsumerWidget {
         if (LocalStorage.getTranslations().isEmpty) fetchSetting(),
       ]),
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
-        final AppTheme theme = snapshot.data?[0];
+        final AppTheme theme = snapshot.data?[0] ?? AppTheme.light();
         return ScreenUtilInit(
-          useInheritedMediaQuery: false,
+          useInheritedMediaQuery: true,
           designSize: const Size(375, 812),
           builder: (context, child) {
             return RefreshConfiguration(
-              footerBuilder: () =>
-                  const ClassicFooter(idleIcon: SizedBox(), idleText: ""),
+              footerBuilder: () => const ClassicFooter(
+                idleIcon: SizedBox.shrink(),
+                idleText: "",
+                loadingIcon: SizedBox(
+                   width: 25,
+                   height: 25,
+                   child: CircularProgressIndicator(strokeWidth: 2),
+                ),
+              ),
               headerBuilder: () => const WaterDropMaterialHeader(
                 backgroundColor: AppStyle.white,
-                color: AppStyle.textGrey,
+                color: AppStyle.primaryColor,
               ),
               child: provider.ChangeNotifierProvider(
                 create: (BuildContext context) => theme,
@@ -56,7 +75,8 @@ class AppWidget extends ConsumerWidget {
                   debugShowCheckedModeBanner: false,
                   routerDelegate: appRouter.delegate(),
                   routeInformationParser: appRouter.defaultRouteParser(),
-                  locale: Locale(state.activeLanguage?.locale ?? 'en'),
+                  locale: Locale(state.activeLanguage?.locale ?? LocalStorage.getLanguage()?.locale ?? 'en'),
+                  themeMode: ThemeMode.light,
                   theme: ThemeData(
                     useMaterial3: false,
                     sliderTheme: SliderThemeData(
