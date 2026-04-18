@@ -68,6 +68,3 @@ class _CreateFoodKitchensModalState
     );
   }
 }
-
-
-

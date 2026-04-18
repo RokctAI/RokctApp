@@ -340,7 +340,9 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
           isBorder: true,
           textEditingController: controller,
           onTap: () async {
-            final placeId = await context.pushRoute(const ManagerMapSearchRoute());
+            final placeId = await context.pushRoute(
+              const ManagerMapSearchRoute(),
+            );
             if (placeId != null) {
               final res = await googlePlace.details.get(placeId.toString());
               try {
@@ -432,6 +434,3 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
     );
   }
 }
-
-
-

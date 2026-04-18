@@ -222,6 +222,3 @@ class _MultiTranslationInputModalState
     );
   }
 }
-
-
-

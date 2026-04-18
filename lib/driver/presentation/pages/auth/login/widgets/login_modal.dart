@@ -319,7 +319,9 @@ class _LoginModalState extends ConsumerState<LoginModal>
                                 context.replaceRoute(const DriverHomeRoute());
                               },
                               youAreNotDeliveryman: () {
-                                context.replaceRoute(const DriverBecomeDriverRoute());
+                                context.replaceRoute(
+                                  const DriverBecomeDriverRoute(),
+                                );
                               },
                             );
                           },

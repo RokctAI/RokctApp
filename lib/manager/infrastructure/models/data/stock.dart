@@ -319,6 +319,3 @@ class AddonData {
     return map;
   }
 }
-
-
-

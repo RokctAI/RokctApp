@@ -3,7 +3,8 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 // No longer defines setUpDependencies - it is now part of the core setup.
 
 // Export the manager-specific variables with their original names for backward compatibility
-final translation = coreTranslation; // Note: if core has translation, we use that
+final translation =
+    coreTranslation; // Note: if core has translation, we use that
 final authRepository = managerAuthRepository;
 final shopsRepository = managerShopsRepository;
 final tableRepository = managerTableRepository;
