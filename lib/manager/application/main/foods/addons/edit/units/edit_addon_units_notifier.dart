@@ -98,4 +98,3 @@ class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
     state.unitController?.text = newUnit.translation?.title ?? '';
   }
 }
-

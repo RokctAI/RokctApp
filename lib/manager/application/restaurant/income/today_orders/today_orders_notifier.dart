@@ -48,4 +48,3 @@ class TodayOrdersNotifier extends StateNotifier<TodayOrdersState> {
     );
   }
 }
-

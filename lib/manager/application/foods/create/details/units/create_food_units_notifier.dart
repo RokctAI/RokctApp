@@ -47,4 +47,3 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
     state.unitController?.text = state.units[index].translation?.title ?? '';
   }
 }
-

@@ -232,4 +232,3 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     }
   }
 }
-

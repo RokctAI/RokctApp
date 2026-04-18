@@ -88,4 +88,3 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
     );
   }
 }
-

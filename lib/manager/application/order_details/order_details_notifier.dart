@@ -69,4 +69,3 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
     );
   }
 }
-

@@ -177,4 +177,3 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
     }
   }
 }
-

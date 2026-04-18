@@ -48,4 +48,3 @@ class PaymentNotifier extends Notifier<PaymentState> {
     }
   }
 }
-

@@ -74,10 +74,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         markers: {},
         isLoading: true,
       );
-      final response = await DrawRepository.getRouting(
-        start: start,
-        end: end,
-      );
+      final response = await DrawRepository.getRouting(start: start, end: end);
       response.when(
         success: (data) {
           List<LatLng> list = [];
@@ -477,10 +474,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     required int? orderId,
     required String path,
   }) async {
-    final res = await SettingsRepository.uploadImage(
-      path,
-      UploadType.products,
-    );
+    final res = await SettingsRepository.uploadImage(path, UploadType.products);
     res.when(
       success: (success) {
         OrdersRepositoryFacade.uploadImage(orderId, success.imageData?.title);
@@ -512,4 +506,3 @@ class HomeNotifier extends StateNotifier<HomeState> {
     }
   }
 }
-

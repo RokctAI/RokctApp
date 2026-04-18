@@ -177,4 +177,3 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
     );
   }
 }
-

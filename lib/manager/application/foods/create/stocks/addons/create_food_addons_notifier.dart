@@ -114,4 +114,3 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
     );
   }
 }
-

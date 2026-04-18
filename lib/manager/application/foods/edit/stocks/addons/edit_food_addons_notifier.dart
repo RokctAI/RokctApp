@@ -101,4 +101,3 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
     );
   }
 }
-

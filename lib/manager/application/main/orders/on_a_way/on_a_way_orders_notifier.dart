@@ -76,4 +76,3 @@ class OnAWayOrdersNotifier extends StateNotifier<OnAWayOrdersState> {
     );
   }
 }
-

@@ -403,4 +403,3 @@ class ProductNotifier extends Notifier<ProductState> {
     );
   }
 }
-

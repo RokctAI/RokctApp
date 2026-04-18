@@ -51,4 +51,3 @@ class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
     );
   }
 }
-

@@ -104,4 +104,3 @@ class AutoOrderNotifier extends Notifier<AutoOrderState> {
     );
   }
 }
-

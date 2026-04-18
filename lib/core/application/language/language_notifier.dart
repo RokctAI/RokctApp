@@ -81,4 +81,3 @@ class LanguageNotifier extends Notifier<LanguageState> {
     }
   }
 }
-

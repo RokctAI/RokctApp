@@ -65,4 +65,3 @@ class SettingNotifier extends Notifier<SettingState> {
     settingsRepository.updateNotification(state.notifications);
   }
 }
-

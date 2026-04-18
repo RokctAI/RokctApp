@@ -76,4 +76,3 @@ class CookingOrdersNotifier extends StateNotifier<CookingOrdersState> {
     );
   }
 }
-

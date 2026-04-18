@@ -184,4 +184,3 @@ class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
     state = state.copyWith(images: list, listOfUrls: urls);
   }
 }
-

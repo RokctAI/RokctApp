@@ -78,4 +78,3 @@ class SplashNotifier extends Notifier<SplashState> {
     }
   }
 }
-

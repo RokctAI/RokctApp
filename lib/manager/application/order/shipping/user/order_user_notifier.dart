@@ -170,4 +170,3 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
     );
   }
 }
-

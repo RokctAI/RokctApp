@@ -290,4 +290,3 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
     }
   }
 }
-

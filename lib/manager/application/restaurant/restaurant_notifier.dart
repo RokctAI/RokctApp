@@ -167,4 +167,3 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
     _usersRepository.setOnlineOffline();
   }
 }
-

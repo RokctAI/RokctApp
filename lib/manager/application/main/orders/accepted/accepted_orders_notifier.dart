@@ -76,4 +76,3 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
     );
   }
 }
-
