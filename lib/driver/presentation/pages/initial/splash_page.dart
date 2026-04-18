@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverSplashRoute')
 class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
 

@@ -11,7 +11,7 @@ import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverLoginRoute')
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 

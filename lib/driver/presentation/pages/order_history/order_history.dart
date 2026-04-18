@@ -19,7 +19,7 @@ import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
 import 'package:rokctapp/driver/application/order/progress_ordedr/progress_order_provider.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverOrderHistoryRoute')
 class OrderHistoryPage extends ConsumerStatefulWidget {
   const OrderHistoryPage({super.key});
 

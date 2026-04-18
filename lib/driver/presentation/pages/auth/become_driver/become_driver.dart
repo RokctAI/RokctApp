@@ -16,7 +16,7 @@ import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
 import 'package:rokctapp/driver/application/providers.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverBecomeDriverRoute')
 class BecomeDriverPage extends ConsumerStatefulWidget {
   const BecomeDriverPage({super.key});
 

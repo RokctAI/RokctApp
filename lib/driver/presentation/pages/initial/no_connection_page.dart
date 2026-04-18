@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverNoConnectionRoute')
 class NoConnectionPage extends ConsumerWidget {
   const NoConnectionPage({super.key});
 

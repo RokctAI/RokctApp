@@ -11,7 +11,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverOrdersRoute')
 class OrdersPage extends ConsumerStatefulWidget {
   const OrdersPage({super.key});
 

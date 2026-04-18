@@ -12,7 +12,7 @@ import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
 import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverParcelHistoryRoute')
 class ParcelHistoryPage extends ConsumerStatefulWidget {
   const ParcelHistoryPage({super.key});
 

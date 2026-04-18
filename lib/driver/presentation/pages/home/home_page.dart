@@ -25,7 +25,7 @@ import 'package:rokctapp/driver/presentation/pages/home/bottom_sheet_screen.dart
 import 'package:rokctapp/driver/presentation/pages/home/delivery_bottom_sheet.dart';
 import 'package:rokctapp/driver/presentation/pages/home/parcel_bottom_sheet.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverHomeRoute')
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 

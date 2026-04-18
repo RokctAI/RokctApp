@@ -13,7 +13,7 @@ import 'package:rokctapp/driver/presentation/pages/income/app_bar_screen.dart';
 import 'package:rokctapp/driver/presentation/pages/income/statistics_screen.dart';
 import 'package:rokctapp/driver/presentation/pages/income/widgets/income_item.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverIncomeRoute')
 class IncomePage extends ConsumerStatefulWidget {
   const IncomePage({super.key});
 
