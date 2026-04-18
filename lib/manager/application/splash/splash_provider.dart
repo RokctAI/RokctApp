@@ -6,5 +6,6 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final splashProvider =
     StateNotifierProvider.autoDispose<SplashNotifier, SplashState>(
-      (ref) => SplashNotifier(managerSettingsRepository, managerUsersRepository),
+      (ref) =>
+          SplashNotifier(managerSettingsRepository, managerUsersRepository),
     );
