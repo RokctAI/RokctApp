@@ -75,4 +75,3 @@ class ReadyOrdersNotifier extends StateNotifier<ReadyOrdersState> {
     );
   }
 }
-

@@ -380,4 +380,3 @@ class RegisterNotifier extends Notifier<RegisterState> {
     userRepository.updateFirebaseToken(fcmToken);
   }
 }
-

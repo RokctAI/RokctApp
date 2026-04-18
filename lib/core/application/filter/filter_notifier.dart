@@ -242,4 +242,3 @@ class FilterNotifier extends Notifier<FilterState> {
     }
   }
 }
-

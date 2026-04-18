@@ -29,4 +29,3 @@ class ExtrasNotifier extends StateNotifier<ExtrasState> {
     );
   }
 }
-

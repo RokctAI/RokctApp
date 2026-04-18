@@ -167,4 +167,3 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
     }
   }
 }
-

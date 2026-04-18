@@ -147,4 +147,3 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
     }
   }
 }
-

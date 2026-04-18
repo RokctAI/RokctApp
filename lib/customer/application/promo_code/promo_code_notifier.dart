@@ -41,4 +41,3 @@ class PromoCodeNotifier extends Notifier<PromoCodeState> {
     }
   }
 }
-

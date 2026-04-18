@@ -6,6 +6,5 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final resetPasswordProvider =
     StateNotifierProvider<ResetPasswordNotifier, ResetPasswordState>(
-      (ref) =>
-          ResetPasswordNotifier(AuthRepository, UserRepository),
+      (ref) => ResetPasswordNotifier(AuthRepository, UserRepository),
     );

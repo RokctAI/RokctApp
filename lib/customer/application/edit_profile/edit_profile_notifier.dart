@@ -162,4 +162,3 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
     }
   }
 }
-

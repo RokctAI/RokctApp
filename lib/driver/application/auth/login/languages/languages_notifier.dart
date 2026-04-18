@@ -123,13 +123,9 @@ class LanguageNotifier extends StateNotifier<LanguageState> {
         state = state.copyWith(isLoading: false, isSuccess: true);
       },
       failure: (f, s) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(f),
-        );
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
         state = state.copyWith(isLoading: false);
       },
     );
   }
 }
-

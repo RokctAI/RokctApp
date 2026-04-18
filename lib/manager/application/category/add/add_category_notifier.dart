@@ -48,4 +48,3 @@ class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
     _input = value.trim();
   }
 }
-

@@ -132,4 +132,3 @@ class SearchNotifier extends Notifier<SearchState> {
     }
   }
 }
-

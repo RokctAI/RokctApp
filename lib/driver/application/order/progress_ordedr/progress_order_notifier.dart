@@ -72,4 +72,3 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
     }
   }
 }
-

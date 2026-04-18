@@ -213,4 +213,3 @@ class LoginNotifier extends Notifier<LoginState> {
     userRepository.updateFirebaseToken(fcmToken);
   }
 }
-

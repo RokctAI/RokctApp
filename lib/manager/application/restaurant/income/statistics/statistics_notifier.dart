@@ -178,4 +178,3 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
     );
   }
 }
-

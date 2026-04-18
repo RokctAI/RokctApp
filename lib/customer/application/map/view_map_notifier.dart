@@ -147,4 +147,3 @@ class ViewMapNotifier extends Notifier<ViewMapState> {
     }
   }
 }
-

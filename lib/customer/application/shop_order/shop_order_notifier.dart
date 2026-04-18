@@ -754,4 +754,3 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
     debugPrint("share link shop_order_notifier: ${state.shareLink}");
   }
 }
-

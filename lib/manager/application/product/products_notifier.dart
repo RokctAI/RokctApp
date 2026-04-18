@@ -278,4 +278,3 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
     updateCart(newCount);
   }
 }
-

@@ -132,4 +132,3 @@ class LanguagesNotifier extends StateNotifier<LanguagesState> {
     );
   }
 }
-
