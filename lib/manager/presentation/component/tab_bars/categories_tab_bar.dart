@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/manager/presentation/app_assets.dart';
+import 'package:rokctapp/core/presentation/app_assets.dart';
 
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
-import 'package:rokctapp/driver/presentation/app_assets.dart';
+import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -13,7 +13,7 @@ import 'package:rokctapp/manager/application/map/view_map_state.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/manager/presentation/app_assets.dart';
+import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/presentation/styles/app_style.dart';
