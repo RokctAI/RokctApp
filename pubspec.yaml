@@ -91,7 +91,7 @@ dependencies:
   dartz: ^0.10.1
 
   #local
-  payfast_flutter:
+  payfast:
     git:
       url: https://github.com/Muhammadyunusxon/payfast_flutter.git
 
