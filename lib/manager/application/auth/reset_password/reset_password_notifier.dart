@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/application/auth/reset_password/reset_password_state.dart';
@@ -84,7 +84,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isLoading: true, isSuccess: false);
-      final response = await authRepository.forgotPassword(
+      final response = await managerAuthRepository.forgotPassword(
         email: state.email.trim(),
       );
       response.when(
@@ -133,7 +133,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
         return;
       }
       state = state.copyWith(isLoading: true, isSuccess: false);
-      final response = await usersRepository.updatePassword(
+      final response = await managerUsersRepository.updatePassword(
         password: state.password,
         passwordConfirmation: state.confirmPassword,
       );

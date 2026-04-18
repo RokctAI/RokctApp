@@ -1,7 +1,7 @@
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_paginate_response.dart';
 
-import 'package:rokctapp/driver/domain/handlers/handlers.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 
 abstract class OrdersRepositoryFacade {
   Future<ApiResult<OrderDetailModel>> showOrders(int id);

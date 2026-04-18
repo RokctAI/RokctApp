@@ -2,9 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/restaurant/working_days/working_days_state.dart';
 import 'package:rokctapp/manager/application/restaurant/working_days/working_days_notifier.dart';
-import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final workingDaysProvider =
     StateNotifierProvider<WorkingDaysNotifier, WorkingDaysState>(
-      (ref) => WorkingDaysNotifier(usersRepository),
+      (ref) => WorkingDaysNotifier(managerUsersRepository),
     );

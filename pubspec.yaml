@@ -14,21 +14,20 @@ dependencies:
     sdk: flutter
 
   #base:
-  dio: any
-  intl: any
-  get_it: any
-  google_fonts: any
-  pull_to_refresh: any
-  flutter_screenutil: any
-  proste_indexed_stack: any
-
+  dio: ^5.9.0
+  intl: ^0.20.2
+  get_it: ^9.2.0
+  google_fonts: ^6.3.3
+  pull_to_refresh: ^2.0.0
+  flutter_screenutil: ^5.9.3
+  proste_indexed_stack: ^0.2.4
 
   http: ^1.6.0
   crypto: ^3.0.7
   auto_route: ^11.1.0
   flutter_bloc: ^9.1.1
   path_provider: ^2.1.5
-  flutter_riverpod: ^3.1.0
+  flutter_riverpod: ^2.6.1
   riverpod: ^3.1.0
   freezed_annotation: ^3.1.0
   shared_preferences: ^2.5.4
@@ -36,6 +35,7 @@ dependencies:
   flutter_displaymode: ^0.7.0
   provider: ^6.1.5+1
   web_socket_channel: ^3.0.3
+  collection: ^1.19.1
   
   #ui
   jiffy: ^6.4.4
@@ -65,6 +65,16 @@ dependencies:
   flutter_staggered_grid_view: ^0.7.0
   flutter_staggered_animations: ^1.1.1
   app_tracking_transparency: ^2.0.6+1
+  shimmer: ^3.0.0
+  flutter_slidable: ^4.0.3
+  calendar_date_picker2: ^2.0.1
+  flutter_time_picker_spinner: ^2.0.0
+  dotted_border: ^3.1.0
+  auto_size_text: ^3.0.0
+  audioplayers: ^6.5.1
+  ftoast: ^2.0.0
+  percent_indicator: ^4.2.5
+  fl_chart: ^1.1.1
 
   #media:
   image: ^4.7.2
@@ -74,13 +84,16 @@ dependencies:
   cached_network_image: ^3.4.1
 
   #maps:
+  location: ^8.0.1
   geocoding: ^4.0.0
   geolocator: ^14.0.2
+  flutter_polyline_points: ^3.1.0
   google_place:
     git:
       url: https://github.com/Muhammadyunusxon/google_place.git
   osm_nominatim: ^4.0.1
   google_maps_flutter: ^2.14.0
+  map_launcher: ^4.4.2
 
   #auth:
   google_sign_in: ^6.2.3
@@ -94,6 +107,18 @@ dependencies:
   firebase_core: ^4.3.0
   firebase_auth: ^6.1.3
   cloud_firestore: ^6.1.1
+
+  #background services or specialized charts
+  workmanager:
+    git:
+      url: https://github.com/fluttercommunity/flutter_workmanager.git
+      path: workmanager
+      ref: main
+
+  charts_flutter:
+    git:
+      url: https://github.com/Muhammadyunusxon/charts.git
+      path: charts_flutter
 
   payfast:
     git:

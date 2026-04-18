@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import 'package:rokctapp/driver/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_connectivity.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
@@ -25,7 +25,7 @@ class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
         canceledOrder = 1;
         state = state.copyWith(isLoading: true);
       }
-      final response = await orderRepository.getHistoryOrders(
+      final response = await driverOrdersRepository.getHistoryOrders(
         isRefresh ? 1 : ++canceledOrder,
         status: ["canceled"],
       );

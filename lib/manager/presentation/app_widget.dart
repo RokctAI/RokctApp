@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/manager/presentation/styles/app_style.dart';
-import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class AppWidget extends ConsumerWidget {
@@ -17,9 +17,9 @@ class AppWidget extends ConsumerWidget {
     if (connect.contains(ConnectivityResult.mobile) ||
         connect.contains(ConnectivityResult.ethernet) ||
         connect.contains(ConnectivityResult.wifi)) {
-      settingsRepository.getGlobalSettings();
-      await settingsRepository.getLanguages();
-      await settingsRepository.getTranslations();
+      managerSettingsRepository.getGlobalSettings();
+      await managerSettingsRepository.getLanguages();
+      await managerSettingsRepository.getTranslations();
     }
   }
 

@@ -8,14 +8,14 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/driver/domain/handlers/handlers.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/application/auth/confirmation/register_confirmation_state.dart';
 
 class RegisterConfirmationNotifier
     extends StateNotifier<RegisterConfirmationState> {
-  final AuthRepository _authRepository;
-  final UserRepository _userRepositoryFacade;
+  final driverAuthRepository _authRepository;
+  final driverUserRepository _userRepositoryFacade;
 
   RegisterConfirmationNotifier(this._authRepository, this._userRepositoryFacade)
     : super(const RegisterConfirmationState());

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
@@ -23,7 +23,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
       _page = 0;
       state = state.copyWith(categories: [], isLoading: true);
     }
-    final res = await catalogRepository.getCategories(
+    final res = await managerCatalogRepository.getCategories(
       page: ++_page,
       hasProducts: true,
     );
@@ -59,7 +59,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
       _comboPage = 0;
       state = state.copyWith(comboCategories: [], isComboLoading: true);
     }
-    final res = await catalogRepository.getCategories(
+    final res = await managerCatalogRepository.getCategories(
       page: ++_comboPage,
       type: 'combo',
       hasProducts: true,

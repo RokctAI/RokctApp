@@ -11,8 +11,8 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/splash/splash_state.dart';
 
 class SplashNotifier extends StateNotifier<SplashState> {
-  final SettingsRepository _settingsRepository;
-  final UserRepository _userRepository;
+  final driverSettingsRepository _settingsRepository;
+  final driverUserRepository _userRepository;
 
   SplashNotifier(this._settingsRepository, this._userRepository)
     : super(const SplashState());

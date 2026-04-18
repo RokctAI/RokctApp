@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:rokctapp/driver/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/driver/domain/interface/orders.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/driver/domain/handlers/handlers.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_paginate_response.dart';
 
 class OrdersRepository implements OrdersRepositoryFacade {

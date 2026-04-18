@@ -7,7 +7,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/auth/login/languages/languages_state.dart';
 
 class LanguageNotifier extends StateNotifier<LanguageState> {
-  final SettingsRepository _settingsRepository;
+  final driverSettingsRepository _settingsRepository;
 
   LanguageNotifier(this._settingsRepository) : super(const LanguageState());
 

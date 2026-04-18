@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 import 'package:rokctapp/manager/application/auth/login/login_state.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
@@ -13,7 +13,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
   LoginNotifier() : super(const LoginState());
 
   Future<void> getProfileDetails() async {
-    final response = await usersRepository.getProfileDetails();
+    final response = await managerUsersRepository.getProfileDetails();
     response.when(
       success: (data) {
         LocalStorage.setUser(data.data);
@@ -59,7 +59,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
   }) async {
     if (await AppConnectivity.connectivity()) {
       state = state.copyWith(isLoading: true);
-      final response = await authRepository.login(
+      final response = await managerAuthRepository.login(
         email: _email,
         password: _password,
       );
@@ -83,7 +83,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
           } catch (e) {
             debugPrint('===> error with getting firebase token $e');
           }
-          usersRepository.updateFirebaseToken(fcmToken);
+          managerUsersRepository.updateFirebaseToken(fcmToken);
           state = state.copyWith(isLoading: false);
         },
         failure: (failure, status) {

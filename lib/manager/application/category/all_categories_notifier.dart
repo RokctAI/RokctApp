@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/application/category/all_categories_state.dart';
@@ -21,7 +21,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       _page = 0;
     }
 
-    final response = await catalogRepository.getCategories(
+    final response = await managerCatalogRepository.getCategories(
       page: ++_page,
       type: type,
     );
@@ -87,7 +87,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       _page = 0;
     }
 
-    final response = await catalogRepository.getCategoriesSub(page: ++_page);
+    final response = await managerCatalogRepository.getCategoriesSub(page: ++_page);
     response.when(
       success: (data) {
         List<CategoryData> categories = List.from(state.categoriesSub);
@@ -170,7 +170,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
   }
 
   Future<void> deleteCategories(CategoryData category) async {
-    final res = await catalogRepository.deleteCategory(id: category.id);
+    final res = await managerCatalogRepository.deleteCategory(id: category.id);
     res.when(
       success: (success) {
         final List<CategoryData> list = List.from(state.categories);
@@ -204,7 +204,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       _page = 0;
       state = state.copyWith(categories: [], isLoading: true);
     }
-    final res = await catalogRepository.getCategories(
+    final res = await managerCatalogRepository.getCategories(
       page: ++_page,
       hasProducts: true,
     );

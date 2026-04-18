@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'package:rokctapp/driver/application/providers.dart';
-import 'package:rokctapp/driver/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 
 class AppWidget extends ConsumerWidget {
@@ -14,9 +14,9 @@ class AppWidget extends ConsumerWidget {
   Future fetchSetting() async {
     final connect = await Connectivity().checkConnectivity();
     if (!connect.contains(ConnectivityResult.none)) {
-      await settingsRepository.getGlobalSettings();
-      await settingsRepository.getLanguages();
-      await settingsRepository.getTranslations();
+      await driverSettingsRepository.getGlobalSettings();
+      await driverSettingsRepository.getLanguages();
+      await driverSettingsRepository.getTranslations();
     }
   }
 

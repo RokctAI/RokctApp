@@ -10,7 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/driver/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
 import 'package:rokctapp/driver/presentation/pages/pages.dart';
@@ -72,7 +72,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         );
       }
       if (message.data["type"] == "new_order") {
-        final res = await orderRepository.showOrders(
+        final res = await driverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(
@@ -82,7 +82,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           failure: (f, s) {},
         );
       } else if (message.data["type"] == "deliveryman") {
-        final res = await orderRepository.showOrders(
+        final res = await driverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(
@@ -97,7 +97,7 @@ class _HomePageState extends ConsumerState<HomePage> {
       debugPrint("New notification oped app: ${jsonEncode(message.data)}");
 
       if (message.data["type"] == "new_order") {
-        final res = await orderRepository.showOrders(
+        final res = await driverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(
@@ -107,7 +107,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           failure: (f, s) {},
         );
       } else if (message.data["type"] == "deliveryman") {
-        final res = await orderRepository.showOrders(
+        final res = await driverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(

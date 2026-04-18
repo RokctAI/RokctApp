@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/profile/state/profile_edit_state.dart';
 
 class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
-  final UserRepository _userRepository;
+  final driverUserRepository _userRepository;
 
   ProfileEditNotifier(this._userRepository) : super(const ProfileEditState());
 

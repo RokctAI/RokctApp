@@ -10,7 +10,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:rokctapp/manager/application/map/view_map_notifier.dart';
 import 'package:rokctapp/manager/application/map/view_map_provider.dart';
 import 'package:rokctapp/manager/application/map/view_map_state.dart';
-import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/app_assets.dart';

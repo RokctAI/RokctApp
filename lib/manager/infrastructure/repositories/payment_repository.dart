@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
-import 'package:rokctapp/manager/domain/handlers/handlers.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/manager/domain/interface/payment_facade.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';

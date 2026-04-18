@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rokctapp/driver/domain/di/dependency_manager.dart';
-import 'package:rokctapp/driver/domain/handlers/handlers.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/domain/interface/notification.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';

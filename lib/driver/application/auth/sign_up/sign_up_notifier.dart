@@ -10,8 +10,8 @@ import 'package:rokctapp/driver/application/auth/sign_up/sign_up_state.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 
 class SignUpNotifier extends StateNotifier<SignUpState> {
-  final AuthRepository _authRepository;
-  final UserRepository _userRepository;
+  final driverAuthRepository _authRepository;
+  final driverUserRepository _userRepository;
 
   SignUpNotifier(this._authRepository, this._userRepository)
     : super(const SignUpState());

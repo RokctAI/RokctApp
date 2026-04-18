@@ -2,9 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/driver/application/delivery_zone/delivery_zone_state.dart';
 import 'package:rokctapp/driver/application/delivery_zone/delivery_zone_notifier.dart';
-import 'package:rokctapp/driver/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final deliveryZoneProvider =
     StateNotifierProvider<DeliveryZoneNotifier, DeliveryZoneState>(
-      (ref) => DeliveryZoneNotifier(userRepository),
+      (ref) => DeliveryZoneNotifier(driverUserRepository),
     );

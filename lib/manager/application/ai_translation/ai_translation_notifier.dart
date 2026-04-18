@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/application/ai_translation/ai_translation_state.dart';
 
@@ -13,7 +13,7 @@ class AiTranslationNotifier extends StateNotifier<AiTranslationState> {
     ValueChanged<String?>? onSuccess,
   }) async {
     state = state.copyWith(isLoading: true);
-    final response = await settingsRepository.getAiTranslation(model: model);
+    final response = await managerSettingsRepository.getAiTranslation(model: model);
     response.when(
       success: (data) {
         state = state.copyWith(isLoading: false, translatedUsingAi: true);

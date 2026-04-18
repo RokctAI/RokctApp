@@ -1,6 +1,6 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
-import 'package:rokctapp/driver/domain/handlers/handlers.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 
 abstract class UserRepository {
   Future<ApiResult<DeliveryResponse>> getDriverDetails();

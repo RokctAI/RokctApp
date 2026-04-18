@@ -2,9 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/foods/edit/details/kitchen/edit_food_kitchens_state.dart';
 import 'package:rokctapp/manager/application/foods/edit/details/kitchen/edit_food_kitchens_notifier.dart';
-import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final editFoodKitchensProvider =
     StateNotifierProvider<EditFoodKitchensNotifier, EditFoodKitchensState>(
-      (ref) => EditFoodKitchensNotifier(catalogRepository),
+      (ref) => EditFoodKitchensNotifier(managerCatalogRepository),
     );

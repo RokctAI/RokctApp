@@ -75,12 +75,12 @@ import 'package:rokctapp/manager/infrastructure/repositories/subscription_reposi
     as manager_sub_impl;
 import 'package:rokctapp/manager/infrastructure/repositories/repositories.dart'
     as manager_repos_impl;
-import 'package:rokctapp/manager/infrastructure/services/local_storage.dart'
-    as manager_storage;
 
 final GetIt getIt = GetIt.instance;
 
 Future<void> setUpDependencies() async {
+  if (getIt.isRegistered<HttpService>()) return;
+
   // Common
   getIt.registerSingleton<AppRouter>(AppRouter());
   getIt.registerLazySingleton<HttpService>(() => HttpService());
@@ -194,7 +194,7 @@ final parcelRepository = getIt.get<ParcelRepositoryFacade>();
 final translation = getIt.get<Map>();
 final appRouter = getIt.get<AppRouter>();
 
-// Driver (using getter to ensure they are fetched from GetIt)
+// Driver
 driver_interfaces.SettingsRepository get driverSettingsRepository =>
     getIt.get<driver_interfaces.SettingsRepository>();
 driver_interfaces.AuthRepository get driverAuthRepository =>

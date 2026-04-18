@@ -10,8 +10,8 @@ import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/application/auth/reset_password/reset_password_state.dart';
 
 class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
-  final AuthRepository _authRepository;
-  final UserRepository _usersRepository;
+  final driverAuthRepository _authRepository;
+  final driverUserRepository _usersRepository;
 
   ResetPasswordNotifier(this._authRepository, this._usersRepository)
     : super(const ResetPasswordState());

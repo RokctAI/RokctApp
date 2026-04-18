@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 import 'package:rokctapp/manager/application/order/shipping/table/table_state.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
@@ -35,7 +35,7 @@ class TableNotifier extends StateNotifier<TableState> {
     _page = 0;
     _hasMore = true;
     state = state.copyWith(isLoading: true);
-    final response = await tableRepository.getTables(
+    final response = await managerTableRepository.getTables(
       query: _query.isEmpty ? null : _query.trim(),
       page: ++_page,
       shopSectionId: sectionId,
@@ -76,7 +76,7 @@ class TableNotifier extends StateNotifier<TableState> {
       refreshController?.loadNoData();
       return;
     }
-    final response = await tableRepository.getTables(
+    final response = await managerTableRepository.getTables(
       query: _query.isEmpty ? null : _query.trim(),
       page: ++_page,
       shopSectionId: sectionId,
@@ -102,7 +102,7 @@ class TableNotifier extends StateNotifier<TableState> {
   }) async {
     debugPrint('===> refresh tables function called');
     _page = 0;
-    final response = await tableRepository.getTables(
+    final response = await managerTableRepository.getTables(
       query: _query.isEmpty ? null : _query.trim(),
       page: ++_page,
       shopSectionId: sectionId,
@@ -137,7 +137,7 @@ class TableNotifier extends StateNotifier<TableState> {
     _hasMore = true;
     _page = 0;
     state = state.copyWith(isLoading: true);
-    final response = await tableRepository.getTables(
+    final response = await managerTableRepository.getTables(
       query: _query.isEmpty ? null : _query.trim(),
       shopSectionId: sectionId,
       page: ++_page,

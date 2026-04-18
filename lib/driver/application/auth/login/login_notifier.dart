@@ -7,8 +7,8 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/auth/login/login_state.dart';
 
 class LoginNotifier extends StateNotifier<LoginState> {
-  final AuthRepository _authRepository;
-  final UserRepository _userRepository;
+  final driverAuthRepository _authRepository;
+  final driverUserRepository _userRepository;
 
   LoginNotifier(this._authRepository, this._userRepository)
     : super(const LoginState());

@@ -1,6 +1,6 @@
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/driver/domain/handlers/handlers.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 
 abstract class SettingsRepository {
   Future<ApiResult<GalleryUploadResponse>> uploadImage(
