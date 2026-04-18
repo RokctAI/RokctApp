@@ -309,6 +309,3 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
     );
   }
 }
-
-
-

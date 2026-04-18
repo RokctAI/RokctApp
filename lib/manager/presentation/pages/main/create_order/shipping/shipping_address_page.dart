@@ -484,6 +484,3 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
     );
   }
 }
-
-
-

@@ -432,6 +432,3 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
     );
   }
 }
-
-
-

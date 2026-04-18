@@ -84,6 +84,3 @@ class _AcceptedOrdersBodyState extends State<CookingOrdersBody> {
     );
   }
 }
-
-
-

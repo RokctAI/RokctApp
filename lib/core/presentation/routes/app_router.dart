@@ -51,7 +51,8 @@ import 'package:rokctapp/core/presentation/pages/story_page/story_page.dart';
 
 // Driver and Manager Namespace Imports
 import 'package:rokctapp/driver/presentation/pages/pages.dart' as driver_pages;
-import 'package:rokctapp/manager/presentation/pages/pages.dart' as manager_pages;
+import 'package:rokctapp/manager/presentation/pages/pages.dart'
+    as manager_pages;
 
 part 'app_router.gr.dart';
 
@@ -123,47 +124,116 @@ class AppRouter extends RootStackRouter {
 
     // Driver
     CupertinoRoute(path: '/driver', page: driver_pages.SplashRoute.page),
-    CupertinoRoute(path: '/driver/no-connection', page: driver_pages.NoConnectionRoute.page),
+    CupertinoRoute(
+      path: '/driver/no-connection',
+      page: driver_pages.NoConnectionRoute.page,
+    ),
     CupertinoRoute(path: '/driver/login', page: driver_pages.LoginRoute.page),
     CupertinoRoute(path: '/driver/income', page: driver_pages.IncomeRoute.page),
     CupertinoRoute(path: '/driver/home', page: driver_pages.HomeRoute.page),
     CupertinoRoute(path: '/driver/story', page: driver_pages.StoryRoute.page),
-    CupertinoRoute(path: '/driver/profile', page: driver_pages.ProfileRoute.page),
+    CupertinoRoute(
+      path: '/driver/profile',
+      page: driver_pages.ProfileRoute.page,
+    ),
     CupertinoRoute(
       path: '/driver/list-notification',
       page: driver_pages.NotificationListRoute.page,
     ),
-    CupertinoRoute(path: '/driver/order-history', page: driver_pages.OrderHistoryRoute.page),
-    CupertinoRoute(path: '/driver/parcel-history', page: driver_pages.ParcelHistoryRoute.page),
+    CupertinoRoute(
+      path: '/driver/order-history',
+      page: driver_pages.OrderHistoryRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/driver/parcel-history',
+      page: driver_pages.ParcelHistoryRoute.page,
+    ),
     CupertinoRoute(path: '/driver/orders', page: driver_pages.OrdersRoute.page),
-    CupertinoRoute(path: '/driver/parcels', page: driver_pages.ParcelsRoute.page),
-    CupertinoRoute(path: '/driver/become-driver', page: driver_pages.BecomeDriverRoute.page),
-    CupertinoRoute(path: '/driver/delivery-zone', page: driver_pages.DeliveryZoneRoute.page),
+    CupertinoRoute(
+      path: '/driver/parcels',
+      page: driver_pages.ParcelsRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/driver/become-driver',
+      page: driver_pages.BecomeDriverRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/driver/delivery-zone',
+      page: driver_pages.DeliveryZoneRoute.page,
+    ),
 
     // Manager
     CupertinoRoute(path: '/manager', page: manager_pages.SplashRoute.page),
     CupertinoRoute(path: '/manager/main', page: manager_pages.MainRoute.page),
     CupertinoRoute(path: '/manager/auth', page: manager_pages.AuthRoute.page),
     CupertinoRoute(path: '/manager/order', page: manager_pages.OrderRoute.page),
-    CupertinoRoute(path: '/manager/income', page: manager_pages.IncomeRoute.page),
-    CupertinoRoute(path: '/manager/select-user', page: manager_pages.SelectUserRoute.page),
-    CupertinoRoute(path: '/manager/delivery-time', page: manager_pages.DeliveryTimeRoute.page),
-    CupertinoRoute(path: '/manager/order-history', page: manager_pages.OrderHistoryRoute.page),
-    CupertinoRoute(path: '/manager/delivery-zone', page: manager_pages.DeliveryZoneRoute.page),
-    CupertinoRoute(path: '/manager/no-connection', page: manager_pages.NoConnectionRoute.page),
-    CupertinoRoute(path: '/manager/select-address', page: manager_pages.SelectAddressRoute.page),
-    CupertinoRoute(path: '/manager/order-products', page: manager_pages.CreateOrderRoute.page),
-    CupertinoRoute(path: '/manager/shipping-address', page: manager_pages.ShippingAddressRoute.page),
+    CupertinoRoute(
+      path: '/manager/income',
+      page: manager_pages.IncomeRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/select-user',
+      page: manager_pages.SelectUserRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/delivery-time',
+      page: manager_pages.DeliveryTimeRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/order-history',
+      page: manager_pages.OrderHistoryRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/delivery-zone',
+      page: manager_pages.DeliveryZoneRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/no-connection',
+      page: manager_pages.NoConnectionRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/select-address',
+      page: manager_pages.SelectAddressRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/order-products',
+      page: manager_pages.CreateOrderRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/shipping-address',
+      page: manager_pages.ShippingAddressRoute.page,
+    ),
     CupertinoRoute(
       path: '/manager/list-notification',
       page: manager_pages.NotificationListRoute.page,
     ),
-    CupertinoRoute(path: '/manager/view_map', page: manager_pages.ViewMapRoute.page),
-    CupertinoRoute(path: '/manager/become_seller', page: manager_pages.CreateShopRoute.page),
-    CupertinoRoute(path: '/manager/search_map', page: manager_pages.MapSearchRoute.page),
-    MaterialRoute(path: '/manager/select-section', page: manager_pages.SelectSectionRoute.page),
-    MaterialRoute(path: '/manager/select-table', page: manager_pages.SelectTableRoute.page),
-    MaterialRoute(path: '/manager/webview', page: manager_pages.WebViewRoute.page),
-    MaterialRoute(path: '/manager/subscription', page: manager_pages.SubscriptionsRoute.page),
+    CupertinoRoute(
+      path: '/manager/view_map',
+      page: manager_pages.ViewMapRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/become_seller',
+      page: manager_pages.CreateShopRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/search_map',
+      page: manager_pages.MapSearchRoute.page,
+    ),
+    MaterialRoute(
+      path: '/manager/select-section',
+      page: manager_pages.SelectSectionRoute.page,
+    ),
+    MaterialRoute(
+      path: '/manager/select-table',
+      page: manager_pages.SelectTableRoute.page,
+    ),
+    MaterialRoute(
+      path: '/manager/webview',
+      page: manager_pages.WebViewRoute.page,
+    ),
+    MaterialRoute(
+      path: '/manager/subscription',
+      page: manager_pages.SubscriptionsRoute.page,
+    ),
   ];
 }
