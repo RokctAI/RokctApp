@@ -24,7 +24,7 @@ class DrawRepository implements DrawRepositoryFacade {
       );
       return ApiResult.success(data: DrawRouting.fromJson(response.data));
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

@@ -29,7 +29,7 @@ class UserRepository implements UserRepositoryFacade {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get user details failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -55,7 +55,7 @@ class UserRepository implements UserRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get referral details failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -77,7 +77,7 @@ class UserRepository implements UserRepositoryFacade {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update profile details failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -102,7 +102,7 @@ class UserRepository implements UserRepositoryFacade {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update profile image failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -127,7 +127,7 @@ class UserRepository implements UserRepositoryFacade {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update password failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -155,7 +155,7 @@ class UserRepository implements UserRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get wallet histories failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -174,7 +174,7 @@ class UserRepository implements UserRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update firebase token failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -188,7 +188,7 @@ class UserRepository implements UserRepositoryFacade {
       await client.delete('/api/v1/dashboard/user/profile/delete');
       return const ApiResult.success(data: null);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -203,7 +203,7 @@ class UserRepository implements UserRepositoryFacade {
       LocalStorage.logout();
       return const ApiResult.success(data: null);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -220,7 +220,7 @@ class UserRepository implements UserRepositoryFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -240,7 +240,7 @@ class UserRepository implements UserRepositoryFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -254,7 +254,7 @@ class UserRepository implements UserRepositoryFacade {
       await client.post('/api/v1/dashboard/user/address/set-active/$id');
       return const ApiResult.success(data: null);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -268,7 +268,7 @@ class UserRepository implements UserRepositoryFacade {
       await client.delete('/api/v1/dashboard/user/addresses/delete?ids[0]=$id');
       return const ApiResult.success(data: null);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -293,7 +293,7 @@ class UserRepository implements UserRepositoryFacade {
         data: CareerDataResponse.fromJson(response.data),
       );
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -314,7 +314,7 @@ class UserRepository implements UserRepositoryFacade {
 
       return ApiResult.success(data: CareerData.fromJson(raw));
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -340,7 +340,7 @@ class UserRepository implements UserRepositoryFacade {
           });
     } catch (e) {
       return Future.value(
-        ApiResult.failure(
+        ApiResult.f(
           error: AppHelpers.errorHandler(e),
           statusCode: NetworkExceptions.getDioStatus(e),
         ),
@@ -358,7 +358,7 @@ class UserRepository implements UserRepositoryFacade {
       });
     } catch (e) {
       return Future.value(
-        ApiResult.failure(
+        ApiResult.f(
           error: AppHelpers.errorHandler(e),
           statusCode: NetworkExceptions.getDioStatus(e),
         ),
@@ -383,7 +383,7 @@ class UserRepository implements UserRepositoryFacade {
       return ApiResult.success(data: PagesResponse.fromJson(res.data));
     } catch (e) {
       return Future.value(
-        ApiResult.failure(
+        ApiResult.f(
           error: AppHelpers.errorHandler(e),
           statusCode: NetworkExceptions.getDioStatus(e),
         ),

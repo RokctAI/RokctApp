@@ -84,7 +84,7 @@ class EditFoodUnitsNotifier extends StateNotifier<EditFoodUnitsState> {
       },
       failure: (f, s) {
         state = state.copyWith(isLoading: false);
-        debugPrint('====> fetch units fail $failure');
+        debugPrint('====> fetch units fail $f');
       },
     );
   }

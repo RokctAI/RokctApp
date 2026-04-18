@@ -19,7 +19,7 @@ class CartRepository implements CartRepositoryFacade {
       return ApiResult.success(data: CartModel.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get open createAndCart failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -37,7 +37,7 @@ class CartRepository implements CartRepositoryFacade {
       return ApiResult.success(data: CartModel.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get insert failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -57,7 +57,7 @@ class CartRepository implements CartRepositoryFacade {
       return ApiResult.success(data: CartModel.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get insert failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -78,7 +78,7 @@ class CartRepository implements CartRepositoryFacade {
       return ApiResult.success(data: CartModel.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get open Add Cart failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -101,7 +101,7 @@ class CartRepository implements CartRepositoryFacade {
       return ApiResult.success(data: CartModel.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get open getCart failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -130,7 +130,7 @@ class CartRepository implements CartRepositoryFacade {
       return ApiResult.success(data: CartModel.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get open getCart failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -150,7 +150,7 @@ class CartRepository implements CartRepositoryFacade {
       return ApiResult.success(data: CartModel());
     } catch (e) {
       debugPrint('==> get open deleteCart failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -171,7 +171,7 @@ class CartRepository implements CartRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> get open deleteCart failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -193,7 +193,7 @@ class CartRepository implements CartRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> get open deleteCart failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -208,7 +208,7 @@ class CartRepository implements CartRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> get open deleteCart failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -234,7 +234,7 @@ class CartRepository implements CartRepositoryFacade {
       return ApiResult.success(data: CartModel());
     } catch (e) {
       debugPrint('==> get open removeProductCart failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

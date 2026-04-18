@@ -26,7 +26,7 @@ class NotificationRepository extends NotificationInterface {
       );
     } catch (e) {
       debugPrint('==> get notification failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -45,7 +45,7 @@ class NotificationRepository extends NotificationInterface {
       );
     } catch (e) {
       debugPrint('==> get notification failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -67,7 +67,7 @@ class NotificationRepository extends NotificationInterface {
       return const ApiResult.success(data: true);
     } catch (e) {
       debugPrint('==> get notification failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -88,7 +88,7 @@ class NotificationRepository extends NotificationInterface {
       );
     } catch (e) {
       debugPrint('==> get notification failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -107,7 +107,7 @@ class NotificationRepository extends NotificationInterface {
       );
     } catch (e) {
       debugPrint('==> get notification failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

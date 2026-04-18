@@ -29,11 +29,11 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
         success?.call();
       },
       failure: (f, s) {
-        debugPrint('===> update order status fail $failure');
+        debugPrint('===> update order status fail $f');
         state = state.copyWith(isUpdating: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: failure,
+          text: f,
           type: SnackBarType.error,
         );
       },
@@ -63,7 +63,7 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
         state = state.copyWith(isLoading: false, order: data.data);
       },
       failure: (f, s) {
-        debugPrint('===> fetch order details fail $failure');
+        debugPrint('===> fetch order details fail $f');
         state = state.copyWith(isLoading: false);
       },
     );

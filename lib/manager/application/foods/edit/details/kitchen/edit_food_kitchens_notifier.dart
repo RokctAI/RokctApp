@@ -85,7 +85,7 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
       },
       failure: (f, s) {
         state = state.copyWith(isLoading: false);
-        debugPrint('====> fetch kitchens fail $failure');
+        debugPrint('====> fetch kitchens fail $f');
       },
     );
   }

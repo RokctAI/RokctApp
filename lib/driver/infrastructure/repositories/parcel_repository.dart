@@ -31,7 +31,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get active orders failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -60,7 +60,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get canceled orders failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -82,7 +82,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
       return ApiResult.success(data: ParcelOrder.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get single order failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -116,7 +116,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get delivered orders failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -133,7 +133,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> get delivered orders failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -151,7 +151,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('===> error statistics settings $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -174,7 +174,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> add order review failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -191,7 +191,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
       return ApiResult.success(data: ParcelOrder.fromJson(response.data));
     } catch (e) {
       debugPrint('===> error statistics settings $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

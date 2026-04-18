@@ -84,7 +84,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
               AppHelpers.getTranslation(TrKeys.emailAlreadyExists),
             );
           } else {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );
@@ -135,7 +135,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
             onSuccess(success.data?.verifyId ?? '');
           },
           failure: (f, s) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
             state = state.copyWith(isLoading: false, isSuccess: false);
           },
         );
@@ -181,7 +181,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -234,7 +234,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
               ),
             );
           } else {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );
@@ -287,7 +287,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
               ),
             );
           } else {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );
@@ -331,13 +331,13 @@ class RegisterNotifier extends Notifier<RegisterState> {
           },
           failure: (f, s) {
             state = state.copyWith(isLoading: false);
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           },
         );
       },
-      (failure) {
+      (f) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, failure);
+        AppHelpers.showCheckTopSnackBar(context, f);
       },
     );
   }

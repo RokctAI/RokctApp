@@ -60,8 +60,8 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
           imageUrl.addAll(data.data?.title ?? []);
         },
         failure: (f, s) {
-          debugPrint('==> upload product image fail: $failure');
-          AppHelpers.showCheckTopSnackBar(context, text: failure);
+          debugPrint('==> upload product image fail: $f');
+          AppHelpers.showCheckTopSnackBar(context, text: f);
           state = state.copyWith(isLoading: true);
         },
       );
@@ -245,8 +245,8 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
           );
         }
       },
-      failure: (failure, s) {
-        debugPrint('==> get product details failure: $failure');
+      failure: (f, s) {
+        debugPrint('==> get product details failure: $f');
       },
     );
   }

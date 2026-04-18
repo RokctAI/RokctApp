@@ -336,7 +336,7 @@ class ShopNotifier extends Notifier<ShopState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -360,7 +360,7 @@ class ShopNotifier extends Notifier<ShopState> {
         },
         failure: (f, s) {
           state = state.copyWith(isCategoryLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
           return false;
         },
       );
@@ -405,7 +405,7 @@ class ShopNotifier extends Notifier<ShopState> {
           onSuccess.call(allList.length);
         },
         failure: (f, s) {
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -431,7 +431,7 @@ class ShopNotifier extends Notifier<ShopState> {
           );
         },
         failure: (f, s) {
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -464,7 +464,7 @@ class ShopNotifier extends Notifier<ShopState> {
   //         state = state.copyWith(isProductLoading: false);
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
-  //           failure,
+  //           f,
   //         );
   //       },
   //     );
@@ -503,7 +503,7 @@ class ShopNotifier extends Notifier<ShopState> {
         },
         failure: (f, s) {
           state = state.copyWith(isProductCategoryLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -541,7 +541,7 @@ class ShopNotifier extends Notifier<ShopState> {
         failure: (f, s) {
           controller?.loadComplete();
 
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -576,7 +576,7 @@ class ShopNotifier extends Notifier<ShopState> {
   //         controller?.loadComplete();
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
-  //           failure,
+  //           f,
   //         );
   //       },
   //     );
@@ -611,7 +611,7 @@ class ShopNotifier extends Notifier<ShopState> {
   //         controller?.loadComplete();
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
-  //           failure,
+  //           f,
   //         );
   //       },
   //     );
@@ -635,7 +635,7 @@ class ShopNotifier extends Notifier<ShopState> {
           state = state.copyWith(brands: data.data);
         },
         failure: (f, s) {
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {

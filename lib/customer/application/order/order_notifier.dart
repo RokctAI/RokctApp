@@ -73,7 +73,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
         },
         failure: (f, s) {
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );
@@ -271,7 +271,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -334,7 +334,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
           } else {
             state = state.copyWith(isButtonLoading: false);
           }
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
           if (status == 401) {
             context.router.popUntilRoot();
             context.replaceRoute(const LoginRoute());
@@ -499,15 +499,15 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
               failure: (f, s) {
                 state = state.copyWith(isButtonLoading: false);
                 if (context.mounted) {
-                  AppHelpers.showCheckTopSnackBar(context, failure);
+                  AppHelpers.showCheckTopSnackBar(context, f);
                 }
               },
             );
           },
-          failure: (failure, e) {
+          failure: (f, e) {
             state = state.copyWith(isButtonLoading: false);
             if (context.mounted) {
-              AppHelpers.showCheckTopSnackBar(context, failure);
+              AppHelpers.showCheckTopSnackBar(context, f);
             }
           },
         );
@@ -584,7 +584,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
         failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );
@@ -637,7 +637,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
           },
           failure: (f, s) {
             state = state.copyWith(isAddLoading: false);
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           },
         );
       } else {
@@ -737,7 +737,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
             state = state.copyWith(isLoading: false);
           }
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );
@@ -766,7 +766,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
         failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );
@@ -797,7 +797,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
         failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );
@@ -829,7 +829,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
         failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );

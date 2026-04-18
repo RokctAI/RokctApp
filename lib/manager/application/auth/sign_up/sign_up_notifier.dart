@@ -27,7 +27,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
         }
       },
       failure: (f, s) {
-        debugPrint('==> get profile details failure: $failure');
+        debugPrint('==> get profile details failure: $f');
       },
     );
   }
@@ -85,7 +85,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
               text: AppHelpers.getTranslation(TrKeys.emailIsNotValid),
             );
           } else {
-            AppHelpers.showCheckTopSnackBar(context, text: failure);
+            AppHelpers.showCheckTopSnackBar(context, text: f);
           }
         },
       );
@@ -199,7 +199,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
               text: AppHelpers.getTranslation(TrKeys.referral),
             );
           } else {
-            AppHelpers.showCheckTopSnackBar(context, text: failure);
+            AppHelpers.showCheckTopSnackBar(context, text: f);
           }
         },
       );

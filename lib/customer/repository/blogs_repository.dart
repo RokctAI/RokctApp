@@ -28,7 +28,7 @@ class BlogsRepository implements BlogsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get blogs paginate failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -49,7 +49,7 @@ class BlogsRepository implements BlogsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get blogs details failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

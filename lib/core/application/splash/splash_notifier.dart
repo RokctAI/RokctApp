@@ -29,7 +29,7 @@ class SplashNotifier extends Notifier<SplashState> {
           },
           failure: (f, s) {
             debugPrint('==> error with settings fetched');
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           },
         );
       }
@@ -49,7 +49,7 @@ class SplashNotifier extends Notifier<SplashState> {
           },
           failure: (f, s) {
             debugPrint('==> error with settings fetched');
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           },
         );
       }
@@ -67,8 +67,8 @@ class SplashNotifier extends Notifier<SplashState> {
           LocalStorage.setTranslations(data.data);
         },
         failure: (f, s) {
-          debugPrint('==> error with fetching translations $failure');
-          // AppHelpers.showCheckTopSnackBar(context, failure);
+          debugPrint('==> error with fetching translations $f');
+          // AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {

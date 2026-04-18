@@ -14,7 +14,7 @@ class AddressRepository implements AddressRepositoryFacade {
       return ApiResult.success(data: AddressesResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get user addresses failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -29,7 +29,7 @@ class AddressRepository implements AddressRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> delete address failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -51,7 +51,7 @@ class AddressRepository implements AddressRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> create address failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

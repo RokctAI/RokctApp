@@ -84,7 +84,7 @@ class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
       },
       failure: (f, s) {
         state = state.copyWith(isLoading: false);
-        debugPrint('====> fetch units fail $failure');
+        debugPrint('====> fetch units fail $f');
       },
     );
   }

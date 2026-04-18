@@ -44,7 +44,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             context,
             AppHelpers.getTranslation(f),
           );
-          debugPrint('==> get order failure: $failure');
+          debugPrint('==> get order failure: $f');
         },
       );
     } else {
@@ -79,7 +79,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
   //           context,
   //           AppHelpers.getTranslation(f),
   //         );
-  //         debugPrint('==> get set current order failure: $failure');
+  //         debugPrint('==> get set current order failure: $f');
   //       },
   //     );
   //   } else {
@@ -104,7 +104,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             context,
             AppHelpers.getTranslation(f),
           );
-          debugPrint('==> get active orders failure: $failure');
+          debugPrint('==> get active orders failure: $f');
         },
       );
     } else {
@@ -132,7 +132,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             context,
             AppHelpers.getTranslation(f),
           );
-          debugPrint('==> get history orders failure: $failure');
+          debugPrint('==> get history orders failure: $f');
         },
       );
     } else {
@@ -265,7 +265,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             context,
             AppHelpers.getTranslation(f),
           );
-          debugPrint('==> get history orders failure: $failure');
+          debugPrint('==> get history orders failure: $f');
         },
       );
     } else {

@@ -27,7 +27,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
       },
       failure: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
-        debugPrint('==> error with fetching profile $failure');
+        debugPrint('==> error with fetching profile $f');
       },
     );
   }
@@ -40,7 +40,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
       },
       failure: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
-        debugPrint('==> error with fetching settings $failure');
+        debugPrint('==> error with fetching settings $f');
       },
     );
   }
@@ -61,7 +61,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
       },
       failure: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
-        debugPrint('==> error with fetching currencies $failure');
+        debugPrint('==> error with fetching currencies $f');
       },
     );
   }
@@ -94,7 +94,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           return;
         }
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
-        debugPrint('==> error fetching profile details $failure');
+        debugPrint('==> error fetching profile details $f');
       },
     );
   }
@@ -114,7 +114,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           LocalStorage.setTranslations(data.data);
         },
         failure: (f, s) {
-          debugPrint('==> error with fetching translations $failure');
+          debugPrint('==> error with fetching translations $f');
           AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(f),

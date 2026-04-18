@@ -22,7 +22,7 @@ class AuthRepository implements AuthInterface {
       return ApiResult.success(data: LoginResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> login failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -52,7 +52,7 @@ class AuthRepository implements AuthInterface {
       return ApiResult.success(data: LoginResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> login with google failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -68,7 +68,7 @@ class AuthRepository implements AuthInterface {
       return ApiResult.success(data: RegisterResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> send otp failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -87,7 +87,7 @@ class AuthRepository implements AuthInterface {
       );
     } catch (e) {
       debugPrint('==> verify email failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -110,7 +110,7 @@ class AuthRepository implements AuthInterface {
       );
     } catch (e) {
       debugPrint('==> verify email failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -137,7 +137,7 @@ class AuthRepository implements AuthInterface {
       return ApiResult.success(data: RegisterResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> forgot password failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -160,7 +160,7 @@ class AuthRepository implements AuthInterface {
       );
     } catch (e) {
       debugPrint('==> forgot password confirm failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -183,7 +183,7 @@ class AuthRepository implements AuthInterface {
       );
     } catch (e) {
       debugPrint('==> forgot password confirm failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -201,7 +201,7 @@ class AuthRepository implements AuthInterface {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -218,7 +218,7 @@ class AuthRepository implements AuthInterface {
       );
       return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -237,7 +237,7 @@ class AuthRepository implements AuthInterface {
       );
       return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -261,7 +261,7 @@ class AuthRepository implements AuthInterface {
       );
     } catch (e, s) {
       debugPrint('==> check phone failure: $e, $s');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

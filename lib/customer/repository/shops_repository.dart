@@ -27,7 +27,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> search shops failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -51,7 +51,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get nearby shops failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -89,7 +89,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get all shops failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -105,7 +105,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       );
       return ApiResult.success(data: BranchResponse.fromJson(response.data));
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -127,7 +127,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
         data: SingleShopResponse.fromJson(response.data),
       );
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -146,7 +146,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       final response = await client.post('/api/v1/rest/cart/open', data: data);
       return ApiResult.success(data: response.data["data"]["uuid"]);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -185,7 +185,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get work filter shops failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -210,7 +210,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get pickup shops failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -236,7 +236,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get shops by ids failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -287,7 +287,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> create shop failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -308,7 +308,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get all shops recommend failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -327,7 +327,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       return ApiResult.success(data: storyModelFromJson(response.data));
     } catch (e) {
       debugPrint('==> get all story failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -349,7 +349,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       return ApiResult.success(data: TagResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get all take failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -383,7 +383,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       return ApiResult.success(data: response.data["status"]);
     } catch (e) {
       debugPrint('==> get delivery zone failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: (e.runtimeType == DioException)
             ? ((e as DioException).response?.data["message"])
             : "",
@@ -407,7 +407,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       return ApiResult.success(data: PriceModel.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get all price failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

@@ -37,7 +37,7 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
       failure: (f, s) {
         state = state.copyWith(shop: LocalStorage.getShop());
         afterFetched?.call();
-        debugPrint('==> error with fetching my shop $failure');
+        debugPrint('==> error with fetching my shop $f');
       },
     );
   }
@@ -81,10 +81,10 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
           backUrl = data.imageData?.title;
         },
         failure: (f, s) {
-          debugPrint('==> upload shop back image fail: $failure');
+          debugPrint('==> upload shop back image fail: $f');
           AppHelpers.showCheckTopSnackBar(
             context,
-            text: failure,
+            text: f,
             type: SnackBarType.error,
           );
         },
@@ -101,10 +101,10 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
           logoUrl = data.imageData?.title;
         },
         failure: (f, s) {
-          debugPrint('==> upload shop logo image fail: $failure');
+          debugPrint('==> upload shop logo image fail: $f');
           AppHelpers.showCheckTopSnackBar(
             context,
-            text: failure,
+            text: f,
             type: SnackBarType.error,
           );
         },
@@ -148,11 +148,11 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         updateSuccess?.call();
       },
       failure: (f, s) {
-        debugPrint('===> update shop fail $failure');
+        debugPrint('===> update shop fail $f');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: failure,
+          text: f,
           type: SnackBarType.error,
         );
       },

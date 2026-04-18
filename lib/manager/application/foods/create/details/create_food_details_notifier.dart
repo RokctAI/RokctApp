@@ -65,8 +65,8 @@ class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
           imageUrl.addAll(data.data?.title ?? []);
         },
         failure: (f, s) {
-          debugPrint('==> upload product image fail: $failure');
-          AppHelpers.showCheckTopSnackBar(context, text: failure);
+          debugPrint('==> upload product image fail: $f');
+          AppHelpers.showCheckTopSnackBar(context, text: f);
         },
       );
     }

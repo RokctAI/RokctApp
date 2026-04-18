@@ -21,7 +21,7 @@ class HelpNotifier extends Notifier<HelpState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {

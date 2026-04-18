@@ -151,7 +151,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
               context.router.popUntilRoot();
               context.replaceRoute(const LoginRoute());
             }
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           },
         );
       } else {
@@ -189,7 +189,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
             if (refreshController == null) {
               state = state.copyWith(isReferralLoading: false);
             }
-            // AppHelpers.showCheckTopSnackBar(context, failure);
+            // AppHelpers.showCheckTopSnackBar(context, f);
           },
         );
       } else {
@@ -217,7 +217,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -259,7 +259,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
             if (refreshController == null) {
               state = state.copyWith(isLoadingHistory: false);
             }
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           },
         );
       } else {
@@ -293,7 +293,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
           failure: (f, s) {
             refreshController.loadNoData();
             --page;
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           },
         );
       } else {
@@ -337,9 +337,9 @@ class ProfileNotifier extends Notifier<ProfileState> {
         success: (data) {
           logoImage = data.imageData?.title;
         },
-        failure: (failure, s) {
-          debugPrint('===> upload logo image failure: $failure');
-          AppHelpers.showCheckTopSnackBar(context, failure);
+        failure: (f, s) {
+          debugPrint('===> upload logo image failure: $f');
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
       final backgroundResponse = await galleryRepository.uploadImage(
@@ -350,9 +350,9 @@ class ProfileNotifier extends Notifier<ProfileState> {
         success: (data) {
           backgroundImage = data.imageData?.title;
         },
-        failure: (failure, s) {
-          debugPrint('===> upload background image failure: $failure');
-          AppHelpers.showCheckTopSnackBar(context, failure);
+        failure: (f, s) {
+          debugPrint('===> upload background image failure: $f');
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
       final fileResponse = await galleryRepository.uploadMultiImage(
@@ -363,9 +363,9 @@ class ProfileNotifier extends Notifier<ProfileState> {
         success: (data) {
           files = data.data?.title;
         },
-        failure: (failure, s) {
-          debugPrint('===> upload document failure: $failure');
-          AppHelpers.showCheckTopSnackBar(context, failure);
+        failure: (f, s) {
+          debugPrint('===> upload document failure: $f');
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
       final response = await shopsRepository.createShop(
@@ -390,10 +390,10 @@ class ProfileNotifier extends Notifier<ProfileState> {
           fetchUser(context, refreshController: RefreshController());
           context.maybePop();
         },
-        failure: (failure, s) {
+        failure: (f, s) {
           state = state.copyWith(isSaveLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-          debugPrint('==> create shop failure: $failure');
+          AppHelpers.showCheckTopSnackBar(context, f);
+          debugPrint('==> create shop failure: $f');
         },
       );
     } else {

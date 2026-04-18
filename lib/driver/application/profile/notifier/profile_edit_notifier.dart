@@ -76,7 +76,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
             context,
             AppHelpers.getTranslation(f),
           );
-          debugPrint('==> update profile details failure: $failure');
+          debugPrint('==> update profile details failure: $f');
         },
       );
     } else {
@@ -161,7 +161,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
             context,
             AppHelpers.getTranslation(f),
           );
-          debugPrint('==> update profile details failure: $failure');
+          debugPrint('==> update profile details failure: $f');
         },
       );
     } else {
@@ -216,7 +216,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
             context,
             AppHelpers.getTranslation(f),
           );
-          debugPrint('==> update profile details failure: $failure');
+          debugPrint('==> update profile details failure: $f');
         },
       );
     } else {

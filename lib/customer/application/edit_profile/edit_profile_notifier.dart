@@ -144,7 +144,7 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          debugPrint('==> upload profile image failure: $failure');
+          debugPrint('==> upload profile image failure: $f');
           AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(status.toString()),

@@ -24,7 +24,7 @@ class AuthRepositoryImpl implements AuthRepository {
       return ApiResult.success(data: LoginResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> login failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -52,7 +52,7 @@ class AuthRepositoryImpl implements AuthRepository {
       return ApiResult.success(data: LoginResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> login with google failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -68,7 +68,7 @@ class AuthRepositoryImpl implements AuthRepository {
       return ApiResult.success(data: RegisterResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> send otp failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -92,7 +92,7 @@ class AuthRepositoryImpl implements AuthRepository {
       );
     } catch (e) {
       debugPrint('==> verify phone failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -113,7 +113,7 @@ class AuthRepositoryImpl implements AuthRepository {
       return ApiResult.success(data: RegisterResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> forgot password failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -136,7 +136,7 @@ class AuthRepositoryImpl implements AuthRepository {
       );
     } catch (e) {
       debugPrint('==> forgot password confirm failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -159,7 +159,7 @@ class AuthRepositoryImpl implements AuthRepository {
       );
     } catch (e) {
       debugPrint('==> forgot password confirm failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -178,7 +178,7 @@ class AuthRepositoryImpl implements AuthRepository {
       );
     } catch (e) {
       debugPrint('==> verify email failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -201,7 +201,7 @@ class AuthRepositoryImpl implements AuthRepository {
       var res = await client.post('/api/v1/auth/after-verify', data: data);
       return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -225,7 +225,7 @@ class AuthRepositoryImpl implements AuthRepository {
       var res = await client.post('/api/v1/auth/verify/phone', data: data);
       return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -243,7 +243,7 @@ class AuthRepositoryImpl implements AuthRepository {
       );
       return ApiResult.success(data: null);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -260,7 +260,7 @@ class AuthRepositoryImpl implements AuthRepository {
       return const ApiResult.success(data: true);
     } catch (e, s) {
       debugPrint('==> check phone failure: $e, $s');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

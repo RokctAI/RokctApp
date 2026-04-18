@@ -27,8 +27,8 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
           notifications: data.data ?? [],
         );
       },
-      failure: (failure, s) {
-        AppHelpers.showCheckTopSnackBar(context, text: failure);
+      failure: (f, s) {
+        AppHelpers.showCheckTopSnackBar(context, text: f);
       },
     );
   }
@@ -64,8 +64,8 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
             refreshController?.loadComplete();
           }
         },
-        failure: (failure, s) {
-          debugPrint('==> get notifications more failure: $failure');
+        failure: (f, s) {
+          debugPrint('==> get notifications more failure: $f');
         },
       );
     } else {
@@ -90,8 +90,8 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     final response = await _notificationRepository.readAll();
     response.when(
       success: (data) {},
-      failure: (failure, s) {
-        AppHelpers.showCheckTopSnackBar(context, text: failure);
+      failure: (f, s) {
+        AppHelpers.showCheckTopSnackBar(context, text: f);
       },
     );
   }
@@ -113,8 +113,8 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     final response = await _notificationRepository.readOne(id: id);
     response.when(
       success: (data) {},
-      failure: (failure, s) {
-        AppHelpers.showCheckTopSnackBar(context, text: failure);
+      failure: (f, s) {
+        AppHelpers.showCheckTopSnackBar(context, text: f);
       },
     );
   }
@@ -125,8 +125,8 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
       success: (data) {
         state = state.copyWith(countOfNotifications: data);
       },
-      failure: (failure, s) {
-        AppHelpers.showCheckTopSnackBar(context, text: failure);
+      failure: (f, s) {
+        AppHelpers.showCheckTopSnackBar(context, text: f);
       },
     );
   }

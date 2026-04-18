@@ -18,7 +18,7 @@ class UserRepositoryImpl implements UserRepository {
       return ApiResult.success(data: DeliveryResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('===> error driver settings $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -52,7 +52,7 @@ class UserRepositoryImpl implements UserRepository {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update profile details failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -67,7 +67,7 @@ class UserRepositoryImpl implements UserRepository {
 
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -89,7 +89,7 @@ class UserRepositoryImpl implements UserRepository {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update profile details failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -115,7 +115,7 @@ class UserRepositoryImpl implements UserRepository {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update profile image failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -140,7 +140,7 @@ class UserRepositoryImpl implements UserRepository {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update password failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -159,7 +159,7 @@ class UserRepositoryImpl implements UserRepository {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update firebase token failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -202,7 +202,7 @@ class UserRepositoryImpl implements UserRepository {
       return ApiResult.success(data: DeliveryResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update car details failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -249,7 +249,7 @@ class UserRepositoryImpl implements UserRepository {
       );
     } catch (e, s) {
       debugPrint('==> create car details failure: $e.$s');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -283,7 +283,7 @@ class UserRepositoryImpl implements UserRepository {
       );
     } catch (e) {
       debugPrint('===> get statistics error $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -322,7 +322,7 @@ class UserRepositoryImpl implements UserRepository {
       );
     } catch (e) {
       debugPrint('===> get statistics order error $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -337,7 +337,7 @@ class UserRepositoryImpl implements UserRepository {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update online token failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -352,7 +352,7 @@ class UserRepositoryImpl implements UserRepository {
       return ApiResult.success(data: RequestModelResponse.fromJson(res.data));
     } catch (e) {
       debugPrint('==> get request model failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -371,7 +371,7 @@ class UserRepositoryImpl implements UserRepository {
       );
     } catch (e) {
       debugPrint('===> error statistics settings $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -395,7 +395,7 @@ class UserRepositoryImpl implements UserRepository {
       return const ApiResult.success(data: null);
     } catch (e, s) {
       debugPrint('===> error statistics settings $e,$s');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -409,7 +409,7 @@ class UserRepositoryImpl implements UserRepository {
       await client.delete('/api/v1/dashboard/user/profile/delete');
       return const ApiResult.success(data: null);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -436,7 +436,7 @@ class UserRepositoryImpl implements UserRepository {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update delivery zones failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -461,7 +461,7 @@ class UserRepositoryImpl implements UserRepository {
       );
     } catch (e) {
       debugPrint('===> error get delivery zone $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

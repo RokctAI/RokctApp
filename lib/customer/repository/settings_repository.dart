@@ -19,7 +19,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get settings failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -40,7 +40,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get translations failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -66,7 +66,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
       return ApiResult.success(data: LanguagesResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get languages failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -81,7 +81,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
       return ApiResult.success(data: HelpModel.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get faq failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -98,7 +98,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get term failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -115,7 +115,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get policy failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -134,7 +134,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get languages failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -160,7 +160,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> get languages failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

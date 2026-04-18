@@ -45,7 +45,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
       },
       failure: (f, s) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.errorSnackBar(context, text: failure);
+        AppHelpers.errorSnackBar(context, text: f);
       },
     );
   }
@@ -82,7 +82,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
       },
       failure: (f, s) {
         state = state.copyWith(isComboLoading: false);
-        AppHelpers.errorSnackBar(context, text: failure);
+        AppHelpers.errorSnackBar(context, text: f);
       },
     );
   }

@@ -23,7 +23,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
         }
       },
       failure: (f, s) {
-        debugPrint('==> get profile details failure: $failure');
+        debugPrint('==> get profile details failure: $f');
       },
     );
   }
@@ -88,7 +88,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
           state = state.copyWith(isLoading: false);
         },
         failure: (f, s) {
-          debugPrint('===> login request failure $failure');
+          debugPrint('===> login request f $f');
           state = state.copyWith(isLoading: false, isLoginError: true);
         },
       );

@@ -49,8 +49,8 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
           initialSetSelectedIndexes(selectedIndexes, cartStocks: stocks);
         }
       },
-      failure: (failure, s) {
-        debugPrint('==> get product details failure: $failure');
+      failure: (f, s) {
+        debugPrint('==> get product details failure: $f');
       },
     );
   }

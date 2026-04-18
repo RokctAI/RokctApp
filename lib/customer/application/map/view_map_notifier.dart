@@ -136,7 +136,7 @@ class ViewMapNotifier extends Notifier<ViewMapState> {
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
           if (!(status == 400 || status == 404)) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );

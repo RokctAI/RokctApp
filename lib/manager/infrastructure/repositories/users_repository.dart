@@ -33,7 +33,7 @@ class UsersRepository implements UsersInterface {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('===> create user fail $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -67,7 +67,7 @@ class UsersRepository implements UsersInterface {
       );
     } catch (e) {
       debugPrint('===> get statistics error $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -106,7 +106,7 @@ class UsersRepository implements UsersInterface {
       );
     } catch (e) {
       debugPrint('===> get statistics order error $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -130,7 +130,7 @@ class UsersRepository implements UsersInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update delivery zones failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -155,7 +155,7 @@ class UsersRepository implements UsersInterface {
       );
     } catch (e) {
       debugPrint('===> error get delivery zone $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -188,7 +188,7 @@ class UsersRepository implements UsersInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update shop working days failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -264,7 +264,7 @@ class UsersRepository implements UsersInterface {
       );
     } catch (e) {
       debugPrint('==> update shop failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -294,7 +294,7 @@ class UsersRepository implements UsersInterface {
       );
     } catch (e) {
       debugPrint('==> search users failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -318,7 +318,7 @@ class UsersRepository implements UsersInterface {
       );
     } catch (e, s) {
       debugPrint('===> error fetching my shop $e, $s');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -333,7 +333,7 @@ class UsersRepository implements UsersInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('===> error switch shop online $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -347,7 +347,7 @@ class UsersRepository implements UsersInterface {
       final response = await client.get('/api/v1/dashboard/user/profile/show');
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -369,7 +369,7 @@ class UsersRepository implements UsersInterface {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update profile details failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -394,7 +394,7 @@ class UsersRepository implements UsersInterface {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update profile image failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -419,7 +419,7 @@ class UsersRepository implements UsersInterface {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update password failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -439,7 +439,7 @@ class UsersRepository implements UsersInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update firebase token failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -453,7 +453,7 @@ class UsersRepository implements UsersInterface {
       await client.delete('/api/v1/dashboard/user/profile/delete');
       return const ApiResult.success(data: null);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

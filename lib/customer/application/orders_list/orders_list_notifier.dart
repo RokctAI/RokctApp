@@ -191,7 +191,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             context,
             AppHelpers.getTranslation(status.toString()),
           );
-          debugPrint('==> get active orders failure: $failure');
+          debugPrint('==> get active orders failure: $f');
         },
       );
     } else {
@@ -219,7 +219,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             context,
             AppHelpers.getTranslation(status.toString()),
           );
-          debugPrint('==> get history orders failure: $failure');
+          debugPrint('==> get history orders failure: $f');
         },
       );
     } else {
@@ -247,7 +247,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             context,
             AppHelpers.getTranslation(status.toString()),
           );
-          debugPrint('==> get refund orders failure: $failure');
+          debugPrint('==> get refund orders failure: $f');
         },
       );
     } else {

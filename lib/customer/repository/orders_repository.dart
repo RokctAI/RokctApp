@@ -24,7 +24,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
       return ApiResult.success(data: OrderActiveModel.fromJson(response.data));
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -41,7 +41,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
       return const ApiResult.success(data: true);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -57,7 +57,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
       return const ApiResult.success(data: true);
     } catch (e) {
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -84,7 +84,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get completed orders failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -117,7 +117,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
     } catch (e, s) {
       debugPrint('==> get open orders failure: $e, $s');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -147,7 +147,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get canceled orders failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -170,7 +170,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       return ApiResult.success(data: OrderActiveModel.fromJson(response.data));
     } catch (e, s) {
       debugPrint('==> get single order failure: $e,$s');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -197,7 +197,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> add order review failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -242,7 +242,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       return ApiResult.success(data: res.data["data"]["data"]["url"]);
     } catch (e, s) {
       debugPrint('==> order process failure: $e, $s');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -273,7 +273,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       }
     } catch (e) {
       debugPrint('==> tip order failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -295,7 +295,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       return ApiResult.success(data: CouponResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> check coupon failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -317,7 +317,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       return ApiResult.success(data: CashbackResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> check cashback failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -351,7 +351,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> check cashback failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -368,7 +368,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> get cancel order failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -384,7 +384,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> get cancel order failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -409,7 +409,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       return ApiResult.success(data: RefundOrdersModel.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get canceled orders failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -430,7 +430,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get driver location failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

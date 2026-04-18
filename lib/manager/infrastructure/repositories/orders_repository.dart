@@ -27,7 +27,7 @@ class OrdersRepository implements OrdersInterface {
       );
     } catch (e) {
       debugPrint('==> create transaction failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -44,7 +44,7 @@ class OrdersRepository implements OrdersInterface {
       return ApiResult.success(data: PaymentsResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get payments error: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -118,7 +118,7 @@ class OrdersRepository implements OrdersInterface {
       );
     } catch (e) {
       debugPrint('==> create order failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -167,7 +167,7 @@ class OrdersRepository implements OrdersInterface {
       );
     } catch (e) {
       debugPrint('==> update order status failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -188,7 +188,7 @@ class OrdersRepository implements OrdersInterface {
       );
     } catch (e) {
       debugPrint('==> get order details failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -247,7 +247,7 @@ class OrdersRepository implements OrdersInterface {
       );
     } catch (e) {
       debugPrint('==> get order $status failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -281,7 +281,7 @@ class OrdersRepository implements OrdersInterface {
       );
     } catch (e) {
       debugPrint('==> get order failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -327,7 +327,7 @@ class OrdersRepository implements OrdersInterface {
       return ApiResult.success(data: OrderCalculate.fromJson(response.data));
     } catch (e, s) {
       debugPrint('==> get order failure: $e, $s');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

@@ -27,7 +27,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
         }
       },
       failure: (f, s) {
-        debugPrint('==> get profile details failure: $failure');
+        debugPrint('==> get profile details failure: $f');
       },
     );
   }
@@ -91,7 +91,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false, isSuccess: false);
-          AppHelpers.showCheckTopSnackBar(context, failure.toString());
+          AppHelpers.showCheckTopSnackBar(context, f.toString());
         },
       );
     } else {
@@ -206,7 +206,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
               AppHelpers.getTranslation(TrKeys.referral),
             );
           } else {
-            AppHelpers.showCheckTopSnackBar(context, failure.toString());
+            AppHelpers.showCheckTopSnackBar(context, f.toString());
           }
         },
       );

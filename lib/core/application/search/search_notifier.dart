@@ -69,7 +69,7 @@ class SearchNotifier extends Notifier<SearchState> {
         },
         failure: (f, s) {
           state = state.copyWith(isShopLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -93,7 +93,7 @@ class SearchNotifier extends Notifier<SearchState> {
         },
         failure: (f, s) {
           state = state.copyWith(isProductLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -122,7 +122,7 @@ class SearchNotifier extends Notifier<SearchState> {
         },
         failure: (f, s) {
           productIndex--;
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {

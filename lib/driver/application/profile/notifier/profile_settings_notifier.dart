@@ -39,7 +39,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          debugPrint('==> get profile details failure: $failure');
+          debugPrint('==> get profile details failure: $f');
         },
       );
     } else {
@@ -60,7 +60,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          debugPrint('==> get request response failure: $failure');
+          debugPrint('==> get request response failure: $f');
         },
       );
     } else {

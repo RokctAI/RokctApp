@@ -88,10 +88,10 @@ class ProductNotifier extends Notifier<ProductState> {
             initialSetSelectedIndexes(context, selectedIndexes);
           }
         },
-        failure: (failure, s) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-          debugPrint('==> get product details failure: $failure');
+          AppHelpers.showCheckTopSnackBar(context, f);
+          debugPrint('==> get product details failure: $f');
         },
       );
     } else {
@@ -186,7 +186,7 @@ class ProductNotifier extends Notifier<ProductState> {
           failure: (f, s) {
             if (status != 400) {
               state = state.copyWith(isAddLoading: false);
-              AppHelpers.showCheckTopSnackBar(context, failure);
+              AppHelpers.showCheckTopSnackBar(context, f);
             } else {
               onError?.call();
             }

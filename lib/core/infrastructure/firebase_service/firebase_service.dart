@@ -147,7 +147,7 @@ abstract class FirebaseService {
       final user = await FirebaseAuth.instance.signInWithCredential(credential);
       return ApiResult.success(data: user);
     } catch (e) {
-      return ApiResult.failure(error: e.toString());
+      return ApiResult.f(error: e.toString());
     }
   }
 

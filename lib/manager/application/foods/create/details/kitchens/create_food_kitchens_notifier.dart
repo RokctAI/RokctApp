@@ -34,10 +34,10 @@ class CreateFoodKitchensNotifier
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: failure,
+          text: f,
           type: SnackBarType.error,
         );
-        debugPrint('====> fetch kitchens fail $failure');
+        debugPrint('====> fetch kitchens fail $f');
       },
     );
   }

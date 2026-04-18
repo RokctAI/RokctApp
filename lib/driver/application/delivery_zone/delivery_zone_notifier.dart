@@ -83,9 +83,9 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
         }
         state = state.copyWith(isLoading: false);
       },
-      failure: (failure, stutus) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
-        debugPrint('==> error with fetching delivery zone $failure');
+        debugPrint('==> error with fetching delivery zone $f');
       },
     );
   }

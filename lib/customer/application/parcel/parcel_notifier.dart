@@ -41,7 +41,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
         failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );
@@ -103,7 +103,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false, error: true);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -230,7 +230,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
         failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );
@@ -391,7 +391,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
             state = state.copyWith(isLoading: false);
           }
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );

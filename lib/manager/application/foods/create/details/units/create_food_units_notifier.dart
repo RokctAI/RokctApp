@@ -31,10 +31,10 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: failure,
+          text: f,
           type: SnackBarType.error,
         );
-        debugPrint('====> fetch units fail $failure');
+        debugPrint('====> fetch units fail $f');
       },
     );
   }

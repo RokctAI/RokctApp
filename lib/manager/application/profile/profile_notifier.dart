@@ -90,7 +90,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
               context.router.popUntilRoot();
               context.replaceRoute(const ManagerAuthRoute());
             }
-            AppHelpers.showCheckTopSnackBar(context, text: failure);
+            AppHelpers.showCheckTopSnackBar(context, text: f);
           },
         );
       } else {
@@ -134,9 +134,9 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           success: (data) {
             logoImage = data.imageData?.title;
           },
-          failure: (failure, s) {
-            debugPrint('===> upload logo image failure: $failure');
-            AppHelpers.showCheckTopSnackBar(context, text: failure);
+          failure: (f, s) {
+            debugPrint('===> upload logo image failure: $f');
+            AppHelpers.showCheckTopSnackBar(context, text: f);
           },
         );
       }
@@ -149,9 +149,9 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           success: (data) {
             backgroundImage = data.imageData?.title;
           },
-          failure: (failure, s) {
-            debugPrint('===> upload background image failure: $failure');
-            AppHelpers.showCheckTopSnackBar(context, text: failure);
+          failure: (f, s) {
+            debugPrint('===> upload background image failure: $f');
+            AppHelpers.showCheckTopSnackBar(context, text: f);
           },
         );
       }
@@ -164,9 +164,9 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           success: (data) {
             files = data.data?.title;
           },
-          failure: (failure, s) {
-            debugPrint('===> upload document failure: $failure');
-            AppHelpers.showCheckTopSnackBar(context, text: failure);
+          failure: (f, s) {
+            debugPrint('===> upload document failure: $f');
+            AppHelpers.showCheckTopSnackBar(context, text: f);
           },
         );
       }
@@ -193,10 +193,10 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           fetchUser(context, refreshController: RefreshController());
           context.maybePop();
         },
-        failure: (failure, s) {
+        failure: (f, s) {
           state = state.copyWith(isSaveLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, text: failure);
-          debugPrint('==> create shop failure: $failure');
+          AppHelpers.showCheckTopSnackBar(context, text: f);
+          debugPrint('==> create shop failure: $f');
         },
       );
     } else {

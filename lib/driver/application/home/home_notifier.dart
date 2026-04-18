@@ -23,7 +23,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
           setDeliveryZone(data.data);
         },
         failure: (f, s) {
-          debugPrint('==> get delivery zone failure: $failure');
+          debugPrint('==> get delivery zone failure: $f');
         },
       );
     } else {
@@ -480,7 +480,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         OrdersRepositoryFacade.uploadImage(orderId, success.imageData?.title);
       },
       failure: (f, s) {
-        AppHelpers.showCheckTopSnackBar(context, failure);
+        AppHelpers.showCheckTopSnackBar(context, f);
       },
     );
   }

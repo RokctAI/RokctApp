@@ -163,7 +163,7 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
         }
       },
       failure: (f, s) {
-        debugPrint('====> fetch products fail $failure');
+        debugPrint('====> fetch products fail $f');
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);

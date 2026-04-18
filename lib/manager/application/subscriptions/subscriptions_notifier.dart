@@ -47,9 +47,9 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
       },
       failure: (f, s) {
         state = state.copyWith(isLoading: false);
-        debugPrint(" ==> fetch ads fail: $failure");
+        debugPrint(" ==> fetch ads fail: $f");
         if (context != null) {
-          AppHelpers.errorSnackBar(context, text: failure);
+          AppHelpers.errorSnackBar(context, text: f);
         }
       },
     );
@@ -93,9 +93,9 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
             },
           );
         },
-        failure: (failure, s) {
+        failure: (f, s) {
           state = state.copyWith(isPaymentLoading: false);
-          AppHelpers.errorSnackBar(context, text: failure);
+          AppHelpers.errorSnackBar(context, text: f);
         },
       );
     } else {
@@ -110,9 +110,9 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
               .pushRoute(ManagerWebViewRoute(url: data))
               .whenComplete(() => onSuccess());
         },
-        failure: (failure, s) {
+        failure: (f, s) {
           state = state.copyWith(isPaymentLoading: false);
-          AppHelpers.errorSnackBar(context, text: failure);
+          AppHelpers.errorSnackBar(context, text: f);
         },
       );
     }
@@ -130,8 +130,8 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
         }
         state = state.copyWith(payments: list, selectPayment: 0);
       },
-      failure: (failure, s) {
-        AppHelpers.errorSnackBar(context, text: failure);
+      failure: (f, s) {
+        AppHelpers.errorSnackBar(context, text: f);
       },
     );
   }

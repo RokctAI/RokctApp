@@ -89,8 +89,8 @@ class RegisterConfirmationNotifier
             isCodeError: true,
             isSuccess: false,
           );
-          AppHelpers.showCheckTopSnackBar(context, text: failure);
-          debugPrint('==> confirm code failure: $failure');
+          AppHelpers.showCheckTopSnackBar(context, text: f);
+          debugPrint('==> confirm code failure: $f');
         },
       );
     } else {
@@ -130,7 +130,7 @@ class RegisterConfirmationNotifier
             context,
             text: AppHelpers.getTranslation(status.toString()),
           );
-          debugPrint('==> confirm reset code failure: $failure');
+          debugPrint('==> confirm reset code failure: $f');
         },
       );
     } else {
@@ -180,7 +180,7 @@ class RegisterConfirmationNotifier
               context,
               text: AppHelpers.getTranslation(status.toString()),
             );
-            debugPrint('==> confirm reset code failure: $failure');
+            debugPrint('==> confirm reset code failure: $f');
           },
         );
       } catch (e) {
@@ -229,7 +229,7 @@ class RegisterConfirmationNotifier
             context,
             text: AppHelpers.getTranslation(status.toString()),
           );
-          debugPrint('==> send otp failure: $failure');
+          debugPrint('==> send otp failure: $f');
         },
       );
     } else {

@@ -29,7 +29,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         LocalStorage.setSelectedCurrency(currencies[defaultCurrencyIndex]);
       },
       failure: (f, s) {
-        debugPrint('==> error with fetching currencies $failure');
+        debugPrint('==> error with fetching currencies $f');
       },
     );
   }
@@ -56,7 +56,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         if (status == 401) {
           goLogin?.call();
         }
-        debugPrint('==> error with fetching profile $failure');
+        debugPrint('==> error with fetching profile $f');
       },
     );
   }
@@ -68,7 +68,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         LocalStorage.setSettingsList(data.data ?? []);
       },
       failure: (f, s) {
-        debugPrint('==> error with fetching settings $failure');
+        debugPrint('==> error with fetching settings $f');
       },
     );
   }
@@ -102,7 +102,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
             LocalStorage.setTranslations(data.data);
           },
           failure: (f, s) {
-            debugPrint('==> error with fetching translations $failure');
+            debugPrint('==> error with fetching translations $f');
           },
         );
         fetchGlobalSettings();
@@ -127,7 +127,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
             LocalStorage.setTranslations(data.data);
           },
           failure: (f, s) {
-            debugPrint('==> error with fetching translations $failure');
+            debugPrint('==> error with fetching translations $f');
           },
         );
         fetchGlobalSettings();

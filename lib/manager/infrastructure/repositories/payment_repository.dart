@@ -17,7 +17,7 @@ class PaymentRepository implements PaymentsFacade {
       return ApiResult.success(data: PaymentsResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get payments error: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -37,7 +37,7 @@ class PaymentRepository implements PaymentsFacade {
       );
     } catch (e) {
       debugPrint('==> get non exist payments error: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -65,7 +65,7 @@ class PaymentRepository implements PaymentsFacade {
       return ApiResult.success(data: res.data["data"]["data"]["url"] ?? "");
     } catch (e) {
       debugPrint('==> web view wallet failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -94,7 +94,7 @@ class PaymentRepository implements PaymentsFacade {
       );
     } catch (e) {
       debugPrint('==> payment maksekeskus  failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -121,7 +121,7 @@ class PaymentRepository implements PaymentsFacade {
       return ApiResult.success(data: res.data["data"]["data"]["url"] ?? "");
     } catch (e) {
       debugPrint('==> web view wallet failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -144,7 +144,7 @@ class PaymentRepository implements PaymentsFacade {
       return const ApiResult.success(data: true);
     } catch (e) {
       debugPrint('==> send wallet failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

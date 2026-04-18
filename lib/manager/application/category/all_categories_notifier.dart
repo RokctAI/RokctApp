@@ -69,11 +69,11 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         }
       },
       failure: (f, s) {
-        debugPrint('====> fetch categories fail $failure');
+        debugPrint('====> fetch categories fail $f');
         _page--;
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: failure,
+          text: f,
           type: SnackBarType.error,
         );
       },
@@ -119,11 +119,11 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         }
       },
       failure: (f, s) {
-        debugPrint('====> fetch categories fail $failure');
+        debugPrint('====> fetch categories fail $f');
         _page--;
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: failure,
+          text: f,
           type: SnackBarType.error,
         );
       },
@@ -180,8 +180,8 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         list.remove(category);
         state = state.copyWith(categories: list, activeIndex: 0);
       },
-      failure: (failure, s) {
-        debugPrint("delete categories fail: $failure");
+      failure: (f, s) {
+        debugPrint("delete categories fail: $f");
       },
     );
   }
@@ -228,7 +228,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       },
       failure: (f, s) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.errorSnackBar(context, text: failure);
+        AppHelpers.errorSnackBar(context, text: f);
       },
     );
   }

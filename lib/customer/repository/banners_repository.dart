@@ -23,7 +23,7 @@ class BannersRepository implements BannersRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get banner products failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -46,7 +46,7 @@ class BannersRepository implements BannersRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get banner products failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -67,7 +67,7 @@ class BannersRepository implements BannersRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get banner products failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -88,7 +88,7 @@ class BannersRepository implements BannersRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get banner products failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -103,7 +103,7 @@ class BannersRepository implements BannersRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> like banner failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

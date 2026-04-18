@@ -90,7 +90,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         },
         failure: (f, s) {
           state = state.copyWith(isCategoryLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -111,7 +111,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         },
         failure: (f, s) {
           state = state.copyWith(isBannerLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -132,7 +132,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         },
         failure: (f, s) {
           state = state.copyWith(isBannerLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -180,7 +180,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
           } else {
             controller.refreshFailed();
           }
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -209,7 +209,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         },
         failure: (f, s) {
           state = state.copyWith(isShopLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -260,7 +260,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
           } else {
             shopController.refreshFailed();
           }
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -284,7 +284,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         },
         failure: (f, s) {
           state = state.copyWith(isRestaurantLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -334,7 +334,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
           } else {
             shopController.refreshFailed();
           }
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -362,7 +362,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         },
         failure: (f, s) {
           state = state.copyWith(isRestaurantNewLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -411,7 +411,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
           } else {
             shopController.refreshFailed();
           }
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -435,7 +435,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         },
         failure: (f, s) {
           state = state.copyWith(isShopRecommendLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -484,7 +484,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
           } else {
             shopController.refreshFailed();
           }
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -505,7 +505,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         },
         failure: (f, s) {
           state = state.copyWith(isStoryLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -553,7 +553,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
           } else {
             shopController.refreshFailed();
           }
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -577,7 +577,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         },
         failure: (f, s) {
           state = state.copyWith(isBannerLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -596,7 +596,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
           state = state.copyWith(ads: data.data ?? []);
         },
         failure: (f, s) {
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -645,7 +645,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             controller.refreshFailed();
           }
 
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -698,7 +698,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         },
         failure: (f, s) {
           state = state.copyWith(isSelectCategoryLoading: 1);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {

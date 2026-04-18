@@ -55,7 +55,7 @@ class GalleryRepository implements GalleryRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> upload image failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -96,7 +96,7 @@ class GalleryRepository implements GalleryRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> upload multi image failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

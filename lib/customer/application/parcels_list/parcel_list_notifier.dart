@@ -139,7 +139,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             context,
             AppHelpers.getTranslation(status.toString()),
           );
-          debugPrint('==> get active orders failure: $failure');
+          debugPrint('==> get active orders failure: $f');
         },
       );
     } else {
@@ -167,7 +167,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             context,
             AppHelpers.getTranslation(status.toString()),
           );
-          debugPrint('==> get history orders failure: $failure');
+          debugPrint('==> get history orders failure: $f');
         },
       );
     } else {

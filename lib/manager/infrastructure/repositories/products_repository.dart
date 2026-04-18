@@ -22,7 +22,7 @@ class ProductsRepository implements ProductsInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> delete extra group failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -50,7 +50,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> update extra groups failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -72,7 +72,7 @@ class ProductsRepository implements ProductsInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> delete extra item failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -98,7 +98,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> update extra item failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -123,7 +123,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> create extra item failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -151,7 +151,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> create extra groups failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -177,7 +177,7 @@ class ProductsRepository implements ProductsInterface {
       return ApiResult.success(data: CalculateResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get calculations failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -198,7 +198,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> get extras failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -255,7 +255,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> update stocks fail: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -314,7 +314,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> update product fail: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -339,7 +339,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> update extras failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -366,7 +366,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> get extras groups failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -422,7 +422,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> create product fail: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -448,7 +448,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> get product details failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -504,7 +504,7 @@ class ProductsRepository implements ProductsInterface {
       );
     } catch (e) {
       debugPrint('==> get products failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

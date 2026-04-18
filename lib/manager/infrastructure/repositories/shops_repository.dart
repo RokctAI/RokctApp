@@ -48,7 +48,7 @@ class ShopsRepository implements ShopsInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> create shop failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

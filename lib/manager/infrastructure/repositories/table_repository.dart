@@ -27,7 +27,7 @@ class TableRepository extends TableInterface {
       );
     } catch (e) {
       debugPrint('==> get createNewSection failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -57,7 +57,7 @@ class TableRepository extends TableInterface {
       );
     } catch (e) {
       debugPrint('==> get getSection failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -77,7 +77,7 @@ class TableRepository extends TableInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> get createNewTable failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -115,7 +115,7 @@ class TableRepository extends TableInterface {
       return ApiResult.success(data: TableResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get getTableInfo failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -156,7 +156,7 @@ class TableRepository extends TableInterface {
       );
     } catch (e, s) {
       debugPrint('==> get getTableOrders failure: $e,$s');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -174,7 +174,7 @@ class TableRepository extends TableInterface {
       return ApiResult.success(data: TableResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get deleteSection failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -192,7 +192,7 @@ class TableRepository extends TableInterface {
       return ApiResult.success(data: TableResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get deleteTable failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -216,7 +216,7 @@ class TableRepository extends TableInterface {
       return ApiResult.success(data: disableDatesFromJson(response.data));
     } catch (e) {
       debugPrint('==> get disableDates failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -238,7 +238,7 @@ class TableRepository extends TableInterface {
       return ApiResult.success(data: BookingsResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get getBookings failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -268,7 +268,7 @@ class TableRepository extends TableInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> get setBookings failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -288,7 +288,7 @@ class TableRepository extends TableInterface {
       );
     } catch (e) {
       debugPrint('==> get getWorkingDay failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -306,7 +306,7 @@ class TableRepository extends TableInterface {
       return ApiResult.success(data: CloseDayResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> getCloseDay failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -324,7 +324,7 @@ class TableRepository extends TableInterface {
       return ApiResult.success(data: TableInfoResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> getTableInfo failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -345,7 +345,7 @@ class TableRepository extends TableInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> changeOrderStatus failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -375,7 +375,7 @@ class TableRepository extends TableInterface {
       );
     } catch (e) {
       debugPrint('==> get statistic failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

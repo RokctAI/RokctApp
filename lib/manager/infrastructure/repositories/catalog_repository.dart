@@ -23,7 +23,7 @@ class CatalogRepository implements CatalogInterface {
       );
     } catch (e) {
       debugPrint('==> get units paginate failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -44,7 +44,7 @@ class CatalogRepository implements CatalogInterface {
       );
     } catch (e) {
       debugPrint('==> get kitchens paginate failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -69,7 +69,7 @@ class CatalogRepository implements CatalogInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> create category failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -107,7 +107,7 @@ class CatalogRepository implements CatalogInterface {
       );
     } catch (e) {
       debugPrint('==> get categories paginate failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -139,7 +139,7 @@ class CatalogRepository implements CatalogInterface {
       );
     } catch (e) {
       debugPrint('==> get categories paginate failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -170,7 +170,7 @@ class CatalogRepository implements CatalogInterface {
       );
     } catch (e) {
       debugPrint('==> get categories paginate failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -189,7 +189,7 @@ class CatalogRepository implements CatalogInterface {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> delete categories failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

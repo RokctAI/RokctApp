@@ -108,7 +108,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
             context,
             AppHelpers.getTranslation(f),
           );
-          debugPrint('==> send otp failure: $failure');
+          debugPrint('==> send otp failure: $f');
         },
       );
     } else {

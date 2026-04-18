@@ -27,8 +27,8 @@ class NotificationNotifier extends Notifier<NotificationState> {
           notifications: data.data ?? [],
         );
       },
-      failure: (failure, s) {
-        AppHelpers.showCheckTopSnackBar(context, failure.toString());
+      failure: (f, s) {
+        AppHelpers.showCheckTopSnackBar(context, f.toString());
       },
     );
   }
@@ -64,8 +64,8 @@ class NotificationNotifier extends Notifier<NotificationState> {
             refreshController?.loadComplete();
           }
         },
-        failure: (failure, s) {
-          debugPrint('==> get notifications more failure: $failure');
+        failure: (f, s) {
+          debugPrint('==> get notifications more failure: $f');
         },
       );
     } else {
@@ -90,8 +90,8 @@ class NotificationNotifier extends Notifier<NotificationState> {
     final response = await notificationRepo.readAll();
     response.when(
       success: (data) {},
-      failure: (failure, s) {
-        AppHelpers.showCheckTopSnackBar(context, failure.toString());
+      failure: (f, s) {
+        AppHelpers.showCheckTopSnackBar(context, f.toString());
       },
     );
   }
@@ -113,8 +113,8 @@ class NotificationNotifier extends Notifier<NotificationState> {
     final response = await notificationRepo.readOne(id: id);
     response.when(
       success: (data) {},
-      failure: (failure, s) {
-        AppHelpers.showCheckTopSnackBar(context, failure.toString());
+      failure: (f, s) {
+        AppHelpers.showCheckTopSnackBar(context, f.toString());
       },
     );
   }
@@ -125,13 +125,13 @@ class NotificationNotifier extends Notifier<NotificationState> {
       success: (data) {
         state = state.copyWith(countOfNotifications: data);
       },
-      failure: (failure, s) {
+      failure: (f, s) {
         if (s == 401) {
           LocalStorage.logout();
           context.router.popUntilRoot();
           context.replaceRoute(const LoginRoute());
         }
-        AppHelpers.showCheckTopSnackBar(context, failure.toString());
+        AppHelpers.showCheckTopSnackBar(context, f.toString());
       },
     );
   }

@@ -58,7 +58,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
       );
     } catch (e) {
       debugPrint('==> upload image failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -75,7 +75,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
       );
     } catch (e) {
       debugPrint('==> get currencies failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -90,7 +90,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
       return ApiResult.success(data: SettingsResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get settings failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -111,7 +111,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
       );
     } catch (e) {
       debugPrint('==> get translations failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -137,7 +137,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
       return ApiResult.success(data: LanguagesResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get languages failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

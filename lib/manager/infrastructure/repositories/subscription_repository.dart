@@ -23,7 +23,7 @@ class SubscriptionsRepository implements SubscriptionsFacade {
       );
     } catch (e, s) {
       debugPrint('==> get subscription failure: $e,$s');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -45,7 +45,7 @@ class SubscriptionsRepository implements SubscriptionsFacade {
       return ApiResult.success(data: response.data['data']['id']);
     } catch (e) {
       debugPrint('==> purchase ads failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
@@ -71,7 +71,7 @@ class SubscriptionsRepository implements SubscriptionsFacade {
       );
     } catch (e) {
       debugPrint('==> create transaction failure: $e');
-      return ApiResult.failure(
+      return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );

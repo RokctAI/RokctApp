@@ -84,7 +84,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
         },
         failure: (f, s) {
           state = state.copyWith(isAddAndRemoveLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -156,7 +156,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
           },
           failure: (f, s) {
             state = state.copyWith(isAddAndRemoveLoading: false);
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           },
         );
       } else {
@@ -193,7 +193,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
             },
             failure: (f, s) {
               state = state.copyWith(isAddAndRemoveLoading: false);
-              AppHelpers.showCheckTopSnackBar(context, failure);
+              AppHelpers.showCheckTopSnackBar(context, f);
             },
           );
         } else {
