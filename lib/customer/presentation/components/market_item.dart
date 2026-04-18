@@ -13,7 +13,7 @@ import 'package:rokctapp/core/presentation/theme/color_set.dart';
 import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
 import 'package:rokctapp/customer/presentation/components/badge_item.dart';
 import 'package:rokctapp/customer/presentation/components/shop_avatar.dart';
-import 'package:rokctapp/customer/presentation/components/blur_wrap.dart';
+import 'package:rokctapp/core/presentation/components/helper/blur_wrap.dart';
 import 'package:rokctapp/customer/presentation/components/bonus_discount_popular.dart';
 import 'package:rokctapp/customer/presentation/components/custom_network_image.dart';
 

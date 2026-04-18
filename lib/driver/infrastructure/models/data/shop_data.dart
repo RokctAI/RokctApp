@@ -1,4 +1,4 @@
-import 'package:rokctapp/driver/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/local_location_data.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/shop_delivery.dart';
 

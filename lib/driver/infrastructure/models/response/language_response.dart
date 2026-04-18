@@ -1,4 +1,4 @@
-import 'package:rokctapp/driver/infrastructure/models/data/language.dart';
+import 'package:rokctapp/core/infrastructure/models/data/language.dart';
 
 class LanguagesResponse {
   LanguagesResponse({

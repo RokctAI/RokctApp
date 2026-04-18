@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:rokctapp/customer/models/data/career_data.dart';
 import 'package:rokctapp/customer/models/data/links.dart';
-import 'package:rokctapp/customer/models/data/meta.dart';
+import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
 
 CareerDataResponse careerDataResponseFromJson(String str) =>
     CareerDataResponse.fromJson(json.decode(str));

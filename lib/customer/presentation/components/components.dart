@@ -26,7 +26,7 @@ export 'package:rokctapp/customer/presentation/components/extras/text_extras.dar
 
 // Components
 export 'package:rokctapp/customer/presentation/components/badge_item.dart';
-export 'package:rokctapp/customer/presentation/components/blur_wrap.dart';
+export 'package:rokctapp/core/presentation/components/helper/blur_wrap.dart';
 export 'package:rokctapp/customer/presentation/components/bonus_discount_popular.dart';
 export 'package:rokctapp/customer/presentation/components/custom_checkbox.dart';
 export 'package:rokctapp/customer/presentation/components/custom_network_image.dart';

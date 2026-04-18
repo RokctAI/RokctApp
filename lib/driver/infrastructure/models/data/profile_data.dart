@@ -1,5 +1,5 @@
 import 'package:rokctapp/driver/infrastructure/models/data/address_data.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/currency_data.dart';
+import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/shop_data.dart';
 
 class ProfileData {

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/domain/interface/gallery.dart';
 import 'package:rokctapp/customer/models/models.dart';
-import 'package:rokctapp/customer/models/response/multi_gallery_upload_response.dart';
+import 'package:rokctapp/core/infrastructure/models/response/multi_gallery_upload_response.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 

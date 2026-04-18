@@ -1,6 +1,6 @@
-import 'package:rokctapp/manager/infrastructure/models/data/payment_data.dart';
+import 'package:rokctapp/core/infrastructure/models/data/payment_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/category_data.dart';

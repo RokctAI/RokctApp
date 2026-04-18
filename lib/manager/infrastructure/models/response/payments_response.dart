@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/payment_data.dart';
+import 'package:rokctapp/core/infrastructure/models/data/payment_data.dart';
 
 class PaymentsResponse {
   PaymentsResponse({List<PaymentData>? data}) {

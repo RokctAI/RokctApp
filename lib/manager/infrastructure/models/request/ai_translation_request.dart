@@ -1,5 +1,5 @@
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/language.dart';
+import 'package:rokctapp/core/infrastructure/models/data/language.dart';
 
 class AiTranslationRequest {
   final AiTranslationModel model;

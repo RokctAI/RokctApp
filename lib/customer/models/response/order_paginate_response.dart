@@ -1,6 +1,6 @@
 import 'package:rokctapp/customer/models/data/order_active_model.dart';
 
-import 'package:rokctapp/customer/models/data/meta.dart';
+import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
 
 class OrderPaginateResponse {
   OrderPaginateResponse({List<OrderActiveModel>? data, Meta? meta}) {

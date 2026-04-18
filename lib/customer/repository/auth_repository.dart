@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
-import 'package:rokctapp/customer/models/request/sign_up_request.dart';
+import 'package:rokctapp/core/infrastructure/models/request/sign_up_request.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/core/domain/interface/auth.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';

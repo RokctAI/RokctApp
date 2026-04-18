@@ -2,7 +2,7 @@ export 'package:rokctapp/driver/infrastructure/services/local_storage.dart';
 export 'package:rokctapp/driver/app_constants.dart';
 export 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 export 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
-export 'package:rokctapp/driver/infrastructure/services/typing_delay.dart';
+export 'package:rokctapp/core/infrastructure/utils/typing_delay.dart';
 export 'package:rokctapp/driver/infrastructure/services/marker_image_cropper.dart';
 export 'package:rokctapp/driver/infrastructure/services/app_connectivity.dart';
 export 'package:rokctapp/driver/infrastructure/services/app_validators.dart';

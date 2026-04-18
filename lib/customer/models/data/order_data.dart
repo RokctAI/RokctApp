@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/currency_data.dart';
+import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/data/product_data.dart';
 import 'package:rokctapp/customer/models/data/shop_data.dart';

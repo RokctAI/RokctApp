@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/meta.dart';
+import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/user.dart';
 
 class WalletHistoriesResponse {

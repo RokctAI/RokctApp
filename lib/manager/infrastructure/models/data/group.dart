@@ -1,5 +1,5 @@
 import 'package:rokctapp/manager/infrastructure/models/data/extras.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 
 class Group {
   Group({

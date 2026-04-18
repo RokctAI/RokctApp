@@ -1,5 +1,5 @@
 import 'package:rokctapp/customer/models/data/links.dart';
-import 'package:rokctapp/customer/models/data/meta.dart';
+import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
 
 class ParcelTypeResponse {

@@ -1,7 +1,7 @@
 import 'package:rokctapp/manager/infrastructure/services/extension.dart';
 
 import 'package:rokctapp/manager/infrastructure/models/data/kitchen_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/payment_data.dart';
+import 'package:rokctapp/core/infrastructure/models/data/payment_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/table_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';

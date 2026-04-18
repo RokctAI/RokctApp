@@ -1,4 +1,4 @@
-import 'package:rokctapp/driver/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 
 class ParcelTypeResponse {
   List<TypeModel>? data;

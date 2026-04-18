@@ -17,7 +17,7 @@ import 'package:rokctapp/driver/presentation/pages/pages.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/driver/main.dart';
+import 'package:rokctapp/main.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/presentation/theme/app_style.dart';

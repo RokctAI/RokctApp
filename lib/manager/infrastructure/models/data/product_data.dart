@@ -2,7 +2,7 @@ import 'package:rokctapp/manager/infrastructure/models/data/galleries.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/kitchen_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/unit_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/category_data.dart';
 
 class ProductData {
