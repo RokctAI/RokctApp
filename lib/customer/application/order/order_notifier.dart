@@ -18,7 +18,7 @@ import 'package:intl/intl.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/customer/application/order/order_state.dart';
 
-class OrderNotifier extends Notifier<OrderState> {
+class OrderNotifier extends AutoDisposeNotifier<OrderState> {
   @override
   OrderState build() => const OrderState();
   final ImageCropperForMarker imageCropper = ImageCropperForMarker();

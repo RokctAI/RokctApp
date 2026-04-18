@@ -12,7 +12,7 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 import 'package:rokctapp/customer/application/home/home_state.dart';
 
-class HomeNotifier extends Notifier<HomeState> {
+class HomeNotifier extends AutoDisposeNotifier<HomeState> {
   CategoriesRepositoryFacade get _categoriesRepository => categoriesRepository;
   ShopsRepositoryFacade get _shopsRepository => shopsRepository;
   BannersRepositoryFacade get _bannersRepository => bannersRepository;

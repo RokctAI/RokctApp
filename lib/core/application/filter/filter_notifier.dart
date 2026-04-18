@@ -11,7 +11,7 @@ import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/models/data/shop_data.dart';
 import 'package:rokctapp/core/application/filter/filter_state.dart';
 
-class FilterNotifier extends Notifier<FilterState> {
+class FilterNotifier extends AutoDisposeNotifier<FilterState> {
   @override
   FilterState build() => const FilterState();
 
