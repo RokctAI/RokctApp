@@ -202,4 +202,3 @@ class LoginNotifier extends StateNotifier<LoginState> {
   //   }
   // }
 }
-

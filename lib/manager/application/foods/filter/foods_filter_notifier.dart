@@ -287,4 +287,3 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     // }
   }
 }
-

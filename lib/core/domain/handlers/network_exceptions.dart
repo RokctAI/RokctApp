@@ -182,4 +182,3 @@ sealed class NetworkExceptions with _$NetworkExceptions {
     }
   }
 }
-

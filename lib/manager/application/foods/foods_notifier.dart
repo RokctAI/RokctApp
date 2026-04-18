@@ -235,4 +235,3 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
     );
   }
 }
-

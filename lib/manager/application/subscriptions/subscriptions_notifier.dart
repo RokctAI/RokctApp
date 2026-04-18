@@ -144,4 +144,3 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
     state = state.copyWith(selectSubscribe: index);
   }
 }
-

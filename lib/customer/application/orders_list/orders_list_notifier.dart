@@ -257,4 +257,3 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
     }
   }
 }
-

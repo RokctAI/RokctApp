@@ -170,4 +170,3 @@ class TableNotifier extends StateNotifier<TableState> {
     );
   }
 }
-

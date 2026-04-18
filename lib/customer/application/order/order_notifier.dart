@@ -894,4 +894,3 @@ class OrderNotifier extends Notifier<OrderState> {
     );
   }
 }
-

@@ -151,4 +151,3 @@ class SectionNotifier extends StateNotifier<SectionState> {
     );
   }
 }
-

@@ -45,4 +45,3 @@ class CreateNewGroupItemNotifier
     _title = value.trim();
   }
 }
-

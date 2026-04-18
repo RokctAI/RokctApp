@@ -90,4 +90,3 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
     );
   }
 }
-

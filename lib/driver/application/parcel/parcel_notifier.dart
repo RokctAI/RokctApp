@@ -325,4 +325,3 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     }
   }
 }
-

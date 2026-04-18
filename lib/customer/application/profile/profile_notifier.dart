@@ -474,4 +474,3 @@ class ProfileNotifier extends Notifier<ProfileState> {
     );
   }
 }
-

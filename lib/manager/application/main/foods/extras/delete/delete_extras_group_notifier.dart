@@ -38,4 +38,3 @@ class DeleteExtrasGroupNotifier extends StateNotifier<DeleteExtrasGroupState> {
     );
   }
 }
-

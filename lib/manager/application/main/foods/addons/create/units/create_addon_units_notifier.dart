@@ -42,4 +42,3 @@ class CreateAddonUnitsNotifier extends StateNotifier<CreateAddonUnitsState> {
     state.unitController?.text = state.units[index].translation?.title ?? '';
   }
 }
-

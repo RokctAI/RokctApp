@@ -38,4 +38,3 @@ class DeleteExtrasItemNotifier extends StateNotifier<DeleteExtrasItemState> {
     );
   }
 }
-

@@ -708,4 +708,3 @@ class HomeNotifier extends Notifier<HomeState> {
     }
   }
 }
-

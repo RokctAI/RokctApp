@@ -680,4 +680,3 @@ class ShopNotifier extends Notifier<ShopState> {
     );
   }
 }
-

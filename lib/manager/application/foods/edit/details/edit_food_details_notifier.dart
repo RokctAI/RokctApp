@@ -251,4 +251,3 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
     );
   }
 }
-

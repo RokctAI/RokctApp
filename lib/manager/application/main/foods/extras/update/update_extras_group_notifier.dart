@@ -44,4 +44,3 @@ class UpdateExtrasGroupNotifier extends StateNotifier<UpdateExtrasGroupState> {
     _title = value.trim();
   }
 }
-

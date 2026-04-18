@@ -99,4 +99,3 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
     state.kitchenController?.text = newUnit.translation?.title ?? '';
   }
 }
-
