@@ -37,7 +37,7 @@ class AddressSelector extends StatelessWidget {
           child: InkWell(
             onTap: () async {
               final data = await context.pushRoute(
-                ViewMapRoute(isShopLocation: true, onChanged: () {}),
+                ManagerViewMapRoute(isShopLocation: true, onChanged: () {}),
               );
               onAddressSelected(data);
             },

@@ -15,7 +15,7 @@ import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerShippingAddressRoute')
 class ShippingAddressPage extends StatefulWidget {
   const ShippingAddressPage({super.key});
 
@@ -149,7 +149,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                       readOnly: true,
                                       onTap: () async {
                                         await context.pushRoute(
-                                          const SelectUserRoute(),
+                                          const ManagerSelectUserRoute(),
                                         );
                                       },
                                       textController:
@@ -307,7 +307,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                     ButtonsBouncingEffect(
                                       child: GestureDetector(
                                         onTap: () => context.pushRoute(
-                                          const SelectAddressRoute(),
+                                          const ManagerSelectAddressRoute(),
                                         ),
                                         child: Container(
                                           width: 40.r,
@@ -396,7 +396,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                         ),
                                   readOnly: true,
                                   onTap: () => context.pushRoute(
-                                    const SelectSectionRoute(),
+                                    const ManagerSelectSectionRoute(),
                                   ),
                                   textController: state.textController,
                                   descriptionText: state.selectSection == null
@@ -420,7 +420,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                   onTap: () {
                                     if (state.selectSection == null) return;
                                     context.pushRoute(
-                                      SelectTableRoute(
+                                      ManagerSelectTableRoute(
                                         sectionId: state.selectSection?.id,
                                       ),
                                     );
@@ -469,10 +469,10 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                             );
                             return;
                           }
-                          context.pushRoute(const DeliveryTimeRoute());
+                          context.pushRoute(const ManagerDeliveryTimeRoute());
                           return;
                         }
-                        context.pushRoute(const DeliveryTimeRoute());
+                        context.pushRoute(const ManagerDeliveryTimeRoute());
                       },
                     ),
                   ),

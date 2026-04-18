@@ -12,7 +12,7 @@ import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerCreateOrderRoute')
 class CreateOrderPage extends ConsumerStatefulWidget {
   const CreateOrderPage({super.key});
 
@@ -344,7 +344,7 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                         ? ButtonsBouncingEffect(
                             child: GestureDetector(
                               onTap: () =>
-                                  context.pushRoute(const OrderRoute()),
+                                  context.pushRoute(const ManagerOrderRoute()),
                               child: Container(
                                 height: 48.r,
                                 decoration: BoxDecoration(

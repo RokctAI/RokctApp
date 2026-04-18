@@ -23,11 +23,11 @@ class _SplashPageState extends ConsumerState<SplashPage> {
           .read(splashProvider.notifier)
           .fetchTranslations(
             context: context,
-            noConnection: () => context.replaceRoute(const NoConnectionRoute()),
-            goMain: () => context.replaceRoute(const HomeRoute()),
-            goLogin: () => context.replaceRoute(const LoginRoute()),
+            noConnection: () => context.replaceRoute(const DriverNoConnectionRoute()),
+            goMain: () => context.replaceRoute(const DriverHomeRoute()),
+            goLogin: () => context.replaceRoute(const DriverLoginRoute()),
             setDriverData: ref.read(driverProvider.notifier).setDriverData,
-            onBecome: () => context.replaceRoute(const BecomeDriverRoute()),
+            onBecome: () => context.replaceRoute(const DriverBecomeDriverRoute()),
           );
     });
   }

@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverStoryRoute')
 class StoryPage extends ConsumerStatefulWidget {
   const StoryPage({super.key});
 

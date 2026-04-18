@@ -10,7 +10,7 @@ import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/s
 import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerSelectTableRoute')
 class SelectTablePage extends ConsumerStatefulWidget {
   final int? sectionId;
 

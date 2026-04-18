@@ -18,7 +18,7 @@ import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerViewMapRoute')
 class ViewMapPage extends ConsumerStatefulWidget {
   final bool isShopLocation;
   final int? shopId;
@@ -340,7 +340,7 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
           isBorder: true,
           textEditingController: controller,
           onTap: () async {
-            final placeId = await context.pushRoute(const MapSearchRoute());
+            final placeId = await context.pushRoute(const ManagerMapSearchRoute());
             if (placeId != null) {
               final res = await googlePlace.details.get(placeId.toString());
               try {

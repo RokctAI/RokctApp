@@ -16,7 +16,7 @@ import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/manager/presentation/pages/restaurant/subscriptions/widgets/payment_dialog.dart';
 import 'package:rokctapp/manager/presentation/pages/restaurant/subscriptions/widgets/subscriptions_item.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerSubscriptionsRoute')
 class SubscriptionsPage extends ConsumerStatefulWidget {
   const SubscriptionsPage({super.key});
 

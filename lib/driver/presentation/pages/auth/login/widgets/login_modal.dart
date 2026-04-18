@@ -316,10 +316,10 @@ class _LoginModalState extends ConsumerState<LoginModal>
                                     .fetchDriverDetails(context: context);
                                 Navigator.pop(context);
                                 context.router.popUntilRoot();
-                                context.replaceRoute(const HomeRoute());
+                                context.replaceRoute(const DriverHomeRoute());
                               },
                               youAreNotDeliveryman: () {
-                                context.replaceRoute(const BecomeDriverRoute());
+                                context.replaceRoute(const DriverBecomeDriverRoute());
                               },
                             );
                           },

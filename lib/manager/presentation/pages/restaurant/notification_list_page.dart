@@ -14,7 +14,7 @@ import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/order_details_modal.dart';
 import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerNotificationListRoute')
 class NotificationListPage extends ConsumerStatefulWidget {
   const NotificationListPage({super.key});
 

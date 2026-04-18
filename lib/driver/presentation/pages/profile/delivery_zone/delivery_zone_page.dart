@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverDeliveryZoneRoute')
 class DeliveryZonePage extends ConsumerStatefulWidget {
   const DeliveryZonePage({super.key});
 
