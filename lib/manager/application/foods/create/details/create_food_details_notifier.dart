@@ -7,7 +7,8 @@ import 'package:rokctapp/manager/application/foods/create/details/create_food_de
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class CreateFoodDetailsNotifier extends AutoDisposeNotifier<CreateFoodDetailsState> {
+class CreateFoodDetailsNotifier
+    extends AutoDisposeNotifier<CreateFoodDetailsState> {
   final ProductsInterface _productsRepository;
   final SettingsInterface _settingsRepository;
 

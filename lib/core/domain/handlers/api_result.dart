@@ -8,8 +8,7 @@ sealed class ApiResult<T> with _$ApiResult<T> {
 
   const factory ApiResult.success({required T data}) = Success<T>;
 
-  const factory ApiResult.f({required String error, int? statusCode}) =
-      f<T>;
+  const factory ApiResult.f({required String error, int? statusCode}) = f<T>;
 
   R when<R>({
     required R Function(T data) success,

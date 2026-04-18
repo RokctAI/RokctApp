@@ -362,9 +362,7 @@ class _OrderPageState extends ConsumerState<OrderPage>
           ),
           state.orderData != null
               ? OrderStatusScreen(
-                  status: AppHelpers.getOrderStatus(
-                    state.orderData?.s ?? "",
-                  ),
+                  status: AppHelpers.getOrderStatus(state.orderData?.s ?? ""),
                   colors: colors,
                 )
               : const SizedBox.shrink(),

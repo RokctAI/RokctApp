@@ -264,8 +264,7 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                           colors: colors,
                           name: state.cart?.userCarts?[index].name ?? "",
                           price: total,
-                          isChoosing:
-                              state.cart?.userCarts?[index].s ?? false,
+                          isChoosing: state.cart?.userCarts?[index].s ?? false,
                           onDelete: () {
                             ref
                                 .read(shopOrderProvider.notifier)

@@ -11,7 +11,8 @@ import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/profile/state/profile_settings_state.dart';
 
-class ProfileSettingsNotifier extends AutoDisposeNotifier<ProfileSettingsState> {
+class ProfileSettingsNotifier
+    extends AutoDisposeNotifier<ProfileSettingsState> {
   final UserRepository _userRepository;
 
   ProfileSettingsNotifier(this._userRepository)

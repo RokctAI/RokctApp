@@ -41,8 +41,7 @@ class TrKeys {
   static const String youStatus = 'your.s';
   static const String deletedUser = 'deleted.user';
   static const String keepMeLoggedIn = 'keep.me.logged.in';
-  static const String yourOrderStatusChanged =
-      'your.order.s.has.been.changed';
+  static const String yourOrderStatusChanged = 'your.order.s.has.been.changed';
   static const String emailOrPhone = 'email.or.phone';
   static const String trySearchingAgain = "try.searching.again";
   static const String typeSomething = 'type.something';

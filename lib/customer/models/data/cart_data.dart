@@ -29,9 +29,7 @@ class CartModel {
 
   factory CartModel.fromJson(Map<String, dynamic> json) => CartModel(
     timestamp: DateTime.tryParse(json["timestamp"])?.toLocal(),
-    status: json["s"].runtimeType == int
-        ? (json["s"] == 1)
-        : json["s"],
+    status: json["s"].runtimeType == int ? (json["s"] == 1) : json["s"],
     message: json["message"],
     data: Cart.fromJson(json["data"]),
   );
@@ -107,9 +105,7 @@ class Cart {
     id: json["id"],
     ownerId: json["owner_id"],
     shopId: json["shop_id"],
-    status: json["s"].runtimeType == int
-        ? (json["s"] == 1)
-        : json["s"],
+    status: json["s"].runtimeType == int ? (json["s"] == 1) : json["s"],
     group: json["group"].runtimeType == int
         ? (json["group"] == 1)
         : json["group"],
@@ -182,9 +178,7 @@ class UserCart {
       id: json["id"],
       cartId: json["cart_id"],
       userId: json["user_id"],
-      status: json["s"].runtimeType == int
-          ? (json["s"] == 1)
-          : json["s"],
+      status: json["s"].runtimeType == int ? (json["s"] == 1) : json["s"],
       name: json["name"],
       uuid: json["uuid"],
       cartDetails: json["cartDetails"] != null

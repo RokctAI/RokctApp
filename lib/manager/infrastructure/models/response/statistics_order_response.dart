@@ -11,12 +11,7 @@ String statisticsOrderModelToJson(StatisticsOrderResponse data) =>
     json.encode(data.toJson());
 
 class StatisticsOrderResponse {
-  StatisticsOrderResponse({
-    this.timestamp,
-    this.s,
-    this.message,
-    this.data,
-  });
+  StatisticsOrderResponse({this.timestamp, this.s, this.message, this.data});
 
   DateTime? timestamp;
   bool? s;

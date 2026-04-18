@@ -6,7 +6,8 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/main/foods/extras/delete/delete_extras_group_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
-class DeleteExtrasGroupNotifier extends AutoDisposeNotifier<DeleteExtrasGroupState> {
+class DeleteExtrasGroupNotifier
+    extends AutoDisposeNotifier<DeleteExtrasGroupState> {
   final ProductsInterface _productsRepository;
 
   DeleteExtrasGroupNotifier(this._productsRepository)

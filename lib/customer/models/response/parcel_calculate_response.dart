@@ -6,12 +6,7 @@ class ParcelCalculateResponse {
   String? message;
   Data? data;
 
-  ParcelCalculateResponse({
-    this.timestamp,
-    this.s,
-    this.message,
-    this.data,
-  });
+  ParcelCalculateResponse({this.timestamp, this.s, this.message, this.data});
 
   ParcelCalculateResponse copyWith({
     DateTime? timestamp,

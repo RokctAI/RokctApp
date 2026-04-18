@@ -185,11 +185,8 @@ class Data {
 
   Data({this.id, this.type, this.s});
 
-  Data copyWith({int? id, String? type, String? s}) => Data(
-    id: id ?? this.id,
-    type: type ?? this.type,
-    status: s ?? this.s,
-  );
+  Data copyWith({int? id, String? type, String? s}) =>
+      Data(id: id ?? this.id, type: type ?? this.type, status: s ?? this.s);
 
   factory Data.fromJson(Map<String, dynamic> json) =>
       Data(id: json["id"], type: json["type"], status: json["s"]);

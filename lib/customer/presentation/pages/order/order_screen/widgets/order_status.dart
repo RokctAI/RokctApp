@@ -37,9 +37,7 @@ class OrderStatusScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppHelpers.getTranslation(
-                  AppHelpers.getOrderStatusText(s),
-                ),
+                AppHelpers.getTranslation(AppHelpers.getOrderStatusText(s)),
                 style: AppStyle.interNormal(size: 13, color: colors.textBlack),
               ),
               _buildStatusRow(colors),
@@ -104,8 +102,7 @@ class OrderStatusScreen extends StatelessWidget {
 
   Widget _buildInProgressStatusRow() {
     final isOpen = s == OrderStatus.open;
-    final isReadyOrOnWay =
-        s == OrderStatus.ready || s == OrderStatus.onWay;
+    final isReadyOrOnWay = s == OrderStatus.ready || s == OrderStatus.onWay;
     final isAccepted = s == OrderStatus.accepted;
     final isOnWay = s == OrderStatus.onWay;
     final isReadyOrDelivered =

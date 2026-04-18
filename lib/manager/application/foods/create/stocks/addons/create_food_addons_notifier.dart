@@ -10,7 +10,8 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/foods/create/stocks/addons/create_food_addons_state.dart';
 
-class CreateFoodAddonsNotifier extends AutoDisposeNotifier<CreateFoodAddonsState> {
+class CreateFoodAddonsNotifier
+    extends AutoDisposeNotifier<CreateFoodAddonsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;
   bool _hasMore = true;

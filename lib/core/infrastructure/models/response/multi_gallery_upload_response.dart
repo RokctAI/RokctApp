@@ -4,12 +4,7 @@ class MultiGalleryUploadResponse {
   String? message;
   MultiGalleryUploadData? data;
 
-  MultiGalleryUploadResponse({
-    this.timestamp,
-    this.s,
-    this.message,
-    this.data,
-  });
+  MultiGalleryUploadResponse({this.timestamp, this.s, this.message, this.data});
 
   MultiGalleryUploadResponse copyWith({
     DateTime? timestamp,
