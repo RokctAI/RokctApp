@@ -60,9 +60,9 @@ class AppWidget extends ConsumerWidget {
                 idleIcon: SizedBox.shrink(),
                 idleText: "",
                 loadingIcon: SizedBox(
-                   width: 25,
-                   height: 25,
-                   child: CircularProgressIndicator(strokeWidth: 2),
+                  width: 25,
+                  height: 25,
+                  child: CircularProgressIndicator(strokeWidth: 2),
                 ),
               ),
               headerBuilder: () => const WaterDropMaterialHeader(
@@ -75,7 +75,11 @@ class AppWidget extends ConsumerWidget {
                   debugShowCheckedModeBanner: false,
                   routerDelegate: appRouter.delegate(),
                   routeInformationParser: appRouter.defaultRouteParser(),
-                  locale: Locale(state.activeLanguage?.locale ?? LocalStorage.getLanguage()?.locale ?? 'en'),
+                  locale: Locale(
+                    state.activeLanguage?.locale ??
+                        LocalStorage.getLanguage()?.locale ??
+                        'en',
+                  ),
                   themeMode: ThemeMode.light,
                   theme: ThemeData(
                     useMaterial3: false,
