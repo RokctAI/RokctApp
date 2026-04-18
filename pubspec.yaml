@@ -35,7 +35,7 @@ dependencies:
   # State Management & Routing (Pinned Versions)
   flutter_riverpod: ^2.5.1
   riverpod: ^2.5.1
-  auto_route: ^10.2.6
+  auto_route: ^10.2.4
   flutter_bloc: ^9.1.1
   freezed_annotation: ^2.4.4
 
@@ -137,7 +137,7 @@ dev_dependencies:
   freezed: ^2.5.2
   build_runner: ^2.4.9
   flutter_lints: ^3.0.2
-  auto_route_generator: ^10.2.6
+  auto_route_generator: ^10.2.4
   flutter_launcher_icons: ^0.14.3
 
 flutter_native_splash:
