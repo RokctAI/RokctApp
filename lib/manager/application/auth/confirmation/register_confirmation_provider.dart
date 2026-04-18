@@ -8,4 +8,9 @@ final registerConfirmationProvider =
     StateNotifierProvider.autoDispose<
       RegisterConfirmationNotifier,
       RegisterConfirmationState
-    >((ref) => RegisterConfirmationNotifier(managerAuthRepository, managerUsersRepository));
+    >(
+      (ref) => RegisterConfirmationNotifier(
+        managerAuthRepository,
+        managerUsersRepository,
+      ),
+    );

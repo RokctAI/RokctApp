@@ -87,7 +87,9 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       _page = 0;
     }
 
-    final response = await managerCatalogRepository.getCategoriesSub(page: ++_page);
+    final response = await managerCatalogRepository.getCategoriesSub(
+      page: ++_page,
+    );
     response.when(
       success: (data) {
         List<CategoryData> categories = List.from(state.categoriesSub);

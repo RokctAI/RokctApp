@@ -73,7 +73,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
         markers: {},
         isLoading: true,
       );
-      final response = await driverDrawRepository.getRouting(start: start, end: end);
+      final response = await driverDrawRepository.getRouting(
+        start: start,
+        end: end,
+      );
       response.when(
         success: (data) {
           List<LatLng> list = [];
@@ -183,7 +186,9 @@ class HomeNotifier extends StateNotifier<HomeState> {
     );
     if (await AppConnectivity.connectivity()) {
       if (setOrder) {
-        final response = await driverParcelRepository.setParcel(parcelId ?? "0");
+        final response = await driverParcelRepository.setParcel(
+          parcelId ?? "0",
+        );
         response.when(
           success: (data) {
             state = state.copyWith(isLoading: false, parcelDetail: parcel);
@@ -471,7 +476,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
     required int? orderId,
     required String path,
   }) async {
-    final res = await driverSettingsRepository.uploadImage(path, UploadType.products);
+    final res = await driverSettingsRepository.uploadImage(
+      path,
+      UploadType.products,
+    );
     res.when(
       success: (success) {
         driverOrdersRepository.uploadImage(orderId, success.imageData?.title);
