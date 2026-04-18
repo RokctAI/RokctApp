@@ -478,7 +478,7 @@ class OrderNotifier extends Notifier<OrderState> {
                   const MarkerId("Shop"): Marker(
                     markerId: const MarkerId("Shop"),
                     position: shopLatLng,
-                    icon: await getResizedMarker(Assets.imagesMarker, 90),
+                    icon: await getResizedMarker(Assets.imageMarker, 90),
                   ),
                   const MarkerId("User"): Marker(
                     markerId: const MarkerId("User"),
@@ -567,7 +567,7 @@ class OrderNotifier extends Notifier<OrderState> {
             const MarkerId("Shop"): Marker(
               markerId: const MarkerId("Shop"),
               position: shopLatLng,
-              icon: await getResizedMarker(Assets.imagesMarker, 90),
+              icon: await getResizedMarker(Assets.imageMarker, 90),
             ),
             const MarkerId("User"): Marker(
               markerId: const MarkerId("User"),
@@ -689,7 +689,7 @@ class OrderNotifier extends Notifier<OrderState> {
               const MarkerId("Shop"): Marker(
                 markerId: const MarkerId("Shop"),
                 position: shopLatLng,
-                icon: await getResizedMarker(Assets.imagesMarker, 90),
+                icon: await getResizedMarker(Assets.imageMarker, 90),
               ),
               const MarkerId("User"): Marker(
                 markerId: const MarkerId("User"),
@@ -717,7 +717,7 @@ class OrderNotifier extends Notifier<OrderState> {
                   data.shop?.location?.latitude ?? AppConstants.demoLatitude,
                   data.shop?.location?.longitude ?? AppConstants.demoLongitude,
                 ),
-                icon: await getResizedMarker(Assets.imagesMarker, 90),
+                icon: await getResizedMarker(Assets.imageMarker, 90),
               ),
               const MarkerId("User"): Marker(
                 markerId: const MarkerId("User"),

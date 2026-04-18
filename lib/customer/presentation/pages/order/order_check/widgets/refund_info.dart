@@ -45,7 +45,7 @@ class RefundInfoScreen extends StatelessWidget {
                           ? Stack(
                               children: [
                                 Center(
-                                  child: SvgPicture.asset(Assets.svgsOrderTime),
+                                  child: SvgPicture.asset(Assets.svgOrderTime),
                                 ),
                                 Center(
                                   child: Text(

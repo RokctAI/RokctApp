@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/application/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 
 class EditFoodKitchensModal extends ConsumerStatefulWidget {
   const EditFoodKitchensModal({super.key});

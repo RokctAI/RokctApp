@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/application/order/shipping/section/section_prov
 import 'package:rokctapp/manager/application/order/shipping/table/table_provider.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/details/widgets/payment_item.dart';
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/order/widgets/title_price.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';

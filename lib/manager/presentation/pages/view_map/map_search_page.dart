@@ -5,7 +5,7 @@ import 'package:google_place/google_place.dart';
 
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/presentation/component/text_fields/search_text_field.dart';
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 
 @RoutePage(name: 'ManagerMapSearchRoute')
 class MapSearchPage extends StatefulWidget {

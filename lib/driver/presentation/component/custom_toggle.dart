@@ -3,7 +3,7 @@ import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/driver/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 
 class CustomToggle extends StatefulWidget {
   final bool isOnline;

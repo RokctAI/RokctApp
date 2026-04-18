@@ -8,6 +8,6 @@ class BadgeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(Assets.svgsBadge, height: 16.r);
+    return SvgPicture.asset(Assets.svgBadge, height: 16.r);
   }
 }

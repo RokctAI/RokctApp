@@ -15,7 +15,7 @@ import 'package:rokctapp/driver/application/order/all_order/order_provider.dart'
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
-import 'package:rokctapp/driver/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 
 import 'package:rokctapp/driver/application/order/progress_ordedr/progress_order_provider.dart';
 

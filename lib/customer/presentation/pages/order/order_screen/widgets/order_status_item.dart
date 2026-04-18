@@ -34,7 +34,7 @@ class OrderStatusItem extends StatelessWidget {
           Positioned(top: 8.r, left: 10.r, child: icon),
           isProgress
               ? SvgPicture.asset(
-                  Assets.svgsOrderTime,
+                  Assets.svgOrderTime,
                   colorFilter: ColorFilter.mode(
                     colors.primary,
                     BlendMode.srcIn,

@@ -41,7 +41,7 @@ class ImageCropperForMarker {
       return file;
     } catch (e) {
       return await imageToFile(
-        imageName: Assets.imagesAppLogo
+        imageName: Assets.imageAppLogo
             .replaceFirst('assets/', '')
             .replaceFirst('.png', ''),
         ext: "png",
@@ -54,7 +54,7 @@ class ImageCropperForMarker {
     int height,
     int width,
   ) async {
-    ByteData bytes = await rootBundle.load(Assets.imagesAppLogo);
+    ByteData bytes = await rootBundle.load(Assets.imageAppLogo);
     final img.Image? baseSizeImage = img.decodeImage(
       data ?? bytes.buffer.asUint8List(),
     );

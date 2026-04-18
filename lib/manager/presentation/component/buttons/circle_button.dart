@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/animation_button_effect.dart';
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 
 class CircleButton extends StatelessWidget {
   final IconData icon;

@@ -104,7 +104,7 @@ class _OrderPickUpState extends ConsumerState<OrderPickUp> {
                 icon: Padding(
                   padding: EdgeInsets.only(left: 4.w),
                   child: SvgPicture.asset(
-                    Assets.svgsAdress,
+                    Assets.svgAdress,
                     width: 20.w,
                     height: 20.h,
                   ),

@@ -176,7 +176,7 @@ class MarketItem extends StatelessWidget {
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    SvgPicture.asset(Assets.svgsDelivery),
+                                    SvgPicture.asset(Assets.svgDelivery),
                                     10.horizontalSpace,
                                     Text(
                                       "${shop.deliveryTime?.from ?? 0} - ${shop.deliveryTime?.to ?? 0} ${shop.deliveryTime?.type ?? "min"}",
@@ -195,7 +195,7 @@ class MarketItem extends StatelessWidget {
                                       ),
                                     ),
                                     10.horizontalSpace,
-                                    SvgPicture.asset(Assets.svgsStar),
+                                    SvgPicture.asset(Assets.svgStar),
                                     10.horizontalSpace,
                                     Text(
                                       (shop.avgRate ?? ""),

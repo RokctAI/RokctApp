@@ -81,7 +81,7 @@ class OrderStatusScreen extends StatelessWidget {
           icon: parcel
               ? Icon(FlutterRemix.truck_fill, color: colors.primary)
               : SvgPicture.asset(
-                  Assets.svgsDelivery2,
+                  Assets.svgDelivery2,
                   width: 20.r,
                   colorFilter: ColorFilter.mode(
                     colors.buttonFontColor,
@@ -133,7 +133,7 @@ class OrderStatusScreen extends StatelessWidget {
           icon: parcel
               ? Icon(FlutterRemix.truck_fill, color: colors.textBlack)
               : SvgPicture.asset(
-                  isOnWay ? Assets.svgsDelivery2 : Assets.svgsDelivery,
+                  isOnWay ? Assets.svgDelivery2 : Assets.svgDelivery,
                   width: 20.w,
                   colorFilter: ColorFilter.mode(
                     colors.textBlack,

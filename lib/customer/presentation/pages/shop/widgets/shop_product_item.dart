@@ -96,7 +96,7 @@ class ShopProductItem extends StatelessWidget {
                                 padding: EdgeInsets.all(4.r),
                                 child: Row(
                                   children: [
-                                    SvgPicture.asset(Assets.svgsDiscount),
+                                    SvgPicture.asset(Assets.svgDiscount),
                                     8.horizontalSpace,
                                     Text(
                                       AppHelpers.numberFormat(

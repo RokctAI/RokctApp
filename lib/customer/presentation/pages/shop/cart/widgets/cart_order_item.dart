@@ -286,7 +286,7 @@ class CartOrderItem extends StatelessWidget {
                                                         MainAxisSize.min,
                                                     children: [
                                                       SvgPicture.asset(
-                                                        Assets.svgsDiscount,
+                                                        Assets.svgDiscount,
                                                       ),
                                                       4.horizontalSpace,
                                                       Text(

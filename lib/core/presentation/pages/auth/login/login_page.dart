@@ -73,7 +73,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             body: (colors) => Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(Assets.imagesSplash),
+                  image: AssetImage(Assets.imageSplash),
                   fit: BoxFit.fill,
                 ),
               ),

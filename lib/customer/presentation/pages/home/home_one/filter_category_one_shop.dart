@@ -84,7 +84,7 @@ class FilterCategoryOneShop extends StatelessWidget {
                           ),
                           child: Row(
                             children: [
-                              SvgPicture.asset(Assets.svgsFilter),
+                              SvgPicture.asset(Assets.svgFilter),
                               6.horizontalSpace,
                               Text(
                                 AppHelpers.getTranslation(TrKeys.filter),
@@ -143,7 +143,7 @@ class FilterCategoryOneShop extends StatelessWidget {
 Widget _resultEmpty(CustomColorSet colors) {
   return Column(
     children: [
-      Image.asset(Assets.imagesNotFound),
+      Image.asset(Assets.imageNotFound),
       Text(
         AppHelpers.getTranslation(TrKeys.nothingFound),
         style: AppStyle.interSemi(size: 18.sp, color: colors.textBlack),

@@ -106,7 +106,7 @@ class _OrderDeliveryState extends State<OrderDelivery> {
                   icon: Padding(
                     padding: EdgeInsets.only(left: 4.w),
                     child: SvgPicture.asset(
-                      Assets.svgsAdress,
+                      Assets.svgAdress,
                       colorFilter: ColorFilter.mode(
                         widget.colors.textBlack,
                         BlendMode.srcIn,

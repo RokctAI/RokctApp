@@ -313,7 +313,7 @@ class _ShopOrderState extends ConsumerState<CartOrderPage> {
                   ShopOrderDescription(
                     colors: colors,
                     price: state.cart?.receiptDiscount ?? 0,
-                    svgName: Assets.svgsDiscount,
+                    svgName: Assets.svgDiscount,
                     title: AppHelpers.getTranslation(TrKeys.discount),
                     description: AppHelpers.getTranslation(
                       TrKeys.discountProducts,

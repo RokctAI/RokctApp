@@ -63,7 +63,7 @@ class CustomNetworkImage extends StatelessWidget {
                     color: bgColor,
                     image: profile
                         ? const DecorationImage(
-                            image: AssetImage(Assets.imagesAppLogo),
+                            image: AssetImage(Assets.imageAppLogo),
                           )
                         : null,
                   ),

@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/presentation/pages/auth/languages_modal.dart';
 
 import 'package:rokctapp/manager/presentation/pages/auth/register/register_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/auth/login/login_modal.dart';
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
@@ -55,7 +55,7 @@ class _AuthPageState extends ConsumerState<AuthPage> {
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(Assets.imageSplash),
+              image: AssetImage(Assets.imageplash),
               fit: BoxFit.cover,
             ),
           ),

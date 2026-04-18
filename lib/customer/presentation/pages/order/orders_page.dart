@@ -221,7 +221,7 @@ Widget _resultEmpty(CustomColorSet colors) {
   return Column(
     children: [
       24.verticalSpace,
-      Image.asset(Assets.imagesNotFound),
+      Image.asset(Assets.imageNotFound),
       Text(
         AppHelpers.getTranslation(TrKeys.nothingFound),
         style: AppStyle.interSemi(size: 18.sp, color: colors.textBlack),

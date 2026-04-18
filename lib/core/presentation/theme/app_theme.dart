@@ -25,6 +25,12 @@ class AppTheme with ChangeNotifier {
     return AppTheme._(colorSet, themePreference, mode);
   }
 
+  static AppTheme light() {
+    final mode = CustomThemeMode.light;
+    final colorSet = CustomColorSet.createOrUpdate(mode);
+    return AppTheme._(colorSet, ThemePreference.mock, mode);
+  }
+
   Future<void> setLight() async {
     await _update(CustomThemeMode.light);
   }

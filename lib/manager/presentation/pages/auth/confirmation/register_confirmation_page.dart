@@ -8,7 +8,7 @@ import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/manager/presentation/pages/auth/register/register_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/auth/reset/set_password_page.dart';
 

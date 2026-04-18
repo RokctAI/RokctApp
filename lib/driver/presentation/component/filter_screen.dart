@@ -8,7 +8,7 @@ import 'package:rokctapp/driver/application/statistics/statistics_provider.dart'
 import 'package:rokctapp/driver/application/order/all_order/order_provider.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/driver/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/driver/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/driver/presentation/component/custom_date_picker.dart';
 import 'package:rokctapp/driver/presentation/component/tab_bars/custom_tab_bar.dart';

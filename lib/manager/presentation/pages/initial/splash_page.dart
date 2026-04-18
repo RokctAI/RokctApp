@@ -43,6 +43,6 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   @override
   Widget build(BuildContext context) {
     FlutterNativeSplash.remove();
-    return Image.asset(Assets.imageSplash, fit: BoxFit.cover);
+    return Image.asset(Assets.imageplash, fit: BoxFit.cover);
   }
 }

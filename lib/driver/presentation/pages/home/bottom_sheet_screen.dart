@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:rokctapp/driver/application/profile/provider/profile_settings_provider.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/driver/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/driver/presentation/pages/home/widgets/stores.dart';
 
 class BottomSheetScreen extends StatefulWidget {

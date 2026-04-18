@@ -111,7 +111,7 @@ class _ShopsBannerPageState extends ConsumerState<ShopsBannerPage> {
                               16.verticalSpace,
                               SizedBox(
                                 height: MediaQuery.sizeOf(context).height / 3,
-                                child: SvgPicture.asset(Assets.svgsEmpty),
+                                child: SvgPicture.asset(Assets.svgEmpty),
                               ),
                               16.verticalSpace,
                               Text(

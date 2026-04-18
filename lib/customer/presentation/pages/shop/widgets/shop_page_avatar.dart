@@ -105,7 +105,7 @@ class ShopPageAvatar extends StatelessWidget {
                 6.verticalSpace,
                 Row(
                   children: [
-                    SvgPicture.asset(Assets.svgsStar),
+                    SvgPicture.asset(Assets.svgStar),
                     4.horizontalSpace,
                     Text(
                       (shop.avgRate ?? ""),
@@ -141,7 +141,7 @@ class ShopPageAvatar extends StatelessWidget {
                       description:
                           "${shop.deliveryTime?.from ?? 0} - ${shop.deliveryTime?.to ?? 0} ${AppHelpers.getTranslation(shop.deliveryTime?.type ?? "min")}",
                       icon: SvgPicture.asset(
-                        Assets.svgsDelivery,
+                        Assets.svgDelivery,
                         colorFilter: ColorFilter.mode(
                           colors.textBlack,
                           BlendMode.srcIn,
@@ -153,7 +153,7 @@ class ShopPageAvatar extends StatelessWidget {
                       description:
                           "${AppHelpers.getTranslation(TrKeys.from)} ${AppHelpers.numberFormat(shop.minPrice)}",
                       icon: SvgPicture.asset(
-                        Assets.svgsTicket,
+                        Assets.svgTicket,
                         colorFilter: ColorFilter.mode(
                           colors.textBlack,
                           BlendMode.srcIn,

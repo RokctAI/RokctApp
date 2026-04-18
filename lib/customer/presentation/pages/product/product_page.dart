@@ -411,7 +411,7 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
                                           child: Row(
                                             children: [
                                               SvgPicture.asset(
-                                                Assets.svgsDiscount,
+                                                Assets.svgDiscount,
                                               ),
                                               8.horizontalSpace,
                                               Text(

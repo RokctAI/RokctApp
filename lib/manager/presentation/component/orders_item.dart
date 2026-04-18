@@ -3,7 +3,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/infrastructure/services/enums.dart';
 import 'package:rokctapp/manager/presentation/component/driver_avatar.dart';
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/manager/infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
 

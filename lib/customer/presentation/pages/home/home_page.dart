@@ -466,7 +466,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                 ),
                           ),
                         )
-                      : SvgPicture.asset(Assets.svgsEmpty, height: 100.h),
+                      : SvgPicture.asset(Assets.svgEmpty, height: 100.h),
                 ],
               ),
       ],

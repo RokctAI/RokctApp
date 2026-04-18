@@ -22,7 +22,7 @@ class DeliveryBanner extends StatelessWidget {
         children: [
           Padding(
             padding: REdgeInsets.only(left: 0, right: 0, bottom: 160),
-            child: Image.asset(Assets.imagesDeliveryBanner),
+            child: Image.asset(Assets.imageDeliveryBanner),
           ),
           Positioned(
             top: 16.r,

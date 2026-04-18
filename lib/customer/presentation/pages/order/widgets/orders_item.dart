@@ -68,7 +68,7 @@ class OrdersItem extends StatelessWidget {
                                       children: [
                                         Center(
                                           child: SvgPicture.asset(
-                                            Assets.svgsOrderTime,
+                                            Assets.svgOrderTime,
                                           ),
                                         ),
                                         Center(
@@ -95,7 +95,7 @@ class OrdersItem extends StatelessWidget {
                                       children: [
                                         Center(
                                           child: SvgPicture.asset(
-                                            Assets.svgsOrderTime,
+                                            Assets.svgOrderTime,
                                             colorFilter: ColorFilter.mode(
                                               colors.buttonFontColor,
                                               BlendMode.srcIn,

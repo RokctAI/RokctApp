@@ -58,7 +58,7 @@ class DoorThree extends StatelessWidget {
                     right: 16.r,
                     bottom: 30.r,
                     child: Image.asset(
-                      Assets.imagesDoorToDoor3,
+                      Assets.imageDoorToDoor3,
                       height: 105.r,
                       width: 121.r,
                     ),

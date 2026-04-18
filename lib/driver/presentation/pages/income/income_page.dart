@@ -8,7 +8,7 @@ import 'package:rokctapp/driver/application/statistics/statistics_state.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/driver/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/driver/presentation/pages/income/app_bar_screen.dart';
 import 'package:rokctapp/driver/presentation/pages/income/statistics_screen.dart';
 import 'package:rokctapp/driver/presentation/pages/income/widgets/income_item.dart';

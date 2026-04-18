@@ -48,7 +48,7 @@ class GroupItem extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   padding: EdgeInsets.all(6.r),
-                  child: SvgPicture.asset(Assets.svgsAvatar),
+                  child: SvgPicture.asset(Assets.svgAvatar),
                 ),
                 10.horizontalSpace,
                 Expanded(

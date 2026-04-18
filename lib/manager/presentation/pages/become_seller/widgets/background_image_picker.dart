@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:rokctapp/manager/application/profile/profile_notifier.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 
 class BackgroundImagePicker extends StatelessWidget {
   final String bgImage;

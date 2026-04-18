@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/edit/stocks/edit_food_stocks_body.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/edit/details/edit_food_details_body.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';

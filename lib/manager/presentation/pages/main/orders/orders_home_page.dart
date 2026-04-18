@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/application/main/orders/cooking/cooking_orders_provider.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/cooking_orders_body.dart';
 
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/new_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/ready_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/accepted_orders_body.dart';

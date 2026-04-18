@@ -4,7 +4,7 @@ import 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/manager/infrastructure/services/date_service.dart';
 import 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
 import 'package:rokctapp/manager/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 
 class HaveSubscription extends StatelessWidget {
   const HaveSubscription({super.key});

@@ -118,7 +118,7 @@ class MarketTwoItem extends StatelessWidget {
                               child: Row(
                                 children: [
                                   SvgPicture.asset(
-                                    Assets.svgsDeliveryTime,
+                                    Assets.svgDeliveryTime,
                                     height: 24.r,
                                   ),
                                   4.horizontalSpace,
@@ -168,7 +168,7 @@ class MarketTwoItem extends StatelessWidget {
                                   ),
                                 ),
                                 10.horizontalSpace,
-                                SvgPicture.asset(Assets.svgsStar, height: 14.r),
+                                SvgPicture.asset(Assets.svgStar, height: 14.r),
                                 4.horizontalSpace,
                                 Text(
                                   (shop.avgRate ?? ""),

@@ -57,7 +57,7 @@ class AppBarThree extends StatelessWidget {
                     color: AppStyle.white,
                   ),
                   padding: EdgeInsets.all(12.r),
-                  child: SvgPicture.asset(Assets.svgsAdress),
+                  child: SvgPicture.asset(Assets.svgAdress),
                 ),
                 10.horizontalSpace,
                 Column(

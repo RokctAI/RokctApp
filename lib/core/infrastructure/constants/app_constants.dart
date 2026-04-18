@@ -83,10 +83,10 @@ abstract class AppConstants {
   ];
 
   static const List infoImage = [
-    Assets.imagesSave,
-    Assets.imagesDelivery,
-    Assets.imagesFast,
-    Assets.imagesSet,
+    Assets.imageSave,
+    Assets.imageDelivery,
+    Assets.imageFast,
+    Assets.imageSet,
   ];
 
   static const List infoTitle = [

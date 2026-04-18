@@ -34,7 +34,7 @@ class DoorToDoor extends StatelessWidget {
             style: AppStyle.interRegular(size: 16),
           ),
           20.verticalSpace,
-          Image.asset(Assets.imagesDoor),
+          Image.asset(Assets.imageDoor),
           10.verticalSpace,
           CustomButton(
             title: AppHelpers.getTranslation(TrKeys.learnMore),

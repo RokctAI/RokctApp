@@ -16,7 +16,7 @@ import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/logo_a
 import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/processing_view.dart';
 import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/shop_form_fields.dart';
 import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/logout_modal.dart';
-import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/app_style.dart';
 
 @RoutePage(name: 'ManagerCreateShopRoute')
 class CreateShopPage extends ConsumerStatefulWidget {
