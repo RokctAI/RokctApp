@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_place/google_place.dart';
 
-import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/presentation/component/text_fields/search_text_field.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 
 @RoutePage()
 class MapSearchPage extends StatefulWidget {

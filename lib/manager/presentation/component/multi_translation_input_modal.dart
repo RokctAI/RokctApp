@@ -3,7 +3,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:collection/collection.dart';
-import 'package:rokctapp/application/ai_translation/ai_translation_provider.dart';
+import 'package:rokctapp/manager/application/ai_translation/ai_translation_provider.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/styles/app_style.dart';
@@ -222,3 +222,6 @@ class _MultiTranslationInputModalState
     );
   }
 }
+
+
+

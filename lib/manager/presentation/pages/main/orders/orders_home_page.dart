@@ -3,17 +3,17 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/main/orders/cooking/cooking_orders_provider.dart';
-import 'package:rokctapp/presentation/pages/main/orders/widgets/cooking_orders_body.dart';
+import 'package:rokctapp/manager/application/main/orders/cooking/cooking_orders_provider.dart';
+import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/cooking_orders_body.dart';
 
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/new_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/ready_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/accepted_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/on_a_way_orders_body.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/application/providers.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/application/providers.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class OrdersHomePage extends ConsumerStatefulWidget {
   const OrdersHomePage({super.key});
@@ -225,3 +225,6 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
     );
   }
 }
+
+
+

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 import 'package:rokctapp/manager/infrastructure/services/storage_keys.dart';
 

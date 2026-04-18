@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/extension.dart';
+import 'package:rokctapp/manager/infrastructure/services/extension.dart';
 
 import 'package:rokctapp/manager/infrastructure/models/data/group.dart';
 
@@ -109,3 +109,4 @@ class StockPivot {
     return map;
   }
 }
+

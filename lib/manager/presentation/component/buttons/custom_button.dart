@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/presentation/component/buttons/buttons_bouncing_effect.dart';
+import 'package:rokctapp/manager/presentation/component/buttons/buttons_bouncing_effect.dart';
 
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 
 class CustomButton extends StatelessWidget {
   final Icon? icon;

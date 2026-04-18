@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/maksekeskus_data.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/maksekeskus_data.dart';
 
 class MaksekeskusResponse {
   DateTime? timestamp;

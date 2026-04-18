@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/styles/style.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class FoodPriceWidget extends StatelessWidget {
   final ProductData product;

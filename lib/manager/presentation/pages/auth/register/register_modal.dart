@@ -4,11 +4,11 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:rokctapp/presentation/component/components.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/application/providers.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/component/components.dart';
+import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/application/providers.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/manager/presentation/pages/auth/confirmation/register_confirmation_page.dart';
 
 class RegisterModal extends ConsumerStatefulWidget {

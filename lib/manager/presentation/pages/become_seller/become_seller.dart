@@ -4,19 +4,19 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/phone_number.dart';
-import 'package:rokctapp/application/profile/profile_notifier.dart';
-import 'package:rokctapp/application/profile/profile_provider.dart';
-import 'package:rokctapp/application/profile/profile_state.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/presentation/component/components.dart';
-import 'package:rokctapp/presentation/pages/become_seller/widgets/address_selector.dart';
-import 'package:rokctapp/presentation/pages/become_seller/widgets/background_image_picker.dart';
-import 'package:rokctapp/presentation/pages/become_seller/widgets/document_upload_section.dart';
-import 'package:rokctapp/presentation/pages/become_seller/widgets/logo_and_name_section.dart';
-import 'package:rokctapp/presentation/pages/become_seller/widgets/processing_view.dart';
-import 'package:rokctapp/presentation/pages/become_seller/widgets/shop_form_fields.dart';
-import 'package:rokctapp/presentation/pages/restaurant/widgets/logout_modal.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/application/profile/profile_notifier.dart';
+import 'package:rokctapp/manager/application/profile/profile_provider.dart';
+import 'package:rokctapp/manager/application/profile/profile_state.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/presentation/component/components.dart';
+import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/address_selector.dart';
+import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/background_image_picker.dart';
+import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/document_upload_section.dart';
+import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/logo_and_name_section.dart';
+import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/processing_view.dart';
+import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/shop_form_fields.dart';
+import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/logout_modal.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 
 @RoutePage()
 class CreateShopPage extends ConsumerStatefulWidget {

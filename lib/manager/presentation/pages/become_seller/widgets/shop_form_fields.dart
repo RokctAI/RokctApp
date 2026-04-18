@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/presentation/component/components.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/presentation/component/components.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 
 class ShopFormFields extends StatelessWidget {
   final TextEditingController descController;

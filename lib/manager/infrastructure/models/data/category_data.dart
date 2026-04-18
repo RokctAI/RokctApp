@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/shop_data.dart';
 
 import 'package:rokctapp/manager/infrastructure/models/data/translation.dart';
 

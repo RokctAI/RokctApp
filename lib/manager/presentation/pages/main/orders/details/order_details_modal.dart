@@ -5,13 +5,13 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/main/orders/cooking/cooking_orders_provider.dart';
+import 'package:rokctapp/manager/application/main/orders/cooking/cooking_orders_provider.dart';
 
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/application/providers.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/application/providers.dart';
+import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/image_dialog.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/price_information.dart';
 
@@ -666,3 +666,6 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
     );
   }
 }
+
+
+

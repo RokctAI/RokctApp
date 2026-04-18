@@ -5,12 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:rokctapp/application/providers.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/presentation/pages/auth/login/widgets/demo_credentials.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/application/providers.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/presentation/pages/auth/login/widgets/demo_credentials.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/presentation/component/components.dart';
+import 'package:rokctapp/manager/presentation/component/components.dart';
 
 class LoginModal extends StatefulWidget {
   const LoginModal({super.key});

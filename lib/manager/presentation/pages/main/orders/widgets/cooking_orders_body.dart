@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/main/orders/cooking/cooking_orders_provider.dart';
+import 'package:rokctapp/manager/application/main/orders/cooking/cooking_orders_provider.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/no_orders.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/order_details_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class CookingOrdersBody extends StatefulWidget {
   final ScrollController? scrollController;
@@ -84,3 +84,6 @@ class _AcceptedOrdersBodyState extends State<CookingOrdersBody> {
     );
   }
 }
+
+
+

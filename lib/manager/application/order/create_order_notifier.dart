@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/order/create_order_state.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/manager/domain/interface/interfaces.dart';
+import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
   final OrdersInterface _ordersRepository;

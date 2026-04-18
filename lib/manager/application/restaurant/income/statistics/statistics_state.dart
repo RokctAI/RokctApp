@@ -1,6 +1,6 @@
 // import 'package:charts_flutter_new/flutter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'statistics_state.freezed.dart';
 
 @freezed

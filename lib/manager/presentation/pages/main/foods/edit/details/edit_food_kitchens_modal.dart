@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/presentation/component/components.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/application/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/presentation/component/components.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 
 class EditFoodKitchensModal extends ConsumerStatefulWidget {
   const EditFoodKitchensModal({super.key});
@@ -75,3 +75,6 @@ class _EditFoodKitchensModalState extends ConsumerState<EditFoodKitchensModal> {
     );
   }
 }
+
+
+

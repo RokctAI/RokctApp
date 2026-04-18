@@ -1,6 +1,6 @@
-import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/domain/handlers/handlers.dart';
+import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 abstract class SettingsInterface {
   Future<ApiResult<GalleryUploadResponse>> uploadImage(

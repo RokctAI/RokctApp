@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/restaurant/restaurant_state.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/domain/interface/interfaces.dart';
+import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class RestaurantNotifier extends StateNotifier<RestaurantState> {
   final UsersInterface _usersRepository;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 
 class CustomDatePicker extends StatefulWidget {
   final List<DateTime?> range;

@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class LoginModel {
   final String? email;

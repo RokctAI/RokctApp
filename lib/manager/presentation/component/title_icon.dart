@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class TitleAndIcon extends StatelessWidget {
   final String title;

@@ -4,13 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/manager/presentation/component/title_icon.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/manager/presentation/component/helper/modal_drag.dart';
 import 'package:rokctapp/manager/presentation/component/helper/modal_wrap.dart';
 import 'package:rokctapp/manager/presentation/component/custom_date_picker.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/manager/presentation/component/tab_bars/custom_tab_bar.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class FilterScreen extends StatefulWidget {
   final bool isTabBar;

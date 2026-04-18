@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
+import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
+import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/domain/handlers/handlers.dart';
+import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
 class ProductsRepository implements ProductsInterface {
   @override

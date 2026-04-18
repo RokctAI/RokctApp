@@ -11,16 +11,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:proste_indexed_stack/proste_indexed_stack.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/foods/foods_page.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/orders_home_page.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/presentation/pages/main/widgets/bottom_navigator_item.dart';
 import 'package:rokctapp/manager/presentation/pages/restaurant/restaurant_page.dart';
-import 'package:rokctapp/application/providers.dart';
+import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/create/create_product_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/addons/create/create_addon_modal.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/extras/create/create_extras_group_modal.dart';
 
 @RoutePage()

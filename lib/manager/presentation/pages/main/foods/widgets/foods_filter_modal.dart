@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/foods/widgets/foods_filter_item.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/application/providers.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/application/providers.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class FoodsFilterModal extends ConsumerStatefulWidget {
   const FoodsFilterModal({super.key});

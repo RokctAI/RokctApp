@@ -1,5 +1,5 @@
-import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/manager/domain/handlers/api_result.dart';
+import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 abstract class NotificationInterface {
   Future<ApiResult<NotificationResponse>> getNotifications({int? page});

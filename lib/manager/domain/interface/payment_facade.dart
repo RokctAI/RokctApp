@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/domain/handlers/handlers.dart';
 
 abstract class PaymentsFacade {
