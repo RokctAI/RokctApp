@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'statistics_state.freezed.dart';
 
 @freezed
-abstract class StatisticsState with _$StatisticsState {
+sealed class StatisticsState with _$StatisticsState {
   const factory StatisticsState({
     @Default(false) bool isLoading,
     @Default(true) bool isRefresh,

@@ -4,7 +4,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'edit_food_stocks_state.freezed.dart';
 
 @freezed
-abstract class EditFoodStocksState with _$EditFoodStocksState {
+sealed class EditFoodStocksState with _$EditFoodStocksState {
   const factory EditFoodStocksState({
     @Default(false) bool isLoading,
     @Default(false) bool isSaving,

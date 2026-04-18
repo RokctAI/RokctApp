@@ -6,7 +6,7 @@ import 'package:rokctapp/customer/models/models.dart';
 part 'shop_state.freezed.dart';
 
 @freezed
-abstract class ShopState with _$ShopState {
+sealed class ShopState with _$ShopState {
   const factory ShopState({
     @Default(false) bool isLoading,
     @Default(false) bool isFilterLoading,

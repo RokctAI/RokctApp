@@ -4,7 +4,7 @@ import 'package:rokctapp/customer/models/models.dart';
 part 'currency_state.freezed.dart';
 
 @freezed
-abstract class CurrencyState with _$CurrencyState {
+sealed class CurrencyState with _$CurrencyState {
   const factory CurrencyState({
     @Default([]) List<CurrencyData> list,
     @Default(true) bool isLoading,

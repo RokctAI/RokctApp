@@ -4,7 +4,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'categories_state.freezed.dart';
 
 @freezed
-abstract class CategoriesState with _$CategoriesState {
+sealed class CategoriesState with _$CategoriesState {
   const factory CategoriesState({
     @Default(false) bool isLoading,
     @Default(false) bool isComboLoading,

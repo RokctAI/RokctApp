@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'table_state.freezed.dart';
 
 @freezed
-abstract class TableState with _$TableState {
+sealed class TableState with _$TableState {
   const factory TableState({
     @Default([]) List<TableData> tables,
     @Default(0) int selectedIndex,

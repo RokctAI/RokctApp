@@ -4,7 +4,7 @@ import 'package:rokctapp/customer/models/models.dart';
 part 'search_state.freezed.dart';
 
 @freezed
-abstract class SearchState with _$SearchState {
+sealed class SearchState with _$SearchState {
   const factory SearchState({
     @Default(true) bool isShopLoading,
     @Default(true) bool isProductLoading,

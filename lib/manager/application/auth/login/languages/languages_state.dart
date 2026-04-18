@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'languages_state.freezed.dart';
 
 @freezed
-abstract class LanguagesState with _$LanguagesState {
+sealed class LanguagesState with _$LanguagesState {
   const factory LanguagesState({
     @Default([]) List<LanguageData> languages,
     @Default(0) int index,

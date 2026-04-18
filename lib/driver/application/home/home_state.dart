@@ -6,7 +6,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 part 'home_state.freezed.dart';
 
 @freezed
-abstract class HomeState with _$HomeState {
+sealed class HomeState with _$HomeState {
   const factory HomeState({
     @Default(false) bool isLoading,
     @Default(false) bool isGoUser,

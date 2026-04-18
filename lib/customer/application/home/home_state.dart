@@ -4,7 +4,7 @@ import 'package:rokctapp/customer/models/models.dart';
 part 'home_state.freezed.dart';
 
 @freezed
-abstract class HomeState with _$HomeState {
+sealed class HomeState with _$HomeState {
   const factory HomeState({
     @Default(true) bool isCategoryLoading,
     @Default(true) bool isBannerLoading,

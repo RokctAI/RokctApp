@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 part 'delivery_type_state.freezed.dart';
 
 @freezed
-abstract class DeliveryTypeState with _$DeliveryTypeState {
+sealed class DeliveryTypeState with _$DeliveryTypeState {
   const factory DeliveryTypeState({@Default(TrKeys.delivery) String type}) =
       _DeliveryTypeState;
 

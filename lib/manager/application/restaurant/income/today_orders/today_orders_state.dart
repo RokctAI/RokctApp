@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'today_orders_state.freezed.dart';
 
 @freezed
-abstract class TodayOrdersState with _$TodayOrdersState {
+sealed class TodayOrdersState with _$TodayOrdersState {
   const factory TodayOrdersState({
     @Default(false) bool isLoading,
     @Default([]) List<OrderData> todayOrders,

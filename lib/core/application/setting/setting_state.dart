@@ -4,7 +4,7 @@ import 'package:rokctapp/customer/models/data/notification_list_data.dart';
 part 'setting_state.freezed.dart';
 
 @freezed
-abstract class SettingState with _$SettingState {
+sealed class SettingState with _$SettingState {
   const factory SettingState({
     @Default(true) bool isLoading,
     @Default(null) List<NotificationData>? notifications,

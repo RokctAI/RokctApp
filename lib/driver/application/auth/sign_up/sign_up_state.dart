@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'sign_up_state.freezed.dart';
 
 @freezed
-abstract class SignUpState with _$SignUpState {
+sealed class SignUpState with _$SignUpState {
   const factory SignUpState({
     @Default(false) bool isLoading,
     @Default(false) bool showPassword,

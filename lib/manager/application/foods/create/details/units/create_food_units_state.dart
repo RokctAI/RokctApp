@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'create_food_units_state.freezed.dart';
 
 @freezed
-abstract class CreateFoodUnitsState with _$CreateFoodUnitsState {
+sealed class CreateFoodUnitsState with _$CreateFoodUnitsState {
   const factory CreateFoodUnitsState({
     @Default(false) bool isLoading,
     @Default([]) List<UnitData> units,

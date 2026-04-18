@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'order_cart_state.freezed.dart';
 
 @freezed
-abstract class OrderCartState with _$OrderCartState {
+sealed class OrderCartState with _$OrderCartState {
   const factory OrderCartState({
     @Default([]) List<Stock> stocks,
     @Default(0) num totalPrice,

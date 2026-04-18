@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'cooking_orders_state.freezed.dart';
 
 @freezed
-abstract class CookingOrdersState with _$CookingOrdersState {
+sealed class CookingOrdersState with _$CookingOrdersState {
   const factory CookingOrdersState({
     @Default(false) bool isLoading,
     @Default([]) List<OrderData> orders,

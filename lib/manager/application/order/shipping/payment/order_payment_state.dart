@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'order_payment_state.freezed.dart';
 
 @freezed
-abstract class OrderPaymentState with _$OrderPaymentState {
+sealed class OrderPaymentState with _$OrderPaymentState {
   const factory OrderPaymentState({
     @Default(false) bool isLoading,
     @Default(false) bool isCalculateLoading,

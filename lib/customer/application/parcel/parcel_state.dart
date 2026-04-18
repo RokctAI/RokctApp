@@ -6,7 +6,7 @@ import 'package:rokctapp/customer/models/models.dart';
 part 'parcel_state.freezed.dart';
 
 @freezed
-abstract class ParcelState with _$ParcelState {
+sealed class ParcelState with _$ParcelState {
   const factory ParcelState({
     @Default(false) bool isLoading,
     @Default(false) bool isButtonLoading,

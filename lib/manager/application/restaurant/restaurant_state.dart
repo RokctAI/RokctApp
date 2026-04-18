@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'restaurant_state.freezed.dart';
 
 @freezed
-abstract class RestaurantState with _$RestaurantState {
+sealed class RestaurantState with _$RestaurantState {
   const factory RestaurantState({
     @Default(false) bool isLoading,
     String? backgroundImageFile,

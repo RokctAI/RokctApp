@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'on_a_way_orders_state.freezed.dart';
 
 @freezed
-abstract class OnAWayOrdersState with _$OnAWayOrdersState {
+sealed class OnAWayOrdersState with _$OnAWayOrdersState {
   const factory OnAWayOrdersState({
     @Default(false) bool isLoading,
     @Default([]) List<OrderData> orders,

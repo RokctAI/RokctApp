@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'working_days_state.freezed.dart';
 
 @freezed
-abstract class WorkingDaysState with _$WorkingDaysState {
+sealed class WorkingDaysState with _$WorkingDaysState {
   const factory WorkingDaysState({
     @Default(false) bool isLoading,
     @Default(0) int currentIndex,

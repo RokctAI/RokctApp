@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'edit_addon_units_state.freezed.dart';
 
 @freezed
-abstract class EditAddonUnitsState with _$EditAddonUnitsState {
+sealed class EditAddonUnitsState with _$EditAddonUnitsState {
   const factory EditAddonUnitsState({
     @Default(false) bool isLoading,
     @Default([]) List<UnitData> units,

@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'order_address_state.freezed.dart';
 
 @freezed
-abstract class OrderAddressState with _$OrderAddressState {
+sealed class OrderAddressState with _$OrderAddressState {
   const factory OrderAddressState({
     TextEditingController? textController,
     LocationData? location,

@@ -9,7 +9,7 @@ import 'package:rokctapp/customer/models/response/pages_response.dart';
 part 'profile_state.freezed.dart';
 
 @freezed
-abstract class ProfileState with _$ProfileState {
+sealed class ProfileState with _$ProfileState {
   const factory ProfileState({
     @Default(false) bool isLoading,
     @Default(true) bool isReferralLoading,

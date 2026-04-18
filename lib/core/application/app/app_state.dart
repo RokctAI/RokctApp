@@ -4,7 +4,7 @@ import 'package:rokctapp/customer/models/models.dart';
 part 'app_state.freezed.dart';
 
 @freezed
-abstract class AppState with _$AppState {
+sealed class AppState with _$AppState {
   const factory AppState({
     @Default(false) bool isDarkMode,
     @Default(true) bool isLtr,

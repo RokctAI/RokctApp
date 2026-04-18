@@ -4,7 +4,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'order_state.freezed.dart';
 
 @freezed
-abstract class OrderState with _$OrderState {
+sealed class OrderState with _$OrderState {
   const factory OrderState({
     @Default(false) bool paymentType,
     @Default(false) bool isLoading,

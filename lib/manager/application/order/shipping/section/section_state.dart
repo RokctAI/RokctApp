@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'section_state.freezed.dart';
 
 @freezed
-abstract class SectionState with _$SectionState {
+sealed class SectionState with _$SectionState {
   const factory SectionState({
     @Default([]) List<ShopSection> sections,
     @Default(0) int selectedIndex,

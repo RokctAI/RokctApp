@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'create_food_addons_state.freezed.dart';
 
 @freezed
-abstract class CreateFoodAddonsState with _$CreateFoodAddonsState {
+sealed class CreateFoodAddonsState with _$CreateFoodAddonsState {
   const factory CreateFoodAddonsState({
     @Default(false) bool isLoading,
     @Default([]) List<ProductData> addons,

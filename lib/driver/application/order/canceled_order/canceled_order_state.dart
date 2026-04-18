@@ -5,7 +5,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 part 'canceled_order_state.freezed.dart';
 
 @freezed
-abstract class CanceledOrderState with _$CanceledOrderState {
+sealed class CanceledOrderState with _$CanceledOrderState {
   const factory CanceledOrderState({
     @Default(false) bool isLoading,
     @Default([]) List<OrderDetailData> canceledOrders,

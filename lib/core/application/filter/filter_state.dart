@@ -8,7 +8,7 @@ import 'package:rokctapp/customer/models/data/shop_data.dart';
 part 'filter_state.freezed.dart';
 
 @freezed
-abstract class FilterState with _$FilterState {
+sealed class FilterState with _$FilterState {
   const factory FilterState({
     @Default(null) FilterModel? filterModel,
     @Default(false) bool freeDelivery,

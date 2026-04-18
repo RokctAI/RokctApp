@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'order_user_state.freezed.dart';
 
 @freezed
-abstract class OrderUserState with _$OrderUserState {
+sealed class OrderUserState with _$OrderUserState {
   const factory OrderUserState({
     @Default([]) List<UserData> users,
     @Default(0) int selectedIndex,

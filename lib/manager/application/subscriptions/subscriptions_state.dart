@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'subscriptions_state.freezed.dart';
 
 @freezed
-abstract class SubscriptionState with _$SubscriptionState {
+sealed class SubscriptionState with _$SubscriptionState {
   const factory SubscriptionState({
     @Default(false) bool isLoading,
     @Default(false) bool isPaymentLoading,

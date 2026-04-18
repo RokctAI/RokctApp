@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'addons_state.freezed.dart';
 
 @freezed
-abstract class AddonsState with _$AddonsState {
+sealed class AddonsState with _$AddonsState {
   const factory AddonsState({
     @Default(false) bool isLoading,
     @Default([]) List<ProductData> addons,

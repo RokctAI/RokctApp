@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'create_food_details_state.freezed.dart';
 
 @freezed
-abstract class CreateFoodDetailsState with _$CreateFoodDetailsState {
+sealed class CreateFoodDetailsState with _$CreateFoodDetailsState {
   const factory CreateFoodDetailsState({
     @Default('') String title,
     @Default('') String description,

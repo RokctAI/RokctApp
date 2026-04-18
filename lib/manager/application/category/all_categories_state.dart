@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'all_categories_state.freezed.dart';
 
 @freezed
-abstract class AllCategoriesState with _$AllCategoriesState {
+sealed class AllCategoriesState with _$AllCategoriesState {
   const factory AllCategoriesState({
     @Default([]) List<CategoryData> categories,
     @Default([]) List<CategoryData> comboCategories,

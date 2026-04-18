@@ -5,7 +5,7 @@ import 'package:rokctapp/driver/infrastructure/models/models.dart';
 part 'profile_settings_state.freezed.dart';
 
 @freezed
-abstract class ProfileSettingsState with _$ProfileSettingsState {
+sealed class ProfileSettingsState with _$ProfileSettingsState {
   const factory ProfileSettingsState({
     @Default(false) bool isLoading,
     @Default(false) bool isStatisticLoading,

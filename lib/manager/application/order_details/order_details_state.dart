@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'order_details_state.freezed.dart';
 
 @freezed
-abstract class OrderDetailsState with _$OrderDetailsState {
+sealed class OrderDetailsState with _$OrderDetailsState {
   const factory OrderDetailsState({
     @Default(false) bool isLoading,
     @Default(false) bool isUpdating,

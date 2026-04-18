@@ -9,7 +9,7 @@ import 'package:rokctapp/customer/models/data/shop_data.dart';
 part 'order_state.freezed.dart';
 
 @freezed
-abstract class OrderState with _$OrderState {
+sealed class OrderState with _$OrderState {
   const factory OrderState({
     @Default(false) bool isActive,
     @Default(false) bool isOrder,

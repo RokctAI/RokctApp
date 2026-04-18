@@ -8,7 +8,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'select_address_state.freezed.dart';
 
 @freezed
-abstract class SelectAddressState with _$SelectAddressState {
+sealed class SelectAddressState with _$SelectAddressState {
   const factory SelectAddressState({
     @Default(false) bool isSearching,
     @Default(false) bool isSearchLoading,

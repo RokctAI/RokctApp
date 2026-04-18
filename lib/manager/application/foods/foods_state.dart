@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'foods_state.freezed.dart';
 
 @freezed
-abstract class FoodsState with _$FoodsState {
+sealed class FoodsState with _$FoodsState {
   const factory FoodsState({
     @Default(false) bool isLoading,
     @Default([]) List<ProductData> foods,

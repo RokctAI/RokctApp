@@ -4,7 +4,7 @@ import 'package:rokctapp/customer/models/models.dart';
 part 'product_state.freezed.dart';
 
 @freezed
-abstract class ProductState with _$ProductState {
+sealed class ProductState with _$ProductState {
   const factory ProductState({
     @Default(false) bool isLoading,
     @Default(false) bool isAddLoading,

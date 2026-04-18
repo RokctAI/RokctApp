@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'profile_state.freezed.dart';
 
 @freezed
-abstract class ProfileState with _$ProfileState {
+sealed class ProfileState with _$ProfileState {
   const factory ProfileState({
     @Default(true) bool isLoading,
     @Default(true) bool isReferralLoading,

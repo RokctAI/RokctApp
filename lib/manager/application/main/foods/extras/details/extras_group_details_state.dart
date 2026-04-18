@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'extras_group_details_state.freezed.dart';
 
 @freezed
-abstract class ExtrasGroupDetailsState with _$ExtrasGroupDetailsState {
+sealed class ExtrasGroupDetailsState with _$ExtrasGroupDetailsState {
   const factory ExtrasGroupDetailsState({
     @Default(false) bool isLoading,
     @Default([]) List<Extras> extras,

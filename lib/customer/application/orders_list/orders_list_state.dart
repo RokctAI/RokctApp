@@ -5,7 +5,7 @@ import 'package:rokctapp/customer/models/data/refund_data.dart';
 part 'orders_list_state.freezed.dart';
 
 @freezed
-abstract class OrdersListState with _$OrdersListState {
+sealed class OrdersListState with _$OrdersListState {
   const factory OrdersListState({
     @Default(false) bool isActiveLoading,
     @Default(false) bool isHistoryLoading,

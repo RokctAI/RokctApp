@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'edit_food_categories_state.freezed.dart';
 
 @freezed
-abstract class EditFoodCategoriesState with _$EditFoodCategoriesState {
+sealed class EditFoodCategoriesState with _$EditFoodCategoriesState {
   const factory EditFoodCategoriesState({
     @Default(false) bool isLoading,
     @Default([]) List<CategoryData> categories,

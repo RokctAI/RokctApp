@@ -4,7 +4,7 @@ import 'package:rokctapp/customer/models/models.dart';
 part 'like_state.freezed.dart';
 
 @freezed
-abstract class LikeState with _$LikeState {
+sealed class LikeState with _$LikeState {
   const factory LikeState({
     @Default(true) bool isShopLoading,
     @Default([]) List<ShopData> shops,

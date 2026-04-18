@@ -6,7 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'auto_order_state.freezed.dart';
 
 @freezed
-abstract class AutoOrderState with _$AutoOrderState {
+sealed class AutoOrderState with _$AutoOrderState {
   const factory AutoOrderState({
     required DateTime from,
     required DateTime to,

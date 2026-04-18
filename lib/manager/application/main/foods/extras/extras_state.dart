@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 part 'extras_state.freezed.dart';
 
 @freezed
-abstract class ExtrasState with _$ExtrasState {
+sealed class ExtrasState with _$ExtrasState {
   const factory ExtrasState({
     @Default(false) bool isLoading,
     @Default(false) bool isSaving,

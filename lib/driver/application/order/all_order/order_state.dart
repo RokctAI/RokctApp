@@ -5,7 +5,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 part 'order_state.freezed.dart';
 
 @freezed
-abstract class OrderState with _$OrderState {
+sealed class OrderState with _$OrderState {
   const factory OrderState({
     @Default(false) bool isActiveLoading,
     @Default(false) bool isLoading,

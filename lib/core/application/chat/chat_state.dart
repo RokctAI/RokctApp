@@ -5,7 +5,7 @@ import 'package:rokctapp/customer/models/data/chat_message_data.dart';
 part 'chat_state.freezed.dart';
 
 @freezed
-abstract class ChatState with _$ChatState {
+sealed class ChatState with _$ChatState {
   const factory ChatState({
     @Default(false) bool isLoading,
     @Default(false) bool isMoreLoading,

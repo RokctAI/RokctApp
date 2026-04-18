@@ -4,7 +4,7 @@ import 'package:rokctapp/customer/models/data/help_data.dart';
 part 'help_state.freezed.dart';
 
 @freezed
-abstract class HelpState with _$HelpState {
+sealed class HelpState with _$HelpState {
   const factory HelpState({
     @Default(false) bool isLoading,
     @Default(null) HelpModel? data,
