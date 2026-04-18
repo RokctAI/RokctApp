@@ -367,6 +367,3 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
     );
   }
 }
-
-
-

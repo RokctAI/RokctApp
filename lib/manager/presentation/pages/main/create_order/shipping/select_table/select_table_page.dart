@@ -120,6 +120,3 @@ class _SelectTablePageState extends ConsumerState<SelectTablePage> {
     );
   }
 }
-
-
-

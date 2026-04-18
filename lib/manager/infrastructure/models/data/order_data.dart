@@ -685,6 +685,3 @@ class OrderAddress {
     return map;
   }
 }
-
-
-

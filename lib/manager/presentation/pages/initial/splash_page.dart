@@ -22,7 +22,8 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       ref
           .read(splashProvider.notifier)
           .fetchTranslations(
-            noConnection: () => context.replaceRoute(const ManagerNoConnectionRoute()),
+            noConnection: () =>
+                context.replaceRoute(const ManagerNoConnectionRoute()),
             goMain: () {
               ref
                   .read(restaurantProvider.notifier)
@@ -33,7 +34,8 @@ class _SplashPageState extends ConsumerState<SplashPage> {
                   );
             },
             goLogin: () => context.replaceRoute(const ManagerAuthRoute()),
-            goBecome: () => context.replaceRoute(const ManagerCreateShopRoute()),
+            goBecome: () =>
+                context.replaceRoute(const ManagerCreateShopRoute()),
           );
     });
   }

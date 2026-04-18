@@ -150,8 +150,9 @@ class _OrderPageState extends ConsumerState<OrderPage> {
                   Expanded(
                     child: CustomButton(
                       title: AppHelpers.getTranslation(TrKeys.next),
-                      onPressed: () =>
-                          context.pushRoute(const ManagerShippingAddressRoute()),
+                      onPressed: () => context.pushRoute(
+                        const ManagerShippingAddressRoute(),
+                      ),
                     ),
                   ),
               ],
