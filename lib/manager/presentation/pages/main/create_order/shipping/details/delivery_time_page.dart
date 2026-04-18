@@ -417,6 +417,3 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
     );
   }
 }
-
-
-

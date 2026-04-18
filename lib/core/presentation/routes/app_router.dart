@@ -51,7 +51,6 @@ import 'package:rokctapp/core/presentation/pages/story_page/story_page.dart';
 
 // Driver and Manager Namespace Imports (removed unused)
 
-
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
@@ -122,7 +121,10 @@ class AppRouter extends RootStackRouter {
 
     // Driver
     CupertinoRoute(path: '/driver', page: DriverSplashRoute.page),
-    CupertinoRoute(path: '/driver/no-connection', page: DriverNoConnectionRoute.page),
+    CupertinoRoute(
+      path: '/driver/no-connection',
+      page: DriverNoConnectionRoute.page,
+    ),
     CupertinoRoute(path: '/driver/login', page: DriverLoginRoute.page),
     CupertinoRoute(path: '/driver/income', page: DriverIncomeRoute.page),
     CupertinoRoute(path: '/driver/home', page: DriverHomeRoute.page),
@@ -132,12 +134,24 @@ class AppRouter extends RootStackRouter {
       path: '/driver/list-notification',
       page: DriverNotificationListRoute.page,
     ),
-    CupertinoRoute(path: '/driver/order-history', page: DriverOrderHistoryRoute.page),
-    CupertinoRoute(path: '/driver/parcel-history', page: DriverParcelHistoryRoute.page),
+    CupertinoRoute(
+      path: '/driver/order-history',
+      page: DriverOrderHistoryRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/driver/parcel-history',
+      page: DriverParcelHistoryRoute.page,
+    ),
     CupertinoRoute(path: '/driver/orders', page: DriverOrdersRoute.page),
     CupertinoRoute(path: '/driver/parcels', page: DriverParcelsRoute.page),
-    CupertinoRoute(path: '/driver/become-driver', page: DriverBecomeDriverRoute.page),
-    CupertinoRoute(path: '/driver/delivery-zone', page: DriverDeliveryZoneRoute.page),
+    CupertinoRoute(
+      path: '/driver/become-driver',
+      page: DriverBecomeDriverRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/driver/delivery-zone',
+      page: DriverDeliveryZoneRoute.page,
+    ),
 
     // Manager
     CupertinoRoute(path: '/manager', page: ManagerSplashRoute.page),
@@ -145,24 +159,63 @@ class AppRouter extends RootStackRouter {
     CupertinoRoute(path: '/manager/auth', page: ManagerAuthRoute.page),
     CupertinoRoute(path: '/manager/order', page: ManagerOrderRoute.page),
     CupertinoRoute(path: '/manager/income', page: ManagerIncomeRoute.page),
-    CupertinoRoute(path: '/manager/select-user', page: ManagerSelectUserRoute.page),
-    CupertinoRoute(path: '/manager/delivery-time', page: ManagerDeliveryTimeRoute.page),
-    CupertinoRoute(path: '/manager/order-history', page: ManagerOrderHistoryRoute.page),
-    CupertinoRoute(path: '/manager/delivery-zone', page: ManagerDeliveryZoneRoute.page),
-    CupertinoRoute(path: '/manager/no-connection', page: ManagerNoConnectionRoute.page),
-    CupertinoRoute(path: '/manager/select-address', page: ManagerSelectAddressRoute.page),
-    CupertinoRoute(path: '/manager/order-products', page: ManagerCreateOrderRoute.page),
-    CupertinoRoute(path: '/manager/shipping-address', page: ManagerShippingAddressRoute.page),
+    CupertinoRoute(
+      path: '/manager/select-user',
+      page: ManagerSelectUserRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/delivery-time',
+      page: ManagerDeliveryTimeRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/order-history',
+      page: ManagerOrderHistoryRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/delivery-zone',
+      page: ManagerDeliveryZoneRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/no-connection',
+      page: ManagerNoConnectionRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/select-address',
+      page: ManagerSelectAddressRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/order-products',
+      page: ManagerCreateOrderRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/shipping-address',
+      page: ManagerShippingAddressRoute.page,
+    ),
     CupertinoRoute(
       path: '/manager/list-notification',
       page: ManagerNotificationListRoute.page,
     ),
     CupertinoRoute(path: '/manager/view_map', page: ManagerViewMapRoute.page),
-    CupertinoRoute(path: '/manager/become_seller', page: ManagerCreateShopRoute.page),
-    CupertinoRoute(path: '/manager/search_map', page: ManagerMapSearchRoute.page),
-    MaterialRoute(path: '/manager/select-section', page: ManagerSelectSectionRoute.page),
-    MaterialRoute(path: '/manager/select-table', page: ManagerSelectTableRoute.page),
+    CupertinoRoute(
+      path: '/manager/become_seller',
+      page: ManagerCreateShopRoute.page,
+    ),
+    CupertinoRoute(
+      path: '/manager/search_map',
+      page: ManagerMapSearchRoute.page,
+    ),
+    MaterialRoute(
+      path: '/manager/select-section',
+      page: ManagerSelectSectionRoute.page,
+    ),
+    MaterialRoute(
+      path: '/manager/select-table',
+      page: ManagerSelectTableRoute.page,
+    ),
     MaterialRoute(path: '/manager/webview', page: ManagerWebViewRoute.page),
-    MaterialRoute(path: '/manager/subscription', page: ManagerSubscriptionsRoute.page),
+    MaterialRoute(
+      path: '/manager/subscription',
+      page: ManagerSubscriptionsRoute.page,
+    ),
   ];
 }

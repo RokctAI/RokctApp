@@ -109,4 +109,3 @@ class StockPivot {
     return map;
   }
 }
-
