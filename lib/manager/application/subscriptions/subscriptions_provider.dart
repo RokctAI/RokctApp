@@ -6,6 +6,8 @@ import 'package:rokctapp/manager/application/subscriptions/subscriptions_notifie
 
 final subscriptionProvider =
     StateNotifierProvider<SubscriptionNotifier, SubscriptionState>(
-      (ref) =>
-          SubscriptionNotifier(managerSubscriptionRepository, managerPaymentRepositoryNew),
+      (ref) => SubscriptionNotifier(
+        managerSubscriptionRepository,
+        managerPaymentRepositoryNew,
+      ),
     );

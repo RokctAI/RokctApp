@@ -13,7 +13,9 @@ class AiTranslationNotifier extends StateNotifier<AiTranslationState> {
     ValueChanged<String?>? onSuccess,
   }) async {
     state = state.copyWith(isLoading: true);
-    final response = await managerSettingsRepository.getAiTranslation(model: model);
+    final response = await managerSettingsRepository.getAiTranslation(
+      model: model,
+    );
     response.when(
       success: (data) {
         state = state.copyWith(isLoading: false, translatedUsingAi: true);

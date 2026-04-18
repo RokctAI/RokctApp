@@ -29,7 +29,8 @@ class _PhoenixState extends State<Phoenix> {
   Key _key = UniqueKey();
   void restartApp() => setState(() => _key = UniqueKey());
   @override
-  Widget build(BuildContext context) => KeyedSubtree(key: _key, child: widget.child);
+  Widget build(BuildContext context) =>
+      KeyedSubtree(key: _key, child: widget.child);
 }
 
 // --- Background Task Handling ---
@@ -42,25 +43,24 @@ void callbackDispatcher() {
       case fetchBackground:
         await LocalStorage.init();
         if (LocalStorage.getToken().isEmpty) return Future.value(true);
-        
+
         try {
           Position userLocation = await Geolocator.getCurrentPosition(
             // ignore: deprecated_member_use
             desiredAccuracy: LocationAccuracy.high,
           );
-          
+
           final Dio client = Dio(
             BaseOptions(
               baseUrl: AppConstants.baseUrl,
               headers: {
-                'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
+                'Accept':
+                    'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
                 'Content-type': 'application/json',
                 "Authorization": "Bearer ${LocalStorage.getToken()}",
               },
             ),
-          )..interceptors.add(
-              LogInterceptor(requestBody: true, responseBody: true),
-            );
+          )..interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
 
           await client.post(
             '/api/v1/dashboard/deliveryman/settings/location',
@@ -89,10 +89,10 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  
+
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  
+
   await LocalStorage.init();
   setUpDependencies();
 
@@ -101,19 +101,21 @@ void main() async {
   Workmanager().registerPeriodicTask(
     'location_update',
     fetchBackground,
-    frequency: const Duration(minutes: 15), // Minimum frequency for background tasks
+    frequency: const Duration(
+      minutes: 15,
+    ), // Minimum frequency for background tasks
   );
 
   SystemChrome.setEnabledSystemUIMode(
     SystemUiMode.manual,
     overlays: SystemUiOverlay.values,
   );
-  
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  
+
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: AppStyle.transparent,
@@ -122,11 +124,5 @@ void main() async {
     ),
   );
 
-  runApp(
-    const ProviderScope(
-      child: Phoenix(
-        child: AppWidget(),
-      ),
-    ),
-  );
+  runApp(const ProviderScope(child: Phoenix(child: AppWidget())));
 }

@@ -8,4 +8,9 @@ final registerConfirmationProvider =
     StateNotifierProvider.autoDispose<
       RegisterConfirmationNotifier,
       RegisterConfirmationState
-    >((ref) => RegisterConfirmationNotifier(driverAuthRepository, driverUserRepository));
+    >(
+      (ref) => RegisterConfirmationNotifier(
+        driverAuthRepository,
+        driverUserRepository,
+      ),
+    );

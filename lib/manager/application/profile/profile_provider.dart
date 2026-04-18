@@ -4,6 +4,9 @@ import 'package:rokctapp/manager/application/profile/profile_notifier.dart';
 import 'package:rokctapp/manager/application/profile/profile_state.dart';
 
 final profileProvider = StateNotifierProvider<ProfileNotifier, ProfileState>(
-  (ref) =>
-      ProfileNotifier(managerSettingsRepository, managerUsersRepository, managerShopsRepository),
+  (ref) => ProfileNotifier(
+    managerSettingsRepository,
+    managerUsersRepository,
+    managerShopsRepository,
+  ),
 );
