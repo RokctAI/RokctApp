@@ -12,7 +12,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
-import 'package:rokctapp/core/domain/handlers/api_result.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/core/infrastructure/utils/app_helpers.dart';
 
 abstract class FirebaseService {

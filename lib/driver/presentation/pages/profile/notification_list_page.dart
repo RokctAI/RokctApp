@@ -15,7 +15,7 @@ import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
 import 'package:rokctapp/driver/presentation/styles/app_style.dart';
 
-@RoutePage()
+@RoutePage(name: 'DriverNotificationListRoute')
 class NotificationListPage extends ConsumerStatefulWidget {
   const NotificationListPage({super.key});
 

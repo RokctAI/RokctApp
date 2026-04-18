@@ -186,7 +186,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
         success: (data) async {
           state = state.copyWith(isLoading: false);
           LocalStorage.setToken(data.token);
-          context.replaceRoute(const MainRoute());
+          context.replaceRoute(const ManagerMainRoute());
           String? fcmToken = await FirebaseMessaging.instance.getToken();
           _userRepository.updateFirebaseToken(fcmToken);
         },
@@ -269,7 +269,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
         success: (data) async {
           state = state.copyWith(isLoading: false);
           LocalStorage.setToken(data.token);
-          context.replaceRoute(const CreateShopRoute());
+          context.replaceRoute(const ManagerCreateShopRoute());
           String? fcmToken = await FirebaseMessaging.instance.getToken();
           _userRepository.updateFirebaseToken(fcmToken);
         },

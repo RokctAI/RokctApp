@@ -11,7 +11,7 @@ import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerSelectUserRoute')
 class SelectUserPage extends ConsumerStatefulWidget {
   const SelectUserPage({super.key});
 

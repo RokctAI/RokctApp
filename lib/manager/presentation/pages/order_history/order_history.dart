@@ -12,7 +12,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/order_history/canceled_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/order_history/delivered_order_body.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerOrderHistoryRoute')
 class OrderHistoryPage extends ConsumerStatefulWidget {
   const OrderHistoryPage({super.key});
 

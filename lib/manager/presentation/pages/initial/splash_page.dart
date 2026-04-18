@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/presentation/app_assets.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerSplashRoute')
 class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
 
@@ -22,18 +22,18 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       ref
           .read(splashProvider.notifier)
           .fetchTranslations(
-            noConnection: () => context.replaceRoute(const NoConnectionRoute()),
+            noConnection: () => context.replaceRoute(const ManagerNoConnectionRoute()),
             goMain: () {
               ref
                   .read(restaurantProvider.notifier)
                   .fetchMyShop(
                     afterFetched: () {
-                      context.replaceRoute(const MainRoute());
+                      context.replaceRoute(const ManagerMainRoute());
                     },
                   );
             },
-            goLogin: () => context.replaceRoute(const AuthRoute()),
-            goBecome: () => context.replaceRoute(const CreateShopRoute()),
+            goLogin: () => context.replaceRoute(const ManagerAuthRoute()),
+            goBecome: () => context.replaceRoute(const ManagerCreateShopRoute()),
           );
     });
   }

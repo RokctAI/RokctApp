@@ -296,7 +296,7 @@ class _LoginModalState extends State<LoginModal>
                                               Navigator.pop(context);
                                               context.router.popUntilRoot();
                                               context.replaceRoute(
-                                                const MainRoute(),
+                                                const ManagerMainRoute(),
                                               );
                                             },
                                           );
@@ -321,7 +321,7 @@ class _LoginModalState extends State<LoginModal>
                                       Navigator.pop(context);
                                       context.router.popUntilRoot();
                                       context.replaceRoute(
-                                        const CreateShopRoute(),
+                                        const ManagerCreateShopRoute(),
                                       );
                                     },
                                   );

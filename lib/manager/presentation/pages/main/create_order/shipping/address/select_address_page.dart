@@ -14,7 +14,7 @@ import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/address/searched_location_item.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerSelectAddressRoute')
 class SelectAddressPage extends StatefulWidget {
   const SelectAddressPage({super.key});
 

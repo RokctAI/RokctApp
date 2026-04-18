@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/presentation/component/text_fields/search_text_field.dart';
 import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerMapSearchRoute')
 class MapSearchPage extends StatefulWidget {
   const MapSearchPage({super.key});
 

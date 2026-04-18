@@ -13,7 +13,7 @@ import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/income/app_bar_screen.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerIncomeRoute')
 class IncomePage extends ConsumerStatefulWidget {
   const IncomePage({super.key});
 

@@ -98,7 +98,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         if (status == 401) {
           onLogin?.call();
           LocalStorage.logout();
-          context.replaceRoute(const SplashRoute());
+          context.replaceRoute(const DriverSplashRoute());
           return;
         }
         AppHelpers.showCheckTopSnackBar(

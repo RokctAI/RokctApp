@@ -310,17 +310,17 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
         SectionsItem(
           title: AppHelpers.getTranslation(TrKeys.income),
           icon: FlutterRemix.line_chart_line,
-          onTap: () => context.pushRoute(const IncomeRoute()),
+          onTap: () => context.pushRoute(const ManagerIncomeRoute()),
         ),
         SectionsItem(
           title: AppHelpers.getTranslation(TrKeys.myOrderHistory),
           icon: FlutterRemix.history_line,
-          onTap: () => context.pushRoute(const OrderHistoryRoute()),
+          onTap: () => context.pushRoute(const ManagerOrderHistoryRoute()),
         ),
         SectionsItem(
           title: AppHelpers.getTranslation(TrKeys.notifications),
           icon: FlutterRemix.notification_2_line,
-          onTap: () => context.pushRoute(const NotificationListRoute()),
+          onTap: () => context.pushRoute(const ManagerNotificationListRoute()),
         ),
         SectionsItem(
           title: AppHelpers.getTranslation(TrKeys.language),
@@ -340,7 +340,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
           SectionsItem(
             title: AppHelpers.getTranslation(TrKeys.subscriptions),
             icon: Icons.verified_outlined,
-            onTap: () => context.pushRoute(SubscriptionsRoute()),
+            onTap: () => context.pushRoute(ManagerSubscriptionsRoute()),
           ),
         if (!AppConstants.isDemo)
           SectionsItem(

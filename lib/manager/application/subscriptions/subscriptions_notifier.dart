@@ -106,7 +106,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
         success: (data) async {
           state = state.copyWith(isPaymentLoading: false);
           await context
-              .pushRoute(WebViewRoute(url: data))
+              .pushRoute(ManagerWebViewRoute(url: data))
               .whenComplete(() => onSuccess());
         },
         failure: (failure, s) {

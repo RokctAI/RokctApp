@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/presentation/styles/app_style.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerNoConnectionRoute')
 class NoConnectionPage extends ConsumerWidget {
   const NoConnectionPage({super.key});
 
@@ -35,7 +35,7 @@ class NoConnectionPage extends ConsumerWidget {
           const SizedBox(height: 40),
           ElevatedButton(
             onPressed: () {
-              context.replaceRoute(const SplashRoute());
+              context.replaceRoute(const ManagerSplashRoute());
             },
             child: const Icon(
               FlutterRemix.restart_fill,

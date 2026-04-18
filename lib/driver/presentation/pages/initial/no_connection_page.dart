@@ -40,7 +40,7 @@ class NoConnectionPage extends ConsumerWidget {
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                context.replaceRoute(const SplashRoute());
+                context.replaceRoute(const DriverSplashRoute());
               },
               child: const Icon(
                 FlutterRemix.restart_fill,

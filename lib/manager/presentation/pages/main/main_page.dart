@@ -23,7 +23,7 @@ import 'package:rokctapp/manager/presentation/pages/main/foods/addons/create/cre
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/extras/create/create_extras_group_modal.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerMainRoute')
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -174,7 +174,7 @@ class _MainPageState extends State<MainPage> {
                                   onTap: () {
                                     state.selectedIndex == 0
                                         ? context.pushRoute(
-                                            const CreateOrderRoute(),
+                                            const ManagerCreateOrderRoute(),
                                           )
                                         : (foodTabState.selectedIndex == 0
                                               ? AppHelpers.showCustomModalBottomSheet(

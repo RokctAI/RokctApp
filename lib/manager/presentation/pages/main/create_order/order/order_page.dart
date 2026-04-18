@@ -11,7 +11,7 @@ import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-@RoutePage()
+@RoutePage(name: 'ManagerOrderRoute')
 class OrderPage extends ConsumerStatefulWidget {
   const OrderPage({super.key});
 
@@ -151,7 +151,7 @@ class _OrderPageState extends ConsumerState<OrderPage> {
                     child: CustomButton(
                       title: AppHelpers.getTranslation(TrKeys.next),
                       onPressed: () =>
-                          context.pushRoute(const ShippingAddressRoute()),
+                          context.pushRoute(const ManagerShippingAddressRoute()),
                     ),
                   ),
               ],
