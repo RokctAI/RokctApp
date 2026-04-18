@@ -22,7 +22,7 @@ class ProductRequest {
     }
 
     map["page"] = page;
-    map["status"] = "published";
+    map["s"] = "published";
     map["perPage"] = 6;
     if (brands?.isNotEmpty ?? false) {
       map['brand_ids'] = brands?.map((v) => v).toList();
@@ -39,7 +39,7 @@ class ProductRequest {
     }
 
     map["page"] = page;
-    map["status"] = "published";
+    map["s"] = "published";
     map["perPage"] = 6;
     if (brands?.isNotEmpty ?? false) {
       map['brand_ids'] = brands?.map((v) => v).toList();
@@ -56,7 +56,7 @@ class ProductRequest {
     }
 
     map["page"] = page;
-    map["status"] = "published";
+    map["s"] = "published";
     map["category_id"] = categoryId;
     map["perPage"] = 6;
     if (brands?.isNotEmpty ?? false) {

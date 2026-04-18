@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/application/foods/create/details/kitchens/creat
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
 class CreateFoodKitchensNotifier
-    extends StateNotifier<CreateFoodKitchensState> {
+    extends AutoDisposeNotifier<CreateFoodKitchensState> {
   final CatalogInterface _catalogRepository;
 
   CreateFoodKitchensNotifier(this._catalogRepository)
@@ -30,14 +30,14 @@ class CreateFoodKitchensNotifier
               kitchens[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
           text: f,
           type: SnackBarType.error,
         );
-        debugPrint('====> fetch kitchens fail $f');
+        debugPrint('====> fetch kitchens f $f');
       },
     );
   }

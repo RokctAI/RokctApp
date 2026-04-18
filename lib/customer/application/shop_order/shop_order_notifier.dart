@@ -82,7 +82,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
         success: (data) async {
           state = state.copyWith(cart: data.data, isAddAndRemoveLoading: false);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isAddAndRemoveLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -154,7 +154,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
             );
             getCart(context, () {}, isShowLoading: false);
           },
-          failure: (f, s) {
+          f: (f, s) {
             state = state.copyWith(isAddAndRemoveLoading: false);
             AppHelpers.showCheckTopSnackBar(context, f);
           },
@@ -191,7 +191,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               context.maybePop();
               getCart(context, () {}, isShowLoading: false);
             },
-            failure: (f, s) {
+            f: (f, s) {
               state = state.copyWith(isAddAndRemoveLoading: false);
               AppHelpers.showCheckTopSnackBar(context, f);
             },
@@ -206,11 +206,11 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               state = state.copyWith(isAddAndRemoveLoading: false);
               getCart(context, () {}, isShowLoading: false);
             },
-            failure: (f, s) {
+            f: (f, s) {
               state = state.copyWith(isAddAndRemoveLoading: false);
               AppHelpers.showCheckTopSnackBar(
                 context,
-                AppHelpers.getTranslation(status.toString()),
+                AppHelpers.getTranslation(s.toString()),
               );
             },
           );
@@ -321,11 +321,11 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               isAddAndRemoveLoading: false,
             );
           },
-          failure: (f, s) {
+          f: (f, s) {
             state = state.copyWith(isAddAndRemoveLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(status.toString()),
+              AppHelpers.getTranslation(s.toString()),
             );
           },
         );
@@ -443,11 +443,11 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               );
               getCart(context, () {}, isShowLoading: false);
             },
-            failure: (f, s) {
+            f: (f, s) {
               state = state.copyWith(isAddAndRemoveLoading: false);
               AppHelpers.showCheckTopSnackBar(
                 context,
-                AppHelpers.getTranslation(status.toString()),
+                AppHelpers.getTranslation(s.toString()),
               );
             },
           );
@@ -485,11 +485,11 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               context.maybePop();
               getCart(context, () {}, isShowLoading: false);
             },
-            failure: (f, s) {
+            f: (f, s) {
               state = state.copyWith(isAddAndRemoveLoading: false);
               AppHelpers.showCheckTopSnackBar(
                 context,
-                AppHelpers.getTranslation(status.toString()),
+                AppHelpers.getTranslation(s.toString()),
               );
             },
           );
@@ -503,11 +503,11 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               state = state.copyWith(isAddAndRemoveLoading: false);
               getCart(context, () {}, isShowLoading: false);
             },
-            failure: (f, s) {
+            f: (f, s) {
               state = state.copyWith(isAddAndRemoveLoading: false);
               AppHelpers.showCheckTopSnackBar(
                 context,
-                AppHelpers.getTranslation(status.toString()),
+                AppHelpers.getTranslation(s.toString()),
               );
             },
           );
@@ -547,27 +547,27 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
             state = state.copyWith(cart: data.data);
           }
         },
-        failure: (f, s) {
-          if (status == 404) {
+        f: (f, s) {
+          if (s == 404) {
             if (isShowLoading) {
               state = state.copyWith(isLoading: false, cart: null);
             } else {
               state = state.copyWith(cart: null);
             }
-          } else if (status == 400 || status == 404) {
+          } else if (s == 400 || s == 404) {
             AppHelpers.showCheckTopSnackBarDone(
               context,
               AppHelpers.getTranslation(TrKeys.thankYouForOrder),
             );
             state = state.copyWith(cart: null, isStartGroup: false);
             Navigator.pop(context);
-          } else if (status != 401) {
+          } else if (s != 401) {
             if (isShowLoading) {
               state = state.copyWith(isLoading: false);
             }
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(status.toString()),
+              AppHelpers.getTranslation(s.toString()),
             );
           } else {
             if (isShowLoading) {
@@ -594,7 +594,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
         userUuid: userUuid,
         cartId: state.cart?.id.toString(),
       );
-      response.when(success: (data) async {}, failure: (f, s) {});
+      response.when(success: (data) async {}, f: (f, s) {});
     } else {
       if (context.mounted) {
         AppHelpers.showNoConnectionSnackBar(context);
@@ -616,11 +616,11 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
           Navigator.pop(context);
           return;
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isDeleteLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(status.toString()),
+            AppHelpers.getTranslation(s.toString()),
           );
           return;
         },
@@ -685,14 +685,14 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
             isStartGroupLoading: false,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(
             isStartGroup: false,
             isStartGroupLoading: false,
           );
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(status.toString()),
+            AppHelpers.getTranslation(s.toString()),
           );
         },
       );
@@ -716,14 +716,14 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
           state = state.copyWith(isCheckShopOrder: false, cart: data.data);
           startGroupOrder(context, data.data?.id ?? 0);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isCheckShopOrder: false);
-          if (status == 400) {
+          if (s == 400) {
             state = state.copyWith(isOtherShop: true);
           } else {
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(status.toString()),
+              AppHelpers.getTranslation(s.toString()),
             );
           }
         },

@@ -10,7 +10,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/application/subscriptions/subscriptions_state.dart';
 
-class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
+class SubscriptionNotifier extends AutoDisposeNotifier<SubscriptionState> {
   final SubscriptionsFacade _subscriptionRepository;
   final PaymentsFacade _paymentsRepo;
 
@@ -45,9 +45,9 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
         controller?.loadComplete();
         return;
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
-        debugPrint(" ==> fetch ads fail: $f");
+        debugPrint(" ==> fetch ads f: $f");
         if (context != null) {
           AppHelpers.errorSnackBar(context, text: f);
         }
@@ -88,12 +88,12 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
               onSuccess.call();
               state = state.copyWith(isPaymentLoading: false);
             },
-            failure: (f, s) {
+            f: (f, s) {
               state = state.copyWith(isPaymentLoading: false);
             },
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isPaymentLoading: false);
           AppHelpers.errorSnackBar(context, text: f);
         },
@@ -110,7 +110,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
               .pushRoute(ManagerWebViewRoute(url: data))
               .whenComplete(() => onSuccess());
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isPaymentLoading: false);
           AppHelpers.errorSnackBar(context, text: f);
         },
@@ -130,7 +130,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
         }
         state = state.copyWith(payments: list, selectPayment: 0);
       },
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.errorSnackBar(context, text: f);
       },
     );

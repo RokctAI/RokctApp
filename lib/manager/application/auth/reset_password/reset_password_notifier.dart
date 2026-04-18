@@ -10,7 +10,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/application/auth/reset_password/reset_password_state.dart';
 
-class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
+class ResetPasswordNotifier extends AutoDisposeNotifier<ResetPasswordState> {
   ResetPasswordNotifier() : super(const ResetPasswordState());
 
   void setEmail(String text) {
@@ -96,7 +96,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
             isSuccess: true,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(
             isLoading: false,
             isEmailError: true,
@@ -143,9 +143,9 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
           state = state.copyWith(isLoading: false, isSuccess: true);
           context.replaceRoute(const ManagerMainRoute());
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false, isSuccess: false);
-          if (status == 400) {
+          if (s == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
               text: AppHelpers.getTranslation(
@@ -155,7 +155,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
           } else {
             AppHelpers.showCheckTopSnackBar(
               context,
-              text: AppHelpers.getTranslation(status.toString()),
+              text: AppHelpers.getTranslation(s.toString()),
             );
           }
         },

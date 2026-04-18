@@ -376,7 +376,7 @@ class _OrderCheckState extends State<OrderCheck> {
                       },
                       isRefund:
                           (state.orderData?.refunds?.isEmpty ?? true) ||
-                          state.orderData?.refunds?.last.status == "canceled",
+                          state.orderData?.refunds?.last.s == "canceled",
                       repeatOrder: () {
                         event.repeatOrder(
                           context: context,

@@ -127,11 +127,11 @@ class OrdersRepository implements OrdersInterface {
 
   @override
   Future<ApiResult<OrderStatusResponse>> updateOrderStatus({
-    required OrderStatus status,
+    required OrderStatus s,
     int? orderId,
   }) async {
     String? statusText;
-    switch (status) {
+    switch (s) {
       case OrderStatus.newOrder:
         statusText = 'new';
         break;
@@ -154,19 +154,19 @@ class OrdersRepository implements OrdersInterface {
         statusText = 'canceled';
         break;
     }
-    final data = {'status': statusText};
-    debugPrint('===> update order status request ${jsonEncode(data)}');
+    final data = {'s': statusText};
+    debugPrint('===> update order s request ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/seller/order/$orderId/status',
+        '/api/v1/dashboard/seller/order/$orderId/s',
         data: data,
       );
       return ApiResult.success(
         data: OrderStatusResponse.fromJson(response.data),
       );
     } catch (e) {
-      debugPrint('==> update order status failure: $e');
+      debugPrint('==> update order s failure: $e');
       return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -197,13 +197,13 @@ class OrdersRepository implements OrdersInterface {
 
   @override
   Future<ApiResult<OrdersPaginateResponse>> getOrders({
-    OrderStatus? status,
+    OrderStatus? s,
     int? page,
     String? from,
     String? to,
   }) async {
     String? statusText;
-    switch (status) {
+    switch (s) {
       case OrderStatus.accepted:
         statusText = 'accepted';
         break;
@@ -230,7 +230,7 @@ class OrdersRepository implements OrdersInterface {
     }
     final data = {
       if (page != null) 'page': page,
-      if (statusText != null) 'status': statusText,
+      if (statusText != null) 's': statusText,
       if (from != null) 'date_from': from,
       if (to != null) 'date_to': to,
       'perPage': 10,
@@ -246,7 +246,7 @@ class OrdersRepository implements OrdersInterface {
         data: OrdersPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
-      debugPrint('==> get order $status failure: $e');
+      debugPrint('==> get order $s failure: $e');
       return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -259,11 +259,11 @@ class OrdersRepository implements OrdersInterface {
     int? page,
     String? from,
     String? to,
-    String? status,
+    String? s,
   }) async {
     final data = {
       if (page != null) 'page': page,
-      'statuses[0]': status,
+      'statuses[0]': s,
       // 'statuses[1]': 'canceled',
       if (from != null) 'date_from': from,
       if (to != null) 'date_to': to,

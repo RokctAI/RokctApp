@@ -6,7 +6,7 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/application/ai_translation/ai_translation_state.dart';
 
-class AiTranslationNotifier extends StateNotifier<AiTranslationState> {
+class AiTranslationNotifier extends AutoDisposeNotifier<AiTranslationState> {
   AiTranslationNotifier() : super(const AiTranslationState());
 
   Future<void> getAiTranslation({
@@ -22,7 +22,7 @@ class AiTranslationNotifier extends StateNotifier<AiTranslationState> {
         state = state.copyWith(isLoading: false, translatedUsingAi: true);
         onSuccess?.call(data.data?.title);
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
       },
     );

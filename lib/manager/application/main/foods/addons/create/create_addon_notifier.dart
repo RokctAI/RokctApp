@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/main/foods/addons/create/create_addon_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
-class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
+class CreateAddonNotifier extends AutoDisposeNotifier<CreateAddonState> {
   final ProductsInterface _productsRepository;
   String _title = '';
   String _description = '';
@@ -78,8 +78,8 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
             created?.call();
             state = state.copyWith(isLoading: false);
           },
-          failure: (stockFail, status) {
-            debugPrint('===> create addon stock fail $stockFail');
+          f: (stockFail, s) {
+            debugPrint('===> create addon stock f $stockFail');
             failed?.call();
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
@@ -90,12 +90,12 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
           },
         );
       },
-      failure: (fail, status) {
-        debugPrint('===> create addon fail $fail');
+      f: (f, s) {
+        debugPrint('===> create addon f $f');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
         failed?.call();

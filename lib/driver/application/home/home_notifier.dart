@@ -11,7 +11,7 @@ import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/home/home_state.dart';
 
-class HomeNotifier extends StateNotifier<HomeState> {
+class HomeNotifier extends AutoDisposeNotifier<HomeState> {
   HomeNotifier() : super(const HomeState());
   final ImageCropperMarker image = ImageCropperMarker();
 
@@ -22,7 +22,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         success: (data) {
           setDeliveryZone(data.data);
         },
-        failure: (f, s) {
+        f: (f, s) {
           debugPrint('==> get delivery zone failure: $f');
         },
       );
@@ -88,8 +88,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
             isLoading: false,
           );
         },
-        failure: (f, s) {
-          // if(status==400){
+        f: (f, s) {
+          // if(s==400){
           //   AppHelpers.showCheckTopSnackBar(context, TrKeys.moreDistance);
           // }
           state = state.copyWith(
@@ -116,8 +116,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
       final response = await UserRepository.setCurrentLocation(start);
       response.when(
         success: (data) {},
-        failure: (f, s) {
-          if (status != 501) {
+        f: (f, s) {
+          if (s != 501) {
             AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(f),
@@ -148,7 +148,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
             );
             onSuccess();
           },
-          failure: (f, s) {
+          f: (f, s) {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
@@ -191,7 +191,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
           success: (data) {
             state = state.copyWith(isLoading: false, parcelDetail: parcel);
           },
-          failure: (f, s) {
+          f: (f, s) {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
@@ -219,7 +219,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         success: (data) async {
           if (data.data?.isNotEmpty ?? false) {
             state = state.copyWith(orderDetail: data.data?.first);
-            if (data.data?.first.status == "on_a_way") {
+            if (data.data?.first.s == "on_a_way") {
               getRoutingAll(
                 // ignore: use_build_context_synchronously
                 context: context,
@@ -288,7 +288,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -321,7 +321,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
       );
       response.when(
         success: (data) {},
-        failure: (f, s) {
+        f: (f, s) {
           AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(f),
@@ -353,7 +353,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
       );
       response.when(
         success: (data) {},
-        failure: (f, s) {
+        f: (f, s) {
           AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(f),
@@ -479,7 +479,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
       success: (success) {
         OrdersRepositoryFacade.uploadImage(orderId, success.imageData?.title);
       },
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, f);
       },
     );
@@ -492,7 +492,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         success: (data) {
           LocalStorage.setOnline(!LocalStorage.getOnline());
         },
-        failure: (f, s) {
+        f: (f, s) {
           AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(f),

@@ -40,7 +40,7 @@ class LanguageNotifier extends Notifier<LanguageState> {
             index: index,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -69,7 +69,7 @@ class LanguageNotifier extends Notifier<LanguageState> {
           LocalStorage.setTranslations(data.data);
           state = state.copyWith(isLoading: false, isSuccess: true);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },

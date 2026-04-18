@@ -211,7 +211,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                         ),
                         const Spacer(),
                         10.horizontalSpace,
-                        // if( state.requestData?.status ==
+                        // if( state.requestData?.s ==
                         //     TrKeys.canceled)
                         // ButtonsBouncingEffect(
                         //   child: InkWell(
@@ -241,11 +241,11 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                         //               ),
                         //             ),
                         //             Text(
-                        //               state.requestData?.status ?? '',
+                        //               state.requestData?.s ?? '',
                         //               style: Style.interSemi(
                         //                 size: 13.sp,
                         //                 letterSpacing: -0.3,
-                        //                 color: state.requestData?.status ==
+                        //                 color: state.requestData?.s ==
                         //                         TrKeys.canceled
                         //                     ? Style.redColor
                         //                     : Style.primaryColor,

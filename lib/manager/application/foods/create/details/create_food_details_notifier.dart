@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/application/foods/create/details/create_food_de
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
+class CreateFoodDetailsNotifier extends AutoDisposeNotifier<CreateFoodDetailsState> {
   final ProductsInterface _productsRepository;
   final SettingsInterface _settingsRepository;
 
@@ -64,8 +64,8 @@ class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
         success: (data) {
           imageUrl.addAll(data.data?.title ?? []);
         },
-        failure: (f, s) {
-          debugPrint('==> upload product image fail: $f');
+        f: (f, s) {
+          debugPrint('==> upload product image f: $f');
           AppHelpers.showCheckTopSnackBar(context, text: f);
         },
       );
@@ -100,12 +100,12 @@ class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
         state = state.copyWith(isCreating: false, createdProduct: data.data);
         created?.call();
       },
-      failure: (fail, status) {
-        debugPrint('===> create product fail $fail');
+      f: (f, s) {
+        debugPrint('===> create product f $f');
         state = state.copyWith(isCreating: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
         onError?.call();

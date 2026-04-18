@@ -10,7 +10,7 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
+class EditFoodAddonsNotifier extends AutoDisposeNotifier<EditFoodAddonsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;
   bool _hasMore = true;
@@ -45,8 +45,8 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
         refreshController?.loadComplete();
         state = state.copyWith(addons: addons);
       },
-      failure: (fail, status) {
-        debugPrint('===> fetch more addons fail $fail');
+      f: (f, s) {
+        debugPrint('===> fetch more addons f $f');
         refreshController?.loadFailed();
       },
     );
@@ -94,8 +94,8 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
         }
         state = state.copyWith(isLoading: false, addons: addons);
       },
-      failure: (fail, status) {
-        debugPrint('===> fetch addons fail $fail');
+      f: (f, s) {
+        debugPrint('===> fetch addons f $f');
         state = state.copyWith(isLoading: false, addons: []);
       },
     );

@@ -89,7 +89,7 @@ abstract class ProductsInterface {
     int? page,
     int? categoryId,
     String? query,
-    ProductStatus? status,
+    ProductStatus? s,
     bool needAddons = false,
     bool active = false,
     String? type,

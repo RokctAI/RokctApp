@@ -53,7 +53,7 @@ abstract class TableInterface {
   Future<ApiResult<CloseDayResponse>> getCloseDay();
 
   Future<ApiResult<dynamic>> changeOrderStatus({
-    required String status,
+    required String s,
     required int id,
   });
 

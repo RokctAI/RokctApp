@@ -9,7 +9,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/application/profile/profile_state.dart';
 
-class ProfileNotifier extends StateNotifier<ProfileState> {
+class ProfileNotifier extends AutoDisposeNotifier<ProfileState> {
   final SettingsInterface _settingsRepository;
   final UsersInterface _usersRepository;
   final ShopsInterface _shopsRepository;
@@ -82,11 +82,11 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
             }
             refreshController?.refreshCompleted();
           },
-          failure: (f, s) {
+          f: (f, s) {
             if (refreshController == null) {
               state = state.copyWith(isLoading: false);
             }
-            if (status == 401) {
+            if (s == 401) {
               context.router.popUntilRoot();
               context.replaceRoute(const ManagerAuthRoute());
             }
@@ -134,7 +134,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           success: (data) {
             logoImage = data.imageData?.title;
           },
-          failure: (f, s) {
+          f: (f, s) {
             debugPrint('===> upload logo image failure: $f');
             AppHelpers.showCheckTopSnackBar(context, text: f);
           },
@@ -149,7 +149,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           success: (data) {
             backgroundImage = data.imageData?.title;
           },
-          failure: (f, s) {
+          f: (f, s) {
             debugPrint('===> upload background image failure: $f');
             AppHelpers.showCheckTopSnackBar(context, text: f);
           },
@@ -164,7 +164,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           success: (data) {
             files = data.data?.title;
           },
-          failure: (f, s) {
+          f: (f, s) {
             debugPrint('===> upload document failure: $f');
             AppHelpers.showCheckTopSnackBar(context, text: f);
           },
@@ -193,7 +193,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           fetchUser(context, refreshController: RefreshController());
           context.maybePop();
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isSaveLoading: false);
           AppHelpers.showCheckTopSnackBar(context, text: f);
           debugPrint('==> create shop failure: $f');
@@ -220,9 +220,9 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           context.router.popUntilRoot();
           context.replaceRoute(const ManagerAuthRoute());
         },
-        failure: (fail, status) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, text: fail);
+          AppHelpers.showCheckTopSnackBar(context, text: f);
         },
       );
     } else {

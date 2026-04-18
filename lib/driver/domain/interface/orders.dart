@@ -18,10 +18,10 @@ abstract class OrdersRepositoryFacade {
     int page, {
     DateTime? start,
     DateTime? end,
-    List<String>? status,
+    List<String>? s,
   });
 
-  Future<ApiResult<dynamic>> updateOrder(int? orderId, String? status);
+  Future<ApiResult<dynamic>> updateOrder(int? orderId, String? s);
 
   Future<ApiResult<dynamic>> uploadImage(int? orderId, String? image);
 

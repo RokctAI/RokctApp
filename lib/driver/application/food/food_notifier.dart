@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/driver/application/food/food_state.dart';
 
-class FoodNotifier extends StateNotifier<FoodState> {
+class FoodNotifier extends AutoDisposeNotifier<FoodState> {
   FoodNotifier() : super(const FoodState());
 
   void changeToggle(bool toggle) {

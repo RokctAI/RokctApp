@@ -88,7 +88,7 @@ class ProductNotifier extends Notifier<ProductState> {
             initialSetSelectedIndexes(context, selectedIndexes);
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
           debugPrint('==> get product details failure: $f');
@@ -183,8 +183,8 @@ class ProductNotifier extends Notifier<ProductState> {
             state = state.copyWith(isAddLoading: false);
             onSuccess();
           },
-          failure: (f, s) {
-            if (status != 400) {
+          f: (f, s) {
+            if (s != 400) {
               state = state.copyWith(isAddLoading: false);
               AppHelpers.showCheckTopSnackBar(context, f);
             } else {

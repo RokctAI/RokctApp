@@ -3,19 +3,19 @@ import 'package:rokctapp/customer/models/data/brand_data.dart';
 class SingleBrandResponse {
   SingleBrandResponse({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     BrandData? data,
   }) {
     _timestamp = timestamp;
-    _status = status;
+    _status = s;
     _message = message;
     _data = data;
   }
 
   SingleBrandResponse.fromJson(dynamic json) {
     _timestamp = json['timestamp'];
-    _status = json['status'];
+    _status = json['s'];
     _message = json['message'];
     _data = json['data'] != null ? BrandData.fromJson(json['data']) : null;
   }
@@ -27,19 +27,19 @@ class SingleBrandResponse {
 
   SingleBrandResponse copyWith({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     BrandData? data,
   }) => SingleBrandResponse(
     timestamp: timestamp ?? _timestamp,
-    status: status ?? _status,
+    status: s ?? _status,
     message: message ?? _message,
     data: data ?? _data,
   );
 
   String? get timestamp => _timestamp;
 
-  bool? get status => _status;
+  bool? get s => _status;
 
   String? get message => _message;
 
@@ -48,7 +48,7 @@ class SingleBrandResponse {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
-    map['status'] = _status;
+    map['s'] = _status;
     map['message'] = _message;
     if (_data != null) {
       map['data'] = _data?.toJson();

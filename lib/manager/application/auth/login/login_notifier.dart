@@ -7,7 +7,7 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/application/auth/login/login_state.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class LoginNotifier extends StateNotifier<LoginState> {
+class LoginNotifier extends AutoDisposeNotifier<LoginState> {
   String _email = '';
   String _password = '';
 
@@ -22,7 +22,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
           LocalStorage.setWallet(data.data?.wallet);
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         debugPrint('==> get profile details failure: $f');
       },
     );
@@ -87,7 +87,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
           managerUsersRepository.updateFirebaseToken(fcmToken);
           state = state.copyWith(isLoading: false);
         },
-        failure: (f, s) {
+        f: (f, s) {
           debugPrint('===> login request f $f');
           state = state.copyWith(isLoading: false, isLoginError: true);
         },

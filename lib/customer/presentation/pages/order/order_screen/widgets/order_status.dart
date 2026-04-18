@@ -11,13 +11,13 @@ import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_screen/widgets/order_status_item.dart';
 
 class OrderStatusScreen extends StatelessWidget {
-  final OrderStatus status;
+  final OrderStatus s;
   final bool parcel;
   final CustomColorSet colors;
 
   const OrderStatusScreen({
     super.key,
-    required this.status,
+    required this.s,
     this.parcel = false,
     required this.colors,
   });
@@ -38,7 +38,7 @@ class OrderStatusScreen extends StatelessWidget {
             children: [
               Text(
                 AppHelpers.getTranslation(
-                  AppHelpers.getOrderStatusText(status),
+                  AppHelpers.getOrderStatusText(s),
                 ),
                 style: AppStyle.interNormal(size: 13, color: colors.textBlack),
               ),
@@ -51,9 +51,9 @@ class OrderStatusScreen extends StatelessWidget {
   }
 
   Widget _buildStatusRow(CustomColorSet colors) {
-    if (status == OrderStatus.canceled) {
+    if (s == OrderStatus.canceled) {
       return _buildCompletedStatusRow(AppStyle.red);
-    } else if (status == OrderStatus.delivered) {
+    } else if (s == OrderStatus.delivered) {
       return _buildCompletedStatusRow(colors.primary);
     } else {
       return _buildInProgressStatusRow();
@@ -103,13 +103,13 @@ class OrderStatusScreen extends StatelessWidget {
   }
 
   Widget _buildInProgressStatusRow() {
-    final isOpen = status == OrderStatus.open;
+    final isOpen = s == OrderStatus.open;
     final isReadyOrOnWay =
-        status == OrderStatus.ready || status == OrderStatus.onWay;
-    final isAccepted = status == OrderStatus.accepted;
-    final isOnWay = status == OrderStatus.onWay;
+        s == OrderStatus.ready || s == OrderStatus.onWay;
+    final isAccepted = s == OrderStatus.accepted;
+    final isOnWay = s == OrderStatus.onWay;
     final isReadyOrDelivered =
-        status == OrderStatus.ready || status == OrderStatus.delivered;
+        s == OrderStatus.ready || s == OrderStatus.delivered;
 
     return Row(
       children: [

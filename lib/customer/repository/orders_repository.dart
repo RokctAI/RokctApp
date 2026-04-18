@@ -71,7 +71,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
         'currency_id': LocalStorage.getSelectedCurrency()?.id,
       'lang': LocalStorage.getLanguage()?.locale,
       'page': page,
-      'status': 'completed',
+      's': 'completed',
     };
     try {
       final client = dioHttp.client(requireAuth: true);
@@ -363,7 +363,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/user/orders/$orderId/status/change?status=canceled',
+        '/api/v1/dashboard/user/orders/$orderId/s/change?s=canceled',
       );
       return const ApiResult.success(data: null);
     } catch (e) {

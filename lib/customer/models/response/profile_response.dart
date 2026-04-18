@@ -3,12 +3,12 @@ import 'package:rokctapp/customer/models/data/profile_data.dart';
 class ProfileResponse {
   ProfileResponse({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     ProfileData? data,
   }) {
     _timestamp = timestamp;
-    _status = status;
+    _status = s;
     _message = message;
     _data = data;
   }
@@ -24,19 +24,19 @@ class ProfileResponse {
 
   ProfileResponse copyWith({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     ProfileData? data,
   }) => ProfileResponse(
     timestamp: timestamp ?? _timestamp,
-    status: status ?? _status,
+    status: s ?? _status,
     message: message ?? _message,
     data: data ?? _data,
   );
 
   String? get timestamp => _timestamp;
 
-  bool? get status => _status;
+  bool? get s => _status;
 
   String? get message => _message;
 
@@ -45,7 +45,7 @@ class ProfileResponse {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
-    map['status'] = _status;
+    map['s'] = _status;
     map['message'] = _message;
     if (_data != null) {
       map['data'] = _data?.toJson();

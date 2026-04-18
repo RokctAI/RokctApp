@@ -402,7 +402,7 @@ class _EditRestaurantState extends ConsumerState<CreateShopPage> {
                       ),
                     ),
                   )
-                : state.userData?.shop?.status == "new"
+                : state.userData?.shop?.s == "new"
                 ? Column(
                     children: [
                       100.verticalSpace,

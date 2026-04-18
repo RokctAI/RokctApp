@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/application/order/order_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class OrderNotifier extends StateNotifier<OrderState> {
+class OrderNotifier extends AutoDisposeNotifier<OrderState> {
   final OrdersInterface _ordersRepository;
   int _page = 0;
   bool _hasMore = true;
@@ -81,7 +81,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -151,7 +151,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         _canceledPage--;
         if (_canceledPage == 0) {
           state = state.copyWith(isLoading: false);
@@ -220,7 +220,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         _deliveredPage--;
         if (_deliveredPage == 0) {
           state = state.copyWith(isLoading: false);

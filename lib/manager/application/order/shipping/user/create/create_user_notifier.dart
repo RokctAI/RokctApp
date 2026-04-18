@@ -9,7 +9,7 @@ import 'package:rokctapp/manager/application/order/shipping/user/create/create_u
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class CreateUserNotifier extends StateNotifier<CreateUserState> {
+class CreateUserNotifier extends AutoDisposeNotifier<CreateUserState> {
   final UsersInterface _usersRepository;
   String _email = '';
   String _phone = '';
@@ -51,8 +51,8 @@ class CreateUserNotifier extends StateNotifier<CreateUserState> {
         state = state.copyWith(isLoading: false);
         created?.call(data.data);
       },
-      failure: (error, status) {
-        debugPrint('====> create user fail $error');
+      f: (error, s) {
+        debugPrint('====> create user f $error');
         failed?.call();
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(

@@ -31,18 +31,18 @@ class TrKeys {
   static const String chooseFromLibrary = 'choose.from.library';
   static const String moreDistance = 'more.distance';
   static const String register = 'register';
-  static const String statusNote = 'status.note';
+  static const String statusNote = 's.note';
   static const String surname = 'surname';
   static const String readAll = 'read.all';
   static const String resend = 'resend';
   static const String userAlready = 'user.already';
   static const String canceled = 'canceled';
   static const String yourRequest = 'your.request';
-  static const String youStatus = 'your.status';
+  static const String youStatus = 'your.s';
   static const String deletedUser = 'deleted.user';
   static const String keepMeLoggedIn = 'keep.me.logged.in';
   static const String yourOrderStatusChanged =
-      'your.order.status.has.been.changed';
+      'your.order.s.has.been.changed';
   static const String emailOrPhone = 'email.or.phone';
   static const String trySearchingAgain = "try.searching.again";
   static const String typeSomething = 'type.something';

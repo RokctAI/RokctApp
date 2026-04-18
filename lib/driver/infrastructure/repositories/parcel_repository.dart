@@ -44,7 +44,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
       'currency_id': LocalStorage.getSelectedCurrency()!.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
       'page': page,
-      "status": "ready",
+      "s": "ready",
       "empty-deliveryman": 1,
       "perPage": 10,
       "delivery_type": "delivery",
@@ -99,7 +99,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
       'currency_id': LocalStorage.getSelectedCurrency()!.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
       'page': page,
-      "status": "delivered",
+      "s": "delivered",
       "perPage": 10,
       if (start != null)
         "delivery_date_from": DateFormat("yyyy-MM-dd").format(start),
@@ -141,12 +141,12 @@ class ParcelRepository implements ParcelRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateParcel(int? parcelId, String? status) async {
+  Future<ApiResult<dynamic>> updateParcel(int? parcelId, String? s) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/parcel-orders/$parcelId/status/update',
-        data: {"status": status},
+        '/api/v1/dashboard/deliveryman/parcel-orders/$parcelId/s/update',
+        data: {"s": s},
       );
       return const ApiResult.success(data: null);
     } catch (e) {

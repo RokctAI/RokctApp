@@ -64,7 +64,7 @@ class WalletData {
     String? type,
     num? price,
     String? note,
-    String? status,
+    String? s,
     String? createdAt,
     String? updatedAt,
     UserModel? author,
@@ -77,7 +77,7 @@ class WalletData {
     _type = type;
     _price = price;
     _note = note;
-    _status = status;
+    _status = s;
     _createdAt = createdAt;
     _updatedAt = updatedAt;
     _author = author;
@@ -92,7 +92,7 @@ class WalletData {
     _type = json['type'];
     _price = json['price'];
     _note = json['note'];
-    _status = json['status'];
+    _status = json['s'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
     _author = json['author'] != null
@@ -122,7 +122,7 @@ class WalletData {
     String? type,
     num? price,
     String? note,
-    String? status,
+    String? s,
     String? createdAt,
     String? updatedAt,
     UserModel? author,
@@ -135,7 +135,7 @@ class WalletData {
     type: type ?? _type,
     price: price ?? _price,
     note: note ?? _note,
-    status: status ?? _status,
+    status: s ?? _status,
     createdAt: createdAt ?? _createdAt,
     updatedAt: updatedAt ?? _updatedAt,
     author: author ?? _author,
@@ -156,7 +156,7 @@ class WalletData {
 
   String? get note => _note;
 
-  String? get status => _status;
+  String? get s => _status;
 
   String? get createdAt => _createdAt;
 
@@ -175,7 +175,7 @@ class WalletData {
     map['type'] = _type;
     map['price'] = _price;
     map['note'] = _note;
-    map['status'] = _status;
+    map['s'] = _status;
     map['created_at'] = _createdAt;
     map['updated_at'] = _updatedAt;
     if (_author != null) {

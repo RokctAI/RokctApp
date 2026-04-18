@@ -88,7 +88,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             categories: data.data ?? [],
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isCategoryLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -109,7 +109,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         success: (data) async {
           state = state.copyWith(isBannerLoading: false, banner: data);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isBannerLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -130,7 +130,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         success: (data) async {
           state = state.copyWith(isBannerLoading: false, banner: data);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isBannerLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -173,7 +173,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             categoryIndex--;
             controller.loadNoData();
@@ -207,7 +207,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             totalShops: data.meta?.total ?? 0,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isShopLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -253,7 +253,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             marketIndex--;
             shopController.loadFailed();
@@ -282,7 +282,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             restaurant: data.data ?? [],
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isRestaurantLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -327,7 +327,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             shopIndex--;
             shopController.loadFailed();
@@ -360,7 +360,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             newRestaurant: data.data ?? [],
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isRestaurantNewLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -404,7 +404,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             newShopIndex--;
             shopController.loadFailed();
@@ -433,7 +433,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             shopsRecommend: data.data ?? [],
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isShopRecommendLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -477,7 +477,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             storyIndex--;
             shopController.loadFailed();
@@ -503,7 +503,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         success: (data) async {
           state = state.copyWith(isStoryLoading: false, story: data ?? []);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isStoryLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -546,7 +546,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             shopIndex--;
             shopController.loadFailed();
@@ -575,7 +575,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             banners: data.data ?? [],
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isBannerLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -595,7 +595,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
         success: (data) async {
           state = state.copyWith(ads: data.data ?? []);
         },
-        failure: (f, s) {
+        f: (f, s) {
           AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
@@ -637,7 +637,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             bannerIndex--;
             controller.loadFailed();
@@ -696,7 +696,7 @@ class HomeNotifier extends AutoDisposeNotifier<HomeState> {
           controller?.loadComplete();
           return;
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isSelectCategoryLoading: 1);
           AppHelpers.showCheckTopSnackBar(context, f);
         },

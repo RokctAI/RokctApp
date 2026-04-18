@@ -254,7 +254,7 @@ class ProductsRepository implements ProductsInterface {
         data: SingleProductResponse.fromJson(response.data),
       );
     } catch (e) {
-      debugPrint('==> update stocks fail: $e');
+      debugPrint('==> update stocks f: $e');
       return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -313,7 +313,7 @@ class ProductsRepository implements ProductsInterface {
         data: SingleProductResponse.fromJson(response.data),
       );
     } catch (e) {
-      debugPrint('==> update product fail: $e');
+      debugPrint('==> update product f: $e');
       return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -421,7 +421,7 @@ class ProductsRepository implements ProductsInterface {
         data: SingleProductResponse.fromJson(response.data),
       );
     } catch (e) {
-      debugPrint('==> create product fail: $e');
+      debugPrint('==> create product f: $e');
       return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -460,14 +460,14 @@ class ProductsRepository implements ProductsInterface {
     int? page,
     int? categoryId,
     String? query,
-    ProductStatus? status,
+    ProductStatus? s,
     bool needAddons = false,
     bool active = false,
     String? type,
   }) async {
     String? statusText;
-    if (status != null) {
-      switch (status) {
+    if (s != null) {
+      switch (s) {
         case ProductStatus.pending:
           statusText = 'pending';
           break;
@@ -485,13 +485,13 @@ class ProductsRepository implements ProductsInterface {
       if (page != null) 'page': page,
       if (categoryId != null) 'category_id': categoryId,
       if (query != null) 'search': query,
-      if (statusText != null) 'status': statusText,
+      if (statusText != null) 's': statusText,
       if (needAddons) 'addon': 1,
       if (type != null) 'type': type,
       'perPage': 10,
       'addon_status': "published",
       if (active) "active": 1,
-      if (active) "status": "published",
+      if (active) "s": "published",
     };
     try {
       final client = dioHttp.client(requireAuth: true);

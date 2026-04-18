@@ -9,7 +9,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/manager/application/order/shipping/address/select_address_state.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
+class SelectAddressNotifier extends AutoDisposeNotifier<SelectAddressState> {
   Timer? _timer;
 
   SelectAddressNotifier()

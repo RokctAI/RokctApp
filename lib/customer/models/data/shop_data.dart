@@ -18,7 +18,7 @@ class ShopData {
     this.backgroundImg,
     this.logoImg,
     this.minAmount,
-    this.status,
+    this.s,
     this.type,
     this.deliveryTime,
     this.createdAt,
@@ -58,7 +58,7 @@ class ShopData {
   String? backgroundImg;
   String? logoImg;
   num? minAmount;
-  String? status;
+  String? s;
   String? type;
   DeliveryTime? deliveryTime;
   DateTime? createdAt;
@@ -99,7 +99,7 @@ class ShopData {
       backgroundImg: json["background_img"] ?? "",
       logoImg: json["logo_img"] ?? "",
       minAmount: json["min_amount"] ?? 0,
-      status: json["status"] ?? "",
+      status: json["s"] ?? "",
       type: json["type"].runtimeType == int
           ? (json["type"] == 1 ? "shop" : "restaurant")
           : json["type"],
@@ -170,7 +170,7 @@ class ShopData {
     "background_img": backgroundImg,
     "logo_img": logoImg,
     "min_amount": minAmount,
-    "status": status,
+    "s": s,
     "type": type,
     "delivery_time": deliveryTime?.toJson(),
     "created_at": createdAt?.toIso8601String(),
@@ -312,7 +312,7 @@ class ShopPayment {
   ShopPayment({
     this.id,
     this.shopId,
-    this.status,
+    this.s,
     this.clientId,
     this.secretId,
     this.payment,
@@ -320,7 +320,7 @@ class ShopPayment {
 
   int? id;
   int? shopId;
-  int? status;
+  int? s;
   dynamic clientId;
   dynamic secretId;
   Payment? payment;
@@ -329,7 +329,7 @@ class ShopPayment {
     return ShopPayment(
       id: json["id"],
       shopId: json["shop_id"],
-      status: json["status"],
+      status: json["s"],
       clientId: json["client_id"],
       secretId: json["secret_id"],
       payment: Payment.fromJson(json["payment"]),
@@ -339,7 +339,7 @@ class ShopPayment {
   Map<String, dynamic> toJson() => {
     "id": id,
     "shop_id": shopId,
-    "status": status,
+    "s": s,
     "client_id": clientId,
     "secret_id": secretId,
     "payment": payment!.toJson(),

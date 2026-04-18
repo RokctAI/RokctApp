@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/application/foods/edit/details/category/edit_fo
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 class EditFoodCategoriesNotifier
-    extends StateNotifier<EditFoodCategoriesState> {
+    extends AutoDisposeNotifier<EditFoodCategoriesState> {
   EditFoodCategoriesNotifier()
     : super(
         EditFoodCategoriesState(categoriesController: TextEditingController()),

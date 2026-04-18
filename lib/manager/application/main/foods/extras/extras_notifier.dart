@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/manager/application/main/foods/extras/extras_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
-class ExtrasNotifier extends StateNotifier<ExtrasState> {
+class ExtrasNotifier extends AutoDisposeNotifier<ExtrasState> {
   final ProductsInterface _productsRepository;
 
   ExtrasNotifier(this._productsRepository) : super(const ExtrasState());
@@ -21,8 +21,8 @@ class ExtrasNotifier extends StateNotifier<ExtrasState> {
         state = state.copyWith(groups: data.data ?? [], isLoading: false);
         refreshController?.refreshCompleted();
       },
-      failure: (fail, status) {
-        debugPrint('===> fetch groups fail $fail');
+      f: (f, s) {
+        debugPrint('===> fetch groups f $f');
         state = state.copyWith(isLoading: false);
         refreshController?.refreshFailed();
       },

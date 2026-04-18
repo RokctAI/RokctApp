@@ -1,26 +1,26 @@
 class StatisticsResponse {
-  StatisticsResponse({this.timestamp, this.status, this.message, this.data});
+  StatisticsResponse({this.timestamp, this.s, this.message, this.data});
 
   StatisticsResponse.fromJson(dynamic json) {
     timestamp = json['timestamp'];
-    status = json['status'];
+    s = json['s'];
     message = json['message'];
     data = json['data'] != null ? StatisticsData.fromJson(json['data']) : null;
   }
 
   String? timestamp;
-  bool? status;
+  bool? s;
   String? message;
   StatisticsData? data;
 
   StatisticsResponse copyWith({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     StatisticsData? data,
   }) => StatisticsResponse(
     timestamp: timestamp ?? this.timestamp,
-    status: status ?? this.status,
+    status: s ?? this.s,
     message: message ?? this.message,
     data: data ?? this.data,
   );
@@ -28,7 +28,7 @@ class StatisticsResponse {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['timestamp'] = timestamp;
-    map['status'] = status;
+    map['s'] = s;
     map['message'] = message;
     if (data != null) {
       map['data'] = data?.toJson();

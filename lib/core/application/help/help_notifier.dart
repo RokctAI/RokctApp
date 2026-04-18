@@ -19,7 +19,7 @@ class HelpNotifier extends Notifier<HelpState> {
         success: (data) async {
           state = state.copyWith(isLoading: false, data: data);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },

@@ -20,7 +20,7 @@ class ShopData {
     String? backgroundImg,
     String? logoImg,
     num? minAmount,
-    String? status,
+    String? s,
     String? statusNote,
     String? ratingAvg,
     String? createdAt,
@@ -46,7 +46,7 @@ class ShopData {
     _backgroundImg = backgroundImg;
     _logoImg = logoImg;
     _minAmount = minAmount;
-    _status = status;
+    _status = s;
     _statusNote = statusNote;
     _ratingAvg = ratingAvg;
     _createdAt = createdAt;
@@ -84,7 +84,7 @@ class ShopData {
     _backgroundImg = json['background_img'];
     _logoImg = json['logo_img'];
     _minAmount = json['min_amount'];
-    _status = json['status'];
+    _status = json['s'];
     _statusNote = json['status_note'];
     _ratingAvg = json['rating_avg'];
     _createdAt = json['created_at'];
@@ -145,7 +145,7 @@ class ShopData {
     String? backgroundImg,
     String? logoImg,
     num? minAmount,
-    String? status,
+    String? s,
     String? statusNote,
     String? ratingAvg,
     String? createdAt,
@@ -171,7 +171,7 @@ class ShopData {
     backgroundImg: backgroundImg ?? _backgroundImg,
     logoImg: logoImg ?? _logoImg,
     minAmount: minAmount ?? _minAmount,
-    status: status ?? _status,
+    status: s ?? _status,
     statusNote: statusNote ?? _statusNote,
     ratingAvg: ratingAvg ?? _ratingAvg,
     createdAt: createdAt ?? _createdAt,
@@ -214,7 +214,7 @@ class ShopData {
 
   num? get minAmount => _minAmount;
 
-  String? get status => _status;
+  String? get s => _status;
 
   String? get statusNote => _statusNote;
 
@@ -252,7 +252,7 @@ class ShopData {
     map['background_img'] = _backgroundImg;
     map['logo_img'] = _logoImg;
     map['min_amount'] = _minAmount;
-    map['status'] = _status;
+    map['s'] = _status;
     map['status_note'] = _statusNote;
     map['rating_avg'] = _ratingAvg;
     map['created_at'] = _createdAt;

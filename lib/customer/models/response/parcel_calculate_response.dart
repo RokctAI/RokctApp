@@ -2,25 +2,25 @@
 
 class ParcelCalculateResponse {
   DateTime? timestamp;
-  bool? status;
+  bool? s;
   String? message;
   Data? data;
 
   ParcelCalculateResponse({
     this.timestamp,
-    this.status,
+    this.s,
     this.message,
     this.data,
   });
 
   ParcelCalculateResponse copyWith({
     DateTime? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     Data? data,
   }) => ParcelCalculateResponse(
     timestamp: timestamp ?? this.timestamp,
-    status: status ?? this.status,
+    status: s ?? this.s,
     message: message ?? this.message,
     data: data ?? this.data,
   );
@@ -30,14 +30,14 @@ class ParcelCalculateResponse {
         timestamp: json["timestamp"] == null
             ? null
             : DateTime.parse(json["timestamp"]),
-        status: json["status"],
+        status: json["s"],
         message: json["message"],
         data: json["data"] == null ? null : Data.fromJson(json["data"]),
       );
 
   Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
-    "status": status,
+    "s": s,
     "message": message,
     "data": data?.toJson(),
   };

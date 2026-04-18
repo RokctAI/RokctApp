@@ -3,19 +3,19 @@ import 'package:rokctapp/customer/models/data/blog_data.dart';
 class BlogDetailsResponse {
   BlogDetailsResponse({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     BlogData? data,
   }) {
     _timestamp = timestamp;
-    _status = status;
+    _status = s;
     _message = message;
     _data = data;
   }
 
   BlogDetailsResponse.fromJson(dynamic json) {
     _timestamp = json['timestamp'];
-    _status = json['status'];
+    _status = json['s'];
     _message = json['message'];
     _data = json['data'] != null ? BlogData.fromJson(json['data']) : null;
   }
@@ -27,19 +27,19 @@ class BlogDetailsResponse {
 
   BlogDetailsResponse copyWith({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     BlogData? data,
   }) => BlogDetailsResponse(
     timestamp: timestamp ?? _timestamp,
-    status: status ?? _status,
+    status: s ?? _status,
     message: message ?? _message,
     data: data ?? _data,
   );
 
   String? get timestamp => _timestamp;
 
-  bool? get status => _status;
+  bool? get s => _status;
 
   String? get message => _message;
 
@@ -48,7 +48,7 @@ class BlogDetailsResponse {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
-    map['status'] = _status;
+    map['s'] = _status;
     map['message'] = _message;
     if (_data != null) {
       map['data'] = _data?.toJson();

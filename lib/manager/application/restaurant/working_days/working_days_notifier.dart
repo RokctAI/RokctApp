@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/application/restaurant/working_days/working_day
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
+class WorkingDaysNotifier extends AutoDisposeNotifier<WorkingDaysState> {
   final UsersInterface _usersRepository;
 
   WorkingDaysNotifier(this._usersRepository) : super(const WorkingDaysState());
@@ -26,7 +26,7 @@ class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
         state = state.copyWith(isLoading: false);
         updateSuccess?.call();
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
         debugPrint('==> error update working days $f');
       },

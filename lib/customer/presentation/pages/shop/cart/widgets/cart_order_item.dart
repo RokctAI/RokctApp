@@ -25,7 +25,7 @@ class CartOrderItem extends StatelessWidget {
   final bool isActive;
   final bool isOwn;
   final bool isAddComment;
-  final String? status;
+  final String? s;
 
   const CartOrderItem({
     super.key,
@@ -37,7 +37,7 @@ class CartOrderItem extends StatelessWidget {
     this.isOwn = true,
     this.symbol,
     this.isAddComment = false,
-    this.status,
+    this.s,
   });
 
   @override
@@ -417,7 +417,7 @@ class CartOrderItem extends StatelessWidget {
                             )
                           : const SizedBox.shrink(),
                       if (isAddComment)
-                        if (status != "canceled")
+                        if (s != "canceled")
                           Positioned(
                             top: 0,
                             right: 0,

@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/category/add/add_category_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
-class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
+class AddCategoryNotifier extends AutoDisposeNotifier<AddCategoryState> {
   final CatalogInterface _catalogRepository;
   String _title = '';
   String _input = '';
@@ -28,12 +28,12 @@ class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
         state = state.copyWith(isLoading: false);
         success?.call();
       },
-      failure: (fail, status) {
-        debugPrint('===> create category fail $fail');
+      f: (f, s) {
+        debugPrint('===> create category f $f');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
       },

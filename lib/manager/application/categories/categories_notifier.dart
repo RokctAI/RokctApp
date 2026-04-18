@@ -8,7 +8,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/categories/categories_state.dart';
 
-class CategoriesNotifier extends StateNotifier<CategoriesState> {
+class CategoriesNotifier extends AutoDisposeNotifier<CategoriesState> {
   CategoriesNotifier() : super(const CategoriesState());
 
   int _page = 0;
@@ -43,7 +43,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
         controller?.loadComplete();
         return;
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
         AppHelpers.errorSnackBar(context, text: f);
       },
@@ -80,7 +80,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
         controller?.loadComplete();
         return;
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isComboLoading: false);
         AppHelpers.errorSnackBar(context, text: f);
       },

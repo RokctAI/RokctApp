@@ -98,7 +98,7 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
             isSuccess: true,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(
             isLoading: false,
             isEmailError: true,
@@ -106,7 +106,7 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
           );
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(status.toString()),
+            AppHelpers.getTranslation(s.toString()),
           );
           debugPrint('==> send otp failure: $f');
         },
@@ -145,9 +145,9 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
           state = state.copyWith(isLoading: false, isSuccess: true);
           context.replaceRoute(MainRoute());
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false, isSuccess: false);
-          if (status == 400) {
+          if (s == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(
@@ -157,7 +157,7 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
           } else {
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(status.toString()),
+              AppHelpers.getTranslation(s.toString()),
             );
           }
         },

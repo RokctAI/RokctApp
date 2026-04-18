@@ -157,7 +157,7 @@ class ShopOrderDetails {
     num? deliveryFee,
     num? price,
     num? tax,
-    String? status,
+    String? s,
     String? deliveryDate,
     String? deliveryTime,
     String? createdAt,
@@ -174,7 +174,7 @@ class ShopOrderDetails {
     _deliveryFee = deliveryFee;
     _price = price;
     _tax = tax;
-    _status = status;
+    _status = s;
     _deliveryDate = deliveryDate;
     _deliveryTime = deliveryTime;
     _createdAt = createdAt;
@@ -193,7 +193,7 @@ class ShopOrderDetails {
     _deliveryFee = json['delivery_fee'];
     _price = json['price'];
     _tax = json['tax'];
-    _status = json['status'];
+    _status = json['s'];
     _deliveryDate = json['delivery_date'];
     _deliveryTime = json['delivery_time'];
     _createdAt = json['created_at'];
@@ -244,7 +244,7 @@ class ShopOrderDetails {
     num? deliveryFee,
     num? price,
     num? tax,
-    String? status,
+    String? s,
     String? deliveryDate,
     String? deliveryTime,
     String? createdAt,
@@ -261,7 +261,7 @@ class ShopOrderDetails {
     deliveryFee: deliveryFee ?? _deliveryFee,
     price: price ?? _price,
     tax: tax ?? _tax,
-    status: status ?? _status,
+    status: s ?? _status,
     deliveryDate: deliveryDate ?? _deliveryDate,
     deliveryTime: deliveryTime ?? _deliveryTime,
     createdAt: createdAt ?? _createdAt,
@@ -284,7 +284,7 @@ class ShopOrderDetails {
 
   num? get tax => _tax;
 
-  String? get status => _status;
+  String? get s => _status;
 
   String? get deliveryDate => _deliveryDate;
 
@@ -312,7 +312,7 @@ class ShopOrderDetails {
     map['delivery_fee'] = _deliveryFee;
     map['price'] = _price;
     map['tax'] = _tax;
-    map['status'] = _status;
+    map['s'] = _status;
     map['delivery_date'] = _deliveryDate;
     map['delivery_time'] = _deliveryTime;
     map['created_at'] = _createdAt;

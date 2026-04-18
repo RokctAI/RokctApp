@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/application/foods/create/details/units/create_f
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
+class CreateFoodUnitsNotifier extends AutoDisposeNotifier<CreateFoodUnitsState> {
   final CatalogInterface _catalogRepository;
 
   CreateFoodUnitsNotifier(this._catalogRepository)
@@ -27,14 +27,14 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
               units[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
           text: f,
           type: SnackBarType.error,
         );
-        debugPrint('====> fetch units fail $f');
+        debugPrint('====> fetch units f $f');
       },
     );
   }

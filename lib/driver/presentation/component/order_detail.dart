@@ -59,7 +59,7 @@ class OrderDetail extends StatelessWidget {
                         isLoading: ref.watch(homeProvider).isLoading,
                         title: AppHelpers.getTranslation(
                           isOrder
-                              ? (order.status != "on_a_way"
+                              ? (order.s != "on_a_way"
                                     ? TrKeys.startShopping
                                     : TrKeys.completeCheckout)
                               : TrKeys.order,
@@ -128,7 +128,7 @@ class OrderDetail extends StatelessWidget {
                           } else {
                             final ImageCropperMarker image =
                                 ImageCropperMarker();
-                            if (order.status != "on_a_way") {
+                            if (order.s != "on_a_way") {
                               ref
                                   .read(homeProvider.notifier)
                                   .getRoutingAll(
@@ -210,7 +210,7 @@ class OrderDetail extends StatelessWidget {
                                     ),
                                   );
                             }
-                            order.status != "on_a_way"
+                            order.s != "on_a_way"
                                 ? ref
                                       .read(homeProvider.notifier)
                                       .goMarket(

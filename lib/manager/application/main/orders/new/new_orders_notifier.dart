@@ -10,7 +10,7 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
+class NewOrdersNotifier extends AutoDisposeNotifier<NewOrdersState> {
   final OrdersInterface _ordersRepository;
   int _page = 0;
   bool _hasMore = true;
@@ -69,7 +69,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
           state.refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -79,7 +79,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
         } else {
           state.refreshController?.loadFailed();
         }
-        if (status == 401) {
+        if (s == 401) {
           LocalStorage.logout();
           context.router.popUntilRoot();
           context.replaceRoute(const ManagerAuthRoute());

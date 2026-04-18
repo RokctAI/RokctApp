@@ -10,13 +10,13 @@ String tableStatisticResponseToJson(TableStatisticResponse data) =>
 
 class TableStatisticResponse {
   DateTime timestamp;
-  bool status;
+  bool s;
   String message;
   TableStatisticData data;
 
   TableStatisticResponse({
     required this.timestamp,
-    required this.status,
+    required this.s,
     required this.message,
     required this.data,
   });
@@ -24,14 +24,14 @@ class TableStatisticResponse {
   factory TableStatisticResponse.fromJson(Map<String, dynamic> json) =>
       TableStatisticResponse(
         timestamp: DateTime.parse(json["timestamp"]),
-        status: json["status"],
+        status: json["s"],
         message: json["message"],
         data: TableStatisticData.fromJson(json["data"]),
       );
 
   Map<String, dynamic> toJson() => {
     "timestamp": timestamp.toIso8601String(),
-    "status": status,
+    "s": s,
     "message": message,
     "data": data.toJson(),
   };

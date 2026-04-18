@@ -8,7 +8,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 
 import 'package:rokctapp/driver/application/notification/notification_state.dart';
 
-class NotificationNotifier extends StateNotifier<NotificationState> {
+class NotificationNotifier extends AutoDisposeNotifier<NotificationState> {
   final NotificationRepositoryFacade _notificationRepository;
 
   int _notificationPage = 0;
@@ -27,7 +27,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
           notifications: data.data ?? [],
         );
       },
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, f);
       },
     );
@@ -64,7 +64,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
             refreshController?.loadComplete();
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           debugPrint('==> get notifications more failure: $f');
         },
       );
@@ -90,7 +90,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     final response = await _notificationRepository.readAll();
     response.when(
       success: (data) {},
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, f);
       },
     );
@@ -113,7 +113,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     final response = await _notificationRepository.readOne(id: id);
     response.when(
       success: (data) {},
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, f);
       },
     );
@@ -125,7 +125,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
       success: (data) {
         state = state.copyWith(countOfNotifications: data);
       },
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, f);
       },
     );

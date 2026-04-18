@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/application/main/foods/extras/details/extras_gr
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
 class ExtrasGroupDetailsNotifier
-    extends StateNotifier<ExtrasGroupDetailsState> {
+    extends AutoDisposeNotifier<ExtrasGroupDetailsState> {
   final ProductsInterface _productsRepository;
 
   ExtrasGroupDetailsNotifier(this._productsRepository)
@@ -22,8 +22,8 @@ class ExtrasGroupDetailsNotifier
           isLoading: false,
         );
       },
-      failure: (fail, status) {
-        debugPrint('===> fetch extras fail $fail');
+      f: (f, s) {
+        debugPrint('===> fetch extras f $f');
         state = state.copyWith(isLoading: false);
       },
     );

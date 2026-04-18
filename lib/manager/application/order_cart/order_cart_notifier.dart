@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/manager/application/order_cart/order_cart_state.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class OrderCartNotifier extends StateNotifier<OrderCartState> {
+class OrderCartNotifier extends AutoDisposeNotifier<OrderCartState> {
   OrderCartNotifier() : super(const OrderCartState());
 
   void deleteStockFromCart({

@@ -265,7 +265,7 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                           name: state.cart?.userCarts?[index].name ?? "",
                           price: total,
                           isChoosing:
-                              state.cart?.userCarts?[index].status ?? false,
+                              state.cart?.userCarts?[index].s ?? false,
                           onDelete: () {
                             ref
                                 .read(shopOrderProvider.notifier)
@@ -301,7 +301,7 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                                                   state.cart?.ownerId,
                                             )
                                             .single
-                                            .status ??
+                                            .s ??
                                         true)
                                     ? AppHelpers.getTranslation(TrKeys.done)
                                     : AppHelpers.getTranslation(TrKeys.order)
@@ -322,7 +322,7 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                                               state.cart?.ownerId,
                                         )
                                         .single
-                                        .status ??
+                                        .s ??
                                     true)) {
                               event.changeStatus(
                                 context,
@@ -340,7 +340,7 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                             bool check = false;
                             bool checkProduct = false;
                             for (UserCart cart in state.cart!.userCarts!) {
-                              if (cart.status ?? true) {
+                              if (cart.s ?? true) {
                                 check = true;
                                 break;
                               }

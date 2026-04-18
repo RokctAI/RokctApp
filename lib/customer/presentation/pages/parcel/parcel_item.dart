@@ -62,7 +62,7 @@ class ParcelItem extends StatelessWidget {
                             ],
                           )
                         : Icon(
-                            AppHelpers.getOrderStatus(parcel?.status ?? "") ==
+                            AppHelpers.getOrderStatus(parcel?.s ?? "") ==
                                     OrderStatus.delivered
                                 ? Icons.done_all
                                 : Icons.cancel_outlined,

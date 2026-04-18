@@ -13,24 +13,24 @@ String statisticsOrderModelToJson(StatisticsOrderResponse data) =>
 class StatisticsOrderResponse {
   StatisticsOrderResponse({
     this.timestamp,
-    this.status,
+    this.s,
     this.message,
     this.data,
   });
 
   DateTime? timestamp;
-  bool? status;
+  bool? s;
   String? message;
   List<StatisticsOrder>? data;
 
   StatisticsOrderResponse copyWith({
     DateTime? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     List<StatisticsOrder>? data,
   }) => StatisticsOrderResponse(
     timestamp: timestamp ?? this.timestamp,
-    status: status ?? this.status,
+    status: s ?? this.s,
     message: message ?? this.message,
     data: data ?? this.data,
   );
@@ -40,7 +40,7 @@ class StatisticsOrderResponse {
         timestamp: json["timestamp"] == null
             ? null
             : DateTime.tryParse(json["timestamp"])?.toLocal(),
-        status: json["status"],
+        status: json["s"],
         message: json["message"],
         data: json["data"]["data"] != null
             ? List<StatisticsOrder>.from(
@@ -51,7 +51,7 @@ class StatisticsOrderResponse {
 
   Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
-    "status": status,
+    "s": s,
     "message": message,
     "data": data == null
         ? []
@@ -61,7 +61,7 @@ class StatisticsOrderResponse {
 
 class StatisticsOrder {
   int? id;
-  String? status;
+  String? s;
   String? firstname;
   String? lastname;
   int? active;
@@ -71,7 +71,7 @@ class StatisticsOrder {
 
   StatisticsOrder({
     this.id,
-    this.status,
+    this.s,
     this.firstname,
     this.lastname,
     this.active,
@@ -82,7 +82,7 @@ class StatisticsOrder {
 
   StatisticsOrder copyWith({
     int? id,
-    String? status,
+    String? s,
     String? firstname,
     String? lastname,
     int? active,
@@ -91,7 +91,7 @@ class StatisticsOrder {
     List<String>? products,
   }) => StatisticsOrder(
     id: id ?? this.id,
-    status: status ?? this.status,
+    status: s ?? this.s,
     firstname: firstname ?? this.firstname,
     lastname: lastname ?? this.lastname,
     active: active ?? this.active,
@@ -103,7 +103,7 @@ class StatisticsOrder {
   factory StatisticsOrder.fromJson(Map<String, dynamic> json) =>
       StatisticsOrder(
         id: json["id"],
-        status: json["status"],
+        status: json["s"],
         firstname: json["firstname"],
         lastname: json["lastname"],
         active: json["active"],
@@ -116,7 +116,7 @@ class StatisticsOrder {
 
   Map<String, dynamic> toJson() => {
     "id": id,
-    "status": status,
+    "s": s,
     "firstname": firstname,
     "lastname": lastname,
     "active": active,

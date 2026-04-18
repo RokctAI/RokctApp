@@ -12,7 +12,7 @@ class CategoryData {
     String? type,
     String? img,
     bool? active,
-    String? status,
+    String? s,
     Translation? translation,
     ShopData? shop,
     List<CategoryData>? children,
@@ -25,7 +25,7 @@ class CategoryData {
     _type = type;
     _img = img;
     _active = active;
-    _status = status;
+    _status = s;
     _translation = translation;
     _children = children;
     _shop = shop;
@@ -40,7 +40,7 @@ class CategoryData {
     _type = json['type'];
     _img = json['img'];
     _active = json['active'];
-    _status = json['status'];
+    _status = json['s'];
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
         : null;
@@ -75,7 +75,7 @@ class CategoryData {
     String? type,
     String? img,
     bool? active,
-    String? status,
+    String? s,
     ShopData? shop,
     Translation? translation,
     List<CategoryData>? children,
@@ -89,7 +89,7 @@ class CategoryData {
     img: img ?? _img,
     shop: shop ?? _shop,
     active: active ?? _active,
-    status: status ?? _status,
+    status: s ?? _status,
     translation: translation ?? _translation,
     children: children ?? _children,
   );
@@ -110,7 +110,7 @@ class CategoryData {
   ShopData? get shop => _shop;
 
   bool? get active => _active;
-  String? get status => _status;
+  String? get s => _status;
 
   Translation? get translation => _translation;
 
@@ -126,7 +126,7 @@ class CategoryData {
     map['type'] = _type;
     map['img'] = _img;
     map['active'] = _active;
-    map['status'] = _status;
+    map['s'] = _status;
     if (_translation != null) {
       map['translation'] = _translation?.toJson();
     }

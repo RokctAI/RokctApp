@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/application/delivery_zone/delivery_zone_state.da
 import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 
-class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
+class DeliveryZoneNotifier extends AutoDisposeNotifier<DeliveryZoneState> {
   final UserRepository _usersRepository;
 
   DeliveryZoneNotifier(this._usersRepository)
@@ -25,9 +25,9 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
         state = state.copyWith(isSaving: false);
         updateSuccess?.call();
       },
-      failure: (fail, status) {
+      f: (f, s) {
         state = state.copyWith(isSaving: false);
-        debugPrint('===> update delivery zone failed $fail');
+        debugPrint('===> update delivery zone failed $f');
       },
     );
   }
@@ -83,7 +83,7 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
         }
         state = state.copyWith(isLoading: false);
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
         debugPrint('==> error with fetching delivery zone $f');
       },

@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/order/shipping/delivery/delivery_type_state.dart';
 
-class DeliveryTypeNotifier extends StateNotifier<DeliveryTypeState> {
+class DeliveryTypeNotifier extends AutoDisposeNotifier<DeliveryTypeState> {
   DeliveryTypeNotifier() : super(const DeliveryTypeState());
 
   void setType(String type) {

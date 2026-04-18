@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/application/main/foods/extras/details/new_item/
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
 class CreateNewGroupItemNotifier
-    extends StateNotifier<CreateNewGroupItemState> {
+    extends AutoDisposeNotifier<CreateNewGroupItemState> {
   final ProductsInterface _productsRepository;
   String _title = '';
 
@@ -29,12 +29,12 @@ class CreateNewGroupItemNotifier
         state = state.copyWith(isLoading: false);
         success?.call();
       },
-      failure: (fail, status) {
-        debugPrint('===> create extras item fail $fail');
+      f: (f, s) {
+        debugPrint('===> create extras item f $f');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
       },

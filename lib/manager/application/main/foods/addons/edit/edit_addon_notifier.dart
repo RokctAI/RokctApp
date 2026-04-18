@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class EditAddonNotifier extends StateNotifier<EditAddonState> {
+class EditAddonNotifier extends AutoDisposeNotifier<EditAddonState> {
   final ProductsInterface _productsRepository;
   String _oldBarcode = '';
   String _tax = '';
@@ -87,8 +87,8 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
             updated?.call();
             state = state.copyWith(isLoading: false);
           },
-          failure: (stockFail, status) {
-            debugPrint('===> update addon stock fail $stockFail');
+          f: (stockFail, s) {
+            debugPrint('===> update addon stock f $stockFail');
             failed?.call();
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
@@ -99,13 +99,13 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
           },
         );
       },
-      failure: (fail, status) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
-        debugPrint('===> addon update fail $fail');
+        debugPrint('===> addon update f $f');
         failed?.call();
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
       },

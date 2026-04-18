@@ -10,7 +10,7 @@ class ParcelOrder {
   int? userId;
   num? totalPrice;
   num? rate;
-  String? status;
+  String? s;
   String? phoneTo;
   String? usernameTo;
   String? note;
@@ -37,7 +37,7 @@ class ParcelOrder {
     this.userId,
     this.totalPrice,
     this.rate,
-    this.status,
+    this.s,
     this.phoneTo,
     this.usernameTo,
     this.note,
@@ -65,7 +65,7 @@ class ParcelOrder {
     int? userId,
     num? totalPrice,
     num? rate,
-    String? status,
+    String? s,
     String? phoneTo,
     String? note,
     String? usernameTo,
@@ -91,7 +91,7 @@ class ParcelOrder {
     userId: userId ?? this.userId,
     totalPrice: totalPrice ?? this.totalPrice,
     rate: rate ?? this.rate,
-    status: status ?? this.status,
+    status: s ?? this.s,
     note: note ?? this.note,
     phoneTo: phoneTo ?? this.phoneTo,
     usernameTo: usernameTo ?? this.usernameTo,
@@ -120,7 +120,7 @@ class ParcelOrder {
       userId: json["user_id"],
       totalPrice: json["total_price"],
       rate: json["rate"],
-      status: json["status"],
+      status: json["s"],
       note: json["note"],
       phoneTo: json["phone_to"],
       usernameTo: json["username_to"],
@@ -161,7 +161,7 @@ class ParcelOrder {
     "user_id": userId,
     "total_price": totalPrice,
     "rate": rate,
-    "status": status,
+    "s": s,
     "note": note,
     "phone_to": phoneTo,
     "username_to": usernameTo,

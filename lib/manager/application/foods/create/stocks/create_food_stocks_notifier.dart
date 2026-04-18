@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/application/foods/create/stocks/create_food_sto
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
+class CreateFoodStocksNotifier extends AutoDisposeNotifier<CreateFoodStocksState> {
   final ProductsInterface _productsRepository;
   List<Stock> _localStocks = [];
   List<Stock> _oldStocks = [];
@@ -74,7 +74,7 @@ class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
           isFetchingGroups: false,
         );
       },
-      failure: (fail, status) {
+      f: (f, s) {
         state = state.copyWith(isFetchingGroups: false);
       },
     );
@@ -171,14 +171,14 @@ class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
           stocks: _localStocks,
         );
       },
-      failure: (fail, status) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
-        debugPrint('===> group extras fetching failed $fail');
+        debugPrint('===> group extras fetching failed $f');
       },
     );
   }
@@ -221,11 +221,11 @@ class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
         state = state.copyWith(isSaving: false);
         updated?.call();
       },
-      failure: (fail, status) {
+      f: (f, s) {
         state = state.copyWith(isSaving: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
         failed?.call();

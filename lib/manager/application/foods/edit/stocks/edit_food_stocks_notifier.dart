@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
+class EditFoodStocksNotifier extends AutoDisposeNotifier<EditFoodStocksState> {
   final ProductsInterface _productsRepository;
   List<Stock> _localStocks = [];
   List<Stock> _oldStocks = [];
@@ -75,7 +75,7 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
           isFetchingGroups: false,
         );
       },
-      failure: (fail, status) {
+      f: (f, s) {
         state = state.copyWith(isFetchingGroups: false);
       },
     );
@@ -174,14 +174,14 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
           stocks: _localStocks,
         );
       },
-      failure: (fail, status) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail.toString(),
+          text: f.toString(),
           type: SnackBarType.error,
         );
-        debugPrint('===> group extras fetching failed $fail');
+        debugPrint('===> group extras fetching failed $f');
       },
     );
   }
@@ -226,11 +226,11 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
         state = state.copyWith(isSaving: false);
         updated?.call();
       },
-      failure: (fail, status) {
+      f: (f, s) {
         state = state.copyWith(isSaving: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail.toString(),
+          text: f.toString(),
           type: SnackBarType.error,
         );
         failed?.call();

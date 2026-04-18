@@ -67,7 +67,7 @@ class SearchNotifier extends Notifier<SearchState> {
         success: (data) async {
           state = state.copyWith(isShopLoading: false, shops: data.data ?? []);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isShopLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -91,7 +91,7 @@ class SearchNotifier extends Notifier<SearchState> {
             products: data.data ?? [],
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isProductLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -120,7 +120,7 @@ class SearchNotifier extends Notifier<SearchState> {
             productIndex--;
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           productIndex--;
           AppHelpers.showCheckTopSnackBar(context, f);
         },

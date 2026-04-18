@@ -2,20 +2,20 @@ import 'package:rokctapp/manager/infrastructure/models/data/subscriptions_data.d
 
 class SubscriptionResponse {
   DateTime? timestamp;
-  bool? status;
+  bool? s;
   String? message;
   List<SubscriptionData>? data;
 
-  SubscriptionResponse({this.timestamp, this.status, this.message, this.data});
+  SubscriptionResponse({this.timestamp, this.s, this.message, this.data});
 
   SubscriptionResponse copyWith({
     DateTime? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     List<SubscriptionData>? data,
   }) => SubscriptionResponse(
     timestamp: timestamp ?? this.timestamp,
-    status: status ?? this.status,
+    status: s ?? this.s,
     message: message ?? this.message,
     data: data ?? this.data,
   );
@@ -25,7 +25,7 @@ class SubscriptionResponse {
         timestamp: json["timestamp"] == null
             ? null
             : DateTime.parse(json["timestamp"]),
-        status: json["status"],
+        status: json["s"],
         message: json["message"],
         data: json["data"] == null
             ? []
@@ -36,7 +36,7 @@ class SubscriptionResponse {
 
   Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
-    "status": status,
+    "s": s,
     "message": message,
     "data": data == null
         ? []

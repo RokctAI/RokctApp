@@ -9,7 +9,7 @@ import 'package:rokctapp/manager/application/order/shipping/payment/order_paymen
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
+class OrderPaymentNotifier extends AutoDisposeNotifier<OrderPaymentState> {
   final OrdersInterface _ordersRepository;
 
   OrderPaymentNotifier(this._ordersRepository)
@@ -55,8 +55,8 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
           isLoading: false,
         );
       },
-      failure: (error, status) {
-        debugPrint('====> fetch payments fail $error');
+      f: (error, s) {
+        debugPrint('====> fetch payments f $error');
         state = state.copyWith(isLoading: false);
       },
     );
@@ -73,8 +73,8 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
     );
     response.when(
       success: (data) {},
-      failure: (error, status) {
-        debugPrint('====> fetch payments fail $error');
+      f: (error, s) {
+        debugPrint('====> fetch payments f $error');
         AppHelpers.showCheckTopSnackBar(
           context,
           text: error,
@@ -102,8 +102,8 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
           isCalculateLoading: false,
         );
       },
-      failure: (error, status) {
-        debugPrint('====> get calculate fail $error');
+      f: (error, s) {
+        debugPrint('====> get calculate f $error');
         state = state.copyWith(isCalculateLoading: false);
       },
     );

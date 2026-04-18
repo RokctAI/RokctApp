@@ -22,7 +22,7 @@ class ShopData {
     num? minAmount,
     bool? isRecommended,
     bool? open,
-    String? status,
+    String? s,
     String? statusNote,
     String? type,
     num? avgRate,
@@ -59,7 +59,7 @@ class ShopData {
     _logoImg = logoImg;
     _minAmount = minAmount;
     _isRecommended = isRecommended;
-    _status = status;
+    _status = s;
     _statusNote = statusNote;
     _type = type;
     _avgRate = avgRate;
@@ -97,7 +97,7 @@ class ShopData {
     _logoImg = json['logo_img'];
     _minAmount = json['min_amount'];
     _isRecommended = json['is_recommended'];
-    _status = json['status'];
+    _status = json['s'];
     _statusNote = json['status_note'];
     _type = json['type']?.toString();
     _avgRate = json['avg_rate'];
@@ -208,7 +208,7 @@ class ShopData {
     num? minAmount,
     bool? isRecommended,
     bool? open,
-    String? status,
+    String? s,
     String? statusNote,
     String? type,
     num? avgRate,
@@ -244,7 +244,7 @@ class ShopData {
     logoImg: logoImg ?? _logoImg,
     minAmount: minAmount ?? _minAmount,
     isRecommended: isRecommended ?? _isRecommended,
-    status: status ?? _status,
+    status: s ?? _status,
     statusNote: statusNote ?? _statusNote,
     type: type ?? _type,
     avgRate: avgRate ?? _avgRate,
@@ -296,7 +296,7 @@ class ShopData {
 
   bool? get open => _open;
 
-  String? get status => _status;
+  String? get s => _status;
 
   String? get statusNote => _statusNote;
 
@@ -352,7 +352,7 @@ class ShopData {
     map['min_amount'] = _minAmount;
     map['order_payment'] = _orderPayment;
     map['is_recommended'] = _isRecommended;
-    map['status'] = _status;
+    map['s'] = _status;
     map['status_note'] = _statusNote;
     map['type'] = _type;
     map['avg_rate'] = _avgRate;
@@ -534,7 +534,7 @@ class Bonus {
     int? bonusStockId,
     int? value,
     String? type,
-    bool? status,
+    bool? s,
     String? expiredAt,
     BonusStock? bonusStock,
   }) {
@@ -544,7 +544,7 @@ class Bonus {
     _bonusStockId = bonusStockId;
     _value = value;
     _type = type;
-    _status = status;
+    _status = s;
     _expiredAt = expiredAt;
     _bonusStock = bonusStock;
   }
@@ -556,7 +556,7 @@ class Bonus {
     _bonusStockId = json['bonus_stock_id'];
     _value = json['value'];
     _type = json['type'];
-    _status = json['status'];
+    _status = json['s'];
     _expiredAt = json['expired_at'];
     _bonusStock = json['bonusStock'] != null
         ? BonusStock.fromJson(json['bonusStock'])
@@ -580,7 +580,7 @@ class Bonus {
     int? bonusStockId,
     int? value,
     String? type,
-    bool? status,
+    bool? s,
     String? expiredAt,
     BonusStock? bonusStock,
   }) => Bonus(
@@ -590,7 +590,7 @@ class Bonus {
     bonusStockId: bonusStockId ?? _bonusStockId,
     value: value ?? _value,
     type: type ?? _type,
-    status: status ?? _status,
+    status: s ?? _status,
     expiredAt: expiredAt ?? _expiredAt,
     bonusStock: bonusStock ?? _bonusStock,
   );
@@ -607,7 +607,7 @@ class Bonus {
 
   String? get type => _type;
 
-  bool? get status => _status;
+  bool? get s => _status;
 
   String? get expiredAt => _expiredAt;
 
@@ -621,7 +621,7 @@ class Bonus {
     map['bonus_stock_id'] = _bonusStockId;
     map['value'] = _value;
     map['type'] = _type;
-    map['status'] = _status;
+    map['s'] = _status;
     map['expired_at'] = _expiredAt;
     if (_bonusStock != null) {
       map['bonusStock'] = _bonusStock?.toJson();
@@ -720,14 +720,14 @@ class ShopPayments {
   ShopPayments({
     int? id,
     int? shopId,
-    int? status,
+    int? s,
     dynamic clientId,
     dynamic secretId,
     PaymentData? payment,
   }) {
     _id = id;
     _shopId = shopId;
-    _status = status;
+    _status = s;
     _clientId = clientId;
     _secretId = secretId;
     _payment = payment;
@@ -736,7 +736,7 @@ class ShopPayments {
   ShopPayments.fromJson(dynamic json) {
     _id = json['id'];
     _shopId = json['shop_id'];
-    _status = json['status'];
+    _status = json['s'];
     _clientId = json['client_id'];
     _secretId = json['secret_id'];
     _payment = json['payment'] != null
@@ -754,14 +754,14 @@ class ShopPayments {
   ShopPayments copyWith({
     int? id,
     int? shopId,
-    int? status,
+    int? s,
     dynamic clientId,
     dynamic secretId,
     PaymentData? payment,
   }) => ShopPayments(
     id: id ?? _id,
     shopId: shopId ?? _shopId,
-    status: status ?? _status,
+    status: s ?? _status,
     clientId: clientId ?? _clientId,
     secretId: secretId ?? _secretId,
     payment: payment ?? _payment,
@@ -771,7 +771,7 @@ class ShopPayments {
 
   int? get shopId => _shopId;
 
-  int? get status => _status;
+  int? get s => _status;
 
   dynamic get clientId => _clientId;
 
@@ -783,7 +783,7 @@ class ShopPayments {
     final map = <String, dynamic>{};
     map['id'] = _id;
     map['shop_id'] = _shopId;
-    map['status'] = _status;
+    map['s'] = _status;
     map['client_id'] = _clientId;
     map['secret_id'] = _secretId;
     if (_payment != null) {

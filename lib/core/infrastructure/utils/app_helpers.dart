@@ -277,8 +277,8 @@ abstract class AppHelpers {
     );
   }
 
-  static double getOrderStatusProgress(String? status) {
-    switch (status) {
+  static double getOrderStatusProgress(String? s) {
+    switch (s) {
       case 'new':
         return 0.2;
       case 'accepted':

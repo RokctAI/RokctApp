@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/application/order/create_order_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
+class CreateOrderNotifier extends AutoDisposeNotifier<CreateOrderState> {
   final OrdersInterface _ordersRepository;
 
   CreateOrderNotifier(this._ordersRepository) : super(const CreateOrderState());
@@ -43,8 +43,8 @@ class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
         state = state.copyWith(isCreating: false);
         orderSuccess?.call(data.data?.id ?? 0);
       },
-      failure: (f, s) {
-        debugPrint('===> create order fail $f');
+      f: (f, s) {
+        debugPrint('===> create order f $f');
         failed?.call(f.toString());
         state = state.copyWith(isCreating: false);
       },

@@ -5,7 +5,7 @@ class TableInfoData {
   int tableId;
   DateTime startDate;
   DateTime endDate;
-  String status;
+  String s;
 
   TableInfoData({
     required this.id,
@@ -14,7 +14,7 @@ class TableInfoData {
     required this.tableId,
     required this.startDate,
     required this.endDate,
-    required this.status,
+    required this.s,
   });
 
   factory TableInfoData.fromJson(Map<String, dynamic> json) => TableInfoData(
@@ -24,7 +24,7 @@ class TableInfoData {
     tableId: json["table_id"],
     startDate: DateTime.parse(json["start_date"]),
     endDate: DateTime.parse(json["end_date"]),
-    status: json["status"],
+    status: json["s"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -34,6 +34,6 @@ class TableInfoData {
     "table_id": tableId,
     "start_date": startDate.toIso8601String(),
     "end_date": endDate.toIso8601String(),
-    "status": status,
+    "s": s,
   };
 }

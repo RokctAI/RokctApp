@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/application/foods/edit/details/kitchen/edit_foo
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
+class EditFoodKitchensNotifier extends AutoDisposeNotifier<EditFoodKitchensState> {
   final CatalogInterface _catalogRepository;
 
   EditFoodKitchensNotifier(this._catalogRepository)
@@ -83,9 +83,9 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
               kitchens[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
-        debugPrint('====> fetch kitchens fail $f');
+        debugPrint('====> fetch kitchens f $f');
       },
     );
   }

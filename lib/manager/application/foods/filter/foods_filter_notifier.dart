@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/foods/filter/foods_filter_state.dart';
 
-class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
+class FoodsFilterNotifier extends AutoDisposeNotifier<FoodsFilterState> {
   // final ShopsRepositoryFacade _shopsRepository;
 
   FoodsFilterNotifier(/*this._shopsRepository*/)
@@ -26,11 +26,11 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //       state = state.copyWith(
     //           isLoading: false, shopCount: data.meta?.total ?? 0);
     //     },
-    //     failure: (activeFailure, status) {
+    //     f: (activeFailure, s) {
     //       state = state.copyWith(isLoading: false);
     //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(s.toString()),
     //       );
     //     },
     //   );
@@ -58,11 +58,11 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //       state = state.copyWith(
     //           isLoading: false, shopCount: data.meta?.total ?? 0);
     //     },
-    //     failure: (activeFailure, status) {
+    //     f: (activeFailure, s) {
     //       state = state.copyWith(isLoading: false);
     //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(s.toString()),
     //       );
     //     },
     //   );
@@ -93,11 +93,11 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //         tags: data.data ?? [],
     //       );
     //     },
-    //     failure: (activeFailure, status) {
+    //     f: (activeFailure, s) {
     //       state = state.copyWith(isTagLoading: false);
     //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(s.toString()),
     //       );
     //     },
     //   );
@@ -110,11 +110,11 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //           prices: List.generate((20).round(),
     //                   (index) => (Random().nextInt(8) + 1)));
     //     },
-    //     failure: (activeFailure, status) {
+    //     f: (activeFailure, s) {
     //       state = state.copyWith(isTagLoading: false);
     //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(s.toString()),
     //       );
     //     },
     //   );
@@ -136,11 +136,11 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //       state = state.copyWith(
     //           isRestaurantLoading: false, restaurant: data.data ?? []);
     //     },
-    //     failure: (activeFailure, status) {
+    //     f: (activeFailure, s) {
     //       state = state.copyWith(isRestaurantLoading: false);
     //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(s.toString()),
     //       );
     //     },
     //   );
@@ -187,7 +187,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //         }
     //       }
     //     },
-    //     failure: (activeFailure, status) {
+    //     f: (activeFailure, s) {
     //       if (!isRefresh) {
     //         shopIndex--;
     //         shopController.loadFailed();
@@ -196,7 +196,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //       }
     //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(s.toString()),
     //       );
     //     },
     //   );
@@ -217,11 +217,11 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     success: (data) async {
     //       state = state.copyWith(isShopLoading: false, shops: data.data ?? []);
     //     },
-    //     failure: (activeFailure, status) {
+    //     f: (activeFailure, s) {
     //       state = state.copyWith(isShopLoading: false);
     //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(s.toString()),
     //       );
     //     },
     //   );
@@ -267,7 +267,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //         }
     //       }
     //     },
-    //     failure: (activeFailure, status) {
+    //     f: (activeFailure, s) {
     //       if (!isRefresh) {
     //         marketRefreshIndex--;
     //         shopController.loadFailed();
@@ -276,7 +276,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //       }
     //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(s.toString()),
     //       );
     //     },
     //   );

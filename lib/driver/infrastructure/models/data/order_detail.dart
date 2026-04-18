@@ -31,7 +31,7 @@ class OrderDetailData {
   num? totalDiscount;
   num? commissionFee;
   num? couponPrice;
-  String? status;
+  String? s;
   Location? location;
   AddressModel? address;
   String? deliveryType;
@@ -62,7 +62,7 @@ class OrderDetailData {
     this.rate,
     this.tax,
     this.commissionFee,
-    this.status,
+    this.s,
     this.distance,
     this.note,
     this.location,
@@ -101,7 +101,7 @@ class OrderDetailData {
     afterDeliveredImage = json['image_after_delivered'];
     distance = json["km"];
     commissionFee = json['commission_fee'];
-    status = json['status'];
+    s = json['s'];
     current = json["current"] == null
         ? false
         : ((json["current"].runtimeType == int)
@@ -151,7 +151,7 @@ class OrderDetailData {
     data['image_after_delivered'] = afterDeliveredImage;
     data['tax'] = tax;
     data['commission_fee'] = commissionFee;
-    data['status'] = status;
+    data['s'] = s;
     if (location != null) {
       data['location'] = location!.toJson();
     }
@@ -216,7 +216,7 @@ class Shop {
   String? backgroundImg;
   String? logoImg;
   num? minAmount;
-  String? status;
+  String? s;
   String? type;
   DeliveryTime? deliveryTime;
   String? createdAt;
@@ -239,7 +239,7 @@ class Shop {
     this.backgroundImg,
     this.logoImg,
     this.minAmount,
-    this.status,
+    this.s,
     this.type,
     this.deliveryTime,
     this.createdAt,
@@ -265,7 +265,7 @@ class Shop {
     backgroundImg = json['background_img'];
     logoImg = json['logo_img'];
     minAmount = json['min_amount'];
-    status = json['status'];
+    s = json['s'];
     type = json['type'].toString();
     deliveryTime = json['delivery_time'] != null
         ? DeliveryTime.fromJson(json['delivery_time'])
@@ -296,7 +296,7 @@ class Shop {
     data['background_img'] = backgroundImg;
     data['logo_img'] = logoImg;
     data['min_amount'] = minAmount;
-    data['status'] = status;
+    data['s'] = s;
     data['type'] = type;
     if (deliveryTime != null) {
       data['delivery_time'] = deliveryTime!.toJson();
@@ -661,7 +661,7 @@ class Product {
   num? tax;
   num? interval;
   String? barCode;
-  String? status;
+  String? s;
   bool? active;
   bool? addon;
   String? img;
@@ -681,7 +681,7 @@ class Product {
     this.brandId,
     this.tax,
     this.barCode,
-    this.status,
+    this.s,
     this.active,
     this.addon,
     this.img,
@@ -703,7 +703,7 @@ class Product {
     tax = json['tax'];
     interval = json['interval'];
     barCode = json['bar_code'];
-    status = json['status'];
+    s = json['s'];
     active = json['active'];
     addon = json['addon'];
     img = json['img'];
@@ -727,7 +727,7 @@ class Product {
     data['tax'] = tax;
     data['interval'] = interval;
     data['bar_code'] = barCode;
-    data['status'] = status;
+    data['s'] = s;
     data['active'] = active;
     data['addon'] = addon;
     data['img'] = img;
@@ -752,7 +752,7 @@ class Transaction {
   num? price;
   String? paymentTrxId;
   String? note;
-  String? status;
+  String? s;
   String? statusDescription;
   String? createdAt;
   String? updatedAt;
@@ -764,7 +764,7 @@ class Transaction {
     this.price,
     this.paymentTrxId,
     this.note,
-    this.status,
+    this.s,
     this.statusDescription,
     this.createdAt,
     this.updatedAt,
@@ -777,7 +777,7 @@ class Transaction {
     price = json['price'];
     paymentTrxId = json['payment_trx_id'];
     note = json['note'];
-    status = json['status'];
+    s = json['s'];
     statusDescription = json['status_description'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
@@ -793,7 +793,7 @@ class Transaction {
     data['price'] = price;
     data['payment_trx_id'] = paymentTrxId;
     data['note'] = note;
-    data['status'] = status;
+    data['s'] = s;
     data['status_description'] = statusDescription;
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;

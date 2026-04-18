@@ -119,7 +119,7 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
     controller =
         AnimationController(vsync: this, duration: const Duration(seconds: 7))
           ..addListener(() {
-            if (controller.status == AnimationStatus.completed) {
+            if (controller.s == AnimationStatus.completed) {
               if (currentIndex == widget.story!.length - 1) {
                 widget.nextPage();
               } else {

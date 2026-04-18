@@ -74,7 +74,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       'currency_id': LocalStorage.getSelectedCurrency()!.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
       'page': page,
-      "status": "ready",
+      "s": "ready",
       "empty-deliveryman": 1,
       "perPage": 10,
       "delivery_type": "delivery",
@@ -132,13 +132,13 @@ class OrdersRepository implements OrdersRepositoryFacade {
     int page, {
     DateTime? start,
     DateTime? end,
-    List<String>? status,
+    List<String>? s,
   }) async {
     final data = {
       'currency_id': LocalStorage.getSelectedCurrency()!.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
       'page': page,
-      "status": status ?? ["ready", "on_a_way", "delivered", "canceled"],
+      "s": s ?? ["ready", "on_a_way", "delivered", "canceled"],
       "perPage": 10,
       if (start != null)
         "delivery_date_from": DateFormat("yyyy-MM-dd").format(start),
@@ -200,12 +200,12 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateOrder(int? orderId, String? status) async {
+  Future<ApiResult<dynamic>> updateOrder(int? orderId, String? s) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/order/$orderId/status/update',
-        data: {"status": status},
+        '/api/v1/dashboard/deliveryman/order/$orderId/s/update',
+        data: {"s": s},
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -280,7 +280,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/order/$orderId/status/update?status=canceled',
+        '/api/v1/dashboard/deliveryman/order/$orderId/s/update?s=canceled',
         data: {"note": note},
       );
       return const ApiResult.success(data: null);

@@ -27,7 +27,7 @@ class SplashNotifier extends Notifier<SplashState> {
             LocalStorage.setSettingsList(data.data ?? []);
             LocalStorage.setSettingsFetched(true);
           },
-          failure: (f, s) {
+          f: (f, s) {
             debugPrint('==> error with settings fetched');
             AppHelpers.showCheckTopSnackBar(context, f);
           },
@@ -47,7 +47,7 @@ class SplashNotifier extends Notifier<SplashState> {
             LocalStorage.setSettingsList(data.data ?? []);
             LocalStorage.setSettingsFetched(true);
           },
-          failure: (f, s) {
+          f: (f, s) {
             debugPrint('==> error with settings fetched');
             AppHelpers.showCheckTopSnackBar(context, f);
           },
@@ -66,7 +66,7 @@ class SplashNotifier extends Notifier<SplashState> {
         success: (data) {
           LocalStorage.setTranslations(data.data);
         },
-        failure: (f, s) {
+        f: (f, s) {
           debugPrint('==> error with fetching translations $f');
           // AppHelpers.showCheckTopSnackBar(context, f);
         },

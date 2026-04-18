@@ -5,7 +5,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/add_address.dart';
 import 'package:rokctapp/manager/application/map/view_map_state.dart';
 
-class ViewMapNotifier extends StateNotifier<ViewMapState> {
+class ViewMapNotifier extends AutoDisposeNotifier<ViewMapState> {
   ViewMapNotifier() : super(const ViewMapState());
 
   void changePlace(AddressData place) {

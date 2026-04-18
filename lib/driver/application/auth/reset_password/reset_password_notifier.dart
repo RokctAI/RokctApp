@@ -10,7 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/application/auth/reset_password/reset_password_state.dart';
 
-class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
+class ResetPasswordNotifier extends AutoDisposeNotifier<ResetPasswordState> {
   final AuthRepository _authRepository;
   final UserRepository _usersRepository;
 
@@ -98,7 +98,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
             isSuccess: true,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(
             isLoading: false,
             isEmailError: true,
@@ -145,9 +145,9 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
           state = state.copyWith(isLoading: false, isSuccess: true);
           context.replaceRoute(const DriverHomeRoute());
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false, isSuccess: false);
-          if (status == 400) {
+          if (s == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(TrKeys.emailIsNotValid),

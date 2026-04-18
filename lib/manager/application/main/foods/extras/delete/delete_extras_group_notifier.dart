@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/main/foods/extras/delete/delete_extras_group_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
-class DeleteExtrasGroupNotifier extends StateNotifier<DeleteExtrasGroupState> {
+class DeleteExtrasGroupNotifier extends AutoDisposeNotifier<DeleteExtrasGroupState> {
   final ProductsInterface _productsRepository;
 
   DeleteExtrasGroupNotifier(this._productsRepository)
@@ -26,12 +26,12 @@ class DeleteExtrasGroupNotifier extends StateNotifier<DeleteExtrasGroupState> {
         state = state.copyWith(isLoading: false);
         success?.call();
       },
-      failure: (fail, status) {
-        debugPrint('===> delete extras group fail $fail');
+      f: (f, s) {
+        debugPrint('===> delete extras group f $f');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
       },

@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 
 import 'package:rokctapp/driver/application/order/all_order/order_state.dart';
 
-class OrderNotifier extends StateNotifier<OrderState> {
+class OrderNotifier extends AutoDisposeNotifier<OrderState> {
   final OrdersRepositoryFacade _orderRepository;
 
   OrderNotifier(this._orderRepository) : super(const OrderState());
@@ -40,7 +40,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
         success: (data) {
           state = state.copyWith(order: data.data, isLoading: false);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -79,7 +79,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
         success: (data) {
           onSuccess();
         },
-        failure: (f, s) {
+        f: (f, s) {
           AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(f),
@@ -107,7 +107,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
             isActiveLoading: false,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isActiveLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -135,7 +135,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
             isAvailableLoading: false,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isAvailableLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -184,7 +184,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             activeOrder--;
             controller.loadFailed();
@@ -234,7 +234,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             availableOrderPage--;
             controller.loadFailed();
@@ -271,7 +271,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
         success: (data) {
           state = state.copyWith(historyOrders: data, isHistoryLoading: false);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isHistoryLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -321,7 +321,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             historyOrder--;
             state = state.copyWith(isLoading: false);
@@ -379,7 +379,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
   //         }
   //
   //       },
-  //       failure: (f, s) {
+  //       f: (f, s) {
   //         if (!isRefresh) {
   //           deliveredOrder--;
   //           state=state.copyWith(isLoading: false);
@@ -434,7 +434,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
   //         }
   //
   //       },
-  //       failure: (f, s) {
+  //       f: (f, s) {
   //         if (!isRefresh) {
   //           canceledOrder--;
   //           controller.loadFailed();

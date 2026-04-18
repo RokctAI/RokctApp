@@ -50,7 +50,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             activeOrder--;
             controller.loadFailed();
@@ -59,7 +59,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(status.toString()),
+            AppHelpers.getTranslation(s.toString()),
           );
         },
       );
@@ -100,7 +100,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             historyOrder--;
             controller.loadFailed();
@@ -109,7 +109,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(status.toString()),
+            AppHelpers.getTranslation(s.toString()),
           );
         },
       );
@@ -133,11 +133,11 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             totalActiveCount: data.meta?.total ?? 0,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isActiveLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(status.toString()),
+            AppHelpers.getTranslation(s.toString()),
           );
           debugPrint('==> get active orders failure: $f');
         },
@@ -161,11 +161,11 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             isHistoryLoading: false,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isHistoryLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(status.toString()),
+            AppHelpers.getTranslation(s.toString()),
           );
           debugPrint('==> get history orders failure: $f');
         },

@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
-class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
+class OrderDetailsNotifier extends AutoDisposeNotifier<OrderDetailsState> {
   final OrdersInterface _ordersRepository;
 
   OrderDetailsNotifier(this._ordersRepository)
@@ -15,12 +15,12 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
 
   Future<void> updateOrderStatus(
     BuildContext context, {
-    required OrderStatus status,
+    required OrderStatus s,
     VoidCallback? success,
   }) async {
     state = state.copyWith(isUpdating: true);
     final response = await _ordersRepository.updateOrderStatus(
-      status: status,
+      status: s,
       orderId: state.order?.id,
     );
     response.when(
@@ -28,8 +28,8 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
         state = state.copyWith(isUpdating: false);
         success?.call();
       },
-      failure: (f, s) {
-        debugPrint('===> update order status fail $f');
+      f: (f, s) {
+        debugPrint('===> update order s f $f');
         state = state.copyWith(isUpdating: false);
         AppHelpers.showCheckTopSnackBar(
           context,
@@ -62,8 +62,8 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
       success: (data) {
         state = state.copyWith(isLoading: false, order: data.data);
       },
-      failure: (f, s) {
-        debugPrint('===> fetch order details fail $f');
+      f: (f, s) {
+        debugPrint('===> fetch order details f $f');
         state = state.copyWith(isLoading: false);
       },
     );

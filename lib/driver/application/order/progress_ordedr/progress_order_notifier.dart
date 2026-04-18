@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_connectivity.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 
-class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
+class ProgressOrderNotifier extends AutoDisposeNotifier<ProgressOrderState> {
   ProgressOrderNotifier() : super(const ProgressOrderState());
 
   int progressOrder = 0;
@@ -49,7 +49,7 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             progressOrder--;
             controller.loadFailed();

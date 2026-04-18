@@ -9,7 +9,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/driver/application/statistics/statistics_state.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 
-class StatisticsNotifier extends StateNotifier<StatisticsState> {
+class StatisticsNotifier extends AutoDisposeNotifier<StatisticsState> {
   final UserRepository _userRepository;
   int page = 1;
 
@@ -35,11 +35,11 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
         }
         addListInfo();
       },
-      failure: (fail, s) {
+      f: (f, s) {
         if (state.countData == null) {
           state = state.copyWith(isLoading: false);
         }
-        debugPrint('==> error with fetching statistics $fail');
+        debugPrint('==> error with fetching statistics $f');
       },
     );
   }
@@ -59,10 +59,10 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
       success: (data) {
         state = state.copyWith(listOfOrder: data.data ?? [], isLoading: false);
       },
-      failure: (fail, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
 
-        debugPrint('==> error with fetching statistics $fail');
+        debugPrint('==> error with fetching statistics $f');
       },
     );
   }
@@ -83,10 +83,10 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
       success: (data) {
         state = state.copyWith(listOfOrder: data.data ?? [], isLoading: false);
       },
-      failure: (fail, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
 
-        debugPrint('==> error with fetching statistics $fail');
+        debugPrint('==> error with fetching statistics $f');
       },
     );
   }
@@ -108,12 +108,12 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
         refreshController?.loadComplete();
         state = state.copyWith(listOfOrder: newList);
       },
-      failure: (fail, s) {
+      f: (f, s) {
         refreshController?.loadNoData();
         if (state.countData == null) {
           state = state.copyWith(isLoading: false);
         }
-        debugPrint('==> error with fetching statistics $fail');
+        debugPrint('==> error with fetching statistics $f');
       },
     );
   }

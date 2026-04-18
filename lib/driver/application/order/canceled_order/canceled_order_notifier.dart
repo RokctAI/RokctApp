@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_connectivity.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 
-class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
+class CanceledOrderNotifier extends AutoDisposeNotifier<CanceledOrderState> {
   CanceledOrderNotifier() : super(const CanceledOrderState());
 
   int canceledOrder = 0;
@@ -48,7 +48,7 @@ class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             canceledOrder--;
             state = state.copyWith(isLoading: false);

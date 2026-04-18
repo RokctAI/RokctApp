@@ -9,7 +9,7 @@ import 'package:rokctapp/manager/application/foods/foods_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class FoodsNotifier extends StateNotifier<FoodsState> {
+class FoodsNotifier extends AutoDisposeNotifier<FoodsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;
   bool _hasMore = true;
@@ -40,8 +40,8 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
         refreshController?.loadComplete();
         state = state.copyWith(foods: products);
       },
-      failure: (fail, status) {
-        debugPrint('===> fetch more products fail $fail');
+      f: (f, s) {
+        debugPrint('===> fetch more products f $f');
         refreshController?.loadFailed();
       },
     );
@@ -68,8 +68,8 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
         _hasMore = products.length >= 10;
         state = state.copyWith(foods: products, isLoading: false);
       },
-      failure: (fail, status) {
-        debugPrint('===> fetch category products fail $fail');
+      f: (f, s) {
+        debugPrint('===> fetch category products f $f');
         state = state.copyWith(foods: [], isLoading: false);
       },
     );
@@ -94,8 +94,8 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
         _hasMore = products.length >= 10;
         state = state.copyWith(isLoading: false, foods: products);
       },
-      failure: (fail, status) {
-        debugPrint('===> fetch products fail $fail');
+      f: (f, s) {
+        debugPrint('===> fetch products f $f');
         state = state.copyWith(isLoading: false);
       },
     );
@@ -118,8 +118,8 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
         _hasMore = products.length >= 10;
         refreshController?.refreshCompleted();
       },
-      failure: (error, status) {
-        debugPrint('===> initial fetch products fail $error');
+      f: (error, s) {
+        debugPrint('===> initial fetch products f $error');
         refreshController?.refreshFailed();
       },
     );
@@ -220,8 +220,8 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
-        debugPrint('====> fetch products fail $f');
+      f: (f, s) {
+        debugPrint('====> fetch products f $f');
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);

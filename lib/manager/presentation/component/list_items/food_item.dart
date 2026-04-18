@@ -25,7 +25,7 @@ class FoodItem extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        color: product.status == 'pending' ? AppStyle.pending : AppStyle.white,
+        color: product.s == 'pending' ? AppStyle.pending : AppStyle.white,
         margin: EdgeInsets.only(bottom: spacing.r),
         padding: REdgeInsets.symmetric(vertical: 12),
         child: Column(
@@ -124,7 +124,7 @@ class FoodItem extends StatelessWidget {
                     padding: REdgeInsets.symmetric(horizontal: 12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.r),
-                      color: product.status == 'pending'
+                      color: product.s == 'pending'
                           ? AppStyle.pendingDark
                           : AppStyle.primary,
                     ),
@@ -132,7 +132,7 @@ class FoodItem extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(
-                          product.status == 'pending'
+                          product.s == 'pending'
                               ? FlutterRemix.time_fill
                               : FlutterRemix.check_double_line,
                           size: 20.r,
@@ -140,7 +140,7 @@ class FoodItem extends StatelessWidget {
                         ),
                         6.horizontalSpace,
                         Text(
-                          product.status == 'pending'
+                          product.s == 'pending'
                               ? AppHelpers.getTranslation(TrKeys.pending)
                               : AppHelpers.getTranslation(TrKeys.published),
                           style: AppStyle.interNormal(

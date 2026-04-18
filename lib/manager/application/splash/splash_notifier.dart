@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class SplashNotifier extends StateNotifier<SplashState> {
+class SplashNotifier extends AutoDisposeNotifier<SplashState> {
   final SettingsInterface _settingsRepository;
   final UsersInterface _userRepository;
 
@@ -28,7 +28,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         }
         LocalStorage.setSelectedCurrency(currencies[defaultCurrencyIndex]);
       },
-      failure: (f, s) {
+      f: (f, s) {
         debugPrint('==> error with fetching currencies $f');
       },
     );
@@ -52,8 +52,8 @@ class SplashNotifier extends StateNotifier<SplashState> {
           goBecome?.call();
         }
       },
-      failure: (f, s) {
-        if (status == 401) {
+      f: (f, s) {
+        if (s == 401) {
           goLogin?.call();
         }
         debugPrint('==> error with fetching profile $f');
@@ -67,7 +67,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
       success: (data) {
         LocalStorage.setSettingsList(data.data ?? []);
       },
-      failure: (f, s) {
+      f: (f, s) {
         debugPrint('==> error with fetching settings $f');
       },
     );
@@ -101,7 +101,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           success: (data) {
             LocalStorage.setTranslations(data.data);
           },
-          failure: (f, s) {
+          f: (f, s) {
             debugPrint('==> error with fetching translations $f');
           },
         );
@@ -126,7 +126,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           success: (data) {
             LocalStorage.setTranslations(data.data);
           },
-          failure: (f, s) {
+          f: (f, s) {
             debugPrint('==> error with fetching translations $f');
           },
         );

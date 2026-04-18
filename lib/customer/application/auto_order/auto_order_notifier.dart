@@ -72,7 +72,7 @@ class AutoOrderNotifier extends Notifier<AutoOrderState> {
         );
         context.router.maybePop();
       },
-      failure: (error, statusCode) {
+      f: (error, statusCode) {
         AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(error),
@@ -95,7 +95,7 @@ class AutoOrderNotifier extends Notifier<AutoOrderState> {
         );
         context.router.maybePop();
       },
-      failure: (error, statusCode) {
+      f: (error, statusCode) {
         AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(error),

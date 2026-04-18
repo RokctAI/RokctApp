@@ -65,10 +65,10 @@ class _ParcelProgressPageState extends ConsumerState<ParcelProgressPage> {
     final event = ref.read(parcelProvider.notifier);
     final isLtr = LocalStorage.getLangLtr();
     ref.listen(parcelProvider, (previous, next) {
-      if (AppHelpers.getOrderStatus(next.parcel?.status ?? "") ==
+      if (AppHelpers.getOrderStatus(next.parcel?.s ?? "") ==
               OrderStatus.delivered &&
           next.parcel?.review == null &&
-          previous?.parcel?.status != next.parcel?.status) {
+          previous?.parcel?.s != next.parcel?.s) {
         AppHelpers.showCustomModalBottomSheet(
           context: context,
           modal: RatingPage(totalPrice: next.parcel?.totalPrice, parcel: true),
@@ -354,7 +354,7 @@ class _ParcelProgressPageState extends ConsumerState<ParcelProgressPage> {
             ],
           ),
           OrderStatusScreen(
-            status: AppHelpers.getOrderStatus(state.parcel?.status ?? ""),
+            status: AppHelpers.getOrderStatus(state.parcel?.s ?? ""),
             parcel: true,
             colors: colors,
           ),

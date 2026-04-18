@@ -15,7 +15,7 @@ class ProductData {
     num? tax,
     num? interval,
     String? barCode,
-    String? status,
+    String? s,
     String? type,
     bool? active,
     bool? addon,
@@ -46,7 +46,7 @@ class ProductData {
     _tax = tax;
     _interval = interval;
     _barCode = barCode;
-    _status = status;
+    _status = s;
     _type = type;
     _active = active;
     _addon = addon;
@@ -73,7 +73,7 @@ class ProductData {
     _tax = num.tryParse(json['tax'].toString());
     _interval = json['interval'];
     _barCode = json['bar_code'];
-    _status = json['status'];
+    _status = json['s'];
     _type = json['type'];
     _active = json['active'];
     _addon = json['addon'];
@@ -158,7 +158,7 @@ class ProductData {
     num? tax,
     num? interval,
     String? barCode,
-    String? status,
+    String? s,
     String? type,
     bool? active,
     bool? addon,
@@ -185,7 +185,7 @@ class ProductData {
     galleries: galleries ?? galleries,
     interval: interval ?? _interval,
     barCode: barCode ?? _barCode,
-    status: status ?? _status,
+    status: s ?? _status,
     type: type ?? _type,
     active: active ?? _active,
     addon: addon ?? _addon,
@@ -224,7 +224,7 @@ class ProductData {
 
   String? get barCode => _barCode;
 
-  String? get status => _status;
+  String? get s => _status;
 
   String? get type => _type;
 
@@ -266,7 +266,7 @@ class ProductData {
     map['category_id'] = _categoryId;
     map['tax'] = _tax;
     map['bar_code'] = _barCode;
-    map['status'] = _status;
+    map['s'] = _status;
     map['type'] = _type;
     map['active'] = _active;
     map['img'] = _img;

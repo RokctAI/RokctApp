@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class RestaurantNotifier extends StateNotifier<RestaurantState> {
+class RestaurantNotifier extends AutoDisposeNotifier<RestaurantState> {
   final UsersInterface _usersRepository;
   final SettingsInterface _settingsRepository;
   String _title = '';
@@ -34,7 +34,7 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         );
         afterFetched?.call();
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(shop: LocalStorage.getShop());
         afterFetched?.call();
         debugPrint('==> error with fetching my shop $f');
@@ -80,8 +80,8 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         success: (data) {
           backUrl = data.imageData?.title;
         },
-        failure: (f, s) {
-          debugPrint('==> upload shop back image fail: $f');
+        f: (f, s) {
+          debugPrint('==> upload shop back image f: $f');
           AppHelpers.showCheckTopSnackBar(
             context,
             text: f,
@@ -100,8 +100,8 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         success: (data) {
           logoUrl = data.imageData?.title;
         },
-        failure: (f, s) {
-          debugPrint('==> upload shop logo image fail: $f');
+        f: (f, s) {
+          debugPrint('==> upload shop logo image f: $f');
           AppHelpers.showCheckTopSnackBar(
             context,
             text: f,
@@ -147,8 +147,8 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         );
         updateSuccess?.call();
       },
-      failure: (f, s) {
-        debugPrint('===> update shop fail $f');
+      f: (f, s) {
+        debugPrint('===> update shop f $f');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,

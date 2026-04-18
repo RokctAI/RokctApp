@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 
 import 'package:rokctapp/driver/application/parcel/parcel_state.dart';
 
-class ParcelNotifier extends StateNotifier<ParcelState> {
+class ParcelNotifier extends AutoDisposeNotifier<ParcelState> {
   final ParcelRepositoryFacade _parcelRepo;
 
   ParcelNotifier(this._parcelRepo) : super(const ParcelState());
@@ -38,7 +38,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         success: (data) {
           state = state.copyWith(order: data, isLoading: false);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -73,7 +73,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
   //       success: (data) {
   //         onSuccess();
   //       },
-  //       failure: (f, s) {
+  //       f: (f, s) {
   //
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
@@ -98,7 +98,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         success: (data) {
           state = state.copyWith(activeOrders: data, isActiveLoading: false);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isActiveLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -126,7 +126,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             isAvailableLoading: false,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isAvailableLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -172,7 +172,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             activeOrder--;
             controller.loadFailed();
@@ -222,7 +222,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             availableOrderPage--;
             controller.loadFailed();
@@ -259,7 +259,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         success: (data) {
           state = state.copyWith(historyOrders: data, isHistoryLoading: false);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isHistoryLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -305,7 +305,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             historyOrder--;
             controller.loadFailed();

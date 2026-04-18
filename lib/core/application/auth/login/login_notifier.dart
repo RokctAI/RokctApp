@@ -77,7 +77,7 @@ class LoginNotifier extends Notifier<LoginState> {
               }
             }
           },
-          failure: (f, s) {
+          f: (f, s) {
             state = state.copyWith(isSelectLanguage: false);
             AppHelpers.showCheckTopSnackBar(context, f);
           },
@@ -120,7 +120,7 @@ class LoginNotifier extends Notifier<LoginState> {
           _success(context, data.data?.user);
           state = state.copyWith(isLoading: false);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false, isLoginError: true);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -163,7 +163,7 @@ class LoginNotifier extends Notifier<LoginState> {
             _success(context, data.data?.user);
             state = state.copyWith(isLoading: false);
           },
-          failure: (f, s) {
+          f: (f, s) {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(context, f);
           },

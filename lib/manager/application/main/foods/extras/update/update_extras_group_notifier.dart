@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/main/foods/extras/update/update_extras_group_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
-class UpdateExtrasGroupNotifier extends StateNotifier<UpdateExtrasGroupState> {
+class UpdateExtrasGroupNotifier extends AutoDisposeNotifier<UpdateExtrasGroupState> {
   final ProductsInterface _productsRepository;
   String _title = '';
 
@@ -28,12 +28,12 @@ class UpdateExtrasGroupNotifier extends StateNotifier<UpdateExtrasGroupState> {
         state = state.copyWith(isLoading: false);
         success?.call();
       },
-      failure: (fail, status) {
-        debugPrint('===> update extras group fail $fail');
+      f: (f, s) {
+        debugPrint('===> update extras group f $f');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
       },

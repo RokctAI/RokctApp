@@ -83,10 +83,10 @@ class _OrderProgressPageState extends ConsumerState<OrderProgressPage> {
     final event = ref.read(orderProvider.notifier);
     final isLtr = LocalStorage.getLangLtr();
     ref.listen(orderProvider, (previous, next) {
-      if (AppHelpers.getOrderStatus(next.orderData?.status ?? "") ==
+      if (AppHelpers.getOrderStatus(next.orderData?.s ?? "") ==
               OrderStatus.delivered &&
           !(next.orderData?.review != null || next.orderData?.tips != null) &&
-          previous?.orderData?.status != next.orderData?.status) {
+          previous?.orderData?.s != next.orderData?.s) {
         AppHelpers.showCustomModalBottomSheet(
           context: context,
           modal: RatingPage(totalPrice: next.orderData?.totalPrice),
@@ -183,7 +183,7 @@ class _OrderProgressPageState extends ConsumerState<OrderProgressPage> {
                     itemBuilder: (context, index) {
                       return CartOrderItem(
                         isAddComment: true,
-                        status: state.orderData?.status,
+                        status: state.orderData?.s,
                         symbol: state.orderData?.currencyModel?.symbol ?? "",
                         isActive: false,
                         add: () {},
@@ -200,7 +200,7 @@ class _OrderProgressPageState extends ConsumerState<OrderProgressPage> {
               ),
               OrderCheck(
                 orderStatus: AppHelpers.getOrderStatus(
-                  state.orderData?.status ?? "",
+                  state.orderData?.s ?? "",
                 ),
                 colors: colors,
                 isOrder: true,
@@ -266,7 +266,7 @@ class _OrderProgressPageState extends ConsumerState<OrderProgressPage> {
             ],
           ),
           OrderStatusScreen(
-            status: AppHelpers.getOrderStatus(state.orderData?.status ?? ""),
+            status: AppHelpers.getOrderStatus(state.orderData?.s ?? ""),
             colors: colors,
           ),
         ],

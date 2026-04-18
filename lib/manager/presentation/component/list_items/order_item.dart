@@ -81,7 +81,7 @@ class OrderItem extends StatelessWidget {
                       ],
                     ),
                   ),
-                  if (AppHelpers.getOrderStatus(order.status) ==
+                  if (AppHelpers.getOrderStatus(order.s) ==
                       OrderStatus.newOrder)
                     Container(
                       width: 10.r,
@@ -107,7 +107,7 @@ class OrderItem extends StatelessWidget {
                 children: [
                   RichText(
                     text: TextSpan(
-                      text: '№ ${order.id}',
+                      text: 'â„– ${order.id}',
                       style: AppStyle.interNormal(
                         color: AppStyle.blackColor,
                         size: 14,

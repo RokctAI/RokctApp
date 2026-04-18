@@ -65,8 +65,8 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
               final appbarEvent = ref.read(homeAppbarProvider.notifier);
               bool isHistoryOrder =
                   widget.isHistoryOrder ??
-                  (state.order?.status == OrderStatus.delivered.name ||
-                      state.order?.status == OrderStatus.canceled.name);
+                  (state.order?.s == OrderStatus.delivered.name ||
+                      state.order?.s == OrderStatus.canceled.name);
               return Column(
                 children: [
                   const ModalDrag(),
@@ -118,7 +118,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                       ?.tag ??
                                                   "",
                                             )
-                                          : '${AppHelpers.getTranslation(TrKeys.order)} - №${state.order?.id}',
+                                          : '${AppHelpers.getTranslation(TrKeys.order)} - Ã¢â€žâ€“${state.order?.id}',
                                       style: AppStyle.interNormal(
                                         size: 12,
                                         color: AppStyle.blackColor,
@@ -192,7 +192,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '${AppHelpers.getTranslation(TrKeys.order)} - №${state.order?.id}',
+                            '${AppHelpers.getTranslation(TrKeys.order)} - Ã¢â€žâ€“${state.order?.id}',
                             style: AppStyle.interNormal(
                               size: 14,
                               color: AppStyle.blackColor,
@@ -200,7 +200,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                             ),
                           ),
                           Text(
-                            '${DateFormat('hh:mm, EE').format(DateTime.tryParse(state.order?.createdAt ?? '')?.toLocal() ?? DateTime.now())} — ${DateFormat('hh:mm, EE').format(DateTime.tryParse(state.order?.updatedAt ?? '')?.toLocal() ?? DateTime.now())}',
+                            '${DateFormat('hh:mm, EE').format(DateTime.tryParse(state.order?.createdAt ?? '')?.toLocal() ?? DateTime.now())} Ã¢â‚¬â€ ${DateFormat('hh:mm, EE').format(DateTime.tryParse(state.order?.updatedAt ?? '')?.toLocal() ?? DateTime.now())}',
                             style: AppStyle.interNormal(
                               size: 14,
                               color: AppStyle.blackColor,
@@ -486,17 +486,17 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                 ? const Loading()
                                 : CustomButton(
                                     title: AppHelpers.changeStatusButtonText(
-                                      state.order?.status,
+                                      state.order?.s,
                                     ),
                                     onPressed: () => event.updateOrderStatus(
                                       context,
                                       status: AppHelpers.getUpdatableStatus(
-                                        state.order?.status,
+                                        state.order?.s,
                                       ),
                                       success: () {
                                         Navigator.pop(context);
                                         switch (AppHelpers.getOrderStatus(
-                                          state.order?.status,
+                                          state.order?.s,
                                         )) {
                                           case OrderStatus.newOrder:
                                             ref

@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/application/restaurant/income/today_orders/toda
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class TodayOrdersNotifier extends StateNotifier<TodayOrdersState> {
+class TodayOrdersNotifier extends AutoDisposeNotifier<TodayOrdersState> {
   final OrdersInterface _ordersRepository;
 
   TodayOrdersNotifier(this._ordersRepository) : super(const TodayOrdersState());
@@ -39,11 +39,11 @@ class TodayOrdersNotifier extends StateNotifier<TodayOrdersState> {
           );
         }
       },
-      failure: (fail, status) {
+      f: (f, s) {
         if (state.ordersStatistic == null) {
           state = state.copyWith(isLoading: false);
         }
-        debugPrint('==> error order statistics $fail');
+        debugPrint('==> error order statistics $f');
       },
     );
   }

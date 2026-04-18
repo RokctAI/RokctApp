@@ -25,27 +25,27 @@ class TagResponse {
 class PriceModel {
   PriceModel({
     required this.timestamp,
-    required this.status,
+    required this.s,
     required this.message,
     required this.data,
   });
 
   DateTime timestamp;
-  bool status;
+  bool s;
   String message;
   PriceRangeData data;
 
   factory PriceModel.fromJson(Map<String, dynamic> json) => PriceModel(
     timestamp:
         DateTime.tryParse(json["timestamp"])?.toLocal() ?? DateTime.now(),
-    status: json["status"],
+    status: json["s"],
     message: json["message"],
     data: PriceRangeData.fromJson(json["data"]),
   );
 
   Map<String, dynamic> toJson() => {
     "timestamp": timestamp.toIso8601String(),
-    "status": status,
+    "s": s,
     "message": message,
     "data": data.toJson(),
   };

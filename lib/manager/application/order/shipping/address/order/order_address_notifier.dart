@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/manager/application/order/shipping/address/order/order_address_state.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class OrderAddressNotifier extends StateNotifier<OrderAddressState> {
+class OrderAddressNotifier extends AutoDisposeNotifier<OrderAddressState> {
   OrderAddressNotifier()
     : super(OrderAddressState(textController: TextEditingController()));
 

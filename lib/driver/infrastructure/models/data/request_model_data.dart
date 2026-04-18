@@ -7,7 +7,7 @@ class RequestModelData {
   String? modelType;
   int? datumCreatedBy;
   CarData? data;
-  String? status;
+  String? s;
   String? statusNote;
   UserData? model;
   UserData? createdBy;
@@ -20,7 +20,7 @@ class RequestModelData {
     this.modelType,
     this.datumCreatedBy,
     this.data,
-    this.status,
+    this.s,
     this.statusNote,
     this.model,
     this.createdBy,
@@ -34,7 +34,7 @@ class RequestModelData {
     String? modelType,
     int? datumCreatedBy,
     CarData? data,
-    String? status,
+    String? s,
     String? statusNote,
     UserData? model,
     UserData? createdBy,
@@ -46,7 +46,7 @@ class RequestModelData {
     modelType: modelType ?? this.modelType,
     datumCreatedBy: datumCreatedBy ?? this.datumCreatedBy,
     data: data ?? this.data,
-    status: status ?? this.status,
+    status: s ?? this.s,
     statusNote: statusNote ?? this.statusNote,
     model: model ?? this.model,
     createdBy: createdBy ?? this.createdBy,
@@ -61,7 +61,7 @@ class RequestModelData {
         modelType: json["model_type"],
         datumCreatedBy: json["created_by"],
         data: json["data"] == null ? null : CarData.fromJson(json["data"]),
-        status: json["status"],
+        status: json["s"],
         statusNote: json["status_note"],
         model: json["model"] == null ? null : UserData.fromJson(json["model"]),
         createdBy: json["createdBy"] == null
@@ -81,7 +81,7 @@ class RequestModelData {
     "model_type": modelType,
     "created_by": datumCreatedBy,
     "data": data?.toJson(),
-    "status": status,
+    "s": s,
     "status_note": statusNote,
     "model": model?.toJson(),
     "createdBy": createdBy?.toJson(),

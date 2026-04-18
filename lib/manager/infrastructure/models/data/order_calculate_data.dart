@@ -1,14 +1,14 @@
 import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
 
 class OrderCalculate {
-  bool? status;
+  bool? s;
   String? code;
   OrderCalculateDetail? data;
 
-  OrderCalculate({this.status, this.code, this.data});
+  OrderCalculate({this.s, this.code, this.data});
 
   OrderCalculate.fromJson(Map<String, dynamic> json) {
-    status = json['status'];
+    s = json['s'];
     code = json['code'];
     data = json['data'] != null
         ? OrderCalculateDetail.fromJson(json['data']["data"])
@@ -17,7 +17,7 @@ class OrderCalculate {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['status'] = status;
+    data['s'] = s;
     data['code'] = code;
     if (this.data != null) {
       data['data'] = this.data!.toJson();

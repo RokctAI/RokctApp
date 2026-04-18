@@ -2,15 +2,15 @@
 
 class DeliveryResponse {
   String? timestamp;
-  bool? status;
+  bool? s;
   String? message;
   Data? data;
 
-  DeliveryResponse({this.timestamp, this.status, this.message, this.data});
+  DeliveryResponse({this.timestamp, this.s, this.message, this.data});
 
   DeliveryResponse.fromJson(Map<String, dynamic> json) {
     timestamp = json['timestamp'];
-    status = json['status'];
+    s = json['s'];
     message = json['message'];
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
@@ -18,7 +18,7 @@ class DeliveryResponse {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['timestamp'] = timestamp;
-    data['status'] = status;
+    data['s'] = s;
     data['message'] = message;
     if (this.data != null) {
       data['data'] = this.data!.toJson();

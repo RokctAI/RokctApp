@@ -17,7 +17,7 @@ class AddonItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isOutOfStock = addon.stock == null;
     return Container(
-      color: addon.status == 'pending' ? AppStyle.pending : AppStyle.white,
+      color: addon.s == 'pending' ? AppStyle.pending : AppStyle.white,
       margin: REdgeInsets.only(bottom: 10),
       padding: REdgeInsets.symmetric(vertical: 18, horizontal: 16),
       child: Column(
@@ -88,7 +88,7 @@ class AddonItem extends StatelessWidget {
                 padding: REdgeInsets.symmetric(horizontal: 12),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.r),
-                  color: addon.status == 'pending'
+                  color: addon.s == 'pending'
                       ? AppStyle.pendingDark
                       : AppStyle.primary,
                 ),
@@ -96,7 +96,7 @@ class AddonItem extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
-                      addon.status == 'pending'
+                      addon.s == 'pending'
                           ? FlutterRemix.time_fill
                           : FlutterRemix.check_double_line,
                       size: 20.r,
@@ -104,7 +104,7 @@ class AddonItem extends StatelessWidget {
                     ),
                     6.horizontalSpace,
                     Text(
-                      addon.status == 'pending'
+                      addon.s == 'pending'
                           ? AppHelpers.getTranslation(TrKeys.pending)
                           : AppHelpers.getTranslation(TrKeys.published),
                       style: AppStyle.interNormal(

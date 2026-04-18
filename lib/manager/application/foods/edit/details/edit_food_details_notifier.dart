@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
+class EditFoodDetailsNotifier extends AutoDisposeNotifier<EditFoodDetailsState> {
   final ProductsInterface _productsRepository;
   final SettingsInterface _settingsRepository;
   String? _oldBarcode;
@@ -59,8 +59,8 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
         success: (data) {
           imageUrl.addAll(data.data?.title ?? []);
         },
-        failure: (f, s) {
-          debugPrint('==> upload product image fail: $f');
+        f: (f, s) {
+          debugPrint('==> upload product image f: $f');
           AppHelpers.showCheckTopSnackBar(context, text: f);
           state = state.copyWith(isLoading: true);
         },
@@ -112,14 +112,14 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
         _oldBarcode = state.barcode;
         updated?.call(updatedProduct);
       },
-      failure: (fail, status) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
         state = state.copyWith(isLoading: false);
-        debugPrint('===> product update fail $fail');
+        debugPrint('===> product update f $f');
         failed?.call();
       },
     );
@@ -245,7 +245,7 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
           );
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         debugPrint('==> get product details failure: $f');
       },
     );

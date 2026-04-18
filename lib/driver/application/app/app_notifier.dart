@@ -4,7 +4,7 @@ import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/app/app_state.dart';
 
-class AppNotifier extends StateNotifier<AppState> {
+class AppNotifier extends AutoDisposeNotifier<AppState> {
   AppNotifier() : super(const AppState()) {
     fetchThemeAndLocale();
   }

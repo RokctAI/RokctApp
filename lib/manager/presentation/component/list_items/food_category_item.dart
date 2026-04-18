@@ -22,7 +22,7 @@ class FoodCategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return category.status != "unpublished"
+    return category.s != "unpublished"
         ? Padding(
             padding: REdgeInsets.only(top: 8),
             child: GestureDetector(

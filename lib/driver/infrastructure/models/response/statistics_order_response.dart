@@ -13,24 +13,24 @@ String statisticsOrderModelToJson(StatisticsOrderResponse data) =>
 class StatisticsOrderResponse {
   StatisticsOrderResponse({
     this.timestamp,
-    this.status,
+    this.s,
     this.message,
     this.data,
   });
 
   DateTime? timestamp;
-  bool? status;
+  bool? s;
   String? message;
   List<StatisticsOrder>? data;
 
   StatisticsOrderResponse copyWith({
     DateTime? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     List<StatisticsOrder>? data,
   }) => StatisticsOrderResponse(
     timestamp: timestamp ?? this.timestamp,
-    status: status ?? this.status,
+    status: s ?? this.s,
     message: message ?? this.message,
     data: data ?? this.data,
   );
@@ -40,7 +40,7 @@ class StatisticsOrderResponse {
         timestamp: json["timestamp"] == null
             ? null
             : DateTime.tryParse(json["timestamp"])?.toLocal(),
-        status: json["status"],
+        status: json["s"],
         message: json["message"],
         data: json["data"] == null
             ? []
@@ -51,7 +51,7 @@ class StatisticsOrderResponse {
 
   Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
-    "status": status,
+    "s": s,
     "message": message,
     "data": data == null
         ? []

@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/manager/application/main/main_state.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class MainNotifier extends StateNotifier<MainState> {
+class MainNotifier extends AutoDisposeNotifier<MainState> {
   MainNotifier() : super(const MainState());
 
   void selectIndex(int index) {

@@ -10,7 +10,7 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
+class OrderProductsNotifier extends AutoDisposeNotifier<OrderProductsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;
   bool _hasMore = true;
@@ -162,8 +162,8 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
-        debugPrint('====> fetch products fail $f');
+      f: (f, s) {
+        debugPrint('====> fetch products f $f');
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);

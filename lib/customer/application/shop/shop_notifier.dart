@@ -55,7 +55,7 @@ class ShopNotifier extends Notifier<ShopState> {
           }
           state = state.copyWith(polylineCoordinates: list);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(polylineCoordinates: []);
         },
       );
@@ -126,7 +126,7 @@ class ShopNotifier extends Notifier<ShopState> {
       success: (data) {
         state = state.copyWith(branches: data.data);
       },
-      failure: (t, e) {},
+      f: (t, e) {},
     );
   }
 
@@ -269,7 +269,7 @@ class ShopNotifier extends Notifier<ShopState> {
         state = state.copyWith(shopData: data.data);
         checkWorkingDay();
       },
-      failure: (f, s) {},
+      f: (f, s) {},
     );
   }
 
@@ -301,7 +301,7 @@ class ShopNotifier extends Notifier<ShopState> {
           );
           onSuccess();
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(
             isJoinOrder: false,
             userUuid: "",
@@ -334,7 +334,7 @@ class ShopNotifier extends Notifier<ShopState> {
           generateShareLink();
           checkWorkingDay();
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -358,7 +358,7 @@ class ShopNotifier extends Notifier<ShopState> {
           state = state.copyWith(category: data.data, isCategoryLoading: false);
           return true;
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isCategoryLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
           return false;
@@ -404,7 +404,7 @@ class ShopNotifier extends Notifier<ShopState> {
           state = state.copyWith(allData: allList);
           onSuccess.call(allList.length);
         },
-        failure: (f, s) {
+        f: (f, s) {
           AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
@@ -430,7 +430,7 @@ class ShopNotifier extends Notifier<ShopState> {
             isPopularProduct: (data.data ?? []).isNotEmpty,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
@@ -460,7 +460,7 @@ class ShopNotifier extends Notifier<ShopState> {
   //             isProductLoading: false,
   //             isPopularProduct: (data.data ?? []).isNotEmpty);
   //       },
-  //       failure: (f, s) {
+  //       f: (f, s) {
   //         state = state.copyWith(isProductLoading: false);
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
@@ -501,7 +501,7 @@ class ShopNotifier extends Notifier<ShopState> {
             isProductCategoryLoading: false,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isProductCategoryLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -538,7 +538,7 @@ class ShopNotifier extends Notifier<ShopState> {
           }
           controller?.loadComplete();
         },
-        failure: (f, s) {
+        f: (f, s) {
           controller?.loadComplete();
 
           AppHelpers.showCheckTopSnackBar(context, f);
@@ -572,7 +572,7 @@ class ShopNotifier extends Notifier<ShopState> {
   //
   //         controller?.loadComplete();
   //       },
-  //       failure: (f, s) {
+  //       f: (f, s) {
   //         controller?.loadComplete();
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
@@ -607,7 +607,7 @@ class ShopNotifier extends Notifier<ShopState> {
   //
   //         controller?.loadComplete();
   //       },
-  //       failure: (f, s) {
+  //       f: (f, s) {
   //         controller?.loadComplete();
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
@@ -634,7 +634,7 @@ class ShopNotifier extends Notifier<ShopState> {
         success: (data) {
           state = state.copyWith(brands: data.data);
         },
-        failure: (f, s) {
+        f: (f, s) {
           AppHelpers.showCheckTopSnackBar(context, f);
         },
       );

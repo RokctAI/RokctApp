@@ -3,19 +3,19 @@ import 'package:rokctapp/customer/models/data/address_new_data.dart';
 class AddressesResponse {
   AddressesResponse({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     List<AddressNewModel>? data,
   }) {
     _timestamp = timestamp;
-    _status = status;
+    _status = s;
     _message = message;
     _data = data;
   }
 
   AddressesResponse.fromJson(dynamic json) {
     _timestamp = json['timestamp'];
-    _status = json['status'];
+    _status = json['s'];
     _message = json['message'];
     if (json['data'] != null) {
       _data = [];
@@ -32,19 +32,19 @@ class AddressesResponse {
 
   AddressesResponse copyWith({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     List<AddressNewModel>? data,
   }) => AddressesResponse(
     timestamp: timestamp ?? _timestamp,
-    status: status ?? _status,
+    status: s ?? _status,
     message: message ?? _message,
     data: data ?? _data,
   );
 
   String? get timestamp => _timestamp;
 
-  bool? get status => _status;
+  bool? get s => _status;
 
   String? get message => _message;
 
@@ -53,7 +53,7 @@ class AddressesResponse {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
-    map['status'] = _status;
+    map['s'] = _status;
     map['message'] = _message;
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();

@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class ReadyOrdersNotifier extends StateNotifier<ReadyOrdersState> {
+class ReadyOrdersNotifier extends AutoDisposeNotifier<ReadyOrdersState> {
   final OrdersInterface _ordersRepository;
   int _page = 0;
   bool _hasMore = true;
@@ -61,7 +61,7 @@ class ReadyOrdersNotifier extends StateNotifier<ReadyOrdersState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);

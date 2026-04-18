@@ -9,7 +9,7 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/application/order/shipping/table/table_state.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class TableNotifier extends StateNotifier<TableState> {
+class TableNotifier extends AutoDisposeNotifier<TableState> {
   String _query = '';
   bool _hasMore = true;
   int _page = 0;
@@ -47,8 +47,8 @@ class TableNotifier extends StateNotifier<TableState> {
         state = state.copyWith(tables: tables, isLoading: false);
         _hasMore = tables.length >= 14;
       },
-      failure: (fail, status) {
-        debugPrint('===> search table fail $fail');
+      f: (f, s) {
+        debugPrint('===> search table f $f');
         state = state.copyWith(isLoading: false);
       },
     );
@@ -90,9 +90,9 @@ class TableNotifier extends StateNotifier<TableState> {
         state = state.copyWith(tables: tables);
         refreshController?.loadComplete();
       },
-      failure: (fail, status) {
+      f: (f, s) {
         refreshController?.loadFailed();
-        debugPrint('===> fetch more tables fail $fail');
+        debugPrint('===> fetch more tables f $f');
       },
     );
   }
@@ -116,8 +116,8 @@ class TableNotifier extends StateNotifier<TableState> {
         refreshController?.refreshCompleted();
         refreshController?.resetNoData();
       },
-      failure: (fail, status) {
-        debugPrint('===> refresh tables fail $fail');
+      f: (f, s) {
+        debugPrint('===> refresh tables f $f');
         refreshController?.refreshFailed();
       },
     );
@@ -163,8 +163,8 @@ class TableNotifier extends StateNotifier<TableState> {
         }
         _hasMore = tables.length >= 14;
       },
-      failure: (error, status) {
-        debugPrint('====> fetch tables fail $error');
+      f: (error, s) {
+        debugPrint('====> fetch tables f $error');
         state = state.copyWith(isLoading: false);
       },
     );

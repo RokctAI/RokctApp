@@ -13,7 +13,7 @@ class OrderData {
     num? rate,
     num? tax,
     num? commissionFee,
-    String? status,
+    String? s,
     Location? location,
     String? deliveryType,
     num? deliveryFee,
@@ -38,7 +38,7 @@ class OrderData {
     _rate = rate;
     _tax = tax;
     _commissionFee = commissionFee;
-    _status = status;
+    _status = s;
     _location = location;
     _deliveryType = deliveryType;
     _deliveryFee = deliveryFee;
@@ -65,7 +65,7 @@ class OrderData {
     _rate = json['rate'];
     _tax = json['tax'];
     _commissionFee = json['commission_fee'];
-    _status = json['status'];
+    _status = json['s'];
     _location = json['location'] != null
         ? Location.fromJson(json['location'])
         : null;
@@ -130,7 +130,7 @@ class OrderData {
     num? rate,
     num? tax,
     num? commissionFee,
-    String? status,
+    String? s,
     Location? location,
     String? deliveryType,
     num? deliveryFee,
@@ -155,7 +155,7 @@ class OrderData {
     rate: rate ?? _rate,
     tax: tax ?? _tax,
     commissionFee: commissionFee ?? _commissionFee,
-    status: status ?? _status,
+    status: s ?? _status,
     location: location ?? _location,
     deliveryType: deliveryType ?? _deliveryType,
     deliveryFee: deliveryFee ?? _deliveryFee,
@@ -186,7 +186,7 @@ class OrderData {
 
   num? get commissionFee => _commissionFee;
 
-  String? get status => _status;
+  String? get s => _status;
 
   Location? get location => _location;
 
@@ -230,7 +230,7 @@ class OrderData {
     map['rate'] = _rate;
     map['tax'] = _tax;
     map['commission_fee'] = _commissionFee;
-    map['status'] = _status;
+    map['s'] = _status;
     if (_location != null) {
       map['location'] = _location?.toJson();
     }
@@ -422,7 +422,7 @@ class Transaction {
     String? paymentTrxId,
     String? note,
     dynamic performTime,
-    String? status,
+    String? s,
     String? statusDescription,
     String? createdAt,
     String? updatedAt,
@@ -434,7 +434,7 @@ class Transaction {
     _paymentTrxId = paymentTrxId;
     _note = note;
     _performTime = performTime;
-    _status = status;
+    _status = s;
     _statusDescription = statusDescription;
     _createdAt = createdAt;
     _updatedAt = updatedAt;
@@ -448,7 +448,7 @@ class Transaction {
     _paymentTrxId = json['payment_trx_id'];
     _note = json['note'];
     _performTime = json['perform_time'];
-    _status = json['status'];
+    _status = json['s'];
     _statusDescription = json['status_description'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
@@ -476,7 +476,7 @@ class Transaction {
     String? paymentTrxId,
     String? note,
     dynamic performTime,
-    String? status,
+    String? s,
     String? statusDescription,
     String? createdAt,
     String? updatedAt,
@@ -488,7 +488,7 @@ class Transaction {
     paymentTrxId: paymentTrxId ?? _paymentTrxId,
     note: note ?? _note,
     performTime: performTime ?? _performTime,
-    status: status ?? _status,
+    status: s ?? _status,
     statusDescription: statusDescription ?? _statusDescription,
     createdAt: createdAt ?? _createdAt,
     updatedAt: updatedAt ?? _updatedAt,
@@ -507,7 +507,7 @@ class Transaction {
 
   dynamic get performTime => _performTime;
 
-  String? get status => _status;
+  String? get s => _status;
 
   String? get statusDescription => _statusDescription;
 
@@ -525,7 +525,7 @@ class Transaction {
     map['payment_trx_id'] = _paymentTrxId;
     map['note'] = _note;
     map['perform_time'] = _performTime;
-    map['status'] = _status;
+    map['s'] = _status;
     map['status_description'] = _statusDescription;
     map['created_at'] = _createdAt;
     map['updated_at'] = _updatedAt;

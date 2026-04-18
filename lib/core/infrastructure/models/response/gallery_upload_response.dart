@@ -1,19 +1,19 @@
 class GalleryUploadResponse {
   GalleryUploadResponse({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     ImageData? imageData,
   }) {
     _timestamp = timestamp;
-    _status = status;
+    _status = s;
     _message = message;
     _imageData = imageData;
   }
 
   GalleryUploadResponse.fromJson(dynamic json) {
     _timestamp = json['timestamp'];
-    _status = json['status'];
+    _status = json['s'];
     _message = json['message'];
     _imageData = json['data'] != null ? ImageData.fromJson(json['data']) : null;
   }
@@ -25,19 +25,19 @@ class GalleryUploadResponse {
 
   GalleryUploadResponse copyWith({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     ImageData? imageData,
   }) => GalleryUploadResponse(
     timestamp: timestamp ?? _timestamp,
-    status: status ?? _status,
+    status: s ?? _status,
     message: message ?? _message,
     imageData: imageData ?? _imageData,
   );
 
   String? get timestamp => _timestamp;
 
-  bool? get status => _status;
+  bool? get s => _status;
 
   String? get message => _message;
 
@@ -46,7 +46,7 @@ class GalleryUploadResponse {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
-    map['status'] = _status;
+    map['s'] = _status;
     map['message'] = _message;
     if (_imageData != null) {
       map['data'] = _imageData?.toJson();

@@ -7,7 +7,7 @@ import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/auth/login/login_state.dart';
 
-class LoginNotifier extends StateNotifier<LoginState> {
+class LoginNotifier extends AutoDisposeNotifier<LoginState> {
   final AuthRepository _authRepository;
   final UserRepository _userRepository;
 
@@ -20,7 +20,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       success: (data) {
         LocalStorage.setUser(data.data);
       },
-      failure: (f, s) {
+      f: (f, s) {
         debugPrint('==> get profile details failure: $f');
       },
     );
@@ -100,7 +100,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
             loginSuccess?.call();
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           debugPrint('===> login request f $f');
           state = state.copyWith(isLoading: false, isLoginError: true);
           AppHelpers.showCheckTopSnackBar(
@@ -156,13 +156,13 @@ class LoginNotifier extends StateNotifier<LoginState> {
   //             log('===> getting address data: $addressData');
   //             state = state.copyWith(isLoading: false);
   //           },
-  //           failure: (addressFailure) {
+  //           f: (addressFailure) {
   //             state = state.copyWith(isLoading: false);
   //             debugPrint('==> address failure: $addressFailure');
   //           },
   //         );
   //       },
-  //       failure: (failure) {},
+  //       f: (failure) {},
   //     );
   //   } else {
   //     if (context.mounted) {
@@ -178,7 +178,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
   //     AccessToken? accessToken = await FacebookAuth.instance.accessToken;
   //     if (accessToken != null) {
   //       final LoginResult loginResult = await FacebookAuth.instance.login();
-  //       if (loginResult.status == LoginStatus.success) {
+  //       if (loginResult.s == LoginStatus.success) {
   //         final userData = await FacebookAuth.instance.getUserData();
   //         debugPrint('==> facebook auth email: ${userData['email']}');
   //         debugPrint('==> facebook auth name: ${userData['name']}');

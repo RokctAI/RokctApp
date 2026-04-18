@@ -5,7 +5,7 @@ import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 
 import 'package:rokctapp/driver/application/push_order/push_order_state.dart';
 
-class PushOrderNotifier extends StateNotifier<PushOrderState> {
+class PushOrderNotifier extends AutoDisposeNotifier<PushOrderState> {
   PushOrderNotifier() : super(const PushOrderState());
 
   Timer? _timer;

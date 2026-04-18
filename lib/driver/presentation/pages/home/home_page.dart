@@ -79,7 +79,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           success: (s) {
             attachOrder(s.data);
           },
-          failure: (f, s) {},
+          f: (f, s) {},
         );
       } else if (message.data["type"] == "deliveryman") {
         final res = await driverOrdersRepository.showOrders(
@@ -89,7 +89,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           success: (s) {
             newOrder(s.data);
           },
-          failure: (f, s) {},
+          f: (f, s) {},
         );
       }
     });
@@ -104,7 +104,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           success: (s) {
             attachOrder(s.data);
           },
-          failure: (f, s) {},
+          f: (f, s) {},
         );
       } else if (message.data["type"] == "deliveryman") {
         final res = await driverOrdersRepository.showOrders(
@@ -114,7 +114,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           success: (s) {
             newOrder(s.data);
           },
-          failure: (f, s) {},
+          f: (f, s) {},
         );
       }
     });

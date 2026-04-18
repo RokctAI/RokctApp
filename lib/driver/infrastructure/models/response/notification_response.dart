@@ -181,23 +181,23 @@ class Client {
 class NotificationData {
   int? id;
   String? type;
-  String? status;
+  String? s;
 
-  NotificationData({this.id, this.type, this.status});
+  NotificationData({this.id, this.type, this.s});
 
-  NotificationData copyWith({int? id, String? type, String? status}) =>
+  NotificationData copyWith({int? id, String? type, String? s}) =>
       NotificationData(
         id: id ?? this.id,
         type: type ?? this.type,
-        status: status ?? this.status,
+        status: s ?? this.s,
       );
 
   factory NotificationData.fromJson(Map<String, dynamic> json) =>
       NotificationData(
         id: int.tryParse(json["id"].toString()),
         type: json["type"],
-        status: json["status"],
+        status: json["s"],
       );
 
-  Map<String, dynamic> toJson() => {"id": id, "type": type, "status": status};
+  Map<String, dynamic> toJson() => {"id": id, "type": type, "s": s};
 }

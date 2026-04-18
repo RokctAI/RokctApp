@@ -165,7 +165,7 @@ class CartRepository implements CartRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/rest/cart/status/$userUuid',
+        '/api/v1/rest/cart/s/$userUuid',
         data: {"cart_id": cartId},
       );
       return const ApiResult.success(data: null);

@@ -14,7 +14,7 @@ class OrdersItem extends StatelessWidget {
   final String time;
   final String price;
   final String paymentType;
-  final OrderStatus status;
+  final OrderStatus s;
   final VoidCallback onTap;
 
   const OrdersItem({
@@ -24,7 +24,7 @@ class OrdersItem extends StatelessWidget {
     required this.number,
     required this.time,
     required this.price,
-    required this.status,
+    required this.s,
     required this.onTap,
     this.paymentType = '',
   });
@@ -60,9 +60,9 @@ class OrdersItem extends StatelessWidget {
                       paymentType,
                       style: AppStyle.interSemi(size: 12, letterSpacing: -0.3),
                     ),
-                    status == OrderStatus.delivered
+                    s == OrderStatus.delivered
                         ? const SizedBox.shrink()
-                        : status == OrderStatus.canceled
+                        : s == OrderStatus.canceled
                         ? Container(
                             width: 10.r,
                             height: 10.r,

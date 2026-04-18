@@ -23,7 +23,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (l) {
         state = state.copyWith(isTermLoading: false, term: l);
       },
-      failure: (r, s) {
+      f: (r, s) {
         state = state.copyWith(isTermLoading: false);
         AppHelpers.showCheckTopSnackBar(context, r.toString());
       },
@@ -37,7 +37,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (l) {
         state = state.copyWith(isPolicyLoading: false, policy: l);
       },
-      failure: (r, s) {
+      f: (r, s) {
         state = state.copyWith(isPolicyLoading: false);
         AppHelpers.showCheckTopSnackBar(context, r.toString());
       },
@@ -143,11 +143,11 @@ class ProfileNotifier extends Notifier<ProfileState> {
             onSuccess?.call();
             findSelectIndex();
           },
-          failure: (f, s) {
+          f: (f, s) {
             if (refreshController == null) {
               state = state.copyWith(isLoading: false);
             }
-            if (status == 401) {
+            if (s == 401) {
               context.router.popUntilRoot();
               context.replaceRoute(const LoginRoute());
             }
@@ -185,7 +185,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
             }
             refreshController?.refreshCompleted();
           },
-          failure: (f, s) {
+          f: (f, s) {
             if (refreshController == null) {
               state = state.copyWith(isReferralLoading: false);
             }
@@ -215,7 +215,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
           context.router.popUntilRoot();
           context.replaceRoute(const LoginRoute());
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -255,7 +255,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
             }
             refreshController?.refreshCompleted();
           },
-          failure: (f, s) {
+          f: (f, s) {
             if (refreshController == null) {
               state = state.copyWith(isLoadingHistory: false);
             }
@@ -290,7 +290,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
               refreshController.loadComplete();
             }
           },
-          failure: (f, s) {
+          f: (f, s) {
             refreshController.loadNoData();
             --page;
             AppHelpers.showCheckTopSnackBar(context, f);
@@ -337,7 +337,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
         success: (data) {
           logoImage = data.imageData?.title;
         },
-        failure: (f, s) {
+        f: (f, s) {
           debugPrint('===> upload logo image failure: $f');
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -350,7 +350,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
         success: (data) {
           backgroundImage = data.imageData?.title;
         },
-        failure: (f, s) {
+        f: (f, s) {
           debugPrint('===> upload background image failure: $f');
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -363,7 +363,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
         success: (data) {
           files = data.data?.title;
         },
-        failure: (f, s) {
+        f: (f, s) {
           debugPrint('===> upload document failure: $f');
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -390,7 +390,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
           fetchUser(context, refreshController: RefreshController());
           context.maybePop();
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isSaveLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
           debugPrint('==> create shop failure: $f');
@@ -413,7 +413,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isLoading: false, careers: data.data ?? []);
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
       },
     );
@@ -426,7 +426,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isLoading: false, selectedCareer: data);
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
       },
     );
@@ -440,7 +440,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isLoading: false, about: data.data);
       },
-      failure: (e, s) {
+      f: (e, s) {
         state = state.copyWith(isLoading: false);
       },
     );
@@ -454,7 +454,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isLoading: false, blogs: data.data);
       },
-      failure: (e, s) {
+      f: (e, s) {
         state = state.copyWith(isLoading: false);
       },
     );
@@ -468,7 +468,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isLoading: false, selectBlog: data);
       },
-      failure: (e, s) {
+      f: (e, s) {
         state = state.copyWith(isLoading: false);
       },
     );

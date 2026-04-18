@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/profile/state/profile_edit_state.dart';
 
-class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
+class ProfileEditNotifier extends AutoDisposeNotifier<ProfileEditState> {
   final UserRepository _userRepository;
 
   ProfileEditNotifier(this._userRepository) : super(const ProfileEditState());
@@ -70,7 +70,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
           state = state.copyWith(isLoading: false);
           updated?.call();
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -155,7 +155,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
           state = state.copyWith(isLoading: false);
           updated?.call();
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -210,7 +210,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
           state = state.copyWith(isLoading: false);
           updated?.call();
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,

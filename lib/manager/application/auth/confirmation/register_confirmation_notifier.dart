@@ -11,7 +11,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/auth/confirmation/register_confirmation_state.dart';
 
 class RegisterConfirmationNotifier
-    extends StateNotifier<RegisterConfirmationState> {
+    extends AutoDisposeNotifier<RegisterConfirmationState> {
   final AuthInterface _authRepository;
   final UsersInterface _userRepositoryFacade;
 
@@ -83,7 +83,7 @@ class RegisterConfirmationNotifier
           state = state.copyWith(isLoading: false, isSuccess: true);
           _timer?.cancel();
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(
             isLoading: false,
             isCodeError: true,
@@ -124,11 +124,11 @@ class RegisterConfirmationNotifier
             isResetPasswordSuccess: true,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false, isCodeError: true);
           AppHelpers.showCheckTopSnackBar(
             context,
-            text: AppHelpers.getTranslation(status.toString()),
+            text: AppHelpers.getTranslation(s.toString()),
           );
           debugPrint('==> confirm reset code failure: $f');
         },
@@ -174,11 +174,11 @@ class RegisterConfirmationNotifier
               isResetPasswordSuccess: true,
             );
           },
-          failure: (f, s) {
+          f: (f, s) {
             state = state.copyWith(isLoading: false, isCodeError: true);
             AppHelpers.showCheckTopSnackBar(
               context,
-              text: AppHelpers.getTranslation(status.toString()),
+              text: AppHelpers.getTranslation(s.toString()),
             );
             debugPrint('==> confirm reset code failure: $f');
           },
@@ -223,11 +223,11 @@ class RegisterConfirmationNotifier
         success: (data) async {
           state = state.copyWith(isResending: false);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isResending: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            text: AppHelpers.getTranslation(status.toString()),
+            text: AppHelpers.getTranslation(s.toString()),
           );
           debugPrint('==> send otp failure: $f');
         },

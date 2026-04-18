@@ -128,7 +128,7 @@ class _EditRestaurantState extends ConsumerState<BecomeDriverPage> {
             ),
             userState.isLoading
                 ? const Expanded(child: Loading())
-                : userState.requestData?.status == "pending"
+                : userState.requestData?.s == "pending"
                 ? Expanded(
                     child: Column(
                       children: [
@@ -166,7 +166,7 @@ class _EditRestaurantState extends ConsumerState<BecomeDriverPage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                if (userState.requestData?.status == "canceled")
+                                if (userState.requestData?.s == "canceled")
                                   Column(
                                     children: [
                                       24.verticalSpace,

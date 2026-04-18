@@ -5,7 +5,7 @@ class TableBookingData {
   int? tableId;
   DateTime? startDate;
   DateTime? endDate;
-  String? status;
+  String? s;
   Booking? booking;
   User? user;
   Table? table;
@@ -17,7 +17,7 @@ class TableBookingData {
     required this.tableId,
     required this.startDate,
     required this.endDate,
-    required this.status,
+    required this.s,
     required this.booking,
     required this.user,
     this.table,
@@ -30,7 +30,7 @@ class TableBookingData {
     int? tableId,
     DateTime? startDate,
     DateTime? endDate,
-    String? status,
+    String? s,
     Booking? booking,
     User? user,
     Table? table,
@@ -41,7 +41,7 @@ class TableBookingData {
     tableId: tableId ?? this.tableId,
     startDate: startDate ?? this.startDate,
     endDate: endDate ?? this.endDate,
-    status: status ?? this.status,
+    status: s ?? this.s,
     booking: booking ?? this.booking,
     user: user ?? this.user,
     table: table ?? this.table,
@@ -55,7 +55,7 @@ class TableBookingData {
     tableId: json["table_id"],
     startDate: DateTime.tryParse(json["start_date"] ?? '') ?? DateTime.now(),
     endDate: DateTime.tryParse(json["end_date"] ?? '') ?? DateTime.now(),
-    status: json["status"],
+    status: json["s"],
     booking: json["booking"] == null ? null : Booking.fromJson(json["booking"]),
     user: json["user"] == null ? null : User.fromJson(json["user"]),
     table: json["table"] == null ? null : Table.fromJson(json["table"]),
@@ -68,7 +68,7 @@ class TableBookingData {
     "table_id": tableId,
     "start_date": startDate?.toIso8601String(),
     "end_date": endDate?.toIso8601String(),
-    "status": status,
+    "s": s,
     "booking": booking?.toJson(),
     "user": user?.toJson(),
     "table": table?.toJson(),

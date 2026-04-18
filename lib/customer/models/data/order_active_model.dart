@@ -15,7 +15,7 @@ class OrderActiveModel {
     this.tax,
     this.tips,
     this.commissionFee,
-    this.status,
+    this.s,
     this.location,
     this.address,
     this.deliveryType,
@@ -51,7 +51,7 @@ class OrderActiveModel {
   num? rate;
   num? tax;
   num? commissionFee;
-  String? status;
+  String? s;
   Location? location;
   AddressModel? address;
   String? deliveryType;
@@ -94,7 +94,7 @@ class OrderActiveModel {
             ? CurrencyModel.fromJson(json["data"]["currency"])
             : null,
         commissionFee: json["data"]["commission_fee"],
-        status: json["data"]["status"],
+        status: json["data"]["s"],
         location: json["data"]["location"] != null
             ? Location.fromJson(json["data"]["location"])
             : null,
@@ -160,7 +160,7 @@ class OrderActiveModel {
           ? CurrencyModel.fromJson(json["currency"])
           : null,
       commissionFee: json["commission_fee"],
-      status: json["status"],
+      status: json["s"],
       location: json["location"] != null
           ? Location.fromJson(json["location"])
           : null,
@@ -213,7 +213,7 @@ class OrderActiveModel {
     num? tax,
     num? tips,
     num? commissionFee,
-    String? status,
+    String? s,
     Location? location,
     AddressModel? address,
     String? deliveryType,
@@ -249,7 +249,7 @@ class OrderActiveModel {
     tax: tax ?? this.tax,
     tips: tips ?? this.tips,
     commissionFee: commissionFee ?? this.commissionFee,
-    status: status ?? this.status,
+    status: s ?? this.s,
     location: location ?? this.location,
     address: address ?? this.address,
     deliveryType: deliveryType ?? this.deliveryType,

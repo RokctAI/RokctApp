@@ -1,19 +1,19 @@
 class TransactionsResponse {
   TransactionsResponse({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     TransactionData? data,
   }) {
     _timestamp = timestamp;
-    _status = status;
+    _status = s;
     _message = message;
     _data = data;
   }
 
   TransactionsResponse.fromJson(dynamic json) {
     _timestamp = json['timestamp'];
-    _status = json['status'];
+    _status = json['s'];
     _message = json['message'];
     _data = json['data'] != null
         ? TransactionData.fromJson(json['data'])
@@ -27,19 +27,19 @@ class TransactionsResponse {
 
   TransactionsResponse copyWith({
     String? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     TransactionData? data,
   }) => TransactionsResponse(
     timestamp: timestamp ?? _timestamp,
-    status: status ?? _status,
+    status: s ?? _status,
     message: message ?? _message,
     data: data ?? _data,
   );
 
   String? get timestamp => _timestamp;
 
-  bool? get status => _status;
+  bool? get s => _status;
 
   String? get message => _message;
 
@@ -48,7 +48,7 @@ class TransactionsResponse {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
-    map['status'] = _status;
+    map['s'] = _status;
     map['message'] = _message;
     if (_data != null) {
       map['data'] = _data?.toJson();
@@ -66,7 +66,7 @@ class TransactionData {
     num? rate,
     String? createdAt,
     String? updatedAt,
-    String? status,
+    String? s,
     String? tag,
     List<TransactionDetails>? details,
   }) {
@@ -78,7 +78,7 @@ class TransactionData {
     _createdAt = createdAt;
     _updatedAt = updatedAt;
     _details = details;
-    _status = status;
+    _status = s;
     _tag = tag;
   }
 
@@ -90,7 +90,7 @@ class TransactionData {
     _rate = json['rate'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
-    _status = json['status'];
+    _status = json['s'];
     _tag = json["payment_system"]?['tag'] ?? "";
     if (json['details'] != null) {
       _details = [];
@@ -119,7 +119,7 @@ class TransactionData {
     num? rate,
     String? createdAt,
     String? updatedAt,
-    String? status,
+    String? s,
     String? tag,
     List<TransactionDetails>? details,
   }) => TransactionData(
@@ -131,7 +131,7 @@ class TransactionData {
     createdAt: createdAt ?? _createdAt,
     updatedAt: updatedAt ?? _updatedAt,
     details: details ?? _details,
-    status: status ?? _status,
+    status: s ?? _status,
     tag: tag ?? _tag,
   );
 
@@ -149,7 +149,7 @@ class TransactionData {
 
   String? get updatedAt => _updatedAt;
 
-  String? get status => _status;
+  String? get s => _status;
 
   String? get tag => _tag;
 
@@ -178,7 +178,7 @@ class TransactionDetails {
     num? deliveryFee,
     num? price,
     num? tax,
-    String? status,
+    String? s,
     String? deliveryDate,
     String? deliveryTime,
     String? createdAt,
@@ -189,7 +189,7 @@ class TransactionDetails {
     _deliveryFee = deliveryFee;
     _price = price;
     _tax = tax;
-    _status = status;
+    _status = s;
     _deliveryDate = deliveryDate;
     _deliveryTime = deliveryTime;
     _createdAt = createdAt;
@@ -202,7 +202,7 @@ class TransactionDetails {
     _deliveryFee = json['delivery_fee'];
     _price = json['price'];
     _tax = json['tax'];
-    _status = json['status'];
+    _status = json['s'];
     _deliveryDate = json['delivery_date'];
     _deliveryTime = json['delivery_time'];
     _createdAt = json['created_at'];
@@ -226,7 +226,7 @@ class TransactionDetails {
     num? deliveryFee,
     num? price,
     num? tax,
-    String? status,
+    String? s,
     String? deliveryDate,
     String? deliveryTime,
     String? createdAt,
@@ -237,7 +237,7 @@ class TransactionDetails {
     deliveryFee: deliveryFee ?? _deliveryFee,
     price: price ?? _price,
     tax: tax ?? _tax,
-    status: status ?? _status,
+    status: s ?? _status,
     deliveryDate: deliveryDate ?? _deliveryDate,
     deliveryTime: deliveryTime ?? _deliveryTime,
     createdAt: createdAt ?? _createdAt,
@@ -254,7 +254,7 @@ class TransactionDetails {
 
   num? get tax => _tax;
 
-  String? get status => _status;
+  String? get s => _status;
 
   String? get deliveryDate => _deliveryDate;
 
@@ -271,7 +271,7 @@ class TransactionDetails {
     map['delivery_fee'] = _deliveryFee;
     map['price'] = _price;
     map['tax'] = _tax;
-    map['status'] = _status;
+    map['s'] = _status;
     map['delivery_date'] = _deliveryDate;
     map['delivery_time'] = _deliveryTime;
     map['created_at'] = _createdAt;

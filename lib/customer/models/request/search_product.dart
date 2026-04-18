@@ -9,7 +9,7 @@ class SearchProductModel {
     final map = <String, dynamic>{};
     map["search"] = text;
     map["perPage"] = 10;
-    map["status"] = "published";
+    map["s"] = "published";
     map["page"] = page;
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
     return map;

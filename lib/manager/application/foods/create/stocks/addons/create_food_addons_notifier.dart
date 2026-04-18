@@ -10,7 +10,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/foods/create/stocks/addons/create_food_addons_state.dart';
 
-class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
+class CreateFoodAddonsNotifier extends AutoDisposeNotifier<CreateFoodAddonsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;
   bool _hasMore = true;
@@ -48,11 +48,11 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
         refreshController?.loadComplete();
         state = state.copyWith(addons: addons);
       },
-      failure: (fail, status) {
-        debugPrint('===> fetch more addons fail $fail');
+      f: (f, s) {
+        debugPrint('===> fetch more addons f $f');
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
         refreshController?.loadFailed();
@@ -102,11 +102,11 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
         }
         state = state.copyWith(isLoading: false, addons: addons);
       },
-      failure: (fail, status) {
-        debugPrint('===> fetch addons fail $fail');
+      f: (f, s) {
+        debugPrint('===> fetch addons f $f');
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
         state = state.copyWith(isLoading: false, addons: []);

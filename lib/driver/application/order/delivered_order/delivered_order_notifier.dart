@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_connectivity.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 
-class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
+class DeliveredOrderNotifier extends AutoDisposeNotifier<DeliveredOrderState> {
   DeliveredOrderNotifier() : super(const DeliveredOrderState());
 
   int deliveredOrder = 0;
@@ -46,7 +46,7 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
             }
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             deliveredOrder--;
             controller.loadFailed();

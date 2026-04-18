@@ -9,7 +9,7 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/application/main/foods/addons/addons_state.dart';
 
-class AddonsNotifier extends StateNotifier<AddonsState> {
+class AddonsNotifier extends AutoDisposeNotifier<AddonsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;
   bool _hasMore = true;
@@ -33,8 +33,8 @@ class AddonsNotifier extends StateNotifier<AddonsState> {
         _hasMore = addons.length >= 10;
         state = state.copyWith(addons: addons, isLoading: false);
       },
-      failure: (fail, status) {
-        debugPrint('===> search addon fail $fail');
+      f: (f, s) {
+        debugPrint('===> search addon f $f');
         state = state.copyWith(isLoading: false);
       },
     );
@@ -59,8 +59,8 @@ class AddonsNotifier extends StateNotifier<AddonsState> {
         refreshController?.loadComplete();
         state = state.copyWith(addons: addons);
       },
-      failure: (fail, status) {
-        debugPrint('===> fetch more addons fail $fail');
+      f: (f, s) {
+        debugPrint('===> fetch more addons f $f');
         refreshController?.loadFailed();
       },
     );
@@ -84,8 +84,8 @@ class AddonsNotifier extends StateNotifier<AddonsState> {
         _hasMore = addons.length >= 10;
         state = state.copyWith(isLoading: false, addons: addons);
       },
-      failure: (fail, status) {
-        debugPrint('===> fetch addons fail $fail');
+      f: (f, s) {
+        debugPrint('===> fetch addons f $f');
         state = state.copyWith(isLoading: false);
       },
     );
@@ -107,8 +107,8 @@ class AddonsNotifier extends StateNotifier<AddonsState> {
         _hasMore = addons.length >= 10;
         refreshController?.refreshCompleted();
       },
-      failure: (error, status) {
-        debugPrint('===> refresh addons fail $error');
+      f: (error, s) {
+        debugPrint('===> refresh addons f $error');
         refreshController?.refreshFailed();
       },
     );

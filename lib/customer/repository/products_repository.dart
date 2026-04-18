@@ -150,7 +150,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
       if (LocalStorage.getSelectedCurrency() != null)
         "currency_id": LocalStorage.getSelectedCurrency()?.id,
       "page": page,
-      "status": "published",
+      "s": "published",
       "category_id": categoryId,
       "perPage": 6,
       if (sortIndex != 0 && sortIndex != null)
@@ -244,7 +244,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
       'brand_id': brandId,
       'shop_id': shopId,
       'category_id': categoryId,
-      "status": "published",
+      "s": "published",
       'lang': LocalStorage.getLanguage()?.locale,
     };
     try {
@@ -400,7 +400,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
       if (LocalStorage.getSelectedCurrency() != null)
         'currency_id': LocalStorage.getSelectedCurrency()?.id,
       'perPage': 14,
-      "status": "published",
+      "s": "published",
       'lang': LocalStorage.getLanguage()?.locale,
     };
     try {

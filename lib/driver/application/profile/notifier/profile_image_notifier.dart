@@ -8,7 +8,7 @@ import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/profile/state/profile_image_state.dart';
 
-class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
+class ProfileImageNotifier extends AutoDisposeNotifier<ProfileImageState> {
   final UserRepository _userRepository;
   final SettingsRepository _settingsRepository;
 
@@ -29,7 +29,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       success: (data) {
         url = data.imageData?.title;
       },
-      failure: (f, s) {
+      f: (f, s) {
         debugPrint('==> upload profile image failure: $f');
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
       },
@@ -46,7 +46,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
         LocalStorage.setUser(data.data);
         setUrl(data.data?.img);
       },
-      failure: (f, s) {
+      f: (f, s) {
         debugPrint('==> update profile image failure: $f');
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
       },
@@ -65,7 +65,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       success: (data) {
         state = state.copyWith(carImageUrl: data.imageData?.title);
       },
-      failure: (f, s) {
+      f: (f, s) {
         debugPrint('==> upload profile image failure: $f');
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
       },

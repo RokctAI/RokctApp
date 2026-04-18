@@ -58,15 +58,15 @@ abstract class FirebaseService {
   static Future<Either<UserCredential, dynamic>> socialFacebook() async {
     final fb = FacebookAuth.instance;
     try {
-      TrackingStatus? status;
+      TrackingStatus? s;
       if (Platform.isIOS) {
         final permission = await Permission.appTrackingTransparency.request();
-        status = await AppTrackingTransparency.trackingAuthorizationStatus;
+        s = await AppTrackingTransparency.trackingAuthorizationStatus;
         debugPrint("permission $permission");
-        debugPrint("status: $status");
+        debugPrint("status: $s");
       }
       final user = await fb.login(
-        loginTracking: status == TrackingStatus.authorized
+        loginTracking: s == TrackingStatus.authorized
             ? LoginTracking.enabled
             : LoginTracking.limited,
         loginBehavior: LoginBehavior.nativeWithFallback,

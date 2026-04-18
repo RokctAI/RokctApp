@@ -8,37 +8,37 @@ CartModel cartFromJson(String str) => CartModel.fromJson(json.decode(str));
 String cartToJson(CartModel data) => json.encode(data.toJson());
 
 class CartModel {
-  CartModel({this.timestamp, this.status, this.message, this.data});
+  CartModel({this.timestamp, this.s, this.message, this.data});
 
   DateTime? timestamp;
-  bool? status;
+  bool? s;
   String? message;
   Cart? data;
 
   CartModel copyWith({
     DateTime? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     Cart? data,
   }) => CartModel(
     timestamp: timestamp ?? this.timestamp,
-    status: status ?? this.status,
+    status: s ?? this.s,
     message: message ?? this.message,
     data: data ?? this.data,
   );
 
   factory CartModel.fromJson(Map<String, dynamic> json) => CartModel(
     timestamp: DateTime.tryParse(json["timestamp"])?.toLocal(),
-    status: json["status"].runtimeType == int
-        ? (json["status"] == 1)
-        : json["status"],
+    status: json["s"].runtimeType == int
+        ? (json["s"] == 1)
+        : json["s"],
     message: json["message"],
     data: Cart.fromJson(json["data"]),
   );
 
   Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
-    "status": status,
+    "s": s,
     "message": message,
     "data": data?.toJson(),
   };
@@ -49,7 +49,7 @@ class Cart {
     this.id,
     this.ownerId,
     this.shopId,
-    this.status,
+    this.s,
     this.totalPrice,
     this.receiptDiscount,
     this.currencyId,
@@ -64,7 +64,7 @@ class Cart {
   int? id;
   int? ownerId;
   int? shopId;
-  bool? status;
+  bool? s;
   bool? group;
   num? totalPrice;
   num? receiptDiscount;
@@ -79,7 +79,7 @@ class Cart {
     int? id,
     int? ownerId,
     int? shopId,
-    bool? status,
+    bool? s,
     bool? group,
     num? totalPrice,
     num? receiptDiscount,
@@ -92,7 +92,7 @@ class Cart {
     id: id ?? this.id,
     ownerId: ownerId ?? this.ownerId,
     shopId: shopId ?? this.shopId,
-    status: status ?? this.status,
+    status: s ?? this.s,
     group: group ?? this.group,
     totalPrice: totalPrice ?? totalPrice,
     receiptDiscount: receiptDiscount ?? receiptDiscount,
@@ -107,9 +107,9 @@ class Cart {
     id: json["id"],
     ownerId: json["owner_id"],
     shopId: json["shop_id"],
-    status: json["status"].runtimeType == int
-        ? (json["status"] == 1)
-        : json["status"],
+    status: json["s"].runtimeType == int
+        ? (json["s"] == 1)
+        : json["s"],
     group: json["group"].runtimeType == int
         ? (json["group"] == 1)
         : json["group"],
@@ -129,7 +129,7 @@ class Cart {
     "id": id,
     "owner_id": ownerId,
     "shop_id": shopId,
-    "status": status,
+    "s": s,
     "total_price": totalPrice,
     "receipt_discount": receiptDiscount,
     "currency_id": currencyId,
@@ -145,7 +145,7 @@ class UserCart {
     this.id,
     this.cartId,
     this.userId,
-    this.status,
+    this.s,
     this.name,
     this.uuid,
     this.cartDetails,
@@ -154,7 +154,7 @@ class UserCart {
   int? id;
   int? cartId;
   int? userId;
-  bool? status;
+  bool? s;
   String? name;
   String? uuid;
   List<CartDetail>? cartDetails;
@@ -163,7 +163,7 @@ class UserCart {
     int? id,
     int? cartId,
     int? userId,
-    bool? status,
+    bool? s,
     String? name,
     String? uuid,
     List<CartDetail>? cartDetails,
@@ -171,7 +171,7 @@ class UserCart {
     id: id ?? this.id,
     cartId: cartId ?? this.cartId,
     userId: userId ?? this.userId,
-    status: status ?? this.status,
+    status: s ?? this.s,
     name: name ?? this.name,
     uuid: uuid ?? this.uuid,
     cartDetails: cartDetails ?? this.cartDetails,
@@ -182,9 +182,9 @@ class UserCart {
       id: json["id"],
       cartId: json["cart_id"],
       userId: json["user_id"],
-      status: json["status"].runtimeType == int
-          ? (json["status"] == 1)
-          : json["status"],
+      status: json["s"].runtimeType == int
+          ? (json["s"] == 1)
+          : json["s"],
       name: json["name"],
       uuid: json["uuid"],
       cartDetails: json["cartDetails"] != null
@@ -199,7 +199,7 @@ class UserCart {
     "id": id,
     "cart_id": cartId,
     "user_id": userId,
-    "status": status,
+    "s": s,
     "name": name,
     "uuid": uuid,
     "cartDetails": List<dynamic>.from(cartDetails!.map((x) => x.toJson())),

@@ -9,7 +9,7 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/application/order/shipping/section/section_state.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class SectionNotifier extends StateNotifier<SectionState> {
+class SectionNotifier extends AutoDisposeNotifier<SectionState> {
   String _query = '';
   bool _hasMore = true;
   int _page = 0;
@@ -44,8 +44,8 @@ class SectionNotifier extends StateNotifier<SectionState> {
         state = state.copyWith(sections: sections, isLoading: false);
         _hasMore = sections.length >= 14;
       },
-      failure: (fail, status) {
-        debugPrint('===> search section fail $fail');
+      f: (f, s) {
+        debugPrint('===> search section f $f');
         state = state.copyWith(isLoading: false);
       },
     );
@@ -79,9 +79,9 @@ class SectionNotifier extends StateNotifier<SectionState> {
         state = state.copyWith(sections: sections);
         refreshController?.loadComplete();
       },
-      failure: (fail, status) {
+      f: (f, s) {
         refreshController?.loadFailed();
-        debugPrint('===> fetch more sections fail $fail');
+        debugPrint('===> fetch more sections f $f');
       },
     );
   }
@@ -101,8 +101,8 @@ class SectionNotifier extends StateNotifier<SectionState> {
         refreshController?.refreshCompleted();
         refreshController?.resetNoData();
       },
-      failure: (fail, status) {
-        debugPrint('===> refresh sections fail $fail');
+      f: (f, s) {
+        debugPrint('===> refresh sections f $f');
         refreshController?.refreshFailed();
       },
     );
@@ -144,8 +144,8 @@ class SectionNotifier extends StateNotifier<SectionState> {
         }
         _hasMore = sections.length >= 14;
       },
-      failure: (error, status) {
-        debugPrint('====> fetch sections fail $error');
+      f: (error, s) {
+        debugPrint('====> fetch sections f $error');
         state = state.copyWith(isLoading: false);
       },
     );

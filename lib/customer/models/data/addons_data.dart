@@ -65,7 +65,7 @@ class Product {
     this.brandId,
     this.tax,
     this.barCode,
-    this.status,
+    this.s,
     this.active,
     this.addon,
     this.img,
@@ -87,7 +87,7 @@ class Product {
   int? brandId;
   num? tax;
   String? barCode;
-  String? status;
+  String? s;
   bool? active;
   bool? addon;
   String? img;
@@ -110,7 +110,7 @@ class Product {
       brandId: json?["brand_id"],
       tax: json?["tax"],
       barCode: json?["bar_code"],
-      status: json?["status"],
+      status: json?["s"],
       active: json?["active"],
       addon: json?["addon"],
       img: json?["img"],
@@ -130,7 +130,7 @@ class Product {
     "brand_id": brandId,
     "tax": tax,
     "bar_code": barCode,
-    "status": status,
+    "s": s,
     "active": active,
     "addon": addon,
     "img": img,

@@ -71,7 +71,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
           });
           state = state.copyWith(markers: list);
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, f);
           }
@@ -269,7 +269,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
           );
           state = state.copyWith(shopMarkers: list);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -289,7 +289,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
         success: (data) async {
           state = state.copyWith(branches: data.data);
         },
-        failure: (f, s) {},
+        f: (f, s) {},
       );
     } else {
       if (context.mounted) {
@@ -328,14 +328,14 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
             state = state.copyWith(isButtonLoading: false, calculateData: data);
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (isLoading) {
             state = state.copyWith(isLoading: false);
           } else {
             state = state.copyWith(isButtonLoading: false);
           }
           AppHelpers.showCheckTopSnackBar(context, f);
-          if (status == 401) {
+          if (s == 401) {
             context.router.popUntilRoot();
             context.replaceRoute(const LoginRoute());
           }
@@ -404,7 +404,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
             onWebview?.call(key);
           }
         },
-        failure: (e, s) {
+        f: (e, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, e);
@@ -450,7 +450,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
                 success: (key) {
                   onWebview?.call(key, payment.tag == 'pay-fast');
                 },
-                failure: (e, s) {
+                f: (e, s) {
                   state = state.copyWith(isButtonLoading: false);
                   if (context.mounted) {
                     AppHelpers.showCheckTopSnackBar(context, e);
@@ -496,7 +496,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
                   );
                 }
               },
-              failure: (f, s) {
+              f: (f, s) {
                 state = state.copyWith(isButtonLoading: false);
                 if (context.mounted) {
                   AppHelpers.showCheckTopSnackBar(context, f);
@@ -504,7 +504,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
               },
             );
           },
-          failure: (f, e) {
+          f: (f, e) {
             state = state.copyWith(isButtonLoading: false);
             if (context.mounted) {
               AppHelpers.showCheckTopSnackBar(context, f);
@@ -535,7 +535,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
           success: (key) {
             onWebview?.call(key, payment.tag == 'pay-fast');
           },
-          failure: (e, s) {
+          f: (e, s) {
             state = state.copyWith(isButtonLoading: false);
             if (context.mounted) {
               AppHelpers.showCheckTopSnackBar(context, e);
@@ -581,7 +581,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
             getRoutingAll(context: context, start: shopLatLng, end: userLatLng);
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, f);
@@ -635,7 +635,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
             state = state.copyWith(isAddLoading: false);
             onSuccess();
           },
-          failure: (f, s) {
+          f: (f, s) {
             state = state.copyWith(isAddLoading: false);
             AppHelpers.showCheckTopSnackBar(context, f);
           },
@@ -732,7 +732,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
             state = state.copyWith(markers: list);
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           if (!isRefresh) {
             state = state.copyWith(isLoading: false);
           }
@@ -763,7 +763,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
           onSuccess.call();
           context.maybePop(context);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, f);
@@ -794,7 +794,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
           );
           context.maybePop(context);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, f);
@@ -826,7 +826,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
           state = state.copyWith(isButtonLoading: false);
           context.maybePop(context);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, f);
@@ -857,7 +857,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
           }
           state = state.copyWith(polylineCoordinates: list);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(polylineCoordinates: []);
         },
       );
@@ -889,7 +889,7 @@ class OrderNotifier extends AutoDisposeNotifier<OrderState> {
     state = state.copyWith(
       orderData: state.orderData?.copyWith(
         orderStatusesData: data.orderStatusesData,
-        status: data.status,
+        status: data.s,
       ),
     );
   }

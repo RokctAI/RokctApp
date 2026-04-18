@@ -11,7 +11,7 @@ import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/profile/state/profile_settings_state.dart';
 
-class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
+class ProfileSettingsNotifier extends AutoDisposeNotifier<ProfileSettingsState> {
   final UserRepository _userRepository;
 
   ProfileSettingsNotifier(this._userRepository)
@@ -37,7 +37,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
           }
           LocalStorage.setUser(data.data);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           debugPrint('==> get profile details failure: $f');
         },
@@ -58,7 +58,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
             isLoading: false,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           debugPrint('==> get request response failure: $f');
         },
@@ -89,8 +89,8 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
         success: (data) {
           state = state.copyWith(statistics: data, isLoading: false);
         },
-        failure: (f, s) {
-          if (status == 401) {
+        f: (f, s) {
+          if (s == 401) {
             LocalStorage.logout();
             context.router.popUntilRoot();
             context.replaceRoute(const DriverLoginRoute());
@@ -124,9 +124,9 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
           context.router.popUntilRoot();
           context.replaceRoute(const DriverLoginRoute());
         },
-        failure: (fail, status) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, fail);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {

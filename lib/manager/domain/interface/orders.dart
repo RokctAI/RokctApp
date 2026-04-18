@@ -30,14 +30,14 @@ abstract class OrdersInterface {
   });
 
   Future<ApiResult<OrderStatusResponse>> updateOrderStatus({
-    required OrderStatus status,
+    required OrderStatus s,
     int? orderId,
   });
 
   Future<ApiResult<SingleOrderResponse>> getOrderDetails({int? orderId});
 
   Future<ApiResult<OrdersPaginateResponse>> getOrders({
-    OrderStatus? status,
+    OrderStatus? s,
     int? page,
     String? from,
     String? to,
@@ -47,6 +47,6 @@ abstract class OrdersInterface {
     int? page,
     String? from,
     String? to,
-    String? status,
+    String? s,
   });
 }

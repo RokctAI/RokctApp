@@ -380,7 +380,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
         );
       }
 
-      return ApiResult.success(data: response.data["status"]);
+      return ApiResult.success(data: response.data["s"]);
     } catch (e) {
       debugPrint('==> get delivery zone failure: $e');
       return ApiResult.f(

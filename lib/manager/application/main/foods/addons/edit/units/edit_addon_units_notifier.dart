@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/application/main/foods/addons/edit/units/edit_a
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
+class EditAddonUnitsNotifier extends AutoDisposeNotifier<EditAddonUnitsState> {
   final CatalogInterface _catalogRepository;
 
   EditAddonUnitsNotifier(this._catalogRepository)
@@ -82,9 +82,9 @@ class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
               units[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
-        debugPrint('====> fetch units fail $f');
+        debugPrint('====> fetch units f $f');
       },
     );
   }

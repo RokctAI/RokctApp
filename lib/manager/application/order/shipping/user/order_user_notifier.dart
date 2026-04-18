@@ -10,7 +10,7 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class OrderUserNotifier extends StateNotifier<OrderUserState> {
+class OrderUserNotifier extends AutoDisposeNotifier<OrderUserState> {
   final UsersInterface _usersRepository;
   String _query = '';
   bool _hasMore = true;
@@ -61,8 +61,8 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
         state = state.copyWith(users: users, isLoading: false);
         _hasMore = users.length >= 14;
       },
-      failure: (fail, status) {
-        debugPrint('===> search user fail $fail');
+      f: (f, s) {
+        debugPrint('===> search user f $f');
         state = state.copyWith(isLoading: false);
       },
     );
@@ -97,9 +97,9 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
         state = state.copyWith(users: users);
         refreshController?.loadComplete();
       },
-      failure: (fail, status) {
+      f: (f, s) {
         refreshController?.loadFailed();
-        debugPrint('===> fetch more users fail $fail');
+        debugPrint('===> fetch more users f $f');
       },
     );
   }
@@ -119,8 +119,8 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
         refreshController?.refreshCompleted();
         refreshController?.resetNoData();
       },
-      failure: (fail, status) {
-        debugPrint('===> refresh users fail $fail');
+      f: (f, s) {
+        debugPrint('===> refresh users f $f');
         refreshController?.refreshFailed();
       },
     );
@@ -163,8 +163,8 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
         }
         _hasMore = users.length >= 14;
       },
-      failure: (error, status) {
-        debugPrint('====> fetch users fail $error');
+      f: (error, s) {
+        debugPrint('====> fetch users f $error');
         state = state.copyWith(isLoading: false);
       },
     );

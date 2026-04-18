@@ -32,7 +32,7 @@ class UsersRepository implements UsersInterface {
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
-      debugPrint('===> create user fail $e');
+      debugPrint('===> create user f $e');
       return ApiResult.f(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -329,7 +329,7 @@ class UsersRepository implements UsersInterface {
   Future<ApiResult<dynamic>> setOnlineOffline() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/dashboard/seller/shops/working/status');
+      await client.post('/api/v1/dashboard/seller/shops/working/s');
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('===> error switch shop online $e');

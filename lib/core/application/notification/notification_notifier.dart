@@ -27,7 +27,7 @@ class NotificationNotifier extends Notifier<NotificationState> {
           notifications: data.data ?? [],
         );
       },
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, f.toString());
       },
     );
@@ -64,7 +64,7 @@ class NotificationNotifier extends Notifier<NotificationState> {
             refreshController?.loadComplete();
           }
         },
-        failure: (f, s) {
+        f: (f, s) {
           debugPrint('==> get notifications more failure: $f');
         },
       );
@@ -90,7 +90,7 @@ class NotificationNotifier extends Notifier<NotificationState> {
     final response = await notificationRepo.readAll();
     response.when(
       success: (data) {},
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, f.toString());
       },
     );
@@ -113,7 +113,7 @@ class NotificationNotifier extends Notifier<NotificationState> {
     final response = await notificationRepo.readOne(id: id);
     response.when(
       success: (data) {},
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, f.toString());
       },
     );
@@ -125,7 +125,7 @@ class NotificationNotifier extends Notifier<NotificationState> {
       success: (data) {
         state = state.copyWith(countOfNotifications: data);
       },
-      failure: (f, s) {
+      f: (f, s) {
         if (s == 401) {
           LocalStorage.logout();
           context.router.popUntilRoot();

@@ -381,7 +381,7 @@ class _ShopOrderState extends ConsumerState<CartOrderPage> {
                     bool check = true;
                     bool checkProduct = false;
                     for (UserCart cart in state.cart!.userCarts!) {
-                      if (cart.status ?? true) {
+                      if (cart.s ?? true) {
                         check = true;
                         break;
                       }

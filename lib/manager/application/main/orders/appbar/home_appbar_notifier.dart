@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/main/orders/appbar/home_appbar_state.dart';
 
-class HomeAppbarNotifier extends StateNotifier<HomeAppbarState> {
+class HomeAppbarNotifier extends AutoDisposeNotifier<HomeAppbarState> {
   HomeAppbarNotifier() : super(const HomeAppbarState());
 
   void setAppbarDetails(String title, int count, {int? index}) {

@@ -153,10 +153,10 @@ class _OrderPageState extends ConsumerState<OrderPage>
     final event = ref.read(orderProvider.notifier);
     checkCart(ref.watch(shopOrderProvider), state);
     ref.listen(orderProvider, (previous, next) {
-      if (AppHelpers.getOrderStatus(next.orderData?.status ?? "") ==
+      if (AppHelpers.getOrderStatus(next.orderData?.s ?? "") ==
               OrderStatus.delivered &&
           next.orderData?.review == null &&
-          previous?.orderData?.status != next.orderData?.status) {
+          previous?.orderData?.s != next.orderData?.s) {
         AppHelpers.showCustomModalBottomSheet(
           context: context,
           modal: RatingPage(totalPrice: next.orderData?.totalPrice),
@@ -271,7 +271,7 @@ class _OrderPageState extends ConsumerState<OrderPage>
                   ),
                   OrderCheck(
                     orderStatus: AppHelpers.getOrderStatus(
-                      state.orderData?.status ?? "",
+                      state.orderData?.s ?? "",
                     ),
                     isOrder: state.orderData != null,
                     isActive: state.isActive,
@@ -363,7 +363,7 @@ class _OrderPageState extends ConsumerState<OrderPage>
           state.orderData != null
               ? OrderStatusScreen(
                   status: AppHelpers.getOrderStatus(
-                    state.orderData?.status ?? "",
+                    state.orderData?.s ?? "",
                   ),
                   colors: colors,
                 )

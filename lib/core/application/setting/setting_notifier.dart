@@ -37,13 +37,13 @@ class SettingNotifier extends Notifier<SettingState> {
 
               state = state.copyWith(isLoading: false);
             },
-            failure: (f, s) {
+            f: (f, s) {
               state = state.copyWith(isLoading: false);
               AppHelpers.showCheckTopSnackBar(context, f);
             },
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },

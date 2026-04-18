@@ -35,13 +35,13 @@ class RefundInfoScreen extends StatelessWidget {
                     height: 36.h,
                     width: 36.w,
                     decoration: BoxDecoration(
-                      color: (refundModel?.status == "pending"
+                      color: (refundModel?.s == "pending"
                           ? AppStyle.primary
                           : AppStyle.bgGrey),
                       borderRadius: const BorderRadius.all(Radius.circular(8)),
                     ),
                     child: Center(
-                      child: refundModel?.status == "pending"
+                      child: refundModel?.s == "pending"
                           ? Stack(
                               children: [
                                 Center(
@@ -56,7 +56,7 @@ class RefundInfoScreen extends StatelessWidget {
                               ],
                             )
                           : Icon(
-                              refundModel?.status == "accepted"
+                              refundModel?.s == "accepted"
                                   ? Icons.done_all
                                   : Icons.cancel_outlined,
                               size: 16.r,
@@ -73,7 +73,7 @@ class RefundInfoScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    refundModel?.status ?? "",
+                    refundModel?.s ?? "",
                     style: AppStyle.interNormal(
                       size: 14,
                       color: AppStyle.black,

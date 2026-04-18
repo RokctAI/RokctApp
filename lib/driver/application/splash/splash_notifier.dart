@@ -11,7 +11,7 @@ import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/splash/splash_state.dart';
 
-class SplashNotifier extends StateNotifier<SplashState> {
+class SplashNotifier extends AutoDisposeNotifier<SplashState> {
   final SettingsRepository _settingsRepository;
   final UserRepository _userRepository;
 
@@ -25,7 +25,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         LocalStorage.setDeliveryInfo(data);
         LocalStorage.setOnline(data.data?.online ?? false);
       },
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
         debugPrint('==> error with fetching profile $f');
       },
@@ -38,7 +38,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
       success: (data) {
         LocalStorage.setSettingsList(data.data ?? []);
       },
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
         debugPrint('==> error with fetching settings $f');
       },
@@ -59,7 +59,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         }
         LocalStorage.setSelectedCurrency(currencies[defaultCurrencyIndex]);
       },
-      failure: (f, s) {
+      f: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
         debugPrint('==> error with fetching currencies $f');
       },
@@ -86,8 +86,8 @@ class SplashNotifier extends StateNotifier<SplashState> {
           onBecome?.call();
         }
       },
-      failure: (f, s) {
-        if (status == 401) {
+      f: (f, s) {
+        if (s == 401) {
           onLogin?.call();
           LocalStorage.logout();
           context.replaceRoute(const DriverSplashRoute());
@@ -113,7 +113,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         success: (data) {
           LocalStorage.setTranslations(data.data);
         },
-        failure: (f, s) {
+        f: (f, s) {
           debugPrint('==> error with fetching translations $f');
           AppHelpers.showCheckTopSnackBar(
             context,

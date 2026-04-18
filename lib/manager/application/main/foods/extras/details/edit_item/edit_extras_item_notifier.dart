@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/main/foods/extras/details/edit_item/edit_extras_item_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
-class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
+class EditExtrasItemNotifier extends AutoDisposeNotifier<EditExtrasItemState> {
   final ProductsInterface _productsRepository;
   String _title = '';
 
@@ -30,12 +30,12 @@ class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
         state = state.copyWith(isLoading: false);
         success?.call();
       },
-      failure: (fail, status) {
-        debugPrint('===> update extras item fail $fail');
+      f: (f, s) {
+        debugPrint('===> update extras item f $f');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
       },

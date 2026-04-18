@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class LanguagesNotifier extends StateNotifier<LanguagesState> {
+class LanguagesNotifier extends AutoDisposeNotifier<LanguagesState> {
   final SettingsInterface _settingsRepository;
 
   LanguagesNotifier(this._settingsRepository) : super(const LanguagesState());
@@ -31,11 +31,11 @@ class LanguagesNotifier extends StateNotifier<LanguagesState> {
               }
             }
           },
-          failure: (f, s) {
+          f: (f, s) {
             state = state.copyWith(isSelectLanguage: false);
             AppHelpers.showCheckTopSnackBar(
               context,
-              text: AppHelpers.getTranslation(status.toString()),
+              text: AppHelpers.getTranslation(s.toString()),
             );
           },
         );
@@ -73,11 +73,11 @@ class LanguagesNotifier extends StateNotifier<LanguagesState> {
             index: index,
           );
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            text: AppHelpers.getTranslation(status.toString()),
+            text: AppHelpers.getTranslation(s.toString()),
           );
         },
       );
@@ -126,7 +126,7 @@ class LanguagesNotifier extends StateNotifier<LanguagesState> {
         }
         state = state.copyWith(isLoading: false);
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
       },
     );

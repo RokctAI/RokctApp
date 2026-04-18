@@ -10,7 +10,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/user_data.dart';
 import 'package:rokctapp/driver/application/auth/sign_up/sign_up_state.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 
-class SignUpNotifier extends StateNotifier<SignUpState> {
+class SignUpNotifier extends AutoDisposeNotifier<SignUpState> {
   final AuthRepository _authRepository;
   final UserRepository _userRepository;
 
@@ -26,7 +26,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
           LocalStorage.setWallet(data.data?.wallet);
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         debugPrint('==> get profile details failure: $f');
       },
     );
@@ -89,7 +89,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
           state = state.copyWith(isLoading: false, isSuccess: true);
           onSuccess();
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false, isSuccess: false);
           AppHelpers.showCheckTopSnackBar(context, f.toString());
         },
@@ -122,7 +122,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
             AppHelpers.getTranslation(TrKeys.userAlready),
           );
         },
-        failure: (f, s) async {
+        f: (f, s) async {
           await FirebaseAuth.instance.verifyPhoneNumber(
             phoneNumber: state.phone,
             verificationCompleted: (PhoneAuthCredential credential) {},
@@ -198,9 +198,9 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
           String? fcmToken = await FirebaseMessaging.instance.getToken();
           _userRepository.updateFirebaseToken(fcmToken);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
-          if (status == 400) {
+          if (s == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(TrKeys.referral),
@@ -283,9 +283,9 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
           String? fcmToken = await FirebaseMessaging.instance.getToken();
           _userRepository.updateFirebaseToken(fcmToken);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
-          if (status == 400) {
+          if (s == 400) {
             AppHelpers.showCheckTopSnackBar(context, "error");
           } else {
             AppHelpers.showCheckTopSnackBar(context, "error");

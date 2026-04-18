@@ -9,7 +9,7 @@ import 'package:rokctapp/manager/application/product/products_state.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class ProductsNotifier extends StateNotifier<ProductsState> {
+class ProductsNotifier extends AutoDisposeNotifier<ProductsState> {
   final ProductsInterface _productsRepository;
   ProductsNotifier(this._productsRepository) : super(const ProductsState());
 
@@ -49,7 +49,7 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
           initialSetSelectedIndexes(selectedIndexes, cartStocks: stocks);
         }
       },
-      failure: (f, s) {
+      f: (f, s) {
         debugPrint('==> get product details failure: $f');
       },
     );

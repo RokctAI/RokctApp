@@ -62,7 +62,7 @@ class ParcelOrderPage extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            "№ ${parcel?.id}",
+                            "â„– ${parcel?.id}",
                             style: AppStyle.interNormal(
                               size: 14.sp,
                               letterSpacing: -0.3,
@@ -346,7 +346,7 @@ class ParcelOrderPage extends StatelessWidget {
                             final ImageCropperMarker image =
                                 ImageCropperMarker();
 
-                            if (parcel?.status != "on_a_way") {
+                            if (parcel?.s != "on_a_way") {
                               ref
                                   .read(homeProvider.notifier)
                                   .goMarketParcel(

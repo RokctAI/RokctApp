@@ -181,18 +181,18 @@ class Client {
 class Data {
   int? id;
   String? type;
-  String? status;
+  String? s;
 
-  Data({this.id, this.type, this.status});
+  Data({this.id, this.type, this.s});
 
-  Data copyWith({int? id, String? type, String? status}) => Data(
+  Data copyWith({int? id, String? type, String? s}) => Data(
     id: id ?? this.id,
     type: type ?? this.type,
-    status: status ?? this.status,
+    status: s ?? this.s,
   );
 
   factory Data.fromJson(Map<String, dynamic> json) =>
-      Data(id: json["id"], type: json["type"], status: json["status"]);
+      Data(id: json["id"], type: json["type"], status: json["s"]);
 
-  Map<String, dynamic> toJson() => {"id": id, "type": type, "status": status};
+  Map<String, dynamic> toJson() => {"id": id, "type": type, "s": s};
 }

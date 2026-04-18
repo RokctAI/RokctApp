@@ -101,7 +101,7 @@ class TableRepository extends TableInterface {
       'perPage': 14,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
       if (query != null) 'search': query,
-      'status': TrKeys.available,
+      's': TrKeys.available,
       if (shopSectionId != null) "shop_section_id": shopSectionId,
       if (type != null) "date_from": TimeService.dateFormatYMDHm(from),
       if (type != null) "date_to": TimeService.dateFormatYMDHm(to),
@@ -135,7 +135,7 @@ class TableRepository extends TableInterface {
     final data = {
       if (page != null) 'page': page,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
-      if (type != null) 'status': type,
+      if (type != null) 's': type,
       if (from != null)
         "start_from": from.toString().substring(
           0,
@@ -333,14 +333,14 @@ class TableRepository extends TableInterface {
 
   @override
   Future<ApiResult> changeOrderStatus({
-    required String status,
+    required String s,
     required int id,
   }) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/user-booking/status/$id',
-        queryParameters: {'status': status},
+        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/user-booking/s/$id',
+        queryParameters: {'s': s},
       );
       return const ApiResult.success(data: null);
     } catch (e) {

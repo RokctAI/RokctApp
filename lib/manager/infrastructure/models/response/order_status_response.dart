@@ -32,7 +32,7 @@ class OrderStatusData {
     num? deliveryFee,
     num? price,
     num? tax,
-    String? status,
+    String? s,
     String? deliveryDate,
     String? deliveryTime,
   }) {
@@ -41,7 +41,7 @@ class OrderStatusData {
     _deliveryFee = deliveryFee;
     _price = price;
     _tax = tax;
-    _status = status;
+    _status = s;
     _deliveryDate = deliveryDate;
     _deliveryTime = deliveryTime;
   }
@@ -52,7 +52,7 @@ class OrderStatusData {
     _deliveryFee = json['delivery_fee'];
     _price = json['price'];
     _tax = json['tax'];
-    _status = json['status'];
+    _status = json['s'];
     _deliveryDate = json['delivery_date'];
     _deliveryTime = json['delivery_time'];
   }
@@ -72,7 +72,7 @@ class OrderStatusData {
     num? deliveryFee,
     num? price,
     num? tax,
-    String? status,
+    String? s,
     String? deliveryDate,
     String? deliveryTime,
   }) => OrderStatusData(
@@ -81,7 +81,7 @@ class OrderStatusData {
     deliveryFee: deliveryFee ?? _deliveryFee,
     price: price ?? _price,
     tax: tax ?? _tax,
-    status: status ?? _status,
+    status: s ?? _status,
     deliveryDate: deliveryDate ?? _deliveryDate,
     deliveryTime: deliveryTime ?? _deliveryTime,
   );
@@ -96,7 +96,7 @@ class OrderStatusData {
 
   num? get tax => _tax;
 
-  String? get status => _status;
+  String? get s => _status;
 
   String? get deliveryDate => _deliveryDate;
 
@@ -109,7 +109,7 @@ class OrderStatusData {
     map['delivery_fee'] = _deliveryFee;
     map['price'] = _price;
     map['tax'] = _tax;
-    map['status'] = _status;
+    map['s'] = _status;
     map['delivery_date'] = _deliveryDate;
     map['delivery_time'] = _deliveryTime;
     return map;

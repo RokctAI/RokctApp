@@ -16,7 +16,7 @@ abstract class ParcelRepositoryFacade {
     DateTime? end,
   });
 
-  Future<ApiResult<dynamic>> updateParcel(int? parcelId, String? status);
+  Future<ApiResult<dynamic>> updateParcel(int? parcelId, String? s);
 
   Future<ApiResult<void>> addReviewParcel(
     num orderId, {

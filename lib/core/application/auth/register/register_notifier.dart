@@ -76,9 +76,9 @@ class RegisterNotifier extends Notifier<RegisterState> {
           state = state.copyWith(isLoading: false, isSuccess: true);
           onSuccess();
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false, isSuccess: false);
-          if (status == 400) {
+          if (s == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(TrKeys.emailAlreadyExists),
@@ -134,7 +134,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
             );
             onSuccess(success.data?.verifyId ?? '');
           },
-          failure: (f, s) {
+          f: (f, s) {
             AppHelpers.showCheckTopSnackBar(context, f);
             state = state.copyWith(isLoading: false, isSuccess: false);
           },
@@ -179,7 +179,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
           LocalStorage.setToken(data.token);
           _success(context);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -224,9 +224,9 @@ class RegisterNotifier extends Notifier<RegisterState> {
           LocalStorage.setToken(data.token);
           _success(context, addresses: data.user?.addresses);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
-          if (status == 400) {
+          if (s == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(
@@ -277,9 +277,9 @@ class RegisterNotifier extends Notifier<RegisterState> {
           state = state.copyWith(isLoading: false);
           _success(context);
         },
-        failure: (f, s) {
+        f: (f, s) {
           state = state.copyWith(isLoading: false);
-          if (status == 400) {
+          if (s == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(
@@ -329,7 +329,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
             _success(context, addresses: data.data?.user?.addresses);
             state = state.copyWith(isLoading: false);
           },
-          failure: (f, s) {
+          f: (f, s) {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(context, f);
           },

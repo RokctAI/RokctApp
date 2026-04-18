@@ -55,7 +55,7 @@ class OrdersItem extends StatelessWidget {
                       width: 36.w,
                       decoration: BoxDecoration(
                         color: isRefund
-                            ? ((refund?.status ?? "") == "pending"
+                            ? ((refund?.s ?? "") == "pending"
                                   ? colors.primary
                                   : AppStyle.bgGrey)
                             : (isActive ? colors.primary : AppStyle.bgGrey),
@@ -63,7 +63,7 @@ class OrdersItem extends StatelessWidget {
                       ),
                       child: isRefund
                           ? Center(
-                              child: (refund?.status ?? "") == "pending"
+                              child: (refund?.s ?? "") == "pending"
                                   ? Stack(
                                       children: [
                                         Center(
@@ -83,7 +83,7 @@ class OrdersItem extends StatelessWidget {
                                       ],
                                     )
                                   : Icon(
-                                      (refund?.status ?? "") == "accepted"
+                                      (refund?.s ?? "") == "accepted"
                                           ? Icons.done_all
                                           : Icons.cancel_outlined,
                                       size: 16.r,
@@ -115,7 +115,7 @@ class OrdersItem extends StatelessWidget {
                                     )
                                   : Icon(
                                       AppHelpers.getOrderStatus(
-                                                order?.status ?? "",
+                                                order?.s ?? "",
                                               ) ==
                                               OrderStatus.delivered
                                           ? Icons.done_all

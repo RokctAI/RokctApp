@@ -1,24 +1,24 @@
 class MultiGalleryUploadResponse {
   DateTime? timestamp;
-  bool? status;
+  bool? s;
   String? message;
   MultiGalleryUploadData? data;
 
   MultiGalleryUploadResponse({
     this.timestamp,
-    this.status,
+    this.s,
     this.message,
     this.data,
   });
 
   MultiGalleryUploadResponse copyWith({
     DateTime? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     MultiGalleryUploadData? data,
   }) => MultiGalleryUploadResponse(
     timestamp: timestamp ?? this.timestamp,
-    status: status ?? this.status,
+    status: s ?? this.s,
     message: message ?? this.message,
     data: data ?? this.data,
   );
@@ -28,7 +28,7 @@ class MultiGalleryUploadResponse {
         timestamp: json["timestamp"] == null
             ? null
             : DateTime.parse(json["timestamp"]),
-        status: json["status"],
+        status: json["s"],
         message: json["message"],
         data: json["data"] == null
             ? null
@@ -37,7 +37,7 @@ class MultiGalleryUploadResponse {
 
   Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
-    "status": status,
+    "s": s,
     "message": message,
     "data": data?.toJson(),
   };

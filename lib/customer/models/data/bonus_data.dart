@@ -8,7 +8,7 @@ class BonusModel {
     this.bonusStockId,
     this.value,
     this.type,
-    this.status,
+    this.s,
     this.expiredAt,
     this.bonusStock,
   });
@@ -19,7 +19,7 @@ class BonusModel {
   num? bonusStockId;
   num? value;
   String? type;
-  bool? status;
+  bool? s;
   DateTime? expiredAt;
   BonusStock? bonusStock;
 
@@ -45,7 +45,7 @@ class BonusModel {
     "bonus_stock_id": bonusStockId,
     "value": value,
     "type": type,
-    "status": status,
+    "s": s,
     "expired_at":
         "${expiredAt?.year.toString().padLeft(4, '0')}-${expiredAt?.month.toString().padLeft(2, '0')}-${expiredAt?.day.toString().padLeft(2, '0')}",
     "bonusStock": bonusStock?.toJson(),

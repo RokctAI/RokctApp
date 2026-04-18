@@ -4,20 +4,20 @@ import 'package:rokctapp/customer/models/data/translation.dart';
 
 class AllProductsResponse {
   DateTime? timestamp;
-  bool? status;
+  bool? s;
   String? message;
   AllProductData? data;
 
-  AllProductsResponse({this.timestamp, this.status, this.message, this.data});
+  AllProductsResponse({this.timestamp, this.s, this.message, this.data});
 
   AllProductsResponse copyWith({
     DateTime? timestamp,
-    bool? status,
+    bool? s,
     String? message,
     AllProductData? data,
   }) => AllProductsResponse(
     timestamp: timestamp ?? this.timestamp,
-    status: status ?? this.status,
+    status: s ?? this.s,
     message: message ?? this.message,
     data: data ?? this.data,
   );
@@ -27,7 +27,7 @@ class AllProductsResponse {
         timestamp: json["timestamp"] == null
             ? null
             : DateTime.parse(json["timestamp"]),
-        status: json["status"],
+        status: json["s"],
         message: json["message"],
         data: json["data"] == null
             ? null
@@ -36,7 +36,7 @@ class AllProductsResponse {
 
   Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
-    "status": status,
+    "s": s,
     "message": message,
     "data": data?.toJson(),
   };
@@ -82,7 +82,7 @@ class All {
   int? shopId;
   String? img;
   bool? active;
-  String? status;
+  String? s;
   Translation? translation;
   List<dynamic>? children;
   List<Product>? products;
@@ -96,7 +96,7 @@ class All {
     this.shopId,
     this.img,
     this.active,
-    this.status,
+    this.s,
     this.translation,
     this.children,
     this.products,
@@ -111,7 +111,7 @@ class All {
     int? shopId,
     String? img,
     bool? active,
-    String? status,
+    String? s,
     Translation? translation,
     List<dynamic>? children,
     List<Product>? products,
@@ -124,7 +124,7 @@ class All {
     shopId: shopId ?? this.shopId,
     img: img ?? this.img,
     active: active ?? this.active,
-    status: status ?? this.status,
+    status: s ?? this.s,
     translation: translation ?? this.translation,
     children: children ?? this.children,
     products: products ?? this.products,
@@ -138,7 +138,7 @@ class All {
     shopId: json["shop_id"],
     img: json["img"],
     active: json["active"],
-    status: json["status"],
+    status: json["s"],
     translation: json["translation"] == null
         ? null
         : Translation.fromJson(json["translation"]),
@@ -158,7 +158,7 @@ class All {
     "shop_id": shopId,
     "img": img,
     "active": active,
-    "status": status,
+    "s": s,
     "translation": translation?.toJson(),
     "children": children == null
         ? []
@@ -174,7 +174,7 @@ class Product {
   String? uuid;
   int? shopId;
   int? categoryId;
-  String? status;
+  String? s;
   bool? active;
   bool? addon;
   bool? vegetarian;
@@ -191,7 +191,7 @@ class Product {
     this.uuid,
     this.shopId,
     this.categoryId,
-    this.status,
+    this.s,
     this.active,
     this.addon,
     this.vegetarian,
@@ -209,7 +209,7 @@ class Product {
     String? uuid,
     int? shopId,
     int? categoryId,
-    String? status,
+    String? s,
     bool? active,
     bool? addon,
     bool? vegetarian,
@@ -225,7 +225,7 @@ class Product {
     uuid: uuid ?? this.uuid,
     shopId: shopId ?? this.shopId,
     categoryId: categoryId ?? this.categoryId,
-    status: status ?? this.status,
+    status: s ?? this.s,
     active: active ?? this.active,
     addon: addon ?? this.addon,
     vegetarian: vegetarian ?? this.vegetarian,
@@ -243,7 +243,7 @@ class Product {
     uuid: json["uuid"],
     shopId: json["shop_id"],
     categoryId: json["category_id"],
-    status: json["status"],
+    status: json["s"],
     active: json["active"],
     addon: json["addon"],
     vegetarian: json["vegetarian"],
@@ -265,7 +265,7 @@ class Product {
     "uuid": uuid,
     "shop_id": shopId,
     "category_id": categoryId,
-    "status": status,
+    "s": s,
     "active": active,
     "addon": addon,
     "vegetarian": vegetarian,

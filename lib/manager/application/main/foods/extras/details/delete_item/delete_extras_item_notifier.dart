@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/main/foods/extras/details/delete_item/delete_extras_item_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
-class DeleteExtrasItemNotifier extends StateNotifier<DeleteExtrasItemState> {
+class DeleteExtrasItemNotifier extends AutoDisposeNotifier<DeleteExtrasItemState> {
   final ProductsInterface _productsRepository;
 
   DeleteExtrasItemNotifier(this._productsRepository)
@@ -26,12 +26,12 @@ class DeleteExtrasItemNotifier extends StateNotifier<DeleteExtrasItemState> {
         state = state.copyWith(isLoading: false);
         success?.call();
       },
-      failure: (fail, status) {
-        debugPrint('===> delete extras item fail $fail');
+      f: (f, s) {
+        debugPrint('===> delete extras item f $f');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          text: fail,
+          text: f,
           type: SnackBarType.error,
         );
       },

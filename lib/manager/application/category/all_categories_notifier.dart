@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/application/category/all_categories_state.dart';
 
-class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
+class AllCategoriesNotifier extends AutoDisposeNotifier<AllCategoriesState> {
   int _page = 0;
 
   AllCategoriesNotifier()
@@ -68,8 +68,8 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
           controller?.loadNoData();
         }
       },
-      failure: (f, s) {
-        debugPrint('====> fetch categories fail $f');
+      f: (f, s) {
+        debugPrint('====> fetch categories f $f');
         _page--;
         AppHelpers.showCheckTopSnackBar(
           context,
@@ -118,8 +118,8 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
           controller?.loadNoData();
         }
       },
-      failure: (f, s) {
-        debugPrint('====> fetch categories fail $f');
+      f: (f, s) {
+        debugPrint('====> fetch categories f $f');
         _page--;
         AppHelpers.showCheckTopSnackBar(
           context,
@@ -180,8 +180,8 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         list.remove(category);
         state = state.copyWith(categories: list, activeIndex: 0);
       },
-      failure: (f, s) {
-        debugPrint("delete categories fail: $f");
+      f: (f, s) {
+        debugPrint("delete categories f: $f");
       },
     );
   }
@@ -226,7 +226,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         controller?.loadComplete();
         return;
       },
-      failure: (f, s) {
+      f: (f, s) {
         state = state.copyWith(isLoading: false);
         AppHelpers.errorSnackBar(context, text: f);
       },

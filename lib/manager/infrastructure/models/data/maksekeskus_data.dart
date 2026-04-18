@@ -7,7 +7,7 @@ class MaksekeskusData {
   String? currency;
   int? cartId;
   int? userId;
-  String? status;
+  String? s;
   int? currencyId;
   int? rate;
   String? deliveryType;
@@ -24,7 +24,7 @@ class MaksekeskusData {
     this.currency,
     this.cartId,
     this.userId,
-    this.status,
+    this.s,
     this.currencyId,
     this.rate,
     this.deliveryType,
@@ -42,7 +42,7 @@ class MaksekeskusData {
     String? currency,
     int? cartId,
     int? userId,
-    String? status,
+    String? s,
     int? currencyId,
     int? rate,
     String? deliveryType,
@@ -58,7 +58,7 @@ class MaksekeskusData {
     currency: currency ?? this.currency,
     cartId: cartId ?? this.cartId,
     userId: userId ?? this.userId,
-    status: status ?? this.status,
+    status: s ?? this.s,
     currencyId: currencyId ?? this.currencyId,
     rate: rate ?? this.rate,
     deliveryType: deliveryType ?? this.deliveryType,
@@ -81,7 +81,7 @@ class MaksekeskusData {
         currency: json["currency"],
         cartId: json["cart_id"],
         userId: json["user_id"],
-        status: json["status"],
+        status: json["s"],
         currencyId: json["currency_id"],
         rate: json["rate"],
         deliveryType: json["delivery_type"],
@@ -101,7 +101,7 @@ class MaksekeskusData {
     "currency": currency,
     "cart_id": cartId,
     "user_id": userId,
-    "status": status,
+    "s": s,
     "currency_id": currencyId,
     "rate": rate,
     "delivery_type": deliveryType,

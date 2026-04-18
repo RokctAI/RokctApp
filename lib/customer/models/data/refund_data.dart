@@ -24,7 +24,7 @@ class RefundOrdersModel {
 class RefundModel {
   RefundModel({
     this.id,
-    this.status,
+    this.s,
     this.cause,
     this.answer,
     this.createdAt,
@@ -33,7 +33,7 @@ class RefundModel {
   });
 
   int? id;
-  String? status;
+  String? s;
   String? cause;
   String? answer;
   DateTime? createdAt;
@@ -42,7 +42,7 @@ class RefundModel {
 
   factory RefundModel.fromJson(Map<String, dynamic> json) => RefundModel(
     id: json["id"],
-    status: json["status"],
+    status: json["s"],
     cause: json["cause"],
     answer: json["answer"],
     createdAt: DateTime.tryParse(json["created_at"])?.toLocal(),
@@ -52,7 +52,7 @@ class RefundModel {
 
   Map<String, dynamic> toJson() => {
     "id": id,
-    "status": status,
+    "s": s,
     "cause": cause,
     "answer": answer,
     "created_at": createdAt?.toIso8601String(),
