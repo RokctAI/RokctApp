@@ -1,13 +1,14 @@
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/auth/login/languages/languages_state.dart';
 
 class LanguageNotifier extends StateNotifier<LanguageState> {
-  final driverSettingsRepository _settingsRepository;
+  final SettingsRepository _settingsRepository;
 
   LanguageNotifier(this._settingsRepository) : super(const LanguageState());
 
@@ -35,11 +36,11 @@ class LanguageNotifier extends StateNotifier<LanguageState> {
               }
             }
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isSelectLanguage: false);
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(failure),
+              AppHelpers.getTranslation(f),
             );
           },
         );
@@ -72,11 +73,11 @@ class LanguageNotifier extends StateNotifier<LanguageState> {
             index: index,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -121,13 +122,14 @@ class LanguageNotifier extends StateNotifier<LanguageState> {
         }
         state = state.copyWith(isLoading: false, isSuccess: true);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(failure),
+          AppHelpers.getTranslation(f),
         );
         state = state.copyWith(isLoading: false);
       },
     );
   }
 }
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
@@ -23,7 +24,7 @@ class LikeNotifier extends Notifier<LikeState> {
               shops: data.data ?? [],
             );
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isShopLoading: false);
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
@@ -38,3 +39,4 @@ class LikeNotifier extends Notifier<LikeState> {
     }
   }
 }
+

@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/application/order/canceled_order/canceled_order_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,7 +26,7 @@ class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
         canceledOrder = 1;
         state = state.copyWith(isLoading: true);
       }
-      final response = await driverOrdersRepository.getHistoryOrders(
+      final response = await OrdersRepositoryFacade.getHistoryOrders(
         isRefresh ? 1 : ++canceledOrder,
         status: ["canceled"],
       );
@@ -47,7 +48,7 @@ class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             canceledOrder--;
             state = state.copyWith(isLoading: false);
@@ -58,7 +59,7 @@ class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -70,3 +71,4 @@ class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
     }
   }
 }
+

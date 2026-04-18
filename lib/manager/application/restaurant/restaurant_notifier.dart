@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/restaurant/restaurant_state.dart';
@@ -33,7 +34,7 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         );
         afterFetched?.call();
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(shop: LocalStorage.getShop());
         afterFetched?.call();
         debugPrint('==> error with fetching my shop $failure');
@@ -79,7 +80,7 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         success: (data) {
           backUrl = data.imageData?.title;
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           debugPrint('==> upload shop back image fail: $failure');
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -99,7 +100,7 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         success: (data) {
           logoUrl = data.imageData?.title;
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           debugPrint('==> upload shop logo image fail: $failure');
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -146,7 +147,7 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         );
         updateSuccess?.call();
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('===> update shop fail $failure');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
@@ -166,3 +167,4 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
     _usersRepository.setOnlineOffline();
   }
 }
+

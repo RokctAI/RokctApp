@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -54,7 +55,7 @@ class ShopNotifier extends Notifier<ShopState> {
           }
           state = state.copyWith(polylineCoordinates: list);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(polylineCoordinates: []);
         },
       );
@@ -268,7 +269,7 @@ class ShopNotifier extends Notifier<ShopState> {
         state = state.copyWith(shopData: data.data);
         checkWorkingDay();
       },
-      failure: (failure, status) {},
+      failure: (f, s) {},
     );
   }
 
@@ -300,7 +301,7 @@ class ShopNotifier extends Notifier<ShopState> {
           );
           onSuccess();
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(
             isJoinOrder: false,
             userUuid: "",
@@ -333,7 +334,7 @@ class ShopNotifier extends Notifier<ShopState> {
           generateShareLink();
           checkWorkingDay();
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -357,7 +358,7 @@ class ShopNotifier extends Notifier<ShopState> {
           state = state.copyWith(category: data.data, isCategoryLoading: false);
           return true;
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isCategoryLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
           return false;
@@ -403,7 +404,7 @@ class ShopNotifier extends Notifier<ShopState> {
           state = state.copyWith(allData: allList);
           onSuccess.call(allList.length);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
@@ -429,7 +430,7 @@ class ShopNotifier extends Notifier<ShopState> {
             isPopularProduct: (data.data ?? []).isNotEmpty,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
@@ -459,7 +460,7 @@ class ShopNotifier extends Notifier<ShopState> {
   //             isProductLoading: false,
   //             isPopularProduct: (data.data ?? []).isNotEmpty);
   //       },
-  //       failure: (failure, status) {
+  //       failure: (f, s) {
   //         state = state.copyWith(isProductLoading: false);
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
@@ -500,7 +501,7 @@ class ShopNotifier extends Notifier<ShopState> {
             isProductCategoryLoading: false,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isProductCategoryLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -537,7 +538,7 @@ class ShopNotifier extends Notifier<ShopState> {
           }
           controller?.loadComplete();
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           controller?.loadComplete();
 
           AppHelpers.showCheckTopSnackBar(context, failure);
@@ -571,7 +572,7 @@ class ShopNotifier extends Notifier<ShopState> {
   //
   //         controller?.loadComplete();
   //       },
-  //       failure: (failure, status) {
+  //       failure: (f, s) {
   //         controller?.loadComplete();
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
@@ -606,7 +607,7 @@ class ShopNotifier extends Notifier<ShopState> {
   //
   //         controller?.loadComplete();
   //       },
-  //       failure: (failure, status) {
+  //       failure: (f, s) {
   //         controller?.loadComplete();
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
@@ -633,7 +634,7 @@ class ShopNotifier extends Notifier<ShopState> {
         success: (data) {
           state = state.copyWith(brands: data.data);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
@@ -679,3 +680,4 @@ class ShopNotifier extends Notifier<ShopState> {
     );
   }
 }
+

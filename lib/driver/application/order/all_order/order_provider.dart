@@ -5,5 +5,5 @@ import 'package:rokctapp/driver/application/order/all_order/order_notifier.dart'
 import 'package:rokctapp/driver/application/order/all_order/order_state.dart';
 
 final orderProvider = StateNotifierProvider<OrderNotifier, OrderState>(
-  (ref) => OrderNotifier(driverOrdersRepository),
+  (ref) => OrderNotifier(OrdersRepositoryFacade),
 );

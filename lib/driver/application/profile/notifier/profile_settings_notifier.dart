@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
@@ -11,7 +12,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/profile/state/profile_settings_state.dart';
 
 class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
-  final driverUserRepository _userRepository;
+  final UserRepository _userRepository;
 
   ProfileSettingsNotifier(this._userRepository)
     : super(const ProfileSettingsState());
@@ -36,7 +37,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
           }
           LocalStorage.setUser(data.data);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           debugPrint('==> get profile details failure: $failure');
         },
@@ -57,7 +58,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
             isLoading: false,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           debugPrint('==> get request response failure: $failure');
         },
@@ -88,7 +89,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
         success: (data) {
           state = state.copyWith(statistics: data, isLoading: false);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (status == 401) {
             LocalStorage.logout();
             context.router.popUntilRoot();
@@ -97,7 +98,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(failure),
+              AppHelpers.getTranslation(f),
             );
           }
         },
@@ -135,3 +136,4 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
     }
   }
 }
+

@@ -6,5 +6,5 @@ import 'package:rokctapp/driver/application/auth/login/languages/languages_state
 
 final languagesProvider =
     StateNotifierProvider<LanguageNotifier, LanguageState>(
-      (ref) => LanguageNotifier(driverSettingsRepository),
+      (ref) => LanguageNotifier(SettingsRepository),
     );

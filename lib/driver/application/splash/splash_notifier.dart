@@ -2,6 +2,7 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
@@ -11,8 +12,8 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/splash/splash_state.dart';
 
 class SplashNotifier extends StateNotifier<SplashState> {
-  final driverSettingsRepository _settingsRepository;
-  final driverUserRepository _userRepository;
+  final SettingsRepository _settingsRepository;
+  final UserRepository _userRepository;
 
   SplashNotifier(this._settingsRepository, this._userRepository)
     : super(const SplashState());
@@ -24,10 +25,10 @@ class SplashNotifier extends StateNotifier<SplashState> {
         LocalStorage.setDeliveryInfo(data);
         LocalStorage.setOnline(data.data?.online ?? false);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(failure),
+          AppHelpers.getTranslation(f),
         );
         debugPrint('==> error with fetching profile $failure');
       },
@@ -40,10 +41,10 @@ class SplashNotifier extends StateNotifier<SplashState> {
       success: (data) {
         LocalStorage.setSettingsList(data.data ?? []);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(failure),
+          AppHelpers.getTranslation(f),
         );
         debugPrint('==> error with fetching settings $failure');
       },
@@ -64,10 +65,10 @@ class SplashNotifier extends StateNotifier<SplashState> {
         }
         LocalStorage.setSelectedCurrency(currencies[defaultCurrencyIndex]);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(failure),
+          AppHelpers.getTranslation(f),
         );
         debugPrint('==> error with fetching currencies $failure');
       },
@@ -94,7 +95,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           onBecome?.call();
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         if (status == 401) {
           onLogin?.call();
           LocalStorage.logout();
@@ -103,7 +104,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         }
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(failure),
+          AppHelpers.getTranslation(f),
         );
         debugPrint('==> error fetching profile details $failure');
       },
@@ -124,11 +125,11 @@ class SplashNotifier extends StateNotifier<SplashState> {
         success: (data) {
           LocalStorage.setTranslations(data.data);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           debugPrint('==> error with fetching translations $failure');
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -151,3 +152,4 @@ class SplashNotifier extends StateNotifier<SplashState> {
     }
   }
 }
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -21,7 +22,7 @@ class AiTranslationNotifier extends StateNotifier<AiTranslationState> {
         state = state.copyWith(isLoading: false, translatedUsingAi: true);
         onSuccess?.call(data.data?.title);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
       },
     );
@@ -40,3 +41,4 @@ class AiTranslationNotifier extends StateNotifier<AiTranslationState> {
     state = state.copyWith(translatedUsingAi: value);
   }
 }
+

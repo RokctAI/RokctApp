@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/manager/application/main/orders/cooking/cooking_orders_state.dart';
@@ -61,7 +62,7 @@ class CookingOrdersNotifier extends StateNotifier<CookingOrdersState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -75,3 +76,4 @@ class CookingOrdersNotifier extends StateNotifier<CookingOrdersState> {
     );
   }
 }
+

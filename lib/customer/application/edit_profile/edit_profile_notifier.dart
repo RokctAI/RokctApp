@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -110,7 +111,7 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
             isSuccess: true,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -141,7 +142,7 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
           url = data.imageData?.title;
           state = state.copyWith(url: url ?? "");
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           debugPrint('==> upload profile image failure: $failure');
           AppHelpers.showCheckTopSnackBar(
@@ -161,3 +162,4 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
     }
   }
 }
+

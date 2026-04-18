@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -142,7 +143,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
             onSuccess?.call();
             findSelectIndex();
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             if (refreshController == null) {
               state = state.copyWith(isLoading: false);
             }
@@ -184,7 +185,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
             }
             refreshController?.refreshCompleted();
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             if (refreshController == null) {
               state = state.copyWith(isReferralLoading: false);
             }
@@ -214,7 +215,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
           context.router.popUntilRoot();
           context.replaceRoute(const LoginRoute());
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -254,7 +255,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
             }
             refreshController?.refreshCompleted();
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             if (refreshController == null) {
               state = state.copyWith(isLoadingHistory: false);
             }
@@ -289,7 +290,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
               refreshController.loadComplete();
             }
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             refreshController.loadNoData();
             --page;
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -412,7 +413,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isLoading: false, careers: data.data ?? []);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
       },
     );
@@ -425,7 +426,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isLoading: false, selectedCareer: data);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
       },
     );
@@ -473,3 +474,4 @@ class ProfileNotifier extends Notifier<ProfileState> {
     );
   }
 }
+

@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/application/order/delivered_order/delivered_order_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,7 +25,7 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
         deliveredOrder = 1;
         state = state.copyWith(isLoading: true);
       }
-      final response = await driverOrdersRepository.getHistoryOrders(
+      final response = await OrdersRepositoryFacade.getHistoryOrders(
         isRefresh ? 1 : ++deliveredOrder,
         status: ["delivered"],
       );
@@ -45,7 +46,7 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             deliveredOrder--;
             controller.loadFailed();
@@ -56,7 +57,7 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -68,3 +69,4 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
     }
   }
 }
+

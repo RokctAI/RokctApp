@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
@@ -18,7 +19,7 @@ class HelpNotifier extends Notifier<HelpState> {
         success: (data) async {
           state = state.copyWith(isLoading: false, data: data);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -30,3 +31,4 @@ class HelpNotifier extends Notifier<HelpState> {
     }
   }
 }
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/customer/models/data/parcel_order.dart';
@@ -49,7 +50,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             activeOrder--;
             controller.loadFailed();
@@ -99,7 +100,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             historyOrder--;
             controller.loadFailed();
@@ -132,7 +133,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             totalActiveCount: data.meta?.total ?? 0,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isActiveLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -160,7 +161,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             isHistoryLoading: false,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isHistoryLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -176,3 +177,4 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
     }
   }
 }
+

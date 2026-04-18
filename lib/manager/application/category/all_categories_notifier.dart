@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -67,7 +68,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
           controller?.loadNoData();
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('====> fetch categories fail $failure');
         _page--;
         AppHelpers.showCheckTopSnackBar(
@@ -117,7 +118,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
           controller?.loadNoData();
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('====> fetch categories fail $failure');
         _page--;
         AppHelpers.showCheckTopSnackBar(
@@ -225,10 +226,11 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         controller?.loadComplete();
         return;
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
         AppHelpers.errorSnackBar(context, text: failure);
       },
     );
   }
 }
+

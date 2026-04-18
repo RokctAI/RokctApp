@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
@@ -36,13 +37,13 @@ class SettingNotifier extends Notifier<SettingState> {
 
               state = state.copyWith(isLoading: false);
             },
-            failure: (failure, status) {
+            failure: (f, s) {
               state = state.copyWith(isLoading: false);
               AppHelpers.showCheckTopSnackBar(context, failure);
             },
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -64,3 +65,4 @@ class SettingNotifier extends Notifier<SettingState> {
     settingsRepository.updateNotification(state.notifications);
   }
 }
+

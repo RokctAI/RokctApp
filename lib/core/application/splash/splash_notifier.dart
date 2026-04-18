@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
@@ -26,7 +27,7 @@ class SplashNotifier extends Notifier<SplashState> {
             LocalStorage.setSettingsList(data.data ?? []);
             LocalStorage.setSettingsFetched(true);
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             debugPrint('==> error with settings fetched');
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
@@ -46,7 +47,7 @@ class SplashNotifier extends Notifier<SplashState> {
             LocalStorage.setSettingsList(data.data ?? []);
             LocalStorage.setSettingsFetched(true);
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             debugPrint('==> error with settings fetched');
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
@@ -65,7 +66,7 @@ class SplashNotifier extends Notifier<SplashState> {
         success: (data) {
           LocalStorage.setTranslations(data.data);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           debugPrint('==> error with fetching translations $failure');
           // AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -77,3 +78,4 @@ class SplashNotifier extends Notifier<SplashState> {
     }
   }
 }
+

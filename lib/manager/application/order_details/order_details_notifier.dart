@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/order_details/order_details_state.dart';
@@ -27,7 +28,7 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
         state = state.copyWith(isUpdating: false);
         success?.call();
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('===> update order status fail $failure');
         state = state.copyWith(isUpdating: false);
         AppHelpers.showCheckTopSnackBar(
@@ -61,10 +62,11 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
       success: (data) {
         state = state.copyWith(isLoading: false, order: data.data);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('===> fetch order details fail $failure');
         state = state.copyWith(isLoading: false);
       },
     );
   }
 }
+

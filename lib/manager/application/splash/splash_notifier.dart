@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/splash/splash_state.dart';
@@ -27,7 +28,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         }
         LocalStorage.setSelectedCurrency(currencies[defaultCurrencyIndex]);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('==> error with fetching currencies $failure');
       },
     );
@@ -51,7 +52,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           goBecome?.call();
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         if (status == 401) {
           goLogin?.call();
         }
@@ -66,7 +67,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
       success: (data) {
         LocalStorage.setSettingsList(data.data ?? []);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('==> error with fetching settings $failure');
       },
     );
@@ -100,7 +101,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           success: (data) {
             LocalStorage.setTranslations(data.data);
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             debugPrint('==> error with fetching translations $failure');
           },
         );
@@ -125,7 +126,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           success: (data) {
             LocalStorage.setTranslations(data.data);
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             debugPrint('==> error with fetching translations $failure');
           },
         );
@@ -136,3 +137,4 @@ class SplashNotifier extends StateNotifier<SplashState> {
     }
   }
 }
+

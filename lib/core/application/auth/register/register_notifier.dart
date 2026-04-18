@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/customer/models/models.dart';
@@ -75,7 +76,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
           state = state.copyWith(isLoading: false, isSuccess: true);
           onSuccess();
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false, isSuccess: false);
           if (status == 400) {
             AppHelpers.showCheckTopSnackBar(
@@ -133,7 +134,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
             );
             onSuccess(success.data?.verifyId ?? '');
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             AppHelpers.showCheckTopSnackBar(context, failure);
             state = state.copyWith(isLoading: false, isSuccess: false);
           },
@@ -178,7 +179,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
           LocalStorage.setToken(data.token);
           _success(context);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -223,7 +224,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
           LocalStorage.setToken(data.token);
           _success(context, addresses: data.user?.addresses);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
             AppHelpers.showCheckTopSnackBar(
@@ -276,7 +277,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
           state = state.copyWith(isLoading: false);
           _success(context);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
             AppHelpers.showCheckTopSnackBar(
@@ -328,7 +329,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
             _success(context, addresses: data.data?.user?.addresses);
             state = state.copyWith(isLoading: false);
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
@@ -379,3 +380,4 @@ class RegisterNotifier extends Notifier<RegisterState> {
     userRepository.updateFirebaseToken(fcmToken);
   }
 }
+

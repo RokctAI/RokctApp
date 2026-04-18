@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/main/foods/addons/edit/units/edit_addon_units_state.dart';
@@ -81,7 +82,7 @@ class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
               units[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
         debugPrint('====> fetch units fail $failure');
       },
@@ -97,3 +98,4 @@ class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
     state.unitController?.text = newUnit.translation?.title ?? '';
   }
 }
+

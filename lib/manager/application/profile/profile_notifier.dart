@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
@@ -81,7 +82,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
             }
             refreshController?.refreshCompleted();
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             if (refreshController == null) {
               state = state.copyWith(isLoading: false);
             }
@@ -231,3 +232,4 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     }
   }
 }
+

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
@@ -70,7 +71,7 @@ class OrderNotifier extends Notifier<OrderState> {
           });
           state = state.copyWith(markers: list);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
           }
@@ -268,7 +269,7 @@ class OrderNotifier extends Notifier<OrderState> {
           );
           state = state.copyWith(shopMarkers: list);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -288,7 +289,7 @@ class OrderNotifier extends Notifier<OrderState> {
         success: (data) async {
           state = state.copyWith(branches: data.data);
         },
-        failure: (failure, status) {},
+        failure: (f, s) {},
       );
     } else {
       if (context.mounted) {
@@ -327,7 +328,7 @@ class OrderNotifier extends Notifier<OrderState> {
             state = state.copyWith(isButtonLoading: false, calculateData: data);
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (isLoading) {
             state = state.copyWith(isLoading: false);
           } else {
@@ -495,7 +496,7 @@ class OrderNotifier extends Notifier<OrderState> {
                   );
                 }
               },
-              failure: (failure, status) {
+              failure: (f, s) {
                 state = state.copyWith(isButtonLoading: false);
                 if (context.mounted) {
                   AppHelpers.showCheckTopSnackBar(context, failure);
@@ -580,7 +581,7 @@ class OrderNotifier extends Notifier<OrderState> {
             getRoutingAll(context: context, start: shopLatLng, end: userLatLng);
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -634,7 +635,7 @@ class OrderNotifier extends Notifier<OrderState> {
             state = state.copyWith(isAddLoading: false);
             onSuccess();
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isAddLoading: false);
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
@@ -731,7 +732,7 @@ class OrderNotifier extends Notifier<OrderState> {
             state = state.copyWith(markers: list);
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             state = state.copyWith(isLoading: false);
           }
@@ -762,7 +763,7 @@ class OrderNotifier extends Notifier<OrderState> {
           onSuccess.call();
           context.maybePop(context);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -793,7 +794,7 @@ class OrderNotifier extends Notifier<OrderState> {
           );
           context.maybePop(context);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -825,7 +826,7 @@ class OrderNotifier extends Notifier<OrderState> {
           state = state.copyWith(isButtonLoading: false);
           context.maybePop(context);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -856,7 +857,7 @@ class OrderNotifier extends Notifier<OrderState> {
           }
           state = state.copyWith(polylineCoordinates: list);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(polylineCoordinates: []);
         },
       );
@@ -893,3 +894,4 @@ class OrderNotifier extends Notifier<OrderState> {
     );
   }
 }
+

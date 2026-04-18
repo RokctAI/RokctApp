@@ -10,7 +10,7 @@ final registerConfirmationProvider =
       RegisterConfirmationState
     >(
       (ref) => RegisterConfirmationNotifier(
-        driverAuthRepository,
-        driverUserRepository,
+        AuthRepository,
+        UserRepository,
       ),
     );

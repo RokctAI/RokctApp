@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/manager/domain/interface/products.dart';
 
@@ -277,3 +278,4 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
     updateCart(newCount);
   }
 }
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/restaurant/working_days/working_days_state.dart';
@@ -25,7 +26,7 @@ class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
         state = state.copyWith(isLoading: false);
         updateSuccess?.call();
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
         debugPrint('==> error update working days $failure');
       },
@@ -48,3 +49,4 @@ class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
     state = state.copyWith(currentIndex: index);
   }
 }
+

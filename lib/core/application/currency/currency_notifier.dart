@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/customer/models/models.dart';
@@ -32,7 +33,7 @@ class CurrencyNotifier extends Notifier<CurrencyState> {
 
           state = state.copyWith(isLoading: false, list: data.data ?? []);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -49,3 +50,4 @@ class CurrencyNotifier extends Notifier<CurrencyState> {
     state = state.copyWith(index: index);
   }
 }
+

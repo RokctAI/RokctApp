@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -80,7 +81,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -150,7 +151,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         _canceledPage--;
         if (_canceledPage == 0) {
           state = state.copyWith(isLoading: false);
@@ -219,7 +220,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         _deliveredPage--;
         if (_deliveredPage == 0) {
           state = state.copyWith(isLoading: false);
@@ -241,3 +242,4 @@ class OrderNotifier extends StateNotifier<OrderState> {
     );
   }
 }
+

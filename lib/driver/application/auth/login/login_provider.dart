@@ -6,5 +6,5 @@ import 'package:rokctapp/driver/application/auth/login/login_state.dart';
 
 final loginProvider =
     StateNotifierProvider.autoDispose<LoginNotifier, LoginState>(
-      (ref) => LoginNotifier(driverAuthRepository, driverUserRepository),
+      (ref) => LoginNotifier(AuthRepository, UserRepository),
     );

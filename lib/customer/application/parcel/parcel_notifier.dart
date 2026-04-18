@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -37,7 +38,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
           state = state.copyWith(isButtonLoading: false);
           context.maybePop(context);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -72,7 +73,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
         success: (data) {
           state = state.copyWith(isLoading: false, types: data.data ?? []);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -100,7 +101,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
         success: (data) {
           state = state.copyWith(isLoading: false, calculate: data);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false, error: true);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -197,7 +198,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
               break;
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -226,7 +227,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
             MaterialPageRoute(builder: (_) => WebViewPage(url: data)),
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -385,7 +386,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
             state = state.copyWith(markers: list);
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             state = state.copyWith(isLoading: false);
           }
@@ -418,7 +419,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
           }
           state = state.copyWith(polylineCoordinates: list);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(polylineCoordinates: []);
         },
       );
@@ -429,3 +430,4 @@ class ParcelNotifier extends Notifier<ParcelState> {
     }
   }
 }
+

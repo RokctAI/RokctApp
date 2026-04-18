@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/auth/login/languages/languages_state.dart';
@@ -30,7 +31,7 @@ class LanguagesNotifier extends StateNotifier<LanguagesState> {
               }
             }
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isSelectLanguage: false);
             AppHelpers.showCheckTopSnackBar(
               context,
@@ -72,7 +73,7 @@ class LanguagesNotifier extends StateNotifier<LanguagesState> {
             index: index,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -125,9 +126,10 @@ class LanguagesNotifier extends StateNotifier<LanguagesState> {
         }
         state = state.copyWith(isLoading: false);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
       },
     );
   }
 }
+

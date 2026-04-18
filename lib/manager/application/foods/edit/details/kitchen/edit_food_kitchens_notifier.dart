@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/foods/edit/details/kitchen/edit_food_kitchens_state.dart';
@@ -82,7 +83,7 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
               kitchens[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
         debugPrint('====> fetch kitchens fail $failure');
       },
@@ -98,3 +99,4 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
     state.kitchenController?.text = newUnit.translation?.title ?? '';
   }
 }
+

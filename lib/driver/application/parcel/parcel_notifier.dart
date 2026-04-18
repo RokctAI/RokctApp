@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/driver/domain/interface/parcel.dart';
@@ -37,11 +38,11 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         success: (data) {
           state = state.copyWith(order: data, isLoading: false);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> get order failure: $failure');
         },
@@ -72,11 +73,11 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
   //       success: (data) {
   //         onSuccess();
   //       },
-  //       failure: (failure, status) {
+  //       failure: (f, s) {
   //
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
-  //           AppHelpers.getTranslation(failure),
+  //           AppHelpers.getTranslation(f),
   //         );
   //         debugPrint('==> get set current order failure: $failure');
   //       },
@@ -97,11 +98,11 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         success: (data) {
           state = state.copyWith(activeOrders: data, isActiveLoading: false);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isActiveLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> get active orders failure: $failure');
         },
@@ -125,11 +126,11 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             isAvailableLoading: false,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isAvailableLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> get history orders failure: $failure');
         },
@@ -171,7 +172,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             activeOrder--;
             controller.loadFailed();
@@ -180,7 +181,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -221,7 +222,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             availableOrderPage--;
             controller.loadFailed();
@@ -230,7 +231,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -258,11 +259,11 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         success: (data) {
           state = state.copyWith(historyOrders: data, isHistoryLoading: false);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isHistoryLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> get history orders failure: $failure');
         },
@@ -304,7 +305,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             historyOrder--;
             controller.loadFailed();
@@ -313,7 +314,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -324,3 +325,4 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     }
   }
 }
+

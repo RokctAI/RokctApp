@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/foods/create/details/units/create_food_units_state.dart';
@@ -26,7 +27,7 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
               units[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
@@ -46,3 +47,4 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
     state.unitController?.text = state.units[index].translation?.title ?? '';
   }
 }
+

@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -29,7 +30,7 @@ class PromoCodeNotifier extends Notifier<PromoCodeState> {
         success: (data) {
           state = state.copyWith(isLoading: false, isActive: true);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false, isActive: false);
         },
       );
@@ -40,3 +41,4 @@ class PromoCodeNotifier extends Notifier<PromoCodeState> {
     }
   }
 }
+

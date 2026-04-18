@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/customer/models/models.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
@@ -66,7 +67,7 @@ class SearchNotifier extends Notifier<SearchState> {
         success: (data) async {
           state = state.copyWith(isShopLoading: false, shops: data.data ?? []);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isShopLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -90,7 +91,7 @@ class SearchNotifier extends Notifier<SearchState> {
             products: data.data ?? [],
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isProductLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -119,7 +120,7 @@ class SearchNotifier extends Notifier<SearchState> {
             productIndex--;
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           productIndex--;
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -131,3 +132,4 @@ class SearchNotifier extends Notifier<SearchState> {
     }
   }
 }
+

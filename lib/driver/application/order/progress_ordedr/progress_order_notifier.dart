@@ -1,5 +1,6 @@
 import 'package:rokctapp/driver/application/order/progress_ordedr/progress_order_state.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -24,7 +25,7 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
         progressOrder = 1;
         state = state.copyWith(isLoading: true);
       }
-      final response = await driverOrdersRepository.getProgressOrders(
+      final response = await OrdersRepositoryFacade.getProgressOrders(
         isRefresh ? 1 : ++progressOrder,
       );
       response.when(
@@ -48,7 +49,7 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             progressOrder--;
             controller.loadFailed();
@@ -59,7 +60,7 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -71,3 +72,4 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
     }
   }
 }
+

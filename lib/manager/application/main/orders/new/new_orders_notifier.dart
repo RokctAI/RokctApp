@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -68,7 +69,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
           state.refreshController?.loadComplete();
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -87,3 +88,4 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
     );
   }
 }
+

@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
@@ -8,8 +9,8 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/profile/state/profile_image_state.dart';
 
 class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
-  final driverUserRepository _userRepository;
-  final driverSettingsRepository _settingsRepository;
+  final UserRepository _userRepository;
+  final SettingsRepository _settingsRepository;
 
   ProfileImageNotifier(this._userRepository, this._settingsRepository)
     : super(const ProfileImageState());
@@ -28,11 +29,11 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       success: (data) {
         url = data.imageData?.title;
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('==> upload profile image failure: $failure');
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(failure),
+          AppHelpers.getTranslation(f),
         );
       },
     );
@@ -48,11 +49,11 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
         LocalStorage.setUser(data.data);
         setUrl(data.data?.img);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('==> update profile image failure: $failure');
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(failure),
+          AppHelpers.getTranslation(f),
         );
       },
     );
@@ -70,11 +71,11 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       success: (data) {
         state = state.copyWith(carImageUrl: data.imageData?.title);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('==> upload profile image failure: $failure');
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(failure),
+          AppHelpers.getTranslation(f),
         );
       },
     );
@@ -99,3 +100,4 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
     state = state.copyWith(path: null, imageUrl: url);
   }
 }
+

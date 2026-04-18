@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/manager/domain/interface/payment_facade.dart';
@@ -44,7 +45,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
         controller?.loadComplete();
         return;
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
         debugPrint(" ==> fetch ads fail: $failure");
         if (context != null) {
@@ -87,7 +88,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
               onSuccess.call();
               state = state.copyWith(isPaymentLoading: false);
             },
-            failure: (failure, status) {
+            failure: (f, s) {
               state = state.copyWith(isPaymentLoading: false);
             },
           );
@@ -143,3 +144,4 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
     state = state.copyWith(selectSubscribe: index);
   }
 }
+

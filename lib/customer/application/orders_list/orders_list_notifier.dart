@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/customer/models/data/order_active_model.dart';
@@ -51,7 +52,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             activeOrder--;
             controller.loadFailed();
@@ -101,7 +102,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             historyOrder--;
             controller.loadFailed();
@@ -151,7 +152,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             refundOrder--;
             controller.loadFailed();
@@ -184,7 +185,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             totalActiveCount: data.meta?.total ?? 0,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isActiveLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -212,7 +213,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             isHistoryLoading: false,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isHistoryLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -240,7 +241,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             isRefundLoading: false,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isRefundLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -256,3 +257,4 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
     }
   }
 }
+

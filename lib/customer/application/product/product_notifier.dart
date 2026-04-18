@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/customer/models/data/addons_data.dart';
 import 'package:rokctapp/customer/models/models.dart';
@@ -182,7 +183,7 @@ class ProductNotifier extends Notifier<ProductState> {
             state = state.copyWith(isAddLoading: false);
             onSuccess();
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             if (status != 400) {
               state = state.copyWith(isAddLoading: false);
               AppHelpers.showCheckTopSnackBar(context, failure);
@@ -402,3 +403,4 @@ class ProductNotifier extends Notifier<ProductState> {
     );
   }
 }
+

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -161,7 +162,7 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('====> fetch products fail $failure');
         _page--;
         if (_page == 0) {
@@ -176,3 +177,4 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
     );
   }
 }
+

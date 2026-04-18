@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -40,7 +41,7 @@ class FilterNotifier extends Notifier<FilterState> {
             shopCount: data.meta?.total ?? 0,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -87,7 +88,7 @@ class FilterNotifier extends Notifier<FilterState> {
             shopCount: data.meta?.total ?? 0,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -126,7 +127,7 @@ class FilterNotifier extends Notifier<FilterState> {
         success: (data) async {
           state = state.copyWith(tags: data.data ?? []);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isTagLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -147,7 +148,7 @@ class FilterNotifier extends Notifier<FilterState> {
             ),
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isTagLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -177,7 +178,7 @@ class FilterNotifier extends Notifier<FilterState> {
             shopCount: data.meta?.total ?? 0,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isRestaurantLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -224,7 +225,7 @@ class FilterNotifier extends Notifier<FilterState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (!isRefresh) {
             shopIndex--;
             shopController.loadFailed();
@@ -241,3 +242,4 @@ class FilterNotifier extends Notifier<FilterState> {
     }
   }
 }
+

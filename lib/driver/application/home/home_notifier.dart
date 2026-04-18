@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
@@ -16,12 +17,12 @@ class HomeNotifier extends StateNotifier<HomeState> {
 
   Future<void> fetchDeliveryZone({bool isFetch = false}) async {
     if (isFetch) {
-      final response = await driverUserRepository.getDeliveryZone();
+      final response = await UserRepository.getDeliveryZone();
       response.when(
         success: (data) {
           setDeliveryZone(data.data);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           debugPrint('==> get delivery zone failure: $failure');
         },
       );
@@ -73,7 +74,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         markers: {},
         isLoading: true,
       );
-      final response = await driverDrawRepository.getRouting(
+      final response = await DrawRepository.getRouting(
         start: start,
         end: end,
       );
@@ -90,7 +91,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
             isLoading: false,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           // if(status==400){
           //   AppHelpers.showCheckTopSnackBar(context, TrKeys.moreDistance);
           // }
@@ -115,14 +116,14 @@ class HomeNotifier extends StateNotifier<HomeState> {
   }) async {
     if (await AppConnectivity.connectivity()) {
       state = state.copyWith(isLoading: state.isLoading);
-      final response = await driverUserRepository.setCurrentLocation(start);
+      final response = await UserRepository.setCurrentLocation(start);
       response.when(
         success: (data) {},
-        failure: (failure, status) {
+        failure: (f, s) {
           if (status != 501) {
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(failure),
+              AppHelpers.getTranslation(f),
             );
           }
         },
@@ -140,7 +141,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     state = state.copyWith(isGoUser: false, isLoading: true);
     if (await AppConnectivity.connectivity()) {
       if (setOrder) {
-        final response = await driverOrdersRepository.setOrder(orderId ?? "0");
+        final response = await OrdersRepositoryFacade.setOrder(orderId ?? "0");
         response.when(
           success: (data) {
             state = state.copyWith(
@@ -150,11 +151,11 @@ class HomeNotifier extends StateNotifier<HomeState> {
             );
             onSuccess();
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(failure),
+              AppHelpers.getTranslation(f),
             );
           },
         );
@@ -186,18 +187,18 @@ class HomeNotifier extends StateNotifier<HomeState> {
     );
     if (await AppConnectivity.connectivity()) {
       if (setOrder) {
-        final response = await driverParcelRepository.setParcel(
+        final response = await ParcelRepositoryFacade.setParcel(
           parcelId ?? "0",
         );
         response.when(
           success: (data) {
             state = state.copyWith(isLoading: false, parcelDetail: parcel);
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(failure),
+              AppHelpers.getTranslation(f),
             );
           },
         );
@@ -216,7 +217,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     fetchDeliveryZone();
     state = state.copyWith(isGoRestaurant: false, isGoUser: false);
     if (await AppConnectivity.connectivity()) {
-      final response = await driverOrdersRepository.fetchCurrentOrder();
+      final response = await OrdersRepositoryFacade.fetchCurrentOrder();
       response.when(
         success: (data) async {
           if (data.data?.isNotEmpty ?? false) {
@@ -290,11 +291,11 @@ class HomeNotifier extends StateNotifier<HomeState> {
             }
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -317,16 +318,16 @@ class HomeNotifier extends StateNotifier<HomeState> {
         state = state.copyWith(orderDetail: order);
         return;
       }
-      final response = await driverOrdersRepository.updateOrder(
+      final response = await OrdersRepositoryFacade.updateOrder(
         orderId ?? 0,
         "on_a_way",
       );
       response.when(
         success: (data) {},
-        failure: (failure, status) {
+        failure: (f, s) {
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -349,16 +350,16 @@ class HomeNotifier extends StateNotifier<HomeState> {
         state = state.copyWith(parcelDetail: parcel);
         return;
       }
-      final response = await driverParcelRepository.updateParcel(
+      final response = await ParcelRepositoryFacade.updateParcel(
         parcelId ?? 0,
         "on_a_way",
       );
       response.when(
         success: (data) {},
-        failure: (failure, status) {
+        failure: (f, s) {
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -377,7 +378,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     int? orderId,
   }) async {
     if (await AppConnectivity.connectivity()) {
-      driverOrdersRepository.addReview(
+      OrdersRepositoryFacade.addReview(
         orderId ?? 0,
         rating: rating ?? 0,
         comment: comment ?? "",
@@ -396,7 +397,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     int? parcelId,
   }) async {
     if (await AppConnectivity.connectivity()) {
-      driverParcelRepository.addReviewParcel(
+      ParcelRepositoryFacade.addReviewParcel(
         parcelId ?? 0,
         rating: rating ?? 0,
         comment: comment ?? "",
@@ -420,7 +421,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
       markers: {},
     );
     if (await AppConnectivity.connectivity()) {
-      driverParcelRepository.updateParcel(parcelId ?? 0, "delivered");
+      ParcelRepositoryFacade.updateParcel(parcelId ?? 0, "delivered");
     } else {
       if (context.mounted) {
         AppHelpers.showNoConnectionSnackBar(context);
@@ -440,7 +441,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
       markers: {},
     );
     if (await AppConnectivity.connectivity()) {
-      driverOrdersRepository.updateOrder(orderId ?? 0, "delivered");
+      OrdersRepositoryFacade.updateOrder(orderId ?? 0, "delivered");
     } else {
       if (context.mounted) {
         AppHelpers.showNoConnectionSnackBar(context);
@@ -455,7 +456,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
   }) async {
     state = state.copyWith(isLoading: true);
     if (await AppConnectivity.connectivity()) {
-      await driverOrdersRepository.cancelOrder(orderId, note);
+      await OrdersRepositoryFacade.cancelOrder(orderId, note);
       state = state.copyWith(
         isGoUser: false,
         isGoRestaurant: false,
@@ -476,15 +477,15 @@ class HomeNotifier extends StateNotifier<HomeState> {
     required int? orderId,
     required String path,
   }) async {
-    final res = await driverSettingsRepository.uploadImage(
+    final res = await SettingsRepository.uploadImage(
       path,
       UploadType.products,
     );
     res.when(
       success: (success) {
-        driverOrdersRepository.uploadImage(orderId, success.imageData?.title);
+        OrdersRepositoryFacade.uploadImage(orderId, success.imageData?.title);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         AppHelpers.showCheckTopSnackBar(context, failure);
       },
     );
@@ -492,15 +493,15 @@ class HomeNotifier extends StateNotifier<HomeState> {
 
   Future<void> setOnline({required BuildContext context}) async {
     if (await AppConnectivity.connectivity()) {
-      final response = await driverUserRepository.setOnline();
+      final response = await UserRepository.setOnline();
       response.when(
         success: (data) {
           LocalStorage.setOnline(!LocalStorage.getOnline());
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -511,3 +512,4 @@ class HomeNotifier extends StateNotifier<HomeState> {
     }
   }
 }
+

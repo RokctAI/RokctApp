@@ -1,5 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
@@ -7,8 +8,8 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/auth/login/login_state.dart';
 
 class LoginNotifier extends StateNotifier<LoginState> {
-  final driverAuthRepository _authRepository;
-  final driverUserRepository _userRepository;
+  final AuthRepository _authRepository;
+  final UserRepository _userRepository;
 
   LoginNotifier(this._authRepository, this._userRepository)
     : super(const LoginState());
@@ -19,7 +20,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       success: (data) {
         LocalStorage.setUser(data.data);
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('==> get profile details failure: $failure');
       },
     );
@@ -99,12 +100,12 @@ class LoginNotifier extends StateNotifier<LoginState> {
             loginSuccess?.call();
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           debugPrint('===> login request failure $failure');
           state = state.copyWith(isLoading: false, isLoginError: true);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -201,3 +202,4 @@ class LoginNotifier extends StateNotifier<LoginState> {
   //   }
   // }
 }
+

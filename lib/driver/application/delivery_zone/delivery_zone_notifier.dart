@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
@@ -9,7 +10,7 @@ import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 
 class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
-  final driverUserRepository _usersRepository;
+  final UserRepository _usersRepository;
 
   DeliveryZoneNotifier(this._usersRepository)
     : super(const DeliveryZoneState());
@@ -89,3 +90,4 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
     );
   }
 }
+

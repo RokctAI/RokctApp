@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
@@ -97,7 +98,7 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
             isSuccess: true,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(
             isLoading: false,
             isEmailError: true,
@@ -144,7 +145,7 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
           state = state.copyWith(isLoading: false, isSuccess: true);
           context.replaceRoute(MainRoute());
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false, isSuccess: false);
           if (status == 400) {
             AppHelpers.showCheckTopSnackBar(
@@ -168,3 +169,4 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
     }
   }
 }
+

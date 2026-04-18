@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -21,7 +22,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
           LocalStorage.setWallet(data.data?.wallet);
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('==> get profile details failure: $failure');
       },
     );
@@ -86,7 +87,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
           managerUsersRepository.updateFirebaseToken(fcmToken);
           state = state.copyWith(isLoading: false);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           debugPrint('===> login request failure $failure');
           state = state.copyWith(isLoading: false, isLoginError: true);
         },
@@ -96,3 +97,4 @@ class LoginNotifier extends StateNotifier<LoginState> {
     }
   }
 }
+

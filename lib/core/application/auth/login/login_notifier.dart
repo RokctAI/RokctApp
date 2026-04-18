@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -76,7 +77,7 @@ class LoginNotifier extends Notifier<LoginState> {
               }
             }
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isSelectLanguage: false);
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
@@ -119,7 +120,7 @@ class LoginNotifier extends Notifier<LoginState> {
           _success(context, data.data?.user);
           state = state.copyWith(isLoading: false);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false, isLoginError: true);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -162,7 +163,7 @@ class LoginNotifier extends Notifier<LoginState> {
             _success(context, data.data?.user);
             state = state.copyWith(isLoading: false);
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
@@ -212,3 +213,4 @@ class LoginNotifier extends Notifier<LoginState> {
     userRepository.updateFirebaseToken(fcmToken);
   }
 }
+

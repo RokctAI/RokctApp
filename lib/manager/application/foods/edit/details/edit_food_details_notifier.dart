@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/manager/application/foods/edit/details/edit_food_details_state.dart';
@@ -58,7 +59,7 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
         success: (data) {
           imageUrl.addAll(data.data?.title ?? []);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           debugPrint('==> upload product image fail: $failure');
           AppHelpers.showCheckTopSnackBar(context, text: failure);
           state = state.copyWith(isLoading: true);
@@ -250,3 +251,4 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
     );
   }
 }
+

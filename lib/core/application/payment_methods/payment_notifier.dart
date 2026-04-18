@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -32,7 +33,7 @@ class PaymentNotifier extends Notifier<PaymentState> {
           }
           state = state.copyWith(payments: payments, isPaymentsLoading: false);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isPaymentsLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -47,3 +48,4 @@ class PaymentNotifier extends Notifier<PaymentState> {
     }
   }
 }
+

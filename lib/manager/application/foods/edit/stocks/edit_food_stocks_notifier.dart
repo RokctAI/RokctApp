@@ -4,6 +4,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 import 'package:rokctapp/manager/application/foods/edit/stocks/edit_food_stocks_state.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
@@ -270,3 +271,4 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
     fetchGroups(product: product ?? ProductData());
   }
 }
+

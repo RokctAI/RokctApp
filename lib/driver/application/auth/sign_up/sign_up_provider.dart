@@ -6,5 +6,5 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final signUpProvider =
     StateNotifierProvider.autoDispose<SignUpNotifier, SignUpState>(
-      (ref) => SignUpNotifier(driverAuthRepository, driverUserRepository),
+      (ref) => SignUpNotifier(AuthRepository, UserRepository),
     );

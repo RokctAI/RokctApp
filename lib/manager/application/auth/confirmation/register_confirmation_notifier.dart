@@ -83,7 +83,7 @@ class RegisterConfirmationNotifier
           state = state.copyWith(isLoading: false, isSuccess: true);
           _timer?.cancel();
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(
             isLoading: false,
             isCodeError: true,
@@ -124,7 +124,7 @@ class RegisterConfirmationNotifier
             isResetPasswordSuccess: true,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false, isCodeError: true);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -174,7 +174,7 @@ class RegisterConfirmationNotifier
               isResetPasswordSuccess: true,
             );
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isLoading: false, isCodeError: true);
             AppHelpers.showCheckTopSnackBar(
               context,
@@ -223,7 +223,7 @@ class RegisterConfirmationNotifier
         success: (data) async {
           state = state.copyWith(isResending: false);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isResending: false);
           AppHelpers.showCheckTopSnackBar(
             context,

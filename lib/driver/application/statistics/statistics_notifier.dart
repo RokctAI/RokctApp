@@ -2,6 +2,7 @@ import 'package:charts_flutter/flutter.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/core/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -9,7 +10,7 @@ import 'package:rokctapp/driver/application/statistics/statistics_state.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 
 class StatisticsNotifier extends StateNotifier<StatisticsState> {
-  final driverUserRepository _userRepository;
+  final UserRepository _userRepository;
   int page = 1;
 
   StatisticsNotifier(this._userRepository) : super(const StatisticsState());
@@ -141,3 +142,4 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
     state = state.copyWith(list: newList);
   }
 }
+

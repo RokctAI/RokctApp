@@ -5,13 +5,14 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/application/auth/reset_password/reset_password_state.dart';
 
 class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
-  final driverAuthRepository _authRepository;
-  final driverUserRepository _usersRepository;
+  final AuthRepository _authRepository;
+  final UserRepository _usersRepository;
 
   ResetPasswordNotifier(this._authRepository, this._usersRepository)
     : super(const ResetPasswordState());
@@ -97,7 +98,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
             isSuccess: true,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(
             isLoading: false,
             isEmailError: true,
@@ -105,7 +106,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
           );
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> send otp failure: $failure');
         },
@@ -144,7 +145,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
           state = state.copyWith(isLoading: false, isSuccess: true);
           context.replaceRoute(const DriverHomeRoute());
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false, isSuccess: false);
           if (status == 400) {
             AppHelpers.showCheckTopSnackBar(
@@ -154,7 +155,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
           } else {
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(failure),
+              AppHelpers.getTranslation(f),
             );
           }
         },
@@ -166,3 +167,4 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
     }
   }
 }
+

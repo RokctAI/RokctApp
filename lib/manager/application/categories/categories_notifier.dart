@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -42,7 +43,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
         controller?.loadComplete();
         return;
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isLoading: false);
         AppHelpers.errorSnackBar(context, text: failure);
       },
@@ -79,7 +80,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
         controller?.loadComplete();
         return;
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         state = state.copyWith(isComboLoading: false);
         AppHelpers.errorSnackBar(context, text: failure);
       },
@@ -100,3 +101,4 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
     }
   }
 }
+

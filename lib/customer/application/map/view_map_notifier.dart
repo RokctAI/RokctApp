@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
@@ -69,7 +70,7 @@ class ViewMapNotifier extends Notifier<ViewMapState> {
           state = state.copyWith(isLoading: false);
           onSuccess?.call();
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
         },
       );
@@ -99,7 +100,7 @@ class ViewMapNotifier extends Notifier<ViewMapState> {
           state = state.copyWith(isLoading: false);
           onSuccess?.call();
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
         },
       );
@@ -132,7 +133,7 @@ class ViewMapNotifier extends Notifier<ViewMapState> {
             );
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           if (!(status == 400 || status == 404)) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -146,3 +147,4 @@ class ViewMapNotifier extends Notifier<ViewMapState> {
     }
   }
 }
+

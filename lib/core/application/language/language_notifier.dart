@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/customer/models/models.dart';
@@ -39,7 +40,7 @@ class LanguageNotifier extends Notifier<LanguageState> {
             index: index,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -68,7 +69,7 @@ class LanguageNotifier extends Notifier<LanguageState> {
           LocalStorage.setTranslations(data.data);
           state = state.copyWith(isLoading: false, isSuccess: true);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -80,3 +81,4 @@ class LanguageNotifier extends Notifier<LanguageState> {
     }
   }
 }
+

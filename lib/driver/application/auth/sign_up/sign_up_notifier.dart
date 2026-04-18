@@ -3,6 +3,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/user_data.dart';
@@ -10,8 +11,8 @@ import 'package:rokctapp/driver/application/auth/sign_up/sign_up_state.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 
 class SignUpNotifier extends StateNotifier<SignUpState> {
-  final driverAuthRepository _authRepository;
-  final driverUserRepository _userRepository;
+  final AuthRepository _authRepository;
+  final UserRepository _userRepository;
 
   SignUpNotifier(this._authRepository, this._userRepository)
     : super(const SignUpState());
@@ -25,7 +26,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
           LocalStorage.setWallet(data.data?.wallet);
         }
       },
-      failure: (failure, status) {
+      failure: (f, s) {
         debugPrint('==> get profile details failure: $failure');
       },
     );
@@ -88,7 +89,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
           state = state.copyWith(isLoading: false, isSuccess: true);
           onSuccess();
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false, isSuccess: false);
           AppHelpers.showCheckTopSnackBar(context, failure.toString());
         },
@@ -121,7 +122,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
             AppHelpers.getTranslation(TrKeys.userAlready),
           );
         },
-        failure: (failure, status) async {
+        failure: (f, s) async {
           await FirebaseAuth.instance.verifyPhoneNumber(
             phoneNumber: state.phone,
             verificationCompleted: (PhoneAuthCredential credential) {},
@@ -197,7 +198,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
           String? fcmToken = await FirebaseMessaging.instance.getToken();
           _userRepository.updateFirebaseToken(fcmToken);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
             AppHelpers.showCheckTopSnackBar(
@@ -282,7 +283,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
           String? fcmToken = await FirebaseMessaging.instance.getToken();
           _userRepository.updateFirebaseToken(fcmToken);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
             AppHelpers.showCheckTopSnackBar(context, "error");
@@ -298,3 +299,4 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
     }
   }
 }
+

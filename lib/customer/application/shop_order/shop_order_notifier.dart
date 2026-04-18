@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -81,7 +82,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
         success: (data) async {
           state = state.copyWith(cart: data.data, isAddAndRemoveLoading: false);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isAddAndRemoveLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -153,7 +154,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
             );
             getCart(context, () {}, isShowLoading: false);
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isAddAndRemoveLoading: false);
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
@@ -190,7 +191,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               context.maybePop();
               getCart(context, () {}, isShowLoading: false);
             },
-            failure: (failure, status) {
+            failure: (f, s) {
               state = state.copyWith(isAddAndRemoveLoading: false);
               AppHelpers.showCheckTopSnackBar(context, failure);
             },
@@ -205,7 +206,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               state = state.copyWith(isAddAndRemoveLoading: false);
               getCart(context, () {}, isShowLoading: false);
             },
-            failure: (failure, status) {
+            failure: (f, s) {
               state = state.copyWith(isAddAndRemoveLoading: false);
               AppHelpers.showCheckTopSnackBar(
                 context,
@@ -320,7 +321,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               isAddAndRemoveLoading: false,
             );
           },
-          failure: (failure, status) {
+          failure: (f, s) {
             state = state.copyWith(isAddAndRemoveLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
@@ -442,7 +443,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               );
               getCart(context, () {}, isShowLoading: false);
             },
-            failure: (failure, status) {
+            failure: (f, s) {
               state = state.copyWith(isAddAndRemoveLoading: false);
               AppHelpers.showCheckTopSnackBar(
                 context,
@@ -484,7 +485,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               context.maybePop();
               getCart(context, () {}, isShowLoading: false);
             },
-            failure: (failure, status) {
+            failure: (f, s) {
               state = state.copyWith(isAddAndRemoveLoading: false);
               AppHelpers.showCheckTopSnackBar(
                 context,
@@ -502,7 +503,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               state = state.copyWith(isAddAndRemoveLoading: false);
               getCart(context, () {}, isShowLoading: false);
             },
-            failure: (failure, status) {
+            failure: (f, s) {
               state = state.copyWith(isAddAndRemoveLoading: false);
               AppHelpers.showCheckTopSnackBar(
                 context,
@@ -546,7 +547,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
             state = state.copyWith(cart: data.data);
           }
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           if (status == 404) {
             if (isShowLoading) {
               state = state.copyWith(isLoading: false, cart: null);
@@ -593,7 +594,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
         userUuid: userUuid,
         cartId: state.cart?.id.toString(),
       );
-      response.when(success: (data) async {}, failure: (failure, status) {});
+      response.when(success: (data) async {}, failure: (f, s) {});
     } else {
       if (context.mounted) {
         AppHelpers.showNoConnectionSnackBar(context);
@@ -615,7 +616,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
           Navigator.pop(context);
           return;
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isDeleteLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -684,7 +685,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
             isStartGroupLoading: false,
           );
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(
             isStartGroup: false,
             isStartGroupLoading: false,
@@ -715,7 +716,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
           state = state.copyWith(isCheckShopOrder: false, cart: data.data);
           startGroupOrder(context, data.data?.id ?? 0);
         },
-        failure: (failure, status) {
+        failure: (f, s) {
           state = state.copyWith(isCheckShopOrder: false);
           if (status == 400) {
             state = state.copyWith(isOtherShop: true);
@@ -753,3 +754,4 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
     debugPrint("share link shop_order_notifier: ${state.shareLink}");
   }
 }
+

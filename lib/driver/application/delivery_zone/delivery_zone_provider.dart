@@ -6,5 +6,5 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final deliveryZoneProvider =
     StateNotifierProvider<DeliveryZoneNotifier, DeliveryZoneState>(
-      (ref) => DeliveryZoneNotifier(driverUserRepository),
+      (ref) => DeliveryZoneNotifier(UserRepository),
     );
