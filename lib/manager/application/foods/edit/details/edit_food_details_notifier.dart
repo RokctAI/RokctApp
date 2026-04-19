@@ -7,7 +7,8 @@ import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
-class EditFoodDetailsNotifier extends AutoDisposeNotifier<EditFoodDetailsState> {
+class EditFoodDetailsNotifier
+    extends AutoDisposeNotifier<EditFoodDetailsState> {
   final ProductsInterface _productsRepository;
   final SettingsInterface _settingsRepository;
   String? _oldBarcode;

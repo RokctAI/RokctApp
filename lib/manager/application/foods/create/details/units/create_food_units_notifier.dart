@@ -6,7 +6,8 @@ import 'package:rokctapp/manager/application/foods/create/details/units/create_f
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class CreateFoodUnitsNotifier extends AutoDisposeNotifier<CreateFoodUnitsState> {
+class CreateFoodUnitsNotifier
+    extends AutoDisposeNotifier<CreateFoodUnitsState> {
   final CatalogInterface _catalogRepository;
 
   CreateFoodUnitsNotifier(this._catalogRepository)

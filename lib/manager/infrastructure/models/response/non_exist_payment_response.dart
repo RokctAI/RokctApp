@@ -6,12 +6,7 @@ class NonExistPaymentResponse {
   String? message;
   List<NonExistPayment>? data;
 
-  NonExistPaymentResponse({
-    this.timestamp,
-    this.s,
-    this.message,
-    this.data,
-  });
+  NonExistPaymentResponse({this.timestamp, this.s, this.message, this.data});
 
   NonExistPaymentResponse copyWith({
     DateTime? timestamp,

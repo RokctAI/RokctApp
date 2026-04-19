@@ -6,7 +6,8 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/main/foods/extras/update/update_extras_group_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
-class UpdateExtrasGroupNotifier extends AutoDisposeNotifier<UpdateExtrasGroupState> {
+class UpdateExtrasGroupNotifier
+    extends AutoDisposeNotifier<UpdateExtrasGroupState> {
   final ProductsInterface _productsRepository;
   String _title = '';
 

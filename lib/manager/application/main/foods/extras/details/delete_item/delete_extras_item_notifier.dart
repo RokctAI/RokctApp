@@ -6,7 +6,8 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/application/main/foods/extras/details/delete_item/delete_extras_item_state.dart';
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 
-class DeleteExtrasItemNotifier extends AutoDisposeNotifier<DeleteExtrasItemState> {
+class DeleteExtrasItemNotifier
+    extends AutoDisposeNotifier<DeleteExtrasItemState> {
   final ProductsInterface _productsRepository;
 
   DeleteExtrasItemNotifier(this._productsRepository)

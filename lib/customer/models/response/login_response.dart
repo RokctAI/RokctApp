@@ -1,12 +1,7 @@
 import 'package:rokctapp/customer/models/data/user.dart';
 
 class LoginResponse {
-  LoginResponse({
-    String? timestamp,
-    bool? s,
-    String? message,
-    UserData? data,
-  }) {
+  LoginResponse({String? timestamp, bool? s, String? message, UserData? data}) {
     _timestamp = timestamp;
     _status = s;
     _message = message;

@@ -6,7 +6,8 @@ import 'package:rokctapp/manager/application/foods/edit/details/kitchen/edit_foo
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class EditFoodKitchensNotifier extends AutoDisposeNotifier<EditFoodKitchensState> {
+class EditFoodKitchensNotifier
+    extends AutoDisposeNotifier<EditFoodKitchensState> {
   final CatalogInterface _catalogRepository;
 
   EditFoodKitchensNotifier(this._catalogRepository)

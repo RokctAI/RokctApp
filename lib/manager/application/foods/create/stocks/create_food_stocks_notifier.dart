@@ -7,7 +7,8 @@ import 'package:rokctapp/manager/application/foods/create/stocks/create_food_sto
 import 'package:rokctapp/manager/domain/interface/interfaces.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
-class CreateFoodStocksNotifier extends AutoDisposeNotifier<CreateFoodStocksState> {
+class CreateFoodStocksNotifier
+    extends AutoDisposeNotifier<CreateFoodStocksState> {
   final ProductsInterface _productsRepository;
   List<Stock> _localStocks = [];
   List<Stock> _oldStocks = [];
