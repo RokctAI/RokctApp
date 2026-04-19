@@ -1,21 +1,16 @@
 name: rokctapp
 description: A new Flutter project.
-
 publish_to: 'none'
-
 version: 2.8.9+6
-
 environment:
-  sdk: '>=3.10.0'
+  sdk: '>=3.10.0 <4.0.0'
   flutter: '>=3.38.5'
-
 dependencies:
   flutter:
     sdk: flutter
-
   # Base & Networking
-  dio: ^5.7.0
-  http: ^1.2.2
+  dio: ^5.9.0
+  http: ^1.6.0
   intl: ^0.20.2
   get_it: ^9.2.0
   google_fonts: ^6.3.3
@@ -29,16 +24,14 @@ dependencies:
   flutter_displaymode: ^0.7.0
   provider: ^6.1.5+1
   web_socket_channel: ^3.0.3
-  collection: ^1.19.0
+  collection: ^1.19.1
   dartz: ^0.10.1
-
-  # State Management & Routing (Pinned Versions)
-  flutter_riverpod: ^2.5.1
-  riverpod: ^2.5.1
-  auto_route: ^10.2.3
+  # State Management & Routing
+  flutter_riverpod: ^2.6.1
+  riverpod: ^2.6.1
+  auto_route: ^11.1.0
   flutter_bloc: ^9.1.1
-  freezed_annotation: ^2.4.4
-
+  freezed_annotation: ^3.1.0
   # UI Components & Animations
   jiffy: ^6.4.4
   lottie: ^3.3.2
@@ -80,7 +73,7 @@ dependencies:
   fl_chart: ^1.1.1
   vibration: ^2.0.1
   restart_app: ^1.4.1
-
+  app_tracking_transparency: ^2.0.6+1
   # Media & Files
   image: ^4.7.2
   file_picker: ^10.3.8
@@ -88,7 +81,6 @@ dependencies:
   image_cropper: ^11.0.0
   cached_network_image: ^3.4.1
   video_player: ^2.10.1
-
   # Maps & Location
   geocoding: ^4.0.0
   geolocator: ^14.0.2
@@ -98,20 +90,16 @@ dependencies:
   map_launcher: ^4.4.2
   flutter_polyline_points: ^3.1.0
   qr_flutter: ^4.1.0
-
   # Auth & Social
   google_sign_in: ^6.2.3
   sign_in_with_apple: ^7.0.1
   flutter_facebook_auth: ^7.1.2
   app_links: ^7.0.0
-  app_tracking_transparency: ^2.0.6+1
-
   # Firebase
   firebase_messaging: ^16.1.0
   firebase_core: ^4.3.0
   firebase_auth: ^6.1.3
   cloud_firestore: ^6.1.1
-
   # External Git Dependencies
   payfast:
     git:
@@ -128,23 +116,19 @@ dependencies:
     git:
       url: https://github.com/Muhammadyunusxon/charts.git
       path: charts_flutter
-
   pinput: ^5.0.0
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  freezed: ^2.5.2
-  build_runner: ^2.4.14
-  flutter_lints: ^3.0.2
-  auto_route_generator: ^10.2.3
-  flutter_launcher_icons: ^0.14.3
-
+  freezed: ^3.2.3
+  build_runner: ^2.10.4
+  flutter_lints: ^6.0.0
+  auto_route_generator: ^10.4.0
+  flutter_launcher_icons: ^0.14.4
 flutter_native_splash:
   background_image: 'assets/image/splash.png'
   android_12:
   fullscreen: true
-
 flutter:
   uses-material-design: true
   assets:
@@ -156,7 +140,6 @@ flutter:
     - assets/audio/
     - assets/
     - assets/notification.wav
-
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
