@@ -65,7 +65,7 @@ class AppWidget extends ConsumerWidget {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
               ),
-              headerBuilder: () => const WaterDropMaterialHeader(
+              headerBuilder: () => WaterDropMaterialHeader(
                 backgroundColor: AppStyle.white,
                 color: AppStyle.primaryColor,
               ),
