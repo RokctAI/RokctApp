@@ -43,7 +43,7 @@ class FilterNotifier extends Notifier<FilterState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -90,7 +90,7 @@ class FilterNotifier extends Notifier<FilterState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -129,7 +129,7 @@ class FilterNotifier extends Notifier<FilterState> {
         },
         failure: (f, s) {
           state = state.copyWith(isTagLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
       res.when(
@@ -150,7 +150,7 @@ class FilterNotifier extends Notifier<FilterState> {
         },
         failure: (f, s) {
           state = state.copyWith(isTagLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
@@ -180,7 +180,7 @@ class FilterNotifier extends Notifier<FilterState> {
         },
         failure: (f, s) {
           state = state.copyWith(isRestaurantLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
