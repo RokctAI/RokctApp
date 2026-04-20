@@ -8,8 +8,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/manager/presentation/routes/app_router.gr.dart' as manager_routes;
-import 'package:rokctapp/driver/presentation/routes/app_router.gr.dart' as driver_routes;
+import 'package:rokctapp/manager/presentation/routes/app_router.gr.dart'
+    as manager_routes;
+import 'package:rokctapp/driver/presentation/routes/app_router.gr.dart'
+    as driver_routes;
 
 import 'package:rokctapp/core/application/auth/reset_password/reset_password_state.dart';
 
