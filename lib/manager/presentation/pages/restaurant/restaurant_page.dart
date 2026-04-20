@@ -12,7 +12,7 @@ import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/sections_
 import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/shop_page_banner.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/phoenix_widget.dart';
-import 'package:rokctapp/manager/presentation/pages/auth/languages_modal.dart';
+import 'package:rokctapp/core/presentation/components/languages_modal.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/edit_restaurant_modal.dart';
 import 'package:rokctapp/manager/application/providers.dart';

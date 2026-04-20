@@ -37,3 +37,5 @@ enum BannerType { banner, look }
 enum LookProductStockStatus { outOfStock, alreadyAdded, notAdded }
 
 enum SignUpType { phone, email, both }
+
+enum AppFlavor { customer, driver, manager }

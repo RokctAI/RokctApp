@@ -5,7 +5,6 @@ export 'package:rokctapp/manager/presentation/pages/view_map/map_search_page.dar
 export 'package:rokctapp/manager/presentation/pages/income/income_page.dart';
 export 'package:rokctapp/manager/presentation/pages/initial/splash_page.dart';
 export 'package:rokctapp/manager/presentation/pages/main/foods/foods_page.dart';
-export 'package:rokctapp/manager/presentation/pages/auth/auth_page.dart';
 export 'package:rokctapp/manager/presentation/pages/initial/no_connection_page.dart';
 export 'package:rokctapp/manager/presentation/pages/order_history/order_history.dart';
 export 'package:rokctapp/manager/presentation/pages/restaurant/notification_list_page.dart';

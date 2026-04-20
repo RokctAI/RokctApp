@@ -7,10 +7,6 @@ export 'package:rokctapp/driver/application/profile/provider/profile_edit_provid
 export 'package:rokctapp/driver/application/profile/provider/profile_image_provider.dart';
 export 'package:rokctapp/driver/application/profile/provider/profile_settings_provider.dart';
 export 'package:rokctapp/driver/application/driver/driver_provider.dart';
-export 'package:rokctapp/driver/application/auth/confirmation/register_confirmation_provider.dart';
-export 'package:rokctapp/driver/application/auth/login/login_provider.dart';
-export 'package:rokctapp/driver/application/auth/reset_password/reset_password_provider.dart';
-export 'package:rokctapp/driver/application/auth/sign_up/sign_up_provider.dart';
-export 'package:rokctapp/driver/application/auth/login/languages/languages_provider.dart';
+export 'package:rokctapp/core/application/auth/auth.dart';
 export 'package:rokctapp/driver/application/order/all_order/order_provider.dart';
 export 'package:rokctapp/driver/application/order/all_order/order_notifier.dart';

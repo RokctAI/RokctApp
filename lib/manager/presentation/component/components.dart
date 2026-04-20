@@ -65,4 +65,3 @@ export 'package:rokctapp/manager/presentation/component/tab_bars/categories_tab_
 export 'package:rokctapp/manager/presentation/component/text_fields/search_text_field.dart';
 export 'package:rokctapp/manager/presentation/component/text_fields/underlined_text_field.dart';
 export 'package:rokctapp/manager/presentation/component/text_fields/outline_bordered_text_field.dart';
-export 'package:rokctapp/manager/presentation/pages/auth/widgets/auth_tab_bar.dart';

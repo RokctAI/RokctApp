@@ -12,6 +12,8 @@ sealed class RegisterState with _$RegisterState {
     @Default(false) bool isEmailInvalid,
     @Default(false) bool isPasswordInvalid,
     @Default(false) bool isConfirmPasswordInvalid,
+    @Default(false) bool isPhoneInvalid,
+    @Default(false) bool isKeepLogin,
     @Default('') String phone,
     @Default('') String verificationId,
     @Default('') String email,

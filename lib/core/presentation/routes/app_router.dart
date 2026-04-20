@@ -125,7 +125,7 @@ class AppRouter extends RootStackRouter {
       path: '/driver/no-connection',
       page: DriverNoConnectionRoute.page,
     ),
-    CupertinoRoute(path: '/driver/login', page: DriverLoginRoute.page),
+    CupertinoRoute(path: '/driver/login', page: LoginRoute.page),
     CupertinoRoute(path: '/driver/income', page: DriverIncomeRoute.page),
     CupertinoRoute(path: '/driver/home', page: DriverHomeRoute.page),
     CupertinoRoute(path: '/driver/story', page: DriverStoryRoute.page),
@@ -146,7 +146,7 @@ class AppRouter extends RootStackRouter {
     CupertinoRoute(path: '/driver/parcels', page: DriverParcelsRoute.page),
     CupertinoRoute(
       path: '/driver/become-driver',
-      page: DriverBecomeDriverRoute.page,
+      page: RegisterRoute.page,
     ),
     CupertinoRoute(
       path: '/driver/delivery-zone',
@@ -156,7 +156,7 @@ class AppRouter extends RootStackRouter {
     // Manager
     CupertinoRoute(path: '/manager', page: ManagerSplashRoute.page),
     CupertinoRoute(path: '/manager/main', page: ManagerMainRoute.page),
-    CupertinoRoute(path: '/manager/auth', page: ManagerAuthRoute.page),
+    CupertinoRoute(path: '/manager/auth', page: LoginRoute.page),
     CupertinoRoute(path: '/manager/order', page: ManagerOrderRoute.page),
     CupertinoRoute(path: '/manager/income', page: ManagerIncomeRoute.page),
     CupertinoRoute(

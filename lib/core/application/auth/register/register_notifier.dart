@@ -14,6 +14,7 @@ import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/infrastructure/firebase_service/firebase_service.dart';
 import 'package:rokctapp/core/application/auth/register/register_state.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 class RegisterNotifier extends Notifier<RegisterState> {
   @override
@@ -56,6 +57,31 @@ class RegisterNotifier extends Notifier<RegisterState> {
 
   void toggleShowConfirmPassword() {
     state = state.copyWith(showConfirmPassword: !state.showConfirmPassword);
+  }
+
+  void toggleKeepLogin() {
+    state = state.copyWith(isKeepLogin: !state.isKeepLogin);
+  }
+
+  void detectLoginType() {
+    if (AppValidators.detectType(state.email) == TrKeys.invalid) {
+      state = state.copyWith(isPhoneInvalid: true, isEmailInvalid: true);
+    }
+  }
+
+  Future<void> getProfileDetails() async {
+    final response = await userRepository.getProfileDetails();
+    response.when(
+      success: (data) {
+        LocalStorage.setUser(data.data);
+        if (data.data?.wallet != null) {
+          LocalStorage.setWallet(data.data?.wallet);
+        }
+      },
+      failure: (f, s) {
+        debugPrint('==> get profile details failure: $f');
+      },
+    );
   }
 
   bool checkEmail() {
@@ -226,15 +252,13 @@ class RegisterNotifier extends Notifier<RegisterState> {
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false);
-          if (status == 400) {
+          if (s == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(
-                AppHelpers.getTranslation(TrKeys.referralIncorrect),
-              ),
+              AppHelpers.getTranslation(TrKeys.referralIncorrect),
             );
           } else {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );
@@ -375,8 +399,18 @@ class RegisterNotifier extends Notifier<RegisterState> {
       );
     }
     context.router.popUntilRoot();
-    context.replaceRoute(MainRoute());
-    String? fcmToken = await FirebaseService.getFcmToken();
+    final currentFlavor = AppConstants.flavor;
+
+    if (currentFlavor == AppFlavor.manager) {
+      context.replaceRoute(const ManagerMainRoute());
+    } else if (currentFlavor == AppFlavor.driver) {
+      context.replaceRoute(const DriverHomeRoute());
+    } else {
+      context.replaceRoute(MainRoute());
+    }
+
+    String? fcmToken = await FirebaseMessaging.instance.getToken();
     userRepository.updateFirebaseToken(fcmToken);
+    await getProfileDetails();
   }
 }

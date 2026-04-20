@@ -275,12 +275,18 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                                         : null,
                                   ),
                                   30.verticalSpace,
-                                  OutlinedBorderTextField(
-                                    label: AppHelpers.getTranslation(
-                                      TrKeys.referral,
-                                    ).toUpperCase(),
-                                    onChanged: event.setReferral,
-                                  ),
+                                  if (AppConstants.flavor == AppFlavor.customer)
+                                    Column(
+                                      children: [
+                                        30.verticalSpace,
+                                        OutlinedBorderTextField(
+                                          label: AppHelpers.getTranslation(
+                                            TrKeys.referral,
+                                          ).toUpperCase(),
+                                          onChanged: event.setReferral,
+                                        ),
+                                      ],
+                                    ),
                                 ],
                               ),
                           ],
@@ -357,7 +363,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                           },
                         ),
                       ),
-                      widget.isOnlyEmail
+                      widget.isOnlyEmail && AppConstants.flavor == AppFlavor.customer
                           ? Column(
                               children: [
                                 32.verticalSpace,
@@ -375,46 +381,45 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                                         right: 12,
                                         left: 12,
                                       ),
-                                      child: Text(
-                                        AppHelpers.getTranslation(
-                                          TrKeys.orAccessQuickly,
-                                        ),
-                                        style: AppStyle.interNormal(
-                                          size: 12,
-                                          color: AppStyle.textGrey,
-                                        ),
+                                    child: Text(
+                                      AppHelpers.getTranslation(
+                                        TrKeys.orAccessQuickly,
+                                      ),
+                                      style: AppStyle.interNormal(
+                                        size: 12,
+                                        color: AppStyle.textGrey,
                                       ),
                                     ),
-                                    Expanded(
-                                      child: Divider(
-                                        color: AppStyle.black.withValues(
-                                          alpha: 0.5,
-                                        ),
+                                  ),
+                                  Expanded(
+                                    child: Divider(
+                                      color: AppStyle.black.withValues(
+                                        alpha: 0.5,
                                       ),
                                     ),
-                                  ],
-                                ),
-                                22.verticalSpace,
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    ...AppHelpers.getSocialAuth().map(
-                                      (e) => SocialButton(
-                                        colors: colors,
-                                        iconData: e,
-                                        onPressed: () {
-                                          event.loginWithSocial(context, e);
-                                        },
-                                      ),
+                                  ),
+                                ],
+                              ),
+                              22.verticalSpace,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  ...AppHelpers.getSocialAuth().map(
+                                    (e) => SocialButton(
+                                      colors: colors,
+                                      iconData: e,
+                                      onPressed: () {
+                                        event.loginWithSocial(context, e);
+                                      },
                                     ),
-                                  ],
-                                ),
-
-                                22.verticalSpace,
-                              ],
-                            )
-                          : SizedBox(height: 32.h),
+                                  ),
+                                ],
+                              ),
+                              22.verticalSpace,
+                            ],
+                          )
+                          : const SizedBox.shrink(),
                     ],
                   ),
                 ),

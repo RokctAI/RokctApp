@@ -199,65 +199,102 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                         title: AppHelpers.getTranslation(TrKeys.login),
                         onPressed: () {
                           if (key.currentState?.validate() ?? false) {
-                            event.login(context);
+                            event.login(
+                              context,
+                              seller: () => AppHelpers.showCheckTopSnackBar(
+                                context,
+                                text: AppHelpers.getTranslation(TrKeys.youAreASeller),
+                                type: SnackBarType.success,
+                              ),
+                              admin: () => AppHelpers.showCheckTopSnackBar(
+                                context,
+                                text: AppHelpers.getTranslation(TrKeys.youAreAnAdmin),
+                                type: SnackBarType.success,
+                              ),
+                              youAreNotDeliveryman: () => AppHelpers.showCheckTopSnackBar(
+                                context,
+                                text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
+                              ),
+                              accessDenied: () => AppHelpers.showCheckTopSnackBar(
+                                context,
+                                text: AppHelpers.getTranslation(TrKeys.accessDenied),
+                              ),
+                            );
                           }
                         },
                       ),
                       24.verticalSpace,
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Divider(
-                              color: colors.textBlack.withValues(alpha: 0.5),
+                      if (AppConstants.flavor == AppFlavor.customer)
+                        Column(
+                          children: [
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: Divider(
+                                    color: colors.textBlack.withValues(alpha: 0.5),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: REdgeInsets.only(right: 12, left: 12),
+                                  child: Text(
+                                    AppHelpers.getTranslation(TrKeys.orAccessQuickly),
+                                    style: AppStyle.interNormal(
+                                      size: 12,
+                                      color: colors.textHint,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Divider(
+                                    color: colors.textBlack.withValues(alpha: 0.5),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          Padding(
-                            padding: REdgeInsets.only(right: 12, left: 12),
-                            child: Text(
-                              AppHelpers.getTranslation(TrKeys.orAccessQuickly),
-                              style: AppStyle.interNormal(
-                                size: 12,
-                                color: colors.textHint,
-                              ),
+                            22.verticalSpace,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ...AppHelpers.getSocialAuth().map(
+                                  (e) => SocialButton(
+                                    colors: colors,
+                                    iconData: e,
+                                    onPressed: () {
+                                      event.loginWithSocial(context, e);
+                                    },
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: colors.textBlack.withValues(alpha: 0.5),
-                            ),
-                          ),
-                        ],
-                      ),
-                      22.verticalSpace,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          ...AppHelpers.getSocialAuth().map(
-                            (e) => SocialButton(
-                              colors: colors,
-                              iconData: e,
-                              onPressed: () {
-                                event.loginWithSocial(context, e);
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      22.verticalSpace,
+                            22.verticalSpace,
+                          ],
+                        ),
                       if (AppConstants.isDemo)
                         Column(
                           children: [
                             InkWell(
                               onTap: () {
-                                emailController.text =
-                                    AppConstants.demoUserLogin;
-                                passwordController.text =
-                                    AppConstants.demoUserPassword;
-                                event.setEmail(AppConstants.demoUserLogin);
-                                event.setPassword(
-                                  AppConstants.demoUserPassword,
-                                );
-                                _tabController.animateTo(1);
+                                final flavor = AppConstants.flavor;
+                                String login = AppConstants.demoUserLogin;
+                                String password = AppConstants.demoUserPassword;
+
+                                if (flavor == AppFlavor.manager) {
+                                  login = AppConstants.demoSellerLogin;
+                                  password = AppConstants.demoSellerPassword;
+                                } else if (flavor == AppFlavor.driver) {
+                                  login = AppConstants.demoDriverLogin;
+                                  password = AppConstants.demoDriverPassword;
+                                }
+
+                                emailController.text = login;
+                                passwordController.text = password;
+                                event.setEmail(login);
+                                event.setPassword(password);
+                                if (AppValidators.isValidEmail(login)) {
+                                  _tabController.animateTo(1);
+                                } else {
+                                  _tabController.animateTo(0);
+                                }
                               },
                               child: Row(
                                 children: [
@@ -278,7 +315,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                                           children: [
                                             TextSpan(
                                               text:
-                                                  ' ${AppConstants.demoUserLogin}',
+                                                  ' ${AppConstants.flavor == AppFlavor.manager ? AppConstants.demoSellerLogin : AppConstants.flavor == AppFlavor.driver ? AppConstants.demoDriverLogin : AppConstants.demoUserLogin}',
                                               style: AppStyle.interRegular(
                                                 letterSpacing: -0.3,
                                                 color: colors.textBlack,
@@ -299,7 +336,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                                           children: [
                                             TextSpan(
                                               text:
-                                                  ' ${AppConstants.demoUserPassword}',
+                                                  ' ${AppConstants.flavor == AppFlavor.manager ? AppConstants.demoSellerPassword : AppConstants.flavor == AppFlavor.driver ? AppConstants.demoDriverPassword : AppConstants.demoUserPassword}',
                                               style: AppStyle.interRegular(
                                                 letterSpacing: -0.3,
                                                 color: colors.textBlack,

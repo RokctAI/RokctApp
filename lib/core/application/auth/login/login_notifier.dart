@@ -12,6 +12,7 @@ import 'package:rokctapp/customer/models/models.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/application/auth/login/login_state.dart';
+import 'package:rokctapp/manager/application/restaurant/restaurant_provider.dart';
 
 class LoginNotifier extends Notifier<LoginState> {
   @override
@@ -90,11 +91,27 @@ class LoginNotifier extends Notifier<LoginState> {
     }
   }
 
-  bool checkEmail() {
-    return AppValidators.checkEmail(state.email) && state.email.isNotEmpty;
+  Future<void> getProfileDetails(BuildContext context) async {
+    final response = await userRepository.getProfileDetails();
+    response.when(
+      success: (data) {
+        LocalStorage.setUser(data.data);
+      },
+      failure: (f, s) {
+        debugPrint('==> get profile details failure: $f');
+      },
+    );
   }
 
-  Future<void> login(BuildContext context) async {
+  Future<void> login(
+    BuildContext context, {
+    VoidCallback? checkYourNetwork,
+    VoidCallback? loginSuccess,
+    VoidCallback? youAreNotDeliveryman,
+    VoidCallback? seller,
+    VoidCallback? admin,
+    VoidCallback? accessDenied,
+  }) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       if (checkEmail()) {
@@ -116,17 +133,54 @@ class LoginNotifier extends Notifier<LoginState> {
       );
       response.when(
         success: (data) async {
+          final user = data.data?.user;
+          final currentFlavor = AppConstants.flavor;
+
+          // Role-based validation
+          if (currentFlavor == AppFlavor.driver &&
+              user?.role != 'deliveryman') {
+            state = state.copyWith(isLoading: false);
+            youAreNotDeliveryman?.call();
+            return;
+          }
+
+          if (currentFlavor == AppFlavor.manager &&
+              user?.role != 'seller' &&
+              user?.role != 'admin') {
+            state = state.copyWith(isLoading: false);
+            accessDenied?.call();
+            return;
+          }
+
           LocalStorage.setToken(data.data?.accessToken ?? '');
-          _success(context, data.data?.user);
-          state = state.copyWith(isLoading: false);
+          await getProfileDetails(context);
+
+          if (currentFlavor == AppFlavor.manager) {
+            if (user?.role == 'seller') seller?.call();
+            if (user?.role == 'admin') admin?.call();
+
+            ref.read(restaurantProvider.notifier).fetchMyShop(
+                  afterFetched: () {
+                    state = state.copyWith(isLoading: false);
+                    loginSuccess?.call();
+                    _success(context, user);
+                  },
+                );
+          } else {
+            state = state.copyWith(isLoading: false);
+            loginSuccess?.call();
+            _success(context, user);
+          }
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false, isLoginError: true);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(context, f);
         },
       );
     } else {
-      if (context.mounted) {
+      if (checkYourNetwork != null) {
+        checkYourNetwork();
+      } else if (context.mounted) {
         AppHelpers.showNoConnectionSnackBar(context);
       }
     }
@@ -207,7 +261,15 @@ class LoginNotifier extends Notifier<LoginState> {
       );
     }
     context.router.popUntilRoot();
-    context.replaceRoute(MainRoute());
+    final currentFlavor = AppConstants.flavor;
+
+    if (currentFlavor == AppFlavor.manager) {
+      context.replaceRoute(const ManagerMainRoute());
+    } else if (currentFlavor == AppFlavor.driver) {
+      context.replaceRoute(const DriverHomeRoute());
+    } else {
+      context.replaceRoute(MainRoute());
+    }
 
     String? fcmToken = await FirebaseService.getFcmToken();
     userRepository.updateFirebaseToken(fcmToken);

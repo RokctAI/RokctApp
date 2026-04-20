@@ -5,3 +5,5 @@ import 'package:rokctapp/core/application/auth/register/register_state.dart';
 final registerProvider = NotifierProvider<RegisterNotifier, RegisterState>(
   () => RegisterNotifier(),
 );
+
+final signUpProvider = registerProvider;

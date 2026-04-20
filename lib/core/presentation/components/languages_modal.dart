@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:rokctapp/driver/application/providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/driver/presentation/component/loading.dart';
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
+import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:rokctapp/core/application/language/language_provider.dart';
 
 class LanguageScreen extends ConsumerStatefulWidget {
   final Function(LanguageData?)? afterUpdate;
@@ -14,7 +12,7 @@ class LanguageScreen extends ConsumerStatefulWidget {
   const LanguageScreen({super.key, required this.afterUpdate});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _LanguagePageState();
+  ConsumerState<LanguageScreen> createState() => _LanguagePageState();
 }
 
 class _LanguagePageState extends ConsumerState<LanguageScreen> {
@@ -33,12 +31,19 @@ class _LanguagePageState extends ConsumerState<LanguageScreen> {
     final state = ref.watch(languagesProvider);
     return Directionality(
       textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
-      child: KeyboardDisable(
-        child: SizedBox(
+      child: KeyboardDismisser(
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppStyle.backgroundColor,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16.r),
+              topRight: Radius.circular(16.r),
+            ),
+          ),
           child: state.isLoading
-              ? Padding(
-                  padding: REdgeInsets.symmetric(vertical: 32),
-                  child: const Loading(),
+              ? const SizedBox(
+                  height: 200,
+                  child: Loading(),
                 )
               : SingleChildScrollView(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -46,9 +51,9 @@ class _LanguagePageState extends ConsumerState<LanguageScreen> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TitleAndIcon(
+                      const ModalDrag(),
+                      AppBarBottomSheet(
                         title: AppHelpers.getTranslation(TrKeys.language),
-                        titleSize: 18,
                       ),
                       24.verticalSpace,
                       ListView.builder(
@@ -64,20 +69,22 @@ class _LanguagePageState extends ConsumerState<LanguageScreen> {
                           );
                         },
                       ),
-                      16.verticalSpace,
+                      24.verticalSpace,
                       CustomButton(
                         title: AppHelpers.getTranslation(TrKeys.save),
-                        onPressed: () {
-                          ref
+                        onPressed: () async {
+                          await ref
                               .read(languagesProvider.notifier)
                               .makeSelectedLang(
+                                context,
                                 afterUpdate: widget.afterUpdate,
-                                context: context,
                               );
-                          Navigator.pop(context);
+                          if (context.mounted) {
+                            Navigator.pop(context);
+                          }
                         },
                       ),
-                      24.verticalSpace,
+                      36.verticalSpace,
                     ],
                   ),
                 ),

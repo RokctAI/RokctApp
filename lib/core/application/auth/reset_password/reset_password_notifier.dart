@@ -8,6 +8,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:rokctapp/manager/presentation/routes/app_router.gr.dart' as manager_routes;
+import 'package:rokctapp/driver/presentation/routes/app_router.gr.dart' as driver_routes;
 
 import 'package:rokctapp/core/application/auth/reset_password/reset_password_state.dart';
 
@@ -143,22 +145,24 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
       response.when(
         success: (data) async {
           state = state.copyWith(isLoading: false, isSuccess: true);
-          context.replaceRoute(MainRoute());
+          final currentFlavor = AppConstants.flavor;
+          if (currentFlavor == AppFlavor.manager) {
+            context.replaceRoute(const manager_routes.ManagerMainRoute());
+          } else if (currentFlavor == AppFlavor.driver) {
+            context.replaceRoute(const driver_routes.DriverHomeRoute());
+          } else {
+            context.replaceRoute(MainRoute());
+          }
         },
         failure: (f, s) {
           state = state.copyWith(isLoading: false, isSuccess: false);
-          if (status == 400) {
+          if (s == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(
-                AppHelpers.getTranslation(TrKeys.emailAlreadyExists),
-              ),
+              AppHelpers.getTranslation(TrKeys.emailIsNotValid),
             );
           } else {
-            AppHelpers.showCheckTopSnackBar(
-              context,
-              AppHelpers.getTranslation(status.toString()),
-            );
+            AppHelpers.showCheckTopSnackBar(context, f);
           }
         },
       );

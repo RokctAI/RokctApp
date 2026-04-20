@@ -93,19 +93,20 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           ),
                           8.horizontalSpace,
                           const Spacer(),
-                          TextButton(
-                            onPressed: () {
-                              ref.read(mainProvider.notifier).selectIndex(0);
-                              context.replaceRoute(MainRoute());
-                            },
-                            child: Text(
-                              AppHelpers.getTranslation(TrKeys.skip),
-                              style: AppStyle.interSemi(
-                                size: 16,
-                                color: AppStyle.white,
+                          if (AppConstants.flavor == AppFlavor.customer)
+                            TextButton(
+                              onPressed: () {
+                                ref.read(mainProvider.notifier).selectIndex(0);
+                                context.replaceRoute(MainRoute());
+                              },
+                              child: Text(
+                                AppHelpers.getTranslation(TrKeys.skip),
+                                style: AppStyle.interSemi(
+                                  size: 16,
+                                  color: AppStyle.white,
+                                ),
                               ),
                             ),
-                          ),
                         ],
                       ),
                       Column(

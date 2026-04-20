@@ -5,9 +5,13 @@ import 'package:rokctapp/core/presentation/app_assets.dart';
 abstract class AppConstants {
   AppConstants._();
 
-  static const bool isDemo = true;
+  static const bool isDemo = bool.fromEnvironment('IS_DEMO', defaultValue: true);
   static const bool isPhoneFirebase = true;
   static const int scheduleInterval = 60;
+
+  static AppFlavor get flavor => AppFlavor.values.byName(
+        const String.fromEnvironment('APP_FLAVOR', defaultValue: 'customer'),
+      );
 
   static SignUpType get signUpType =>
       SignUpType.values.byName(const String.fromEnvironment('SIGN_UP_TYPE'));
@@ -46,6 +50,12 @@ abstract class AppConstants {
   static const String demoUserPassword = String.fromEnvironment(
     'DEMO_USER_PASSWORD',
   );
+
+  static const String demoSellerLogin = String.fromEnvironment('DEMO_SELLER_LOGIN');
+  static const String demoSellerPassword = String.fromEnvironment('DEMO_SELLER_PASSWORD');
+
+  static const String demoDriverLogin = String.fromEnvironment('DEMO_DRIVER_LOGIN');
+  static const String demoDriverPassword = String.fromEnvironment('DEMO_DRIVER_PASSWORD');
 
   /// locales
   static const String localeCodeEn = 'en';
