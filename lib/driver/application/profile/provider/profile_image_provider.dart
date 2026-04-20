@@ -6,5 +6,6 @@ import 'package:rokctapp/driver/application/profile/state/profile_image_state.da
 
 final profileImageProvider =
     StateNotifierProvider<ProfileImageNotifier, ProfileImageState>(
-      (ref) => ProfileImageNotifier(driverUserRepository, driverSettingsRepository),
+      (ref) =>
+          ProfileImageNotifier(driverUserRepository, driverSettingsRepository),
     );
