@@ -57,7 +57,7 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );

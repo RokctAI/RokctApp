@@ -60,7 +60,7 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );

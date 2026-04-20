@@ -59,7 +59,7 @@ class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );

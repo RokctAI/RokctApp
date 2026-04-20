@@ -120,7 +120,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
           if (status != 501) {
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(f),
+              AppHelpers.getTranslation(failure),
             );
           }
         },
@@ -152,7 +152,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(f),
+              AppHelpers.getTranslation(failure),
             );
           },
         );
@@ -195,7 +195,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(f),
+              AppHelpers.getTranslation(failure),
             );
           },
         );
@@ -292,7 +292,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );
@@ -324,7 +324,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         failure: (f, s) {
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );
@@ -356,7 +356,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         failure: (f, s) {
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );
@@ -495,7 +495,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         failure: (f, s) {
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );
