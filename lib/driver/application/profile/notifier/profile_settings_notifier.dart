@@ -37,7 +37,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
           }
           LocalStorage.setUser(data.data);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           debugPrint('==> get profile details failure: $failure');
         },
@@ -58,7 +58,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
             isLoading: false,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           debugPrint('==> get request response failure: $failure');
         },
@@ -89,7 +89,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
         success: (data) {
           state = state.copyWith(statistics: data, isLoading: false);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (status == 401) {
             LocalStorage.logout();
             context.router.popUntilRoot();
