@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -59,7 +59,7 @@ class AppBarOne extends StatelessWidget {
                       color: AppStyle.white,
                     ),
                     padding: EdgeInsets.all(12.r),
-                    child: SvgPicture.asset(Assets.svgAdress),
+                    child: SvgPicture.asset(Assets.svgAddress),
                   ),
                   10.horizontalSpace,
                   Expanded(

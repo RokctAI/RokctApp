@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -106,7 +106,7 @@ class _OrderDeliveryState extends State<OrderDelivery> {
                   icon: Padding(
                     padding: EdgeInsets.only(left: 4.w),
                     child: SvgPicture.asset(
-                      Assets.svgAdress,
+                      Assets.svgAddress,
                       colorFilter: ColorFilter.mode(
                         widget.colors.textBlack,
                         BlendMode.srcIn,

@@ -1,4 +1,4 @@
-import 'package:flutter_remix/flutter_remix.dart';
+﻿import 'package:flutter_remix/flutter_remix.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 
@@ -104,10 +104,10 @@ abstract class AppConstants {
   ];
 
   static const List infoImage = [
-    Assets.imagesSave,
+    Assets.imageSave,
     Assets.imageDelivery,
-    Assets.imagesFast,
-    Assets.imagesSet,
+    Assets.imageFast,
+    Assets.imageSet,
   ];
 
   static const List infoTitle = [

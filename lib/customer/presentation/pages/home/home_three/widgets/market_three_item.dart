@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/customer/models/data/shop_data.dart';
@@ -191,7 +191,7 @@ class MarketThreeItem extends StatelessWidget {
     return Container(
       padding: REdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        border: Border.all(color: AppStyle.icon, width: 1.2),
+        border: Border.all(color: AppStyle.iconColor, width: 1.2),
         borderRadius: BorderRadius.circular(12.r),
       ),
       child: Column(

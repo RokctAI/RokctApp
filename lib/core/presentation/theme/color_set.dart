@@ -1,4 +1,4 @@
-import 'dart:ui';
+﻿import 'dart:ui';
 import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
 
 import 'package:rokctapp/core/presentation/theme/app_style.dart';
@@ -84,9 +84,9 @@ class CustomColorSet {
     const white = AppStyle.white;
     const black = AppStyle.black;
 
-    const icon = AppStyle.icon;
+    const icon = AppStyle.iconColor;
 
-    final backgroundColor = isLight ? AppStyle.white : AppStyle.bgDark;
+    final backgroundColor = isLight ? AppStyle.white : AppStyle.backgroundColorDark;
 
     final newBoxColor = isLight ? AppStyle.subCategory : AppStyle.categoryDark;
 

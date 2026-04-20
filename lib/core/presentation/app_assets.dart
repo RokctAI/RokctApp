@@ -2,7 +2,10 @@
 class Assets {
   Assets._();
 
+  // --- Audio ---
   static const String audioNotification = 'assets/audio/notification.wav';
+
+  // --- Images ---
   static const String imageAppLogo = 'assets/image/app_logo.png';
   static const String imageBackground = 'assets/image/background.png';
   static const String imageDelivery = 'assets/image/delivery.png';
@@ -14,27 +17,25 @@ class Assets {
   static const String imageNoOrders = 'assets/image/no_orders.png';
   static const String imageNoProduct = 'assets/image/noProduct.png';
   static const String imageQr = 'assets/image/qr.png';
-  static const String imagesAppLogo = 'assets/image/app_logo.png';
-  static const String imagesDelivery = 'assets/image/delivery.png';
-  static const String imagesDoor = 'assets/image/door.png';
-  static const String imagesDoorToDoor3 = 'assets/image/door_to_door_3.png';
-  static const String imagesFast = 'assets/image/fast.png';
-  static const String imagesLogo = 'assets/image/logo.png';
-  static const String imagesMapMarker = 'assets/image/map_marker.bmp';
-  static const String imagesMarker = 'assets/image/marker.png';
-  static const String imagesNotFound = 'assets/image/notFound.png';
-  static const String imagesPerson = 'assets/image/person.png';
+  static const String imageDoor = 'assets/image/door.png';
+  static const String imageDoorToDoor3 = 'assets/image/door_to_door_3.png';
+  static const String imageFast = 'assets/image/fast.png';
+  static const String imageLogo = 'assets/image/logo.png';
+  static const String imageMapMarker = 'assets/image/map_marker.bmp';
+  static const String imageNotFound = 'assets/image/notFound.png';
+  static const String imagePerson = 'assets/image/person.png';
   static const String imageSplash = 'assets/image/splash.png';
-  static const String imagesSave = 'assets/image/save.png';
-  static const String imagesSet = 'assets/image/set.png';
-  static const String imagesSplash = 'assets/image/splash.png';
-  static const String imagesSplash1 = 'assets/image/splash1.png';
-  static const String imagesUi0 = 'assets/image/ui0.png';
-  static const String imagesUi1 = 'assets/image/ui1.png';
-  static const String imagesUi2 = 'assets/image/ui2.png';
-  static const String imagesUi3 = 'assets/image/ui3.png';
-  static const String imagesUserMarker = 'assets/image/user_marker.png';
-  static const String imagesVisa = 'assets/image/visa.png';
+  static const String imageSave = 'assets/image/save.png';
+  static const String imageSet = 'assets/image/set.png';
+  static const String imageSplash1 = 'assets/image/splash1.png';
+  static const String imageUi0 = 'assets/image/ui0.png';
+  static const String imageUi1 = 'assets/image/ui1.png';
+  static const String imageUi2 = 'assets/image/ui2.png';
+  static const String imageUi3 = 'assets/image/ui3.png';
+  static const String imageUserMarker = 'assets/image/user_marker.png';
+  static const String imageVisa = 'assets/image/visa.png';
+
+  // --- Lottie ---
   static const String lottieClose = 'assets/lottie/close.json';
   static const String lottieEmptyBox = 'assets/lottie/empty-box.json';
   static const String lottieGirlEmpty = 'assets/lottie/girl_empty.json';
@@ -42,6 +43,8 @@ class Assets {
   static const String lottieNotFoundPage = 'assets/lottie/not_found_page.json';
   static const String lottiePin = 'assets/lottie/pin.json';
   static const String lottieProcessing = 'assets/lottie/processing.json';
+
+  // --- SVG ---
   static const String svgBalance = 'assets/svg/balance.svg';
   static const String svgDelivery = 'assets/svg/delivery.svg';
   static const String svgFoodyman = 'assets/svg/foodyman.svg';
@@ -50,39 +53,36 @@ class Assets {
   static const String svgMenu = 'assets/svg/menu.svg';
   static const String svgMyLocation = 'assets/svg/my_location.svg';
   static const String svgNoHome = 'assets/svg/noHome.svg';
-  static const String svgsAdress = 'assets/svg/adress.svg';
-  static const String svgsAvatar = 'assets/svg/avatar.svg';
-  static const String svgsBadge = 'assets/svg/badge.svg';
-  static const String svgsBag2 = 'assets/svg/bag2.svg';
-  static const String svgsBag3 = 'assets/svg/bag3.svg';
-  static const String svgsBox = 'assets/svg/box.svg';
-  static const String svgsCategory2 = 'assets/svg/category2.svg';
-  static const String svgsCategory3 = 'assets/svg/category3.svg';
-  static const String svgsContact = 'assets/svg/contact.svg';
-  static const String svgsDelivery = 'assets/svg/delivery.svg';
-  static const String svgsDelivery0 = 'assets/svg/delivery0.svg';
-  static const String svgsDelivery2 = 'assets/svg/delivery2.svg';
-  static const String svgsDeliveryTime = 'assets/svg/delivery_time.svg';
-  static const String svgsDiscount = 'assets/svg/discount.svg';
-  static const String svgsEmpty = 'assets/svg/empty.svg';
-  static const String svgsFilter = 'assets/svg/filter.svg';
-  static const String svgsFosend2 = 'assets/svg/fosend2.svg';
-  static const String svgsFosend3 = 'assets/svg/fosend3.svg';
-  static const String svgsHalal = 'assets/svg/halal.svg';
-  static const String svgsHome3 = 'assets/svg/home3.svg';
-  static const String svgsHomeSvg = 'assets/svg/homeSvg.svg';
-  static const String svgsLikeSvg = 'assets/svg/likeSvg.svg';
-  static const String svgsLogo = 'assets/svg/logo.svg';
-  static const String svgsMeat = 'assets/svg/meat.svg';
-  static const String svgsMenu = 'assets/svg/menu.svg';
-  static const String svgsNoHomeSvg = 'assets/svg/noHomeSvg.svg';
-  static const String svgsNoLikeSvg = 'assets/svg/noLikeSvg.svg';
-  static const String svgsNoSearchSvg = 'assets/svg/noSearchSvg.svg';
-  static const String svgsOrderTime = 'assets/svg/orderTime.svg';
-  static const String svgsPickUpFrom = 'assets/svg/pickUpFrom.svg';
-  static const String svgsSearchSvg = 'assets/svg/searchSvg.svg';
-  static const String svgsStar = 'assets/svg/star.svg';
-  static const String svgsTicket = 'assets/svg/ticket.svg';
-  static const String svgsVegetarin = 'assets/svg/vegetarin.svg';
-  static const String userMarker = 'assets/image/user_marker.png';
+  static const String svgAddress = 'assets/svg/adress.svg';
+  static const String svgAvatar = 'assets/svg/avatar.svg';
+  static const String svgBadge = 'assets/svg/badge.svg';
+  static const String svgBag2 = 'assets/svg/bag2.svg';
+  static const String svgBag3 = 'assets/svg/bag3.svg';
+  static const String svgBox = 'assets/svg/box.svg';
+  static const String svgCategory2 = 'assets/svg/category2.svg';
+  static const String svgCategory3 = 'assets/svg/category3.svg';
+  static const String svgContact = 'assets/svg/contact.svg';
+  static const String svgDelivery0 = 'assets/svg/delivery0.svg';
+  static const String svgDelivery2 = 'assets/svg/delivery2.svg';
+  static const String svgDeliveryTime = 'assets/svg/delivery_time.svg';
+  static const String svgDiscount = 'assets/svg/discount.svg';
+  static const String svgEmpty = 'assets/svg/empty.svg';
+  static const String svgFilter = 'assets/svg/filter.svg';
+  static const String svgFosend2 = 'assets/svg/fosend2.svg';
+  static const String svgFosend3 = 'assets/svg/fosend3.svg';
+  static const String svgHalal = 'assets/svg/halal.svg';
+  static const String svgHome3 = 'assets/svg/home3.svg';
+  static const String svgHomeSvg = 'assets/svg/homeSvg.svg';
+  static const String svgLikeSvg = 'assets/svg/likeSvg.svg';
+  static const String svgLogo = 'assets/svg/logo.svg';
+  static const String svgMeat = 'assets/svg/meat.svg';
+  static const String svgNoHomeSvg = 'assets/svg/noHomeSvg.svg';
+  static const String svgNoLikeSvg = 'assets/svg/noLikeSvg.svg';
+  static const String svgNoSearchSvg = 'assets/svg/noSearchSvg.svg';
+  static const String svgOrderTime = 'assets/svg/orderTime.svg';
+  static const String svgPickUpFrom = 'assets/svg/pickUpFrom.svg';
+  static const String svgSearchSvg = 'assets/svg/searchSvg.svg';
+  static const String svgStar = 'assets/svg/star.svg';
+  static const String svgTicket = 'assets/svg/ticket.svg';
+  static const String svgVegetarian = 'assets/svg/vegetarin.svg';
 }
