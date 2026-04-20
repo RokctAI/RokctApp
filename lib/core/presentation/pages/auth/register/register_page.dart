@@ -363,7 +363,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                           },
                         ),
                       ),
-                      widget.isOnlyEmail && AppConstants.flavor == AppFlavor.customer
+                      widget.isOnlyEmail &&
+                              AppConstants.flavor == AppFlavor.customer
                           ? Column(
                               children: [
                                 32.verticalSpace,
@@ -381,44 +382,44 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                                         right: 12,
                                         left: 12,
                                       ),
-                                    child: Text(
-                                      AppHelpers.getTranslation(
-                                        TrKeys.orAccessQuickly,
-                                      ),
-                                      style: AppStyle.interNormal(
-                                        size: 12,
-                                        color: AppStyle.textGrey,
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Divider(
-                                      color: AppStyle.black.withValues(
-                                        alpha: 0.5,
+                                      child: Text(
+                                        AppHelpers.getTranslation(
+                                          TrKeys.orAccessQuickly,
+                                        ),
+                                        style: AppStyle.interNormal(
+                                          size: 12,
+                                          color: AppStyle.textGrey,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              22.verticalSpace,
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  ...AppHelpers.getSocialAuth().map(
-                                    (e) => SocialButton(
-                                      colors: colors,
-                                      iconData: e,
-                                      onPressed: () {
-                                        event.loginWithSocial(context, e);
-                                      },
+                                    Expanded(
+                                      child: Divider(
+                                        color: AppStyle.black.withValues(
+                                          alpha: 0.5,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              22.verticalSpace,
-                            ],
-                          )
+                                  ],
+                                ),
+                                22.verticalSpace,
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    ...AppHelpers.getSocialAuth().map(
+                                      (e) => SocialButton(
+                                        colors: colors,
+                                        iconData: e,
+                                        onPressed: () {
+                                          event.loginWithSocial(context, e);
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                22.verticalSpace,
+                              ],
+                            )
                           : const SizedBox.shrink(),
                     ],
                   ),
