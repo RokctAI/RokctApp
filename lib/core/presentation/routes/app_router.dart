@@ -144,10 +144,7 @@ class AppRouter extends RootStackRouter {
     ),
     CupertinoRoute(path: '/driver/orders', page: DriverOrdersRoute.page),
     CupertinoRoute(path: '/driver/parcels', page: DriverParcelsRoute.page),
-    CupertinoRoute(
-      path: '/driver/become-driver',
-      page: RegisterRoute.page,
-    ),
+    CupertinoRoute(path: '/driver/become-driver', page: RegisterRoute.page),
     CupertinoRoute(
       path: '/driver/delivery-zone',
       page: DriverDeliveryZoneRoute.page,
