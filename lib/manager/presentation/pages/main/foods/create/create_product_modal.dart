@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/create/stocks/create_food_stocks_body.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/create/details/create_food_details_body.dart';
@@ -48,7 +48,7 @@ class _CreateProductModalState extends ConsumerState<CreateProductModal>
               decoration: BoxDecoration(
                 color: AppStyle.transparent,
                 borderRadius: BorderRadius.circular(10.r),
-                border: Border.all(color: AppStyle.tabBarBorderColor),
+                border: Border.all(color: AppStyle.tabBarBorder),
               ),
               margin: REdgeInsets.symmetric(horizontal: 16),
               child: TabBar(
@@ -59,7 +59,7 @@ class _CreateProductModalState extends ConsumerState<CreateProductModal>
                   color: AppStyle.blackColor,
                 ),
                 labelColor: AppStyle.white,
-                unselectedLabelColor: AppStyle.textColor,
+                unselectedLabelColor: AppStyle.text,
                 unselectedLabelStyle: AppStyle.interRegular(size: 14),
                 labelStyle: AppStyle.interSemi(size: 14),
                 tabs: [
@@ -92,3 +92,4 @@ class _CreateProductModalState extends ConsumerState<CreateProductModal>
     );
   }
 }
+

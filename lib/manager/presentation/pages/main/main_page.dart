@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,7 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:proste_indexed_stack/proste_indexed_stack.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/foods/foods_page.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/orders_home_page.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
@@ -119,7 +119,7 @@ class _MainPageState extends State<MainPage> {
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 500),
                       decoration: BoxDecoration(
-                        color: AppStyle.bottomNavigationBarColor.withOpacity(
+                        color: AppStyle.bottomNavigationBar.withOpacity(
                           0.6,
                         ),
                         borderRadius: BorderRadius.circular(100.r),
@@ -225,7 +225,7 @@ class _MainPageState extends State<MainPage> {
                                     child: Icon(
                                       FlutterRemix.add_line,
                                       size: 26.r,
-                                      color: AppStyle.buttonFontColor,
+                                      color: AppStyle.buttonFont,
                                     ),
                                   ),
                                 );
@@ -267,3 +267,4 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+

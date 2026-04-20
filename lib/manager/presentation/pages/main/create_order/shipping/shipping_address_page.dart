@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -8,7 +8,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rokctapp/manager/application/order/shipping/section/section_provider.dart';
 import 'package:rokctapp/manager/application/order/shipping/table/table_provider.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/widgets/delivery_type_item.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
@@ -43,7 +43,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
     return KeyboardDisable(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.textGrey,
         body: Consumer(
           builder: (context, ref, child) {
             final deliveryEvent = ref.read(deliveryTypeProvider.notifier);
@@ -207,11 +207,11 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                             borderSide: BorderSide.merge(
                                               const BorderSide(
                                                 color:
-                                                    AppStyle.differBorderColor,
+                                                    AppStyle.differBorder,
                                               ),
                                               const BorderSide(
                                                 color:
-                                                    AppStyle.differBorderColor,
+                                                    AppStyle.differBorder,
                                               ),
                                             ),
                                           ),
@@ -219,11 +219,11 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                             borderSide: BorderSide.merge(
                                               const BorderSide(
                                                 color:
-                                                    AppStyle.differBorderColor,
+                                                    AppStyle.differBorder,
                                               ),
                                               const BorderSide(
                                                 color:
-                                                    AppStyle.differBorderColor,
+                                                    AppStyle.differBorder,
                                               ),
                                             ),
                                           ),
@@ -234,11 +234,11 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                             borderSide: BorderSide.merge(
                                               const BorderSide(
                                                 color:
-                                                    AppStyle.differBorderColor,
+                                                    AppStyle.differBorder,
                                               ),
                                               const BorderSide(
                                                 color:
-                                                    AppStyle.differBorderColor,
+                                                    AppStyle.differBorder,
                                               ),
                                             ),
                                           ),
@@ -484,3 +484,4 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
     );
   }
 }
+

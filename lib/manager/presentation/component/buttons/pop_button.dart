@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/buttons_bouncing_effect.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
@@ -41,3 +41,4 @@ class PopButton extends StatelessWidget {
     );
   }
 }
+

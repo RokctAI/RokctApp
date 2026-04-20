@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class ProductItem extends StatelessWidget {
   final Product? product;
@@ -40,7 +40,7 @@ class ProductItem extends StatelessWidget {
                   ),
                   4.verticalSpace,
                   Text(
-                    "${AppHelpers.getTranslation(TrKeys.amount)} — ${(amount ?? 1) * (product?.interval ?? 1)} ${(product?.unit?.translation?.title ?? "")}",
+                    "${AppHelpers.getTranslation(TrKeys.amount)} â€” ${(amount ?? 1) * (product?.interval ?? 1)} ${(product?.unit?.translation?.title ?? "")}",
                     style: AppStyle.interRegular(
                       size: 14.sp,
                       color: AppStyle.black,
@@ -87,3 +87,4 @@ class ProductItem extends StatelessWidget {
     );
   }
 }
+

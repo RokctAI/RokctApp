@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
@@ -6,7 +6,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/home/widgets/approve_dialog.dart';
 import 'package:rokctapp/driver/presentation/pages/home/widgets/foods_page.dart';
 import 'package:rokctapp/driver/presentation/pages/home/widgets/rate_customer.dart';
@@ -51,7 +51,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
               builder: (context, scrollController) => Container(
                 width: MediaQuery.sizeOf(context).width,
                 decoration: BoxDecoration(
-                  color: AppStyle.greyColor,
+                  color: AppStyle.textGrey,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.r),
                     topLeft: Radius.circular(12.r),
@@ -80,7 +80,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                             (MediaQuery.sizeOf(context).width - 100.w) / 2,
                       ),
                       decoration: BoxDecoration(
-                        color: AppStyle.bottomSheetIconColor,
+                        color: AppStyle.dragElement,
                         borderRadius: BorderRadius.circular(40.r),
                       ),
                     ),
@@ -160,7 +160,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                     CustomButton(
                       title: AppHelpers.getTranslation(TrKeys.cancel),
                       textColor: Colors.white,
-                      background: AppStyle.redColor,
+                      background: AppStyle.red,
                       onPressed: () {
                         AppHelpers.showAlertDialog(
                           context: context,
@@ -215,7 +215,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                             title: AppHelpers.getTranslation(
                                               TrKeys.cancel,
                                             ),
-                                            background: AppStyle.redColor,
+                                            background: AppStyle.red,
                                             textColor: AppStyle.white,
                                             onPressed: () {
                                               Navigator.pop(context);
@@ -279,3 +279,4 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
     );
   }
 }
+

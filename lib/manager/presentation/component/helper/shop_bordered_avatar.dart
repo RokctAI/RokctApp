@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/manager/presentation/component/helper/blur_wrap.dart';
 import 'package:rokctapp/manager/presentation/component/helper/common_image.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class ShopBorderedAvatar extends StatelessWidget {
   final String? imageUrl;
@@ -18,7 +18,7 @@ class ShopBorderedAvatar extends StatelessWidget {
     required this.size,
     required this.imageSize,
     required this.borderRadius,
-    this.bgColor = AppStyle.greyColor,
+    this.bgColor = AppStyle.textGrey,
   });
 
   @override
@@ -40,3 +40,4 @@ class ShopBorderedAvatar extends StatelessWidget {
     );
   }
 }
+

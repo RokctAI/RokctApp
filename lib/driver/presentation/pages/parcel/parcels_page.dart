@@ -1,4 +1,4 @@
-import 'package:auto_route/annotations.dart';
+﻿import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +10,7 @@ import 'package:rokctapp/driver/presentation/component/loading.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/parcel/parcel_item.dart';
 
 @RoutePage(name: 'DriverParcelsRoute')
@@ -64,7 +64,7 @@ class _ParcelsPageState extends ConsumerState<ParcelsPage>
   Widget build(BuildContext context) {
     final state = ref.watch(parcelProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.textGrey,
       body: Column(
         children: [
           CustomAppBar(
@@ -236,3 +236,4 @@ Widget _resultEmpty() {
     ],
   );
 }
+

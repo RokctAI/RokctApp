@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+﻿import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,7 +10,7 @@ import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class PushOrder extends ConsumerStatefulWidget {
   final OrderDetailData pushModel;
@@ -71,7 +71,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                   children: [
                     _orderAvatar(),
                     const Spacer(),
-                    const Divider(color: AppStyle.borderColor),
+                    const Divider(color: AppStyle.border),
                     16.verticalSpace,
                     Row(
                       children: [
@@ -103,7 +103,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                       ],
                     ),
                     16.verticalSpace,
-                    const Divider(color: AppStyle.borderColor),
+                    const Divider(color: AppStyle.border),
                     const Spacer(),
                     Row(
                       children: [
@@ -257,7 +257,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
           ),
           fillColor: AppStyle.transparent,
           backgroundColor: AppStyle.shimmerBase,
-          progressColor: AppStyle.progressColor,
+          progressColor: AppStyle.progress,
           circularStrokeCap: CircularStrokeCap.round,
         ),
       ),
@@ -291,7 +291,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.textGrey,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(
@@ -316,7 +316,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                   child: Row(
                     children: [
                       Text(
-                        '№ ${widget.pushModel.id}',
+                        'â„– ${widget.pushModel.id}',
                         style: AppStyle.interNormal(
                           size: 14.sp,
                           letterSpacing: -0.3,
@@ -355,7 +355,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                 height: 4.r,
                 margin: EdgeInsets.only(bottom: 6.h, top: 6.h),
                 decoration: const BoxDecoration(
-                  color: AppStyle.tabBarBorderColor,
+                  color: AppStyle.tabBarBorder,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -364,7 +364,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                 height: 4.r,
                 margin: EdgeInsets.only(bottom: 10.h),
                 decoration: const BoxDecoration(
-                  color: AppStyle.tabBarBorderColor,
+                  color: AppStyle.tabBarBorder,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -394,7 +394,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.textGrey,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(
@@ -450,3 +450,4 @@ class _PushOrderState extends ConsumerState<PushOrder> {
     );
   }
 }
+

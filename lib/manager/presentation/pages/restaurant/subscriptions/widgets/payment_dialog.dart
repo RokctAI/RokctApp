@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
 import 'package:rokctapp/manager/infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class PaymentDialog extends ConsumerWidget {
   const PaymentDialog({super.key});
@@ -87,3 +87,4 @@ class PaymentDialog extends ConsumerWidget {
     );
   }
 }
+

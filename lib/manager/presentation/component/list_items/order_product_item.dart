@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/loading/text_loading.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
@@ -108,7 +108,7 @@ class OrderProductItem extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '${AppHelpers.getTranslation(TrKeys.amount)} — ${(orderDetail.quantity ?? 1) * (orderDetail.stock?.product?.interval ?? 1)} ${orderDetail.stock?.product?.unit?.translation?.title ?? ""} x ${AppHelpers.numberFormat(orderDetail.stock?.totalPrice ?? 0, symbol: currencyData?.symbol)}',
+                              '${AppHelpers.getTranslation(TrKeys.amount)} â€” ${(orderDetail.quantity ?? 1) * (orderDetail.stock?.product?.interval ?? 1)} ${orderDetail.stock?.product?.unit?.translation?.title ?? ""} x ${AppHelpers.numberFormat(orderDetail.stock?.totalPrice ?? 0, symbol: currencyData?.symbol)}',
                               style: AppStyle.interRegular(
                                 size: 14,
                                 color: AppStyle.black,
@@ -140,7 +140,7 @@ class OrderProductItem extends StatelessWidget {
           ],
         ),
         if (!isLast)
-          Divider(thickness: 1.r, height: 1.r, color: AppStyle.greyColor),
+          Divider(thickness: 1.r, height: 1.r, color: AppStyle.textGrey),
         if (orderDetail.note != '') 5.verticalSpace,
         if (orderDetail.note != '')
           Text(
@@ -151,3 +151,4 @@ class OrderProductItem extends StatelessWidget {
     );
   }
 }
+

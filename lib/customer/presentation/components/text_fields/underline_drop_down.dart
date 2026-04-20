@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
 
 class UnderlineDropDown extends StatelessWidget {
@@ -60,8 +60,8 @@ class UnderlineDropDown extends StatelessWidget {
             ),
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide.merge(
-                BorderSide(color: AppStyle.differBorderColor),
-                BorderSide(color: AppStyle.differBorderColor),
+                BorderSide(color: AppStyle.differBorder),
+                BorderSide(color: AppStyle.differBorder),
               ),
             ),
             errorBorder: InputBorder.none,
@@ -69,8 +69,8 @@ class UnderlineDropDown extends StatelessWidget {
             focusedErrorBorder: const UnderlineInputBorder(),
             disabledBorder: UnderlineInputBorder(
               borderSide: BorderSide.merge(
-                BorderSide(color: AppStyle.differBorderColor),
-                BorderSide(color: AppStyle.differBorderColor),
+                BorderSide(color: AppStyle.differBorder),
+                BorderSide(color: AppStyle.differBorder),
               ),
             ),
             focusedBorder: const UnderlineInputBorder(),
@@ -80,3 +80,4 @@ class UnderlineDropDown extends StatelessWidget {
     );
   }
 }
+

@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/application/profile/profile_notifier.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class DocumentUploadSection extends StatelessWidget {
   final List<String> filePaths;
@@ -38,7 +38,7 @@ class DocumentUploadSection extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: AppStyle.borderColor.withOpacity(0.3),
+                  color: AppStyle.border.withOpacity(0.3),
                   width: 1.5,
                 ),
                 borderRadius: BorderRadius.circular(12.r),
@@ -92,7 +92,7 @@ class DocumentUploadSection extends StatelessWidget {
               color: AppStyle.white,
               borderRadius: BorderRadius.circular(10.r),
               border: Border.all(
-                color: AppStyle.borderColor.withOpacity(0.2),
+                color: AppStyle.border.withOpacity(0.2),
                 width: 1,
               ),
               boxShadow: [
@@ -144,3 +144,4 @@ class DocumentUploadSection extends StatelessWidget {
     );
   }
 }
+

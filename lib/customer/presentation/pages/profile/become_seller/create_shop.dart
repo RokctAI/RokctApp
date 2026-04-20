@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -14,7 +14,7 @@ import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 
@@ -229,10 +229,10 @@ class _EditRestaurantState extends ConsumerState<CreateShopPage> {
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide.merge(
                                             const BorderSide(
-                                              color: AppStyle.differBorderColor,
+                                              color: AppStyle.differBorder,
                                             ),
                                             const BorderSide(
-                                              color: AppStyle.differBorderColor,
+                                              color: AppStyle.differBorder,
                                             ),
                                           ),
                                         ),
@@ -243,10 +243,10 @@ class _EditRestaurantState extends ConsumerState<CreateShopPage> {
                                         disabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide.merge(
                                             const BorderSide(
-                                              color: AppStyle.differBorderColor,
+                                              color: AppStyle.differBorder,
                                             ),
                                             const BorderSide(
-                                              color: AppStyle.differBorderColor,
+                                              color: AppStyle.differBorder,
                                             ),
                                           ),
                                         ),
@@ -612,3 +612,4 @@ class _EditRestaurantState extends ConsumerState<CreateShopPage> {
     );
   }
 }
+

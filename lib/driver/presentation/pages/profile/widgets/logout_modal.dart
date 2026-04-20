@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +6,7 @@ import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class LogoutModal extends StatelessWidget {
   final bool isDeleteAccount;
@@ -47,7 +47,7 @@ class LogoutModal extends StatelessWidget {
                   builder: (context, ref, child) {
                     if (isDeleteAccount) {
                       return CustomButton(
-                        background: AppStyle.redColor,
+                        background: AppStyle.red,
                         textColor: AppStyle.white,
                         title: AppHelpers.getTranslation(TrKeys.deleteAccount),
                         onPressed: () {
@@ -77,3 +77,4 @@ class LogoutModal extends StatelessWidget {
     );
   }
 }
+

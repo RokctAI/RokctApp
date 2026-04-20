@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,7 +13,7 @@ import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/driver/infrastructure/services/local_storage.dart';
 import 'package:rokctapp/driver/infrastructure/services/marker_image_cropper.dart';
 import 'package:rokctapp/driver/presentation/component/maps_list.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/driver/presentation/component/buttons/custom_button.dart';
@@ -62,7 +62,7 @@ class ParcelOrderPage extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            "№ ${parcel?.id}",
+                            "â„– ${parcel?.id}",
                             style: AppStyle.interNormal(
                               size: 14.sp,
                               letterSpacing: -0.3,
@@ -439,3 +439,4 @@ class ParcelOrderPage extends StatelessWidget {
     );
   }
 }
+

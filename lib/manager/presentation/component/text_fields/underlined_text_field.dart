@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class UnderlinedTextField extends StatelessWidget {
@@ -84,7 +84,7 @@ class UnderlinedTextField extends StatelessWidget {
             hintStyle: GoogleFonts.inter(
               fontWeight: FontWeight.w500,
               fontSize: 13,
-              color: isDarkMode ? AppStyle.white : AppStyle.textColor,
+              color: isDarkMode ? AppStyle.white : AppStyle.text,
             ),
             labelText: label.toUpperCase(),
             labelStyle: AppStyle.interNormal(
@@ -122,7 +122,7 @@ class UnderlinedTextField extends StatelessWidget {
                   color: isError
                       ? AppStyle.red
                       : isSuccess
-                      ? AppStyle.textColor
+                      ? AppStyle.text
                       : AppStyle.blackColor,
                 ),
               ),
@@ -132,3 +132,4 @@ class UnderlinedTextField extends StatelessWidget {
     );
   }
 }
+

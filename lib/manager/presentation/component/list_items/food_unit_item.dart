@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 class FoodUnitItem extends StatelessWidget {
@@ -46,7 +46,7 @@ class FoodUnitItem extends StatelessWidget {
                       border: Border.all(
                         color: isSelected
                             ? AppStyle.blackColor
-                            : AppStyle.textColor,
+                            : AppStyle.text,
                         width: isSelected ? 4 : 2,
                       ),
                     ),
@@ -69,3 +69,4 @@ class FoodUnitItem extends StatelessWidget {
     );
   }
 }
+

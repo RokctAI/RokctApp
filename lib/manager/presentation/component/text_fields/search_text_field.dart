@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class SearchTextField extends StatelessWidget {
@@ -42,7 +42,7 @@ class SearchTextField extends StatelessWidget {
       cursorColor: AppStyle.blackColor,
       cursorWidth: 1,
       decoration: InputDecoration(
-        hintStyle: AppStyle.interRegular(size: 16, color: AppStyle.textColor),
+        hintStyle: AppStyle.interRegular(size: 16, color: AppStyle.text),
         hintText: hintText ?? AppHelpers.getTranslation(TrKeys.search),
         contentPadding: REdgeInsets.symmetric(horizontal: 15, vertical: 17),
         prefixIcon: isSearchIcon
@@ -62,3 +62,4 @@ class SearchTextField extends StatelessWidget {
     );
   }
 }
+

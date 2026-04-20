@@ -1,11 +1,11 @@
-import 'package:cached_network_image/cached_network_image.dart';
+﻿import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class CommonImage extends StatelessWidget {
   final String? imageUrl;
@@ -56,7 +56,7 @@ class CommonImage extends StatelessWidget {
               errorWidget: (_, _, _) => Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.r),
-                  color: errorBackground ?? AppStyle.greyColor,
+                  color: errorBackground ?? AppStyle.textGrey,
                 ),
                 alignment: Alignment.center,
                 child: Icon(
@@ -69,3 +69,4 @@ class CommonImage extends StatelessWidget {
     );
   }
 }
+

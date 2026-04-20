@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/manager/infrastructure/services/date_service.dart';
 import 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
 import 'package:rokctapp/manager/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class HaveSubscription extends StatelessWidget {
   const HaveSubscription({super.key});
@@ -85,7 +85,7 @@ class HaveSubscription extends StatelessWidget {
               DateService.dateFormatForNotification(
                 LocalStorage.getShop()?.subscription?.createdAt,
               ),
-              style: AppStyle.interNormal(size: 12, color: AppStyle.textColor),
+              style: AppStyle.interNormal(size: 12, color: AppStyle.text),
             ),
           ),
         ],
@@ -93,3 +93,4 @@ class HaveSubscription extends StatelessWidget {
     );
   }
 }
+

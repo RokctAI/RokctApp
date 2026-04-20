@@ -6,7 +6,7 @@ import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/components/components.dart';
 import 'package:rokctapp/core/presentation/pages/auth/reset/reset_password_page.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/application/auth/auth.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 
@@ -392,3 +392,4 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
     );
   }
 }
+

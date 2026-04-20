@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/animation_button_effect.dart';
 
@@ -66,7 +66,7 @@ class CommonImage extends StatelessWidget {
                                   AppHelpers.getAppName(),
                                 ),
                                 style: AppStyle.interNormal(
-                                  color: AppStyle.textColor,
+                                  color: AppStyle.text,
                                   size: 12,
                                 ),
                               ),
@@ -152,7 +152,7 @@ class CommonImage extends StatelessWidget {
                         child: Text(
                           AppHelpers.getTranslation(AppHelpers.getAppName()),
                           style: AppStyle.interNormal(
-                            color: AppStyle.textColor,
+                            color: AppStyle.text,
                             size: 12,
                           ),
                         ),
@@ -162,7 +162,7 @@ class CommonImage extends StatelessWidget {
               errorWidget: (_, _, _) => Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(errorRadius.r),
-                  color: errorBackground ?? AppStyle.greyColor,
+                  color: errorBackground ?? AppStyle.textGrey,
                 ),
                 alignment: Alignment.center,
                 child: title?.isNotEmpty ?? false
@@ -177,3 +177,4 @@ class CommonImage extends StatelessWidget {
     );
   }
 }
+

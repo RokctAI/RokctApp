@@ -1,11 +1,11 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/customer/models/data/shop_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/presentation/components/components.dart';
 
@@ -69,7 +69,7 @@ class BannerScreen extends StatelessWidget {
                 Expanded(
                   child: CustomButton(
                     background: AppStyle.transparent,
-                    borderColor: AppStyle.tabBarBorderColor,
+                    borderColor: AppStyle.tabBarBorder,
                     title: AppHelpers.getTranslation(TrKeys.cancel),
                     onPressed: () {
                       Navigator.pop(context);
@@ -100,3 +100,4 @@ class BannerScreen extends StatelessWidget {
     );
   }
 }
+

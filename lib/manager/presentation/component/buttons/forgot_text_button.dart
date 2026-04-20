@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class ForgotTextButton extends ConsumerWidget {
   final String title;
@@ -24,7 +24,7 @@ class ForgotTextButton extends ConsumerWidget {
     return TextButton(
       style: ButtonStyle(
         overlayColor: MaterialStateColor.resolveWith(
-          (states) => AppStyle.greyColor,
+          (states) => AppStyle.textGrey,
         ),
       ),
       onPressed: onPressed,
@@ -39,3 +39,4 @@ class ForgotTextButton extends ConsumerWidget {
     );
   }
 }
+

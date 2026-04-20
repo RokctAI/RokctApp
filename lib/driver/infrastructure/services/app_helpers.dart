@@ -1,4 +1,4 @@
-import 'dart:ui' as ui;
+﻿import 'dart:ui' as ui;
 import 'dart:ui';
 
 import 'package:dio/dio.dart';
@@ -12,7 +12,7 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/enums.dart';
 import 'package:rokctapp/driver/infrastructure/services/img_service.dart';
@@ -268,7 +268,7 @@ class AppHelpers {
                   height: 4.h,
                   width: 48.w,
                   decoration: BoxDecoration(
-                    color: AppStyle.bottomSheetIconColor,
+                    color: AppStyle.dragElement,
                     borderRadius: BorderRadius.circular(40.r),
                   ),
                   margin: EdgeInsets.only(top: 8.h, bottom: 16.h),
@@ -481,3 +481,4 @@ class AppHelpers {
     );
   }
 }
+

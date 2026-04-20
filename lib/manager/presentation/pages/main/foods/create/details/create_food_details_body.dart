@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/application/foods/create/details/kitchens/creat
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/create/details/create_food_kitchens_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/create/details/food_categories_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/create/details/create_food_units_modal.dart';
@@ -65,7 +65,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                                 border: Border.all(
                                   color: state.productType == 'single'
                                       ? AppStyle.primary
-                                      : AppStyle.borderColor,
+                                      : AppStyle.border,
                                 ),
                               ),
                               child: Center(
@@ -96,7 +96,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                                 border: Border.all(
                                   color: state.productType == 'combo'
                                       ? AppStyle.primary
-                                      : AppStyle.borderColor,
+                                      : AppStyle.border,
                                 ),
                               ),
                               child: Center(
@@ -367,3 +367,4 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
     );
   }
 }
+

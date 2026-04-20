@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class SectionsItem extends StatelessWidget {
   final String title;
@@ -43,7 +43,7 @@ class SectionsItem extends StatelessWidget {
               const Spacer(),
               const Icon(
                 FlutterRemix.arrow_right_s_line,
-                color: AppStyle.tabBarBorderColor,
+                color: AppStyle.tabBarBorder,
               ),
             ],
           ),
@@ -52,3 +52,4 @@ class SectionsItem extends StatelessWidget {
     );
   }
 }
+

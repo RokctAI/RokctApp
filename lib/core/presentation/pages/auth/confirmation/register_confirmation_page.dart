@@ -1,4 +1,4 @@
-﻿// ignore_for_file: unused_result
+// ignore_for_file: unused_result
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -152,7 +152,7 @@ class _RegisterConfirmationPageState
                                     state.isCodeError
                                         ? AppStyle.red
                                         : isDarkMode
-                                        ? AppStyle.borderColorDark
+                                        ? AppStyle.borderDark
                                         : AppStyle.outlineButtonBorder,
                                   ),
                                 ),

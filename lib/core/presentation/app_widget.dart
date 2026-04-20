@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
@@ -9,7 +9,7 @@ import 'package:rokctapp/core/presentation/theme/app_theme.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/core/application/app/app_provider.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:rokctapp/customer/presentation/components/custom_range_slider.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
@@ -67,7 +67,7 @@ class AppWidget extends ConsumerWidget {
               ),
               headerBuilder: () => WaterDropMaterialHeader(
                 backgroundColor: AppStyle.white,
-                color: AppStyle.primaryColor,
+                color: AppStyle.primary,
               ),
               child: provider.ChangeNotifierProvider(
                 create: (BuildContext context) => theme,
@@ -99,3 +99,4 @@ class AppWidget extends ConsumerWidget {
     );
   }
 }
+

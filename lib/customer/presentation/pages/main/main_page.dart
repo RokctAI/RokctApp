@@ -264,7 +264,7 @@ class _MainPageState extends State<MainPage> {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 500),
             decoration: BoxDecoration(
-              color: AppStyle.bottomNavigationBarColor.withValues(alpha: 0.6),
+              color: AppStyle.bottomNavigationBar.withValues(alpha: 0.6),
               borderRadius: BorderRadius.circular(100.r),
             ),
             height: 60.r,
@@ -360,7 +360,7 @@ class _MainPageState extends State<MainPage> {
                     ),
                     child: Icon(
                       FlutterRemix.shopping_bag_3_line,
-                      color: AppStyle.buttonFontColor,
+                      color: AppStyle.buttonFont,
                     ),
                   ),
                 ),

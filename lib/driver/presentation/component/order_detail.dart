@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+﻿// ignore_for_file: use_build_context_synchronously
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/driver/presentation/pages/home/widgets/foods_page.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
@@ -280,3 +280,4 @@ class OrderDetail extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +7,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/pages/auth/confirmation/register_confirmation_page.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/application/auth/auth.dart';
 
@@ -94,20 +94,20 @@ class PhoneVerify extends ConsumerWidget {
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide.merge(
                                     const BorderSide(
-                                      color: AppStyle.differBorderColor,
+                                      color: AppStyle.differBorder,
                                     ),
                                     const BorderSide(
-                                      color: AppStyle.differBorderColor,
+                                      color: AppStyle.differBorder,
                                     ),
                                   ),
                                 ),
                                 errorBorder: UnderlineInputBorder(
                                   borderSide: BorderSide.merge(
                                     const BorderSide(
-                                      color: AppStyle.differBorderColor,
+                                      color: AppStyle.differBorder,
                                     ),
                                     const BorderSide(
-                                      color: AppStyle.differBorderColor,
+                                      color: AppStyle.differBorder,
                                     ),
                                   ),
                                 ),
@@ -115,20 +115,20 @@ class PhoneVerify extends ConsumerWidget {
                                 focusedErrorBorder: UnderlineInputBorder(
                                   borderSide: BorderSide.merge(
                                     const BorderSide(
-                                      color: AppStyle.differBorderColor,
+                                      color: AppStyle.differBorder,
                                     ),
                                     const BorderSide(
-                                      color: AppStyle.differBorderColor,
+                                      color: AppStyle.differBorder,
                                     ),
                                   ),
                                 ),
                                 disabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide.merge(
                                     const BorderSide(
-                                      color: AppStyle.differBorderColor,
+                                      color: AppStyle.differBorder,
                                     ),
                                     const BorderSide(
-                                      color: AppStyle.differBorderColor,
+                                      color: AppStyle.differBorder,
                                     ),
                                   ),
                                 ),
@@ -183,3 +183,4 @@ class PhoneVerify extends ConsumerWidget {
     );
   }
 }
+

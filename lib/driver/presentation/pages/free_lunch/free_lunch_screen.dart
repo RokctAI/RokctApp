@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/free_lunch/bar_code_screen.dart';
 
 class FreeLunchScreen extends StatelessWidget {
@@ -34,7 +34,7 @@ class FreeLunchScreen extends StatelessWidget {
                         height: 48.r,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppStyle.orangeColor,
+                          color: AppStyle.orange,
                         ),
                         child: Center(
                           child: Text(
@@ -152,3 +152,4 @@ class FreeLunchScreen extends StatelessWidget {
     );
   }
 }
+

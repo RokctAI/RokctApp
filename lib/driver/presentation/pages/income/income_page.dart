@@ -1,4 +1,4 @@
-import 'package:auto_route/annotations.dart';
+﻿import 'package:auto_route/annotations.dart';
 import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,7 +8,7 @@ import 'package:rokctapp/driver/application/statistics/statistics_state.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/income/app_bar_screen.dart';
 import 'package:rokctapp/driver/presentation/pages/income/statistics_screen.dart';
 import 'package:rokctapp/driver/presentation/pages/income/widgets/income_item.dart';
@@ -76,7 +76,7 @@ class _IncomePageState extends ConsumerState<IncomePage>
   Widget build(BuildContext context) {
     final state = ref.watch(statisticsProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.textGrey,
       body: Column(
         children: [
           const AbbBarScreen(),
@@ -339,3 +339,4 @@ class _IncomePageState extends ConsumerState<IncomePage>
     );
   }
 }
+

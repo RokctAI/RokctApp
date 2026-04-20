@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,7 +9,7 @@ import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/customer/presentation/pages/home/home_one/widget/market_one_item.dart';
 import 'package:rokctapp/customer/presentation/pages/home/home_three/widgets/market_three_item.dart';
 import 'package:rokctapp/customer/models/data/shop_data.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/presentation/pages/home/home_two/widget/market_two_item.dart';
 
@@ -131,3 +131,4 @@ class _ShopsBannerPageState extends ConsumerState<ShopsBannerPage> {
     );
   }
 }
+

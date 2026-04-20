@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/details/food_details_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
@@ -61,7 +61,7 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
       child: KeyboardDisable(
         child: Scaffold(
           resizeToAvoidBottomInset: false,
-          backgroundColor: AppStyle.greyColor,
+          backgroundColor: AppStyle.textGrey,
           body: Column(
             children: [
               CustomAppBar(
@@ -135,7 +135,7 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                                             productsState.productType ==
                                                 'single'
                                             ? AppStyle.blackColor
-                                            : AppStyle.borderColor,
+                                            : AppStyle.border,
                                       ),
                                     ),
                                     child: Center(
@@ -185,7 +185,7 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                                         color:
                                             productsState.productType == 'combo'
                                             ? AppStyle.blackColor
-                                            : AppStyle.borderColor,
+                                            : AppStyle.border,
                                       ),
                                     ),
                                     child: Center(
@@ -403,3 +403,4 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
     );
   }
 }
+

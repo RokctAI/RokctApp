@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/income/widgets/statistics_item.dart';
 
 class StatisticsScreen extends StatelessWidget {
@@ -101,7 +101,7 @@ class StatisticsScreen extends StatelessWidget {
                         title: AppHelpers.getTranslation(TrKeys.acceptedOrders),
                         count: acceptedOrders,
                         percentage: acceptedPer == "NaN%" ? "0%" : acceptedPer,
-                        bgColor: AppStyle.greenColor,
+                        bgColor: AppStyle.green,
                         textColor: AppStyle.white,
                         iconColor: AppStyle.white.withValues(alpha: 0.54),
                       ),
@@ -110,7 +110,7 @@ class StatisticsScreen extends StatelessWidget {
                         title: AppHelpers.getTranslation(TrKeys.rejectedOrders),
                         count: rejectedOrders,
                         percentage: rejectedPer == "NaN%" ? "0%" : rejectedPer,
-                        bgColor: AppStyle.redColor,
+                        bgColor: AppStyle.red,
                         textColor: AppStyle.white,
                         iconColor: AppStyle.white.withValues(alpha: 0.54),
                       ),
@@ -125,7 +125,7 @@ class StatisticsScreen extends StatelessWidget {
                         percentage: donePer == "NaN%" ? "0%" : donePer,
                         bgColor: AppStyle.white,
                         textColor: AppStyle.black,
-                        iconColor: AppStyle.iconColor,
+                        iconColor: AppStyle.icon,
                       ),
                       8.horizontalSpace,
                       StatisticsItem(
@@ -134,7 +134,7 @@ class StatisticsScreen extends StatelessWidget {
                         percentage: canceledPer == "NaN%" ? "0%" : canceledPer,
                         bgColor: AppStyle.white,
                         textColor: AppStyle.black,
-                        iconColor: AppStyle.iconColor,
+                        iconColor: AppStyle.icon,
                       ),
                     ],
                   ),
@@ -147,3 +147,4 @@ class StatisticsScreen extends StatelessWidget {
     );
   }
 }
+

@@ -228,7 +228,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                                             : FlutterRemix.eye_close_line,
                                         color: isDarkMode
                                             ? AppStyle.black
-                                            : AppStyle.hintColor,
+                                            : AppStyle.hint,
                                         size: 20.r,
                                       ),
                                       onPressed: () =>
@@ -258,7 +258,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                                             : FlutterRemix.eye_close_line,
                                         color: isDarkMode
                                             ? AppStyle.black
-                                            : AppStyle.hintColor,
+                                            : AppStyle.hint,
                                         size: 20.r,
                                       ),
                                       onPressed: () =>

@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/components/components.dart';
 import 'package:rokctapp/core/application/language/language_provider.dart';
@@ -34,7 +35,7 @@ class _LanguagePageState extends ConsumerState<LanguageScreen> {
       child: KeyboardDismisser(
         child: Container(
           decoration: BoxDecoration(
-            color: AppStyle.backgroundColor,
+            color: AppStyle.mainBack,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(16.r),
               topRight: Radius.circular(16.r),
@@ -90,3 +91,6 @@ class _LanguagePageState extends ConsumerState<LanguageScreen> {
     );
   }
 }
+
+
+

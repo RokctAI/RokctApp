@@ -1,7 +1,7 @@
-import 'package:shimmer/shimmer.dart';
+﻿import 'package:shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class MakeShimmer extends StatelessWidget {
   final Widget child;
@@ -13,10 +13,11 @@ class MakeShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return isLoading
         ? Shimmer.fromColors(
-            baseColor: AppStyle.bottomNavigationBarColor,
+            baseColor: AppStyle.bottomNavigationBar,
             highlightColor: AppStyle.shimmerHighlight,
             child: child,
           )
         : child;
   }
 }
+

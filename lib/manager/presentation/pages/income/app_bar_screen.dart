@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/application/restaurant/income/statistics/statistics_notifier.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
@@ -56,7 +56,7 @@ class AppbarScreen extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(10.r),
                 decoration: const BoxDecoration(
-                  color: AppStyle.greyColor,
+                  color: AppStyle.textGrey,
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -71,3 +71,4 @@ class AppbarScreen extends StatelessWidget {
     );
   }
 }
+

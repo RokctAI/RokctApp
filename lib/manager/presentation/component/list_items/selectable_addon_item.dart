@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 class SelectableAddonItem extends StatelessWidget {
@@ -62,10 +62,11 @@ class SelectableAddonItem extends StatelessWidget {
             Divider(
               thickness: 1.r,
               height: 1.r,
-              color: AppStyle.textColor.withOpacity(0.15),
+              color: AppStyle.text.withOpacity(0.15),
             ),
         ],
       ),
     );
   }
 }
+

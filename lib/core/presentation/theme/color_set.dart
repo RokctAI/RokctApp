@@ -1,7 +1,7 @@
 ﻿import 'dart:ui';
 import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class CustomColorSet {
   final Color primary;
@@ -73,22 +73,22 @@ class CustomColorSet {
 
     final textWhite = isLight ? AppStyle.white : AppStyle.black;
 
-    final categoryColor = isLight ? AppStyle.black : AppStyle.categoryDark;
+    final categoryColor = isLight ? AppStyle.black : AppStyle.subCategory;
 
     final categoryTitleColor = isLight ? AppStyle.black : AppStyle.white;
 
     final primary = AppStyle.primary;
 
-    final buttonFontColor = AppStyle.buttonFontColor;
+    final buttonFontColor = AppStyle.buttonFont;
 
     const white = AppStyle.white;
     const black = AppStyle.black;
 
-    const icon = AppStyle.iconColor;
+    const icon = AppStyle.icon;
 
-    final backgroundColor = isLight ? AppStyle.white : AppStyle.backgroundColorDark;
+    final backgroundColor = isLight ? AppStyle.white : AppStyle.mainBackDark;
 
-    final newBoxColor = isLight ? AppStyle.subCategory : AppStyle.categoryDark;
+    final newBoxColor = isLight ? AppStyle.subCategory : AppStyle.subCategory;
 
     const success = AppStyle.success;
 
@@ -103,8 +103,8 @@ class CustomColorSet {
         : AppStyle.socialButtonDark;
 
     final bottomBarColor = isLight
-        ? AppStyle.bottomBarColorLight.withValues(alpha: 0.8)
-        : AppStyle.bottomBarColorDark;
+        ? AppStyle.bottomBarLight.withValues(alpha: 0.8)
+        : AppStyle.bottomBarDark;
 
     const greyColor = AppStyle.bgGrey;
 
@@ -135,3 +135,4 @@ class CustomColorSet {
     return CustomColorSet._create(mode);
   }
 }
+

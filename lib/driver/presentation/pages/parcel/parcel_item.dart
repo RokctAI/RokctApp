@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 
@@ -6,7 +6,7 @@ import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/driver/presentation/pages/parcel/parcel_order.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class ParcelItem extends StatelessWidget {
   final ParcelOrder? parcel;
@@ -94,3 +94,4 @@ class ParcelItem extends StatelessWidget {
     );
   }
 }
+

@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/customer/application/profile/profile_provider.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/pages/profile/careers/career_data_page.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/models/data/career_data.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
@@ -116,3 +116,4 @@ class _CareerDataPageState extends ConsumerState<CareerPage> {
     );
   }
 }
+

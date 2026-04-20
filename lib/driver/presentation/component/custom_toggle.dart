@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class CustomToggle extends StatefulWidget {
   final bool isOnline;
@@ -45,7 +45,7 @@ class _CustomToggleState extends State<CustomToggle> {
       controller: controller,
       initialValue: controller.value,
       activeColor: AppStyle.primary,
-      inactiveColor: AppStyle.toggleColor,
+      inactiveColor: AppStyle.toggle,
       borderRadius: BorderRadius.circular(10.r),
       width: widget.isOrder ? 70.w : 94.w,
       height: widget.isOrder ? 32.w : 40.h,
@@ -59,7 +59,7 @@ class _CustomToggleState extends State<CustomToggle> {
           borderRadius: BorderRadius.circular(10.r),
           boxShadow: [
             BoxShadow(
-              color: AppStyle.toggleShadowColor.withValues(alpha: 0.4),
+              color: AppStyle.toggleShadow.withValues(alpha: 0.4),
               spreadRadius: 0,
               blurRadius: 2,
               offset: const Offset(0, 2),
@@ -72,13 +72,13 @@ class _CustomToggleState extends State<CustomToggle> {
             Container(
               height: double.infinity,
               width: 3.r,
-              color: AppStyle.toggleColor,
+              color: AppStyle.toggle,
             ),
             2.horizontalSpace,
             Container(
               height: double.infinity,
               width: 3.r,
-              color: AppStyle.toggleColor,
+              color: AppStyle.toggle,
             ),
           ],
         ),
@@ -90,7 +90,7 @@ class _CustomToggleState extends State<CustomToggle> {
         style: AppStyle.interNormal(
           size: widget.isOrder ? 10.sp : 12.sp,
           letterSpacing: -0.3,
-          color: !widget.isOrder ? AppStyle.buttonFontColor : AppStyle.black,
+          color: !widget.isOrder ? AppStyle.buttonFont : AppStyle.black,
         ),
       ),
       inactiveChild: Text(
@@ -106,3 +106,4 @@ class _CustomToggleState extends State<CustomToggle> {
     );
   }
 }
+

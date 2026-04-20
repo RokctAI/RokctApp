@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import 'package:jiffy/jiffy.dart';
 import 'package:rokctapp/customer/application/auto_order/auto_order_provider.dart';
 import 'package:rokctapp/customer/application/order/order_provider.dart';
 import 'package:rokctapp/customer/models/data/repeat_data.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/presentation/components/components.dart';
 
@@ -328,3 +328,4 @@ class _AutoOrderModalState extends ConsumerState<AutoOrderModal> {
     );
   }
 }
+

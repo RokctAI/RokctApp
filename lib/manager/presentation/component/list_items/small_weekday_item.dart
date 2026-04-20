@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 class SmallWeekdayItem extends StatelessWidget {
@@ -38,3 +38,4 @@ class SmallWeekdayItem extends StatelessWidget {
     );
   }
 }
+

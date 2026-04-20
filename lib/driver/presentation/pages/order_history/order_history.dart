@@ -1,4 +1,4 @@
-import 'package:auto_route/annotations.dart';
+﻿import 'package:auto_route/annotations.dart';
 import 'package:rokctapp/driver/application/order/canceled_order/canceled_order_provider.dart';
 import 'package:rokctapp/driver/application/order/delivered_order/delivery_order_provider.dart';
 import 'package:rokctapp/driver/presentation/pages/order_history/widgets/all_orders.dart';
@@ -15,7 +15,7 @@ import 'package:rokctapp/driver/application/order/all_order/order_provider.dart'
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/driver/application/order/progress_ordedr/progress_order_provider.dart';
 
@@ -89,7 +89,7 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
   Widget build(BuildContext context) {
     final state = ref.watch(orderProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.textGrey,
       body: Column(
         children: [
           CustomAppBar(
@@ -165,7 +165,7 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
                 padding: EdgeInsets.all(16.r),
                 child: Icon(
                   FlutterRemix.equalizer_fill,
-                  color: AppStyle.buttonFontColor,
+                  color: AppStyle.buttonFont,
                 ),
               ),
             ),
@@ -175,3 +175,4 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
     );
   }
 }
+

@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/helper/common_image.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/buttons_bouncing_effect.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
@@ -100,14 +100,14 @@ class OrderItem extends StatelessWidget {
                 ],
               ),
               14.verticalSpace,
-              Divider(color: AppStyle.greyColor, thickness: 1.r, height: 1.r),
+              Divider(color: AppStyle.textGrey, thickness: 1.r, height: 1.r),
               14.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   RichText(
                     text: TextSpan(
-                      text: '№ ${order.id}',
+                      text: 'â„– ${order.id}',
                       style: AppStyle.interNormal(
                         color: AppStyle.blackColor,
                         size: 14,
@@ -117,7 +117,7 @@ class OrderItem extends StatelessWidget {
                         TextSpan(
                           text: ' | ',
                           style: AppStyle.interNormal(
-                            color: AppStyle.borderColor,
+                            color: AppStyle.border,
                             size: 14,
                             letterSpacing: -0.3,
                           ),
@@ -155,3 +155,4 @@ class OrderItem extends StatelessWidget {
     );
   }
 }
+

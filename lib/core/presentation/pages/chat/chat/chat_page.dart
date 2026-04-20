@@ -1,4 +1,4 @@
-// ignore_for_file: unused_result
+﻿// ignore_for_file: unused_result
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:rokctapp/core/application/chat/chat_provider.dart';
 import 'package:rokctapp/customer/models/data/chat_message_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/core/presentation/pages/chat/chat/widgets/chat_item.dart';
 
@@ -215,3 +215,4 @@ class _ChatPageState extends ConsumerState<ChatPage> {
 // 42424242424242424242
 // String@sdf.dsf
 // 04/44
+

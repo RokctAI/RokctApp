@@ -7,7 +7,7 @@ import 'package:rokctapp/customer/application/order/order_provider.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_container.dart';
 
@@ -149,3 +149,4 @@ class _OrderPickUpState extends ConsumerState<OrderPickUp> {
     );
   }
 }
+

@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class TextLoading extends StatelessWidget {
   final int height;
@@ -22,8 +22,9 @@ class TextLoading extends StatelessWidget {
       width: width.r,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius.r),
-        color: AppStyle.borderColor,
+        color: AppStyle.border,
       ),
     );
   }
 }
+

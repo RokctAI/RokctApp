@@ -306,7 +306,7 @@ class ShopPageAvatar extends StatelessWidget {
           title: isStartOrder
               ? AppHelpers.getTranslation(TrKeys.manageOrder)
               : AppHelpers.getTranslation(TrKeys.startGroupOrder),
-          background: isStartOrder ? colors.primary : AppStyle.orderButtonColor,
+          background: isStartOrder ? colors.primary : AppStyle.orderButton,
           textColor: isStartOrder ? AppStyle.black : AppStyle.white,
           radius: 10,
           onPressed: () {

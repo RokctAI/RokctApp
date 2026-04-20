@@ -18,7 +18,7 @@ class DoorToDoor extends StatelessWidget {
       padding: EdgeInsets.all(30.r),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppStyle.doorColor,
+        color: AppStyle.door,
         borderRadius: BorderRadius.circular(24.r),
       ),
       child: Column(

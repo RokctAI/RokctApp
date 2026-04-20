@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+﻿import 'package:flutter/material.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class TitleAndIcon extends StatelessWidget {
@@ -60,3 +60,4 @@ class TitleAndIcon extends StatelessWidget {
     );
   }
 }
+

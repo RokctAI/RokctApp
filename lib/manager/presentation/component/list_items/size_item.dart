@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class SizeItem extends StatelessWidget {
   final VoidCallback onTap;
@@ -42,7 +42,7 @@ class SizeItem extends StatelessWidget {
                       border: Border.all(
                         color: isActive
                             ? AppStyle.blackColor
-                            : AppStyle.greyColor,
+                            : AppStyle.textGrey,
                         width: isActive ? 4.r : 2.r,
                       ),
                     ),
@@ -58,7 +58,7 @@ class SizeItem extends StatelessWidget {
                 ],
               ),
               16.verticalSpace,
-              Divider(color: AppStyle.greyColor.withOpacity(0.2)),
+              Divider(color: AppStyle.textGrey.withOpacity(0.2)),
             ],
           ),
         ),
@@ -66,3 +66,4 @@ class SizeItem extends StatelessWidget {
     );
   }
 }
+

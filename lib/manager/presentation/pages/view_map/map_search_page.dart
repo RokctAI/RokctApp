@@ -1,11 +1,11 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_place/google_place.dart';
 
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/presentation/component/text_fields/search_text_field.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 @RoutePage(name: 'ManagerMapSearchRoute')
 class MapSearchPage extends StatefulWidget {
@@ -65,7 +65,7 @@ class _MapSearchPageState extends State<MapSearchPage> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ),
-                          const Divider(color: AppStyle.borderColor),
+                          const Divider(color: AppStyle.border),
                         ],
                       ),
                     );
@@ -79,3 +79,4 @@ class _MapSearchPageState extends State<MapSearchPage> {
     );
   }
 }
+

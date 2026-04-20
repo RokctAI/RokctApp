@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/application/foods/edit/details/kitchen/edit_foo
 
 import 'package:rokctapp/manager/presentation/pages/main/foods/edit/edit_product_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
@@ -56,7 +56,7 @@ class FoodsBody extends StatelessWidget {
                           border: Border.all(
                             color: productsState.productType == 'single'
                                 ? AppStyle.blackColor
-                                : AppStyle.borderColor,
+                                : AppStyle.border,
                           ),
                         ),
                         child: Center(
@@ -96,7 +96,7 @@ class FoodsBody extends StatelessWidget {
                           border: Border.all(
                             color: productsState.productType == 'combo'
                                 ? AppStyle.blackColor
-                                : AppStyle.borderColor,
+                                : AppStyle.border,
                           ),
                         ),
                         child: Center(
@@ -218,3 +218,4 @@ class FoodsBody extends StatelessWidget {
     );
   }
 }
+

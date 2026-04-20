@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/create_order/details/widgets/food_extras.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/details/widgets/food_price_widget.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
@@ -95,7 +95,7 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
                         '${widget.product.translation?.description}',
                         style: AppStyle.interNormal(
                           size: 12,
-                          color: AppStyle.textColor,
+                          color: AppStyle.text,
                           letterSpacing: -0.3,
                         ),
                       ),
@@ -170,7 +170,7 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
                                       height: 50.r,
                                       width: 100.r,
                                       decoration: BoxDecoration(
-                                        color: AppStyle.discountColor,
+                                        color: AppStyle.discount,
                                         borderRadius: BorderRadius.only(
                                           topLeft: Radius.circular(16.r),
                                           bottomLeft: Radius.circular(16.r),
@@ -204,7 +204,7 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
                                       height: 50.r,
                                       width: 100.r,
                                       decoration: BoxDecoration(
-                                        color: AppStyle.addCountColor,
+                                        color: AppStyle.addCount,
                                         borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(16.r),
                                           bottomRight: Radius.circular(16.r),
@@ -252,3 +252,4 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
     );
   }
 }
+

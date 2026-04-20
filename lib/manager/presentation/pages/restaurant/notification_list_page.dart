@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+﻿// ignore_for_file: deprecated_member_use
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/order_details_modal.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 @RoutePage(name: 'ManagerNotificationListRoute')
 class NotificationListPage extends ConsumerStatefulWidget {
@@ -259,3 +259,4 @@ class _NotificationListPageState extends ConsumerState<NotificationListPage> {
     );
   }
 }
+

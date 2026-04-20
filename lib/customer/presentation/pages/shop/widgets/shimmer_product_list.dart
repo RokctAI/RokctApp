@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class ShimmerProductList extends StatelessWidget {
   const ShimmerProductList({super.key});
@@ -51,3 +51,4 @@ class ShimmerProductList extends StatelessWidget {
     );
   }
 }
+

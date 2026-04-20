@@ -92,22 +92,22 @@ class PhoneTextField extends StatelessWidget {
                   counterText: '',
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide.merge(
-                      const BorderSide(color: AppStyle.differBorderColor),
-                      const BorderSide(color: AppStyle.differBorderColor),
+                      const BorderSide(color: AppStyle.differBorder),
+                      const BorderSide(color: AppStyle.differBorder),
                     ),
                   ),
                   errorBorder: UnderlineInputBorder(
                     borderSide: BorderSide.merge(
-                      const BorderSide(color: AppStyle.differBorderColor),
-                      const BorderSide(color: AppStyle.differBorderColor),
+                      const BorderSide(color: AppStyle.differBorder),
+                      const BorderSide(color: AppStyle.differBorder),
                     ),
                   ),
                   border: const UnderlineInputBorder(),
                   focusedErrorBorder: const UnderlineInputBorder(),
                   disabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide.merge(
-                      const BorderSide(color: AppStyle.differBorderColor),
-                      const BorderSide(color: AppStyle.differBorderColor),
+                      const BorderSide(color: AppStyle.differBorder),
+                      const BorderSide(color: AppStyle.differBorder),
                     ),
                   ),
                   focusedBorder: const UnderlineInputBorder(),

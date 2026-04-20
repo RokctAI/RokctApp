@@ -74,7 +74,7 @@ class SearchResultText extends StatelessWidget {
             ],
           ),
           10.verticalSpace,
-          const Divider(color: AppStyle.borderColor),
+          const Divider(color: AppStyle.border),
         ],
       ),
     );

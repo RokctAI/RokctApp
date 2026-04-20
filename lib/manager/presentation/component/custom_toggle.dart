@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class CustomToggle extends StatefulWidget {
   final ValueNotifier<bool>? controller;
@@ -43,7 +43,7 @@ class _CustomToggleState extends State<CustomToggle> {
       controller: widget.controller,
       initialValue: widget.controller?.value ?? false,
       activeColor: AppStyle.primary,
-      inactiveColor: AppStyle.toggleColor,
+      inactiveColor: AppStyle.toggle,
       borderRadius: BorderRadius.circular(10.r),
       width: 70.w,
       height: 30.h,
@@ -56,7 +56,7 @@ class _CustomToggleState extends State<CustomToggle> {
                 AppHelpers.getTranslation(TrKeys.open),
                 style: AppStyle.interNormal(
                   size: 12,
-                  color: AppStyle.buttonFontColor,
+                  color: AppStyle.buttonFont,
                 ),
               ),
             )
@@ -78,7 +78,7 @@ class _CustomToggleState extends State<CustomToggle> {
           borderRadius: BorderRadius.circular(6.r),
           boxShadow: [
             BoxShadow(
-              color: AppStyle.toggleShadowColor.withOpacity(0.4),
+              color: AppStyle.toggleShadow.withOpacity(0.4),
               spreadRadius: 0,
               blurRadius: 2,
               offset: const Offset(0, 2),
@@ -86,9 +86,10 @@ class _CustomToggleState extends State<CustomToggle> {
           ],
         ),
         child: Container(
-          decoration: const BoxDecoration(color: AppStyle.toggleColor),
+          decoration: const BoxDecoration(color: AppStyle.toggle),
         ),
       ),
     );
   }
 }
+

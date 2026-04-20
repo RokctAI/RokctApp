@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/application/main/orders/cooking/cooking_orders_provider.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/cooking_orders_body.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/new_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/ready_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/accepted_orders_body.dart';
@@ -140,7 +140,7 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
     return Directionality(
       textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.textGrey,
         body: Column(
           children: [
             CustomAppBar(
@@ -154,7 +154,7 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
                     Container(
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.textGrey,
                       ),
                       padding: REdgeInsets.all(12),
                       child: Icon(
@@ -225,3 +225,4 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
     );
   }
 }
+

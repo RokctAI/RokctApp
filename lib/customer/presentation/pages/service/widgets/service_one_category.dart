@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -6,7 +6,7 @@ import 'package:rokctapp/customer/application/home/home_notifier.dart';
 import 'package:rokctapp/customer/application/home/home_state.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/pages/home/filter/filter_page.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 import 'package:rokctapp/customer/presentation/pages/home/home_one/widget/category_one_item.dart';
@@ -133,3 +133,4 @@ class ServiceOneCategory extends StatelessWidget {
     );
   }
 }
+

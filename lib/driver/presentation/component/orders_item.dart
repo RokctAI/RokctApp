@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+﻿import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -7,7 +7,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 
 import 'package:rokctapp/driver/presentation/component/helper/shimmer.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'package:rokctapp/driver/presentation/component/order_detail.dart';
@@ -78,7 +78,7 @@ class OrdersItem extends StatelessWidget {
                                 width: 32.r,
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: AppStyle.greyColor,
+                                  color: AppStyle.textGrey,
                                 ),
                                 alignment: Alignment.center,
                                 child: const Icon(
@@ -106,7 +106,7 @@ class OrdersItem extends StatelessWidget {
                             child: Row(
                               children: [
                                 Text(
-                                  '№ ${order.id}',
+                                  'â„– ${order.id}',
                                   style: AppStyle.interNormal(
                                     size: 14.sp,
                                     letterSpacing: -0.3,
@@ -135,7 +135,7 @@ class OrdersItem extends StatelessWidget {
                         width: 36.r,
                         height: 36.r,
                         decoration: const BoxDecoration(
-                          color: AppStyle.greyColor,
+                          color: AppStyle.textGrey,
                           shape: BoxShape.circle,
                         ),
                         child: const Center(
@@ -153,7 +153,7 @@ class OrdersItem extends StatelessWidget {
                           height: 4.r,
                           margin: EdgeInsets.only(bottom: 6.h, top: 2.h),
                           decoration: const BoxDecoration(
-                            color: AppStyle.tabBarBorderColor,
+                            color: AppStyle.tabBarBorder,
                             shape: BoxShape.circle,
                           ),
                         ),
@@ -162,7 +162,7 @@ class OrdersItem extends StatelessWidget {
                           height: 4.r,
                           margin: EdgeInsets.only(bottom: 6.h),
                           decoration: const BoxDecoration(
-                            color: AppStyle.tabBarBorderColor,
+                            color: AppStyle.tabBarBorder,
                             shape: BoxShape.circle,
                           ),
                         ),
@@ -192,7 +192,7 @@ class OrdersItem extends StatelessWidget {
                                 width: 32.r,
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: AppStyle.greyColor,
+                                  color: AppStyle.textGrey,
                                 ),
                                 alignment: Alignment.center,
                                 child: const Icon(
@@ -297,7 +297,7 @@ class OrdersItem extends StatelessWidget {
                     width: 36.r,
                     height: 36.r,
                     decoration: const BoxDecoration(
-                      color: AppStyle.greyColor,
+                      color: AppStyle.textGrey,
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(FlutterRemix.arrow_right_s_line),
@@ -311,3 +311,4 @@ class OrdersItem extends StatelessWidget {
     );
   }
 }
+

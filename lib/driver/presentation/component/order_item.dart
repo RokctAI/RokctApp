@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+﻿import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,7 +13,7 @@ import 'package:rokctapp/driver/presentation/component/maps_list.dart';
 import 'package:rokctapp/driver/application/home/home_provider.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:intl/intl.dart' as intl;
 
 class OrderItem extends StatelessWidget {
@@ -306,7 +306,7 @@ class OrderItem extends StatelessWidget {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.textGrey,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(
@@ -331,7 +331,7 @@ class OrderItem extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        "№ ${order.id}",
+                        "â„– ${order.id}",
                         style: AppStyle.interNormal(
                           size: 14.sp,
                           letterSpacing: -0.3,
@@ -468,7 +468,7 @@ class OrderItem extends StatelessWidget {
                 height: 4.r,
                 margin: EdgeInsets.only(bottom: 6.h),
                 decoration: const BoxDecoration(
-                  color: AppStyle.toggleColor,
+                  color: AppStyle.toggle,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -477,7 +477,7 @@ class OrderItem extends StatelessWidget {
                 height: 4.r,
                 margin: EdgeInsets.only(bottom: 4.h),
                 decoration: const BoxDecoration(
-                  color: AppStyle.toggleColor,
+                  color: AppStyle.toggle,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -507,7 +507,7 @@ class OrderItem extends StatelessWidget {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.textGrey,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(
@@ -670,3 +670,4 @@ class OrderItem extends StatelessWidget {
     );
   }
 }
+

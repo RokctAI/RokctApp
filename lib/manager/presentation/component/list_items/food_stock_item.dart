@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
@@ -99,7 +99,7 @@ class FoodStockItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: AppStyle.interNormal(
                       size: 12,
-                      color: AppStyle.textColor,
+                      color: AppStyle.text,
                       letterSpacing: -0.3,
                     ),
                   ),
@@ -112,7 +112,7 @@ class FoodStockItem extends StatelessWidget {
                             "${e.group?.translation?.title ?? ''}: ",
                             style: AppStyle.interNormal(
                               size: 12,
-                              color: AppStyle.textColor,
+                              color: AppStyle.text,
                               letterSpacing: -0.3,
                             ),
                           ),
@@ -137,7 +137,7 @@ class FoodStockItem extends StatelessWidget {
                             e.product?.translation?.title ?? '',
                             style: AppStyle.interNormal(
                               size: 12,
-                              color: AppStyle.textColor,
+                              color: AppStyle.text,
                               letterSpacing: -0.3,
                             ),
                           ),
@@ -200,3 +200,4 @@ class FoodStockItem extends StatelessWidget {
     );
   }
 }
+

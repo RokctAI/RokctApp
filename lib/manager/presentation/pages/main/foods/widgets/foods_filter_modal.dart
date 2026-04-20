@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/foods/widgets/foods_filter_item.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
@@ -50,7 +50,7 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
       textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
       child: Container(
         decoration: BoxDecoration(
-          color: AppStyle.greyColor,
+          color: AppStyle.textGrey,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(12.r),
             topRight: Radius.circular(12.r),
@@ -253,3 +253,4 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
   //   );
   // }
 }
+

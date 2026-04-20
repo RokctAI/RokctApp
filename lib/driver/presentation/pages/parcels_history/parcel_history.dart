@@ -1,4 +1,4 @@
-import 'package:auto_route/annotations.dart';
+﻿import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,7 +10,7 @@ import 'package:rokctapp/driver/presentation/pages/parcel/parcel_item.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 @RoutePage(name: 'DriverParcelHistoryRoute')
 class ParcelHistoryPage extends ConsumerStatefulWidget {
@@ -42,7 +42,7 @@ class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
   Widget build(BuildContext context) {
     final state = ref.watch(parcelProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.textGrey,
       body: Column(
         children: [
           CustomAppBar(
@@ -138,7 +138,7 @@ class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
                 padding: EdgeInsets.all(16.r),
                 child: Icon(
                   FlutterRemix.equalizer_fill,
-                  color: AppStyle.buttonFontColor,
+                  color: AppStyle.buttonFont,
                 ),
               ),
             ),
@@ -148,3 +148,4 @@ class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
     );
   }
 }
+

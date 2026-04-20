@@ -1,4 +1,4 @@
-// ignore_for_file: unused_result
+﻿// ignore_for_file: unused_result
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import 'package:rokctapp/customer/application/parcel/parcel_provider.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/pages/parcel/widgets/recipient_widget.dart';
 import 'package:rokctapp/customer/presentation/pages/parcel/widgets/sender_widget.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/customer/presentation/pages/parcel/widgets/info_item.dart';
 import 'package:rokctapp/customer/presentation/pages/parcel/widgets/parcel_payments.dart';
 import 'package:rokctapp/customer/presentation/pages/parcel/widgets/time_and_type.dart';
@@ -275,3 +275,4 @@ class _ParcelPageState extends ConsumerState<ParcelPage> {
     );
   }
 }
+

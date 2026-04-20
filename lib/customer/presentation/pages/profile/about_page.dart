@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +6,7 @@ import 'package:rokctapp/customer/models/response/pages_response.dart';
 import 'package:rokctapp/customer/application/profile/profile_provider.dart';
 import 'package:rokctapp/core/infrastructure/utils/app_helpers.dart';
 import 'package:rokctapp/core/infrastructure/constants/tr_keys.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 
 import 'package:rokctapp/customer/presentation/components/components.dart';
@@ -82,3 +82,4 @@ class _AboutPageState extends ConsumerState<AboutPage> {
     );
   }
 }
+

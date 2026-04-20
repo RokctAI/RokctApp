@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/driver/presentation/component/buttons/buttons_bouncing_effect.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class CustomButton extends StatelessWidget {
   final Icon? icon;
@@ -67,7 +67,7 @@ class CustomButton extends StatelessWidget {
                     title,
                     style: AppStyle.interNormal(
                       size: 15,
-                      color: textColor ?? AppStyle.buttonFontColor,
+                      color: textColor ?? AppStyle.buttonFont,
                       letterSpacing: -14 * 0.01,
                     ),
                   ),
@@ -77,3 +77,4 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/r
 import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/title_price.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_screen/widgets/order_status.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_map.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 
@@ -363,3 +363,4 @@ class _ParcelProgressPageState extends ConsumerState<ParcelProgressPage> {
     );
   }
 }
+

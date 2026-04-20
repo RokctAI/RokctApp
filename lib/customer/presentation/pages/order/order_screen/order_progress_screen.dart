@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ import 'package:rokctapp/customer/presentation/pages/order/order_check/order_che
 import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/rating_page.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_map.dart';
 import 'package:rokctapp/customer/presentation/pages/shop/cart/widgets/cart_order_item.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/application/order/order_state.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/refund_info.dart';
@@ -274,3 +274,4 @@ class _OrderProgressPageState extends ConsumerState<OrderProgressPage> {
     );
   }
 }
+

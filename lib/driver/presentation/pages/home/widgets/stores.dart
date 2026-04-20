@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class StoresPage extends StatelessWidget {
   final String image;
@@ -48,7 +48,7 @@ class StoresPage extends StatelessWidget {
                 height: 176.h,
                 width: 100.w,
                 decoration: BoxDecoration(
-                  color: AppStyle.greyColor,
+                  color: AppStyle.textGrey,
                   borderRadius: BorderRadius.circular(16.r),
                 ),
                 alignment: Alignment.center,
@@ -64,3 +64,4 @@ class StoresPage extends StatelessWidget {
     );
   }
 }
+

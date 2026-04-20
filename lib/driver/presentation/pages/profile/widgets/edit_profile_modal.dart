@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -12,7 +12,7 @@ import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/profile/edit_car.dart';
 
 class EditProfileModal extends ConsumerStatefulWidget {
@@ -225,20 +225,20 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide.merge(
                                       const BorderSide(
-                                        color: AppStyle.borderColor,
+                                        color: AppStyle.border,
                                       ),
                                       const BorderSide(
-                                        color: AppStyle.borderColor,
+                                        color: AppStyle.border,
                                       ),
                                     ),
                                   ),
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide.merge(
                                       const BorderSide(
-                                        color: AppStyle.borderColor,
+                                        color: AppStyle.border,
                                       ),
                                       const BorderSide(
-                                        color: AppStyle.borderColor,
+                                        color: AppStyle.border,
                                       ),
                                     ),
                                   ),
@@ -248,10 +248,10 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                                   disabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide.merge(
                                       const BorderSide(
-                                        color: AppStyle.borderColor,
+                                        color: AppStyle.border,
                                       ),
                                       const BorderSide(
-                                        color: AppStyle.borderColor,
+                                        color: AppStyle.border,
                                       ),
                                     ),
                                   ),
@@ -353,7 +353,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                                     ),
                                   ),
                                   Text(
-                                    "${LocalStorage.getDeliveryInfo()?.data?.number ?? ''} — ${LocalStorage.getDeliveryInfo()?.data?.model ?? ''}, ${LocalStorage.getDeliveryInfo()?.data?.color ?? ''}",
+                                    "${LocalStorage.getDeliveryInfo()?.data?.number ?? ''} â€” ${LocalStorage.getDeliveryInfo()?.data?.model ?? ''}, ${LocalStorage.getDeliveryInfo()?.data?.color ?? ''}",
                                     style: AppStyle.interNormal(
                                       size: 12.sp,
                                       color: AppStyle.black,
@@ -397,3 +397,4 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
           );
   }
 }
+

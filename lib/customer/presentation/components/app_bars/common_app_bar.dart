@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
@@ -26,7 +26,7 @@ class CommonAppBar extends StatelessWidget {
                 ? 34.h
                 : MediaQuery.paddingOf(context).top),
         decoration: BoxDecoration(
-          color: AppStyle.iconColor,
+          color: AppStyle.icon,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(16.r),
             bottomRight: Radius.circular(16.r),

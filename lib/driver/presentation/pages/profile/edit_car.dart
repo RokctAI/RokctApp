@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ import 'package:rokctapp/driver/infrastructure/services/img_service.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class EditCar extends ConsumerStatefulWidget {
   const EditCar({super.key});
@@ -294,7 +294,7 @@ class _EditCarState extends ConsumerState<EditCar> {
                               Icon(
                                 FlutterRemix.upload_cloud_2_line,
                                 size: 36.sp,
-                                color: AppStyle.blueColor,
+                                color: AppStyle.blue,
                               ),
                               16.verticalSpace,
                               Text(
@@ -350,7 +350,7 @@ class _EditCarState extends ConsumerState<EditCar> {
                       width.text.isNotEmpty &&
                       length.text.isNotEmpty
                   ? AppStyle.primary
-                  : AppStyle.shadowColor,
+                  : AppStyle.shadow,
               isLoading: state.isLoading,
               title: AppHelpers.getTranslation(TrKeys.save),
               onPressed: () {
@@ -388,3 +388,4 @@ class _EditCarState extends ConsumerState<EditCar> {
     );
   }
 }
+

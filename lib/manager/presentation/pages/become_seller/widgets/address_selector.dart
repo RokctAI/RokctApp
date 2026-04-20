@@ -1,10 +1,10 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 class AddressSelector extends StatelessWidget {
@@ -48,7 +48,7 @@ class AddressSelector extends StatelessWidget {
                 border: Border.all(
                   color: hasAddress
                       ? AppStyle.primary.withOpacity(0.3)
-                      : AppStyle.borderColor.withOpacity(0.3),
+                      : AppStyle.border.withOpacity(0.3),
                   width: 1.5,
                 ),
                 borderRadius: BorderRadius.circular(12.r),
@@ -60,7 +60,7 @@ class AddressSelector extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: hasAddress
                           ? AppStyle.primary.withOpacity(0.1)
-                          : AppStyle.borderColor.withOpacity(0.1),
+                          : AppStyle.border.withOpacity(0.1),
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
@@ -113,3 +113,4 @@ class AddressSelector extends StatelessWidget {
     );
   }
 }
+

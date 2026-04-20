@@ -1,4 +1,4 @@
-import 'package:auto_route/annotations.dart';
+﻿import 'package:auto_route/annotations.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 @RoutePage(name: 'DriverOrdersRoute')
 class OrdersPage extends ConsumerStatefulWidget {
@@ -62,7 +62,7 @@ class _OrdersPageState extends ConsumerState<OrdersPage>
   Widget build(BuildContext context) {
     final state = ref.watch(orderProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.textGrey,
       body: Column(
         children: [
           CustomAppBar(
@@ -232,3 +232,4 @@ Widget _resultEmpty() {
     ],
   );
 }
+

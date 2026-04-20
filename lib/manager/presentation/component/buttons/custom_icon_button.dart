@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class CustomIconButton extends StatelessWidget {
   final IconData? iconData;
@@ -27,8 +27,9 @@ class CustomIconButton extends StatelessWidget {
           color: AppStyle.primary,
         ),
         alignment: Alignment.center,
-        child: Icon(iconData, size: 24.r, color: AppStyle.buttonFontColor),
+        child: Icon(iconData, size: 24.r, color: AppStyle.buttonFont),
       ),
     );
   }
 }
+

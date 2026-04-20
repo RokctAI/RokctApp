@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/animation_button_effect.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class CircleButton extends StatelessWidget {
   final IconData icon;
@@ -14,7 +14,7 @@ class CircleButton extends StatelessWidget {
     super.key,
     required this.icon,
     required this.onTap,
-    this.backgroundColor = AppStyle.greyColor,
+    this.backgroundColor = AppStyle.textGrey,
     this.size = 36,
     this.iconSize = 21,
   });
@@ -32,9 +32,10 @@ class CircleButton extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         child: Center(
-          child: Icon(icon, color: AppStyle.buttonFontColor, size: iconSize.r),
+          child: Icon(icon, color: AppStyle.buttonFont, size: iconSize.r),
         ),
       ),
     );
   }
 }
+

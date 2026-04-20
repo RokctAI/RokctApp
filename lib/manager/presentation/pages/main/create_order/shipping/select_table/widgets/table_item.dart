@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 class TableItem extends StatelessWidget {
@@ -61,3 +61,4 @@ class TableItem extends StatelessWidget {
     );
   }
 }
+

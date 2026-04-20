@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 
@@ -58,7 +58,7 @@ class SecondButton extends StatelessWidget {
                   Text(
                     AppHelpers.getTranslation(title),
                     style: AppStyle.interSemi(
-                      color: titleColor ?? AppStyle.buttonFontColor,
+                      color: titleColor ?? AppStyle.buttonFont,
                       size: titleSize,
                     ),
                   ),
@@ -68,3 +68,4 @@ class SecondButton extends StatelessWidget {
     );
   }
 }
+

@@ -1,7 +1,7 @@
-import 'dart:io' show Platform;
+﻿import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class Loading extends StatelessWidget {
   final Color bgColor;
@@ -17,3 +17,4 @@ class Loading extends StatelessWidget {
     );
   }
 }
+

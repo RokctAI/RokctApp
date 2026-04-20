@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+﻿// ignore_for_file: deprecated_member_use
 
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:flutter/foundation.dart';
@@ -11,7 +11,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class BarCodeScreen extends StatelessWidget {
   const BarCodeScreen({super.key});
@@ -41,7 +41,7 @@ class BarCodeScreen extends StatelessWidget {
               children: [
                 const Icon(
                   FlutterRemix.error_warning_fill,
-                  color: AppStyle.blueColor,
+                  color: AppStyle.blue,
                 ),
                 12.horizontalSpace,
                 RichText(
@@ -118,3 +118,4 @@ class BarCodeScreen extends StatelessWidget {
     );
   }
 }
+

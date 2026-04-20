@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+﻿import 'package:dio/dio.dart';
 import 'package:ftoast/ftoast.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +8,7 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/services/enums.dart';
 import 'package:rokctapp/manager/infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/manager/app_constants.dart';
@@ -370,7 +370,7 @@ class AppHelpers {
         minWidth: size.width / 2,
         maxWidth: size.width,
       ),
-      shadowColor: AppStyle.differBorderColor,
+      shadowColor: AppStyle.differBorder,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(radius.r),
       ),
@@ -604,3 +604,4 @@ class AppHelpers {
     }
   }
 }
+

@@ -1,8 +1,8 @@
-import 'package:calendar_date_picker2/calendar_date_picker2.dart';
+﻿import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class CustomDatePicker extends StatefulWidget {
   final List<DateTime?> range;
@@ -40,7 +40,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
     disabledDayTextStyle: AppStyle.interNormal(
       size: 14.sp,
       letterSpacing: -0.3,
-      color: AppStyle.textColor,
+      color: AppStyle.text,
     ),
     dayBorderRadius: BorderRadius.circular(10.r),
   );
@@ -56,3 +56,4 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
     );
   }
 }
+

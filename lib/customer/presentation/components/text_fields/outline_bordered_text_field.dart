@@ -95,7 +95,7 @@ class OutlinedBorderTextField extends StatelessWidget {
                 hintText: hint ?? AppHelpers.getTranslation(TrKeys.typeHere),
                 hintStyle: AppStyle.interNormal(
                   size: 13,
-                  color: AppStyle.hintColor,
+                  color: AppStyle.hint,
                 ),
                 contentPadding: REdgeInsets.symmetric(
                   horizontal: 0,
@@ -107,22 +107,22 @@ class OutlinedBorderTextField extends StatelessWidget {
 
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide.merge(
-                    const BorderSide(color: AppStyle.differBorderColor),
-                    const BorderSide(color: AppStyle.differBorderColor),
+                    const BorderSide(color: AppStyle.differBorder),
+                    const BorderSide(color: AppStyle.differBorder),
                   ),
                 ),
                 errorBorder: UnderlineInputBorder(
                   borderSide: BorderSide.merge(
-                    const BorderSide(color: AppStyle.differBorderColor),
-                    const BorderSide(color: AppStyle.differBorderColor),
+                    const BorderSide(color: AppStyle.differBorder),
+                    const BorderSide(color: AppStyle.differBorder),
                   ),
                 ),
                 border: const UnderlineInputBorder(),
                 focusedErrorBorder: const UnderlineInputBorder(),
                 disabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide.merge(
-                    const BorderSide(color: AppStyle.differBorderColor),
-                    const BorderSide(color: AppStyle.differBorderColor),
+                    const BorderSide(color: AppStyle.differBorder),
+                    const BorderSide(color: AppStyle.differBorder),
                   ),
                 ),
                 focusedBorder: UnderlineInputBorder(

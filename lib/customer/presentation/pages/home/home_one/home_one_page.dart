@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +20,7 @@ import 'package:rokctapp/customer/presentation/pages/home/shimmer/recommend_shop
 import 'package:rokctapp/customer/presentation/pages/home/home_one/category_one.dart';
 import 'package:rokctapp/customer/presentation/pages/home/home_one/widget/banner_one_item.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/presentation/pages/home/home_one/app_bar_one.dart';
 import 'package:rokctapp/customer/presentation/pages/home/home_one/filter_category_one_shop.dart';
@@ -441,3 +441,4 @@ class _HomeOnePageState extends ConsumerState<HomeOnePage> {
     );
   }
 }
+

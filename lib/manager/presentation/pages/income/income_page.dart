@@ -1,10 +1,10 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 
 // import 'package:charts_flutter_new/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/presentation/pages/income/widgets/chart.dart';
 import 'package:rokctapp/manager/presentation/pages/income/widgets/statistics_section.dart';
@@ -75,7 +75,7 @@ class _IncomePageState extends ConsumerState<IncomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.textGrey,
       body: Column(
         children: [
           AppbarScreen(event: ref.read(statisticsProvider.notifier)),
@@ -194,3 +194,4 @@ class _IncomePageState extends ConsumerState<IncomePage>
     );
   }
 }
+

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,7 +7,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 @RoutePage(name: 'DriverStoryRoute')
 class StoryPage extends ConsumerStatefulWidget {
@@ -126,7 +126,7 @@ class _StoryPageState extends ConsumerState<StoryPage>
                           errorWidget: (context, url, error) {
                             return Container(
                               decoration: BoxDecoration(
-                                color: AppStyle.greyColor,
+                                color: AppStyle.textGrey,
                                 borderRadius: BorderRadius.circular(16.r),
                               ),
                               alignment: Alignment.center,
@@ -265,3 +265,4 @@ class _StoryPageState extends ConsumerState<StoryPage>
     );
   }
 }
+

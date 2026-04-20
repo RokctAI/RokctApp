@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class AbbBarScreen extends StatelessWidget {
   const AbbBarScreen({super.key});
@@ -49,7 +49,7 @@ class AbbBarScreen extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(10.r),
                 decoration: const BoxDecoration(
-                  color: AppStyle.greyColor,
+                  color: AppStyle.textGrey,
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -64,3 +64,4 @@ class AbbBarScreen extends StatelessWidget {
     );
   }
 }
+

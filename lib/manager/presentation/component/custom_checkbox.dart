@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class CustomCheckbox extends StatelessWidget {
   final bool isActive;
@@ -21,7 +21,7 @@ class CustomCheckbox extends StatelessWidget {
         width: 24.r,
         height: 24.r,
         decoration: BoxDecoration(
-          color: isActive ? AppStyle.primary : AppStyle.borderColor,
+          color: isActive ? AppStyle.primary : AppStyle.border,
           borderRadius: BorderRadius.circular(8.r),
         ),
         duration: const Duration(milliseconds: 500),
@@ -36,3 +36,4 @@ class CustomCheckbox extends StatelessWidget {
     );
   }
 }
+

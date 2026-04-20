@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +6,7 @@ import 'package:collection/collection.dart';
 import 'package:rokctapp/manager/application/ai_translation/ai_translation_provider.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/core/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/manager/presentation/component/helper/modal_wrap.dart';
@@ -131,7 +131,7 @@ class _MultiTranslationInputModalState
                       ),
                       decoration: BoxDecoration(
                         border: Border(
-                          bottom: BorderSide(color: AppStyle.borderColor),
+                          bottom: BorderSide(color: AppStyle.border),
                         ),
                       ),
                       padding: REdgeInsets.only(bottom: 4),
@@ -162,7 +162,7 @@ class _MultiTranslationInputModalState
                 child: TextButton(
                   style: ButtonStyle(
                     overlayColor: WidgetStateProperty.resolveWith(
-                      (states) => AppStyle.greyColor,
+                      (states) => AppStyle.textGrey,
                     ),
                   ),
                   child: state.isLoading
@@ -222,3 +222,4 @@ class _MultiTranslationInputModalState
     );
   }
 }
+

@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/buttons_bouncing_effect.dart';
 
 class SelectItem extends StatelessWidget {
@@ -45,7 +45,7 @@ class SelectItem extends StatelessWidget {
                       border: Border.all(
                         color: isActive
                             ? AppStyle.blackColor
-                            : AppStyle.textColor,
+                            : AppStyle.text,
                         width: isActive ? 4.r : 2.r,
                       ),
                     ),
@@ -68,3 +68,4 @@ class SelectItem extends StatelessWidget {
     );
   }
 }
+

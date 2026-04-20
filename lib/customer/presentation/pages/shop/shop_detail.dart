@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -9,7 +9,7 @@ import 'package:rokctapp/customer/application/shop/shop_provider.dart';
 import 'package:rokctapp/customer/models/data/shop_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_map.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 
@@ -94,7 +94,7 @@ class _ShopDetailPageState extends ConsumerState<ShopDetailPage> {
                         itemCount: widget.shop.tags?.length ?? 0,
                         itemBuilder: (BuildContext context, int index) {
                           return Text(
-                            "${widget.shop.tags?[index].translation?.title ?? ""} • ",
+                            "${widget.shop.tags?[index].translation?.title ?? ""} â€¢ ",
                             style: AppStyle.interNormal(
                               color: AppStyle.textGrey,
                             ),
@@ -114,7 +114,7 @@ class _ShopDetailPageState extends ConsumerState<ShopDetailPage> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.h),
-                child: Divider(color: AppStyle.hintColor, thickness: 1.5.w),
+                child: Divider(color: AppStyle.hint, thickness: 1.5.w),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.r),
@@ -144,7 +144,7 @@ class _ShopDetailPageState extends ConsumerState<ShopDetailPage> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
-                child: const Divider(color: AppStyle.hintColor),
+                child: const Divider(color: AppStyle.hint),
               ),
               Consumer(
                 builder: (context, ref, child) {
@@ -216,13 +216,13 @@ class _ShopDetailPageState extends ConsumerState<ShopDetailPage> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
-                child: const Divider(color: AppStyle.hintColor),
+                child: const Divider(color: AppStyle.hint),
               ),
               if (ref.watch(shopProvider).branches?.isNotEmpty ?? false)
                 _branches(),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.h),
-                child: Divider(color: AppStyle.hintColor, thickness: 1.5.w),
+                child: Divider(color: AppStyle.hint, thickness: 1.5.w),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.r),
@@ -344,3 +344,4 @@ class _ShopDetailPageState extends ConsumerState<ShopDetailPage> {
     );
   }
 }
+

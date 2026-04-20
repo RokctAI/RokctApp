@@ -8,7 +8,7 @@ import 'package:rokctapp/customer/application/home/home_state.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 
 import 'package:rokctapp/customer/presentation/components/components.dart';
@@ -146,3 +146,4 @@ class AppBarTwo extends StatelessWidget {
     );
   }
 }
+

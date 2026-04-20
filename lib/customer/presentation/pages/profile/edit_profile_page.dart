@@ -179,7 +179,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                                               color: AppStyle.white,
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                color: AppStyle.borderColor,
+                                                color: AppStyle.border,
                                               ),
                                             ),
                                             child: const Icon(

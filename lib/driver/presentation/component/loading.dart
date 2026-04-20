@@ -1,13 +1,13 @@
-import 'dart:io' show Platform;
+﻿import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class Loading extends StatelessWidget {
   final Color bgColor;
 
-  const Loading({super.key, this.bgColor = AppStyle.greyColor});
+  const Loading({super.key, this.bgColor = AppStyle.textGrey});
 
   @override
   Widget build(BuildContext context) {
@@ -18,3 +18,4 @@ class Loading extends StatelessWidget {
     );
   }
 }
+

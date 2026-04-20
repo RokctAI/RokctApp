@@ -49,7 +49,7 @@ class CheckStatusDialog extends StatelessWidget {
                   onPressed: cancel,
                   background: AppStyle.transparent,
                   textColor: AppStyle.black,
-                  borderColor: AppStyle.borderColor,
+                  borderColor: AppStyle.border,
                 ),
               ),
               16.horizontalSpace,

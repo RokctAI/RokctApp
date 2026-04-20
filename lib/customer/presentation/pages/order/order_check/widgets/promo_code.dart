@@ -134,7 +134,7 @@ class _PromoCodeState extends ConsumerState<PromoCodeScreen> {
                       isLoading: state.isLoading,
                       background: state.isActive
                           ? colors.primary
-                          : AppStyle.borderColor,
+                          : AppStyle.border,
                       textColor: state.isActive
                           ? colors.buttonFontColor
                           : AppStyle.textGrey,

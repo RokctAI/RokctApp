@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/extras/details/widgets/edit_extras_item_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/extras/details/widgets/delete_extras_item_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/extras/details/widgets/group_detail_extras_item.dart';
@@ -148,3 +148,4 @@ class _ExtrasGroupDetailsModalState
     );
   }
 }
+

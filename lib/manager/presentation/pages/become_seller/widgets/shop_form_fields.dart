@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class ShopFormFields extends StatelessWidget {
   final TextEditingController descController;
@@ -150,22 +150,22 @@ class ShopFormFields extends StatelessWidget {
         counterText: '',
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide.merge(
-            const BorderSide(color: AppStyle.differBorderColor),
-            const BorderSide(color: AppStyle.differBorderColor),
+            const BorderSide(color: AppStyle.differBorder),
+            const BorderSide(color: AppStyle.differBorder),
           ),
         ),
         errorBorder: UnderlineInputBorder(
           borderSide: BorderSide.merge(
-            const BorderSide(color: AppStyle.differBorderColor),
-            const BorderSide(color: AppStyle.differBorderColor),
+            const BorderSide(color: AppStyle.differBorder),
+            const BorderSide(color: AppStyle.differBorder),
           ),
         ),
         border: const UnderlineInputBorder(),
         focusedErrorBorder: const UnderlineInputBorder(),
         disabledBorder: UnderlineInputBorder(
           borderSide: BorderSide.merge(
-            const BorderSide(color: AppStyle.differBorderColor),
-            const BorderSide(color: AppStyle.differBorderColor),
+            const BorderSide(color: AppStyle.differBorder),
+            const BorderSide(color: AppStyle.differBorder),
           ),
         ),
         focusedBorder: const UnderlineInputBorder(),
@@ -185,8 +185,8 @@ class ShopFormFields extends StatelessWidget {
         labelStyle: AppStyle.interNormal(size: 12, color: AppStyle.black),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide.merge(
-            const BorderSide(color: AppStyle.differBorderColor),
-            const BorderSide(color: AppStyle.differBorderColor),
+            const BorderSide(color: AppStyle.differBorder),
+            const BorderSide(color: AppStyle.differBorder),
           ),
         ),
         errorBorder: InputBorder.none,
@@ -194,8 +194,8 @@ class ShopFormFields extends StatelessWidget {
         focusedErrorBorder: const UnderlineInputBorder(),
         disabledBorder: UnderlineInputBorder(
           borderSide: BorderSide.merge(
-            const BorderSide(color: AppStyle.differBorderColor),
-            const BorderSide(color: AppStyle.differBorderColor),
+            const BorderSide(color: AppStyle.differBorder),
+            const BorderSide(color: AppStyle.differBorder),
           ),
         ),
         focusedBorder: const UnderlineInputBorder(),
@@ -203,3 +203,4 @@ class ShopFormFields extends StatelessWidget {
     );
   }
 }
+

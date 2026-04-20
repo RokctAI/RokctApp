@@ -1,11 +1,11 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/presentation/components/components.dart';
 
@@ -50,7 +50,7 @@ class DoorThree extends StatelessWidget {
                     padding: REdgeInsets.all(20),
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: AppStyle.doorColor,
+                      color: AppStyle.door,
                       borderRadius: BorderRadius.circular(16.r),
                     ),
                   ),
@@ -95,7 +95,7 @@ class DoorThree extends StatelessWidget {
                                 width: 32.r,
                                 height: double.infinity,
                                 decoration: const BoxDecoration(
-                                  color: AppStyle.doorColor,
+                                  color: AppStyle.door,
                                   shape: BoxShape.circle,
                                 ),
                                 child: Icon(
@@ -109,7 +109,7 @@ class DoorThree extends StatelessWidget {
                                 child: Text(
                                   AppHelpers.getTranslation(TrKeys.workForYou),
                                   style: AppStyle.interNoSemi(
-                                    color: AppStyle.doorColor,
+                                    color: AppStyle.door,
                                     size: 14,
                                   ),
                                 ),
@@ -130,3 +130,4 @@ class DoorThree extends StatelessWidget {
     );
   }
 }
+

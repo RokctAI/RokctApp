@@ -49,7 +49,7 @@ class SearchTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintStyle: AppStyle.interNormal(
               size: 13,
-              color: AppStyle.hintColor,
+              color: AppStyle.hint,
             ),
             hintText:
                 hintText ?? AppHelpers.getTranslation(TrKeys.searchProducts),

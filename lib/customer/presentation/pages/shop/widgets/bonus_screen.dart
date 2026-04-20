@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/customer/models/data/bonus_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/presentation/components/components.dart';
 
@@ -76,3 +76,4 @@ class BonusScreen extends StatelessWidget {
     );
   }
 }
+

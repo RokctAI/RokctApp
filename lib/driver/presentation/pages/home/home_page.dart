@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
@@ -20,7 +20,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/main.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/home/bottom_sheet_screen.dart';
 import 'package:rokctapp/driver/presentation/pages/home/delivery_bottom_sheet.dart';
 import 'package:rokctapp/driver/presentation/pages/home/parcel_bottom_sheet.dart';
@@ -544,7 +544,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             borderRadius: BorderRadius.circular(10.r),
             boxShadow: const [
               BoxShadow(
-                color: AppStyle.shadowColor,
+                color: AppStyle.shadow,
                 blurRadius: 2,
                 offset: Offset(0, 2),
               ),
@@ -556,3 +556,4 @@ class _HomePageState extends ConsumerState<HomePage> {
     );
   }
 }
+

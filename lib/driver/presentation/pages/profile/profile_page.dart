@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -11,7 +11,7 @@ import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/components/languages_modal.dart';
 import 'package:rokctapp/driver/presentation/pages/profile/widgets/logout_modal.dart';
 import 'package:rokctapp/driver/presentation/pages/profile/widgets/sections_item.dart';
@@ -34,7 +34,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
     return Directionality(
       textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.textGrey,
         resizeToAvoidBottomInset: false,
         body: Column(
           children: [
@@ -140,7 +140,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                               ],
                             ),
                           ),
-                          const VerticalDivider(color: AppStyle.borderColor),
+                          const VerticalDivider(color: AppStyle.border),
                           10.horizontalSpace,
                           Expanded(
                             child: Column(
@@ -390,7 +390,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   },
                   icon: Icon(
                     FlutterRemix.chat_smile_2_fill,
-                    color: AppStyle.buttonFontColor,
+                    color: AppStyle.buttonFont,
                     size: 20.r,
                   ),
                 ),
@@ -462,3 +462,4 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
   //   );
   // }
 }
+

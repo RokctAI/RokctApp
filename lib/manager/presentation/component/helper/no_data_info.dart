@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class NoDataInfo extends StatelessWidget {
   final String title;
@@ -31,3 +31,4 @@ class NoDataInfo extends StatelessWidget {
     );
   }
 }
+

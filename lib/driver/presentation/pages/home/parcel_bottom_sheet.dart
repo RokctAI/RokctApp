@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +8,7 @@ import 'package:rokctapp/driver/application/home/home_provider.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/driver/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/driver/presentation/component/maps_list.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/pages/home/widgets/approve_dialog.dart';
@@ -39,7 +39,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
               builder: (context, scrollController) => Container(
                 width: MediaQuery.sizeOf(context).width,
                 decoration: BoxDecoration(
-                  color: AppStyle.greyColor,
+                  color: AppStyle.textGrey,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.r),
                     topLeft: Radius.circular(12.r),
@@ -68,7 +68,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                             (MediaQuery.sizeOf(context).width - 100.w) / 2,
                       ),
                       decoration: BoxDecoration(
-                        color: AppStyle.bottomSheetIconColor,
+                        color: AppStyle.dragElement,
                         borderRadius: BorderRadius.circular(40.r),
                       ),
                     ),
@@ -99,7 +99,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                   child: Row(
                                     children: [
                                       Text(
-                                        "№ ${parcel?.id}",
+                                        "â„– ${parcel?.id}",
                                         style: AppStyle.interNormal(
                                           size: 14.sp,
                                           letterSpacing: -0.3,
@@ -374,3 +374,4 @@ class ParcelBottomSheetScreen extends StatelessWidget {
     );
   }
 }
+

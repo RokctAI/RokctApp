@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -10,7 +10,7 @@ import 'package:rokctapp/customer/application/home/home_provider.dart';
 import 'package:rokctapp/customer/models/data/story_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/presentation/components/components.dart';
 
@@ -395,7 +395,7 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
                           shopImage: widget.story?.first?.logoImg ?? "",
                           size: 46.r,
                           padding: 5.r,
-                          bgColor: AppStyle.tabBarBorderColor.withValues(
+                          bgColor: AppStyle.tabBarBorder.withValues(
                             alpha: 0.6,
                           ),
                         ),
@@ -468,3 +468,4 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
     );
   }
 }
+

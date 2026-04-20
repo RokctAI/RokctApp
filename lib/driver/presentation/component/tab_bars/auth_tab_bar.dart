@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class AuthTabBar extends StatefulWidget {
   final bool isScrollable;
@@ -35,7 +35,7 @@ class _AuthTabBarState extends State<AuthTabBar> {
       padding: EdgeInsets.all(6.r),
       height: 50.h,
       decoration: BoxDecoration(
-        color: AppStyle.greyColor,
+        color: AppStyle.textGrey,
         borderRadius: BorderRadius.circular(10.r),
         boxShadow: [
           BoxShadow(
@@ -88,3 +88,4 @@ class AuthTab {
 
   const AuthTab({required this.text, required this.icon});
 }
+

@@ -5,7 +5,7 @@ import 'package:rokctapp/customer/models/data/shop_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
 
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
@@ -191,7 +191,7 @@ class MarketThreeItem extends StatelessWidget {
     return Container(
       padding: REdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        border: Border.all(color: AppStyle.iconColor, width: 1.2),
+        border: Border.all(color: AppStyle.icon, width: 1.2),
         borderRadius: BorderRadius.circular(12.r),
       ),
       child: Column(
@@ -237,3 +237,4 @@ class MarketThreeItem extends StatelessWidget {
     );
   }
 }
+

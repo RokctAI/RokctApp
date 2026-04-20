@@ -78,7 +78,7 @@ class ProfileItemTwo extends StatelessWidget {
                     LocalStorage.getLangLtr()
                         ? Icons.keyboard_arrow_right
                         : Icons.keyboard_arrow_left,
-                    color: AppStyle.arrowRightProfileButton,
+                    color: AppStyle.dragElement,
                   ),
             ],
           ),

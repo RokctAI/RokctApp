@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+﻿// ignore_for_file: deprecated_member_use
 
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +13,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/common_app_bar.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 @RoutePage(name: 'DriverNotificationListRoute')
 class NotificationListPage extends ConsumerStatefulWidget {
@@ -258,3 +258,4 @@ class _NotificationListPageState extends ConsumerState<NotificationListPage> {
     );
   }
 }
+

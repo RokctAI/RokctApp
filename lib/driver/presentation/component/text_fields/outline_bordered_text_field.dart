@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class OutlinedBorderTextField extends StatelessWidget {
   final String? label;
@@ -100,16 +100,16 @@ class OutlinedBorderTextField extends StatelessWidget {
             ),
             errorBorder: UnderlineInputBorder(
               borderSide: BorderSide.merge(
-                const BorderSide(color: AppStyle.borderColor),
-                const BorderSide(color: AppStyle.borderColor),
+                const BorderSide(color: AppStyle.border),
+                const BorderSide(color: AppStyle.border),
               ),
             ),
             border: const UnderlineInputBorder(),
             focusedErrorBorder: const UnderlineInputBorder(),
             disabledBorder: UnderlineInputBorder(
               borderSide: BorderSide.merge(
-                const BorderSide(color: AppStyle.borderColor),
-                const BorderSide(color: AppStyle.borderColor),
+                const BorderSide(color: AppStyle.border),
+                const BorderSide(color: AppStyle.border),
               ),
             ),
             focusedBorder: const UnderlineInputBorder(),
@@ -127,9 +127,9 @@ class OutlinedBorderTextField extends StatelessWidget {
                   letterSpacing: -0.3,
                   size: 12,
                   color: isError
-                      ? AppStyle.redColor
+                      ? AppStyle.red
                       : isSuccess
-                      ? AppStyle.greyColor
+                      ? AppStyle.textGrey
                       : AppStyle.pendingDark,
                 ),
               ),
@@ -139,3 +139,4 @@ class OutlinedBorderTextField extends StatelessWidget {
     );
   }
 }
+

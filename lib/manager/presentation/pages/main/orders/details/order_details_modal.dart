@@ -1,4 +1,4 @@
-import 'package:intl/intl.dart';
+﻿import 'package:intl/intl.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/application/main/orders/cooking/cooking_orders_provider.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
@@ -118,7 +118,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                       ?.tag ??
                                                   "",
                                             )
-                                          : '${AppHelpers.getTranslation(TrKeys.order)} - №${state.order?.id}',
+                                          : '${AppHelpers.getTranslation(TrKeys.order)} - â„–${state.order?.id}',
                                       style: AppStyle.interNormal(
                                         size: 12,
                                         color: AppStyle.blackColor,
@@ -192,7 +192,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '${AppHelpers.getTranslation(TrKeys.order)} - №${state.order?.id}',
+                            '${AppHelpers.getTranslation(TrKeys.order)} - â„–${state.order?.id}',
                             style: AppStyle.interNormal(
                               size: 14,
                               color: AppStyle.blackColor,
@@ -200,7 +200,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                             ),
                           ),
                           Text(
-                            '${DateFormat('hh:mm, EE').format(DateTime.tryParse(state.order?.createdAt ?? '')?.toLocal() ?? DateTime.now())} — ${DateFormat('hh:mm, EE').format(DateTime.tryParse(state.order?.updatedAt ?? '')?.toLocal() ?? DateTime.now())}',
+                            '${DateFormat('hh:mm, EE').format(DateTime.tryParse(state.order?.createdAt ?? '')?.toLocal() ?? DateTime.now())} â€” ${DateFormat('hh:mm, EE').format(DateTime.tryParse(state.order?.updatedAt ?? '')?.toLocal() ?? DateTime.now())}',
                             style: AppStyle.interNormal(
                               size: 14,
                               color: AppStyle.blackColor,
@@ -666,3 +666,4 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
     );
   }
 }
+

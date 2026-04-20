@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/driver/application/delivery_zone/delivery_zone_provider.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 
@@ -29,7 +29,7 @@ class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.textGrey,
       resizeToAvoidBottomInset: false,
       body: Consumer(
         builder: (context, ref, child) {
@@ -94,3 +94,4 @@ class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
     );
   }
 }
+

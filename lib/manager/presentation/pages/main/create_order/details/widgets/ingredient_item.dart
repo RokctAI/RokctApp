@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/custom_checkbox.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class IngredientItem extends ConsumerWidget {
   final VoidCallback onTap;
@@ -71,7 +71,7 @@ class IngredientItem extends ConsumerWidget {
                             icon: Icon(
                               Icons.remove,
                               color: (addon.quantity ?? 1) == 1
-                                  ? AppStyle.borderColor
+                                  ? AppStyle.border
                                   : AppStyle.blackColor,
                             ),
                           ),
@@ -88,10 +88,11 @@ class IngredientItem extends ConsumerWidget {
                     : const SizedBox.shrink(),
               ],
             ),
-            Divider(color: AppStyle.greyColor.withOpacity(0.2)),
+            Divider(color: AppStyle.textGrey.withOpacity(0.2)),
           ],
         ),
       ),
     );
   }
 }
+

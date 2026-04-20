@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/logout_button.dart';
 import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/logout_modal.dart';
 import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/sections_item.dart';
@@ -97,12 +97,12 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                                 margin: REdgeInsets.symmetric(horizontal: 8),
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: AppStyle.textColor,
+                                  color: AppStyle.text,
                                 ),
                               ),
                               Icon(
                                 FlutterRemix.star_smile_fill,
-                                color: AppStyle.starColor,
+                                color: AppStyle.star,
                                 size: 20.r,
                               ),
                               4.horizontalSpace,
@@ -138,7 +138,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                                 child: Icon(
                                   FlutterRemix.flashlight_fill,
                                   size: 16.r,
-                                  color: AppStyle.buttonFontColor,
+                                  color: AppStyle.buttonFont,
                                 ),
                               ),
                             ],
@@ -156,7 +156,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.r),
                               border: Border.all(
-                                color: AppStyle.borderColor,
+                                color: AppStyle.border,
                                 width: 1.r,
                               ),
                             ),
@@ -202,7 +202,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                             height: 74.r,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.r),
-                              border: Border.all(color: AppStyle.borderColor),
+                              border: Border.all(color: AppStyle.border),
                             ),
                             alignment: Alignment.center,
                             child: Padding(
@@ -420,3 +420,4 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
   //   );
   // }
 }
+

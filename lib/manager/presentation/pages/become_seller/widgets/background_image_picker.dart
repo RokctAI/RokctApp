@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:rokctapp/manager/application/profile/profile_notifier.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 class BackgroundImagePicker extends StatelessWidget {
   final String bgImage;
@@ -116,7 +116,7 @@ class BackgroundImagePicker extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(
-              color: AppStyle.borderColor.withOpacity(0.3),
+              color: AppStyle.border.withOpacity(0.3),
               width: 2,
               style: BorderStyle.solid,
             ),
@@ -162,3 +162,4 @@ class BackgroundImagePicker extends StatelessWidget {
     );
   }
 }
+

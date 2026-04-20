@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:lottie/lottie.dart' as lottie;
 import 'package:google_fonts/google_fonts.dart';
@@ -11,7 +11,7 @@ import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/address/searched_location_item.dart';
 
 @RoutePage(name: 'ManagerSelectAddressRoute')
@@ -43,7 +43,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
   Widget build(BuildContext context) {
     return KeyboardDisable(
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.textGrey,
         resizeToAvoidBottomInset: false,
         body: Consumer(
           builder: (context, ref, child) {
@@ -118,7 +118,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                       decoration: BoxDecoration(
                         boxShadow: const <BoxShadow>[
                           BoxShadow(
-                            color: AppStyle.bgColor,
+                            color: AppStyle.mainBack,
                             offset: Offset(0, 2),
                             blurRadius: 2,
                             spreadRadius: 0,
@@ -132,7 +132,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                           Icon(
                             FlutterRemix.search_line,
                             size: 20.r,
-                            color: AppStyle.iconsColor,
+                            color: AppStyle.icons,
                           ),
                           12.horizontalSpace,
                           Expanded(
@@ -141,7 +141,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,
-                                color: AppStyle.iconsColor,
+                                color: AppStyle.icons,
                                 letterSpacing: -0.5,
                               ),
                               onChanged: (value) {
@@ -156,7 +156,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                                 hintStyle: GoogleFonts.inter(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 14,
-                                  color: AppStyle.iconColor,
+                                  color: AppStyle.icon,
                                   letterSpacing: -0.5,
                                 ),
                               ),
@@ -169,7 +169,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                             icon: Icon(
                               FlutterRemix.close_line,
                               size: 20.r,
-                              color: AppStyle.iconsColor,
+                              color: AppStyle.icons,
                             ),
                           ),
                         ],
@@ -266,3 +266,4 @@ class _SelectAddressPageState extends State<SelectAddressPage>
     );
   }
 }
+

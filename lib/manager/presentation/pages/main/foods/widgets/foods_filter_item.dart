@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 
 class FoodsFilterItem extends StatelessWidget {
@@ -62,7 +62,7 @@ class FoodsFilterItem extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10.r),
                         color: currentItem == e || currentItemTwo == e
                             ? AppStyle.primary
-                            : AppStyle.greyColor,
+                            : AppStyle.textGrey,
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -130,3 +130,4 @@ class FoodsFilterItem extends StatelessWidget {
     );
   }
 }
+

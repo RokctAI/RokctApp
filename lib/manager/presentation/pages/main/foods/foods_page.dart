@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/foods/foods_body.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/extras/extras_body.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/addons/addons_body.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
@@ -92,7 +92,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
   Widget build(BuildContext context) {
     return KeyboardDisable(
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.textGrey,
         body: Column(
           children: [
             CustomAppBar(
@@ -144,7 +144,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
                               color: AppStyle.transparent,
                               borderRadius: BorderRadius.circular(10.r),
                               border: Border.all(
-                                color: AppStyle.tabBarBorderColor,
+                                color: AppStyle.tabBarBorder,
                               ),
                             ),
                             child: TabBar(
@@ -155,7 +155,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
                                 color: AppStyle.blackColor,
                               ),
                               labelColor: AppStyle.white,
-                              unselectedLabelColor: AppStyle.textColor,
+                              unselectedLabelColor: AppStyle.text,
                               unselectedLabelStyle: AppStyle.interRegular(
                                 size: 14,
                               ),
@@ -202,3 +202,4 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
     );
   }
 }
+

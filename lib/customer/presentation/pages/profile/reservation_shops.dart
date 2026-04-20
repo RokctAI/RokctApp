@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
@@ -7,7 +7,7 @@ import 'package:rokctapp/customer/application/home/home_provider.dart';
 import 'package:rokctapp/core/application/select/select_provider.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
@@ -148,3 +148,4 @@ class _ReservationShopsState extends ConsumerState<ReservationShops> {
     );
   }
 }
+

@@ -1,10 +1,10 @@
-// ignore_for_file: library_private_types_in_public_api, deprecated_member_use
+﻿// ignore_for_file: library_private_types_in_public_api, deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 
 class BottomNavigatorTwo extends StatelessWidget {
@@ -238,3 +238,4 @@ class FloatingNavbarItem {
   FloatingNavbarItem({this.icon, this.title, this.customWidget})
     : assert(icon != null || customWidget != null);
 }
+

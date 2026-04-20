@@ -1,4 +1,4 @@
-import 'package:rokctapp/core/presentation/app_assets.dart';
+﻿import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:rokctapp/driver/application/profile/provider/profile_settings_provider.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/home/widgets/stores.dart';
 
 class BottomSheetScreen extends StatefulWidget {
@@ -35,7 +35,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
         height: 336.h,
         width: MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(
-          color: AppStyle.greyColor,
+          color: AppStyle.textGrey,
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(12.r),
             topLeft: Radius.circular(12.r),
@@ -60,7 +60,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
               height: 4.h,
               width: 48.w,
               decoration: BoxDecoration(
-                color: AppStyle.bottomSheetIconColor,
+                color: AppStyle.dragElement,
                 borderRadius: BorderRadius.circular(40.r),
               ),
             ),
@@ -212,3 +212,4 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
     );
   }
 }
+

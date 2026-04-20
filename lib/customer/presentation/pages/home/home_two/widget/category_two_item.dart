@@ -1,6 +1,6 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 import 'package:rokctapp/customer/presentation/components/components.dart';
 
@@ -51,7 +51,7 @@ class CategoryTwoItem extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: AppStyle.iconColor,
+                    color: AppStyle.icon,
                     borderRadius: BorderRadius.circular(24.r),
                   ),
                   child: CustomNetworkImage(
@@ -83,3 +83,4 @@ class CategoryTwoItem extends StatelessWidget {
     );
   }
 }
+
