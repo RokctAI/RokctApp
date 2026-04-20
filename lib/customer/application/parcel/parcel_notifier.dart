@@ -38,7 +38,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
           state = state.copyWith(isButtonLoading: false);
           context.maybePop(context);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -73,7 +73,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
         success: (data) {
           state = state.copyWith(isLoading: false, types: data.data ?? []);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -101,7 +101,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
         success: (data) {
           state = state.copyWith(isLoading: false, calculate: data);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false, error: true);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -198,7 +198,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
               break;
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -227,7 +227,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
             MaterialPageRoute(builder: (_) => WebViewPage(url: data)),
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -386,7 +386,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
             state = state.copyWith(markers: list);
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (!isRefresh) {
             state = state.copyWith(isLoading: false);
           }
@@ -419,7 +419,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
           }
           state = state.copyWith(polylineCoordinates: list);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(polylineCoordinates: []);
         },
       );

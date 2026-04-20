@@ -45,7 +45,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
         controller?.loadComplete();
         return;
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         debugPrint(" ==> fetch ads fail: $failure");
         if (context != null) {
@@ -88,7 +88,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
               onSuccess.call();
               state = state.copyWith(isPaymentLoading: false);
             },
-            failure: (f, s) {
+            failure: (failure, status) {
               state = state.copyWith(isPaymentLoading: false);
             },
           );

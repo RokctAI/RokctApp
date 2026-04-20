@@ -1,7 +1,7 @@
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 
-abstract class ParcelRepositoryFacade {
+abstract class driverParcelRepository {
   Future<ApiResult<ParcelOrder>> showParcel(int id);
 
   Future<ApiResult<dynamic>> setCurrentOrder(int? orderId);

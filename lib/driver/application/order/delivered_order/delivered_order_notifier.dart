@@ -25,7 +25,7 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
         deliveredOrder = 1;
         state = state.copyWith(isLoading: true);
       }
-      final response = await OrdersRepositoryFacade.getHistoryOrders(
+      final response = await driverOrdersRepository.getHistoryOrders(
         isRefresh ? 1 : ++deliveredOrder,
         status: ["delivered"],
       );
@@ -46,7 +46,7 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
             }
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (!isRefresh) {
             deliveredOrder--;
             controller.loadFailed();

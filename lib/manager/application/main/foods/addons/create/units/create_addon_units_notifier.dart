@@ -27,7 +27,7 @@ class CreateAddonUnitsNotifier extends StateNotifier<CreateAddonUnitsState> {
               units[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         debugPrint('====> fetch units fail $failure');
       },

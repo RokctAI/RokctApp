@@ -12,8 +12,8 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/splash/splash_state.dart';
 
 class SplashNotifier extends StateNotifier<SplashState> {
-  final SettingsRepository _settingsRepository;
-  final UserRepository _userRepository;
+  final driverSettingsRepository _settingsRepository;
+  final driverUserRepository _userRepository;
 
   SplashNotifier(this._settingsRepository, this._userRepository)
     : super(const SplashState());
@@ -25,7 +25,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         LocalStorage.setDeliveryInfo(data);
         LocalStorage.setOnline(data.data?.online ?? false);
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
         debugPrint('==> error with fetching profile $failure');
       },
@@ -38,7 +38,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
       success: (data) {
         LocalStorage.setSettingsList(data.data ?? []);
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
         debugPrint('==> error with fetching settings $failure');
       },
@@ -59,7 +59,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         }
         LocalStorage.setSelectedCurrency(currencies[defaultCurrencyIndex]);
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
         debugPrint('==> error with fetching currencies $failure');
       },
@@ -86,7 +86,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           onBecome?.call();
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         if (status == 401) {
           onLogin?.call();
           LocalStorage.logout();
@@ -113,7 +113,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         success: (data) {
           LocalStorage.setTranslations(data.data);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           debugPrint('==> error with fetching translations $failure');
           AppHelpers.showCheckTopSnackBar(
             context,

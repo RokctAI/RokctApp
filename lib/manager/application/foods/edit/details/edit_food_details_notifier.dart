@@ -59,7 +59,7 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
         success: (data) {
           imageUrl.addAll(data.data?.title ?? []);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           debugPrint('==> upload product image fail: $failure');
           AppHelpers.showCheckTopSnackBar(context, text: failure);
           state = state.copyWith(isLoading: true);

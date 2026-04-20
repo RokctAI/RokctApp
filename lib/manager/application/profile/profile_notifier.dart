@@ -82,13 +82,13 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
             }
             refreshController?.refreshCompleted();
           },
-          failure: (f, s) {
+          failure: (failure, status) {
             if (refreshController == null) {
               state = state.copyWith(isLoading: false);
             }
             if (status == 401) {
               context.router.popUntilRoot();
-              context.replaceRoute(const ManagerAuthRoute());
+              context.replaceRoute(const LoginRoute());
             }
             AppHelpers.showCheckTopSnackBar(context, text: failure);
           },
@@ -218,7 +218,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         success: (data) async {
           LocalStorage.logout();
           context.router.popUntilRoot();
-          context.replaceRoute(const ManagerAuthRoute());
+          context.replaceRoute(const LoginRoute());
         },
         failure: (fail, status) {
           state = state.copyWith(isLoading: false);

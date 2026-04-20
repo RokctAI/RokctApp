@@ -52,7 +52,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             }
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (!isRefresh) {
             activeOrder--;
             controller.loadFailed();
@@ -102,7 +102,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             }
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (!isRefresh) {
             historyOrder--;
             controller.loadFailed();
@@ -152,7 +152,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             }
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (!isRefresh) {
             refundOrder--;
             controller.loadFailed();
@@ -185,7 +185,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             totalActiveCount: data.meta?.total ?? 0,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isActiveLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -213,7 +213,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             isHistoryLoading: false,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isHistoryLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -241,7 +241,7 @@ class OrdersListNotifier extends Notifier<OrdersListState> {
             isRefundLoading: false,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isRefundLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,

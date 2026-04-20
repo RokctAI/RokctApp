@@ -111,7 +111,7 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
             isSuccess: true,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -142,7 +142,7 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
           url = data.imageData?.title;
           state = state.copyWith(url: url ?? "");
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           debugPrint('==> upload profile image failure: $failure');
           AppHelpers.showCheckTopSnackBar(

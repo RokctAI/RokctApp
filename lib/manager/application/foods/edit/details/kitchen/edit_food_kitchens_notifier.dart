@@ -83,7 +83,7 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
               kitchens[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         debugPrint('====> fetch kitchens fail $failure');
       },

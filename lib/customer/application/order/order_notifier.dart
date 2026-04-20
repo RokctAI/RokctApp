@@ -71,7 +71,7 @@ class OrderNotifier extends Notifier<OrderState> {
           });
           state = state.copyWith(markers: list);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
           }
@@ -269,7 +269,7 @@ class OrderNotifier extends Notifier<OrderState> {
           );
           state = state.copyWith(shopMarkers: list);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -289,7 +289,7 @@ class OrderNotifier extends Notifier<OrderState> {
         success: (data) async {
           state = state.copyWith(branches: data.data);
         },
-        failure: (f, s) {},
+        failure: (failure, status) {},
       );
     } else {
       if (context.mounted) {
@@ -328,7 +328,7 @@ class OrderNotifier extends Notifier<OrderState> {
             state = state.copyWith(isButtonLoading: false, calculateData: data);
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (isLoading) {
             state = state.copyWith(isLoading: false);
           } else {
@@ -496,7 +496,7 @@ class OrderNotifier extends Notifier<OrderState> {
                   );
                 }
               },
-              failure: (f, s) {
+              failure: (failure, status) {
                 state = state.copyWith(isButtonLoading: false);
                 if (context.mounted) {
                   AppHelpers.showCheckTopSnackBar(context, failure);
@@ -581,7 +581,7 @@ class OrderNotifier extends Notifier<OrderState> {
             getRoutingAll(context: context, start: shopLatLng, end: userLatLng);
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -635,7 +635,7 @@ class OrderNotifier extends Notifier<OrderState> {
             state = state.copyWith(isAddLoading: false);
             onSuccess();
           },
-          failure: (f, s) {
+          failure: (failure, status) {
             state = state.copyWith(isAddLoading: false);
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
@@ -732,7 +732,7 @@ class OrderNotifier extends Notifier<OrderState> {
             state = state.copyWith(markers: list);
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (!isRefresh) {
             state = state.copyWith(isLoading: false);
           }
@@ -763,7 +763,7 @@ class OrderNotifier extends Notifier<OrderState> {
           onSuccess.call();
           context.maybePop(context);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -794,7 +794,7 @@ class OrderNotifier extends Notifier<OrderState> {
           );
           context.maybePop(context);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -826,7 +826,7 @@ class OrderNotifier extends Notifier<OrderState> {
           state = state.copyWith(isButtonLoading: false);
           context.maybePop(context);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, failure);
@@ -857,7 +857,7 @@ class OrderNotifier extends Notifier<OrderState> {
           }
           state = state.copyWith(polylineCoordinates: list);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(polylineCoordinates: []);
         },
       );

@@ -43,7 +43,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
         controller?.loadComplete();
         return;
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         AppHelpers.errorSnackBar(context, text: failure);
       },
@@ -80,7 +80,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
         controller?.loadComplete();
         return;
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         state = state.copyWith(isComboLoading: false);
         AppHelpers.errorSnackBar(context, text: failure);
       },

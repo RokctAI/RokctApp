@@ -7,7 +7,7 @@ import 'package:rokctapp/driver/infrastructure/models/response/parcel_paginate_r
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 
-class ParcelRepository implements ParcelRepositoryFacade {
+class ParcelRepository implements driverParcelRepository {
   @override
   Future<ApiResult<List<ParcelOrder>>> getActiveOrders(int page) async {
     final data = {

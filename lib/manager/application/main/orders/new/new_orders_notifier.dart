@@ -69,7 +69,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
           state.refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -82,7 +82,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
         if (status == 401) {
           LocalStorage.logout();
           context.router.popUntilRoot();
-          context.replaceRoute(const ManagerAuthRoute());
+          context.replaceRoute(const LoginRoute());
         }
       },
     );

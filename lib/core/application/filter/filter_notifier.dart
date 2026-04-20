@@ -41,7 +41,7 @@ class FilterNotifier extends Notifier<FilterState> {
             shopCount: data.meta?.total ?? 0,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -88,7 +88,7 @@ class FilterNotifier extends Notifier<FilterState> {
             shopCount: data.meta?.total ?? 0,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -127,7 +127,7 @@ class FilterNotifier extends Notifier<FilterState> {
         success: (data) async {
           state = state.copyWith(tags: data.data ?? []);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isTagLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -148,7 +148,7 @@ class FilterNotifier extends Notifier<FilterState> {
             ),
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isTagLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -178,7 +178,7 @@ class FilterNotifier extends Notifier<FilterState> {
             shopCount: data.meta?.total ?? 0,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isRestaurantLoading: false);
           AppHelpers.showCheckTopSnackBar(context, f);
         },
@@ -225,7 +225,7 @@ class FilterNotifier extends Notifier<FilterState> {
             }
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (!isRefresh) {
             shopIndex--;
             shopController.loadFailed();

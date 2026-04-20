@@ -26,10 +26,10 @@ class _SplashPageState extends ConsumerState<SplashPage> {
             noConnection: () =>
                 context.replaceRoute(const DriverNoConnectionRoute()),
             goMain: () => context.replaceRoute(const DriverHomeRoute()),
-            goLogin: () => context.replaceRoute(const DriverLoginRoute()),
+            goLogin: () => context.replaceRoute(const LoginRoute()),
             setDriverData: ref.read(driverProvider.notifier).setDriverData,
             onBecome: () =>
-                context.replaceRoute(const DriverBecomeDriverRoute()),
+                context.replaceRoute(const RegisterRoute()),
           );
     });
   }

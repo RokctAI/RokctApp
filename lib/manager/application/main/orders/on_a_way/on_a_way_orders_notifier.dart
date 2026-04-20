@@ -62,7 +62,7 @@ class OnAWayOrdersNotifier extends StateNotifier<OnAWayOrdersState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);

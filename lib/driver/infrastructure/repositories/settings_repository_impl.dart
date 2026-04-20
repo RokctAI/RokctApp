@@ -7,7 +7,7 @@ import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 
-class SettingsRepositoryImpl implements SettingsRepository {
+class SettingsRepositoryImpl implements driverSettingsRepository {
   @override
   Future<ApiResult<GalleryUploadResponse>> uploadImage(
     String filePath,

@@ -1,7 +1,7 @@
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 
-abstract class NotificationRepositoryFacade {
+abstract class driverNotificationRepo {
   Future<ApiResult<NotificationResponse>> getNotifications({int? page});
 
   Future<ApiResult<NotificationResponse>> getAllNotifications();

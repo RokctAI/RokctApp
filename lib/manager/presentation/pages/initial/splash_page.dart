@@ -33,7 +33,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
                     },
                   );
             },
-            goLogin: () => context.replaceRoute(const ManagerAuthRoute()),
+            goLogin: () => context.replaceRoute(const LoginRoute()),
             goBecome: () =>
                 context.replaceRoute(const ManagerCreateShopRoute()),
           );

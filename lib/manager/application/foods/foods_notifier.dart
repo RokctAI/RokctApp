@@ -220,7 +220,7 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         debugPrint('====> fetch products fail $failure');
         _page--;
         if (_page == 0) {

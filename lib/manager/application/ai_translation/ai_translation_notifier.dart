@@ -22,7 +22,7 @@ class AiTranslationNotifier extends StateNotifier<AiTranslationState> {
         state = state.copyWith(isLoading: false, translatedUsingAi: true);
         onSuccess?.call(data.data?.title);
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
       },
     );

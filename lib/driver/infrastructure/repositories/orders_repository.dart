@@ -7,7 +7,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_paginate_response.dart';
 
-class OrdersRepository implements OrdersRepositoryFacade {
+class OrdersRepository implements driverOrdersRepository {
   @override
   Future<ApiResult<OrderPaginateResponse>> getActiveOrders(int page) async {
     final data = {

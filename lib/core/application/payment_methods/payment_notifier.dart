@@ -33,7 +33,7 @@ class PaymentNotifier extends Notifier<PaymentState> {
           }
           state = state.copyWith(payments: payments, isPaymentsLoading: false);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isPaymentsLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,

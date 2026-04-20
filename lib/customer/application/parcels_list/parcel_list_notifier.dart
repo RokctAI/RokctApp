@@ -50,7 +50,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             }
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (!isRefresh) {
             activeOrder--;
             controller.loadFailed();
@@ -100,7 +100,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             }
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (!isRefresh) {
             historyOrder--;
             controller.loadFailed();
@@ -133,7 +133,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             totalActiveCount: data.meta?.total ?? 0,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isActiveLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -161,7 +161,7 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
             isHistoryLoading: false,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isHistoryLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,

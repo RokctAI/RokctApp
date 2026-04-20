@@ -27,7 +27,7 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
               units[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,

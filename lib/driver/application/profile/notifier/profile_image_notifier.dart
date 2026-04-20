@@ -9,8 +9,8 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/profile/state/profile_image_state.dart';
 
 class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
-  final UserRepository _userRepository;
-  final SettingsRepository _settingsRepository;
+  final driverUserRepository _userRepository;
+  final driverSettingsRepository _settingsRepository;
 
   ProfileImageNotifier(this._userRepository, this._settingsRepository)
     : super(const ProfileImageState());

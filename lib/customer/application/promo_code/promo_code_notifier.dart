@@ -30,7 +30,7 @@ class PromoCodeNotifier extends Notifier<PromoCodeState> {
         success: (data) {
           state = state.copyWith(isLoading: false, isActive: true);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false, isActive: false);
         },
       );

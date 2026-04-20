@@ -81,7 +81,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -151,7 +151,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         _canceledPage--;
         if (_canceledPage == 0) {
           state = state.copyWith(isLoading: false);
@@ -220,7 +220,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         _deliveredPage--;
         if (_deliveredPage == 0) {
           state = state.copyWith(isLoading: false);

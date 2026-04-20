@@ -26,7 +26,7 @@ class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
         state = state.copyWith(isLoading: false);
         updateSuccess?.call();
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         debugPrint('==> error update working days $failure');
       },

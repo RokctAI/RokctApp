@@ -43,7 +43,7 @@ class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
         state = state.copyWith(isCreating: false);
         orderSuccess?.call(data.data?.id ?? 0);
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         debugPrint('===> create order fail $failure');
         failed?.call(failure.toString());
         state = state.copyWith(isCreating: false);

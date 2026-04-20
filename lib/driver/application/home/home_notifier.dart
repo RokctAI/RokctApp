@@ -17,12 +17,12 @@ class HomeNotifier extends StateNotifier<HomeState> {
 
   Future<void> fetchDeliveryZone({bool isFetch = false}) async {
     if (isFetch) {
-      final response = await UserRepository.getDeliveryZone();
+      final response = await driverUserRepository.getDeliveryZone();
       response.when(
         success: (data) {
           setDeliveryZone(data.data);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           debugPrint('==> get delivery zone failure: $failure');
         },
       );
@@ -74,7 +74,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         markers: {},
         isLoading: true,
       );
-      final response = await DrawRepository.getRouting(start: start, end: end);
+      final response = await driverDrawRepository.getRouting(start: start, end: end);
       response.when(
         success: (data) {
           List<LatLng> list = [];
@@ -88,7 +88,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
             isLoading: false,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           // if(status==400){
           //   AppHelpers.showCheckTopSnackBar(context, TrKeys.moreDistance);
           // }
@@ -113,10 +113,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
   }) async {
     if (await AppConnectivity.connectivity()) {
       state = state.copyWith(isLoading: state.isLoading);
-      final response = await UserRepository.setCurrentLocation(start);
+      final response = await driverUserRepository.setCurrentLocation(start);
       response.when(
         success: (data) {},
-        failure: (f, s) {
+        failure: (failure, status) {
           if (status != 501) {
             AppHelpers.showCheckTopSnackBar(
               context,
@@ -138,7 +138,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     state = state.copyWith(isGoUser: false, isLoading: true);
     if (await AppConnectivity.connectivity()) {
       if (setOrder) {
-        final response = await OrdersRepositoryFacade.setOrder(orderId ?? "0");
+        final response = await driverOrdersRepository.setOrder(orderId ?? "0");
         response.when(
           success: (data) {
             state = state.copyWith(
@@ -148,7 +148,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
             );
             onSuccess();
           },
-          failure: (f, s) {
+          failure: (failure, status) {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
@@ -184,14 +184,14 @@ class HomeNotifier extends StateNotifier<HomeState> {
     );
     if (await AppConnectivity.connectivity()) {
       if (setOrder) {
-        final response = await ParcelRepositoryFacade.setParcel(
+        final response = await driverParcelRepository.setParcel(
           parcelId ?? "0",
         );
         response.when(
           success: (data) {
             state = state.copyWith(isLoading: false, parcelDetail: parcel);
           },
-          failure: (f, s) {
+          failure: (failure, status) {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
@@ -214,7 +214,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     fetchDeliveryZone();
     state = state.copyWith(isGoRestaurant: false, isGoUser: false);
     if (await AppConnectivity.connectivity()) {
-      final response = await OrdersRepositoryFacade.fetchCurrentOrder();
+      final response = await driverOrdersRepository.fetchCurrentOrder();
       response.when(
         success: (data) async {
           if (data.data?.isNotEmpty ?? false) {
@@ -288,7 +288,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
             }
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -315,13 +315,13 @@ class HomeNotifier extends StateNotifier<HomeState> {
         state = state.copyWith(orderDetail: order);
         return;
       }
-      final response = await OrdersRepositoryFacade.updateOrder(
+      final response = await driverOrdersRepository.updateOrder(
         orderId ?? 0,
         "on_a_way",
       );
       response.when(
         success: (data) {},
-        failure: (f, s) {
+        failure: (failure, status) {
           AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(f),
@@ -347,13 +347,13 @@ class HomeNotifier extends StateNotifier<HomeState> {
         state = state.copyWith(parcelDetail: parcel);
         return;
       }
-      final response = await ParcelRepositoryFacade.updateParcel(
+      final response = await driverParcelRepository.updateParcel(
         parcelId ?? 0,
         "on_a_way",
       );
       response.when(
         success: (data) {},
-        failure: (f, s) {
+        failure: (failure, status) {
           AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(f),
@@ -375,7 +375,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     int? orderId,
   }) async {
     if (await AppConnectivity.connectivity()) {
-      OrdersRepositoryFacade.addReview(
+      driverOrdersRepository.addReview(
         orderId ?? 0,
         rating: rating ?? 0,
         comment: comment ?? "",
@@ -394,7 +394,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     int? parcelId,
   }) async {
     if (await AppConnectivity.connectivity()) {
-      ParcelRepositoryFacade.addReviewParcel(
+      driverParcelRepository.addReviewParcel(
         parcelId ?? 0,
         rating: rating ?? 0,
         comment: comment ?? "",
@@ -418,7 +418,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
       markers: {},
     );
     if (await AppConnectivity.connectivity()) {
-      ParcelRepositoryFacade.updateParcel(parcelId ?? 0, "delivered");
+      driverParcelRepository.updateParcel(parcelId ?? 0, "delivered");
     } else {
       if (context.mounted) {
         AppHelpers.showNoConnectionSnackBar(context);
@@ -438,7 +438,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
       markers: {},
     );
     if (await AppConnectivity.connectivity()) {
-      OrdersRepositoryFacade.updateOrder(orderId ?? 0, "delivered");
+      driverOrdersRepository.updateOrder(orderId ?? 0, "delivered");
     } else {
       if (context.mounted) {
         AppHelpers.showNoConnectionSnackBar(context);
@@ -453,7 +453,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
   }) async {
     state = state.copyWith(isLoading: true);
     if (await AppConnectivity.connectivity()) {
-      await OrdersRepositoryFacade.cancelOrder(orderId, note);
+      await driverOrdersRepository.cancelOrder(orderId, note);
       state = state.copyWith(
         isGoUser: false,
         isGoRestaurant: false,
@@ -474,12 +474,12 @@ class HomeNotifier extends StateNotifier<HomeState> {
     required int? orderId,
     required String path,
   }) async {
-    final res = await SettingsRepository.uploadImage(path, UploadType.products);
+    final res = await driverSettingsRepository.uploadImage(path, UploadType.products);
     res.when(
       success: (success) {
-        OrdersRepositoryFacade.uploadImage(orderId, success.imageData?.title);
+        driverOrdersRepository.uploadImage(orderId, success.imageData?.title);
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         AppHelpers.showCheckTopSnackBar(context, failure);
       },
     );
@@ -487,12 +487,12 @@ class HomeNotifier extends StateNotifier<HomeState> {
 
   Future<void> setOnline({required BuildContext context}) async {
     if (await AppConnectivity.connectivity()) {
-      final response = await UserRepository.setOnline();
+      final response = await driverUserRepository.setOnline();
       response.when(
         success: (data) {
           LocalStorage.setOnline(!LocalStorage.getOnline());
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(f),

@@ -9,7 +9,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/notification/notification_state.dart';
 
 class NotificationNotifier extends StateNotifier<NotificationState> {
-  final NotificationRepositoryFacade _notificationRepository;
+  final driverNotificationRepo _notificationRepository;
 
   int _notificationPage = 0;
 

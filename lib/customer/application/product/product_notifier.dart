@@ -183,7 +183,7 @@ class ProductNotifier extends Notifier<ProductState> {
             state = state.copyWith(isAddLoading: false);
             onSuccess();
           },
-          failure: (f, s) {
+          failure: (failure, status) {
             if (status != 400) {
               state = state.copyWith(isAddLoading: false);
               AppHelpers.showCheckTopSnackBar(context, failure);

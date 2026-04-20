@@ -25,7 +25,7 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
         progressOrder = 1;
         state = state.copyWith(isLoading: true);
       }
-      final response = await OrdersRepositoryFacade.getProgressOrders(
+      final response = await driverOrdersRepository.getProgressOrders(
         isRefresh ? 1 : ++progressOrder,
       );
       response.when(
@@ -49,7 +49,7 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
             }
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           if (!isRefresh) {
             progressOrder--;
             controller.loadFailed();

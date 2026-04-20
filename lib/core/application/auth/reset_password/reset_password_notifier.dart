@@ -97,7 +97,7 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
             isSuccess: true,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(
             isLoading: false,
             isEmailError: true,
@@ -151,7 +151,7 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
             context.replaceRoute(MainRoute());
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false, isSuccess: false);
           if (s == 400) {
             AppHelpers.showCheckTopSnackBar(

@@ -70,7 +70,7 @@ class ViewMapNotifier extends Notifier<ViewMapState> {
           state = state.copyWith(isLoading: false);
           onSuccess?.call();
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
         },
       );
@@ -100,7 +100,7 @@ class ViewMapNotifier extends Notifier<ViewMapState> {
           state = state.copyWith(isLoading: false);
           onSuccess?.call();
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
         },
       );
@@ -133,7 +133,7 @@ class ViewMapNotifier extends Notifier<ViewMapState> {
             );
           }
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           if (!(status == 400 || status == 404)) {
             AppHelpers.showCheckTopSnackBar(context, failure);

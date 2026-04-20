@@ -68,7 +68,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
           controller?.loadNoData();
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         debugPrint('====> fetch categories fail $failure');
         _page--;
         AppHelpers.showCheckTopSnackBar(
@@ -118,7 +118,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
           controller?.loadNoData();
         }
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         debugPrint('====> fetch categories fail $failure');
         _page--;
         AppHelpers.showCheckTopSnackBar(
@@ -226,7 +226,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         controller?.loadComplete();
         return;
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         AppHelpers.errorSnackBar(context, text: failure);
       },

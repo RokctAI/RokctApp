@@ -7,7 +7,7 @@ import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 
-class UserRepositoryImpl implements UserRepository {
+class UserRepositoryImpl implements driverUserRepository {
   @override
   Future<ApiResult<DeliveryResponse>> getDriverDetails() async {
     try {

@@ -6,7 +6,7 @@ import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 
-class DrawRepositoryImpl implements DrawRepository {
+class DrawRepositoryImpl implements driverDrawRepository {
   @override
   Future<ApiResult<DrawRouting>> getRouting({
     required LatLng start,

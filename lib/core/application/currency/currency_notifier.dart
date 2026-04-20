@@ -33,7 +33,7 @@ class CurrencyNotifier extends Notifier<CurrencyState> {
 
           state = state.copyWith(isLoading: false, list: data.data ?? []);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
         },

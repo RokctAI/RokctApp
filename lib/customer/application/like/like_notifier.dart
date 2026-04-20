@@ -24,7 +24,7 @@ class LikeNotifier extends Notifier<LikeState> {
               shops: data.data ?? [],
             );
           },
-          failure: (f, s) {
+          failure: (failure, status) {
             state = state.copyWith(isShopLoading: false);
             AppHelpers.showCheckTopSnackBar(context, failure);
           },

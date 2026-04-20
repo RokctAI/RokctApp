@@ -124,7 +124,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
             );
             onSuccess?.call();
           },
-          failure: (f, s) {
+          failure: (failure, status) {
             state = state.copyWith(
               isLoading: false,
               isCodeError: true,
@@ -157,7 +157,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
           state = state.copyWith(isLoading: false, isSuccess: true);
           _timer?.cancel();
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(
             isLoading: false,
             isCodeError: true,
@@ -198,7 +198,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
             isResetPasswordSuccess: true,
           );
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false, isCodeError: true);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -249,7 +249,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
                 isResetPasswordSuccess: true,
               );
             },
-            failure: (f, s) {
+            failure: (failure, status) {
               state = state.copyWith(isLoading: false, isCodeError: true);
               AppHelpers.showCheckTopSnackBar(
                 context,
@@ -331,7 +331,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
               ),
             );
           },
-          failure: (f, s) {
+          failure: (failure, status) {
             state = state.copyWith(
               isLoading: false,
               isCodeError: true,
@@ -371,7 +371,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
         success: (data) async {
           state = state.copyWith(isResending: false);
         },
-        failure: (f, s) {
+        failure: (failure, status) {
           state = state.copyWith(isResending: false);
           AppHelpers.showCheckTopSnackBar(
             context,
@@ -425,7 +425,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
               verificationCode: success.data?.verifyId ?? '',
             );
           },
-          failure: (f, s) {
+          failure: (failure, status) {
             AppHelpers.showCheckTopSnackBar(context, failure);
             state = state.copyWith(isResending: false);
           },
@@ -475,7 +475,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
               verificationCode: success.data?.verifyId ?? '',
             );
           },
-          failure: (f, s) {
+          failure: (failure, status) {
             AppHelpers.showCheckTopSnackBar(context, failure);
             state = state.copyWith(isResending: false);
           },
