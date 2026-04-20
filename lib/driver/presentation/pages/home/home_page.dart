@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
@@ -556,4 +556,3 @@ class _HomePageState extends ConsumerState<HomePage> {
     );
   }
 }
-

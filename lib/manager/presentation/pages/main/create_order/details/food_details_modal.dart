@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -252,4 +252,3 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
     );
   }
 }
-

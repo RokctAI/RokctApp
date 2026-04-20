@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -28,8 +28,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
             goMain: () => context.replaceRoute(const DriverHomeRoute()),
             goLogin: () => context.replaceRoute(const LoginRoute()),
             setDriverData: ref.read(driverProvider.notifier).setDriverData,
-            onBecome: () =>
-                context.replaceRoute(const RegisterRoute()),
+            onBecome: () => context.replaceRoute(const RegisterRoute()),
           );
     });
   }

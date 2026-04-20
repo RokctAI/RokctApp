@@ -1,4 +1,4 @@
-﻿import 'package:get_it/get_it.dart';
+import 'package:get_it/get_it.dart';
 import 'package:google_place/google_place.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
@@ -233,4 +233,3 @@ manager_sub.SubscriptionsFacade get managerSubscriptionRepository =>
     getIt.get<manager_sub.SubscriptionsFacade>();
 manager_payment.PaymentsFacade get managerPaymentRepositoryNew =>
     getIt.get<manager_payment.PaymentsFacade>();
-

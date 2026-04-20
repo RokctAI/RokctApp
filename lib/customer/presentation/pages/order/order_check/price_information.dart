@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/customer/application/order/order_state.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
@@ -120,4 +120,3 @@ class PriceInformation extends StatelessWidget {
     );
   }
 }
-

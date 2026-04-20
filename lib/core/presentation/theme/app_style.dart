@@ -9,7 +9,7 @@ abstract class AppStyle {
 
   // --- Brand & Getters ---
   static const Color brandGreen = Color(0xFF83EA00); // Driver default
-  static const Color brandRed = Color(0xFFE23744);   // Customer/Manager default
+  static const Color brandRed = Color(0xFFE23744); // Customer/Manager default
 
   static Color get primary =>
       _getColorFromSettings('primary_color', brandGreen);
@@ -22,7 +22,7 @@ abstract class AppStyle {
   static const Color black = Color(0xFF232B2F);
   static const Color blackColor = Color(0xFF000000);
   static const Color transparent = Colors.transparent;
-  
+
   // --- Backgrounds & Surfaces ---
   static const Color mainBack = Color(0xFFF4F4F4);
   static const Color mainBackDark = Color(0xFF1E272E);
@@ -34,12 +34,12 @@ abstract class AppStyle {
   static const Color dontHaveAnAccBackDark = Color(0xFF2B343B);
   static const Color enterOrderButton = Color(0xFFF4F8F7);
   static const Color logOutBg = Color(0xFFB9B9B9);
-  
+
   // --- Text & Hints ---
   static const Color text = Color(0xFF898989); // from textColor
   static const Color textGrey = Color(0xFF898989);
   static const Color textHint = Color(0xFF939393);
-  static const Color hint = Color(0xFFA7A7A7);   // from hintColor
+  static const Color hint = Color(0xFFA7A7A7); // from hintColor
   static const Color reviewText = Color(0xFF88887E);
   static const Color selectedItemsText = Color(0xFFA0A09C);
   static const Color locationAddress = Color(0xFF343434);
@@ -98,7 +98,7 @@ abstract class AppStyle {
   static const Color deepPurple = Color(0xFF673AB7);
   static const Color iconButtonBack = Color(0xFFE9E9E6);
   static const Color orderStatusProgressBack = Color(0xFFE7E7E7);
-  
+
   // --- Shadows & Opacity ---
   static const Color shadow = Color(0x3FD8D8D8);
   static const Color shadowBottom = Color(0x33000000);
@@ -122,25 +122,75 @@ abstract class AppStyle {
     );
     if (setting.value == null) return defaultColor;
     try {
-      return Color(int.parse('0xFF${setting.value!.replaceAll('#', '').substring(0, 6)}'));
+      return Color(
+        int.parse('0xFF${setting.value!.replaceAll('#', '').substring(0, 6)}'),
+      );
     } catch (e) {
       return defaultColor;
     }
   }
 
   // --- Fonts ---
-  static TextStyle interBold({double size = 18, Color color = black, double letterSpacing = 0}) =>
-      GoogleFonts.inter(fontSize: size.sp, fontWeight: FontWeight.bold, color: color, letterSpacing: letterSpacing.sp);
+  static TextStyle interBold({
+    double size = 18,
+    Color color = black,
+    double letterSpacing = 0,
+  }) => GoogleFonts.inter(
+    fontSize: size.sp,
+    fontWeight: FontWeight.bold,
+    color: color,
+    letterSpacing: letterSpacing.sp,
+  );
 
-  static TextStyle interSemi({double size = 18, Color color = black, TextDecoration decoration = TextDecoration.none, double letterSpacing = 0}) =>
-      GoogleFonts.inter(fontSize: size.sp, fontWeight: FontWeight.w700, color: color, letterSpacing: letterSpacing.sp, decoration: decoration);
+  static TextStyle interSemi({
+    double size = 18,
+    Color color = black,
+    TextDecoration decoration = TextDecoration.none,
+    double letterSpacing = 0,
+  }) => GoogleFonts.inter(
+    fontSize: size.sp,
+    fontWeight: FontWeight.w700,
+    color: color,
+    letterSpacing: letterSpacing.sp,
+    decoration: decoration,
+  );
 
-  static TextStyle interNoSemi({double size = 18, Color color = black, TextDecoration decoration = TextDecoration.none, double letterSpacing = 0}) =>
-      GoogleFonts.inter(fontSize: size.sp, fontWeight: FontWeight.w600, color: color, letterSpacing: letterSpacing.sp, decoration: decoration);
+  static TextStyle interNoSemi({
+    double size = 18,
+    Color color = black,
+    TextDecoration decoration = TextDecoration.none,
+    double letterSpacing = 0,
+  }) => GoogleFonts.inter(
+    fontSize: size.sp,
+    fontWeight: FontWeight.w600,
+    color: color,
+    letterSpacing: letterSpacing.sp,
+    decoration: decoration,
+  );
 
-  static TextStyle interNormal({double size = 16, Color color = black, TextDecoration textDecoration = TextDecoration.none, double letterSpacing = 0}) =>
-      GoogleFonts.inter(fontSize: size.sp, fontWeight: FontWeight.w500, color: color, letterSpacing: letterSpacing.sp, decoration: textDecoration);
+  static TextStyle interNormal({
+    double size = 16,
+    Color color = black,
+    TextDecoration textDecoration = TextDecoration.none,
+    double letterSpacing = 0,
+  }) => GoogleFonts.inter(
+    fontSize: size.sp,
+    fontWeight: FontWeight.w500,
+    color: color,
+    letterSpacing: letterSpacing.sp,
+    decoration: textDecoration,
+  );
 
-  static TextStyle interRegular({double size = 16, Color color = black, TextDecoration textDecoration = TextDecoration.none, double letterSpacing = 0}) =>
-      GoogleFonts.inter(fontSize: size.sp, fontWeight: FontWeight.w400, color: color, letterSpacing: letterSpacing.sp, decoration: textDecoration);
+  static TextStyle interRegular({
+    double size = 16,
+    Color color = black,
+    TextDecoration textDecoration = TextDecoration.none,
+    double letterSpacing = 0,
+  }) => GoogleFonts.inter(
+    fontSize: size.sp,
+    fontWeight: FontWeight.w400,
+    color: color,
+    letterSpacing: letterSpacing.sp,
+    decoration: textDecoration,
+  );
 }
