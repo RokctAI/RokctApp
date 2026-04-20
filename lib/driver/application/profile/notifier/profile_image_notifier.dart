@@ -29,7 +29,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       success: (data) {
         url = data.imageData?.title;
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
       },
@@ -46,7 +46,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
         LocalStorage.setUser(data.data);
         setUrl(data.data?.img);
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         debugPrint('==> update profile image failure: $failure');
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
       },
@@ -65,7 +65,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       success: (data) {
         state = state.copyWith(carImageUrl: data.imageData?.title);
       },
-      failure: (f, s) {
+      failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
         AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
       },
