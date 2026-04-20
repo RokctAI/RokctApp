@@ -74,7 +74,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> update profile details failure: $failure');
         },
@@ -159,7 +159,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> update profile details failure: $failure');
         },
@@ -214,7 +214,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> update profile details failure: $failure');
         },

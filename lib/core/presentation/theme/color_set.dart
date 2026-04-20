@@ -75,9 +75,7 @@ class CustomColorSet {
 
     final categoryColor = isLight ? AppStyle.black : AppStyle.categoryDark;
 
-    final categoryTitleColor = isLight
-        ? AppStyle.black
-        : AppStyle.white;
+    final categoryTitleColor = isLight ? AppStyle.black : AppStyle.white;
 
     final primary = AppStyle.primary;
 

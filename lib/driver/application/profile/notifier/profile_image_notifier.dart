@@ -31,7 +31,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
       },
     );
     if (url == null) {
@@ -48,7 +48,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> update profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
       },
     );
   }
@@ -67,7 +67,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
       },
     );
   }

@@ -98,7 +98,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(failure),
+              AppHelpers.getTranslation(f),
             );
           }
         },

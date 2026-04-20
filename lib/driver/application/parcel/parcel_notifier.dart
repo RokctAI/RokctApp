@@ -42,7 +42,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> get order failure: $failure');
         },
@@ -77,7 +77,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
   //
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
-  //           AppHelpers.getTranslation(failure),
+  //           AppHelpers.getTranslation(f),
   //         );
   //         debugPrint('==> get set current order failure: $failure');
   //       },
@@ -102,7 +102,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
           state = state.copyWith(isActiveLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> get active orders failure: $failure');
         },
@@ -130,7 +130,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
           state = state.copyWith(isAvailableLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> get history orders failure: $failure');
         },
@@ -181,7 +181,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -231,7 +231,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
@@ -263,7 +263,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
           state = state.copyWith(isHistoryLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
           debugPrint('==> get history orders failure: $failure');
         },
@@ -314,7 +314,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );

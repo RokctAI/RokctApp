@@ -26,7 +26,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         LocalStorage.setOnline(data.data?.online ?? false);
       },
       failure: (f, s) {
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
         debugPrint('==> error with fetching profile $failure');
       },
     );
@@ -39,7 +39,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         LocalStorage.setSettingsList(data.data ?? []);
       },
       failure: (f, s) {
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
         debugPrint('==> error with fetching settings $failure');
       },
     );
@@ -60,7 +60,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         LocalStorage.setSelectedCurrency(currencies[defaultCurrencyIndex]);
       },
       failure: (f, s) {
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
         debugPrint('==> error with fetching currencies $failure');
       },
     );
@@ -93,7 +93,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           context.replaceRoute(const DriverSplashRoute());
           return;
         }
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
         debugPrint('==> error fetching profile details $failure');
       },
     );
@@ -117,7 +117,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           debugPrint('==> error with fetching translations $failure');
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(f),
           );
         },
       );
