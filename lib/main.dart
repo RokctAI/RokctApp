@@ -124,5 +124,5 @@ void main() async {
     ),
   );
 
-  runApp(const ProviderScope(child: Phoenix(child: AppWidget())));
+  runApp(ProviderScope(child: Phoenix(child: AppWidget())));
 }
