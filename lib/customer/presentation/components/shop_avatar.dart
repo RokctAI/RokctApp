@@ -16,7 +16,7 @@ class ShopAvatar extends StatelessWidget {
     required this.shopImage,
     required this.size,
     required this.padding,
-    this.bgColor = AppStyle.white.withOpacity(0.7),
+    this.bgColor = AppStyle.white,
     this.radius = 10,
   });
 
