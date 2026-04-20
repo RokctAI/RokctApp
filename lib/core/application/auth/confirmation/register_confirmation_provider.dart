@@ -3,7 +3,6 @@ import 'package:rokctapp/core/application/auth/confirmation/register_confirmatio
 import 'package:rokctapp/core/application/auth/confirmation/register_confirmation_state.dart';
 
 final registerConfirmationProvider =
-    NotifierProvider.autoDispose<
-      RegisterConfirmationNotifier,
-      RegisterConfirmationState
-    >(() => RegisterConfirmationNotifier());
+    NotifierProvider<RegisterConfirmationNotifier, RegisterConfirmationState>(
+      () => RegisterConfirmationNotifier(),
+    );

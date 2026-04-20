@@ -5,6 +5,6 @@ import 'package:rokctapp/manager/application/main/foods/addons/create/create_add
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final createAddonProvider =
-    StateNotifierProvider.autoDispose<CreateAddonNotifier, CreateAddonState>(
+    StateNotifierProvider<CreateAddonNotifier, CreateAddonState>(
       (ref) => CreateAddonNotifier(managerProductRepository),
     );

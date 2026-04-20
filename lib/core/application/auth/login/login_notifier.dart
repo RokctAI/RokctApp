@@ -159,7 +159,9 @@ class LoginNotifier extends Notifier<LoginState> {
             if (user?.role == 'seller') seller?.call();
             if (user?.role == 'admin') admin?.call();
 
-            ref.read(restaurantProvider.notifier).fetchMyShop(
+            ref
+                .read(restaurantProvider.notifier)
+                .fetchMyShop(
                   afterFetched: () {
                     state = state.copyWith(isLoading: false);
                     loginSuccess?.call();

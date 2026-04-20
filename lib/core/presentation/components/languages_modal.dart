@@ -41,10 +41,7 @@ class _LanguagePageState extends ConsumerState<LanguageScreen> {
             ),
           ),
           child: state.isLoading
-              ? const SizedBox(
-                  height: 200,
-                  child: Loading(),
-                )
+              ? const SizedBox(height: 200, child: Loading())
               : SingleChildScrollView(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(

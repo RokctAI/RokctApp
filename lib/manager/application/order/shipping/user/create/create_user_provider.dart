@@ -5,6 +5,6 @@ import 'package:rokctapp/manager/application/order/shipping/user/create/create_u
 import 'package:rokctapp/manager/application/order/shipping/user/create/create_user_state.dart';
 
 final createUserProvider =
-    StateNotifierProvider.autoDispose<CreateUserNotifier, CreateUserState>(
+    StateNotifierProvider<CreateUserNotifier, CreateUserState>(
       (ref) => CreateUserNotifier(managerUsersRepository),
     );

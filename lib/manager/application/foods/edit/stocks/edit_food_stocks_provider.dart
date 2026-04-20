@@ -5,7 +5,6 @@ import 'package:rokctapp/manager/application/foods/edit/stocks/edit_food_stocks_
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final editFoodStocksProvider =
-    StateNotifierProvider.autoDispose<
-      EditFoodStocksNotifier,
-      EditFoodStocksState
-    >((ref) => EditFoodStocksNotifier(managerProductRepository));
+    StateNotifierProvider<EditFoodStocksNotifier, EditFoodStocksState>(
+      (ref) => EditFoodStocksNotifier(managerProductRepository),
+    );

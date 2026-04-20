@@ -4,7 +4,6 @@ import 'package:rokctapp/manager/application/ai_translation/ai_translation_notif
 import 'package:rokctapp/manager/application/ai_translation/ai_translation_state.dart';
 
 final aiTranslationProvider =
-    StateNotifierProvider.autoDispose<
-      AiTranslationNotifier,
-      AiTranslationState
-    >((ref) => AiTranslationNotifier());
+    StateNotifierProvider<AiTranslationNotifier, AiTranslationState>(
+      (ref) => AiTranslationNotifier(),
+    );

@@ -4,7 +4,6 @@ import 'package:rokctapp/manager/application/order/order_state.dart';
 import 'package:rokctapp/manager/application/order/order_notifier.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
-final orderProvider =
-    StateNotifierProvider.autoDispose<OrderNotifier, OrderState>(
-      (ref) => OrderNotifier(ordersRepository),
-    );
+final orderProvider = StateNotifierProvider<OrderNotifier, OrderState>(
+  (ref) => OrderNotifier(ordersRepository),
+);

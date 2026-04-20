@@ -5,6 +5,6 @@ import 'package:rokctapp/manager/application/category/add/add_category_notifier.
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final addCategoryProvider =
-    StateNotifierProvider.autoDispose<AddCategoryNotifier, AddCategoryState>(
+    StateNotifierProvider<AddCategoryNotifier, AddCategoryState>(
       (ref) => AddCategoryNotifier(managerCatalogRepository),
     );

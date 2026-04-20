@@ -203,22 +203,32 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                               context,
                               seller: () => AppHelpers.showCheckTopSnackBar(
                                 context,
-                                text: AppHelpers.getTranslation(TrKeys.youAreASeller),
+                                text: AppHelpers.getTranslation(
+                                  TrKeys.youAreASeller,
+                                ),
                                 type: SnackBarType.success,
                               ),
                               admin: () => AppHelpers.showCheckTopSnackBar(
                                 context,
-                                text: AppHelpers.getTranslation(TrKeys.youAreAnAdmin),
+                                text: AppHelpers.getTranslation(
+                                  TrKeys.youAreAnAdmin,
+                                ),
                                 type: SnackBarType.success,
                               ),
-                              youAreNotDeliveryman: () => AppHelpers.showCheckTopSnackBar(
-                                context,
-                                text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
-                              ),
-                              accessDenied: () => AppHelpers.showCheckTopSnackBar(
-                                context,
-                                text: AppHelpers.getTranslation(TrKeys.accessDenied),
-                              ),
+                              youAreNotDeliveryman: () =>
+                                  AppHelpers.showCheckTopSnackBar(
+                                    context,
+                                    text: AppHelpers.getTranslation(
+                                      TrKeys.youAreNotADeliveryman,
+                                    ),
+                                  ),
+                              accessDenied: () =>
+                                  AppHelpers.showCheckTopSnackBar(
+                                    context,
+                                    text: AppHelpers.getTranslation(
+                                      TrKeys.accessDenied,
+                                    ),
+                                  ),
                             );
                           }
                         },
@@ -231,13 +241,20 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                               children: <Widget>[
                                 Expanded(
                                   child: Divider(
-                                    color: colors.textBlack.withValues(alpha: 0.5),
+                                    color: colors.textBlack.withValues(
+                                      alpha: 0.5,
+                                    ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: REdgeInsets.only(right: 12, left: 12),
+                                  padding: REdgeInsets.only(
+                                    right: 12,
+                                    left: 12,
+                                  ),
                                   child: Text(
-                                    AppHelpers.getTranslation(TrKeys.orAccessQuickly),
+                                    AppHelpers.getTranslation(
+                                      TrKeys.orAccessQuickly,
+                                    ),
                                     style: AppStyle.interNormal(
                                       size: 12,
                                       color: colors.textHint,
@@ -246,7 +263,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                                 ),
                                 Expanded(
                                   child: Divider(
-                                    color: colors.textBlack.withValues(alpha: 0.5),
+                                    color: colors.textBlack.withValues(
+                                      alpha: 0.5,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -315,7 +334,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                                           children: [
                                             TextSpan(
                                               text:
-                                                  ' ${AppConstants.flavor == AppFlavor.manager ? AppConstants.demoSellerLogin : AppConstants.flavor == AppFlavor.driver ? AppConstants.demoDriverLogin : AppConstants.demoUserLogin}',
+                                                  ' ${AppConstants.flavor == AppFlavor.manager
+                                                      ? AppConstants.demoSellerLogin
+                                                      : AppConstants.flavor == AppFlavor.driver
+                                                      ? AppConstants.demoDriverLogin
+                                                      : AppConstants.demoUserLogin}',
                                               style: AppStyle.interRegular(
                                                 letterSpacing: -0.3,
                                                 color: colors.textBlack,
@@ -336,7 +359,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                                           children: [
                                             TextSpan(
                                               text:
-                                                  ' ${AppConstants.flavor == AppFlavor.manager ? AppConstants.demoSellerPassword : AppConstants.flavor == AppFlavor.driver ? AppConstants.demoDriverPassword : AppConstants.demoUserPassword}',
+                                                  ' ${AppConstants.flavor == AppFlavor.manager
+                                                      ? AppConstants.demoSellerPassword
+                                                      : AppConstants.flavor == AppFlavor.driver
+                                                      ? AppConstants.demoDriverPassword
+                                                      : AppConstants.demoUserPassword}',
                                               style: AppStyle.interRegular(
                                                 letterSpacing: -0.3,
                                                 color: colors.textBlack,
