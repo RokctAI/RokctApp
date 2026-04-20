@@ -1,4 +1,4 @@
-import 'package:get_it/get_it.dart';
+﻿import 'package:get_it/get_it.dart';
 import 'package:google_place/google_place.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
@@ -195,19 +195,19 @@ final translation = getIt.get<Map>();
 final appRouter = getIt.get<AppRouter>();
 
 // Driver
-driver_interfaces.SettingsRepository get driverSettingsRepository =>
+driver_interfaces.SettingsRepository get gDriverSettingsRepository =>
     getIt.get<driver_interfaces.SettingsRepository>();
 driver_interfaces.AuthRepository get driverAuthRepository =>
     getIt.get<driver_interfaces.AuthRepository>();
-driver_interfaces.UserRepository get driverUserRepository =>
+driver_interfaces.UserRepository get gDriverUserRepository =>
     getIt.get<driver_interfaces.UserRepository>();
-driver_interfaces.DrawRepository get driverDrawRepository =>
+driver_interfaces.DrawRepository get gDriverDrawRepository =>
     getIt.get<driver_interfaces.DrawRepository>();
-driver_orders.OrdersRepositoryFacade get driverOrdersRepository =>
+driver_orders.OrdersRepositoryFacade get gDriverOrdersRepository =>
     getIt.get<driver_orders.OrdersRepositoryFacade>();
-driver_parcel.ParcelRepositoryFacade get driverParcelRepository =>
+driver_parcel.ParcelRepositoryFacade get gDriverParcelRepository =>
     getIt.get<driver_parcel.ParcelRepositoryFacade>();
-driver_notif.NotificationRepositoryFacade get driverNotificationRepo =>
+driver_notif.NotificationRepositoryFacade get gDriverNotificationRepo =>
     getIt.get<driver_notif.NotificationRepositoryFacade>();
 
 // Manager
@@ -219,17 +219,18 @@ manager_table.TableInterface get managerTableRepository =>
     getIt.get<manager_table.TableInterface>();
 manager_interfaces.UsersInterface get managerUsersRepository =>
     getIt.get<manager_interfaces.UsersInterface>();
-manager_interfaces.OrdersInterface get managerOrdersRepository =>
+manager_interfaces.OrdersInterface get gManagerOrdersRepository =>
     getIt.get<manager_interfaces.OrdersInterface>();
 manager_interfaces.CatalogInterface get managerCatalogRepository =>
     getIt.get<manager_interfaces.CatalogInterface>();
 manager_interfaces.ProductsInterface get managerProductRepository =>
     getIt.get<manager_interfaces.ProductsInterface>();
-manager_interfaces.SettingsInterface get managerSettingsRepository =>
+manager_interfaces.SettingsInterface get gManagerSettingsRepository =>
     getIt.get<manager_interfaces.SettingsInterface>();
-manager_notif.NotificationInterface get managerNotificationRepository =>
+manager_notif.NotificationInterface get gManagerNotificationRepository =>
     getIt.get<manager_notif.NotificationInterface>();
 manager_sub.SubscriptionsFacade get managerSubscriptionRepository =>
     getIt.get<manager_sub.SubscriptionsFacade>();
 manager_payment.PaymentsFacade get managerPaymentRepositoryNew =>
     getIt.get<manager_payment.PaymentsFacade>();
+
