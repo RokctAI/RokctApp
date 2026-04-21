@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -224,22 +224,14 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                                   counterText: '',
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide.merge(
-                                      const BorderSide(
-                                        color: AppStyle.border,
-                                      ),
-                                      const BorderSide(
-                                        color: AppStyle.border,
-                                      ),
+                                      const BorderSide(color: AppStyle.border),
+                                      const BorderSide(color: AppStyle.border),
                                     ),
                                   ),
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide.merge(
-                                      const BorderSide(
-                                        color: AppStyle.border,
-                                      ),
-                                      const BorderSide(
-                                        color: AppStyle.border,
-                                      ),
+                                      const BorderSide(color: AppStyle.border),
+                                      const BorderSide(color: AppStyle.border),
                                     ),
                                   ),
                                   border: const UnderlineInputBorder(),
@@ -247,12 +239,8 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                                       const UnderlineInputBorder(),
                                   disabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide.merge(
-                                      const BorderSide(
-                                        color: AppStyle.border,
-                                      ),
-                                      const BorderSide(
-                                        color: AppStyle.border,
-                                      ),
+                                      const BorderSide(color: AppStyle.border),
+                                      const BorderSide(color: AppStyle.border),
                                     ),
                                   ),
                                   focusedBorder: const UnderlineInputBorder(),
@@ -397,4 +385,3 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
           );
   }
 }
-

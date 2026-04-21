@@ -1,4 +1,4 @@
-﻿// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use
 
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
@@ -258,4 +258,3 @@ class _NotificationListPageState extends ConsumerState<NotificationListPage> {
     );
   }
 }
-

@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -143,9 +143,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
                             decoration: BoxDecoration(
                               color: AppStyle.transparent,
                               borderRadius: BorderRadius.circular(10.r),
-                              border: Border.all(
-                                color: AppStyle.tabBarBorder,
-                              ),
+                              border: Border.all(color: AppStyle.tabBarBorder),
                             ),
                             child: TabBar(
                               onTap: (index) {},
@@ -202,4 +200,3 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
     );
   }
 }
-
