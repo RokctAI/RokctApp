@@ -26,7 +26,7 @@ class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
         canceledOrder = 1;
         state = state.copyWith(isLoading: true);
       }
-      final response = await driverOrdersRepository.getHistoryOrders(
+      final response = await DriverOrdersRepository.getHistoryOrders(
         isRefresh ? 1 : ++canceledOrder,
         status: ["canceled"],
       );
@@ -59,7 +59,7 @@ class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );

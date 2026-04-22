@@ -25,7 +25,7 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
         deliveredOrder = 1;
         state = state.copyWith(isLoading: true);
       }
-      final response = await driverOrdersRepository.getHistoryOrders(
+      final response = await DriverOrdersRepository.getHistoryOrders(
         isRefresh ? 1 : ++deliveredOrder,
         status: ["delivered"],
       );
@@ -57,7 +57,7 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );

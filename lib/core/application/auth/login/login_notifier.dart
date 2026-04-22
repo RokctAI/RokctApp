@@ -13,6 +13,7 @@ import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/application/auth/login/login_state.dart';
 import 'package:rokctapp/manager/application/restaurant/restaurant_provider.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 
 class LoginNotifier extends Notifier<LoginState> {
   @override
@@ -59,6 +60,10 @@ class LoginNotifier extends Notifier<LoginState> {
     state = state.copyWith(isKeepLogin: keep);
   }
 
+  bool checkEmail() {
+    return AppValidators.isValidEmail(state.email);
+  }
+
   Future<void> checkLanguage(BuildContext context) async {
     final lang = LocalStorage.getLanguage();
     if (lang == null) {
@@ -98,7 +103,7 @@ class LoginNotifier extends Notifier<LoginState> {
         LocalStorage.setUser(data.data);
       },
       failure: (failure, status) {
-        debugPrint('==> get profile details failure: $f');
+        debugPrint('==> get profile details failure: $failure');
       },
     );
   }
@@ -176,7 +181,7 @@ class LoginNotifier extends Notifier<LoginState> {
         },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false, isLoginError: true);
-          AppHelpers.showCheckTopSnackBar(context, f);
+          AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
     } else {

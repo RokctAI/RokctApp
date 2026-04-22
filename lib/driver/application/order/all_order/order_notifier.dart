@@ -10,7 +10,7 @@ import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/driver/application/order/all_order/order_state.dart';
 
 class OrderNotifier extends StateNotifier<OrderState> {
-  final driverOrdersRepository _orderRepository;
+  final DriverOrdersRepository _orderRepository;
 
   OrderNotifier(this._orderRepository) : super(const OrderState());
   int activeOrder = 1;
@@ -44,7 +44,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
           debugPrint('==> get order failure: $failure');
         },
@@ -82,7 +82,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
         failure: (failure, status) {
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
           debugPrint('==> get set current order failure: $failure');
         },
@@ -111,7 +111,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           state = state.copyWith(isActiveLoading: false);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
           debugPrint('==> get active orders failure: $failure');
         },
@@ -139,7 +139,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           state = state.copyWith(isAvailableLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
           debugPrint('==> get history orders failure: $failure');
         },
@@ -193,7 +193,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );
@@ -243,7 +243,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );
@@ -275,7 +275,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           state = state.copyWith(isHistoryLoading: true);
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
           debugPrint('==> get history orders failure: $failure');
         },
@@ -332,7 +332,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );
@@ -390,7 +390,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
   //         }
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
-  //           AppHelpers.getTranslation(f),
+  //           AppHelpers.getTranslation(failure),
   //         );
   //       },
   //     );
@@ -443,7 +443,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
   //         }
   //         AppHelpers.showCheckTopSnackBar(
   //           context,
-  //           AppHelpers.getTranslation(f),
+  //           AppHelpers.getTranslation(failure),
   //         );
   //       },
   //     );

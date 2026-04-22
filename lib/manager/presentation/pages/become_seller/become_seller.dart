@@ -17,16 +17,17 @@ import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/proces
 import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/shop_form_fields.dart';
 import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/logout_modal.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
 
 @RoutePage(name: 'ManagerCreateShopRoute')
-class CreateShopPage extends ConsumerStatefulWidget {
-  const CreateShopPage({super.key});
+class ManagerCreateShopPage extends ConsumerStatefulWidget {
+  const ManagerCreateShopPage({super.key});
 
   @override
-  ConsumerState<CreateShopPage> createState() => _CreateShopPageState();
+  ConsumerState<ManagerCreateShopPage> createState() => _CreateShopPageState();
 }
 
-class _CreateShopPageState extends ConsumerState<CreateShopPage> {
+class _CreateShopPageState extends ConsumerState<ManagerCreateShopPage> {
   late ProfileNotifier event;
   late TextEditingController shopName;
   late TextEditingController descName;

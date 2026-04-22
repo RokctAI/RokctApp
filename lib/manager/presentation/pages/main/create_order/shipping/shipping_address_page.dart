@@ -14,16 +14,17 @@ import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
 
 @RoutePage(name: 'ManagerShippingAddressRoute')
-class ShippingAddressPage extends StatefulWidget {
-  const ShippingAddressPage({super.key});
+class ManagerShippingAddressPage extends StatefulWidget {
+  const ManagerShippingAddressPage({super.key});
 
   @override
-  State<ShippingAddressPage> createState() => _ShippingAddressPageState();
+  State<ManagerShippingAddressPage> createState() => _ShippingAddressPageState();
 }
 
-class _ShippingAddressPageState extends State<ShippingAddressPage> {
+class _ShippingAddressPageState extends State<ManagerShippingAddressPage> {
   late TextEditingController _userTextController;
 
   @override

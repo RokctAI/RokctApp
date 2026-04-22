@@ -17,14 +17,15 @@ import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
 
 @RoutePage(name: 'ManagerViewMapRoute')
-class ViewMapPage extends ConsumerStatefulWidget {
+class ManagerViewMapPage extends ConsumerStatefulWidget {
   final bool isShopLocation;
   final int? shopId;
   final VoidCallback onChanged;
 
-  const ViewMapPage(
+  const ManagerViewMapPage(
     this.onChanged, {
     super.key,
     this.isShopLocation = false,
@@ -32,10 +33,10 @@ class ViewMapPage extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<ViewMapPage> createState() => _ViewMapPageState();
+  ConsumerState<ManagerViewMapPage> createState() => _ViewMapPageState();
 }
 
-class _ViewMapPageState extends ConsumerState<ViewMapPage> {
+class _ViewMapPageState extends ConsumerState<ManagerViewMapPage> {
   late ViewMapNotifier event;
   late TextEditingController controller;
   late TextEditingController office;

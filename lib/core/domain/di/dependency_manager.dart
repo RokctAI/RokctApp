@@ -1,4 +1,4 @@
-﻿import 'package:get_it/get_it.dart';
+import 'package:get_it/get_it.dart';
 import 'package:google_place/google_place.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
@@ -21,6 +21,7 @@ import 'package:rokctapp/core/domain/interface/products.dart';
 import 'package:rokctapp/core/domain/interface/settings.dart';
 import 'package:rokctapp/core/domain/interface/shops.dart';
 import 'package:rokctapp/core/domain/interface/user.dart';
+
 import 'package:rokctapp/customer/repository/address_repository.dart';
 import 'package:rokctapp/customer/repository/auth_repository.dart';
 import 'package:rokctapp/customer/repository/banners_repository.dart';
@@ -29,52 +30,62 @@ import 'package:rokctapp/customer/repository/brands_repository.dart';
 import 'package:rokctapp/customer/repository/cart_repository.dart';
 import 'package:rokctapp/customer/repository/categories_repository.dart';
 import 'package:rokctapp/customer/repository/currencies_repository.dart';
-import 'package:rokctapp/customer/repository/draw_repository.dart';
+import 'package:rokctapp/customer/repository/draw_repository.dart' as customer_draw_repo;
 import 'package:rokctapp/customer/repository/gallery_repository.dart';
-import 'package:rokctapp/customer/repository/notification_repository.dart';
-import 'package:rokctapp/customer/repository/orders_repository.dart';
-import 'package:rokctapp/customer/repository/parcel_repository.dart';
+import 'package:rokctapp/customer/repository/notification_repository.dart' as customer_notif_repo;
+import 'package:rokctapp/customer/repository/orders_repository.dart' as customer_orders_repo;
+import 'package:rokctapp/customer/repository/parcel_repository.dart' as customer_parcel_repo;
 import 'package:rokctapp/customer/repository/payments_repository.dart';
 import 'package:rokctapp/customer/repository/products_repository.dart';
-import 'package:rokctapp/customer/repository/settings_repository.dart';
+import 'package:rokctapp/customer/repository/settings_repository.dart' as customer_settings_repo;
 import 'package:rokctapp/customer/repository/shops_repository.dart';
-import 'package:rokctapp/customer/repository/user_repository.dart';
+import 'package:rokctapp/customer/repository/user_repository.dart' as customer_user_repo;
+
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 
 // Driver Module Imports
-import 'package:rokctapp/driver/domain/interface/notification.dart'
-    as driver_notif;
+import 'package:rokctapp/driver/domain/interface/notification.dart' as driver_notif;
 import 'package:rokctapp/driver/domain/interface/parcel.dart' as driver_parcel;
 import 'package:rokctapp/driver/domain/interface/orders.dart' as driver_orders;
-import 'package:rokctapp/driver/domain/interface/interfaces.dart'
-    as driver_interfaces;
-import 'package:rokctapp/driver/infrastructure/repositories/notification_repository.dart'
-    as driver_notif_impl;
-import 'package:rokctapp/driver/infrastructure/repositories/parcel_repository.dart'
-    as driver_parcel_impl;
-import 'package:rokctapp/driver/infrastructure/repositories/orders_repository.dart'
-    as driver_orders_impl;
-import 'package:rokctapp/driver/infrastructure/repositories/repositories.dart'
-    as driver_repos_impl;
+import 'package:rokctapp/driver/domain/interface/settings_repository.dart' as driver_settings_int;
+import 'package:rokctapp/driver/domain/interface/draw_repository.dart' as driver_draw_int;
+import 'package:rokctapp/driver/domain/interface/user_repository.dart' as driver_user_int;
+import 'package:rokctapp/driver/domain/interface/auth_repository.dart' as driver_auth_int;
+
+import 'package:rokctapp/driver/infrastructure/repositories/notification_repository.dart' as driver_notif_impl;
+import 'package:rokctapp/driver/infrastructure/repositories/parcel_repository.dart' as driver_parcel_impl;
+import 'package:rokctapp/driver/infrastructure/repositories/orders_repository.dart' as driver_orders_impl;
+import 'package:rokctapp/driver/infrastructure/repositories/settings_repository_impl.dart' as driver_settings_impl;
+import 'package:rokctapp/driver/infrastructure/repositories/draw_repository_impl.dart' as driver_draw_impl;
+import 'package:rokctapp/driver/infrastructure/repositories/user_repository_impl.dart' as driver_user_impl;
+import 'package:rokctapp/driver/infrastructure/repositories/auth_repository_impl.dart' as driver_auth_impl;
 
 // Manager Module Imports
-import 'package:rokctapp/manager/domain/interface/notification.dart'
-    as manager_notif;
-import 'package:rokctapp/manager/domain/interface/payment_facade.dart'
-    as manager_payment;
-import 'package:rokctapp/manager/domain/interface/subscription_facade.dart'
-    as manager_sub;
+import 'package:rokctapp/manager/domain/interface/notification.dart' as manager_notif;
+import 'package:rokctapp/manager/domain/interface/payment_facade.dart' as manager_payment;
+import 'package:rokctapp/manager/domain/interface/subscription_facade.dart' as manager_sub;
 import 'package:rokctapp/manager/domain/interface/table.dart' as manager_table;
-import 'package:rokctapp/manager/domain/interface/interfaces.dart'
-    as manager_interfaces;
-import 'package:rokctapp/manager/infrastructure/repositories/payment_repository.dart'
-    as manager_payment_impl;
-import 'package:rokctapp/manager/infrastructure/repositories/subscription_repository.dart'
-    as manager_sub_impl;
-import 'package:rokctapp/manager/infrastructure/repositories/repositories.dart'
-    as manager_repos_impl;
+import 'package:rokctapp/manager/domain/interface/auth.dart' as manager_auth_int;
+import 'package:rokctapp/manager/domain/interface/users.dart' as manager_users_int;
+import 'package:rokctapp/manager/domain/interface/shops.dart' as manager_shops_int;
+import 'package:rokctapp/manager/domain/interface/orders.dart' as manager_orders_int;
+import 'package:rokctapp/manager/domain/interface/catalog.dart' as manager_catalog_int;
+import 'package:rokctapp/manager/domain/interface/settings.dart' as manager_settings_int;
+import 'package:rokctapp/manager/domain/interface/products.dart' as manager_products_int;
+
+import 'package:rokctapp/manager/infrastructure/repositories/payment_repository.dart' as manager_payment_impl;
+import 'package:rokctapp/manager/infrastructure/repositories/subscription_repository.dart' as manager_sub_impl;
+import 'package:rokctapp/manager/infrastructure/repositories/auth_repository.dart' as manager_auth_impl;
+import 'package:rokctapp/manager/infrastructure/repositories/table_repository.dart' as manager_table_impl;
+import 'package:rokctapp/manager/infrastructure/repositories/users_repository.dart' as manager_users_impl;
+import 'package:rokctapp/manager/infrastructure/repositories/shops_repository.dart' as manager_shops_impl;
+import 'package:rokctapp/manager/infrastructure/repositories/orders_repository.dart' as manager_orders_impl;
+import 'package:rokctapp/manager/infrastructure/repositories/catalog_repository.dart' as manager_catalog_impl;
+import 'package:rokctapp/manager/infrastructure/repositories/settings_repository.dart' as manager_settings_impl;
+import 'package:rokctapp/manager/infrastructure/repositories/products_repository.dart' as manager_products_impl;
+import 'package:rokctapp/manager/infrastructure/repositories/notification_repository.dart' as manager_notif_impl;
 
 final GetIt getIt = GetIt.instance;
 
@@ -88,7 +99,7 @@ Future<void> setUpDependencies() async {
   getIt.registerSingleton<Map>(LocalStorage.getTranslations());
 
   // Core & Customer
-  getIt.registerSingleton<SettingsRepositoryFacade>(SettingsRepository());
+  getIt.registerSingleton<SettingsRepositoryFacade>(customer_settings_repo.SettingsRepository());
   getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
   getIt.registerSingleton<ProductsRepositoryFacade>(ProductsRepository());
   getIt.registerSingleton<ShopsRepositoryFacade>(ShopsRepository());
@@ -99,73 +110,35 @@ Future<void> setUpDependencies() async {
   getIt.registerSingleton<AddressRepositoryFacade>(AddressRepository());
   getIt.registerSingleton<BannersRepositoryFacade>(BannersRepository());
   getIt.registerSingleton<PaymentsRepositoryFacade>(PaymentsRepository());
-  getIt.registerSingleton<OrdersRepositoryFacade>(OrdersRepository());
-  getIt.registerSingleton<UserRepositoryFacade>(UserRepository());
+  getIt.registerSingleton<OrdersRepositoryFacade>(customer_orders_repo.OrdersRepository());
+  getIt.registerSingleton<UserRepositoryFacade>(customer_user_repo.UserRepository());
   getIt.registerSingleton<BlogsRepositoryFacade>(BlogsRepository());
   getIt.registerSingleton<CartRepositoryFacade>(CartRepository());
-  getIt.registerSingleton<DrawRepositoryFacade>(DrawRepository());
-  getIt.registerSingleton<ParcelRepositoryFacade>(ParcelRepository());
-  getIt.registerSingleton<NotificationRepositoryFacade>(
-    NotificationRepository(),
-  );
+  getIt.registerSingleton<DrawRepositoryFacade>(customer_draw_repo.DrawRepository());
+  getIt.registerSingleton<ParcelRepositoryFacade>(customer_parcel_repo.ParcelRepository());
+  getIt.registerSingleton<NotificationRepositoryFacade>(customer_notif_repo.NotificationRepository());
 
   // Driver
-  getIt.registerSingleton<driver_interfaces.SettingsRepository>(
-    driver_repos_impl.SettingsRepositoryImpl(),
-  );
-  getIt.registerSingleton<driver_interfaces.AuthRepository>(
-    driver_repos_impl.AuthRepositoryImpl(),
-  );
-  getIt.registerSingleton<driver_interfaces.UserRepository>(
-    driver_repos_impl.UserRepositoryImpl(),
-  );
-  getIt.registerSingleton<driver_interfaces.DrawRepository>(
-    driver_repos_impl.DrawRepositoryImpl(),
-  );
-  getIt.registerSingleton<driver_orders.OrdersRepositoryFacade>(
-    driver_orders_impl.OrdersRepository(),
-  );
-  getIt.registerSingleton<driver_parcel.ParcelRepositoryFacade>(
-    driver_parcel_impl.ParcelRepository(),
-  );
-  getIt.registerSingleton<driver_notif.NotificationRepositoryFacade>(
-    driver_notif_impl.NotificationRepositoryImpl(),
-  );
+  getIt.registerSingleton<driver_settings_int.DriverSettingsRepository>(driver_settings_impl.SettingsRepositoryImpl());
+  getIt.registerSingleton<driver_auth_int.AuthRepository>(driver_auth_impl.AuthRepositoryImpl());
+  getIt.registerSingleton<driver_user_int.DriverUserRepository>(driver_user_impl.UserRepositoryImpl());
+  getIt.registerSingleton<driver_draw_int.DriverDrawRepository>(driver_draw_impl.DrawRepositoryImpl());
+  getIt.registerSingleton<driver_orders.DriverOrdersRepository>(driver_orders_impl.OrdersRepository());
+  getIt.registerSingleton<driver_parcel.DriverParcelRepository>(driver_parcel_impl.ParcelRepository());
+  getIt.registerSingleton<driver_notif.DriverNotificationRepository>(driver_notif_impl.NotificationRepositoryImpl());
 
   // Manager
-  getIt.registerSingleton<manager_interfaces.AuthInterface>(
-    manager_repos_impl.AuthRepository(),
-  );
-  getIt.registerSingleton<manager_table.TableInterface>(
-    manager_repos_impl.TableRepository(),
-  );
-  getIt.registerSingleton<manager_interfaces.UsersInterface>(
-    manager_repos_impl.UsersRepository(),
-  );
-  getIt.registerSingleton<manager_interfaces.ShopsInterface>(
-    manager_repos_impl.ShopsRepository(),
-  );
-  getIt.registerSingleton<manager_interfaces.OrdersInterface>(
-    manager_repos_impl.OrdersRepository(),
-  );
-  getIt.registerSingleton<manager_interfaces.CatalogInterface>(
-    manager_repos_impl.CatalogRepository(),
-  );
-  getIt.registerSingleton<manager_interfaces.SettingsInterface>(
-    manager_repos_impl.SettingsRepository(),
-  );
-  getIt.registerSingleton<manager_interfaces.ProductsInterface>(
-    manager_repos_impl.ProductsRepository(),
-  );
-  getIt.registerSingleton<manager_notif.NotificationInterface>(
-    manager_repos_impl.NotificationRepository(),
-  );
-  getIt.registerSingleton<manager_payment.PaymentsFacade>(
-    manager_payment_impl.PaymentRepository(),
-  );
-  getIt.registerSingleton<manager_sub.SubscriptionsFacade>(
-    manager_sub_impl.SubscriptionsRepository(),
-  );
+  getIt.registerSingleton<manager_auth_int.AuthInterface>(manager_auth_impl.AuthRepository());
+  getIt.registerSingleton<manager_table.TableInterface>(manager_table_impl.TableRepository());
+  getIt.registerSingleton<manager_users_int.UsersInterface>(manager_users_impl.UsersRepository());
+  getIt.registerSingleton<manager_shops_int.ShopsInterface>(manager_shops_impl.ShopsRepository());
+  getIt.registerSingleton<manager_orders_int.OrdersInterface>(manager_orders_impl.OrdersRepository());
+  getIt.registerSingleton<manager_catalog_int.CatalogInterface>(manager_catalog_impl.CatalogRepository());
+  getIt.registerSingleton<manager_settings_int.SettingsInterface>(manager_settings_impl.SettingsRepository());
+  getIt.registerSingleton<manager_products_int.ProductsInterface>(manager_products_impl.ProductsRepository());
+  getIt.registerSingleton<manager_notif.NotificationInterface>(manager_notif_impl.NotificationRepository());
+  getIt.registerSingleton<manager_payment.PaymentsFacade>(manager_payment_impl.PaymentRepository());
+  getIt.registerSingleton<manager_sub.SubscriptionsFacade>(manager_sub_impl.SubscriptionsRepository());
 }
 
 // Global variable accessors
@@ -195,42 +168,23 @@ final translation = getIt.get<Map>();
 final appRouter = getIt.get<AppRouter>();
 
 // Driver
-driver_interfaces.SettingsRepository get gDriverSettingsRepository =>
-    getIt.get<driver_interfaces.SettingsRepository>();
-driver_interfaces.AuthRepository get driverAuthRepository =>
-    getIt.get<driver_interfaces.AuthRepository>();
-driver_interfaces.UserRepository get gDriverUserRepository =>
-    getIt.get<driver_interfaces.UserRepository>();
-driver_interfaces.DrawRepository get gDriverDrawRepository =>
-    getIt.get<driver_interfaces.DrawRepository>();
-driver_orders.OrdersRepositoryFacade get gDriverOrdersRepository =>
-    getIt.get<driver_orders.OrdersRepositoryFacade>();
-driver_parcel.ParcelRepositoryFacade get gDriverParcelRepository =>
-    getIt.get<driver_parcel.ParcelRepositoryFacade>();
-driver_notif.NotificationRepositoryFacade get gDriverNotificationRepo =>
-    getIt.get<driver_notif.NotificationRepositoryFacade>();
+driver_settings_int.DriverSettingsRepository get DriverSettingsRepository => getIt.get<driver_settings_int.DriverSettingsRepository>();
+driver_auth_int.AuthRepository get driverAuthRepository => getIt.get<driver_auth_int.AuthRepository>();
+driver_user_int.DriverUserRepository get DriverUserRepository => getIt.get<driver_user_int.DriverUserRepository>();
+driver_draw_int.DriverDrawRepository get DriverDrawRepository => getIt.get<driver_draw_int.DriverDrawRepository>();
+driver_orders.DriverOrdersRepository get DriverOrdersRepository => getIt.get<driver_orders.DriverOrdersRepository>();
+driver_parcel.DriverParcelRepository get DriverParcelRepository => getIt.get<driver_parcel.DriverParcelRepository>();
+driver_notif.DriverNotificationRepository get DriverNotificationRepository => getIt.get<driver_notif.DriverNotificationRepository>();
 
 // Manager
-manager_interfaces.AuthInterface get managerAuthRepository =>
-    getIt.get<manager_interfaces.AuthInterface>();
-manager_interfaces.ShopsInterface get managerShopsRepository =>
-    getIt.get<manager_interfaces.ShopsInterface>();
-manager_table.TableInterface get managerTableRepository =>
-    getIt.get<manager_table.TableInterface>();
-manager_interfaces.UsersInterface get managerUsersRepository =>
-    getIt.get<manager_interfaces.UsersInterface>();
-manager_interfaces.OrdersInterface get gManagerOrdersRepository =>
-    getIt.get<manager_interfaces.OrdersInterface>();
-manager_interfaces.CatalogInterface get managerCatalogRepository =>
-    getIt.get<manager_interfaces.CatalogInterface>();
-manager_interfaces.ProductsInterface get managerProductRepository =>
-    getIt.get<manager_interfaces.ProductsInterface>();
-manager_interfaces.SettingsInterface get gManagerSettingsRepository =>
-    getIt.get<manager_interfaces.SettingsInterface>();
-manager_notif.NotificationInterface get gManagerNotificationRepository =>
-    getIt.get<manager_notif.NotificationInterface>();
-manager_sub.SubscriptionsFacade get managerSubscriptionRepository =>
-    getIt.get<manager_sub.SubscriptionsFacade>();
-manager_payment.PaymentsFacade get managerPaymentRepositoryNew =>
-    getIt.get<manager_payment.PaymentsFacade>();
-
+manager_auth_int.AuthInterface get managerAuthRepository => getIt.get<manager_auth_int.AuthInterface>();
+manager_shops_int.ShopsInterface get managerShopsRepository => getIt.get<manager_shops_int.ShopsInterface>();
+manager_table.TableInterface get managerTableRepository => getIt.get<manager_table.TableInterface>();
+manager_users_int.UsersInterface get managerUsersRepository => getIt.get<manager_users_int.UsersInterface>();
+manager_orders_int.OrdersInterface get managerOrdersRepository => getIt.get<manager_orders_int.OrdersInterface>();
+manager_catalog_int.CatalogInterface get managerCatalogRepository => getIt.get<manager_catalog_int.CatalogInterface>();
+manager_products_int.ProductsInterface get managerProductRepository => getIt.get<manager_products_int.ProductsInterface>();
+manager_settings_int.SettingsInterface get managerSettingsRepository => getIt.get<manager_settings_int.SettingsInterface>();
+manager_notif.NotificationInterface get ManagerNotificationRepository => getIt.get<manager_notif.NotificationInterface>();
+manager_sub.SubscriptionsFacade get managerSubscriptionRepository => getIt.get<manager_sub.SubscriptionsFacade>();
+manager_payment.PaymentsFacade get managerPaymentRepositoryNew => getIt.get<manager_payment.PaymentsFacade>();

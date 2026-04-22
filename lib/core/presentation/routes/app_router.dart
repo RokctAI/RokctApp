@@ -49,7 +49,37 @@ import 'package:rokctapp/customer/presentation/pages/profile/share_referral_page
 import 'package:rokctapp/customer/presentation/pages/profile/wallet_history.dart';
 import 'package:rokctapp/core/presentation/pages/story_page/story_page.dart';
 
-// Driver and Manager Namespace Imports (removed unused)
+// Driver Page Imports
+import 'package:rokctapp/driver/presentation/pages/orders/orders_page.dart';
+import 'package:rokctapp/driver/presentation/pages/profile/notification_list_page.dart';
+import 'package:rokctapp/driver/presentation/pages/profile/profile_page.dart';
+import 'package:rokctapp/driver/presentation/pages/profile/delivery_zone/delivery_zone_page.dart';
+import 'package:rokctapp/driver/presentation/pages/parcels_history/parcel_history.dart';
+import 'package:rokctapp/driver/presentation/pages/home/home_page.dart';
+import 'package:rokctapp/driver/presentation/pages/stores/story_page.dart';
+import 'package:rokctapp/driver/presentation/pages/order_history/order_history.dart';
+import 'package:rokctapp/driver/presentation/pages/income/income_page.dart';
+import 'package:rokctapp/driver/presentation/pages/parcel/parcels_page.dart';
+
+// Manager Page Imports
+import 'package:rokctapp/manager/presentation/pages/view_map/map_search_page.dart';
+import 'package:rokctapp/manager/presentation/pages/view_map/view_map_page.dart';
+import 'package:rokctapp/manager/presentation/pages/restaurant/notification_list_page.dart';
+import 'package:rokctapp/manager/presentation/pages/restaurant/subscriptions/subscriptions_page.dart';
+import 'package:rokctapp/manager/presentation/pages/restaurant/delivery_zone/delivery_zone_page.dart';
+import 'package:rokctapp/manager/presentation/pages/main/main_page.dart';
+import 'package:rokctapp/manager/presentation/pages/main/create_order/create_order_page.dart';
+import 'package:rokctapp/manager/presentation/pages/main/create_order/order/order_page.dart';
+import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/shipping_address_page.dart';
+import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_section/select_section_page.dart';
+import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_table/select_table_page.dart';
+import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_user/select_user_page.dart';
+import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/details/delivery_time_page.dart';
+import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/address/select_address_page.dart';
+import 'package:rokctapp/manager/presentation/pages/order_history/order_history.dart';
+import 'package:rokctapp/manager/presentation/pages/become_seller/become_seller.dart';
+import 'package:rokctapp/manager/presentation/pages/income/income_page.dart';
+import 'package:rokctapp/manager/presentation/component/web_view_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -120,10 +150,10 @@ class AppRouter extends RootStackRouter {
     MaterialRoute(path: '/policy', page: PolicyRoute.page),
 
     // Driver
-    CupertinoRoute(path: '/driver', page: DriverSplashRoute.page),
+    CupertinoRoute(path: '/driver', page: SplashRoute.page),
     CupertinoRoute(
       path: '/driver/no-connection',
-      page: DriverNoConnectionRoute.page,
+      page: NoConnectionRoute.page,
     ),
     CupertinoRoute(path: '/driver/login', page: LoginRoute.page),
     CupertinoRoute(path: '/driver/income', page: DriverIncomeRoute.page),
@@ -151,7 +181,7 @@ class AppRouter extends RootStackRouter {
     ),
 
     // Manager
-    CupertinoRoute(path: '/manager', page: ManagerSplashRoute.page),
+    CupertinoRoute(path: '/manager', page: SplashRoute.page),
     CupertinoRoute(path: '/manager/main', page: ManagerMainRoute.page),
     CupertinoRoute(path: '/manager/auth', page: LoginRoute.page),
     CupertinoRoute(path: '/manager/order', page: ManagerOrderRoute.page),
@@ -174,7 +204,7 @@ class AppRouter extends RootStackRouter {
     ),
     CupertinoRoute(
       path: '/manager/no-connection',
-      page: ManagerNoConnectionRoute.page,
+      page: NoConnectionRoute.page,
     ),
     CupertinoRoute(
       path: '/manager/select-address',
@@ -209,10 +239,10 @@ class AppRouter extends RootStackRouter {
       path: '/manager/select-table',
       page: ManagerSelectTableRoute.page,
     ),
-    MaterialRoute(path: '/manager/webview', page: ManagerWebViewRoute.page),
     MaterialRoute(
       path: '/manager/subscription',
       page: ManagerSubscriptionsRoute.page,
     ),
+    MaterialRoute(path: '/manager/webview', page: ManagerWebViewRoute.page),
   ];
 }

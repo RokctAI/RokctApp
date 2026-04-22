@@ -6,5 +6,5 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final statisticsProvider =
     StateNotifierProvider<StatisticsNotifier, StatisticsState>(
-      (ref) => StatisticsNotifier(driverUserRepository),
+      (ref) => StatisticsNotifier(DriverUserRepository),
     );

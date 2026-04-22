@@ -445,4 +445,11 @@ class TrKeys {
   static const String locationPermissionDenied = 'location.permission.denied';
   static const String locationPermissionDeniedDescription =
       'location.permission.was.permanently.denied.please.enable.it.in.settings.to.use.this.feature';
+
+  // Merged from driver/manager
+  static const String invalid = 'invalid';
+  static const String youAreASeller = 'you_are_a_seller';
+  static const String youAreAnAdmin = 'you_are_an_admin';
+  static const String accessDenied = 'access_denied';
+  static const String youAreNotADeliveryman = 'you.are.not.a.deliveryman';
 }

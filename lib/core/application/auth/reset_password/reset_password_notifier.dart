@@ -9,6 +9,7 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/application/auth/reset_password/reset_password_state.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 
 class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
   @override
@@ -153,13 +154,13 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
         },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false, isSuccess: false);
-          if (s == 400) {
+          if (status == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(TrKeys.emailIsNotValid),
             );
           } else {
-            AppHelpers.showCheckTopSnackBar(context, f);
+            AppHelpers.showCheckTopSnackBar(context, failure);
           }
         },
       );

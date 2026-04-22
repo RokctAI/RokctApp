@@ -88,7 +88,7 @@ class ProductNotifier extends Notifier<ProductState> {
             initialSetSelectedIndexes(context, selectedIndexes);
           }
         },
-        failure: (failure, s) {
+        failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
           debugPrint('==> get product details failure: $failure');

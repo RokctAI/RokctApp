@@ -35,6 +35,10 @@ class Assets {
   static const String imageUserMarker = 'assets/image/user_marker.png';
   static const String imageVisa = 'assets/image/visa.png';
 
+  // Specific aliases requested by the code
+  static const String userMarker = 'assets/image/user_marker.png';
+  static const String imageDeliveryBanner = 'assets/image/delivery_banner.png';
+
   // --- Lottie ---
   static const String lottieClose = 'assets/lottie/close.json';
   static const String lottieEmptyBox = 'assets/lottie/empty-box.json';

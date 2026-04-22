@@ -11,16 +11,17 @@ import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/order_history/canceled_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/order_history/delivered_order_body.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
 
 @RoutePage(name: 'ManagerOrderHistoryRoute')
-class OrderHistoryPage extends ConsumerStatefulWidget {
-  const OrderHistoryPage({super.key});
+class ManagerOrderHistoryPage extends ConsumerStatefulWidget {
+  const ManagerOrderHistoryPage({super.key});
 
   @override
-  ConsumerState<OrderHistoryPage> createState() => _OrderHistoryPageState();
+  ConsumerState<ManagerOrderHistoryPage> createState() => _OrderHistoryPageState();
 }
 
-class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
+class _OrderHistoryPageState extends ConsumerState<ManagerOrderHistoryPage>
     with SingleTickerProviderStateMixin {
   late RefreshController _deliveredRefreshController;
   late RefreshController _canceledRefreshController;

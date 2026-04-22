@@ -25,7 +25,7 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
         progressOrder = 1;
         state = state.copyWith(isLoading: true);
       }
-      final response = await driverOrdersRepository.getProgressOrders(
+      final response = await DriverOrdersRepository.getProgressOrders(
         isRefresh ? 1 : ++progressOrder,
       );
       response.when(
@@ -60,7 +60,7 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
           }
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );

@@ -12,14 +12,14 @@ import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 @RoutePage(name: 'DriverOrdersRoute')
-class OrdersPage extends ConsumerStatefulWidget {
-  const OrdersPage({super.key});
+class DriverOrdersPage extends ConsumerStatefulWidget {
+  const DriverOrdersPage({super.key});
 
   @override
-  ConsumerState<OrdersPage> createState() => _OrdersPageState();
+  ConsumerState<DriverOrdersPage> createState() => _OrdersPageState();
 }
 
-class _OrdersPageState extends ConsumerState<OrdersPage>
+class _OrdersPageState extends ConsumerState<DriverOrdersPage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   late RefreshController activeController;

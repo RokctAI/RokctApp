@@ -11,16 +11,17 @@ import 'package:rokctapp/manager/presentation/pages/main/create_order/details/fo
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
 
 @RoutePage(name: 'ManagerCreateOrderRoute')
-class CreateOrderPage extends ConsumerStatefulWidget {
-  const CreateOrderPage({super.key});
+class ManagerCreateOrderPage extends ConsumerStatefulWidget {
+  const ManagerCreateOrderPage({super.key});
 
   @override
-  ConsumerState<CreateOrderPage> createState() => _CreateOrderPageState();
+  ConsumerState<ManagerCreateOrderPage> createState() => _CreateOrderPageState();
 }
 
-class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
+class _CreateOrderPageState extends ConsumerState<ManagerCreateOrderPage> {
   late RefreshController _categoryController;
   late RefreshController _productController;
 

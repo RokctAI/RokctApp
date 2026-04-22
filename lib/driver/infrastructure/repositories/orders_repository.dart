@@ -6,8 +6,9 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_paginate_response.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus;
 
-class OrdersRepository implements driverOrdersRepository {
+class OrdersRepository implements DriverOrdersRepository {
   @override
   Future<ApiResult<OrderPaginateResponse>> getActiveOrders(int page) async {
     final data = {

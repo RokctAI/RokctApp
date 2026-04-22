@@ -24,16 +24,17 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/home/bottom_sheet_screen.dart';
 import 'package:rokctapp/driver/presentation/pages/home/delivery_bottom_sheet.dart';
 import 'package:rokctapp/driver/presentation/pages/home/parcel_bottom_sheet.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus;
 
 @RoutePage(name: 'DriverHomeRoute')
-class HomePage extends ConsumerStatefulWidget {
-  const HomePage({super.key});
+class DriverHomePage extends ConsumerStatefulWidget {
+  const DriverHomePage({super.key});
 
   @override
-  ConsumerState<HomePage> createState() => _HomePageState();
+  ConsumerState<DriverHomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends ConsumerState<HomePage> {
+class _HomePageState extends ConsumerState<DriverHomePage> {
   final GeolocatorPlatform _geolocatorPlatform = GeolocatorPlatform.instance;
   final bool isLtr = LocalStorage.getLangLtr();
   GoogleMapController? googleMapController;
@@ -72,22 +73,22 @@ class _HomePageState extends ConsumerState<HomePage> {
         );
       }
       if (message.data["type"] == "new_order") {
-        final res = await driverOrdersRepository.showOrders(
+        final res = await DriverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(
-          success: (s) {
-            attachOrder(s.data);
+          success: (status) {
+            attachOrder(status.data);
           },
           failure: (failure, status) {},
         );
       } else if (message.data["type"] == "deliveryman") {
-        final res = await driverOrdersRepository.showOrders(
+        final res = await DriverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(
-          success: (s) {
-            newOrder(s.data);
+          success: (status) {
+            newOrder(status.data);
           },
           failure: (failure, status) {},
         );
@@ -97,22 +98,22 @@ class _HomePageState extends ConsumerState<HomePage> {
       debugPrint("New notification oped app: ${jsonEncode(message.data)}");
 
       if (message.data["type"] == "new_order") {
-        final res = await driverOrdersRepository.showOrders(
+        final res = await DriverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(
-          success: (s) {
-            attachOrder(s.data);
+          success: (status) {
+            attachOrder(status.data);
           },
           failure: (failure, status) {},
         );
       } else if (message.data["type"] == "deliveryman") {
-        final res = await driverOrdersRepository.showOrders(
+        final res = await DriverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(
-          success: (s) {
-            newOrder(s.data);
+          success: (status) {
+            newOrder(status.data);
           },
           failure: (failure, status) {},
         );
@@ -495,7 +496,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             ref.read(homeProvider.notifier).scrolling(true);
           }
         },
-        onTap: (s) {
+        onTap: (status) {
           ref.read(homeProvider.notifier).scrolling(false);
         },
         onCameraIdle: () {

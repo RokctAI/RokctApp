@@ -170,6 +170,9 @@ abstract class LocalStorage {
     await _preferences?.setString(StorageKeys.keyWalletData, walletString);
   }
 
+  // Alias for setWalletData used in some parts of the app
+  static Future<void> setWallet(Wallet? wallet) => setWalletData(wallet);
+
   static Wallet? getWalletData() {
     final wallet = _preferences?.getString(StorageKeys.keyWalletData);
     if (wallet == null) {
@@ -271,33 +274,6 @@ abstract class LocalStorage {
 
   static void deleteLangLtr() => _preferences?.remove(StorageKeys.keyLangLtr);
 
-  /*static Future<void> setBoard(Board? board) async {
-    await _preferences?.setString(
-      StorageKeys.keyBoard,
-      jsonEncode(board?.toJson()),
-    );
-  }
-
-  static Board? getBoard() {
-    Map jsonData = {};
-    if (_preferences?.getString(StorageKeys.keyBoard) != null) {
-      jsonData = jsonDecode(
-        _preferences?.getString(StorageKeys.keyBoard) ?? "",
-      );
-    }
-
-    if (jsonData.isNotEmpty) {
-      Board board = Board.fromJson(jsonData);
-      return board;
-    }
-
-    return null;
-  }
-
-  static Future<bool>? deleteBoard() {
-    return _preferences?.remove(StorageKeys.keyBoard);
-  }*/
-
   static void logout() {
     deleteWalletData();
     deleteSavedShopsList();
@@ -306,6 +282,5 @@ abstract class LocalStorage {
     deleteToken();
     deleteAddressSelected();
     deleteAddressInformation();
-    //deleteBoard();
   }
 }

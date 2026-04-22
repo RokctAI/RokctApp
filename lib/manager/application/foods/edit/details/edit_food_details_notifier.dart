@@ -245,7 +245,7 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
           );
         }
       },
-      failure: (failure, s) {
+      failure: (failure, status) {
         debugPrint('==> get product details failure: $failure');
       },
     );

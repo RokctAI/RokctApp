@@ -8,14 +8,14 @@ import 'package:rokctapp/manager/presentation/component/text_fields/search_text_
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 @RoutePage(name: 'ManagerMapSearchRoute')
-class MapSearchPage extends StatefulWidget {
-  const MapSearchPage({super.key});
+class ManagerMapSearchPage extends StatefulWidget {
+  const ManagerMapSearchPage({super.key});
 
   @override
-  State<MapSearchPage> createState() => _MapSearchPageState();
+  State<ManagerMapSearchPage> createState() => _MapSearchPageState();
 }
 
-class _MapSearchPageState extends State<MapSearchPage> {
+class _MapSearchPageState extends State<ManagerMapSearchPage> {
   List<AutocompletePrediction> searchResult = [];
 
   @override

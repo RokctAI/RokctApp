@@ -404,7 +404,7 @@ class OrderNotifier extends Notifier<OrderState> {
             onWebview?.call(key);
           }
         },
-        failure: (e, s) {
+        failure: (e, status) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
             AppHelpers.showCheckTopSnackBar(context, e);
@@ -430,7 +430,7 @@ class OrderNotifier extends Notifier<OrderState> {
           shopId: data.shopId,
         );
         res.when(
-          success: (s) async {
+          success: (status) async {
             final num wallet = LocalStorage.getWalletData()?.price ?? 0;
             if (payment.tag == "wallet" &&
                 wallet < (state.calculateData?.totalPrice ?? 0)) {
@@ -450,7 +450,7 @@ class OrderNotifier extends Notifier<OrderState> {
                 success: (key) {
                   onWebview?.call(key, payment.tag == 'pay-fast');
                 },
-                failure: (e, s) {
+                failure: (e, status) {
                   state = state.copyWith(isButtonLoading: false);
                   if (context.mounted) {
                     AppHelpers.showCheckTopSnackBar(context, e);
@@ -535,7 +535,7 @@ class OrderNotifier extends Notifier<OrderState> {
           success: (key) {
             onWebview?.call(key, payment.tag == 'pay-fast');
           },
-          failure: (e, s) {
+          failure: (e, status) {
             state = state.copyWith(isButtonLoading: false);
             if (context.mounted) {
               AppHelpers.showCheckTopSnackBar(context, e);

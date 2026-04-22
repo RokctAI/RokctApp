@@ -14,14 +14,14 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/parcel/parcel_item.dart';
 
 @RoutePage(name: 'DriverParcelsRoute')
-class ParcelsPage extends ConsumerStatefulWidget {
-  const ParcelsPage({super.key});
+class DriverParcelsPage extends ConsumerStatefulWidget {
+  const DriverParcelsPage({super.key});
 
   @override
-  ConsumerState<ParcelsPage> createState() => _ParcelsPageState();
+  ConsumerState<DriverParcelsPage> createState() => _ParcelsPageState();
 }
 
-class _ParcelsPageState extends ConsumerState<ParcelsPage>
+class _ParcelsPageState extends ConsumerState<DriverParcelsPage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   late RefreshController activeController;

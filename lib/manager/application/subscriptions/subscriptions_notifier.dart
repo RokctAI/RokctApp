@@ -93,7 +93,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
             },
           );
         },
-        failure: (failure, s) {
+        failure: (failure, status) {
           state = state.copyWith(isPaymentLoading: false);
           AppHelpers.errorSnackBar(context, text: failure);
         },
@@ -110,7 +110,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
               .pushRoute(ManagerWebViewRoute(url: data))
               .whenComplete(() => onSuccess());
         },
-        failure: (failure, s) {
+        failure: (failure, status) {
           state = state.copyWith(isPaymentLoading: false);
           AppHelpers.errorSnackBar(context, text: failure);
         },
@@ -130,7 +130,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
         }
         state = state.copyWith(payments: list, selectPayment: 0);
       },
-      failure: (failure, s) {
+      failure: (failure, status) {
         AppHelpers.errorSnackBar(context, text: failure);
       },
     );

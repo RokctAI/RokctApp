@@ -79,7 +79,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
         }
       },
       failure: (failure, status) {
-        debugPrint('==> get profile details failure: $f');
+        debugPrint('==> get profile details failure: $failure');
       },
     );
   }
@@ -252,13 +252,13 @@ class RegisterNotifier extends Notifier<RegisterState> {
         },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
-          if (s == 400) {
+          if (status == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(TrKeys.referralIncorrect),
             );
           } else {
-            AppHelpers.showCheckTopSnackBar(context, f);
+            AppHelpers.showCheckTopSnackBar(context, failure);
           }
         },
       );

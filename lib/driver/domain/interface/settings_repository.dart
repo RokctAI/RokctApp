@@ -2,7 +2,7 @@ import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 
-abstract class driverSettingsRepository {
+abstract class DriverSettingsRepository {
   Future<ApiResult<GalleryUploadResponse>> uploadImage(
     String filePath,
     UploadType uploadType,
