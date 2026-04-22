@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -119,9 +119,7 @@ class _MainPageState extends State<MainPage> {
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 500),
                       decoration: BoxDecoration(
-                        color: AppStyle.bottomNavigationBar.withOpacity(
-                          0.6,
-                        ),
+                        color: AppStyle.bottomNavigationBar.withOpacity(0.6),
                         borderRadius: BorderRadius.circular(100.r),
                       ),
                       height: 60.r,
@@ -267,4 +265,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-

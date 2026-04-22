@@ -1,4 +1,4 @@
-﻿import 'package:flutter_remix/flutter_remix.dart';
+import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -189,4 +189,3 @@ class OrderFoodItem extends StatelessWidget {
     );
   }
 }
-

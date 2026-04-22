@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -206,24 +206,20 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide.merge(
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                             ),
                                           ),
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide.merge(
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                             ),
                                           ),
@@ -233,12 +229,10 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                           disabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide.merge(
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                             ),
                                           ),
@@ -484,4 +478,3 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
     );
   }
 }
-

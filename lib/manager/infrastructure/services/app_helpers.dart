@@ -1,4 +1,4 @@
-﻿import 'package:dio/dio.dart';
+import 'package:dio/dio.dart';
 import 'package:ftoast/ftoast.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
@@ -604,4 +604,3 @@ class AppHelpers {
     }
   }
 }
-

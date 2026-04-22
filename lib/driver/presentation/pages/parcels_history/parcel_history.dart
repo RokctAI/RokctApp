@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/annotations.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -148,4 +148,3 @@ class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
     );
   }
 }
-

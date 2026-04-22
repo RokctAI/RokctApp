@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart';
 
 // import 'package:charts_flutter_new/flutter.dart';
 import 'package:flutter/material.dart';
@@ -194,4 +194,3 @@ class _IncomePageState extends ConsumerState<IncomePage>
     );
   }
 }
-
