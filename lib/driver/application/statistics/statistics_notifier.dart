@@ -1,4 +1,4 @@
-﻿import 'package:charts_flutter/flutter.dart';
+import 'package:charts_flutter/flutter.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -142,4 +142,3 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
     state = state.copyWith(list: newList);
   }
 }
-

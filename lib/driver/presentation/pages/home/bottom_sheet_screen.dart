@@ -1,4 +1,4 @@
-﻿import 'package:rokctapp/core/presentation/app_assets.dart';
+import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -212,4 +212,3 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
     );
   }
 }
-

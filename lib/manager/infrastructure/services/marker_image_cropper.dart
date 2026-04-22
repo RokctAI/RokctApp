@@ -1,4 +1,4 @@
-﻿// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: depend_on_referenced_packages
 
 import 'dart:io';
 import 'dart:ui';
@@ -115,4 +115,3 @@ class ImageCropperForMarker {
     return canvas;
   }
 }
-

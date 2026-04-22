@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +12,16 @@ import 'package:rokctapp/core/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/manager/presentation/component/helper/modal_wrap.dart';
 import 'package:rokctapp/manager/presentation/component/loading/loading.dart';
 import 'package:rokctapp/manager/presentation/component/text_fields/underlined_text_field.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 class MultiTranslationInputModal extends ConsumerStatefulWidget {
   final AiTranslationModel model;
@@ -223,4 +232,3 @@ class _MultiTranslationInputModalState
     );
   }
 }
-

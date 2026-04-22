@@ -1,4 +1,4 @@
-﻿import 'dart:io' show Platform;
+import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,4 +27,3 @@ class Loading extends StatelessWidget {
     );
   }
 }
-
