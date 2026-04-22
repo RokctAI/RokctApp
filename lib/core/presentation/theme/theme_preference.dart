@@ -12,6 +12,8 @@ class ThemePreference {
     return ThemePreference._(preference);
   }
 
+  static ThemePreference get mock => throw UnimplementedError();
+
   CustomThemeMode getMode() {
     final modeKey =
         _preferences.getString(ThemePreference.prefKey) ??

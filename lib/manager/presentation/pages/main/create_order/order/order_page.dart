@@ -10,16 +10,17 @@ import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
 
 @RoutePage(name: 'ManagerOrderRoute')
-class OrderPage extends ConsumerStatefulWidget {
-  const OrderPage({super.key});
+class ManagerOrderPage extends ConsumerStatefulWidget {
+  const ManagerOrderPage({super.key});
 
   @override
-  ConsumerState<OrderPage> createState() => _OrderPageState();
+  ConsumerState<ManagerOrderPage> createState() => _OrderPageState();
 }
 
-class _OrderPageState extends ConsumerState<OrderPage> {
+class _OrderPageState extends ConsumerState<ManagerOrderPage> {
   @override
   void initState() {
     super.initState();

@@ -13,17 +13,18 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/order_details_modal.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
 
 @RoutePage(name: 'ManagerNotificationListRoute')
-class NotificationListPage extends ConsumerStatefulWidget {
-  const NotificationListPage({super.key});
+class ManagerNotificationListPage extends ConsumerStatefulWidget {
+  const ManagerNotificationListPage({super.key});
 
   @override
-  ConsumerState<NotificationListPage> createState() =>
+  ConsumerState<ManagerNotificationListPage> createState() =>
       _NotificationListPageState();
 }
 
-class _NotificationListPageState extends ConsumerState<NotificationListPage> {
+class _NotificationListPageState extends ConsumerState<ManagerNotificationListPage> {
   final bool isLtr = LocalStorage.getLangLtr();
   late RefreshController refreshController;
 

@@ -12,7 +12,7 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/profile/state/profile_settings_state.dart';
 
 class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
-  final driverUserRepository _userRepository;
+  final DriverUserRepository _userRepository;
 
   ProfileSettingsNotifier(this._userRepository)
     : super(const ProfileSettingsState());
@@ -98,7 +98,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(f),
+              AppHelpers.getTranslation(failure),
             );
           }
         },

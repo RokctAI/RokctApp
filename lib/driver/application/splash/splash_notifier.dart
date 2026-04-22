@@ -12,8 +12,8 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/splash/splash_state.dart';
 
 class SplashNotifier extends StateNotifier<SplashState> {
-  final driverSettingsRepository _settingsRepository;
-  final driverUserRepository _userRepository;
+  final DriverSettingsRepository _settingsRepository;
+  final DriverUserRepository _userRepository;
 
   SplashNotifier(this._settingsRepository, this._userRepository)
     : super(const SplashState());
@@ -26,7 +26,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         LocalStorage.setOnline(data.data?.online ?? false);
       },
       failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
         debugPrint('==> error with fetching profile $failure');
       },
     );
@@ -39,7 +39,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         LocalStorage.setSettingsList(data.data ?? []);
       },
       failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
         debugPrint('==> error with fetching settings $failure');
       },
     );
@@ -60,7 +60,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
         LocalStorage.setSelectedCurrency(currencies[defaultCurrencyIndex]);
       },
       failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
         debugPrint('==> error with fetching currencies $failure');
       },
     );
@@ -90,10 +90,10 @@ class SplashNotifier extends StateNotifier<SplashState> {
         if (status == 401) {
           onLogin?.call();
           LocalStorage.logout();
-          context.replaceRoute(const DriverSplashRoute());
+          context.replaceRoute(const SplashRoute());
           return;
         }
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
         debugPrint('==> error fetching profile details $failure');
       },
     );
@@ -117,7 +117,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
           debugPrint('==> error with fetching translations $failure');
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(f),
+            AppHelpers.getTranslation(failure),
           );
         },
       );

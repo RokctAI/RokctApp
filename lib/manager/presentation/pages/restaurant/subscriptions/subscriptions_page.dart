@@ -17,14 +17,14 @@ import 'package:rokctapp/manager/presentation/pages/restaurant/subscriptions/wid
 import 'package:rokctapp/manager/presentation/pages/restaurant/subscriptions/widgets/subscriptions_item.dart';
 
 @RoutePage(name: 'ManagerSubscriptionsRoute')
-class SubscriptionsPage extends ConsumerStatefulWidget {
-  const SubscriptionsPage({super.key});
+class ManagerSubscriptionsPage extends ConsumerStatefulWidget {
+  const ManagerSubscriptionsPage({super.key});
 
   @override
-  ConsumerState<SubscriptionsPage> createState() => _SubscriptionsPageState();
+  ConsumerState<ManagerSubscriptionsPage> createState() => _SubscriptionsPageState();
 }
 
-class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
+class _SubscriptionsPageState extends ConsumerState<ManagerSubscriptionsPage> {
   late RefreshController refreshController;
 
   @override

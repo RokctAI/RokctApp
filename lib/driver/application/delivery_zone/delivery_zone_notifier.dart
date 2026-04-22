@@ -10,7 +10,7 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 
 class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
-  final driverUserRepository _usersRepository;
+  final DriverUserRepository _usersRepository;
 
   DeliveryZoneNotifier(this._usersRepository)
     : super(const DeliveryZoneState());

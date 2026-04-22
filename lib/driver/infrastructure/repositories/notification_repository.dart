@@ -5,7 +5,7 @@ import 'package:rokctapp/driver/domain/interface/notification.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 
-class NotificationRepositoryImpl extends driverNotificationRepo {
+class NotificationRepositoryImpl extends DriverNotificationRepository {
   @override
   Future<ApiResult<NotificationResponse>> getNotifications({int? page}) async {
     final data = {

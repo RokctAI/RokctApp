@@ -15,16 +15,17 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/components/languages_modal.dart';
 import 'package:rokctapp/driver/presentation/pages/profile/widgets/logout_modal.dart';
 import 'package:rokctapp/driver/presentation/pages/profile/widgets/sections_item.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus;
 
 @RoutePage(name: 'DriverProfileRoute')
-class ProfilePage extends ConsumerStatefulWidget {
-  const ProfilePage({super.key});
+class DriverProfilePage extends ConsumerStatefulWidget {
+  const DriverProfilePage({super.key});
 
   @override
-  ConsumerState<ProfilePage> createState() => _ProfilePageState();
+  ConsumerState<DriverProfilePage> createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends ConsumerState<ProfilePage> {
+class _ProfilePageState extends ConsumerState<DriverProfilePage> {
   final bool isLtr = LocalStorage.getLangLtr();
 
   @override

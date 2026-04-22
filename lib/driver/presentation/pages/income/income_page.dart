@@ -14,14 +14,14 @@ import 'package:rokctapp/driver/presentation/pages/income/statistics_screen.dart
 import 'package:rokctapp/driver/presentation/pages/income/widgets/income_item.dart';
 
 @RoutePage(name: 'DriverIncomeRoute')
-class IncomePage extends ConsumerStatefulWidget {
-  const IncomePage({super.key});
+class DriverIncomePage extends ConsumerStatefulWidget {
+  const DriverIncomePage({super.key});
 
   @override
-  ConsumerState<IncomePage> createState() => _IncomePageState();
+  ConsumerState<DriverIncomePage> createState() => _IncomePageState();
 }
 
-class _IncomePageState extends ConsumerState<IncomePage>
+class _IncomePageState extends ConsumerState<DriverIncomePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 

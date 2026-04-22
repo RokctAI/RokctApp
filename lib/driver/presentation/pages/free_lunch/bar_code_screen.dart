@@ -12,6 +12,7 @@ import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus;
 
 class BarCodeScreen extends StatelessWidget {
   const BarCodeScreen({super.key});

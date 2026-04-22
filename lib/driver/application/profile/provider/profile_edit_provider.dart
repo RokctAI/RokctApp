@@ -6,5 +6,5 @@ import 'package:rokctapp/driver/application/profile/state/profile_edit_state.dar
 
 final profileEditProvider =
     StateNotifierProvider<ProfileEditNotifier, ProfileEditState>(
-      (ref) => ProfileEditNotifier(driverUserRepository),
+      (ref) => ProfileEditNotifier(DriverUserRepository),
     );

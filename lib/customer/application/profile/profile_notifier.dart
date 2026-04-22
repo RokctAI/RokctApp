@@ -23,7 +23,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (l) {
         state = state.copyWith(isTermLoading: false, term: l);
       },
-      failure: (r, s) {
+      failure: (r, status) {
         state = state.copyWith(isTermLoading: false);
         AppHelpers.showCheckTopSnackBar(context, r.toString());
       },
@@ -37,7 +37,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (l) {
         state = state.copyWith(isPolicyLoading: false, policy: l);
       },
-      failure: (r, s) {
+      failure: (r, status) {
         state = state.copyWith(isPolicyLoading: false);
         AppHelpers.showCheckTopSnackBar(context, r.toString());
       },
@@ -337,7 +337,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
         success: (data) {
           logoImage = data.imageData?.title;
         },
-        failure: (failure, s) {
+        failure: (failure, status) {
           debugPrint('===> upload logo image failure: $failure');
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -350,7 +350,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
         success: (data) {
           backgroundImage = data.imageData?.title;
         },
-        failure: (failure, s) {
+        failure: (failure, status) {
           debugPrint('===> upload background image failure: $failure');
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -363,7 +363,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
         success: (data) {
           files = data.data?.title;
         },
-        failure: (failure, s) {
+        failure: (failure, status) {
           debugPrint('===> upload document failure: $failure');
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
@@ -390,7 +390,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
           fetchUser(context, refreshController: RefreshController());
           context.maybePop();
         },
-        failure: (failure, s) {
+        failure: (failure, status) {
           state = state.copyWith(isSaveLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
           debugPrint('==> create shop failure: $failure');
@@ -440,7 +440,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isLoading: false, about: data.data);
       },
-      failure: (e, s) {
+      failure: (e, status) {
         state = state.copyWith(isLoading: false);
       },
     );
@@ -454,7 +454,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isLoading: false, blogs: data.data);
       },
-      failure: (e, s) {
+      failure: (e, status) {
         state = state.copyWith(isLoading: false);
       },
     );
@@ -468,7 +468,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isLoading: false, selectBlog: data);
       },
-      failure: (e, s) {
+      failure: (e, status) {
         state = state.copyWith(isLoading: false);
       },
     );

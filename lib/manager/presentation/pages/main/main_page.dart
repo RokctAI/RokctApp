@@ -22,16 +22,17 @@ import 'package:rokctapp/manager/presentation/pages/main/foods/create/create_pro
 import 'package:rokctapp/manager/presentation/pages/main/foods/addons/create/create_addon_modal.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/extras/create/create_extras_group_modal.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
 
 @RoutePage(name: 'ManagerMainRoute')
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class ManagerMainPage extends StatefulWidget {
+  const ManagerMainPage({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<ManagerMainPage> createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends State<ManagerMainPage> {
   List<IndexedStackChild> list = [
     IndexedStackChild(child: const OrdersHomePage(), preload: true),
     IndexedStackChild(child: const FoodsPage(), preload: false),

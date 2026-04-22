@@ -9,18 +9,19 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_table/widgets/table_item.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
 
 @RoutePage(name: 'ManagerSelectTableRoute')
-class SelectTablePage extends ConsumerStatefulWidget {
+class ManagerSelectTablePage extends ConsumerStatefulWidget {
   final int? sectionId;
 
-  const SelectTablePage({super.key, required this.sectionId});
+  const ManagerSelectTablePage({super.key, required this.sectionId});
 
   @override
-  ConsumerState<SelectTablePage> createState() => _SelectTablePageState();
+  ConsumerState<ManagerSelectTablePage> createState() => _SelectTablePageState();
 }
 
-class _SelectTablePageState extends ConsumerState<SelectTablePage> {
+class _SelectTablePageState extends ConsumerState<ManagerSelectTablePage> {
   late RefreshController _refreshController;
 
   @override

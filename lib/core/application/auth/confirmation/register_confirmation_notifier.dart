@@ -1,3 +1,4 @@
+import 'package:rokctapp/core/domain/handlers/api_result.dart';
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -360,7 +361,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isResending: true);
-      late ApiResult response;
+      late ApiResult<dynamic> response;
       if (isResetPassword) {
         response = await authRepository.forgotPassword(email: email.trim());
       } else {

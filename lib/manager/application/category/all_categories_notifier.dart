@@ -180,7 +180,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         list.remove(category);
         state = state.copyWith(categories: list, activeIndex: 0);
       },
-      failure: (failure, s) {
+      failure: (failure, status) {
         debugPrint("delete categories fail: $failure");
       },
     );

@@ -201,31 +201,29 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                           if (key.currentState?.validate() ?? false) {
                             event.login(
                               context,
-                              seller: () => AppHelpers.showCheckTopSnackBar(
+                              seller: () => AppHelpers.showCheckTopSnackBarDone(
                                 context,
-                                text: AppHelpers.getTranslation(
+                                AppHelpers.getTranslation(
                                   TrKeys.youAreASeller,
                                 ),
-                                type: SnackBarType.success,
                               ),
-                              admin: () => AppHelpers.showCheckTopSnackBar(
+                              admin: () => AppHelpers.showCheckTopSnackBarDone(
                                 context,
-                                text: AppHelpers.getTranslation(
+                                AppHelpers.getTranslation(
                                   TrKeys.youAreAnAdmin,
                                 ),
-                                type: SnackBarType.success,
                               ),
                               youAreNotDeliveryman: () =>
                                   AppHelpers.showCheckTopSnackBar(
                                     context,
-                                    text: AppHelpers.getTranslation(
+                                    AppHelpers.getTranslation(
                                       TrKeys.youAreNotADeliveryman,
                                     ),
                                   ),
                               accessDenied: () =>
                                   AppHelpers.showCheckTopSnackBar(
                                     context,
-                                    text: AppHelpers.getTranslation(
+                                    AppHelpers.getTranslation(
                                       TrKeys.accessDenied,
                                     ),
                                   ),

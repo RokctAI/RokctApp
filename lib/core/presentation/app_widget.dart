@@ -29,9 +29,9 @@ class AppWidget extends ConsumerWidget {
       await settingsRepository.getMobileTranslations();
 
       // Driver
-      await driverSettingsRepository.getGlobalSettings();
-      await driverSettingsRepository.getLanguages();
-      await driverSettingsRepository.getTranslations();
+      await DriverSettingsRepository.getGlobalSettings();
+      await DriverSettingsRepository.getLanguages();
+      await DriverSettingsRepository.getTranslations();
 
       // Manager
       managerSettingsRepository.getGlobalSettings();

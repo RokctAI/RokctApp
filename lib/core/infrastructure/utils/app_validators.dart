@@ -34,4 +34,19 @@ abstract class AppValidators {
 
   static bool arePasswordsTheSame(String password, String confirmPassword) =>
       password == confirmPassword;
+
+  // Merged from driver/manager
+  static bool isValidPhone(String input) =>
+      RegExp(r"^\+?[0-9]{7,15}$").hasMatch(input);
+
+  static String detectType(String input) {
+    if (isValidEmail(input)) {
+      return TrKeys.email;
+    }
+    if (isValidPhone(input)) {
+      return TrKeys.phone;
+    } else {
+      return TrKeys.invalid;
+    }
+  }
 }

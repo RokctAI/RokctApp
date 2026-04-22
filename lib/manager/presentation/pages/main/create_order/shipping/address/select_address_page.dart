@@ -13,16 +13,17 @@ import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/address/searched_location_item.dart';
+import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
 
 @RoutePage(name: 'ManagerSelectAddressRoute')
-class SelectAddressPage extends StatefulWidget {
-  const SelectAddressPage({super.key});
+class ManagerSelectAddressPage extends StatefulWidget {
+  const ManagerSelectAddressPage({super.key});
 
   @override
-  State<SelectAddressPage> createState() => _SelectAddressPageState();
+  State<ManagerSelectAddressPage> createState() => _SelectAddressPageState();
 }
 
-class _SelectAddressPageState extends State<SelectAddressPage>
+class _SelectAddressPageState extends State<ManagerSelectAddressPage>
     with TickerProviderStateMixin {
   late AnimationController _animationController;
   CameraPosition? _cameraPosition;

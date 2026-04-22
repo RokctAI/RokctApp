@@ -3,7 +3,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_paginate_respon
 
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 
-abstract class driverOrdersRepository {
+abstract class DriverOrdersRepository {
   Future<ApiResult<OrderDetailModel>> showOrders(int id);
 
   Future<ApiResult<dynamic>> setCurrentOrder(int? orderId);

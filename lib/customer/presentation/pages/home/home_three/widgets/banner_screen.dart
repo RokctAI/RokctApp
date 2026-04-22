@@ -14,6 +14,7 @@ class BannerScreen extends StatelessWidget {
   final int bannerId;
   final String desc;
   final List<ShopData> list;
+  final bool isAds;
 
   const BannerScreen({
     super.key,
@@ -21,6 +22,7 @@ class BannerScreen extends StatelessWidget {
     required this.desc,
     required this.list,
     required this.bannerId,
+    this.isAds = false,
   });
 
   @override

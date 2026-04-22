@@ -5,5 +5,5 @@ import 'package:rokctapp/driver/application/parcel/parcel_notifier.dart';
 import 'package:rokctapp/driver/application/parcel/parcel_state.dart';
 
 final parcelProvider = StateNotifierProvider<ParcelNotifier, ParcelState>(
-  (ref) => ParcelNotifier(driverParcelRepository),
+  (ref) => ParcelNotifier(DriverParcelRepository),
 );

@@ -9,8 +9,8 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/profile/state/profile_image_state.dart';
 
 class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
-  final driverUserRepository _userRepository;
-  final driverSettingsRepository _settingsRepository;
+  final DriverUserRepository _userRepository;
+  final DriverSettingsRepository _settingsRepository;
 
   ProfileImageNotifier(this._userRepository, this._settingsRepository)
     : super(const ProfileImageState());
@@ -31,7 +31,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
       },
     );
     if (url == null) {
@@ -48,7 +48,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> update profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
       },
     );
   }
@@ -67,7 +67,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(f));
+        AppHelpers.showCheckTopSnackBar(context, AppHelpers.getTranslation(failure));
       },
     );
   }

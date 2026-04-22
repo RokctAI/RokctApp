@@ -10,7 +10,7 @@ import 'package:rokctapp/driver/application/statistics/statistics_state.dart';
 import 'package:rokctapp/driver/domain/interface/interfaces.dart';
 
 class StatisticsNotifier extends StateNotifier<StatisticsState> {
-  final driverUserRepository _userRepository;
+  final DriverUserRepository _userRepository;
   int page = 1;
 
   StatisticsNotifier(this._userRepository) : super(const StatisticsState());
