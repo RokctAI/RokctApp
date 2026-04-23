@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -11,14 +11,24 @@ import 'package:rokctapp/manager/presentation/pages/main/create_order/details/fo
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 @RoutePage(name: 'ManagerCreateOrderRoute')
 class ManagerCreateOrderPage extends ConsumerStatefulWidget {
   const ManagerCreateOrderPage({super.key});
 
   @override
-  ConsumerState<ManagerCreateOrderPage> createState() => _CreateOrderPageState();
+  ConsumerState<ManagerCreateOrderPage> createState() =>
+      _CreateOrderPageState();
 }
 
 class _CreateOrderPageState extends ConsumerState<ManagerCreateOrderPage> {
@@ -404,4 +414,3 @@ class _CreateOrderPageState extends ConsumerState<ManagerCreateOrderPage> {
     );
   }
 }
-

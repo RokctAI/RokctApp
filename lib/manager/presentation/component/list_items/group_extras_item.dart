@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/core/presentation/theme/theme.dart';
@@ -44,9 +44,7 @@ class GroupExtrasItem extends StatelessWidget {
                           : AppStyle.transparent,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: isSelected
-                            ? AppStyle.blackColor
-                            : AppStyle.text,
+                        color: isSelected ? AppStyle.blackColor : AppStyle.text,
                         width: isSelected ? 4 : 2,
                       ),
                     ),
@@ -69,4 +67,3 @@ class GroupExtrasItem extends StatelessWidget {
     );
   }
 }
-

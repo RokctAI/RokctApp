@@ -1,4 +1,4 @@
-﻿import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
@@ -10,7 +10,15 @@ import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/home/home_state.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus;
 
 class HomeNotifier extends StateNotifier<HomeState> {
   HomeNotifier() : super(const HomeState());
@@ -75,7 +83,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
         markers: {},
         isLoading: true,
       );
-      final response = await DriverDrawRepository.getRouting(start: start, end: end);
+      final response = await DriverDrawRepository.getRouting(
+        start: start,
+        end: end,
+      );
       response.when(
         success: (data) {
           List<LatLng> list = [];
@@ -475,7 +486,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
     required int? orderId,
     required String path,
   }) async {
-    final res = await DriverSettingsRepository.uploadImage(path, UploadType.products);
+    final res = await DriverSettingsRepository.uploadImage(
+      path,
+      UploadType.products,
+    );
     res.when(
       success: (success) {
         DriverOrdersRepository.uploadImage(orderId, success.imageData?.title);
@@ -507,4 +521,3 @@ class HomeNotifier extends StateNotifier<HomeState> {
     }
   }
 }
-

@@ -151,10 +151,7 @@ class AppRouter extends RootStackRouter {
 
     // Driver
     CupertinoRoute(path: '/driver', page: SplashRoute.page),
-    CupertinoRoute(
-      path: '/driver/no-connection',
-      page: NoConnectionRoute.page,
-    ),
+    CupertinoRoute(path: '/driver/no-connection', page: NoConnectionRoute.page),
     CupertinoRoute(path: '/driver/login', page: LoginRoute.page),
     CupertinoRoute(path: '/driver/income', page: DriverIncomeRoute.page),
     CupertinoRoute(path: '/driver/home', page: DriverHomeRoute.page),

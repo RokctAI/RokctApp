@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -203,15 +203,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                               context,
                               seller: () => AppHelpers.showCheckTopSnackBarDone(
                                 context,
-                                AppHelpers.getTranslation(
-                                  TrKeys.youAreASeller,
-                                ),
+                                AppHelpers.getTranslation(TrKeys.youAreASeller),
                               ),
                               admin: () => AppHelpers.showCheckTopSnackBarDone(
                                 context,
-                                AppHelpers.getTranslation(
-                                  TrKeys.youAreAnAdmin,
-                                ),
+                                AppHelpers.getTranslation(TrKeys.youAreAnAdmin),
                               ),
                               youAreNotDeliveryman: () =>
                                   AppHelpers.showCheckTopSnackBar(
@@ -390,4 +386,3 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
     );
   }
 }
-

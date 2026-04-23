@@ -47,10 +47,7 @@ class SearchTextField extends StatelessWidget {
           cursorColor: AppStyle.black,
           cursorWidth: 1,
           decoration: InputDecoration(
-            hintStyle: AppStyle.interNormal(
-              size: 13,
-              color: AppStyle.hint,
-            ),
+            hintStyle: AppStyle.interNormal(size: 13, color: AppStyle.hint),
             hintText:
                 hintText ?? AppHelpers.getTranslation(TrKeys.searchProducts),
             contentPadding: REdgeInsets.symmetric(horizontal: 15, vertical: 14),
