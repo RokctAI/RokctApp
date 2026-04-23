@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart';
 
 // import 'package:charts_flutter_new/flutter.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,16 @@ import 'package:rokctapp/manager/presentation/pages/income/widgets/order_prices_
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/income/app_bar_screen.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 @RoutePage(name: 'ManagerIncomeRoute')
 class ManagerIncomePage extends ConsumerStatefulWidget {
@@ -195,4 +204,3 @@ class _IncomePageState extends ConsumerState<ManagerIncomePage>
     );
   }
 }
-

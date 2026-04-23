@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -21,7 +21,8 @@ class ManagerSubscriptionsPage extends ConsumerStatefulWidget {
   const ManagerSubscriptionsPage({super.key});
 
   @override
-  ConsumerState<ManagerSubscriptionsPage> createState() => _SubscriptionsPageState();
+  ConsumerState<ManagerSubscriptionsPage> createState() =>
+      _SubscriptionsPageState();
 }
 
 class _SubscriptionsPageState extends ConsumerState<ManagerSubscriptionsPage> {
@@ -171,4 +172,3 @@ class _SubscriptionsPageState extends ConsumerState<ManagerSubscriptionsPage> {
     );
   }
 }
-

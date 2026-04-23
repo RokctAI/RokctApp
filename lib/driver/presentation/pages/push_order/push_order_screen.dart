@@ -1,4 +1,4 @@
-﻿import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,7 +11,15 @@ import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus;
 
 class PushOrder extends ConsumerStatefulWidget {
   final OrderDetailData pushModel;
@@ -451,4 +459,3 @@ class _PushOrderState extends ConsumerState<PushOrder> {
     );
   }
 }
-

@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/annotations.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,7 +17,8 @@ class DriverParcelHistoryPage extends ConsumerStatefulWidget {
   const DriverParcelHistoryPage({super.key});
 
   @override
-  ConsumerState<DriverParcelHistoryPage> createState() => _ParcelHistoryPageState();
+  ConsumerState<DriverParcelHistoryPage> createState() =>
+      _ParcelHistoryPageState();
 }
 
 class _ParcelHistoryPageState extends ConsumerState<DriverParcelHistoryPage> {
@@ -148,4 +149,3 @@ class _ParcelHistoryPageState extends ConsumerState<DriverParcelHistoryPage> {
     );
   }
 }
-

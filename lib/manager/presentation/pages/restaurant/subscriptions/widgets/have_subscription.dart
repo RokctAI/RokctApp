@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/manager/infrastructure/services/date_service.dart';
@@ -93,4 +93,3 @@ class HaveSubscription extends StatelessWidget {
     );
   }
 }
-

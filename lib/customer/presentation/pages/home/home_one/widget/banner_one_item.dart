@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/customer/models/response/banners_paginate_response.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
@@ -46,4 +46,3 @@ class BannerOneItem extends StatelessWidget {
     );
   }
 }
-

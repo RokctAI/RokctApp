@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -17,7 +17,16 @@ import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/edit_restaurant_modal.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 class RestaurantPage extends ConsumerStatefulWidget {
   const RestaurantPage({super.key});
@@ -421,4 +430,3 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
   //   );
   // }
 }
-
