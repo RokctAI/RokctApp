@@ -1,5 +1,3 @@
-export 'package:rokctapp/driver/presentation/pages/initial/splash_page.dart';
-export 'package:rokctapp/driver/presentation/pages/initial/no_connection_page.dart';
 export 'package:rokctapp/driver/presentation/pages/income/income_page.dart';
 export 'package:rokctapp/driver/presentation/pages/home/home_page.dart';
 export 'package:rokctapp/driver/presentation/pages/stores/story_page.dart';
