@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/annotations.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:rokctapp/driver/application/order/canceled_order/canceled_order_provider.dart';
 import 'package:rokctapp/driver/application/order/delivered_order/delivery_order_provider.dart';
 import 'package:rokctapp/driver/presentation/pages/order_history/widgets/all_orders.dart';
@@ -24,7 +24,8 @@ class DriverOrderHistoryPage extends ConsumerStatefulWidget {
   const DriverOrderHistoryPage({super.key});
 
   @override
-  ConsumerState<DriverOrderHistoryPage> createState() => _OrderHistoryPageState();
+  ConsumerState<DriverOrderHistoryPage> createState() =>
+      _OrderHistoryPageState();
 }
 
 class _OrderHistoryPageState extends ConsumerState<DriverOrderHistoryPage>
@@ -175,4 +176,3 @@ class _OrderHistoryPageState extends ConsumerState<DriverOrderHistoryPage>
     );
   }
 }
-

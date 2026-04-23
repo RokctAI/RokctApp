@@ -1,4 +1,4 @@
-﻿// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use
 
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,15 @@ import 'package:rokctapp/driver/presentation/component/common_app_bar.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus;
 
 @RoutePage(name: 'DriverNotificationListRoute')
 class DriverNotificationListPage extends ConsumerStatefulWidget {
@@ -25,7 +33,8 @@ class DriverNotificationListPage extends ConsumerStatefulWidget {
       _NotificationListPageState();
 }
 
-class _NotificationListPageState extends ConsumerState<DriverNotificationListPage> {
+class _NotificationListPageState
+    extends ConsumerState<DriverNotificationListPage> {
   final bool isLtr = LocalStorage.getLangLtr();
   late RefreshController refreshController;
 
@@ -259,4 +268,3 @@ class _NotificationListPageState extends ConsumerState<DriverNotificationListPag
     );
   }
 }
-

@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 
@@ -94,4 +94,3 @@ class ParcelItem extends StatelessWidget {
     );
   }
 }
-

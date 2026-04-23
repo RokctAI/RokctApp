@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -11,14 +11,24 @@ import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/order_history/canceled_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/order_history/delivered_order_body.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 @RoutePage(name: 'ManagerOrderHistoryRoute')
 class ManagerOrderHistoryPage extends ConsumerStatefulWidget {
   const ManagerOrderHistoryPage({super.key});
 
   @override
-  ConsumerState<ManagerOrderHistoryPage> createState() => _OrderHistoryPageState();
+  ConsumerState<ManagerOrderHistoryPage> createState() =>
+      _OrderHistoryPageState();
 }
 
 class _OrderHistoryPageState extends ConsumerState<ManagerOrderHistoryPage>
@@ -149,4 +159,3 @@ class _OrderHistoryPageState extends ConsumerState<ManagerOrderHistoryPage>
     );
   }
 }
-

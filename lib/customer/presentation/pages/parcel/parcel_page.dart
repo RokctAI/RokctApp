@@ -1,4 +1,4 @@
-﻿// ignore_for_file: unused_result
+// ignore_for_file: unused_result
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -275,4 +275,3 @@ class _ParcelPageState extends ConsumerState<ParcelPage> {
     );
   }
 }
-

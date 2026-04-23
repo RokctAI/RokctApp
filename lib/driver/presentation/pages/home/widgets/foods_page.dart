@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/driver/application/order/all_order/order_provider.dart';
@@ -180,9 +180,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                         : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount
-                                ? AppStyle.red
-                                : AppStyle.black,
+                            color: isDiscount ? AppStyle.red : AppStyle.black,
                           ),
                   ),
                   Text(
@@ -193,9 +191,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                         : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount
-                                ? AppStyle.red
-                                : AppStyle.black,
+                            color: isDiscount ? AppStyle.red : AppStyle.black,
                           ),
                   ),
                 ],
@@ -204,4 +200,3 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
           );
   }
 }
-

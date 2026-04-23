@@ -1,4 +1,4 @@
-﻿import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
@@ -153,4 +153,3 @@ class SalesChart extends StatelessWidget {
     );
   }
 }
-
