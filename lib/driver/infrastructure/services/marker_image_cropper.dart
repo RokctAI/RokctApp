@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/services.dart';
@@ -114,4 +114,3 @@ class ImageCropperMarker {
     return canvas;
   }
 }
-

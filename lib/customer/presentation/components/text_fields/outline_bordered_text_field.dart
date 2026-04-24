@@ -93,10 +93,7 @@ class OutlinedBorderTextField extends StatelessWidget {
                 ),
                 suffixIcon: suffixIcon,
                 hintText: hint ?? AppHelpers.getTranslation(TrKeys.typeHere),
-                hintStyle: AppStyle.interNormal(
-                  size: 13,
-                  color: AppStyle.hint,
-                ),
+                hintStyle: AppStyle.interNormal(size: 13, color: AppStyle.hint),
                 contentPadding: REdgeInsets.symmetric(
                   horizontal: 0,
                   vertical: 8,

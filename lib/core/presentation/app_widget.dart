@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
@@ -99,4 +99,3 @@ class AppWidget extends ConsumerWidget {
     );
   }
 }
-

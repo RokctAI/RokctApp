@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,7 +9,16 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_table/widgets/table_item.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 @RoutePage(name: 'ManagerSelectTableRoute')
 class ManagerSelectTablePage extends ConsumerStatefulWidget {
@@ -18,7 +27,8 @@ class ManagerSelectTablePage extends ConsumerStatefulWidget {
   const ManagerSelectTablePage({super.key, required this.sectionId});
 
   @override
-  ConsumerState<ManagerSelectTablePage> createState() => _SelectTablePageState();
+  ConsumerState<ManagerSelectTablePage> createState() =>
+      _SelectTablePageState();
 }
 
 class _SelectTablePageState extends ConsumerState<ManagerSelectTablePage> {
@@ -121,4 +131,3 @@ class _SelectTablePageState extends ConsumerState<ManagerSelectTablePage> {
     );
   }
 }
-

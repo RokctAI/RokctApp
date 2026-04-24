@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -10,7 +10,16 @@ import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 @RoutePage(name: 'ManagerOrderRoute')
 class ManagerOrderPage extends ConsumerStatefulWidget {
@@ -164,4 +173,3 @@ class _OrderPageState extends ConsumerState<ManagerOrderPage> {
     );
   }
 }
-

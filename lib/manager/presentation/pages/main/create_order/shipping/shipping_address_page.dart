@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -14,14 +14,24 @@ import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 @RoutePage(name: 'ManagerShippingAddressRoute')
 class ManagerShippingAddressPage extends StatefulWidget {
   const ManagerShippingAddressPage({super.key});
 
   @override
-  State<ManagerShippingAddressPage> createState() => _ShippingAddressPageState();
+  State<ManagerShippingAddressPage> createState() =>
+      _ShippingAddressPageState();
 }
 
 class _ShippingAddressPageState extends State<ManagerShippingAddressPage> {
@@ -207,24 +217,20 @@ class _ShippingAddressPageState extends State<ManagerShippingAddressPage> {
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide.merge(
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                             ),
                                           ),
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide.merge(
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                             ),
                                           ),
@@ -234,12 +240,10 @@ class _ShippingAddressPageState extends State<ManagerShippingAddressPage> {
                                           disabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide.merge(
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                               const BorderSide(
-                                                color:
-                                                    AppStyle.differBorder,
+                                                color: AppStyle.differBorder,
                                               ),
                                             ),
                                           ),
@@ -485,4 +489,3 @@ class _ShippingAddressPageState extends State<ManagerShippingAddressPage> {
     );
   }
 }
-

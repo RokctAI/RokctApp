@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,7 +22,16 @@ import 'package:rokctapp/manager/presentation/pages/main/foods/create/create_pro
 import 'package:rokctapp/manager/presentation/pages/main/foods/addons/create/create_addon_modal.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/extras/create/create_extras_group_modal.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 @RoutePage(name: 'ManagerMainRoute')
 class ManagerMainPage extends StatefulWidget {
@@ -120,9 +129,7 @@ class _MainPageState extends State<ManagerMainPage> {
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 500),
                       decoration: BoxDecoration(
-                        color: AppStyle.bottomNavigationBar.withOpacity(
-                          0.6,
-                        ),
+                        color: AppStyle.bottomNavigationBar.withOpacity(0.6),
                         borderRadius: BorderRadius.circular(100.r),
                       ),
                       height: 60.r,
@@ -268,4 +275,3 @@ class _MainPageState extends State<ManagerMainPage> {
     );
   }
 }
-

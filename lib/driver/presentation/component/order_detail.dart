@@ -1,4 +1,4 @@
-﻿// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,15 @@ import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/driver/presentation/component/image_dialog.dart';
 import 'package:rokctapp/driver/presentation/component/order_item.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus;
 
 class OrderDetail extends StatelessWidget {
   final OrderDetailData order;
@@ -281,4 +289,3 @@ class OrderDetail extends StatelessWidget {
     );
   }
 }
-
