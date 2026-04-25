@@ -1,4 +1,4 @@
-﻿import 'dart:ui';
+import 'dart:ui';
 import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
 
 import 'package:rokctapp/core/presentation/theme/theme.dart';
@@ -135,4 +135,3 @@ class CustomColorSet {
     return CustomColorSet._create(mode);
   }
 }
-

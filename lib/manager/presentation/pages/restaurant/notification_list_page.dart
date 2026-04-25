@@ -13,7 +13,16 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/order_details_modal.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 @RoutePage(name: 'ManagerNotificationListRoute')
 class ManagerNotificationListPage extends ConsumerStatefulWidget {
@@ -24,7 +33,8 @@ class ManagerNotificationListPage extends ConsumerStatefulWidget {
       _NotificationListPageState();
 }
 
-class _NotificationListPageState extends ConsumerState<ManagerNotificationListPage> {
+class _NotificationListPageState
+    extends ConsumerState<ManagerNotificationListPage> {
   final bool isLtr = LocalStorage.getLangLtr();
   late RefreshController refreshController;
 
@@ -260,4 +270,3 @@ class _NotificationListPageState extends ConsumerState<ManagerNotificationListPa
     );
   }
 }
-

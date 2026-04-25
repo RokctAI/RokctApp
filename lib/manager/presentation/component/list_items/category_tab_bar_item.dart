@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/core/presentation/theme/theme.dart';
@@ -45,9 +45,7 @@ class CategoryTabBarItem extends StatelessWidget {
                 '$title',
                 style: AppStyle.interNormal(
                   size: 13,
-                  color: isActive
-                      ? AppStyle.buttonFont
-                      : AppStyle.blackColor,
+                  color: isActive ? AppStyle.buttonFont : AppStyle.blackColor,
                 ),
               ),
             ],
@@ -57,4 +55,3 @@ class CategoryTabBarItem extends StatelessWidget {
     );
   }
 }
-

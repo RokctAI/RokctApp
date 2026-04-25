@@ -232,4 +232,3 @@ Widget _resultEmpty() {
     ],
   );
 }
-

@@ -236,4 +236,3 @@ Widget _resultEmpty() {
     ],
   );
 }
-

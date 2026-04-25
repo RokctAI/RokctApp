@@ -11,14 +11,24 @@ import 'package:rokctapp/manager/presentation/pages/main/create_order/order/widg
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 @RoutePage(name: 'ManagerDeliveryTimeRoute')
 class ManagerDeliveryTimePage extends ConsumerStatefulWidget {
   const ManagerDeliveryTimePage({super.key});
 
   @override
-  ConsumerState<ManagerDeliveryTimePage> createState() => _DeliveryTimePageState();
+  ConsumerState<ManagerDeliveryTimePage> createState() =>
+      _DeliveryTimePageState();
 }
 
 class _DeliveryTimePageState extends ConsumerState<ManagerDeliveryTimePage> {
@@ -418,4 +428,3 @@ class _DeliveryTimePageState extends ConsumerState<ManagerDeliveryTimePage> {
     );
   }
 }
-
