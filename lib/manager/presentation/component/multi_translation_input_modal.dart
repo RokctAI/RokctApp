@@ -12,7 +12,16 @@ import 'package:rokctapp/core/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/manager/presentation/component/helper/modal_wrap.dart';
 import 'package:rokctapp/manager/presentation/component/loading/loading.dart';
 import 'package:rokctapp/manager/presentation/component/text_fields/underlined_text_field.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 class MultiTranslationInputModal extends ConsumerStatefulWidget {
   final AiTranslationModel model;
@@ -223,4 +232,3 @@ class _MultiTranslationInputModalState
     );
   }
 }
-

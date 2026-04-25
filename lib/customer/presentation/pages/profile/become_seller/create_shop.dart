@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -612,4 +612,3 @@ class _EditRestaurantState extends ConsumerState<CreateShopPage> {
     );
   }
 }
-

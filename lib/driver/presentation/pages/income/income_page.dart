@@ -339,4 +339,3 @@ class _IncomePageState extends ConsumerState<DriverIncomePage>
     );
   }
 }
-

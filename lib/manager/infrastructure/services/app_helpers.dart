@@ -13,7 +13,17 @@ import 'package:rokctapp/manager/infrastructure/services/enums.dart';
 import 'package:rokctapp/manager/infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/manager/app_constants.dart';
 import 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide SignUpType, ExtrasType, OrderStatus, SnackBarType hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide SignUpType, ExtrasType, OrderStatus, SnackBarType
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 class AppHelpers {
   AppHelpers._();
@@ -605,4 +615,3 @@ class AppHelpers {
     }
   }
 }
-

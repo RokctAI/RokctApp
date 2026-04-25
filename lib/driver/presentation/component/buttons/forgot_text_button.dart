@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/core/presentation/theme/theme.dart';
@@ -40,4 +40,3 @@ class ForgotTextButton extends ConsumerWidget {
     );
   }
 }
-

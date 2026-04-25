@@ -21,7 +21,8 @@ class ManagerSubscriptionsPage extends ConsumerStatefulWidget {
   const ManagerSubscriptionsPage({super.key});
 
   @override
-  ConsumerState<ManagerSubscriptionsPage> createState() => _SubscriptionsPageState();
+  ConsumerState<ManagerSubscriptionsPage> createState() =>
+      _SubscriptionsPageState();
 }
 
 class _SubscriptionsPageState extends ConsumerState<ManagerSubscriptionsPage> {
@@ -171,4 +172,3 @@ class _SubscriptionsPageState extends ConsumerState<ManagerSubscriptionsPage> {
     );
   }
 }
-

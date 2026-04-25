@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/customer/models/data/bonus_data.dart';
@@ -383,4 +383,3 @@ class BonusDiscountPopular extends StatelessWidget {
     );
   }
 }
-
