@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/annotations.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

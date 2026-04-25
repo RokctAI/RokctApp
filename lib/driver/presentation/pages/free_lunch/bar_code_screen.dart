@@ -1,4 +1,4 @@
-﻿// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use
 
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:flutter/foundation.dart';

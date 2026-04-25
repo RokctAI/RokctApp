@@ -1,4 +1,4 @@
-﻿import 'dart:collection';
+import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';

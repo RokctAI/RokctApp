@@ -1,4 +1,4 @@
-﻿import 'package:flutter_remix/flutter_remix.dart';
+import 'package:flutter_remix/flutter_remix.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
