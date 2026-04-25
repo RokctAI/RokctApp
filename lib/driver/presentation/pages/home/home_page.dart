@@ -73,7 +73,7 @@ class _HomePageState extends ConsumerState<DriverHomePage> {
         );
       }
       if (message.data["type"] == "new_order") {
-        final res = await DriverOrdersRepository.showOrders(
+        final res = await driverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(
@@ -83,7 +83,7 @@ class _HomePageState extends ConsumerState<DriverHomePage> {
           failure: (failure, status) {},
         );
       } else if (message.data["type"] == "deliveryman") {
-        final res = await DriverOrdersRepository.showOrders(
+        final res = await driverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(
@@ -98,7 +98,7 @@ class _HomePageState extends ConsumerState<DriverHomePage> {
       debugPrint("New notification oped app: ${jsonEncode(message.data)}");
 
       if (message.data["type"] == "new_order") {
-        final res = await DriverOrdersRepository.showOrders(
+        final res = await driverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(
@@ -108,7 +108,7 @@ class _HomePageState extends ConsumerState<DriverHomePage> {
           failure: (failure, status) {},
         );
       } else if (message.data["type"] == "deliveryman") {
-        final res = await DriverOrdersRepository.showOrders(
+        final res = await driverOrdersRepository.showOrders(
           int.tryParse(message.data["id"].toString()) ?? 0,
         );
         res.when(

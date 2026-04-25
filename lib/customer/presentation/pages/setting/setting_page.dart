@@ -71,7 +71,7 @@ class _SettingPageState extends ConsumerState<SettingPage>
               16.verticalSpace,
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: const NotificationPage(),
+                child: const NotificationListPage(),
                 // Column(
                 //   children: [
                 //     CustomTabBar(

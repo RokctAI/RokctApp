@@ -5,5 +5,5 @@ import 'package:rokctapp/driver/application/splash/splash_notifier.dart';
 import 'package:rokctapp/driver/application/splash/splash_state.dart';
 
 final splashProvider = StateNotifierProvider<SplashNotifier, SplashState>(
-  (ref) => SplashNotifier(DriverSettingsRepository, DriverUserRepository),
+  (ref) => SplashNotifier(driverSettingsRepository, driverUserRepository),
 );

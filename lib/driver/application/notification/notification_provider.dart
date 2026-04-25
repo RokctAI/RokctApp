@@ -5,5 +5,5 @@ import 'package:rokctapp/driver/application/notification/notification_state.dart
 
 final notificationProvider =
     StateNotifierProvider<NotificationNotifier, NotificationState>(
-      (ref) => NotificationNotifier(DriverNotificationRepository),
+      (ref) => NotificationNotifier(driverNotificationRepo),
     );

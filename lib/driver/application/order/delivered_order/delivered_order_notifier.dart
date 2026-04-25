@@ -25,7 +25,7 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
         deliveredOrder = 1;
         state = state.copyWith(isLoading: true);
       }
-      final response = await DriverOrdersRepository.getHistoryOrders(
+      final response = await driverOrdersRepository.getHistoryOrders(
         isRefresh ? 1 : ++deliveredOrder,
         status: ["delivered"],
       );

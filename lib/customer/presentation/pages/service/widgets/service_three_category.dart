@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -6,7 +6,7 @@ import 'package:rokctapp/customer/application/home/home_notifier.dart';
 import 'package:rokctapp/customer/application/home/home_state.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/pages/home/filter/filter_page.dart';
-import 'package:rokctapp/core/presentation/pages/search/shimmer/category_shimmer.dart';
+import 'package:rokctapp/customer/presentation/pages/home/home_three/shimmer/category_shimmer.dart';
 import 'package:rokctapp/customer/presentation/pages/home/home_three/widgets/category_bar_item_three.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 

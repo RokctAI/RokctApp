@@ -6,5 +6,5 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final todayOrdersProvider =
     StateNotifierProvider<TodayOrdersNotifier, TodayOrdersState>(
-      (ref) => TodayOrdersNotifier(ordersRepository),
+      (ref) => TodayOrdersNotifier(managerOrdersRepository),
     );

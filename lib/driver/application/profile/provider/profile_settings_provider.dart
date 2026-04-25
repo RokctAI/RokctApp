@@ -6,5 +6,5 @@ import 'package:rokctapp/driver/application/profile/state/profile_settings_state
 
 final profileSettingsProvider =
     StateNotifierProvider<ProfileSettingsNotifier, ProfileSettingsState>(
-      (ref) => ProfileSettingsNotifier(DriverUserRepository),
+      (ref) => ProfileSettingsNotifier(driverUserRepository),
     );

@@ -113,7 +113,7 @@ Future<void> setUpDependencies() async {
   getIt.registerSingleton<AddressRepositoryFacade>(AddressRepository());
   getIt.registerSingleton<BannersRepositoryFacade>(BannersRepository());
   getIt.registerSingleton<PaymentsRepositoryFacade>(PaymentsRepository());
-  getIt.registerSingleton<OrdersRepositoryFacade>(customer_orders_repo.OrdersRepository());
+  getIt.registerSingleton<OrdersInterface>(customer_orders_repo.OrdersRepository());
   getIt.registerSingleton<UserRepositoryFacade>(customer_user_repo.UserRepository());
   getIt.registerSingleton<BlogsRepositoryFacade>(BlogsRepository());
   getIt.registerSingleton<CartRepositoryFacade>(CartRepository());
@@ -162,7 +162,7 @@ final addressesRepository = getIt.get<AddressRepositoryFacade>();
 final bannersRepository = getIt.get<BannersRepositoryFacade>();
 final googlePlace = getIt.get<GooglePlace>();
 final paymentsRepository = getIt.get<PaymentsRepositoryFacade>();
-final ordersRepository = getIt.get<OrdersRepositoryFacade>();
+final ordersRepository = getIt.get<OrdersInterface>();
 final userRepository = getIt.get<UserRepositoryFacade>();
 final blogsRepository = getIt.get<BlogsRepositoryFacade>();
 final cartRepository = getIt.get<CartRepositoryFacade>();

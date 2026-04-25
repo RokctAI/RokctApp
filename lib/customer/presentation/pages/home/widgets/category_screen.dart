@@ -5,7 +5,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/customer/application/home/home_notifier.dart';
 import 'package:rokctapp/customer/application/home/home_state.dart';
-import 'package:rokctapp/customer/presentation/pages/home/home_three/shimmer/category_shimmer.dart';
+import 'package:rokctapp/customer/presentation/pages/home/shimmer/category_shimmer.dart';
 import 'package:rokctapp/customer/presentation/pages/home/widgets/tab_bar_item.dart';
 
 class CategoryScreen extends StatelessWidget {

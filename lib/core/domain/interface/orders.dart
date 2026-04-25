@@ -6,7 +6,7 @@ import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/customer/models/data/get_calculate_data.dart';
 
-abstract class OrdersRepositoryFacade {
+abstract class OrdersInterface {
   Future<ApiResult<GetCalculateModel>> getCalculate({
     required int cartId,
     required double lat,

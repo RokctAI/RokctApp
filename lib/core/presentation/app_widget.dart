@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
@@ -29,9 +29,9 @@ class AppWidget extends ConsumerWidget {
       await settingsRepository.getMobileTranslations();
 
       // Driver
-      await DriverSettingsRepository.getGlobalSettings();
-      await DriverSettingsRepository.getLanguages();
-      await DriverSettingsRepository.getTranslations();
+      await driverSettingsRepository.getGlobalSettings();
+      await driverSettingsRepository.getLanguages();
+      await driverSettingsRepository.getTranslations();
 
       // Manager
       managerSettingsRepository.getGlobalSettings();

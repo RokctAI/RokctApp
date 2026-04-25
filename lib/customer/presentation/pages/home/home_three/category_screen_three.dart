@@ -6,7 +6,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/customer/application/home/home_notifier.dart';
 import 'package:rokctapp/customer/application/home/home_state.dart';
 
-import 'package:rokctapp/customer/presentation/pages/home/shimmer/category_shimmer.dart';
+import 'package:rokctapp/customer/presentation/pages/home/home_three/shimmer/category_shimmer.dart';
 import 'package:rokctapp/customer/presentation/pages/home/home_three/widgets/category_bar_item_three.dart';
 
 class CategoryScreenThree extends StatelessWidget {

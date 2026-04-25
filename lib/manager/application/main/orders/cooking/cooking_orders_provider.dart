@@ -6,5 +6,5 @@ import 'package:rokctapp/manager/application/main/orders/cooking/cooking_orders_
 
 final cookingOrdersProvider =
     StateNotifierProvider<CookingOrdersNotifier, CookingOrdersState>(
-      (ref) => CookingOrdersNotifier(ordersRepository),
+      (ref) => CookingOrdersNotifier(managerOrdersRepository),
     );

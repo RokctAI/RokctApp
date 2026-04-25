@@ -11,7 +11,7 @@ import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:payfast/payfast.dart';
 import 'package:rokctapp/customer/models/data/get_calculate_data.dart';
 
-class OrdersRepository implements OrdersRepositoryFacade {
+class OrdersRepository implements OrdersInterface {
   @override
   Future<ApiResult<OrderActiveModel>> createOrder(
     OrderBodyData orderBody,
