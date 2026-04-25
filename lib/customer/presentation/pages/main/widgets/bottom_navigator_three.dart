@@ -1,4 +1,4 @@
-﻿// ignore_for_file: library_private_types_in_public_api, deprecated_member_use
+// ignore_for_file: library_private_types_in_public_api, deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -235,4 +235,3 @@ class FloatingNavbarItem {
   FloatingNavbarItem({this.icon, this.title, this.customWidget})
     : assert(icon != null || customWidget != null);
 }
-

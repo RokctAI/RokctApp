@@ -265,4 +265,3 @@ class _StoryPageState extends ConsumerState<DriverStoryPage>
     );
   }
 }
-

@@ -1,4 +1,4 @@
-﻿import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -395,9 +395,7 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
                           shopImage: widget.story?.first?.logoImg ?? "",
                           size: 46.r,
                           padding: 5.r,
-                          bgColor: AppStyle.tabBarBorder.withValues(
-                            alpha: 0.6,
-                          ),
+                          bgColor: AppStyle.tabBarBorder.withValues(alpha: 0.6),
                         ),
                         6.horizontalSpace,
                         Text(
@@ -468,4 +466,3 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
     );
   }
 }
-

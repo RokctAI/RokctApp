@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -54,11 +54,7 @@ class AddonItem extends StatelessWidget {
             ),
           ),
           20.verticalSpace,
-          Divider(
-            thickness: 1.r,
-            height: 1.r,
-            color: AppStyle.tabBarBorder,
-          ),
+          Divider(thickness: 1.r, height: 1.r, color: AppStyle.tabBarBorder),
           14.verticalSpace,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -123,4 +119,3 @@ class AddonItem extends StatelessWidget {
     );
   }
 }
-

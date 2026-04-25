@@ -24,7 +24,8 @@ class DriverOrderHistoryPage extends ConsumerStatefulWidget {
   const DriverOrderHistoryPage({super.key});
 
   @override
-  ConsumerState<DriverOrderHistoryPage> createState() => _OrderHistoryPageState();
+  ConsumerState<DriverOrderHistoryPage> createState() =>
+      _OrderHistoryPageState();
 }
 
 class _OrderHistoryPageState extends ConsumerState<DriverOrderHistoryPage>
@@ -175,4 +176,3 @@ class _OrderHistoryPageState extends ConsumerState<DriverOrderHistoryPage>
     );
   }
 }
-

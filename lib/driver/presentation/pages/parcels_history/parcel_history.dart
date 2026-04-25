@@ -17,7 +17,8 @@ class DriverParcelHistoryPage extends ConsumerStatefulWidget {
   const DriverParcelHistoryPage({super.key});
 
   @override
-  ConsumerState<DriverParcelHistoryPage> createState() => _ParcelHistoryPageState();
+  ConsumerState<DriverParcelHistoryPage> createState() =>
+      _ParcelHistoryPageState();
 }
 
 class _ParcelHistoryPageState extends ConsumerState<DriverParcelHistoryPage> {
@@ -148,4 +149,3 @@ class _ParcelHistoryPageState extends ConsumerState<DriverParcelHistoryPage> {
     );
   }
 }
-
