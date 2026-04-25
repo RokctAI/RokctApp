@@ -13,6 +13,7 @@ import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/components/languages_modal.dart';
+import 'package:rokctapp/core/infrastructure/models/data/language.dart' as core_lang;
 import 'package:rokctapp/driver/presentation/pages/profile/widgets/logout_modal.dart';
 import 'package:rokctapp/driver/presentation/pages/profile/widgets/sections_item.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
@@ -350,7 +351,7 @@ class _ProfilePageState extends ConsumerState<DriverProfilePage> {
                               afterUpdate: (lang) {
                                 ref
                                     .read(appProvider.notifier)
-                                    .changeLanguage(lang == null ? null : LanguageData.fromJson(lang.toJson()));
+                                    .changeLanguage(lang == null ? null : core_lang.LanguageData.fromJson(lang.toJson()));
                               },
                             ),
                             isDarkMode: false,
