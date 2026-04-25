@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:lottie/lottie.dart' as lottie;
 import 'package:google_fonts/google_fonts.dart';
@@ -13,7 +13,16 @@ import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/address/searched_location_item.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus, SnackBarType;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus,
+        SnackBarType;
 
 @RoutePage(name: 'ManagerSelectAddressRoute')
 class ManagerSelectAddressPage extends StatefulWidget {
@@ -267,4 +276,3 @@ class _SelectAddressPageState extends State<ManagerSelectAddressPage>
     );
   }
 }
-

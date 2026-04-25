@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
@@ -92,4 +92,3 @@ class _CustomToggleState extends State<CustomToggle> {
     );
   }
 }
-

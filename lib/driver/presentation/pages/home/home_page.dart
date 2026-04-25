@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
@@ -24,7 +24,15 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/home/bottom_sheet_screen.dart';
 import 'package:rokctapp/driver/presentation/pages/home/delivery_bottom_sheet.dart';
 import 'package:rokctapp/driver/presentation/pages/home/parcel_bottom_sheet.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart' hide AppConstants, TrKeys, AppValidators, LocalStorage, Enums, UploadType, OrderStatus;
+import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+    hide
+        AppConstants,
+        TrKeys,
+        AppValidators,
+        LocalStorage,
+        Enums,
+        UploadType,
+        OrderStatus;
 
 @RoutePage(name: 'DriverHomeRoute')
 class DriverHomePage extends ConsumerStatefulWidget {
@@ -557,4 +565,3 @@ class _HomePageState extends ConsumerState<DriverHomePage> {
     );
   }
 }
-
