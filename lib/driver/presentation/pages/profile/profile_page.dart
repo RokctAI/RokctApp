@@ -350,7 +350,7 @@ class _ProfilePageState extends ConsumerState<DriverProfilePage> {
                               afterUpdate: (lang) {
                                 ref
                                     .read(appProvider.notifier)
-                                    .changeLanguage(lang);
+                                    .changeLanguage(lang == null ? null : LanguageData.fromJson(lang.toJson()));
                               },
                             ),
                             isDarkMode: false,
