@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/infrastructure/models/data/language.dart';
+import 'package:rokctapp/customer/models/models.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
