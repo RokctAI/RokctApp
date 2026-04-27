@@ -36,6 +36,7 @@ export 'package:rokctapp/customer/models/data/apply_coupon_data.dart';
 export 'package:rokctapp/customer/models/response/coupon_response.dart';
 export 'package:rokctapp/customer/models/data/coupon_data.dart';
 export 'package:rokctapp/customer/models/response/wallet_histories_response.dart';
+export 'package:rokctapp/core/infrastructure/models/data/settings_data.dart';
 export 'package:rokctapp/customer/models/response/global_settings_response.dart';
 export 'package:rokctapp/customer/models/data/shop_delivery.dart';
 export 'package:rokctapp/customer/models/response/single_address_response.dart';

@@ -14,7 +14,7 @@ export 'package:rokctapp/driver/infrastructure/models/response/setting_response.
 export 'package:rokctapp/driver/infrastructure/models/data/cart_product_data.dart';
 export 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 export 'package:rokctapp/core/infrastructure/models/data/language.dart';
-export 'package:rokctapp/driver/infrastructure/models/data/setting.dart';
+export 'package:rokctapp/core/infrastructure/models/data/settings_data.dart';
 export 'package:rokctapp/core/infrastructure/models/response/currencies_response.dart';
 export 'package:rokctapp/core/infrastructure/models/response/gallery_upload_response.dart';
 export 'package:rokctapp/driver/infrastructure/models/response/driver_show_response.dart';

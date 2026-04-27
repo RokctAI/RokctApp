@@ -1,153 +1,71 @@
 import 'dart:convert';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rokctapp/driver/app_constants.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/driver/infrastructure/services/storage_keys.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-        TrKeys,
-        AppValidators,
-        LocalStorage,
-        Enums,
-        UploadType,
-        OrderStatus;
+import 'package:rokctapp/core/local_storage.dart';
 
 class LocalStorage {
-  static SharedPreferences? _preferences;
-
   LocalStorage._();
 
-  static Future<void> init() async {
-    _preferences = await SharedPreferences.getInstance();
-  }
+  static Future<void> init() async => CoreLocalStorage.init();
 
-  static Future<void> setToken(String? token) async {
-    if (_preferences != null) {
-      await _preferences!.setString(StorageKeys.keyToken, token ?? '');
-    }
-  }
+  static Future<void> setToken(String? token) async =>
+      CoreLocalStorage.setToken(token);
 
-  static String getToken() =>
-      _preferences?.getString(StorageKeys.keyToken) ?? '';
+  static String getToken() => CoreLocalStorage.getToken();
 
-  static Future<bool>? _deleteToken() =>
-      _preferences?.remove(StorageKeys.keyToken);
+  static void _deleteToken() => CoreLocalStorage.deleteToken();
 
-  static Future<void> setLanguageSelected(bool selected) async {
-    if (_preferences != null) {
-      await _preferences!.setBool(StorageKeys.keyLangSelected, selected);
-    }
-  }
+  static Future<void> setLanguageSelected(bool selected) async =>
+      CoreLocalStorage.setLanguageSelected(selected);
 
-  static bool getLanguageSelected() =>
-      _preferences?.getBool(StorageKeys.keyLangSelected) ?? false;
+  static bool getLanguageSelected() => CoreLocalStorage.getLanguageSelected();
 
-  static void deleteLangSelected() =>
-      _preferences?.remove(StorageKeys.keyLangSelected);
+  static void deleteLangSelected() => CoreLocalStorage.deleteLangSelected();
 
-  static Future<void> setSettingsList(List<SettingsData> settings) async {
-    if (_preferences != null) {
-      final List<String> strings = settings
-          .map((setting) => jsonEncode(setting.toJson()))
-          .toList();
-      await _preferences!.setStringList(StorageKeys.keyGlobalSettings, strings);
-    }
-  }
+  static Future<void> setSettingsList(List<SettingsData> settings) async =>
+      CoreLocalStorage.setSettingsList(settings);
 
-  static List<SettingsData> getSettingsList() {
-    final List<String> settings =
-        _preferences?.getStringList(StorageKeys.keyGlobalSettings) ?? [];
-    final List<SettingsData> settingsList = settings
-        .map((setting) => SettingsData.fromJson(jsonDecode(setting)))
-        .toList();
-    return settingsList;
-  }
+  static List<SettingsData> getSettingsList() =>
+      CoreLocalStorage.getSettingsList();
 
   static Future<void> setTranslations(
     Map<String, dynamic>? translations,
-  ) async {
-    if (_preferences != null) {
-      final String encoded = jsonEncode(translations);
-      await _preferences!.setString(StorageKeys.keyTranslations, encoded);
-    }
-  }
+  ) async =>
+      CoreLocalStorage.setTranslations(translations);
 
-  static Map<String, dynamic> getTranslations() {
-    final String encoded =
-        _preferences?.getString(StorageKeys.keyTranslations) ?? '';
-    if (encoded.isEmpty) {
-      return {};
-    }
-    final Map<String, dynamic> decoded = jsonDecode(encoded);
-    return decoded;
-  }
+  static Map<String, dynamic> getTranslations() =>
+      CoreLocalStorage.getTranslations();
 
   static Future<void> setAppThemeMode(bool isDarkMode) async {
-    if (_preferences != null) {
-      await _preferences!.setBool(StorageKeys.keyAppThemeMode, isDarkMode);
+    if (CoreLocalStorage.preferences != null) {
+      await CoreLocalStorage.preferences!.setBool(StorageKeys.keyAppThemeMode, isDarkMode);
     }
   }
 
   static bool getAppThemeMode() =>
-      _preferences?.getBool(StorageKeys.keyAppThemeMode) ?? false;
+      CoreLocalStorage.preferences?.getBool(StorageKeys.keyAppThemeMode) ?? false;
 
-  static Future<void> setLanguageData(LanguageData? langData) async {
-    if (_preferences != null) {
-      final String lang = jsonEncode(langData?.toJson());
-      await _preferences!.setString(StorageKeys.keyLanguageData, lang);
-    }
-  }
+  static Future<void> setLanguageData(LanguageData? langData) async =>
+      CoreLocalStorage.setLanguageData(langData);
 
-  static LanguageData? getLanguage() {
-    final lang = _preferences?.getString(StorageKeys.keyLanguageData);
-    if (lang == null) {
-      return null;
-    }
-    final map = jsonDecode(lang);
-    if (map == null) {
-      return null;
-    }
-    return LanguageData.fromJson(map);
-  }
+  static LanguageData? getLanguage() => CoreLocalStorage.getLanguage();
 
-  static Future<void> setLangLtr(bool? backward) async {
-    if (_preferences != null) {
-      await _preferences!.setBool(StorageKeys.keyLangLtr, backward ?? false);
-    }
-  }
+  static Future<void> setLangLtr(bool? backward) async =>
+      CoreLocalStorage.setLangLtr(backward);
 
-  static bool getLangLtr() =>
-      !(_preferences?.getBool(StorageKeys.keyLangLtr) ?? false);
+  static bool getLangLtr() => CoreLocalStorage.getLangLtr();
 
-  static Future<void> setSelectedCurrency(CurrencyData? currency) async {
-    if (_preferences != null) {
-      final String currencyString = jsonEncode(currency?.toJson());
-      await _preferences!.setString(
-        StorageKeys.keySelectedCurrency,
-        currencyString,
-      );
-    }
-  }
+  static Future<void> setSelectedCurrency(CurrencyData? currency) async =>
+      CoreLocalStorage.setSelectedCurrency(currency);
 
-  static CurrencyData? getSelectedCurrency() {
-    final savedString = _preferences?.getString(
-      StorageKeys.keySelectedCurrency,
-    );
-    if (savedString == null) {
-      return null;
-    }
-    final map = jsonDecode(savedString);
-    if (map == null) {
-      return null;
-    }
-    return CurrencyData.fromJson(map);
-  }
+  static CurrencyData? getSelectedCurrency() =>
+      CoreLocalStorage.getSelectedCurrency();
 
   static Future<void> setAddressSelected(LatLng data) async {
-    if (_preferences != null) {
-      await _preferences!.setString(
+    if (CoreLocalStorage.preferences != null) {
+      await CoreLocalStorage.preferences!.setString(
         StorageKeys.keyAddressSelected,
         jsonEncode(data.toJson()),
       );
@@ -156,7 +74,7 @@ class LocalStorage {
 
   static LatLng? getAddressSelected() {
     String dataString =
-        _preferences?.getString(StorageKeys.keyAddressSelected) ?? "";
+        CoreLocalStorage.preferences?.getString(StorageKeys.keyAddressSelected) ?? "";
     if (dataString.isNotEmpty) {
       LatLng data =
           LatLng.fromJson(jsonDecode(dataString)) ??
@@ -168,14 +86,14 @@ class LocalStorage {
   }
 
   static Future<void> setUser(UserData? user) async {
-    if (_preferences != null) {
+    if (CoreLocalStorage.preferences != null) {
       final String userString = user != null ? jsonEncode(user.toJson()) : '';
-      await _preferences!.setString(StorageKeys.keyUser, userString);
+      await CoreLocalStorage.preferences!.setString(StorageKeys.keyUser, userString);
     }
   }
 
   static UserData? getUser() {
-    final savedString = _preferences?.getString(StorageKeys.keyUser);
+    final savedString = CoreLocalStorage.preferences?.getString(StorageKeys.keyUser);
     if (savedString == null) {
       return null;
     }
@@ -186,19 +104,19 @@ class LocalStorage {
     return UserData.fromJson(map);
   }
 
-  static void _deleteUser() => _preferences?.remove(StorageKeys.keyUser);
+  static void _deleteUser() => CoreLocalStorage.preferences?.remove(StorageKeys.keyUser);
 
   static Future<void> setDeliveryInfo(DeliveryResponse? info) async {
-    if (_preferences != null) {
+    if (CoreLocalStorage.preferences != null) {
       final String infoString = ((info != null)
           ? jsonEncode(info.toJson())
           : '');
-      await _preferences!.setString(StorageKeys.keyCarInfo, infoString);
+      await CoreLocalStorage.preferences!.setString(StorageKeys.keyCarInfo, infoString);
     }
   }
 
   static DeliveryResponse? getDeliveryInfo() {
-    final savedString = _preferences?.getString(StorageKeys.keyCarInfo);
+    final savedString = CoreLocalStorage.preferences?.getString(StorageKeys.keyCarInfo);
     if (savedString == null) {
       return null;
     }
@@ -210,35 +128,35 @@ class LocalStorage {
   }
 
   static void _deleteDeliveryInfo() =>
-      _preferences?.remove(StorageKeys.keyCarInfo);
+      CoreLocalStorage.preferences?.remove(StorageKeys.keyCarInfo);
 
   static Future<void> setOnline(bool online) async {
-    if (_preferences != null) {
-      await _preferences!.setBool(StorageKeys.keyOnline, online);
+    if (CoreLocalStorage.preferences != null) {
+      await CoreLocalStorage.preferences!.setBool(StorageKeys.keyOnline, online);
     }
   }
 
   static bool getOnline() {
-    final online = _preferences?.getBool(StorageKeys.keyOnline);
+    final online = CoreLocalStorage.preferences?.getBool(StorageKeys.keyOnline);
     if (online == null) {
       return false;
     }
     return online;
   }
 
-  static void _deleteOnline() => _preferences?.remove(StorageKeys.keyOnline);
+  static void _deleteOnline() => CoreLocalStorage.preferences?.remove(StorageKeys.keyOnline);
 
   static Future<void> setWallet(Wallet? wallet) async {
-    if (_preferences != null) {
+    if (CoreLocalStorage.preferences != null) {
       final String walletString = wallet != null
           ? jsonEncode(wallet.toJson())
           : '';
-      await _preferences!.setString(StorageKeys.keyWallet, walletString);
+      await CoreLocalStorage.preferences!.setString(StorageKeys.keyWallet, walletString);
     }
   }
 
   static Wallet? getWallet() {
-    final savedString = _preferences?.getString(StorageKeys.keyWallet);
+    final savedString = CoreLocalStorage.preferences?.getString(StorageKeys.keyWallet);
     if (savedString == null) {
       return null;
     }
@@ -249,7 +167,7 @@ class LocalStorage {
     return Wallet.fromJson(map);
   }
 
-  static void _deleteWallet() => _preferences?.remove(StorageKeys.keyWallet);
+  static void _deleteWallet() => CoreLocalStorage.preferences?.remove(StorageKeys.keyWallet);
 
   static void logout() {
     _deleteToken();
