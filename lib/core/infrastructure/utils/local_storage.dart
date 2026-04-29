@@ -10,11 +10,15 @@ abstract class LocalStorage {
   static Future<void> init() async => CoreLocalStorage.init();
 
   static bool getFirstEntry() {
-    return CoreLocalStorage.preferences?.getBool(StorageKeys.keyFirstEntry) ?? true;
+    return CoreLocalStorage.preferences?.getBool(StorageKeys.keyFirstEntry) ??
+        true;
   }
 
   static Future<void> setFirstEntry(bool isFirst) async {
-    await CoreLocalStorage.preferences?.setBool(StorageKeys.keyFirstEntry, isFirst);
+    await CoreLocalStorage.preferences?.setBool(
+      StorageKeys.keyFirstEntry,
+      isFirst,
+    );
   }
 
   static Future<void> setToken(String? token) async =>
@@ -28,17 +32,23 @@ abstract class LocalStorage {
     await CoreLocalStorage.preferences?.setInt(StorageKeys.keyUiType, type);
   }
 
-  static int? getUiType() => CoreLocalStorage.preferences?.getInt(StorageKeys.keyUiType);
+  static int? getUiType() =>
+      CoreLocalStorage.preferences?.getInt(StorageKeys.keyUiType);
 
   static Future<void> setUser(ProfileData? user) async {
     if (CoreLocalStorage.preferences != null) {
       final String userString = user != null ? jsonEncode(user.toJson()) : '';
-      await CoreLocalStorage.preferences!.setString(StorageKeys.keyUser, userString);
+      await CoreLocalStorage.preferences!.setString(
+        StorageKeys.keyUser,
+        userString,
+      );
     }
   }
 
   static ProfileData? getUser() {
-    final savedString = CoreLocalStorage.preferences?.getString(StorageKeys.keyUser);
+    final savedString = CoreLocalStorage.preferences?.getString(
+      StorageKeys.keyUser,
+    );
     if (savedString == null) {
       return null;
     }
@@ -49,16 +59,23 @@ abstract class LocalStorage {
     return ProfileData.fromJson(map);
   }
 
-  static void _deleteUser() => CoreLocalStorage.preferences?.remove(StorageKeys.keyUser);
+  static void _deleteUser() =>
+      CoreLocalStorage.preferences?.remove(StorageKeys.keyUser);
 
   static Future<void> setSearchHistory(List<String> list) async {
     final List<String> idsStrings = list.map((e) => e.toString()).toList();
-    await CoreLocalStorage.preferences?.setStringList(StorageKeys.keySearchStores, idsStrings);
+    await CoreLocalStorage.preferences?.setStringList(
+      StorageKeys.keySearchStores,
+      idsStrings,
+    );
   }
 
   static List<String> getSearchList() {
     final List<String> strings =
-        CoreLocalStorage.preferences?.getStringList(StorageKeys.keySearchStores) ?? [];
+        CoreLocalStorage.preferences?.getStringList(
+          StorageKeys.keySearchStores,
+        ) ??
+        [];
     return strings;
   }
 
@@ -67,12 +84,18 @@ abstract class LocalStorage {
 
   static Future<void> setSavedShopsList(List<int> ids) async {
     final List<String> idsStrings = ids.map((e) => e.toString()).toList();
-    await CoreLocalStorage.preferences?.setStringList(StorageKeys.keySavedStores, idsStrings);
+    await CoreLocalStorage.preferences?.setStringList(
+      StorageKeys.keySavedStores,
+      idsStrings,
+    );
   }
 
   static List<int> getSavedShopsList() {
     final List<String> strings =
-        CoreLocalStorage.preferences?.getStringList(StorageKeys.keySavedStores) ?? [];
+        CoreLocalStorage.preferences?.getStringList(
+          StorageKeys.keySavedStores,
+        ) ??
+        [];
     if (strings.isNotEmpty) {
       final List<int> ids = strings.map((e) => int.parse(e)).toList();
       return ids;
@@ -93,7 +116,10 @@ abstract class LocalStorage {
 
   static AddressData? getAddressSelected() {
     String dataString =
-        CoreLocalStorage.preferences?.getString(StorageKeys.keyAddressSelected) ?? "";
+        CoreLocalStorage.preferences?.getString(
+          StorageKeys.keyAddressSelected,
+        ) ??
+        "";
     if (dataString.isNotEmpty) {
       AddressData data = AddressData.fromJson(jsonDecode(dataString));
       return data;
@@ -114,7 +140,10 @@ abstract class LocalStorage {
 
   static AddressInformation? getAddressInformation() {
     String dataString =
-        CoreLocalStorage.preferences?.getString(StorageKeys.keyAddressInformation) ?? "";
+        CoreLocalStorage.preferences?.getString(
+          StorageKeys.keyAddressInformation,
+        ) ??
+        "";
     if (dataString.isNotEmpty) {
       AddressInformation data = AddressInformation.fromJson(
         jsonDecode(dataString),
@@ -146,13 +175,18 @@ abstract class LocalStorage {
 
   static Future<void> setWalletData(Wallet? wallet) async {
     final String walletString = jsonEncode(wallet?.toJson());
-    await CoreLocalStorage.preferences?.setString(StorageKeys.keyWalletData, walletString);
+    await CoreLocalStorage.preferences?.setString(
+      StorageKeys.keyWalletData,
+      walletString,
+    );
   }
 
   static Future<void> setWallet(Wallet? wallet) => setWalletData(wallet);
 
   static Wallet? getWalletData() {
-    final wallet = CoreLocalStorage.preferences?.getString(StorageKeys.keyWalletData);
+    final wallet = CoreLocalStorage.preferences?.getString(
+      StorageKeys.keyWalletData,
+    );
     if (wallet == null) {
       return null;
     }
@@ -176,8 +210,7 @@ abstract class LocalStorage {
 
   static Future<void> setTranslations(
     Map<String, dynamic>? translations,
-  ) async =>
-      CoreLocalStorage.setTranslations(translations);
+  ) async => CoreLocalStorage.setTranslations(translations);
 
   static Map<String, dynamic> getTranslations() =>
       CoreLocalStorage.getTranslations();
@@ -193,11 +226,15 @@ abstract class LocalStorage {
   }
 
   static Future<void> setSettingsFetched(bool fetched) async {
-    await CoreLocalStorage.preferences?.setBool(StorageKeys.keySettingsFetched, fetched);
+    await CoreLocalStorage.preferences?.setBool(
+      StorageKeys.keySettingsFetched,
+      fetched,
+    );
   }
 
   static bool getSettingsFetched() =>
-      CoreLocalStorage.preferences?.getBool(StorageKeys.keySettingsFetched) ?? false;
+      CoreLocalStorage.preferences?.getBool(StorageKeys.keySettingsFetched) ??
+      false;
 
   static void deleteSettingsFetched() =>
       CoreLocalStorage.preferences?.remove(StorageKeys.keySettingsFetched);
