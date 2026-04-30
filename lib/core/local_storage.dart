@@ -57,8 +57,9 @@ abstract class CoreLocalStorage {
 
   // Settings List
   static Future<void> setSettingsList(List<SettingsData> settings) async {
-    final List<String> strings =
-        settings.map((setting) => jsonEncode(setting.toJson())).toList();
+    final List<String> strings = settings
+        .map((setting) => jsonEncode(setting.toJson()))
+        .toList();
     await preferences?.setStringList(StorageKeys.keyGlobalSettings, strings);
   }
 
@@ -95,9 +96,9 @@ abstract class CoreLocalStorage {
     final currentLocale = locale ?? getLanguage()?.locale ?? 'en';
     String encoded =
         preferences?.getString(
-              '${StorageKeys.keyTranslations}_$currentLocale',
-            ) ??
-            '';
+          '${StorageKeys.keyTranslations}_$currentLocale',
+        ) ??
+        '';
     if (encoded.isEmpty) {
       encoded = preferences?.getString(StorageKeys.keyTranslations) ?? '';
     }
@@ -121,8 +122,7 @@ abstract class CoreLocalStorage {
   }
 
   static CurrencyData? getSelectedCurrency() {
-    String json =
-        preferences?.getString(StorageKeys.keySelectedCurrency) ?? '';
+    String json = preferences?.getString(StorageKeys.keySelectedCurrency) ?? '';
     if (json.isEmpty) {
       return null;
     } else {
