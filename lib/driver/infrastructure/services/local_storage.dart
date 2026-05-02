@@ -32,20 +32,23 @@ class LocalStorage {
 
   static Future<void> setTranslations(
     Map<String, dynamic>? translations,
-  ) async =>
-      CoreLocalStorage.setTranslations(translations);
+  ) async => CoreLocalStorage.setTranslations(translations);
 
   static Map<String, dynamic> getTranslations() =>
       CoreLocalStorage.getTranslations();
 
   static Future<void> setAppThemeMode(bool isDarkMode) async {
     if (CoreLocalStorage.preferences != null) {
-      await CoreLocalStorage.preferences!.setBool(StorageKeys.keyAppThemeMode, isDarkMode);
+      await CoreLocalStorage.preferences!.setBool(
+        StorageKeys.keyAppThemeMode,
+        isDarkMode,
+      );
     }
   }
 
   static bool getAppThemeMode() =>
-      CoreLocalStorage.preferences?.getBool(StorageKeys.keyAppThemeMode) ?? false;
+      CoreLocalStorage.preferences?.getBool(StorageKeys.keyAppThemeMode) ??
+      false;
 
   static Future<void> setLanguageData(LanguageData? langData) async =>
       CoreLocalStorage.setLanguageData(langData);
@@ -74,7 +77,10 @@ class LocalStorage {
 
   static LatLng? getAddressSelected() {
     String dataString =
-        CoreLocalStorage.preferences?.getString(StorageKeys.keyAddressSelected) ?? "";
+        CoreLocalStorage.preferences?.getString(
+          StorageKeys.keyAddressSelected,
+        ) ??
+        "";
     if (dataString.isNotEmpty) {
       LatLng data =
           LatLng.fromJson(jsonDecode(dataString)) ??
@@ -88,12 +94,17 @@ class LocalStorage {
   static Future<void> setUser(UserData? user) async {
     if (CoreLocalStorage.preferences != null) {
       final String userString = user != null ? jsonEncode(user.toJson()) : '';
-      await CoreLocalStorage.preferences!.setString(StorageKeys.keyUser, userString);
+      await CoreLocalStorage.preferences!.setString(
+        StorageKeys.keyUser,
+        userString,
+      );
     }
   }
 
   static UserData? getUser() {
-    final savedString = CoreLocalStorage.preferences?.getString(StorageKeys.keyUser);
+    final savedString = CoreLocalStorage.preferences?.getString(
+      StorageKeys.keyUser,
+    );
     if (savedString == null) {
       return null;
     }
@@ -104,19 +115,25 @@ class LocalStorage {
     return UserData.fromJson(map);
   }
 
-  static void _deleteUser() => CoreLocalStorage.preferences?.remove(StorageKeys.keyUser);
+  static void _deleteUser() =>
+      CoreLocalStorage.preferences?.remove(StorageKeys.keyUser);
 
   static Future<void> setDeliveryInfo(DeliveryResponse? info) async {
     if (CoreLocalStorage.preferences != null) {
       final String infoString = ((info != null)
           ? jsonEncode(info.toJson())
           : '');
-      await CoreLocalStorage.preferences!.setString(StorageKeys.keyCarInfo, infoString);
+      await CoreLocalStorage.preferences!.setString(
+        StorageKeys.keyCarInfo,
+        infoString,
+      );
     }
   }
 
   static DeliveryResponse? getDeliveryInfo() {
-    final savedString = CoreLocalStorage.preferences?.getString(StorageKeys.keyCarInfo);
+    final savedString = CoreLocalStorage.preferences?.getString(
+      StorageKeys.keyCarInfo,
+    );
     if (savedString == null) {
       return null;
     }
@@ -132,7 +149,10 @@ class LocalStorage {
 
   static Future<void> setOnline(bool online) async {
     if (CoreLocalStorage.preferences != null) {
-      await CoreLocalStorage.preferences!.setBool(StorageKeys.keyOnline, online);
+      await CoreLocalStorage.preferences!.setBool(
+        StorageKeys.keyOnline,
+        online,
+      );
     }
   }
 
@@ -144,19 +164,25 @@ class LocalStorage {
     return online;
   }
 
-  static void _deleteOnline() => CoreLocalStorage.preferences?.remove(StorageKeys.keyOnline);
+  static void _deleteOnline() =>
+      CoreLocalStorage.preferences?.remove(StorageKeys.keyOnline);
 
   static Future<void> setWallet(Wallet? wallet) async {
     if (CoreLocalStorage.preferences != null) {
       final String walletString = wallet != null
           ? jsonEncode(wallet.toJson())
           : '';
-      await CoreLocalStorage.preferences!.setString(StorageKeys.keyWallet, walletString);
+      await CoreLocalStorage.preferences!.setString(
+        StorageKeys.keyWallet,
+        walletString,
+      );
     }
   }
 
   static Wallet? getWallet() {
-    final savedString = CoreLocalStorage.preferences?.getString(StorageKeys.keyWallet);
+    final savedString = CoreLocalStorage.preferences?.getString(
+      StorageKeys.keyWallet,
+    );
     if (savedString == null) {
       return null;
     }
@@ -167,7 +193,8 @@ class LocalStorage {
     return Wallet.fromJson(map);
   }
 
-  static void _deleteWallet() => CoreLocalStorage.preferences?.remove(StorageKeys.keyWallet);
+  static void _deleteWallet() =>
+      CoreLocalStorage.preferences?.remove(StorageKeys.keyWallet);
 
   static void logout() {
     _deleteToken();
