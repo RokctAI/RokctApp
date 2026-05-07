@@ -1,3 +1,4 @@
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/customer/models/response/parcel_paginate_response.dart';
 
@@ -8,15 +9,15 @@ abstract class ParcelRepositoryFacade {
 
   Future<ApiResult<ParcelCalculateResponse>> getCalculate({
     required int typeId,
-    required LocationModel from,
-    required LocationModel to,
+    required LocationData from,
+    required LocationData to,
   });
 
   Future<ApiResult> orderParcel({
     required int typeId,
-    required LocationModel from,
+    required LocationData from,
     required String fromTitle,
-    required LocationModel to,
+    required LocationData to,
     required String toTitle,
     required String time,
     required String note,
