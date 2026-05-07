@@ -156,7 +156,7 @@ class _AddressListPageState extends State<AddressListPage> {
                                     .address
                                     ?.address ??
                                 "",
-                            location: LocationModel(
+                            location: LocationData(
                               longitude: ref
                                   .watch(profileProvider)
                                   .userData
