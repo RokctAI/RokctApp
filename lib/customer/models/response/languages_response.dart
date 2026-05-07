@@ -1,4 +1,5 @@
 import 'package:rokctapp/core/infrastructure/models/data/language.dart';
+export 'package:rokctapp/core/infrastructure/models/data/language.dart';
 
 class LanguagesResponse {
   LanguagesResponse({
