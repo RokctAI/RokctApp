@@ -33,9 +33,9 @@ abstract class LocalStorage {
 
   static int? getUiType() => CoreLocalStorage.preferences?.getInt(StorageKeys.keyUiType);
 
-  static Future<void> setUser(ProfileData? user) async {
+  static Future<void> setUser(dynamic user) async {
     if (CoreLocalStorage.preferences != null) {
-      final String userString = user != null ? jsonEncode(user.toJson()) : '';
+      final String userString = user != null ? jsonEncode(user) : '';
       await CoreLocalStorage.preferences!.setString(StorageKeys.keyUser, userString);
     }
   }
