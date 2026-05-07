@@ -147,12 +147,12 @@ abstract class LocalStorage {
   static void deleteSelectedCurrency() =>
       CoreLocalStorage.deleteSelectedCurrency();
 
-  static Future<void> setWalletData(Wallet? wallet) async {
-    final String walletString = jsonEncode(wallet?.toJson());
+  static Future<void> setWalletData(dynamic wallet) async {
+    final String walletString = wallet != null ? jsonEncode(wallet) : '';
     await CoreLocalStorage.preferences?.setString(StorageKeys.keyWalletData, walletString);
   }
 
-  static Future<void> setWallet(Wallet? wallet) => setWalletData(wallet);
+  static Future<void> setWallet(dynamic wallet) => setWalletData(wallet);
 
   static Wallet? getWalletData() {
     final wallet = CoreLocalStorage.preferences?.getString(StorageKeys.keyWalletData);
