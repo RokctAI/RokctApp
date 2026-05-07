@@ -7,8 +7,8 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/customer/application/order/order_provider.dart';
 import 'package:rokctapp/customer/application/profile/profile_provider.dart';
 import 'package:rokctapp/customer/application/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/customer/models/data/address_old_data.dart';
-import 'package:rokctapp/customer/models/data/location.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
@@ -180,24 +180,24 @@ class _SelectAddressScreenState extends ConsumerState<SelectAddressScreen> {
                                       .address
                                       ?.address ??
                                   "",
-                              location: LocationModel(
-                                longitude: ref
-                                    .watch(profileProvider)
-                                    .userData
-                                    ?.addresses?[ref
-                                        .watch(profileProvider)
-                                        .selectAddress]
-                                    .location
-                                    ?.last,
-                                latitude: ref
-                                    .watch(profileProvider)
-                                    .userData
-                                    ?.addresses?[ref
-                                        .watch(profileProvider)
-                                        .selectAddress]
-                                    .location
-                                    ?.first,
-                              ),
+                               location: LocationData(
+                                 longitude: ref
+                                     .watch(profileProvider)
+                                     .userData
+                                     ?.addresses?[ref
+                                         .watch(profileProvider)
+                                         .selectAddress]
+                                     .location
+                                     ?.last,
+                                 latitude: ref
+                                     .watch(profileProvider)
+                                     .userData
+                                     ?.addresses?[ref
+                                         .watch(profileProvider)
+                                         .selectAddress]
+                                     .location
+                                     ?.first,
+                               ),
                             ),
                           );
                           ref.read(homeProvider.notifier)
