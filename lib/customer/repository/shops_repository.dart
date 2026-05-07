@@ -1,3 +1,4 @@
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -265,7 +266,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
       'tax': tax,
       'documents': documents,
       'delivery_time_type': deliveryType,
-      'location': LocationModel(
+      'location': LocationData(
         latitude: address?.location?.first,
         longitude: address?.location?.last,
       ).toJson(),
