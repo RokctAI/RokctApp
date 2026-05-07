@@ -11,6 +11,7 @@ import 'package:lottie/lottie.dart';
 
 import 'package:rokctapp/customer/application/home/home_provider.dart';
 import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
@@ -399,7 +400,7 @@ class _PermissionLocationPageState
       await LocalStorage.setAddressSelected(
         AddressData(
           title: placeName,
-          location: LocationModel(
+          location: LocationData(
             latitude: latLng.latitude,
             longitude: latLng.longitude,
           ),
