@@ -9,6 +9,7 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/infrastructure/firebase_service/firebase_service.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/application/auth/login/login_state.dart';
@@ -260,7 +261,7 @@ class LoginNotifier extends Notifier<LoginState> {
         AddressData(
           title: model?.title ?? "",
           address: model?.address?.address ?? "",
-          location: LocationModel(
+          location: LocationData(
             longitude: model?.location?.last,
             latitude: model?.location?.first,
           ),
