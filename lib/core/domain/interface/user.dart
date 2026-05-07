@@ -1,5 +1,6 @@
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/core/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/customer/models/response/blog_response.dart';
 import 'package:rokctapp/customer/models/response/pages_response.dart';
 
