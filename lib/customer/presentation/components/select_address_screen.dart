@@ -180,24 +180,24 @@ class _SelectAddressScreenState extends ConsumerState<SelectAddressScreen> {
                                       .address
                                       ?.address ??
                                   "",
-                               location: LocationData(
-                                 longitude: ref
-                                     .watch(profileProvider)
-                                     .userData
-                                     ?.addresses?[ref
-                                         .watch(profileProvider)
-                                         .selectAddress]
-                                     .location
-                                     ?.last,
-                                 latitude: ref
-                                     .watch(profileProvider)
-                                     .userData
-                                     ?.addresses?[ref
-                                         .watch(profileProvider)
-                                         .selectAddress]
-                                     .location
-                                     ?.first,
-                               ),
+                              location: LocationData(
+                                longitude: ref
+                                    .watch(profileProvider)
+                                    .userData
+                                    ?.addresses?[ref
+                                        .watch(profileProvider)
+                                        .selectAddress]
+                                    .location
+                                    ?.last,
+                                latitude: ref
+                                    .watch(profileProvider)
+                                    .userData
+                                    ?.addresses?[ref
+                                        .watch(profileProvider)
+                                        .selectAddress]
+                                    .location
+                                    ?.first,
+                              ),
                             ),
                           );
                           ref.read(homeProvider.notifier)
