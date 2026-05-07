@@ -8,6 +8,7 @@ export 'package:rokctapp/customer/models/response/banners_paginate_response.dart
 export 'package:rokctapp/customer/models/response/shops_paginate_response.dart';
 export 'package:rokctapp/customer/models/data/shop_data.dart';
 export 'package:rokctapp/customer/models/response/addresses_response.dart';
+export 'package:rokctapp/customer/models/data/location.dart';
 export 'package:rokctapp/customer/models/data/local_address_data.dart';
 export 'package:rokctapp/customer/models/data/local_location.dart';
 export 'package:rokctapp/customer/models/response/single_shop_response.dart';
