@@ -1,3 +1,4 @@
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -12,8 +13,8 @@ sealed class ParcelState with _$ParcelState {
     @Default(false) bool isButtonLoading,
     @Default(false) bool isMapLoading,
     @Default(false) bool error,
-    @Default(null) LocationModel? locationFrom,
-    @Default(null) LocationModel? locationTo,
+    @Default(null) LocationData? locationFrom,
+    @Default(null) LocationData? locationTo,
     @Default(null) String? addressTo,
     @Default(null) String? addressFrom,
     @Default(null) TimeOfDay? time,
