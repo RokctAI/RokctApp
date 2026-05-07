@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/customer/application/home/home_provider.dart';
-import 'package:rokctapp/customer/models/data/address_old_data.dart';
-import 'package:rokctapp/customer/models/data/location.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
@@ -55,14 +55,14 @@ class AddAddress extends StatelessWidget {
                       LocalStorage.setAddressSelected(
                         AddressData(
                           title: AppHelpers.getAppAddressName(),
-                          location: LocationModel(
-                            longitude:
-                                (AppHelpers.getInitialLongitude() ??
-                                AppConstants.demoLongitude),
-                            latitude:
-                                (AppHelpers.getInitialLatitude() ??
-                                AppConstants.demoLatitude),
-                          ),
+                        location: LocationData(
+                          longitude:
+                              (AppHelpers.getInitialLongitude() ??
+                              AppConstants.demoLongitude),
+                          latitude:
+                              (AppHelpers.getInitialLatitude() ??
+                              AppConstants.demoLatitude),
+                        ),
                         ),
                       );
                       ref.read(homeProvider.notifier).setAddress();
