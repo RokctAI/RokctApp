@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 export 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/application/auth/confirmation/register_confirmation_state.dart';
@@ -101,7 +102,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
                         .address
                         ?.address ??
                     "",
-                location: LocationModel(
+                location: LocationData(
                   longitude: data.data?.user?.addresses
                       ?.firstWhere(
                         (element) => element.active ?? false,
@@ -309,7 +310,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
                         .address
                         ?.address ??
                     "",
-                location: LocationModel(
+                location: LocationData(
                   longitude: data.data?.user?.addresses
                       ?.firstWhere(
                         (element) => element.active ?? false,
