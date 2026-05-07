@@ -1,3 +1,4 @@
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
@@ -94,8 +95,8 @@ class ParcelNotifier extends Notifier<ParcelState> {
       state = state.copyWith(isLoading: true, error: false);
       final response = await parcelRepository.getCalculate(
         typeId: state.types[state.selectType]?.id ?? 0,
-        from: state.locationFrom ?? LocationModel(),
-        to: state.locationTo ?? LocationModel(),
+        from: state.locationFrom ?? LocationData(),
+        to: state.locationTo ?? LocationData(),
       );
       response.when(
         success: (data) {
@@ -146,8 +147,8 @@ class ParcelNotifier extends Notifier<ParcelState> {
       state = state.copyWith(isLoading: true);
       final response = await parcelRepository.orderParcel(
         typeId: state.types[state.selectType]?.id ?? 0,
-        from: state.locationFrom ?? LocationModel(),
-        to: state.locationTo ?? LocationModel(),
+        from: state.locationFrom ?? LocationData(),
+        to: state.locationTo ?? LocationData(),
         fromTitle: state.addressFrom ?? "",
         toTitle: state.addressTo ?? "",
         time:
@@ -255,7 +256,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
 
   void setToAddress({
     required String? title,
-    required LocationModel? location,
+    required LocationData? location,
     required BuildContext context,
   }) {
     state = state.copyWith(addressTo: title, locationTo: location);
@@ -268,7 +269,7 @@ class ParcelNotifier extends Notifier<ParcelState> {
 
   void setFromAddress({
     required String? title,
-    required LocationModel? location,
+    required LocationData? location,
     required BuildContext context,
   }) {
     state = state.copyWith(addressFrom: title, locationFrom: location);
