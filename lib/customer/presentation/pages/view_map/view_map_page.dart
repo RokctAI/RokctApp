@@ -15,8 +15,8 @@ import 'package:rokctapp/customer/application/profile/profile_provider.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/customer/models/data/address_information.dart';
 import 'package:rokctapp/customer/models/data/address_new_data.dart';
-import 'package:rokctapp/customer/models/data/address_old_data.dart'
-    as address_selected;
+import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/pages/view_map/view_map_modal.dart';
@@ -426,10 +426,10 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
                               // Handle isSelectLocation - save to local storage and return
                               if (widget.isSelectLocation) {
                                 await LocalStorage.setAddressSelected(
-                                  address_selected.AddressData(
+                                  AddressData(
                                     title: controller.text,
                                     address: controller.text,
-                                    location: LocationModel(
+                                    location: LocationData(
                                       longitude:
                                           cameraPosition?.target.longitude ??
                                           latLng.longitude,
