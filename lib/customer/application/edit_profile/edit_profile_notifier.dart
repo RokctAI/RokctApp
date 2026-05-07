@@ -5,6 +5,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/core/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/customer/application/edit_profile/edit_profile_state.dart';
