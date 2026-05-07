@@ -1,3 +1,4 @@
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -59,7 +60,7 @@ class SenderWidget extends StatelessWidget {
               if (context.mounted) {
                 event.setFromAddress(
                   title: (data as AddressNewModel).address?.address,
-                  location: LocationModel(
+                  location: LocationData(
                     longitude: data.location?.last,
                     latitude: data.location?.first,
                   ),
