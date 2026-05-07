@@ -8,7 +8,6 @@ export 'package:rokctapp/customer/models/response/banners_paginate_response.dart
 export 'package:rokctapp/customer/models/response/shops_paginate_response.dart';
 export 'package:rokctapp/customer/models/data/shop_data.dart';
 export 'package:rokctapp/customer/models/response/addresses_response.dart';
-export 'package:rokctapp/customer/models/data/location.dart';
 export 'package:rokctapp/customer/models/data/local_address_data.dart';
 export 'package:rokctapp/customer/models/data/local_location.dart';
 export 'package:rokctapp/customer/models/response/single_shop_response.dart';
@@ -56,9 +55,8 @@ export 'package:rokctapp/customer/models/data/parcel_order.dart';
 export 'package:rokctapp/customer/models/response/parcel_calculate_response.dart';
 export 'package:rokctapp/customer/models/response/parcel_response.dart';
 export 'package:rokctapp/customer/models/data/address_new_data.dart';
-export 'package:rokctapp/customer/models/data/address_old_data.dart';
-export 'package:rokctapp/customer/models/request/edit_profile.dart';
 export 'package:rokctapp/customer/models/data/address_information.dart';
+export 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
 export 'package:rokctapp/customer/models/data/filter_model.dart';
 export 'package:rokctapp/customer/models/data/story_data.dart';
 export 'package:rokctapp/customer/models/data/referral_data.dart';
