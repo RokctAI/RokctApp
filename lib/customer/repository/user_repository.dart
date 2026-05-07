@@ -5,6 +5,7 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/domain/interface/user.dart';
 import 'package:rokctapp/customer/models/data/career_data.dart';
 import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/core/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/customer/models/response/blog_response.dart';
 import 'package:rokctapp/customer/models/response/pages_response.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
