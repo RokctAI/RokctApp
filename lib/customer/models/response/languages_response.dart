@@ -1,3 +1,5 @@
+import 'package:rokctapp/core/infrastructure/models/data/language.dart';
+
 class LanguagesResponse {
   LanguagesResponse({
     String? timestamp,
@@ -59,8 +61,6 @@ class LanguagesResponse {
     return map;
   }
 }
-
-class LanguageData {
   LanguageData({
     int? id,
     String? title,

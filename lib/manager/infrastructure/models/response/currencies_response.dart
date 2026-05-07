@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/currency_data.dart';
+import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 
 class CurrenciesResponse {
   CurrenciesResponse({List<CurrencyData>? data}) {

@@ -1,4 +1,4 @@
-import 'package:rokctapp/driver/infrastructure/models/data/setting.dart';
+import 'package:rokctapp/core/infrastructure/models/data/settings_data.dart';
 
 class SettingsResponse {
   SettingsResponse({

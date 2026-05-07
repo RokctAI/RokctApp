@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/table_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/shop_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/currency_data.dart';
+import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 
 class OrderData {

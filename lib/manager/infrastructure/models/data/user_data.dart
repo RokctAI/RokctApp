@@ -1,6 +1,6 @@
 import 'package:rokctapp/manager/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/currency_data.dart';
+import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 
 class UserData {
   UserData({

@@ -14,7 +14,7 @@ export 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 export 'package:rokctapp/manager/infrastructure/models/data/product_data.dart';
 export 'package:rokctapp/core/infrastructure/models/data/payment_data.dart';
 export 'package:rokctapp/core/infrastructure/models/data/settings_data.dart';
-export 'package:rokctapp/manager/infrastructure/models/data/currency_data.dart';
+export 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 export 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 export 'package:rokctapp/manager/infrastructure/models/data/category_data.dart';
 export 'package:rokctapp/manager/infrastructure/models/data/order_calculate_data.dart';

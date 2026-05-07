@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/settings_data.dart';
+import 'package:rokctapp/core/infrastructure/models/data/settings_data.dart';
 
 class SettingsResponse {
   SettingsResponse({List<SettingsData>? data}) {
