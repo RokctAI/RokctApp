@@ -1,6 +1,7 @@
 import 'package:rokctapp/customer/models/data/location.dart';
 import 'package:rokctapp/customer/models/data/address_information.dart';
-import 'package:rokctapp/customer/models/data/address_old_data.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 
 class AddressNewModel {
   int? id;
@@ -81,7 +82,7 @@ class AddressNewModel {
     title: title,
     address: address?.address,
     location: (location?.isNotEmpty ?? false)
-        ? LocationModel(latitude: location?.first, longitude: location?.last)
+        ? LocationData(latitude: location?.first, longitude: location?.last)
         : null,
   );
 }
