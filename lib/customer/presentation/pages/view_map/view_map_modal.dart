@@ -8,6 +8,7 @@ import 'package:rokctapp/customer/application/home/home_provider.dart';
 import 'package:rokctapp/customer/application/map/view_map_provider.dart';
 import 'package:rokctapp/customer/application/profile/profile_provider.dart';
 import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 
@@ -290,7 +291,7 @@ class _ViewMapModalState extends ConsumerState<ViewMapModal> {
                       AddressData(
                         title: office.text,
                         address: state.place?.address?.address ?? "",
-                        location: LocationModel(
+                        location: LocationData(
                           latitude: state.place?.location?.first,
                           longitude: state.place?.location?.last,
                         ),
