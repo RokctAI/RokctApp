@@ -1,3 +1,4 @@
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:intl/intl.dart';
@@ -57,8 +58,8 @@ class ParcelRepository implements ParcelRepositoryFacade {
   @override
   Future<ApiResult<ParcelCalculateResponse>> getCalculate({
     required int typeId,
-    required LocationModel from,
-    required LocationModel to,
+    required LocationData from,
+    required LocationData to,
   }) async {
     final data = {
       'lang': LocalStorage.getLanguage()?.locale,
@@ -90,9 +91,9 @@ class ParcelRepository implements ParcelRepositoryFacade {
   @override
   Future<ApiResult> orderParcel({
     required int typeId,
-    required LocationModel from,
+    required LocationData from,
     required String fromTitle,
-    required LocationModel to,
+    required LocationData to,
     required String toTitle,
     required String time,
     required String note,
