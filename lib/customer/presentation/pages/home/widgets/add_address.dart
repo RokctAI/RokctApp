@@ -55,14 +55,14 @@ class AddAddress extends StatelessWidget {
                       LocalStorage.setAddressSelected(
                         AddressData(
                           title: AppHelpers.getAppAddressName(),
-                        location: LocationData(
-                          longitude:
-                              (AppHelpers.getInitialLongitude() ??
-                              AppConstants.demoLongitude),
-                          latitude:
-                              (AppHelpers.getInitialLatitude() ??
-                              AppConstants.demoLatitude),
-                        ),
+                          location: LocationData(
+                            longitude:
+                                (AppHelpers.getInitialLongitude() ??
+                                AppConstants.demoLongitude),
+                            latitude:
+                                (AppHelpers.getInitialLatitude() ??
+                                AppConstants.demoLatitude),
+                          ),
                         ),
                       );
                       ref.read(homeProvider.notifier).setAddress();

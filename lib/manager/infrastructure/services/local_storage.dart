@@ -28,7 +28,10 @@ class LocalStorage {
 
   static AddressData? getAddressSelected() {
     String dataString =
-        CoreLocalStorage.preferences?.getString(StorageKeys.keyAddressSelected) ?? "";
+        CoreLocalStorage.preferences?.getString(
+          StorageKeys.keyAddressSelected,
+        ) ??
+        "";
     if (dataString.isNotEmpty) {
       AddressData data = AddressData.fromJson(jsonDecode(dataString));
       return data;
@@ -40,7 +43,10 @@ class LocalStorage {
   static Future<void> setWalletData(Wallet? wallet) async {
     if (CoreLocalStorage.preferences != null) {
       final String walletString = jsonEncode(wallet?.toJson());
-      await CoreLocalStorage.preferences!.setString(StorageKeys.keyWalletData, walletString);
+      await CoreLocalStorage.preferences!.setString(
+        StorageKeys.keyWalletData,
+        walletString,
+      );
     }
   }
 
@@ -61,20 +67,23 @@ class LocalStorage {
 
   static Future<void> setTranslations(
     Map<String, dynamic>? translations,
-  ) async =>
-      CoreLocalStorage.setTranslations(translations);
+  ) async => CoreLocalStorage.setTranslations(translations);
 
   static Map<String, dynamic> getTranslations({String? locale}) =>
       CoreLocalStorage.getTranslations(locale: locale);
 
   static Future<void> setAppThemeMode(bool isDarkMode) async {
     if (CoreLocalStorage.preferences != null) {
-      await CoreLocalStorage.preferences!.setBool(StorageKeys.keyAppThemeMode, isDarkMode);
+      await CoreLocalStorage.preferences!.setBool(
+        StorageKeys.keyAppThemeMode,
+        isDarkMode,
+      );
     }
   }
 
   static bool getAppThemeMode() =>
-      CoreLocalStorage.preferences?.getBool(StorageKeys.keyAppThemeMode) ?? false;
+      CoreLocalStorage.preferences?.getBool(StorageKeys.keyAppThemeMode) ??
+      false;
 
   static Future<void> setLanguageData(LanguageData? langData) async =>
       CoreLocalStorage.setLanguageData(langData);
@@ -95,7 +104,10 @@ class LocalStorage {
 
   static List<LanguageData> getActiveLanguages() {
     final List<String> languages =
-        CoreLocalStorage.preferences?.getStringList(StorageKeys.keyActiveLanguages) ?? [];
+        CoreLocalStorage.preferences?.getStringList(
+          StorageKeys.keyActiveLanguages,
+        ) ??
+        [];
     final List<LanguageData> localLanguages = languages
         .map((language) => LanguageData.fromJson(jsonDecode(language)))
         .toList(growable: true);
@@ -118,12 +130,17 @@ class LocalStorage {
   static Future<void> setUser(UserData? user) async {
     if (CoreLocalStorage.preferences != null) {
       final String userString = user != null ? jsonEncode(user.toJson()) : '';
-      await CoreLocalStorage.preferences!.setString(StorageKeys.keyUser, userString);
+      await CoreLocalStorage.preferences!.setString(
+        StorageKeys.keyUser,
+        userString,
+      );
     }
   }
 
   static UserData? getUser() {
-    final savedString = CoreLocalStorage.preferences?.getString(StorageKeys.keyUser);
+    final savedString = CoreLocalStorage.preferences?.getString(
+      StorageKeys.keyUser,
+    );
     if (savedString == null) {
       return null;
     }
@@ -134,19 +151,25 @@ class LocalStorage {
     return UserData.fromJson(map);
   }
 
-  static void _deleteUser() => CoreLocalStorage.preferences?.remove(StorageKeys.keyUser);
+  static void _deleteUser() =>
+      CoreLocalStorage.preferences?.remove(StorageKeys.keyUser);
 
   static Future<void> setWallet(Wallet? wallet) async {
     if (CoreLocalStorage.preferences != null) {
       final String walletString = wallet != null
           ? jsonEncode(wallet.toJson())
           : '';
-      await CoreLocalStorage.preferences!.setString(StorageKeys.keyWallet, walletString);
+      await CoreLocalStorage.preferences!.setString(
+        StorageKeys.keyWallet,
+        walletString,
+      );
     }
   }
 
   static Wallet? getWallet() {
-    final savedString = CoreLocalStorage.preferences?.getString(StorageKeys.keyWallet);
+    final savedString = CoreLocalStorage.preferences?.getString(
+      StorageKeys.keyWallet,
+    );
     if (savedString == null) {
       return null;
     }
@@ -157,17 +180,23 @@ class LocalStorage {
     return Wallet.fromJson(map);
   }
 
-  static void _deleteWallet() => CoreLocalStorage.preferences?.remove(StorageKeys.keyWallet);
+  static void _deleteWallet() =>
+      CoreLocalStorage.preferences?.remove(StorageKeys.keyWallet);
 
   static Future<void> setShop(ShopData? shop) async {
     if (CoreLocalStorage.preferences != null) {
       final String shopString = shop != null ? jsonEncode(shop.toJson()) : '';
-      await CoreLocalStorage.preferences!.setString(StorageKeys.keyShop, shopString);
+      await CoreLocalStorage.preferences!.setString(
+        StorageKeys.keyShop,
+        shopString,
+      );
     }
   }
 
   static ShopData? getShop() {
-    final savedString = CoreLocalStorage.preferences?.getString(StorageKeys.keyShop);
+    final savedString = CoreLocalStorage.preferences?.getString(
+      StorageKeys.keyShop,
+    );
     if (savedString == null) {
       return null;
     }
@@ -178,17 +207,23 @@ class LocalStorage {
     return ShopData.fromJson(map);
   }
 
-  static void _deleteShop() => CoreLocalStorage.preferences?.remove(StorageKeys.keyShop);
+  static void _deleteShop() =>
+      CoreLocalStorage.preferences?.remove(StorageKeys.keyShop);
 
   static Future<void> setSystemLanguage(LanguageData? lang) async {
     if (CoreLocalStorage.preferences != null) {
       final String langString = jsonEncode(lang?.toJson());
-      await CoreLocalStorage.preferences!.setString(StorageKeys.keySystemLanguage, langString);
+      await CoreLocalStorage.preferences!.setString(
+        StorageKeys.keySystemLanguage,
+        langString,
+      );
     }
   }
 
   static LanguageData? getSystemLanguage() {
-    final lang = CoreLocalStorage.preferences?.getString(StorageKeys.keySystemLanguage);
+    final lang = CoreLocalStorage.preferences?.getString(
+      StorageKeys.keySystemLanguage,
+    );
     if (lang == null) {
       return null;
     }
