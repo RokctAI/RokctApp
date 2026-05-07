@@ -7,6 +7,8 @@ import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/customer/models/models.dart';
+import 'package:rokctapp/core/infrastructure/models/request/edit_profile.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
@@ -391,7 +393,7 @@ class RegisterNotifier extends Notifier<RegisterState> {
         AddressData(
           title: model?.title ?? "",
           address: model?.address?.address ?? "",
-          location: LocationModel(
+          location: LocationData(
             longitude: model?.location?.last,
             latitude: model?.location?.first,
           ),
