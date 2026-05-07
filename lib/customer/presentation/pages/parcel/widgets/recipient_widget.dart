@@ -1,3 +1,4 @@
+import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -62,7 +63,7 @@ class RecipientWidget extends StatelessWidget {
               if (context.mounted) {
                 event.setToAddress(
                   title: (data as AddressNewModel).address?.address,
-                  location: LocationModel(
+                  location: LocationData(
                     latitude: data.location?.first,
                     longitude: data.location?.last,
                   ),
