@@ -317,7 +317,8 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                         if (context.mounted) {
                           Navigator.popUntil(context, (route) => route.isFirst);
                           AppHelpers.showCheckTopSnackBar(
-                            context, text: "Sale Completed Successfully",
+                            context,
+                            text: "Sale Completed Successfully",
                           );
                         }
                       },
