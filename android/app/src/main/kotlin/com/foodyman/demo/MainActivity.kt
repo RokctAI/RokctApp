@@ -21,7 +21,7 @@ class MainActivity: FlutterFragmentActivity() {
     private var pendingPermissionIntent: PendingIntent? = null
     private var currentDevice: UsbDevice? = null
 
-    private val ACTION_USB_PERMISSION = "com.foodyman.demo.USB_PERMISSION"
+    private val ACTION_USB_PERMISSION by lazy { "$packageName.USB_PERMISSION" }
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
