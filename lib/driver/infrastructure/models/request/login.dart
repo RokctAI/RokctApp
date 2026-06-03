@@ -8,7 +8,7 @@ class LoginModel {
   Map<String, Dyn> toJson() {
     final map = <String, Dyn>{};
     map['email'] = email;
-    map['password'] = password;
+    map['password'] = password; // environment
     return map;
   }
 }

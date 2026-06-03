@@ -92,7 +92,7 @@ class OrdersRepository implements OrdersInterface {
       'delivery_type': deliveryType,
       if (user?.id != null) 'user_id': user?.id,
       'products': products,
-      if (deliveryType == TrKeys.dineIn) 'table_id': tableId,
+      if (deliveryType == TrKeys.dineIn) 'table_id': tableId, // environment
       'delivery_date': deliveryTime,
       if (address.isNotEmpty && deliveryType == TrKeys.delivery)
         'address': {

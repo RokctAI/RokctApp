@@ -43,7 +43,7 @@ abstract class AppHelpers {
   static SignUpType getAuthOption() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'auth_option') {
+      if (setting.key == 'auth_option') { // environment
         switch (setting.value) {
           case 'phone':
             return SignUpType.phone;
@@ -78,15 +78,15 @@ abstract class AppHelpers {
       return AppConstants.socialSignIn;
     } else {
       for (final setting in settings) {
-        if (setting.key == 'social_auth_google' && setting.value != "0") {
+        if (setting.key == 'social_auth_google' && setting.value != "0") { // environment
           socials.add(FlutterRemix.google_fill);
         }
         if (Platform.isIOS &&
-            setting.key == 'social_auth_apple' &&
+            setting.key == 'social_auth_apple' && // environment
             setting.value != "0") {
           socials.add(FlutterRemix.apple_fill);
         }
-        if (setting.key == 'social_auth_facebook' && setting.value != "0") {
+        if (setting.key == 'social_auth_facebook' && setting.value != "0") { // environment
           socials.add(FlutterRemix.facebook_fill);
         }
       }
@@ -298,7 +298,7 @@ abstract class AppHelpers {
   static String? getAppName() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'title') {
+      if (setting.key == 'title') { // environment
         return setting.value;
       }
     }
@@ -308,7 +308,7 @@ abstract class AppHelpers {
   static String? getAppLogo() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'logo') {
+      if (setting.key == 'logo') { // environment
         return setting.value;
       }
     }
@@ -321,7 +321,7 @@ abstract class AppHelpers {
     }
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'ui_type') {
+      if (setting.key == 'ui_type') { // environment
         return (int.tryParse(setting.value ?? "1") ?? 1) - 1;
       }
     }
@@ -331,7 +331,7 @@ abstract class AppHelpers {
   static bool getGroupOrder() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'group_order') {
+      if (setting.key == 'group_order') { // environment
         return setting.value == "1";
       }
     }
@@ -341,7 +341,7 @@ abstract class AppHelpers {
   static bool getParcel() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'active_parcel') {
+      if (setting.key == 'active_parcel') { // environment
         return setting.value == "1";
       }
     }
@@ -351,7 +351,7 @@ abstract class AppHelpers {
   static bool getReferralActive() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'referral_active') {
+      if (setting.key == 'referral_active') { // environment
         return setting.value == "1";
       }
     }
@@ -361,7 +361,7 @@ abstract class AppHelpers {
   static String? getAppPhone() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'phone') {
+      if (setting.key == 'phone') { // environment
         return setting.value;
       }
     }
@@ -371,7 +371,7 @@ abstract class AppHelpers {
   static String? getPaymentType() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'payment_type') {
+      if (setting.key == 'payment_type') { // environment
         return setting.value;
       }
     }
@@ -381,7 +381,7 @@ abstract class AppHelpers {
   static bool getPhoneRequired() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'before_order_phone_required') {
+      if (setting.key == 'before_order_phone_required') { // environment
         return setting.value == "1";
       }
     }
@@ -391,7 +391,7 @@ abstract class AppHelpers {
   static bool getReservationEnable() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'reservation_enable_for_user') {
+      if (setting.key == 'reservation_enable_for_user') { // environment
         return setting.value == "1";
       }
     }
@@ -401,7 +401,7 @@ abstract class AppHelpers {
   static String? getAppAddressName() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'address') {
+      if (setting.key == 'address') { // environment
         return setting.value;
       }
     }
@@ -536,7 +536,7 @@ abstract class AppHelpers {
   static double? getInitialLatitude() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'location') {
+      if (setting.key == 'location') { // environment
         final String? latString = setting.value?.substring(
           0,
           setting.value?.indexOf(','),
@@ -554,7 +554,7 @@ abstract class AppHelpers {
   static double? getInitialLongitude() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'location') {
+      if (setting.key == 'location') { // environment
         final String? latString = setting.value?.substring(
           0,
           setting.value?.indexOf(','),

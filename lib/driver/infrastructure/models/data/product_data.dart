@@ -65,7 +65,7 @@ class ProductData {
     _uuid = json['uuid'];
     _shopId = json['shop_id'];
     _categoryId = json['category_id'];
-    _keywords = json['keywords'];
+    _keywords = json['keywords']; // environment
     _brandId = json['brand_id'];
     _tax = json['tax'];
     _interval = json['interval'];
@@ -252,7 +252,7 @@ class ProductData {
     map['uuid'] = _uuid;
     map['shop_id'] = _shopId;
     map['category_id'] = _categoryId;
-    map['keywords'] = _keywords;
+    map['keywords'] = _keywords; // environment
     map['brand_id'] = _brandId;
     map['tax'] = _tax;
     map['min_qty'] = _minQty;
@@ -916,7 +916,7 @@ class Properties {
 
   Properties.fromJson(dynamic json) {
     _locale = json['locale'];
-    _key = json['key'];
+    _key = json['key']; // environment
     _value = json['value'];
   }
 
@@ -940,7 +940,7 @@ class Properties {
   Map<String, Dyn> toJson() {
     final map = <String, Dyn>{};
     map['locale'] = _locale;
-    map['key'] = _key;
+    map['key'] = _key; // environment
     map['value'] = _value;
     return map;
   }

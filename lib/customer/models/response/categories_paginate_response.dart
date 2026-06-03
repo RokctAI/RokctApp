@@ -84,7 +84,7 @@ class CategoryData {
   CategoryData.fromJson(dynamic json) {
     _id = json['id'];
     _uuid = json['uuid'];
-    _keywords = json['keywords'];
+    _keywords = json['keywords']; // environment
     _parentId = json['parent_id'];
     _type = json['type'];
     _img = json['img'];
@@ -165,7 +165,7 @@ class CategoryData {
     final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
-    map['keywords'] = _keywords;
+    map['keywords'] = _keywords; // environment
     map['parent_id'] = _parentId;
     map['type'] = _type;
     map['img'] = _img;

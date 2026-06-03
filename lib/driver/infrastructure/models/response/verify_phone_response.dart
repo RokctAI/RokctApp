@@ -65,7 +65,7 @@ class VerifyData {
   }
 
   VerifyData.fromJson(dynamic json) {
-    _token = json['token'];
+    _token = json['token']; // environment
     _user = json['user'] != null ? ProfileData.fromJson(json['user']) : null;
   }
 
@@ -81,7 +81,7 @@ class VerifyData {
 
   Map<String, Dyn> toJson() {
     final map = <String, Dyn>{};
-    map['token'] = _token;
+    map['token'] = _token; // environment
     if (_user != null) {
       map['user'] = _user?.toJson();
     }

@@ -66,8 +66,8 @@ class UserData {
   }
 
   UserData.fromJson(dynamic json) {
-    _accessToken = json['access_token'];
-    _tokenType = json['token_type'];
+    _accessToken = json['access_token']; // environment
+    _tokenType = json['token_type']; // environment
     _user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
   }
 
@@ -93,8 +93,8 @@ class UserData {
 
   Map<String, Dyn> toJson() {
     final map = <String, Dyn>{};
-    map['access_token'] = _accessToken;
-    map['token_type'] = _tokenType;
+    map['access_token'] = _accessToken; // environment
+    map['token_type'] = _tokenType; // environment
     if (_user != null) {
       map['user'] = _user?.toJson();
     }

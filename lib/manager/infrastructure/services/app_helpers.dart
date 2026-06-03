@@ -159,7 +159,7 @@ class AppHelpers {
   static SignUpType getAuthOption() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'auth_option') {
+      if (setting.key == 'auth_option') { // environment
         switch (setting.value) {
           case 'phone':
             return SignUpType.phone;
@@ -191,7 +191,7 @@ class AppHelpers {
   static String? getAppAddressName() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'address') {
+      if (setting.key == 'address') { // environment
         return setting.value;
       }
     }
@@ -235,7 +235,7 @@ class AppHelpers {
   static double? getInitialLatitude() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'location') {
+      if (setting.key == 'location') { // environment
         final String? latString = setting.value?.substring(
           0,
           setting.value?.indexOf(','),
@@ -253,7 +253,7 @@ class AppHelpers {
   static double? getInitialLongitude() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'location') {
+      if (setting.key == 'location') { // environment
         final String? latString = setting.value?.substring(
           0,
           setting.value?.indexOf(','),
@@ -278,7 +278,7 @@ class AppHelpers {
   static String? getAppPhone() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'phone') {
+      if (setting.key == 'phone') { // environment
         return setting.value;
       }
     }
@@ -403,7 +403,7 @@ class AppHelpers {
   static String getAppName() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'title') {
+      if (setting.key == 'title') { // environment
         return setting.value ?? '';
       }
     }

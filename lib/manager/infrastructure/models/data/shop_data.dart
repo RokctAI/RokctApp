@@ -739,7 +739,7 @@ class ShopPayments {
     _shopId = json['shop_id'];
     _status = json['status'];
     _clientId = json['client_id'];
-    _secretId = json['secret_id'];
+    _secretId = json['secret_id']; // environment
     _payment = json['payment'] != null
         ? PaymentData.fromJson(json['payment'])
         : null;
@@ -786,7 +786,7 @@ class ShopPayments {
     map['shop_id'] = _shopId;
     map['status'] = _status;
     map['client_id'] = _clientId;
-    map['secret_id'] = _secretId;
+    map['secret_id'] = _secretId; // environment
     if (_payment != null) {
       map['payment'] = _payment?.toJson();
     }

@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ThemePreference {
   final SharedPreferences _preferences;
 
-  static const prefKey = 'theme_mode';
+  static const prefKey = 'theme_mode'; // environment
 
   ThemePreference._(this._preferences);
 
@@ -39,7 +39,7 @@ extension CustomThemeModeX on CustomThemeMode {
 
   bool get isDark => this == CustomThemeMode.dark;
 
-  String get toKey => toString().split('.')[1];
+  String get toKey => toString().split('.')[1]; // environment
 
   static CustomThemeMode toValue(String key) {
     if (key == light) {

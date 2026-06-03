@@ -24,7 +24,7 @@ class DrawRepositoryImpl implements DriverDrawRepository {
     try {
       final client = dioHttp.client(requireAuth: false, routing: true);
       final response = await client.get(
-        '/v2/directions/driving-car?api_key=${AppConstants.routingKey}&start=${start.longitude},${start.latitude}&end=${end.longitude},${end.latitude}',
+        '/v2/directions/driving-car?api_key=${AppConstants.routingKey}&start=${start.longitude},${start.latitude}&end=${end.longitude},${end.latitude}', // environment
       );
       return ApiResult.success(data: DrawRouting.fromJson(response.data));
     } catch (e) {

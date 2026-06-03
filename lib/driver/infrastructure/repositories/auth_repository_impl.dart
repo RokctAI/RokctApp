@@ -112,7 +112,7 @@ class AuthRepositoryImpl implements AuthRepository {
       );
       return ApiResult.success(data: RegisterResponse.fromJson(response.data));
     } catch (e) {
-      debugPrint('==> forgot password failure: $e');
+      debugPrint('==> forgot password failure: $e'); // environment
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -128,14 +128,14 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/auth/forgot/email-password/$verifyCode?email=$email',
+        '/api/v1/auth/forgot/email-password/$verifyCode?email=$email', // environment
       );
 
       return ApiResult.success(
         data: VerifyData.fromJson(response.data["data"]),
       );
     } catch (e) {
-      debugPrint('==> forgot password confirm failure: $e');
+      debugPrint('==> forgot password confirm failure: $e'); // environment
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -158,7 +158,7 @@ class AuthRepositoryImpl implements AuthRepository {
         data: VerifyData.fromJson(response.data["data"]),
       );
     } catch (e) {
-      debugPrint('==> forgot password confirm failure: $e');
+      debugPrint('==> forgot password confirm failure: $e'); // environment
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

@@ -1,0 +1,8 @@
+# API Reference: cart_data
+
+Source file: `lib/customer/models/data/cart_data.dart`
+
+## Whitelisted API Endpoints
+
+### `UserCart(id: json["id"], cartId: json["cart_id"], userId: json["user_id"], status: json["status"].runtimeType == int ? (json["status"] == 1) : json["status"], name: json["name"], uuid: json["uuid"], cartDetails: json["cartDetails"] != null ? List<CartDetail>.from( json["cartDetails"].map((x) => CartDetail.fromJson(x)), ) : null, ); } Map<String, Dyn> toJson() => { "id": id, "cart_id": cartId, "user_id": userId, "status": status, "name": name, "uuid": uuid, "cartDetails": List<Dyn>.from(cartDetails!.map((x) => x.toJson())), }; } class CartDetail { CartDetail({ this.id, this.quantity, this.bonus, this.discount, this.price, this.updatedAt, this.stock, this.addons, }); int? id; int? quantity; bool? bonus; num? price; num? discount; DateTime? updatedAt; Stocks? stock; List<Addons>? addons; CartDetail copyWith({ int? id, int? quantity, bool? bonus, int? price, DateTime? updatedAt, Stocks? stock, List<Addons>? addons, }) => CartDetail( id: id ?? this.id, quantity: quantity ?? this.quantity, bonus: bonus ?? this.bonus, price: price ?? this.price, updatedAt: updatedAt ?? this.updatedAt, stock: stock ?? this.stock, addons: addons ?? this.addons, ); factory CartDetail.fromJson(Map<String, Dyn> json) => CartDetail( id: json["id"], quantity: json["quantity"], bonus: json["bonus"].runtimeType == int ? (json["bonus"] == 1) : json["bonus"], discount: json["discount"], price: json["price"], updatedAt: DateTime.tryParse(json["updated_at"])?.toLocal(), addons: json['addons'] != null ? List<Addons>.from( json["addons"].map((x)`
+*No documentation provided (generation failed).*

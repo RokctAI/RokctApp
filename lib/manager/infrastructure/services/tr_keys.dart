@@ -123,9 +123,9 @@ abstract class TrKeys {
   static const String checkYourNetworkConnection =
       'check_your_network_connection';
   static const String send = "send";
-  static const String resetPasswordText = "reset_password_text";
+  static const String resetPasswordText = "reset_password_text"; // environment
   static const String orAccessQuickly = 'or_access_quickly';
-  static const String forgotPassword = 'forgot_password';
+  static const String forgotPassword = 'forgot_password'; // environment
   static const String keepMeLoggedIn = 'keep_me_logged_in';
   static const String login = 'login';
   static const String noProducts = "no_products";
@@ -170,7 +170,7 @@ abstract class TrKeys {
   static const String locationConfirmation = 'location_confirmation';
   static const String save = 'save';
   static const String address = 'address';
-  static const String password = 'password';
+  static const String password = 'password'; // environment
   static const String email = 'email';
   static const String phoneNumber = 'phone';
   static const String description = 'description';
@@ -193,9 +193,9 @@ abstract class TrKeys {
   static const String delivery = 'delivery';
   static const String orders = 'orders';
   static const String noInternetConnection = 'no_internet_connection';
-  static const String resetPassword = 'reset_password';
+  static const String resetPassword = 'reset_password'; // environment
   static const String confirmation = 'confirm';
-  static const String confirmPassword = 'confirm_password';
+  static const String confirmPassword = 'confirm_password'; // environment
   static const String smsDidntSend = 'sms_didnt_send';
   static const String loginCredentialsAreNotValid =
       'login_credentials_are_not_valid';
@@ -272,7 +272,7 @@ abstract class TrKeys {
   static const String areYouSureToDelete = 'are_you_sure_to_delete';
   static const String noData = 'no_data';
   static const String notEnoughMoney = 'no_enough_money';
-  static const String demoLoginPassword = 'demo_login_password';
+  static const String demoLoginPassword = 'demo_login_password'; // environment
   static const String emailOrPhone = 'email_or_phone';
   static const String surname = 'surname';
   static const String register = 'register';

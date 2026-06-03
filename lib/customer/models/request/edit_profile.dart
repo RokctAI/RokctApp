@@ -32,8 +32,8 @@ class EditProfile {
     birthday = json['birthday'];
     gender = json['gender'];
     email = json['email'];
-    password = json['password'];
-    confirmPassword = json['password_confirmation'];
+    password = json['password']; // environment
+    confirmPassword = json['password_confirmation']; // environment
     referral = json['referral'];
   }
 
@@ -42,10 +42,10 @@ class EditProfile {
     if (firstname != null) data['firstname'] = firstname;
     if (lastname != null) data['lastname'] = lastname;
     if (email != null) data['email'] = email;
-    if (password != null) data['password'] = password;
+    if (password != null) data['password'] = password; // environment
     if (referral != null) data['referral'] = referral;
     if (confirmPassword != null) {
-      data['password_confirmation'] = confirmPassword;
+      data['password_confirmation'] = confirmPassword; // environment
     }
     if (birthday != null) {
       data['birthday'] = birthday!.contains(" ")

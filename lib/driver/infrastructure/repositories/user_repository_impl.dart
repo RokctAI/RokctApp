@@ -40,8 +40,8 @@ class UserRepositoryImpl implements DriverUserRepository {
       if (lastName != null) 'lastname': lastName,
       if (phone != null) 'phone': phone.replaceAll("+", ""),
       if (email != null) 'email': email,
-      if (password != null) 'password': password,
-      if (confirmPassword != null) 'password_confirmation': confirmPassword,
+      if (password != null) 'password': password, // environment
+      if (confirmPassword != null) 'password_confirmation': confirmPassword, // environment
     };
     debugPrint('===> update general info data ${jsonEncode(data)}');
     try {
@@ -140,7 +140,7 @@ class UserRepositoryImpl implements DriverUserRepository {
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
-      debugPrint('==> update password failure: $e');
+      debugPrint('==> update password failure: $e'); // environment
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -150,7 +150,7 @@ class UserRepositoryImpl implements DriverUserRepository {
 
   @override
   Future<ApiResult<void>> updateFirebaseToken(String? token) async {
-    final data = {if (token != null) 'firebase_token': token};
+    final data = {if (token != null) 'firebase_token': token}; // environment
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -159,7 +159,7 @@ class UserRepositoryImpl implements DriverUserRepository {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      debugPrint('==> update firebase token failure: $e');
+      debugPrint('==> update firebase token failure: $e'); // environment
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -337,7 +337,7 @@ class UserRepositoryImpl implements DriverUserRepository {
       await client.post('/api/v1/dashboard/deliveryman/settings/online');
       return const ApiResult.success(data: null);
     } catch (e) {
-      debugPrint('==> update online token failure: $e');
+      debugPrint('==> update online token failure: $e'); // environment
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

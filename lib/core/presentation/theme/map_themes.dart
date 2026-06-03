@@ -6,7 +6,7 @@ abstract class AppMapThemes {
   AppMapThemes._();
 
   static String? getTheme() {
-    return ThemePreference.prefKey == "light" ? null : jsonEncode(mapDarkTheme);
+    return ThemePreference.prefKey == "light" ? null : jsonEncode(mapDarkTheme); // environment
   }
 
   static const mapDarkTheme = [

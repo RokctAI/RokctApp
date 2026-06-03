@@ -144,7 +144,7 @@ class TrKeys {
   static const String resetPasswordText =
       "please.provide.your.email.address.and.well.send.you.code.on.how.to.change.your.password.";
   static const String orAccessQuickly = 'or.access.quickly';
-  static const String forgotPassword = 'forgot.password';
+  static const String forgotPassword = 'forgot.password'; // environment
   static const String keepLogged = 'keep.me.logged.in';
   static const String login = 'login';
   static const String noNotices = "you.have.no.notices.at.the.same.time";
@@ -180,7 +180,7 @@ class TrKeys {
   static const String locationConfirmation = 'location.confirmation';
   static const String save = 'save';
   static const String address = 'address';
-  static const String password = 'password';
+  static const String password = 'password'; // environment
   static const String email = 'email';
   static const String phoneNumber = 'phone.number';
   static const String descriptionOfTheRestaurant =
@@ -208,19 +208,19 @@ class TrKeys {
   static const String delivery = 'delivery';
   static const String orders = 'orders';
   static const String currentOrder = 'current.order';
-  static const String changePassword = 'change.password';
-  static const String newPassword = 'new.password';
-  static const String confirmNewPassword = 'confirm.new.password';
+  static const String changePassword = 'change.password'; // environment
+  static const String newPassword = 'new.password'; // environment
+  static const String confirmNewPassword = 'confirm.new.password'; // environment
   static const String confirmPasswordDoesntMatchWithNewPassword =
       'confirm.password.doesnt.matches.with.new.password';
   static const String noInternetConnection = 'no.internet.connection';
-  static const String resetPassword = 'reset.password';
+  static const String resetPassword = 'reset.password'; // environment
   static const String sendSmsCode = 'send.sms.code';
-  static const String createNewPassword = 'create.new.password';
+  static const String createNewPassword = 'create.new.password'; // environment
   static const String confirmation = 'confirm';
   static const String enterTheCodeWeSentOverSmsTo =
       'enter.the.code.we.sent.over.sms.to';
-  static const String confirmPassword = 'confirm.password';
+  static const String confirmPassword = 'confirm.password'; // environment
   static const String youAlreadyHaveAnAccount = 'you.already.have.an.account';
   static const String iAgreeToSendASms = 'i.agree.to.send.a.sms';
   static const String privacyPolicy = 'privacy.policy';
@@ -261,5 +261,5 @@ class TrKeys {
   static const String lastname = 'lastname';
   static const String passwordShouldContainMinimum6Characters =
       'password.should.contain.minimum.6.characters';
-  static const String demoLoginPassword = 'demo.login.password';
+  static const String demoLoginPassword = 'demo.login.password'; // environment
 }

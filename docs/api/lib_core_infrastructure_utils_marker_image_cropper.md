@@ -1,0 +1,15 @@
+# API Reference: marker_image_cropper
+
+Source file: `lib/core/infrastructure/utils/marker_image_cropper.dart`
+
+## Classes
+
+### class `ImageCropperForMarker`
+
+## Whitelisted API Endpoints
+
+### `resizeAndCircle(String? imageURL, int size) async { final File imageFile = await urlToFile(imageURL); final Uint8List byteData = imageFile.readAsBytesSync(); final Image image = await _resizeAndConvertImage(byteData, size, size); return _paintToCanvas(image, Size.zero); } Future<File> imageToFile({String? imageName, String? ext}) async { var bytes = await rootBundle.load('assets/$imageName.$ext'); String tempPath = (await getTemporaryDirectory()).path; File file = File('$tempPath/app_logo.png'); await file.writeAsBytes( bytes.buffer.asUint8List(bytes.offsetInBytes, bytes.lengthInBytes), ); return file; } Future<File> urlToFile(String? imageUrl) async { final rd = Random(); final Directory tempDir = await getTemporaryDirectory(); final String tempPath = tempDir.path; try { final File file = File('$tempPath${rd.nextInt(100)}.png'); final http.Response response = await http.get(Uri.parse(imageUrl ?? '')); await file.writeAsBytes(response.bodyBytes); return file; } catch (e)`
+*No documentation provided (generation failed).*
+
+### `imageToFile(imageName: Assets.imageAppLogo .replaceFirst('assets/', '') .replaceFirst('.png', ''), ext: "png", ); } } Future<Image> _resizeAndConvertImage( Uint8List? data, int height, int width, ) async { ByteData bytes = await rootBundle.load(Assets.imageAppLogo); final img.Image? baseSizeImage = img.decodeImage( data ?? bytes.buffer.asUint8List(), ); final img.Image? newSizeImage = img.decodeImage(bytes.buffer.asUint8List()); final img.Image resizeImage = img.copyResize( baseSizeImage ?? newSizeImage!, height: height, width: width, ); final Codec codec = await instantiateImageCodec( Uint8List.fromList(img.encodePng(resizeImage)), ); final FrameInfo frameInfo = await codec.getNextFrame(); return frameInfo.image; } Future<BitmapDescriptor> _paintToCanvas(Image image, Size size) async { final pictureRecorder = PictureRecorder(); final canvas = Canvas(pictureRecorder); final paint = Paint(); paint.isAntiAlias = true; _performCircleCrop(image, size, canvas); final recordedPicture = pictureRecorder.endRecording(); Image img = await recordedPicture.toImage(image.width, image.height); final byteData = await img.toByteData(format: ImageByteFormat.png); final buffer = byteData?.buffer.asUint8List(); return BitmapDescriptor.bytes( buffer!, height: size.height, width: size.width, ); } Canvas _performCircleCrop(Image image, Size size, Canvas canvas)`
+*No documentation provided (generation failed).*

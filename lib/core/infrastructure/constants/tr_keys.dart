@@ -291,7 +291,7 @@ class TrKeys {
   static const String popular = 'popular';
   static const String recommended = 'recommended';
   static const String send = 'send';
-  static const String resetPasswordText = "reset_password_text";
+  static const String resetPasswordText = "reset_password_text"; // environment
   static const String resendOtp = 'send_new';
   static const String sendOtp = 'we_are_send_OTP_code_to';
   static const String enterOtp = 'enter_OTP_code';
@@ -320,8 +320,8 @@ class TrKeys {
   static const String skip = 'skip';
   static const String login = 'login';
   static const String email = 'email';
-  static const String password = 'password';
-  static const String forgotPassword = 'forgot_password';
+  static const String password = 'password'; // environment
+  static const String forgotPassword = 'forgot_password'; // environment
   static const String continueWithGoogle = 'continue_with_google';
   static const String dontHaveAnAcc = 'dont_have_an_account';
   static const String register = 'register';
@@ -332,7 +332,7 @@ class TrKeys {
   static const String searchProducts = 'search_restaurant_and_products';
   static const String all = 'all';
   static const String openNow = 'open_now';
-  static const String newKey = 'new';
+  static const String newKey = 'new'; // environment
   static const String allShops = 'all_shops';
   static const String work247 = 'work_247';
   static const String pickup = 'pickup';
@@ -413,9 +413,9 @@ class TrKeys {
   static const String phoneNumber = 'phone_number';
   static const String cancel = 'cancel';
   static const String noInternetConnection = 'no_internet_connection';
-  static const String resetPassword = 'reset_password';
+  static const String resetPassword = 'reset_password'; // environment
   static const String confirmation = 'confirm';
-  static const String confirmPassword = 'confirm_password';
+  static const String confirmPassword = 'confirm_password'; // environment
   static const String shops = 'shops';
   static const String notFound = 'not_found';
   static const String emailNotVerifiedYet = 'email_not_verified_yet';

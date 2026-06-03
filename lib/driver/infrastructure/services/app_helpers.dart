@@ -80,7 +80,7 @@ class AppHelpers {
   static SignUpType getAuthOption() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'auth_option') {
+      if (setting.key == 'auth_option') { // environment
         switch (setting.value) {
           case 'phone':
             return SignUpType.phone;
@@ -97,7 +97,7 @@ class AppHelpers {
   static String? getAppPhone() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'phone') {
+      if (setting.key == 'phone') { // environment
         return setting.value;
       }
     }
@@ -107,7 +107,7 @@ class AppHelpers {
   static String getAppName() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'title') {
+      if (setting.key == 'title') { // environment
         return setting.value ?? '';
       }
     }
@@ -117,7 +117,7 @@ class AppHelpers {
   static bool getDriverCantEdit() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'driver_can_edit_credentials') {
+      if (setting.key == 'driver_can_edit_credentials') { // environment
         return setting.value == "0";
       }
     }
@@ -127,7 +127,7 @@ class AppHelpers {
   static int getAppDeliveryTime() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'deliveryman_order_acceptance_time') {
+      if (setting.key == 'deliveryman_order_acceptance_time') { // environment
         return int.parse(setting.value ?? '30');
       }
     }

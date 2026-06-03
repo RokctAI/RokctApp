@@ -16,7 +16,7 @@ class SettingsData {
 
   SettingsData.fromJson(dynamic json) {
     _id = json['id'];
-    _key = json['key'];
+    _key = json['key']; // environment
     _value = json['value'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
@@ -55,7 +55,7 @@ class SettingsData {
   Map<String, Dyn> toJson() {
     final map = <String, Dyn>{};
     map['id'] = _id;
-    map['key'] = _key;
+    map['key'] = _key; // environment
     map['value'] = _value;
     map['created_at'] = _createdAt;
     map['updated_at'] = _updatedAt;

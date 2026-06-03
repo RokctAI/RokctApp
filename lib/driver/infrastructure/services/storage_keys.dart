@@ -2,17 +2,17 @@
 abstract class StorageKeys {
   StorageKeys._();
 
-  static const String keyLangSelected = 'keyLangSelected';
-  static const String keyUser = 'keyUser';
-  static const String keyOnline = 'keyOnline';
-  static const String keyCarInfo = 'keyCarInfo';
-  static const String keyToken = 'keyToken';
-  static const String keyAddressSelected = 'keyAddressSelected';
-  static const String keySelectedCurrency = 'keySelectedCurrency';
-  static const String keyAppThemeMode = 'keyAppThemeMode';
-  static const String keyGlobalSettings = 'keyGlobalSettings';
-  static const String keyTranslations = 'keyTranslations';
-  static const String keyLanguageData = 'keyLanguageData';
-  static const String keyLangLtr = 'keyLangLtr';
-  static const String keyWallet = 'keyWallet';
+  static const String keyLangSelected = 'keyLangSelected'; // environment
+  static const String keyUser = 'keyUser'; // environment
+  static const String keyOnline = 'keyOnline'; // environment
+  static const String keyCarInfo = 'keyCarInfo'; // environment
+  static const String keyToken = 'keyToken'; // environment
+  static const String keyAddressSelected = 'keyAddressSelected'; // environment
+  static const String keySelectedCurrency = 'keySelectedCurrency'; // environment
+  static const String keyAppThemeMode = 'keyAppThemeMode'; // environment
+  static const String keyGlobalSettings = 'keyGlobalSettings'; // environment
+  static const String keyTranslations = 'keyTranslations'; // environment
+  static const String keyLanguageData = 'keyLanguageData'; // environment
+  static const String keyLangLtr = 'keyLangLtr'; // environment
+  static const String keyWallet = 'keyWallet'; // environment
 }

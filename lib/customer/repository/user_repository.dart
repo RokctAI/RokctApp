@@ -127,7 +127,7 @@ class UserRepository implements UserRepositoryFacade {
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
-      debugPrint('==> update password failure: $e');
+      debugPrint('==> update password failure: $e'); // environment
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -165,7 +165,7 @@ class UserRepository implements UserRepositoryFacade {
 
   @override
   Future<ApiResult<void>> updateFirebaseToken(String? token) async {
-    final data = {if (token != null) 'firebase_token': token};
+    final data = {if (token != null) 'firebase_token': token}; // environment
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -174,7 +174,7 @@ class UserRepository implements UserRepositoryFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      debugPrint('==> update firebase token failure: $e');
+      debugPrint('==> update firebase token failure: $e'); // environment
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

@@ -179,7 +179,7 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
         String themeKey = e.getMode().name;
 
         CustomColorSet colors = CustomColorSet.createOrUpdate(
-          themeKey == "light" ? CustomThemeMode.light : CustomThemeMode.dark,
+          themeKey == "light" ? CustomThemeMode.light : CustomThemeMode.dark, // environment
         );
         if (next.isCheckShopOrder &&
             (next.isCheckShopOrder != (previous?.isCheckShopOrder ?? false))) {

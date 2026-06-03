@@ -36,7 +36,7 @@ class CategoryData {
     _id = json['id'];
     _uuid = json['uuid'];
     _shopId = json['shop_id'];
-    _keywords = json['keywords'];
+    _keywords = json['keywords']; // environment
     _parentId = json['parent_id'];
     _type = json['type'];
     _img = json['img'];
@@ -122,7 +122,7 @@ class CategoryData {
     map['id'] = _id;
     map['shopId'] = _shopId;
     map['uuid'] = _uuid;
-    map['keywords'] = _keywords;
+    map['keywords'] = _keywords; // environment
     map['parent_id'] = _parentId;
     map['type'] = _type;
     map['img'] = _img;

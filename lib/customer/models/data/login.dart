@@ -12,7 +12,7 @@ class LoginModel {
     AppValidators.isValidEmail(email ?? "")
         ? (map['email'] = email)
         : (map['phone'] = email);
-    map['password'] = password;
+    map['password'] = password; // environment
     return map;
   }
 }

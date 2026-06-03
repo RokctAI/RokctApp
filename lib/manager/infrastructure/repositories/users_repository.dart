@@ -419,7 +419,7 @@ class UsersRepository implements UsersInterface {
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
-      debugPrint('==> update password failure: $e');
+      debugPrint('==> update password failure: $e'); // environment
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -429,8 +429,8 @@ class UsersRepository implements UsersInterface {
 
   @override
   Future<ApiResult<void>> updateFirebaseToken(String? token) async {
-    final data = {if (token != null) 'firebase_token': token};
-    debugPrint('===> update firebase token ${jsonEncode(data)}');
+    final data = {if (token != null) 'firebase_token': token}; // environment
+    debugPrint('===> update firebase token ${jsonEncode(data)}'); // environment
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -439,7 +439,7 @@ class UsersRepository implements UsersInterface {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      debugPrint('==> update firebase token failure: $e');
+      debugPrint('==> update firebase token failure: $e'); // environment
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
