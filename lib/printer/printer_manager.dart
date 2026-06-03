@@ -3,8 +3,7 @@ import 'package:rokctapp/printer/models/data/esc_pos.dart';
 import 'package:rokctapp/printer/models/data/printer_device.dart';
 import 'package:rokctapp/printer/models/request/print_receipt_request.dart';
 
-import 'package:rokctapp/printer/connectors/bluetooth.dart';
-import 'package:rokctapp/printer/connectors/discovery.dart';
+import 'package:rokctapp/printer/connectors/connectors.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/infrastructure/models/response/branches_response.dart';
 
@@ -14,31 +13,105 @@ class PrinterManager {
   PrinterManager._internal();
 
   final BluetoothConnector _bluetooth = BluetoothConnector();
+  final TcpConnector _tcp = TcpConnector();
+  final UsbConnector _usb = UsbConnector();
   final PrinterDiscovery _discovery = PrinterDiscovery();
 
-  bool get isConnected => _bluetooth.isConnected;
+  PrinterType _activeType = PrinterType.unknown;
+
+  bool get isConnected {
+    switch (_activeType) {
+      case PrinterType.bluetooth:
+        return _bluetooth.isConnected;
+      case PrinterType.tcp:
+        return _tcp.isConnected;
+      case PrinterType.usb:
+        return _usb.isConnected;
+      default:
+        return false;
+    }
+  }
 
   Future<bool> checkPermission() => _bluetooth.checkPermission();
 
   Future<List<PrinterDevice>> discoverPrinters() => _discovery.discoverAll();
 
-  Future<PrinterResponse> connect(String macAddress) async {
-    final success = await _bluetooth.connect(macAddress);
-    return success
-        ? PrinterResponse.success()
-        : PrinterResponse.failure('Failed to connect to Bluetooth printer');
+  Future<PrinterResponse> connect(String address) async {
+    bool success = false;
+    String error = 'Failed to connect to printer';
+
+    if (address.startsWith('usb://')) {
+      final String cleanAddress = address.replaceFirst('usb://', '');
+      final List<String> parts = cleanAddress.split('_');
+      if (parts.length == 2) {
+        success = await _usb.connect(parts[0], parts[1]);
+        if (success) {
+          _activeType = PrinterType.usb;
+        } else {
+          error = 'Failed to connect to USB printer';
+        }
+      } else {
+        error = 'Invalid USB printer address format';
+      }
+    } else if (address.contains('.')) {
+      success = await _tcp.connect(address);
+      if (success) {
+        _activeType = PrinterType.tcp;
+      } else {
+        error = 'Failed to connect to Network printer';
+      }
+    } else {
+      success = await _bluetooth.connect(address);
+      if (success) {
+        _activeType = PrinterType.bluetooth;
+      } else {
+        error = 'Failed to connect to Bluetooth printer';
+      }
+    }
+
+    return success ? PrinterResponse.success() : PrinterResponse.failure(error);
   }
 
   Future<PrinterResponse> disconnect() async {
-    final success = await _bluetooth.disconnect();
+    bool success = true;
+    switch (_activeType) {
+      case PrinterType.bluetooth:
+        success = await _bluetooth.disconnect();
+        break;
+      case PrinterType.tcp:
+        await _tcp.disconnect();
+        break;
+      case PrinterType.usb:
+        await _usb.disconnect();
+        break;
+      default:
+        break;
+    }
+    _activeType = PrinterType.unknown;
     return success
         ? PrinterResponse.success()
         : PrinterResponse.failure('Failed to disconnect');
   }
 
+  Future<void> _sendBytes(List<int> bytes) async {
+    switch (_activeType) {
+      case PrinterType.bluetooth:
+        await _bluetooth.sendBytes(bytes);
+        break;
+      case PrinterType.tcp:
+        await _tcp.sendBytes(bytes);
+        break;
+      case PrinterType.usb:
+        await _usb.sendBytes(bytes);
+        break;
+      default:
+        break;
+    }
+  }
+
   Future<PrinterResponse> printText(String text) async {
     if (!isConnected) return PrinterResponse.failure('Printer not connected');
-    await _bluetooth.sendBytes(text.codeUnits);
+    await _sendBytes(text.codeUnits);
     return PrinterResponse.success();
   }
 
@@ -135,7 +208,7 @@ class PrinterManager {
     bytes += EscPos.lineFeed;
     bytes += EscPos.lineFeed;
 
-    await _bluetooth.sendBytes(bytes);
+    await _sendBytes(bytes);
     return PrinterResponse.success();
   }
 
