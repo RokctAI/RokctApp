@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class Galleries {
   Galleries({
     int? id,
@@ -79,3 +78,5 @@ class Galleries {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

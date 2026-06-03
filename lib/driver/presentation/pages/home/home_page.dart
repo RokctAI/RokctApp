@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:async';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
@@ -566,3 +565,5 @@ class _HomePageState extends ConsumerState<DriverHomePage> {
     );
   }
 }
+
+typedef Dyn = dynamic;

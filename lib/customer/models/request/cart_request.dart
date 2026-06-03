@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
 
 class CartRequest {
@@ -62,3 +61,5 @@ class CartRequest {
     return list;
   }
 }
+
+typedef Dyn = dynamic;

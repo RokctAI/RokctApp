@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/links.dart';
 import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
@@ -32,9 +31,7 @@ class ParcelTypeResponse {
       );
 
   Map<String, Dyn> toJson() => {
-    "data": data == null
-        ? []
-        : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
     "links": links?.toJson(),
     "meta": meta?.toJson(),
   };
@@ -200,3 +197,5 @@ class Option {
     "translation": translation?.toJson(),
   };
 }
+
+typedef Dyn = dynamic;

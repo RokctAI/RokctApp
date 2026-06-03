@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/user_data.dart';
 
 class LoginResponse {
@@ -101,3 +100,5 @@ class LoginData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

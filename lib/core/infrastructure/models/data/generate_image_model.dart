@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class GenerateImageModel {
   GenerateImageModel({this.created, this.data});
 
@@ -21,9 +20,7 @@ class GenerateImageModel {
 
   Map<String, Dyn> toJson() => {
     "created": created,
-    "data": data == null
-        ? []
-        : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -38,3 +35,5 @@ class Datum {
 
   Map<String, Dyn> toJson() => {"url": url};
 }
+
+typedef Dyn = dynamic;

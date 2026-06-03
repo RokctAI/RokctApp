@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class NonExistPayment {
   int? id;
   String? tag;
@@ -32,19 +31,18 @@ class NonExistPayment {
     updatedAt: updatedAt ?? this.updatedAt,
   );
 
-  factory NonExistPayment.fromJson(Map<String, Dyn> json) =>
-      NonExistPayment(
-        id: json["id"],
-        tag: json["tag"],
-        input: json["input"],
-        active: json["active"],
-        createdAt: json["created_at"] == null
-            ? null
-            : DateTime.tryParse(json["created_at"])?.toLocal(),
-        updatedAt: json["updated_at"] == null
-            ? null
-            : DateTime.tryParse(json["updated_at"])?.toLocal(),
-      );
+  factory NonExistPayment.fromJson(Map<String, Dyn> json) => NonExistPayment(
+    id: json["id"],
+    tag: json["tag"],
+    input: json["input"],
+    active: json["active"],
+    createdAt: json["created_at"] == null
+        ? null
+        : DateTime.tryParse(json["created_at"])?.toLocal(),
+    updatedAt: json["updated_at"] == null
+        ? null
+        : DateTime.tryParse(json["updated_at"])?.toLocal(),
+  );
 
   Map<String, Dyn> toJson() => {
     "id": id,
@@ -55,3 +53,5 @@ class NonExistPayment {
     "updated_at": updatedAt?.toIso8601String(),
   };
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/local_location.dart';
 
 class LocalAddressData {
@@ -77,3 +76,5 @@ class LocalAddressData {
     return 'LocalAddressData(title - $title})';
   }
 }
+
+typedef Dyn = dynamic;

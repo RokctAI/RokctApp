@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -303,3 +302,5 @@ class _CreateShopPageState extends ConsumerState<ManagerCreateShopPage> {
     );
   }
 }
+
+typedef Dyn = dynamic;

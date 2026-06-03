@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/services/local_storage.dart';
 
 class OnlyShopRequest {
@@ -12,3 +11,5 @@ class OnlyShopRequest {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

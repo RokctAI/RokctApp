@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/addons_data.dart';
 import 'package:rokctapp/customer/models/data/bonus_data.dart';
 import 'package:rokctapp/customer/models/models.dart';
@@ -837,3 +836,5 @@ class DiscountData {
     "updated_at": updatedAt?.toIso8601String(),
   };
 }
+
+typedef Dyn = dynamic;

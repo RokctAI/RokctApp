@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 
 import 'package:rokctapp/customer/models/data/translation.dart';
@@ -161,9 +160,7 @@ class All {
     "active": active,
     "status": status,
     "translation": translation?.toJson(),
-    "children": children == null
-        ? []
-        : List<Dyn>.from(children!.map((x) => x)),
+    "children": children == null ? [] : List<Dyn>.from(children!.map((x) => x)),
     "products": products == null
         ? []
         : List<Dyn>.from(products!.map((x) => x.toJson())),
@@ -345,3 +342,5 @@ class Stock {
     "bonus": bonus,
   };
 }
+
+typedef Dyn = dynamic;

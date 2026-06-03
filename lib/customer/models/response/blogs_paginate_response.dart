@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/blog_data.dart';
 
 class BlogsPaginateResponse {
@@ -189,3 +188,5 @@ class Links {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

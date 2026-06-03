@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 
 class CurrenciesResponse {
@@ -30,3 +29,5 @@ class CurrenciesResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

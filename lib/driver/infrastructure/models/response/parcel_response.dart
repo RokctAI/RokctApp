@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 
 class ParcelTypeResponse {
@@ -30,9 +29,7 @@ class ParcelTypeResponse {
       );
 
   Map<String, Dyn> toJson() => {
-    "data": data == null
-        ? []
-        : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
     "links": links?.toJson(),
     "meta": meta?.toJson(),
   };
@@ -207,13 +204,12 @@ class Links {
 
   Links({this.first, this.last, this.prev, this.next});
 
-  Links copyWith({String? first, String? last, Dyn prev, Dyn next}) =>
-      Links(
-        first: first ?? this.first,
-        last: last ?? this.last,
-        prev: prev ?? this.prev,
-        next: next ?? this.next,
-      );
+  Links copyWith({String? first, String? last, Dyn prev, Dyn next}) => Links(
+    first: first ?? this.first,
+    last: last ?? this.last,
+    prev: prev ?? this.prev,
+    next: next ?? this.next,
+  );
 
   factory Links.fromJson(Map<String, Dyn> json) => Links(
     first: json["first"],
@@ -288,9 +284,7 @@ class Meta {
     "current_page": currentPage,
     "from": from,
     "last_page": lastPage,
-    "links": links == null
-        ? []
-        : List<Dyn>.from(links!.map((x) => x.toJson())),
+    "links": links == null ? [] : List<Dyn>.from(links!.map((x) => x.toJson())),
     "path": path,
     "per_page": perPage,
     "to": to,
@@ -314,9 +308,7 @@ class Link {
   factory Link.fromJson(Map<String, Dyn> json) =>
       Link(url: json["url"], label: json["label"], active: json["active"]);
 
-  Map<String, Dyn> toJson() => {
-    "url": url,
-    "label": label,
-    "active": active,
-  };
+  Map<String, Dyn> toJson() => {"url": url, "label": label, "active": active};
 }
+
+typedef Dyn = dynamic;

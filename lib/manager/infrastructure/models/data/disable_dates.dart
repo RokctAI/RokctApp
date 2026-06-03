@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 List<DisableDates> disableDatesFromJson(dynamic str) =>
     List<DisableDates>.from(str.map((x) => DisableDates.fromJson(x)));
 
@@ -18,3 +17,5 @@ class DisableDates {
     "end_date": endDate.toIso8601String(),
   };
 }
+
+typedef Dyn = dynamic;

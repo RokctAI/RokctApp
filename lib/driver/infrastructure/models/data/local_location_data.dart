@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class LocalLocationData {
   LocalLocationData({double? latitude, double? longitude}) {
     _latitude = latitude;
@@ -40,3 +39,5 @@ class LocalLocationData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

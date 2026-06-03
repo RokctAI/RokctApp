@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/image_data.dart';
 
 class GalleryUploadResponse {
@@ -25,3 +24,5 @@ class GalleryUploadResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

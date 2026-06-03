@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/translation.dart';
 
 import 'package:rokctapp/customer/models/data/product_data.dart';
@@ -143,3 +142,5 @@ class Product {
     "translation": translation?.toJson(),
   };
 }
+
+typedef Dyn = dynamic;

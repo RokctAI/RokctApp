@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class Links {
   Links({String? first, String? last, Dyn prev, String? next}) {
     _first = first;
@@ -44,3 +43,5 @@ class Links {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

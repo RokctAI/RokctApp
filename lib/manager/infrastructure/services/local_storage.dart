@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 // Trace ID propagation context
 import 'dart:convert';
 import 'package:rokctapp/core/infrastructure/models/data/language.dart';
@@ -67,9 +66,8 @@ class LocalStorage {
   static List<SettingsData> getSettingsList() =>
       CoreLocalStorage.getSettingsList();
 
-  static Future<void> setTranslations(
-    Map<String, Dyn>? translations,
-  ) async => CoreLocalStorage.setTranslations(translations);
+  static Future<void> setTranslations(Map<String, Dyn>? translations) async =>
+      CoreLocalStorage.setTranslations(translations);
 
   static Map<String, Dyn> getTranslations({String? locale}) =>
       CoreLocalStorage.getTranslations(locale: locale);
@@ -243,3 +241,5 @@ class LocalStorage {
     _deleteShop();
   }
 }
+
+typedef Dyn = dynamic;

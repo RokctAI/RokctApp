@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/address_new_data.dart';
 
 class AddressesResponse {
@@ -62,3 +61,5 @@ class AddressesResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

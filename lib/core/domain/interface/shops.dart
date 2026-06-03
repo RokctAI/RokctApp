@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/customer/models/models.dart';
@@ -69,3 +68,5 @@ abstract class ShopsRepositoryFacade {
     String? backgroundImage,
   });
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class LoginModel {
   final String? email;
   final String? password;
@@ -12,3 +11,5 @@ class LoginModel {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

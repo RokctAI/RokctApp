@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/blog_data.dart';
 
 class BlogDetailsResponse {
@@ -57,3 +56,5 @@ class BlogDetailsResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

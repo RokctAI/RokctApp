@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class BookingsData {
   int id;
   int? maxTime;
@@ -26,3 +25,5 @@ class BookingsData {
     "updated_at": updatedAt?.toIso8601String(),
   };
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 
 List<List<StoryModel?>?>? storyModelFromJson(dynamic str) => str == null
@@ -16,8 +15,7 @@ String storyModelToJson(List<List<StoryModel?>?>? data) => json.encode(
       ? []
       : List<Dyn>.from(
           data.map(
-            (x) =>
-                x == null ? [] : List<Dyn>.from(x.map((x) => x!.toJson())),
+            (x) => x == null ? [] : List<Dyn>.from(x.map((x) => x!.toJson())),
           ),
         ),
 );
@@ -67,3 +65,5 @@ class StoryModel {
     "updated_at": updatedAt?.toIso8601String(),
   };
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class PaymentData {
   PaymentData({
     int? id,
@@ -64,3 +63,5 @@ class PaymentData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

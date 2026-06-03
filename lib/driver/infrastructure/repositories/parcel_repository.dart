@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -199,3 +198,5 @@ class ParcelRepository implements DriverParcelRepository {
     }
   }
 }
+
+typedef Dyn = dynamic;

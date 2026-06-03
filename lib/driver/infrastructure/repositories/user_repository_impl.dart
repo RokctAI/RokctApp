@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -41,7 +40,8 @@ class UserRepositoryImpl implements DriverUserRepository {
       if (phone != null) 'phone': phone.replaceAll("+", ""),
       if (email != null) 'email': email,
       if (password != null) 'password': password, // environment
-      if (confirmPassword != null) 'password_confirmation': confirmPassword, // environment
+      if (confirmPassword != null)
+        'password_confirmation': confirmPassword, // environment
     };
     debugPrint('===> update general info data ${jsonEncode(data)}');
     try {
@@ -469,3 +469,5 @@ class UserRepositoryImpl implements DriverUserRepository {
     }
   }
 }
+
+typedef Dyn = dynamic;

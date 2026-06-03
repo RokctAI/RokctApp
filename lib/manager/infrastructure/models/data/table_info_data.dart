@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class TableInfoData {
   int id;
   int bookingId;
@@ -38,3 +37,5 @@ class TableInfoData {
     "status": status,
   };
 }
+
+typedef Dyn = dynamic;

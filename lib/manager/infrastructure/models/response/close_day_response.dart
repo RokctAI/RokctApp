@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class CloseDayResponse {
   CloseDayData? data;
 
@@ -7,10 +6,9 @@ class CloseDayResponse {
   CloseDayResponse copyWith({CloseDayData? data}) =>
       CloseDayResponse(data: data ?? this.data);
 
-  factory CloseDayResponse.fromJson(Map<String, Dyn> json) =>
-      CloseDayResponse(
-        data: json["data"] == null ? null : CloseDayData.fromJson(json["data"]),
-      );
+  factory CloseDayResponse.fromJson(Map<String, Dyn> json) => CloseDayResponse(
+    data: json["data"] == null ? null : CloseDayData.fromJson(json["data"]),
+  );
 
   Map<String, Dyn> toJson() => {"data": data?.toJson()};
 }
@@ -66,3 +64,5 @@ class BookingShopClosedDate {
         "${day!.year.toString().padLeft(4, '0')}-${day!.month.toString().padLeft(2, '0')}-${day!.day.toString().padLeft(2, '0')}",
   };
 }
+
+typedef Dyn = dynamic;

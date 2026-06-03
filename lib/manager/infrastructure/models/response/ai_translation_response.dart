@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class AiTranslationResponse {
   AiTranslationResponse({
     String? timestamp,
@@ -89,3 +88,5 @@ class AiTranslationData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

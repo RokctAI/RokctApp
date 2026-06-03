@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
@@ -24,3 +23,5 @@ class BannersRequest {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

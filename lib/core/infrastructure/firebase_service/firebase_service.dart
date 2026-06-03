@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 // Trace ID propagation context
 import 'dart:developer';
 import 'dart:io';
@@ -193,3 +192,5 @@ abstract class FirebaseService {
     // );
   }
 }
+
+typedef Dyn = dynamic;

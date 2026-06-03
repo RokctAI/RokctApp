@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class AddressInformation {
   AddressInformation({String? address, String? house, String? floor}) {
     _address = address;
@@ -40,3 +39,5 @@ class AddressInformation {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

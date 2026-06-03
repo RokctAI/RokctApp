@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 
 class KitchenModel {
@@ -37,3 +36,5 @@ class KitchenModel {
     "translation": translation?.toJson(),
   };
 }
+
+typedef Dyn = dynamic;

@@ -34,7 +34,9 @@ class ViewMapNotifier extends Notifier<ViewMapState> {
         themeKey = value.getMode().name;
 
         CustomColorSet colors = CustomColorSet.createOrUpdate(
-          themeKey == "light" ? CustomThemeMode.light : CustomThemeMode.dark, // environment
+          themeKey == "light"
+              ? CustomThemeMode.light
+              : CustomThemeMode.dark, // environment
         );
         if (context.mounted) {
           return AppHelpers.showAlertDialog(

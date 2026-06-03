@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class Meta {
   Meta({int? total}) {
     _total = total;
@@ -20,3 +19,5 @@ class Meta {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

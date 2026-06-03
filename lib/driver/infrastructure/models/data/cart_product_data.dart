@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/product_data.dart';
 
 class CartProductData {
@@ -66,3 +65,5 @@ class CartProductData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

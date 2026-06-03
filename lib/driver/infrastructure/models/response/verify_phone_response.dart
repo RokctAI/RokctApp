@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/profile_data.dart';
 
 class VerifyPhoneResponse {
@@ -88,3 +87,5 @@ class VerifyData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/payment_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
@@ -916,3 +915,5 @@ class ShopTag {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

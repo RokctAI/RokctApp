@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/translation.dart';
 
 class PaymentData {
@@ -95,3 +94,5 @@ class PaymentData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

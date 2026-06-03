@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/galleries.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/kitchen_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
@@ -419,3 +418,5 @@ class ProductPivot {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

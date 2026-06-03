@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 // ignore_for_file: prefer_null_aware_operators
 
 class DeliveryResponse {
@@ -253,3 +252,5 @@ class Galleries {
     return data;
   }
 }
+
+typedef Dyn = dynamic;

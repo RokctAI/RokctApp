@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 import 'package:rokctapp/manager/infrastructure/models/data/working_day_data.dart';
 
@@ -36,3 +35,5 @@ class WorkingDayResponse {
     "data": data.toJson(),
   };
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/product_data.dart';
 
 class BonusModel {
@@ -93,3 +92,5 @@ class BonusStock {
     "total_price": totalPrice,
   };
 }
+
+typedef Dyn = dynamic;

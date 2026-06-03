@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class TableBookingData {
   int? id;
   int? bookingId;
@@ -47,9 +46,7 @@ class TableBookingData {
     user: user ?? this.user,
     table: table ?? this.table,
   );
-  factory TableBookingData.fromJson(
-    Map<String, Dyn> json,
-  ) => TableBookingData(
+  factory TableBookingData.fromJson(Map<String, Dyn> json) => TableBookingData(
     id: json["id"],
     bookingId: json["booking_id"],
     userId: json["user_id"],
@@ -261,9 +258,7 @@ class Link {
   factory Link.fromJson(Map<String, Dyn> json) =>
       Link(url: json["url"], label: json["label"], active: json["active"]);
 
-  Map<String, Dyn> toJson() => {
-    "url": url,
-    "label": label,
-    "active": active,
-  };
+  Map<String, Dyn> toJson() => {"url": url, "label": label, "active": active};
 }
+
+typedef Dyn = dynamic;

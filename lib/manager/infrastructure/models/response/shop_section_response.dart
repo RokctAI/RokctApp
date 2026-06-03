@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/table_data.dart';
 
 class ShopSectionResponse {
@@ -23,3 +22,5 @@ class ShopSectionResponse {
     return data;
   }
 }
+
+typedef Dyn = dynamic;

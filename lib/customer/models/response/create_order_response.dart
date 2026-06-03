@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class CreateOrderResponse {
   CreateOrderResponse({
     String? timestamp,
@@ -137,3 +136,5 @@ class CreatedOrder {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

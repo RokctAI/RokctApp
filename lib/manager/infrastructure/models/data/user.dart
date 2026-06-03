@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class UserModel {
   UserModel({
     int? id,
@@ -170,3 +169,5 @@ class UserModel {
     if (typeFirebase) "type": "firebase",
   };
 }
+
+typedef Dyn = dynamic;

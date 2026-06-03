@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
@@ -83,3 +82,5 @@ abstract class DriverUserRepository {
 
   Future<ApiResult<DeliveryZonePaginate>> getDeliveryZone();
 }
+
+typedef Dyn = dynamic;

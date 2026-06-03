@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/brand_data.dart';
 
 class SingleBrandResponse {
@@ -57,3 +56,5 @@ class SingleBrandResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

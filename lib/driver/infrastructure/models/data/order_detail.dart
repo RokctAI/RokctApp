@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/push_data.dart';
 
 import 'package:rokctapp/driver/infrastructure/models/data/product_data.dart';
@@ -828,3 +827,5 @@ class PaymentSystem {
     return data;
   }
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_paginate_response.dart';
 
@@ -38,3 +37,5 @@ abstract class DriverOrdersRepository {
 
   Future<ApiResult<OrderDetailModel>> setOrder(String orderId);
 }
+
+typedef Dyn = dynamic;

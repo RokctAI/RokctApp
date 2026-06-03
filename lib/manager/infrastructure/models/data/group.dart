@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/extras.dart';
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 
@@ -92,3 +91,5 @@ class Group {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

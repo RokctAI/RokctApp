@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/shop_data.dart';
 
 import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
@@ -159,3 +158,5 @@ class BannerData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

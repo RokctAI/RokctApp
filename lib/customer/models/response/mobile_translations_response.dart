@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class MobileTranslationsResponse {
   MobileTranslationsResponse({
     String? timestamp,
@@ -44,3 +43,5 @@ class MobileTranslationsResponse {
 
   Map<String, Dyn>? get data => _data;
 }
+
+typedef Dyn = dynamic;

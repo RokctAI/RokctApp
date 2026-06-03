@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/maksekeskus_data.dart';
 
 class MaksekeskusResponse {
@@ -40,3 +39,5 @@ class MaksekeskusResponse {
     "data": data?.toJson(),
   };
 }
+
+typedef Dyn = dynamic;

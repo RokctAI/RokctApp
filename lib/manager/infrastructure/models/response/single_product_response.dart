@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/product_data.dart';
 
 class SingleProductResponse {
@@ -25,3 +24,5 @@ class SingleProductResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

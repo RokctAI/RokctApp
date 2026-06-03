@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/product_data.dart';
 
@@ -39,3 +38,5 @@ class ProductsPaginateResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

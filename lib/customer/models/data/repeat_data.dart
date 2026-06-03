@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 
 class RepeatData {
@@ -57,3 +56,5 @@ class RepeatData {
     "updated_at": updatedAt,
   };
 }
+
+typedef Dyn = dynamic;

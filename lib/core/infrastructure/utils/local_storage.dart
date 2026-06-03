@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 import 'package:rokctapp/core/infrastructure/models/data/language.dart';
 import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
@@ -212,9 +211,8 @@ abstract class LocalStorage {
 
   static void deleteSettingsList() => CoreLocalStorage.deleteSettingsList();
 
-  static Future<void> setTranslations(
-    Map<String, Dyn>? translations,
-  ) async => CoreLocalStorage.setTranslations(translations);
+  static Future<void> setTranslations(Map<String, Dyn>? translations) async =>
+      CoreLocalStorage.setTranslations(translations);
 
   static Map<String, Dyn> getTranslations() =>
       CoreLocalStorage.getTranslations();
@@ -267,3 +265,5 @@ abstract class LocalStorage {
     deleteAddressInformation();
   }
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 
 NotificationsListModel? notificationsListModelFromJson(dynamic str) =>
@@ -22,9 +21,7 @@ class NotificationsListModel {
       );
 
   Map<String, Dyn> toJson() => {
-    "data": data == null
-        ? []
-        : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -45,19 +42,18 @@ class NotificationData {
   DateTime? updatedAt;
   List<String?>? payload;
 
-  factory NotificationData.fromJson(Map<String, Dyn> json) =>
-      NotificationData(
-        id: json["id"],
-        type: json["type"],
-        createdAt: DateTime.tryParse(json["created_at"])?.toLocal(),
-        updatedAt: DateTime.tryParse(json["updated_at"])?.toLocal(),
-        active: false,
-        payload: json["payload"] == null
-            ? []
-            : json["payload"] == null
-            ? []
-            : List<String?>.from(json["payload"]!.map((x) => x)),
-      );
+  factory NotificationData.fromJson(Map<String, Dyn> json) => NotificationData(
+    id: json["id"],
+    type: json["type"],
+    createdAt: DateTime.tryParse(json["created_at"])?.toLocal(),
+    updatedAt: DateTime.tryParse(json["updated_at"])?.toLocal(),
+    active: false,
+    payload: json["payload"] == null
+        ? []
+        : json["payload"] == null
+        ? []
+        : List<String?>.from(json["payload"]!.map((x) => x)),
+  );
 
   Map<String, Dyn> toJson() => {
     "id": id,
@@ -71,3 +67,5 @@ class NotificationData {
         : List<Dyn>.from(payload!.map((x) => x)),
   };
 }
+
+typedef Dyn = dynamic;

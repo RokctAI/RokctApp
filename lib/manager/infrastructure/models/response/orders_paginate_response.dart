@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/order_data.dart';
 
 class OrdersPaginateResponse {
@@ -190,3 +189,5 @@ class OrdersStatistic {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/core/domain/interface/cart.dart';
@@ -242,3 +241,5 @@ class CartRepository implements CartRepositoryFacade {
     }
   }
 }
+
+typedef Dyn = dynamic;

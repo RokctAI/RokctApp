@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/domain/handlers/api_result.dart';
 import 'dart:async';
 
@@ -529,3 +528,5 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
     return "$minutesStr:$secondsStr";
   }
 }
+
+typedef Dyn = dynamic;

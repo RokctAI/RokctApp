@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/user_data.dart';
 
@@ -55,26 +54,25 @@ class RequestModelData {
     updatedAt: updatedAt ?? this.updatedAt,
   );
 
-  factory RequestModelData.fromJson(Map<String, Dyn> json) =>
-      RequestModelData(
-        id: json["id"],
-        modelId: json["model_id"],
-        modelType: json["model_type"],
-        datumCreatedBy: json["created_by"],
-        data: json["data"] == null ? null : CarData.fromJson(json["data"]),
-        status: json["status"],
-        statusNote: json["status_note"],
-        model: json["model"] == null ? null : UserData.fromJson(json["model"]),
-        createdBy: json["createdBy"] == null
-            ? null
-            : UserData.fromJson(json["createdBy"]),
-        createdAt: json["created_at"] == null
-            ? null
-            : DateTime.parse(json["created_at"]),
-        updatedAt: json["updated_at"] == null
-            ? null
-            : DateTime.parse(json["updated_at"]),
-      );
+  factory RequestModelData.fromJson(Map<String, Dyn> json) => RequestModelData(
+    id: json["id"],
+    modelId: json["model_id"],
+    modelType: json["model_type"],
+    datumCreatedBy: json["created_by"],
+    data: json["data"] == null ? null : CarData.fromJson(json["data"]),
+    status: json["status"],
+    statusNote: json["status_note"],
+    model: json["model"] == null ? null : UserData.fromJson(json["model"]),
+    createdBy: json["createdBy"] == null
+        ? null
+        : UserData.fromJson(json["createdBy"]),
+    createdAt: json["created_at"] == null
+        ? null
+        : DateTime.parse(json["created_at"]),
+    updatedAt: json["updated_at"] == null
+        ? null
+        : DateTime.parse(json["updated_at"]),
+  );
 
   Map<String, Dyn> toJson() => {
     "id": id,
@@ -186,3 +184,5 @@ class CarData {
     "location": location?.toJson(),
   };
 }
+
+typedef Dyn = dynamic;

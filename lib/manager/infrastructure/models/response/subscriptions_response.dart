@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/subscriptions_data.dart';
 
 class SubscriptionResponse {
@@ -39,8 +38,8 @@ class SubscriptionResponse {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
-    "data": data == null
-        ? []
-        : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
   };
 }
+
+typedef Dyn = dynamic;

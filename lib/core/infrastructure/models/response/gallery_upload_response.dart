@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class GalleryUploadResponse {
   GalleryUploadResponse({
     String? timestamp,
@@ -84,3 +83,5 @@ class ImageData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

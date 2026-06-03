@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
@@ -34,3 +33,5 @@ class CategoryModel {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

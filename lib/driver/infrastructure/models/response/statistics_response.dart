@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class StatisticsResponse {
   StatisticsResponse({this.timestamp, this.status, this.message, this.data});
 
@@ -109,3 +108,5 @@ class StatisticsData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

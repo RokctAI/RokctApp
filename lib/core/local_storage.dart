@@ -100,7 +100,9 @@ abstract class CoreLocalStorage {
         ) ??
         '';
     if (encoded.isEmpty) {
-      encoded = preferences?.getString(StorageKeys.keyTranslations) ?? ''; // environment
+      encoded =
+          preferences?.getString(StorageKeys.keyTranslations) ??
+          ''; // environment
     }
     if (encoded.isEmpty) {
       return {};
@@ -122,7 +124,9 @@ abstract class CoreLocalStorage {
   }
 
   static CurrencyData? getSelectedCurrency() {
-    String json = preferences?.getString(StorageKeys.keySelectedCurrency) ?? ''; // environment
+    String json =
+        preferences?.getString(StorageKeys.keySelectedCurrency) ??
+        ''; // environment
     if (json.isEmpty) {
       return null;
     } else {

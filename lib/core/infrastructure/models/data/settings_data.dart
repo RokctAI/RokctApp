@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class SettingsData {
   SettingsData({
     int? id,
@@ -62,3 +61,5 @@ class SettingsData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

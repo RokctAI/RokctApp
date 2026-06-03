@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -613,3 +612,5 @@ class _EditRestaurantState extends ConsumerState<CreateShopPage> {
     );
   }
 }
+
+typedef Dyn = dynamic;

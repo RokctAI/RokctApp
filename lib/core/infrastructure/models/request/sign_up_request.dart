@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class SignUpRequest {
   final String? email;
 
@@ -10,3 +9,5 @@ class SignUpRequest {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

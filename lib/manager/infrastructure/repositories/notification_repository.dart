@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
@@ -115,3 +114,5 @@ class NotificationRepository extends NotificationInterface {
     }
   }
 }
+
+typedef Dyn = dynamic;

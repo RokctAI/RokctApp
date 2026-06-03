@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 
@@ -13,3 +12,5 @@ abstract class DriverNotificationRepository {
 
   Future<ApiResult<CountNotificationModel>> getCount();
 }
+
+typedef Dyn = dynamic;

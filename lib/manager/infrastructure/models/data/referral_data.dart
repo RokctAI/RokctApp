@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 
 class ReferralModel {
@@ -54,3 +53,5 @@ class ReferralModel {
     return data;
   }
 }
+
+typedef Dyn = dynamic;

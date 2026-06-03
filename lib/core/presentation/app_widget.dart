@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -100,3 +99,5 @@ class AppWidget extends ConsumerWidget {
     );
   }
 }
+
+typedef Dyn = dynamic;

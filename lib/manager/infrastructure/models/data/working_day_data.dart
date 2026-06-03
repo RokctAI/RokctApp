@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class WorkingDayData {
   List<Date> dates;
   Shop shop;
@@ -67,3 +66,5 @@ class Shop {
     "updated_at": updatedAt.toIso8601String(),
   };
 }
+
+typedef Dyn = dynamic;

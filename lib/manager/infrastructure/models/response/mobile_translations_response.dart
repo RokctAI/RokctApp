@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class TranslationsResponse {
   TranslationsResponse({Map<String, Dyn>? data}) {
     _data = data;
@@ -15,3 +14,5 @@ class TranslationsResponse {
 
   Map<String, Dyn>? get data => _data;
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 
 GetCalculateModel getCalculateModelFromJson(String str) =>
@@ -55,3 +54,5 @@ class GetCalculateModel {
     "coupon_price": couponPrice,
   };
 }
+
+typedef Dyn = dynamic;

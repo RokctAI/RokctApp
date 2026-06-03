@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class EditProfile {
   String? firstname;
   String? lastname;
@@ -58,3 +57,5 @@ class EditProfile {
     return data;
   }
 }
+
+typedef Dyn = dynamic;

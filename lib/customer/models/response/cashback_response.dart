@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class CashbackResponse {
   CashbackResponse({
     String? timestamp,
@@ -77,3 +76,5 @@ class CashbackData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

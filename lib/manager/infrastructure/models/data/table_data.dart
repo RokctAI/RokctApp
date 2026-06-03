@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 
 class TableData {
@@ -100,3 +99,5 @@ class ShopSection {
     return data;
   }
 }
+
+typedef Dyn = dynamic;

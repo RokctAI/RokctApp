@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/product_data.dart';
 
@@ -95,3 +94,5 @@ class AddonData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

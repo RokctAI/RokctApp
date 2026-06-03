@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/address_new_data.dart';
 
 import 'package:rokctapp/core/infrastructure/models/data/notification_data.dart';
@@ -334,3 +333,5 @@ class Wallet {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

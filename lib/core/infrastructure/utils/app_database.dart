@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/table_bookings_data.dart';
 import 'dart:convert';
 import 'dart:io';
@@ -336,9 +335,7 @@ class AppDatabase extends _$AppDatabase {
     await putItem('shop', id, json);
   }
 
-  Future<List<Map<String, Dyn>>> getShopsLocally({
-    String? categoryId,
-  }) async {
+  Future<List<Map<String, Dyn>>> getShopsLocally({String? categoryId}) async {
     final allShops = await getAll('shop');
     if (categoryId != null) {
       return allShops
@@ -413,11 +410,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   // Helper methods to dynamically extract fields and create companions
-  Insertable<Dyn> _createInsertable(
-    String boxName,
-    String id,
-    String data,
-  ) {
+  Insertable<Dyn> _createInsertable(String boxName, String id, String data) {
     switch (boxName) {
       case 'products':
         return ProductsTableCompanion.insert(id: Value(id), data: data);
@@ -560,3 +553,5 @@ LazyDatabase _openConnection() {
     return NativeDatabase.createInBackground(file);
   });
 }
+
+typedef Dyn = dynamic;

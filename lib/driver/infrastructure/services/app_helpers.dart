@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 // Trace ID propagation context
 import 'dart:ui' as ui;
 import 'dart:ui';
@@ -80,7 +79,8 @@ class AppHelpers {
   static SignUpType getAuthOption() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'auth_option') { // environment
+      if (setting.key == 'auth_option') {
+        // environment
         switch (setting.value) {
           case 'phone':
             return SignUpType.phone;
@@ -97,7 +97,8 @@ class AppHelpers {
   static String? getAppPhone() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'phone') { // environment
+      if (setting.key == 'phone') {
+        // environment
         return setting.value;
       }
     }
@@ -107,7 +108,8 @@ class AppHelpers {
   static String getAppName() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'title') { // environment
+      if (setting.key == 'title') {
+        // environment
         return setting.value ?? '';
       }
     }
@@ -117,7 +119,8 @@ class AppHelpers {
   static bool getDriverCantEdit() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'driver_can_edit_credentials') { // environment
+      if (setting.key == 'driver_can_edit_credentials') {
+        // environment
         return setting.value == "0";
       }
     }
@@ -127,7 +130,8 @@ class AppHelpers {
   static int getAppDeliveryTime() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'deliveryman_order_acceptance_time') { // environment
+      if (setting.key == 'deliveryman_order_acceptance_time') {
+        // environment
         return int.parse(setting.value ?? '30');
       }
     }
@@ -483,3 +487,5 @@ class AppHelpers {
     );
   }
 }
+
+typedef Dyn = dynamic;

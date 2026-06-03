@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
@@ -417,3 +416,5 @@ class RegisterNotifier extends Notifier<RegisterState> {
     await getProfileDetails();
   }
 }
+
+typedef Dyn = dynamic;

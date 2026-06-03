@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class Translation {
   Translation({
     int? id,
@@ -71,3 +70,5 @@ class Translation {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

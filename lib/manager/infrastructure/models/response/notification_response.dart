@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
 class NotificationResponse {
@@ -19,9 +18,7 @@ class NotificationResponse {
       );
 
   Map<String, Dyn> toJson() => {
-    "data": data == null
-        ? []
-        : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -197,3 +194,5 @@ class Data {
 
   Map<String, Dyn> toJson() => {"id": id, "type": type, "status": status};
 }
+
+typedef Dyn = dynamic;

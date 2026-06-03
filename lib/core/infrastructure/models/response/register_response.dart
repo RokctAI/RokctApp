@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class RegisterResponse {
   RegisterResponse({
     String? timestamp,
@@ -84,3 +83,5 @@ class RegisterData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

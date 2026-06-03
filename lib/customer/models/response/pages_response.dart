@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/translation.dart';
 
 class PagesResponse {
@@ -75,3 +74,5 @@ class Buttons {
     );
   }
 }
+
+typedef Dyn = dynamic;

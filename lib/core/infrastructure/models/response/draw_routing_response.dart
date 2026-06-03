@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 
 DrawRouting drawRoutingFromJson(String str) =>
@@ -276,3 +275,5 @@ class Query {
     "format": format,
   };
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class TakeModel {
   int? id;
   String? img;
@@ -74,3 +73,5 @@ class Translation {
     return data;
   }
 }
+
+typedef Dyn = dynamic;

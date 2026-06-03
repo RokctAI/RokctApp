@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/category_data.dart';
 
 class CategoriesPaginateResponse {
@@ -30,3 +29,5 @@ class CategoriesPaginateResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

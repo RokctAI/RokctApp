@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/shop_data.dart';
 
 class RefundOrdersModel {
@@ -16,9 +15,7 @@ class RefundOrdersModel {
       );
 
   Map<String, Dyn> toJson() => {
-    "data": data == null
-        ? []
-        : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -75,3 +72,5 @@ class Order {
 
   Map<String, Dyn> toJson() => {"id": id};
 }
+
+typedef Dyn = dynamic;

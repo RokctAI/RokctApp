@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/services/local_storage.dart';
 
 class CategoryModel {
@@ -14,3 +13,5 @@ class CategoryModel {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

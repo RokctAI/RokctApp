@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/address_new_data.dart';
 
 class UserModel {
@@ -188,3 +187,5 @@ class UserModel {
     if (typeFirebase) "type": "firebase",
   };
 }
+
+typedef Dyn = dynamic;

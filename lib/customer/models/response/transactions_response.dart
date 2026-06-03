@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class TransactionsResponse {
   TransactionsResponse({
     String? timestamp,
@@ -280,3 +279,5 @@ class TransactionDetails {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

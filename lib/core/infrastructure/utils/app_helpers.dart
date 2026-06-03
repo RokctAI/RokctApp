@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:io';
 import 'dart:math';
 
@@ -43,7 +42,8 @@ abstract class AppHelpers {
   static SignUpType getAuthOption() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'auth_option') { // environment
+      if (setting.key == 'auth_option') {
+        // environment
         switch (setting.value) {
           case 'phone':
             return SignUpType.phone;
@@ -78,7 +78,8 @@ abstract class AppHelpers {
       return AppConstants.socialSignIn;
     } else {
       for (final setting in settings) {
-        if (setting.key == 'social_auth_google' && setting.value != "0") { // environment
+        if (setting.key == 'social_auth_google' && setting.value != "0") {
+          // environment
           socials.add(FlutterRemix.google_fill);
         }
         if (Platform.isIOS &&
@@ -86,7 +87,8 @@ abstract class AppHelpers {
             setting.value != "0") {
           socials.add(FlutterRemix.apple_fill);
         }
-        if (setting.key == 'social_auth_facebook' && setting.value != "0") { // environment
+        if (setting.key == 'social_auth_facebook' && setting.value != "0") {
+          // environment
           socials.add(FlutterRemix.facebook_fill);
         }
       }
@@ -298,7 +300,8 @@ abstract class AppHelpers {
   static String? getAppName() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'title') { // environment
+      if (setting.key == 'title') {
+        // environment
         return setting.value;
       }
     }
@@ -308,7 +311,8 @@ abstract class AppHelpers {
   static String? getAppLogo() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'logo') { // environment
+      if (setting.key == 'logo') {
+        // environment
         return setting.value;
       }
     }
@@ -321,7 +325,8 @@ abstract class AppHelpers {
     }
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'ui_type') { // environment
+      if (setting.key == 'ui_type') {
+        // environment
         return (int.tryParse(setting.value ?? "1") ?? 1) - 1;
       }
     }
@@ -331,7 +336,8 @@ abstract class AppHelpers {
   static bool getGroupOrder() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'group_order') { // environment
+      if (setting.key == 'group_order') {
+        // environment
         return setting.value == "1";
       }
     }
@@ -341,7 +347,8 @@ abstract class AppHelpers {
   static bool getParcel() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'active_parcel') { // environment
+      if (setting.key == 'active_parcel') {
+        // environment
         return setting.value == "1";
       }
     }
@@ -351,7 +358,8 @@ abstract class AppHelpers {
   static bool getReferralActive() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'referral_active') { // environment
+      if (setting.key == 'referral_active') {
+        // environment
         return setting.value == "1";
       }
     }
@@ -361,7 +369,8 @@ abstract class AppHelpers {
   static String? getAppPhone() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'phone') { // environment
+      if (setting.key == 'phone') {
+        // environment
         return setting.value;
       }
     }
@@ -371,7 +380,8 @@ abstract class AppHelpers {
   static String? getPaymentType() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'payment_type') { // environment
+      if (setting.key == 'payment_type') {
+        // environment
         return setting.value;
       }
     }
@@ -381,7 +391,8 @@ abstract class AppHelpers {
   static bool getPhoneRequired() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'before_order_phone_required') { // environment
+      if (setting.key == 'before_order_phone_required') {
+        // environment
         return setting.value == "1";
       }
     }
@@ -391,7 +402,8 @@ abstract class AppHelpers {
   static bool getReservationEnable() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'reservation_enable_for_user') { // environment
+      if (setting.key == 'reservation_enable_for_user') {
+        // environment
         return setting.value == "1";
       }
     }
@@ -401,7 +413,8 @@ abstract class AppHelpers {
   static String? getAppAddressName() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'address') { // environment
+      if (setting.key == 'address') {
+        // environment
         return setting.value;
       }
     }
@@ -536,7 +549,8 @@ abstract class AppHelpers {
   static double? getInitialLatitude() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'location') { // environment
+      if (setting.key == 'location') {
+        // environment
         final String? latString = setting.value?.substring(
           0,
           setting.value?.indexOf(','),
@@ -554,7 +568,8 @@ abstract class AppHelpers {
   static double? getInitialLongitude() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'location') { // environment
+      if (setting.key == 'location') {
+        // environment
         final String? latString = setting.value?.substring(
           0,
           setting.value?.indexOf(','),
@@ -716,3 +731,5 @@ extension ExtendedIterable<E> on Iterable<E> {
     return map((e) => f(e, i++));
   }
 }
+
+typedef Dyn = dynamic;

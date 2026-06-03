@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -335,3 +334,5 @@ class OrdersRepository implements OrdersInterface {
     }
   }
 }
+
+typedef Dyn = dynamic;

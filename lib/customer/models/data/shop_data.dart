@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/bonus_data.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
 
@@ -179,9 +178,7 @@ class ShopData {
     "location": location?.toJson(),
     "products_count": productsCount,
     "translation": translation?.toJson(),
-    "locales": locales == null
-        ? null
-        : List<Dyn>.from(locales!.map((x) => x)),
+    "locales": locales == null ? null : List<Dyn>.from(locales!.map((x) => x)),
     "seller": seller?.toJson(),
     "bonus": bonus,
   };
@@ -214,10 +211,7 @@ class Location {
     longitude: double.tryParse(json["longitude"].toString()),
   );
 
-  Map<String, Dyn> toJson() => {
-    "latitude": latitude,
-    "longitude": longitude,
-  };
+  Map<String, Dyn> toJson() => {"latitude": latitude, "longitude": longitude};
 }
 
 class Seller {
@@ -368,9 +362,7 @@ class Payment {
     "tag": tag,
     "active": active,
     "translation": translation,
-    "locales": locales == null
-        ? []
-        : List<Dyn>.from(locales!.map((x) => x)),
+    "locales": locales == null ? [] : List<Dyn>.from(locales!.map((x) => x)),
   };
 }
 
@@ -401,3 +393,5 @@ class TagsModel {
     return data;
   }
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class OrderStatusResponse {
   OrderStatusResponse({OrderStatusData? data}) {
     _data = data;
@@ -116,3 +115,5 @@ class OrderStatusData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

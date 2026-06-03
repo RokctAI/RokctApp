@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 // ignore_for_file: file_names
 
 class ParcelCalculateResponse {
@@ -58,3 +57,5 @@ class Data {
 
   Map<String, Dyn> toJson() => {"price": price, "km": km};
 }
+
+typedef Dyn = dynamic;

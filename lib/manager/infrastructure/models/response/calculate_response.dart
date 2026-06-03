@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
 
 class CalculateResponse {
@@ -157,3 +156,5 @@ class CalculatedData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

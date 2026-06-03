@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class DeliveryZonePaginate {
   DateTime? timestamp;
   bool? status;
@@ -41,8 +40,8 @@ class DeliveryZonePaginate {
     "message": message,
     "data": data == null
         ? []
-        : List<Dyn>.from(
-            data!.map((x) => List<Dyn>.from(x.map((x) => x))),
-          ),
+        : List<Dyn>.from(data!.map((x) => List<Dyn>.from(x.map((x) => x)))),
   };
 }
+
+typedef Dyn = dynamic;

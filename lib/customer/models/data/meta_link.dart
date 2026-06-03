@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class MetaLinks {
   MetaLinks({String? url, String? label, bool? active}) {
     _url = url;
@@ -36,3 +35,5 @@ class MetaLinks {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

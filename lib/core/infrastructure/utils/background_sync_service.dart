@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 // Trace ID propagation context
 import 'package:rokctapp/core/domain/handlers/http_service.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
@@ -171,3 +170,5 @@ class SyncResult {
 
   const SyncResult({required this.success, this.remove = false, this.error});
 }
+
+typedef Dyn = dynamic;

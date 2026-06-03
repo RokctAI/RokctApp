@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 // To parse this JSON data, do
 //
 //     final tableBookingResponse = tableBookingResponseFromJson(jsonString);
@@ -29,3 +28,5 @@ class TableBookingResponse {
     "data": List<Dyn>.from(data.map((x) => x.toJson())),
   };
 }
+
+typedef Dyn = dynamic;

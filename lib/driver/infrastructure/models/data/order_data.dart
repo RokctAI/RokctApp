@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/addon_data.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/core/infrastructure/models/data/payment_data.dart';
@@ -591,3 +590,5 @@ class OrderAddress {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

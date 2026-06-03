@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/services/extension.dart';
 
 class SubscriptionData {
@@ -70,32 +69,31 @@ class SubscriptionData {
     subscriptionId: subscriptionId ?? this.subscriptionId,
   );
 
-  factory SubscriptionData.fromJson(Map<String, Dyn> json) =>
-      SubscriptionData(
-        id: json["id"],
-        type: json["type"],
-        price: json["price"],
-        month: json["month"],
-        active: json["active"].toString().toBool(),
-        title: json["title"],
-        productLimit: json["product_limit"],
-        orderLimit: json["order_limit"],
-        createdAt: json["created_at"] == null
-            ? null
-            : DateTime.tryParse(json["created_at"])?.toLocal(),
-        updatedAt: json["updated_at"] == null
-            ? null
-            : DateTime.tryParse(json["updated_at"])?.toLocal(),
-        expiredAt: json["expired_at"] == null
-            ? null
-            : DateTime.tryParse(json["expired_at"]),
-        withReport: json["with_report"].toString().toBool(),
-        shopId: json["shop_id"],
-        subscription: json["subscription"] == null
-            ? null
-            : SubscriptionData.fromJson(json["subscription"]),
-        subscriptionId: json["subscription_id"],
-      );
+  factory SubscriptionData.fromJson(Map<String, Dyn> json) => SubscriptionData(
+    id: json["id"],
+    type: json["type"],
+    price: json["price"],
+    month: json["month"],
+    active: json["active"].toString().toBool(),
+    title: json["title"],
+    productLimit: json["product_limit"],
+    orderLimit: json["order_limit"],
+    createdAt: json["created_at"] == null
+        ? null
+        : DateTime.tryParse(json["created_at"])?.toLocal(),
+    updatedAt: json["updated_at"] == null
+        ? null
+        : DateTime.tryParse(json["updated_at"])?.toLocal(),
+    expiredAt: json["expired_at"] == null
+        ? null
+        : DateTime.tryParse(json["expired_at"]),
+    withReport: json["with_report"].toString().toBool(),
+    shopId: json["shop_id"],
+    subscription: json["subscription"] == null
+        ? null
+        : SubscriptionData.fromJson(json["subscription"]),
+    subscriptionId: json["subscription_id"],
+  );
 
   Map<String, Dyn> toJson() => {
     "id": id,
@@ -115,3 +113,5 @@ class SubscriptionData {
     "subscription": subscription?.toJson(),
   };
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -512,3 +511,5 @@ class ProductsRepository implements ProductsInterface {
     }
   }
 }
+
+typedef Dyn = dynamic;

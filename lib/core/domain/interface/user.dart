@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/customer/models/models.dart';
 import 'package:rokctapp/core/infrastructure/models/request/edit_profile.dart';
@@ -54,3 +53,5 @@ abstract class UserRepositoryFacade {
 
   Future<ApiResult<void>> updateFirebaseToken(String? token);
 }
+
+typedef Dyn = dynamic;

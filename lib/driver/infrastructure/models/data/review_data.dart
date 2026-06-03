@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/user_data.dart';
 
 class ReviewData {
@@ -182,3 +181,5 @@ class Galleries {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

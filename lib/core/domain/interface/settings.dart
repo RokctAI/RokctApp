@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/help_data.dart';
 import 'package:rokctapp/customer/models/data/notification_list_data.dart';
 
@@ -25,3 +24,5 @@ abstract class SettingsRepositoryFacade {
 
   Future<ApiResult<Translation>> getPolicy();
 }
+
+typedef Dyn = dynamic;

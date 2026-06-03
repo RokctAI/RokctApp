@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/coupon_data.dart';
 
 class CouponResponse {
@@ -57,3 +56,5 @@ class CouponResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -284,3 +283,5 @@ class LoginNotifier extends Notifier<LoginState> {
     userRepository.updateFirebaseToken(fcmToken);
   }
 }
+
+typedef Dyn = dynamic;

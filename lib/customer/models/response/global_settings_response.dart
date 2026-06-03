@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/settings_data.dart';
 
 class GlobalSettingsResponse {
@@ -62,3 +61,5 @@ class GlobalSettingsResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class TableStatisticData {
   int available;
   int booked;
@@ -88,3 +87,5 @@ class AllStatisticStatusData {
     "username": username,
   };
 }
+
+typedef Dyn = dynamic;

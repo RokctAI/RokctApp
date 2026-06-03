@@ -7,7 +7,8 @@ abstract class StorageKeys {
   static const String keyUser = 'keyUser'; // environment
   static const String keyAddressSelected = 'keyAddressSelected'; // environment
   static const String keyToken = 'keyToken'; // environment
-  static const String keySelectedCurrency = 'keySelectedCurrency'; // environment
+  static const String keySelectedCurrency =
+      'keySelectedCurrency'; // environment
   static const String keyAppThemeMode = 'keyAppThemeMode'; // environment
   static const String keyActiveLanguages = 'keyActiveLanguages'; // environment
   static const String keyGlobalSettings = 'keyGlobalSettings'; // environment

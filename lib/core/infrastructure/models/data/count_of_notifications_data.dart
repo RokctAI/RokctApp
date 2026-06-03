@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class CountNotificationModel {
   int? notification;
   int? transaction;
@@ -22,3 +21,5 @@ class CountNotificationModel {
     "transaction": transaction,
   };
 }
+
+typedef Dyn = dynamic;

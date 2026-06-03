@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -416,3 +415,5 @@ class ShopsRepository implements ShopsRepositoryFacade {
     }
   }
 }
+
+typedef Dyn = dynamic;

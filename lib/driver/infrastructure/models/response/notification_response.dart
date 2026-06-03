@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/blog_data.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_data.dart';
 
@@ -20,9 +19,7 @@ class NotificationResponse {
       );
 
   Map<String, Dyn> toJson() => {
-    "data": data == null
-        ? []
-        : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -193,12 +190,13 @@ class NotificationData {
         status: status ?? this.status,
       );
 
-  factory NotificationData.fromJson(Map<String, Dyn> json) =>
-      NotificationData(
-        id: int.tryParse(json["id"].toString()),
-        type: json["type"],
-        status: json["status"],
-      );
+  factory NotificationData.fromJson(Map<String, Dyn> json) => NotificationData(
+    id: int.tryParse(json["id"].toString()),
+    type: json["type"],
+    status: json["status"],
+  );
 
   Map<String, Dyn> toJson() => {"id": id, "type": type, "status": status};
 }
+
+typedef Dyn = dynamic;

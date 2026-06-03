@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 // To parse this JSON data, do
 //
 //     final statisticsOrderModel = statisticsOrderModelFromJson(jsonString);
@@ -54,9 +53,7 @@ class StatisticsOrderResponse {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
-    "data": data == null
-        ? []
-        : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -101,19 +98,18 @@ class StatisticsOrder {
     products: products ?? this.products,
   );
 
-  factory StatisticsOrder.fromJson(Map<String, Dyn> json) =>
-      StatisticsOrder(
-        id: json["id"],
-        status: json["status"],
-        firstname: json["firstname"],
-        lastname: json["lastname"],
-        active: json["active"],
-        quantity: json["quantity"],
-        price: json["price"]?.toDouble(),
-        products: json["products"] == null
-            ? []
-            : List<String>.from(json["products"]!.map((x) => x)),
-      );
+  factory StatisticsOrder.fromJson(Map<String, Dyn> json) => StatisticsOrder(
+    id: json["id"],
+    status: json["status"],
+    firstname: json["firstname"],
+    lastname: json["lastname"],
+    active: json["active"],
+    quantity: json["quantity"],
+    price: json["price"]?.toDouble(),
+    products: json["products"] == null
+        ? []
+        : List<String>.from(json["products"]!.map((x) => x)),
+  );
 
   Map<String, Dyn> toJson() => {
     "id": id,
@@ -123,8 +119,8 @@ class StatisticsOrder {
     "active": active,
     "quantity": quantity,
     "price": price,
-    "products": products == null
-        ? []
-        : List<Dyn>.from(products!.map((x) => x)),
+    "products": products == null ? [] : List<Dyn>.from(products!.map((x) => x)),
   };
 }
+
+typedef Dyn = dynamic;

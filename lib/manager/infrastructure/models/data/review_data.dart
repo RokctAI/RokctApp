@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/image_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
 
@@ -102,3 +101,5 @@ class ReviewData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

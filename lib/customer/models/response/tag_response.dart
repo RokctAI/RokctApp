@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/take_data.dart';
 
 class TagResponse {
@@ -65,3 +64,5 @@ class PriceRangeData {
 
   Map<String, Dyn> toJson() => {"min": min, "max": max};
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class BrandData {
   BrandData({
     int? id,
@@ -80,3 +79,5 @@ class BrandData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

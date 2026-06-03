@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/data/product_data.dart';
@@ -565,3 +564,5 @@ class ProductNote {
 
   ProductNote({required this.stockId, required this.comment});
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class MaksekeskusData {
   List<Method>? methods;
   int? paymentId;
@@ -68,28 +67,25 @@ class MaksekeskusData {
     deliveryPointId: deliveryPointId ?? this.deliveryPointId,
   );
 
-  factory MaksekeskusData.fromJson(Map<String, Dyn> json) =>
-      MaksekeskusData(
-        methods: json["methods"] == null
-            ? []
-            : List<Method>.from(
-                json["methods"]!.map((x) => Method.fromJson(x)),
-              ),
-        paymentId: json["payment_id"],
-        modelType: json["model_type"],
-        modelId: json["model_id"],
-        totalPrice: json["total_price"],
-        currency: json["currency"],
-        cartId: json["cart_id"],
-        userId: json["user_id"],
-        status: json["status"],
-        currencyId: json["currency_id"],
-        rate: json["rate"],
-        deliveryType: json["delivery_type"],
-        deliveryDate: json["delivery_date"],
-        addressId: json["address_id"],
-        deliveryPointId: json["delivery_point_id"],
-      );
+  factory MaksekeskusData.fromJson(Map<String, Dyn> json) => MaksekeskusData(
+    methods: json["methods"] == null
+        ? []
+        : List<Method>.from(json["methods"]!.map((x) => Method.fromJson(x))),
+    paymentId: json["payment_id"],
+    modelType: json["model_type"],
+    modelId: json["model_id"],
+    totalPrice: json["total_price"],
+    currency: json["currency"],
+    cartId: json["cart_id"],
+    userId: json["user_id"],
+    status: json["status"],
+    currencyId: json["currency_id"],
+    rate: json["rate"],
+    deliveryType: json["delivery_type"],
+    deliveryDate: json["delivery_date"],
+    addressId: json["address_id"],
+    deliveryPointId: json["delivery_point_id"],
+  );
 
   Map<String, Dyn> toJson() => {
     "methods": methods == null
@@ -179,3 +175,5 @@ class Method {
     "url": url,
   };
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 
@@ -27,3 +26,5 @@ abstract class DriverParcelRepository {
 
   Future<ApiResult<ParcelOrder>> setParcel(String orderId);
 }
+
+typedef Dyn = dynamic;

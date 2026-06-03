@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 
 CheckPhoneResponse checkPhoneResponseFromJson(String str) =>
@@ -60,3 +59,5 @@ class CheckPhoneData {
 
   Map<String, Dyn> toJson() => {"exist": exist};
 }
+
+typedef Dyn = dynamic;

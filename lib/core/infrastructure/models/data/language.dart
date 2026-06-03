@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class LanguageData {
   LanguageData({
     int? id,
@@ -80,3 +79,5 @@ class LanguageData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

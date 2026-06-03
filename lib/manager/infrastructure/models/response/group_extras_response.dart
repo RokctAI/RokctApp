@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/group.dart';
 
 class GroupExtrasResponse {
@@ -25,3 +24,5 @@ class GroupExtrasResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

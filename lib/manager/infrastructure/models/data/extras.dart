@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/services/extension.dart';
 
 import 'package:rokctapp/manager/infrastructure/models/data/group.dart';
@@ -110,3 +109,5 @@ class StockPivot {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

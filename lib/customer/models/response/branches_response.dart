@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/order_body_data.dart';
 import 'package:rokctapp/customer/models/data/shop_data.dart';
 
@@ -34,9 +33,7 @@ class BranchResponse {
   );
 
   Map<String, Dyn> toJson() => {
-    "data": data == null
-        ? []
-        : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
     "links": links?.toJson(),
     "meta": meta?.toJson(),
   };
@@ -111,8 +108,8 @@ class BranchModel {
     "updated_at": updatedAt?.toIso8601String(),
     "shop": shop?.toJson(),
     "translation": translation?.toJson(),
-    "locales": locales == null
-        ? []
-        : List<Dyn>.from(locales!.map((x) => x)),
+    "locales": locales == null ? [] : List<Dyn>.from(locales!.map((x) => x)),
   };
 }
+
+typedef Dyn = dynamic;

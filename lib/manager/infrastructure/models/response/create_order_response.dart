@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class CreateOrderResponse {
   CreateOrderResponse({CreatedOrder? data}) {
     _data = data;
@@ -87,3 +86,5 @@ class CreatedOrder {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

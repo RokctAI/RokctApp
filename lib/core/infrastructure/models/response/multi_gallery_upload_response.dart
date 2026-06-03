@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class MultiGalleryUploadResponse {
   DateTime? timestamp;
   bool? status;
@@ -69,3 +68,5 @@ class MultiGalleryUploadData {
     "type": type,
   };
 }
+
+typedef Dyn = dynamic;

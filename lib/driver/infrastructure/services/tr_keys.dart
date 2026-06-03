@@ -210,7 +210,8 @@ class TrKeys {
   static const String currentOrder = 'current.order';
   static const String changePassword = 'change.password'; // environment
   static const String newPassword = 'new.password'; // environment
-  static const String confirmNewPassword = 'confirm.new.password'; // environment
+  static const String confirmNewPassword =
+      'confirm.new.password'; // environment
   static const String confirmPasswordDoesntMatchWithNewPassword =
       'confirm.password.doesnt.matches.with.new.password';
   static const String noInternetConnection = 'no.internet.connection';

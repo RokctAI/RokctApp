@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
 
 class OrderCalculate {
@@ -84,3 +83,5 @@ class OrderCalculateDetail {
     return data;
   }
 }
+
+typedef Dyn = dynamic;

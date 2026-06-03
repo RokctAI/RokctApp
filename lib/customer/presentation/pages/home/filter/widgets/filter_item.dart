@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 // ignore_for_file: unrelated_type_equality_checks
 
 import 'package:flutter/material.dart';
@@ -151,3 +150,5 @@ class FilterItem extends StatelessWidget {
     );
   }
 }
+
+typedef Dyn = dynamic;

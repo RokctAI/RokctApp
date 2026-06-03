@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/shop_data.dart';
 
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
@@ -140,3 +139,5 @@ class CategoryData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

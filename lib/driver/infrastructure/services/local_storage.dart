@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 // Trace ID propagation context
 import 'dart:convert';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -32,9 +31,8 @@ class LocalStorage {
   static List<SettingsData> getSettingsList() =>
       CoreLocalStorage.getSettingsList();
 
-  static Future<void> setTranslations(
-    Map<String, Dyn>? translations,
-  ) async => CoreLocalStorage.setTranslations(translations);
+  static Future<void> setTranslations(Map<String, Dyn>? translations) async =>
+      CoreLocalStorage.setTranslations(translations);
 
   static Map<String, Dyn> getTranslations() =>
       CoreLocalStorage.getTranslations();
@@ -206,3 +204,5 @@ class LocalStorage {
     _deleteOnline();
   }
 }
+
+typedef Dyn = dynamic;

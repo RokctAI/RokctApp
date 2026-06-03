@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 
 import 'package:rokctapp/manager/infrastructure/models/data/table_statistics_data.dart';
@@ -37,3 +36,5 @@ class TableStatisticResponse {
     "data": data.toJson(),
   };
 }
+
+typedef Dyn = dynamic;

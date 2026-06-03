@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class PrintReceiptRequest {
   final String shopName;
   final String address1;
@@ -18,3 +17,5 @@ class PrintReceiptRequest {
     required this.footer,
   });
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/refund_data.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/data/repeat_data.dart';
@@ -80,71 +79,68 @@ class OrderActiveModel {
   List<Dyn>? ponumHistories;
   OrderStatusesData? orderStatusesData;
 
-  factory OrderActiveModel.fromJson(Map<String, Dyn> json) =>
-      OrderActiveModel(
-        id: json["data"]["id"],
-        userId: json["data"]["user_id"],
-        afterDeliveredImage: json["data"]["image_after_delivered"],
-        totalPrice: json["data"]["total_price"],
-        originPrice: json["data"]["origin_price"],
-        coupon: json["data"]?["coupon"]?["price"],
-        rate: json["data"]["rate"],
-        tax: json["data"]["tax"],
-        tips: json["data"]["tips"],
-        currencyModel: json["data"]["currency"] != null
-            ? CurrencyModel.fromJson(json["data"]["currency"])
-            : null,
-        commissionFee: json["data"]["commission_fee"],
-        status: json["data"]["status"],
-        location: json["data"]["location"] != null
-            ? Location.fromJson(json["data"]["location"])
-            : null,
-        address: json["data"]["address"] != null
-            ? AddressModel.fromJson(json["data"]["address"])
-            : null,
-        deliveryType: json["data"]["delivery_type"],
-        deliveryFee: json["data"]["delivery_fee"],
-        km: json["data"]["km"],
-        minute: json["data"]["minute"],
-        otp: json["data"]["otp"],
-        deliveryMan: json["data"]["deliveryman"] != null
-            ? UserModel.fromJson(json["data"]["deliveryman"])
-            : null,
-        orderStatusesData: json["data"]["data"] != null
-            ? OrderStatusesData.fromJson(json["data"]["data"])
-            : null,
-        deliveryDate: DateTime.tryParse(
-          json["data"]?["delivery_date"] ?? '',
-        )?.toLocal(),
-        deliveryTime: json["data"]["delivery_time"],
-        totalDiscount: json["data"]["total_discount"],
-        serviceFee: json["data"]["service_fee"],
-        createdAt: DateTime.tryParse(json["data"]["created_at"])?.toLocal(),
-        updatedAt: DateTime.tryParse(json["data"]["updated_at"])?.toLocal(),
-        shop: json["data"]["shop"] != null
-            ? ShopData.fromJson(json["data"]["shop"])
-            : null,
-        repeat: json["data"]["repeat"] != null
-            ? RepeatData.fromJson(json["data"]["repeat"])
-            : null,
-        user: json["data"]["user"] != null
-            ? UserModel.fromJson(json["data"]["user"])
-            : null,
-        details: List<OrderProduct>.from(
-          json["data"]["details"].map((x) => OrderProduct.fromJson(x)),
-        ),
-        transaction: json["data"]["transaction"] != null
-            ? TransactionData.fromJson(json["data"]["transaction"])
-            : null,
-        refunds: json["data"]["order_refunds"] != null
-            ? List<RefundModel>.from(
-                json["data"]["order_refunds"].map(
-                  (x) => RefundModel.fromJson(x),
-                ),
-              )
-            : [],
-        review: json["data"]["review"],
-      );
+  factory OrderActiveModel.fromJson(Map<String, Dyn> json) => OrderActiveModel(
+    id: json["data"]["id"],
+    userId: json["data"]["user_id"],
+    afterDeliveredImage: json["data"]["image_after_delivered"],
+    totalPrice: json["data"]["total_price"],
+    originPrice: json["data"]["origin_price"],
+    coupon: json["data"]?["coupon"]?["price"],
+    rate: json["data"]["rate"],
+    tax: json["data"]["tax"],
+    tips: json["data"]["tips"],
+    currencyModel: json["data"]["currency"] != null
+        ? CurrencyModel.fromJson(json["data"]["currency"])
+        : null,
+    commissionFee: json["data"]["commission_fee"],
+    status: json["data"]["status"],
+    location: json["data"]["location"] != null
+        ? Location.fromJson(json["data"]["location"])
+        : null,
+    address: json["data"]["address"] != null
+        ? AddressModel.fromJson(json["data"]["address"])
+        : null,
+    deliveryType: json["data"]["delivery_type"],
+    deliveryFee: json["data"]["delivery_fee"],
+    km: json["data"]["km"],
+    minute: json["data"]["minute"],
+    otp: json["data"]["otp"],
+    deliveryMan: json["data"]["deliveryman"] != null
+        ? UserModel.fromJson(json["data"]["deliveryman"])
+        : null,
+    orderStatusesData: json["data"]["data"] != null
+        ? OrderStatusesData.fromJson(json["data"]["data"])
+        : null,
+    deliveryDate: DateTime.tryParse(
+      json["data"]?["delivery_date"] ?? '',
+    )?.toLocal(),
+    deliveryTime: json["data"]["delivery_time"],
+    totalDiscount: json["data"]["total_discount"],
+    serviceFee: json["data"]["service_fee"],
+    createdAt: DateTime.tryParse(json["data"]["created_at"])?.toLocal(),
+    updatedAt: DateTime.tryParse(json["data"]["updated_at"])?.toLocal(),
+    shop: json["data"]["shop"] != null
+        ? ShopData.fromJson(json["data"]["shop"])
+        : null,
+    repeat: json["data"]["repeat"] != null
+        ? RepeatData.fromJson(json["data"]["repeat"])
+        : null,
+    user: json["data"]["user"] != null
+        ? UserModel.fromJson(json["data"]["user"])
+        : null,
+    details: List<OrderProduct>.from(
+      json["data"]["details"].map((x) => OrderProduct.fromJson(x)),
+    ),
+    transaction: json["data"]["transaction"] != null
+        ? TransactionData.fromJson(json["data"]["transaction"])
+        : null,
+    refunds: json["data"]["order_refunds"] != null
+        ? List<RefundModel>.from(
+            json["data"]["order_refunds"].map((x) => RefundModel.fromJson(x)),
+          )
+        : [],
+    review: json["data"]["review"],
+  );
 
   factory OrderActiveModel.fromJsonWithoutData(Map<String, Dyn> json) {
     return OrderActiveModel(
@@ -490,3 +486,5 @@ class OrderStatusesEditDate {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

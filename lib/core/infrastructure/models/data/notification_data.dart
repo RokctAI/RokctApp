@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class NotificationsModel {
   NotificationsModel({
     this.id,
@@ -50,3 +49,5 @@ class NotificationsModel {
     "type": type,
   };
 }
+
+typedef Dyn = dynamic;

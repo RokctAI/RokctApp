@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
@@ -63,3 +62,5 @@ abstract class TableInterface {
     DateTime? to,
   });
 }
+
+typedef Dyn = dynamic;

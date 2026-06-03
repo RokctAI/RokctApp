@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
@@ -13,3 +12,5 @@ abstract class NotificationInterface {
 
   Future<ApiResult<CountNotificationModel>> getCount();
 }
+
+typedef Dyn = dynamic;

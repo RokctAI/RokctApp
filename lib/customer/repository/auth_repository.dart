@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
@@ -278,3 +277,5 @@ class AuthRepository implements AuthRepositoryFacade {
     }
   }
 }
+
+typedef Dyn = dynamic;

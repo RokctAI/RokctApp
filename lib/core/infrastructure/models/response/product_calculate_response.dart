@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class ProductCalculateResponse {
   ProductCalculateResponse({
     String? timestamp,
@@ -217,3 +216,5 @@ class CalculatedProduct {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

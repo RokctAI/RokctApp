@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/meta.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 
@@ -39,3 +38,5 @@ class OrderPaginateResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

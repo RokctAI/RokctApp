@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 // To parse this JSON data, do
 //
 //     final parcelOrder = parcelOrderFromJson(jsonString);
@@ -295,3 +294,5 @@ class Currency {
     "updated_at": updatedAt?.toIso8601String(),
   };
 }
+
+typedef Dyn = dynamic;

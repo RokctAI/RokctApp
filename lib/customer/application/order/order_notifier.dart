@@ -448,7 +448,10 @@ class OrderNotifier extends Notifier<OrderState> {
               );
               res.when(
                 success: (key) {
-                  onWebview?.call(key, payment.tag == 'pay-fast'); // environment
+                  onWebview?.call(
+                    key,
+                    payment.tag == 'pay-fast',
+                  ); // environment
                 },
                 failure: (e, status) {
                   state = state.copyWith(isButtonLoading: false);

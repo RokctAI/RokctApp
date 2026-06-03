@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 
 import 'package:rokctapp/customer/models/data/career_data.dart';
@@ -28,3 +27,5 @@ class CareerDataResponse {
     );
   }
 }
+
+typedef Dyn = dynamic;

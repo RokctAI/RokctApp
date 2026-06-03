@@ -39,7 +39,8 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
         List<PaymentData> payments = data.data ?? [];
         List<PaymentData> filtered = [];
         for (final payment in payments) {
-          if (type != TrKeys.delivery && payment.tag?.toLowerCase() == 'cash') { // environment
+          if (type != TrKeys.delivery && payment.tag?.toLowerCase() == 'cash') {
+            // environment
             filtered.add(payment);
             break;
           } else {

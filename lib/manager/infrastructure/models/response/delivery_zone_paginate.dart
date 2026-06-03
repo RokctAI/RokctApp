@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/shop_data.dart';
 
 class DeliveryZonePaginate {
@@ -86,3 +85,5 @@ class DeliveryZoneData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

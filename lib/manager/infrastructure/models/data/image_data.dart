@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class ImageData {
   ImageData({
     int? id,
@@ -71,3 +70,5 @@ class ImageData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/models.dart';
 
@@ -53,3 +52,5 @@ abstract class AuthRepositoryFacade {
     String? avatar,
   });
 }
+
+typedef Dyn = dynamic;

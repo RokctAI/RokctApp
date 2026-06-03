@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/printer/printer_manager.dart';
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -125,3 +124,5 @@ final billingPrinterProvider =
     StateNotifierProvider<BillingPrinterNotifier, BillingPrinterState>((ref) {
       return BillingPrinterNotifier();
     });
+
+typedef Dyn = dynamic;

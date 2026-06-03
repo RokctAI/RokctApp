@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 
 import 'package:rokctapp/customer/models/data/addons_data.dart';
@@ -277,3 +276,5 @@ class CartDetail {
     "stock": stock?.toJson(),
   };
 }
+
+typedef Dyn = dynamic;

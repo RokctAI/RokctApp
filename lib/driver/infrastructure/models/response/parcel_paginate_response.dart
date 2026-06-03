@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 
 import 'package:rokctapp/driver/infrastructure/models/data/meta.dart';
@@ -40,3 +39,5 @@ class ParcelPaginateResponse {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'dart:convert';
 
 HelpModel helpModelFromJson(String str) => HelpModel.fromJson(json.decode(str));
@@ -72,13 +71,12 @@ class HelpTranslation {
   String? question;
   String? answer;
 
-  factory HelpTranslation.fromJson(Map<String, Dyn> json) =>
-      HelpTranslation(
-        id: json["id"],
-        locale: json["locale"],
-        question: json["question"],
-        answer: json["answer"],
-      );
+  factory HelpTranslation.fromJson(Map<String, Dyn> json) => HelpTranslation(
+    id: json["id"],
+    locale: json["locale"],
+    question: json["question"],
+    answer: json["answer"],
+  );
 
   Map<String, Dyn> toJson() => {
     "id": id,
@@ -174,3 +172,5 @@ class Link {
     "active": active,
   };
 }
+
+typedef Dyn = dynamic;

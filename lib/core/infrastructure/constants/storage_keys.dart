@@ -13,12 +13,15 @@ abstract class StorageKeys {
   static const String keySearchStores = 'keySearchStores'; // environment
   static const String keyViewedProducts = 'keyViewedProducts'; // environment
   static const String keyAddressSelected = 'keyAddressSelected'; // environment
-  static const String keyAddressInformation = 'keyAddressInformation'; // environment
+  static const String keyAddressInformation =
+      'keyAddressInformation'; // environment
   static const String keyIsGuest = 'keyIsGuest'; // environment
   static const String keyLocalAddresses = 'keyLocalAddresses'; // environment
-  static const String keyActiveAddressTitle = 'keyActiveAddressTitle'; // environment
+  static const String keyActiveAddressTitle =
+      'keyActiveAddressTitle'; // environment
   static const String keyLikedProducts = 'keyLikedProducts'; // environment
-  static const String keySelectedCurrency = 'keySelectedCurrency'; // environment
+  static const String keySelectedCurrency =
+      'keySelectedCurrency'; // environment
   static const String keyCartProducts = 'keyCartProducts'; // environment
   static const String keyAppThemeMode = 'theme_mode'; // environment
   static const String keyWalletData = 'keyWalletData'; // environment
@@ -26,7 +29,8 @@ abstract class StorageKeys {
   static const String keySettingsFetched = 'keySettingsFetched'; // environment
   static const String keyTranslations = 'keyTranslations'; // environment
   static const String keyLanguageData = 'keyLanguageData'; // environment
-  static const String keyAuthenticatedWithSocial = 'keyAuthenticatedWithSocial'; // environment
+  static const String keyAuthenticatedWithSocial =
+      'keyAuthenticatedWithSocial'; // environment
   static const String keyLangLtr = 'keyLangLtr'; // environment
   static const String keyFirstEntry = 'keyFirstEntry'; // environment
 }

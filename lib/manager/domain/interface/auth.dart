@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
@@ -45,3 +44,5 @@ abstract class AuthInterface {
 
   Future<ApiResult<CheckPhoneResponse>> checkPhone({required String phone});
 }
+
+typedef Dyn = dynamic;

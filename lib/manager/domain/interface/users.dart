@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
@@ -76,3 +75,5 @@ abstract class UsersInterface {
 
   Future<ApiResult<Dyn>> deleteAccount();
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/product_data.dart';
 
 import 'package:rokctapp/customer/models/data/translation.dart';
@@ -58,3 +57,5 @@ class CareerData {
     );
   }
 }
+
+typedef Dyn = dynamic;

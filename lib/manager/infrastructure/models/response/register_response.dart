@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class RegisterResponse {
   RegisterResponse({RegisterData? data}) {
     _data = data;
@@ -52,3 +51,5 @@ class RegisterData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;

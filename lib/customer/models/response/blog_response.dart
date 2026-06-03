@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/blog_data.dart';
 import 'package:rokctapp/customer/models/data/help_data.dart';
 
@@ -23,3 +22,5 @@ class BlogResponse {
     );
   }
 }
+
+typedef Dyn = dynamic;

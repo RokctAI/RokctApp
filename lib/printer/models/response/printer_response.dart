@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 class PrinterResponse {
   final bool isSuccess;
   final String? message;
@@ -11,3 +10,5 @@ class PrinterResponse {
   factory PrinterResponse.failure(String message) =>
       PrinterResponse(isSuccess: false, message: message);
 }
+
+typedef Dyn = dynamic;

@@ -1,4 +1,3 @@
-typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 
 class AddressData {
@@ -77,3 +76,5 @@ class AddressData {
     return map;
   }
 }
+
+typedef Dyn = dynamic;
