@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -156,7 +157,7 @@ class OrderStatusScreen extends StatelessWidget {
   }
 
   Widget _buildStatusItem({
-    required dynamic icon,
+    required Dyn icon,
     Color? bgColor,
     Color? iconColor,
     bool? isActive,

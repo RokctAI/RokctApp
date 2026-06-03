@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/extras.dart';
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 
@@ -77,8 +78,8 @@ class Group {
 
   List<Extras>? get extraValues => _extraValues;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['shop_id'] = _shopId;
     map['type'] = _type;

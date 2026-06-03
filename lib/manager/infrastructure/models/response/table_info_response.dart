@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/table_info_data.dart';
 
 class TableInfoResponse {
@@ -13,7 +14,7 @@ class TableInfoResponse {
     required this.data,
   });
 
-  factory TableInfoResponse.fromJson(Map<String, dynamic> json) =>
+  factory TableInfoResponse.fromJson(Map<String, Dyn> json) =>
       TableInfoResponse(
         timestamp: DateTime.parse(json["timestamp"]),
         status: json["status"],
@@ -21,7 +22,7 @@ class TableInfoResponse {
         data: TableInfoData.fromJson(json["data"]),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "timestamp": timestamp.toIso8601String(),
     "status": status,
     "message": message,

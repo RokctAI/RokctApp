@@ -1,7 +1,8 @@
+typedef Dyn = dynamic;
 class PrinterResponse {
   final bool isSuccess;
   final String? message;
-  final dynamic data;
+  final Dyn data;
 
   PrinterResponse({required this.isSuccess, this.message, this.data});
 

@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class RegisterResponse {
   RegisterResponse({
     String? timestamp,
@@ -43,8 +44,8 @@ class RegisterResponse {
 
   RegisterData? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;
@@ -76,8 +77,8 @@ class RegisterData {
 
   String? get phone => _phone;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['verifyId'] = _verifyId;
     map['phone'] = _phone;
     return map;

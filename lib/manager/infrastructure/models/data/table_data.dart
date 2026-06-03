@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 
 class TableData {
@@ -23,7 +24,7 @@ class TableData {
     this.shopSection,
   });
 
-  TableData.fromJson(Map<String, dynamic> json) {
+  TableData.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     name = json['name'];
     shopSectionId = json['shop_section_id'];
@@ -37,8 +38,8 @@ class TableData {
         : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['name'] = name;
     data['shop_section_id'] = shopSectionId;
@@ -73,7 +74,7 @@ class ShopSection {
     this.translation,
   });
 
-  ShopSection.fromJson(Map<String, dynamic> json) {
+  ShopSection.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     shopId = json['shop_id'];
     area = json['area'];
@@ -85,8 +86,8 @@ class ShopSection {
         : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['shop_id'] = shopId;
     data['area'] = area;

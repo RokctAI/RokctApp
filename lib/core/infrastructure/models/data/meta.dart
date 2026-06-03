@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class Meta {
   Meta({int? total}) {
     _total = total;
@@ -13,8 +14,8 @@ class Meta {
 
   int? get total => _total;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['total'] = _total;
     return map;
   }

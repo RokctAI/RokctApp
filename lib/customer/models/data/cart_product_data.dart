@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/product_data.dart';
 
 class CartProductData {
@@ -72,8 +73,8 @@ class CartProductData {
 
   Stocks? get selectedStock => _selectedStock;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map["shop_id"] = _shopId;
     map['id'] = _id;
     map['price'] = _price;

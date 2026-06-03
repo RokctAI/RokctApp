@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
@@ -53,7 +54,7 @@ class NotificationRepositoryImpl extends DriverNotificationRepository {
   }
 
   @override
-  Future<ApiResult<dynamic>> readOne({int? id}) async {
+  Future<ApiResult<Dyn>> readOne({int? id}) async {
     final data = {
       if (id != null) '$id': id,
       'lang': LocalStorage.getLanguage()?.locale,

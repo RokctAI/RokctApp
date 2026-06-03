@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
 class ProductRequest {
@@ -13,8 +14,8 @@ class ProductRequest {
     this.brands,
   });
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map["shop_id"] = shopId;
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
     if (LocalStorage.getSelectedCurrency() != null) {
@@ -31,8 +32,8 @@ class ProductRequest {
     return map;
   }
 
-  Map<String, dynamic> toJsonPopular() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJsonPopular() {
+    final map = <String, Dyn>{};
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
     if (LocalStorage.getSelectedCurrency() != null) {
       map["currency_id"] = LocalStorage.getSelectedCurrency()?.id;
@@ -47,8 +48,8 @@ class ProductRequest {
     return map;
   }
 
-  Map<String, dynamic> toJsonByCategory() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJsonByCategory() {
+    final map = <String, Dyn>{};
     map["shop_id"] = shopId;
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
     if (LocalStorage.getSelectedCurrency() != null) {

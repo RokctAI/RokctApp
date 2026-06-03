@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/translation.dart';
 
 class PaymentData {
@@ -79,8 +80,8 @@ class PaymentData {
 
   Translation? get translation => _translation;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['tag'] = _tag;
     map['input'] = _input;

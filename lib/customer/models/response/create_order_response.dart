@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class CreateOrderResponse {
   CreateOrderResponse({
     String? timestamp,
@@ -43,8 +44,8 @@ class CreateOrderResponse {
 
   CreatedOrder? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;
@@ -124,8 +125,8 @@ class CreatedOrder {
 
   String? get updatedAt => _updatedAt;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['user_id'] = _userId;
     map['price'] = _price;

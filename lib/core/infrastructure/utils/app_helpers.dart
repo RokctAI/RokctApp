@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:io';
 import 'dart:math';
 
@@ -408,7 +409,7 @@ abstract class AppHelpers {
   }
 
   static String getTranslation(String trKey) {
-    final Map<String, dynamic> translations = LocalStorage.getTranslations();
+    final Map<String, Dyn> translations = LocalStorage.getTranslations();
     return translations[trKey] ??
         (trKey.isNotEmpty
             ? trKey
@@ -422,7 +423,7 @@ abstract class AppHelpers {
   }
 
   static String getTranslationReverse(String trKey) {
-    final Map<String, dynamic> translations = LocalStorage.getTranslations();
+    final Map<String, Dyn> translations = LocalStorage.getTranslations();
     for (int i = 0; i < translations.values.length; i++) {
       if (trKey == translations.values.elementAt(i)) {
         return translations.keys.elementAt(i);

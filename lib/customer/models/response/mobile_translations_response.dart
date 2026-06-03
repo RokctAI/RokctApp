@@ -1,9 +1,10 @@
+typedef Dyn = dynamic;
 class MobileTranslationsResponse {
   MobileTranslationsResponse({
     String? timestamp,
     bool? status,
     String? message,
-    Map<String, dynamic>? data,
+    Map<String, Dyn>? data,
   }) {
     _timestamp = timestamp;
     _status = status;
@@ -21,13 +22,13 @@ class MobileTranslationsResponse {
   String? _timestamp;
   bool? _status;
   String? _message;
-  Map<String, dynamic>? _data;
+  Map<String, Dyn>? _data;
 
   MobileTranslationsResponse copyWith({
     String? timestamp,
     bool? status,
     String? message,
-    Map<String, dynamic>? data,
+    Map<String, Dyn>? data,
   }) => MobileTranslationsResponse(
     timestamp: timestamp ?? _timestamp,
     status: status ?? _status,
@@ -41,5 +42,5 @@ class MobileTranslationsResponse {
 
   String? get message => _message;
 
-  Map<String, dynamic>? get data => _data;
+  Map<String, Dyn>? get data => _data;
 }

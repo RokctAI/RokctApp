@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
 
@@ -39,8 +40,8 @@ class CategoriesPaginateResponse {
 
   Meta? get meta => _meta;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }
@@ -160,8 +161,8 @@ class CategoryData {
 
   List<CategoryData>? get children => _children;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['keywords'] = _keywords;

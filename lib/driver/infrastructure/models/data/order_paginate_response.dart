@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/meta.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 
@@ -27,8 +28,8 @@ class OrderPaginateResponse {
 
   Meta? get meta => _meta;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }

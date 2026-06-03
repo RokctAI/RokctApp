@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:async';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
@@ -55,7 +56,7 @@ class _HomePageState extends ConsumerState<DriverHomePage> {
         AppConstants.demoLongitude),
   );
   Position? currentLocation;
-  dynamic check;
+  Dyn check;
   final _delayed = Delayed(milliseconds: 36000);
 
   Future<void> setCustomMarkerIcon() async {

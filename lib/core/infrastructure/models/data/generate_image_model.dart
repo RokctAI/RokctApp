@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class GenerateImageModel {
   GenerateImageModel({this.created, this.data});
 
@@ -10,7 +11,7 @@ class GenerateImageModel {
         data: data ?? this.data,
       );
 
-  factory GenerateImageModel.fromJson(Map<String, dynamic> json) =>
+  factory GenerateImageModel.fromJson(Map<String, Dyn> json) =>
       GenerateImageModel(
         created: json["created"],
         data: json["data"] == null
@@ -18,11 +19,11 @@ class GenerateImageModel {
             : List<Datum>.from(json["data"]!.map((x) => Datum.fromJson(x))),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "created": created,
     "data": data == null
         ? []
-        : List<dynamic>.from(data!.map((x) => x.toJson())),
+        : List<Dyn>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -33,7 +34,7 @@ class Datum {
 
   Datum copyWith({String? url}) => Datum(url: url ?? this.url);
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(url: json["url"]);
+  factory Datum.fromJson(Map<String, Dyn> json) => Datum(url: json["url"]);
 
-  Map<String, dynamic> toJson() => {"url": url};
+  Map<String, Dyn> toJson() => {"url": url};
 }

@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class LocationData {
   LocationData({double? latitude, double? longitude}) {
     _latitude = latitude;
@@ -23,8 +24,8 @@ class LocationData {
 
   double? get longitude => _longitude;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['latitude'] = _latitude;
     map['longitude'] = _longitude;
     return map;

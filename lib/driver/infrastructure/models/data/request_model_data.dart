@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/user_data.dart';
 
@@ -54,7 +55,7 @@ class RequestModelData {
     updatedAt: updatedAt ?? this.updatedAt,
   );
 
-  factory RequestModelData.fromJson(Map<String, dynamic> json) =>
+  factory RequestModelData.fromJson(Map<String, Dyn> json) =>
       RequestModelData(
         id: json["id"],
         modelId: json["model_id"],
@@ -75,7 +76,7 @@ class RequestModelData {
             : DateTime.parse(json["updated_at"]),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "model_id": modelId,
     "model_type": modelType,
@@ -151,7 +152,7 @@ class CarData {
     location: location ?? this.location,
   );
 
-  factory CarData.fromJson(Map<String, dynamic> json) => CarData(
+  factory CarData.fromJson(Map<String, Dyn> json) => CarData(
     kg: json["kg"],
     role: json["role"],
     brand: json["brand"],
@@ -169,7 +170,7 @@ class CarData {
         : Location.fromJson(json["location"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "kg": kg,
     "role": role,
     "brand": brand,

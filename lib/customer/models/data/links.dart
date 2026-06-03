@@ -1,5 +1,6 @@
+typedef Dyn = dynamic;
 class Links {
-  Links({String? first, String? last, dynamic prev, String? next}) {
+  Links({String? first, String? last, Dyn prev, String? next}) {
     _first = first;
     _last = last;
     _prev = prev;
@@ -15,10 +16,10 @@ class Links {
 
   String? _first;
   String? _last;
-  dynamic _prev;
+  Dyn _prev;
   String? _next;
 
-  Links copyWith({String? first, String? last, dynamic prev, String? next}) =>
+  Links copyWith({String? first, String? last, Dyn prev, String? next}) =>
       Links(
         first: first ?? _first,
         last: last ?? _last,
@@ -30,12 +31,12 @@ class Links {
 
   String? get last => _last;
 
-  dynamic get prev => _prev;
+  Dyn get prev => _prev;
 
   String? get next => _next;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['first'] = _first;
     map['last'] = _last;
     map['prev'] = _prev;

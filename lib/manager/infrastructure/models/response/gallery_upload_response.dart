@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/image_data.dart';
 
 class GalleryUploadResponse {
@@ -16,8 +17,8 @@ class GalleryUploadResponse {
 
   ImageData? get imageData => _imageData;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_imageData != null) {
       map['data'] = _imageData?.toJson();
     }

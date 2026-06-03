@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class UserModel {
   UserModel({
     int? id,
@@ -138,8 +139,8 @@ class UserModel {
 
   String? get conPassword => _confirmPassword;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['firstname'] = _firstname;
@@ -157,7 +158,7 @@ class UserModel {
     return map;
   }
 
-  Map<String, dynamic> toJsonForSignUp({bool typeFirebase = false}) => {
+  Map<String, Dyn> toJsonForSignUp({bool typeFirebase = false}) => {
     "firstname": _firstname,
     if (_lastname?.isNotEmpty ?? false) "lastname": _lastname,
     if (_phone?.isNotEmpty ?? false) "phone": _phone?.replaceAll('+', ""),

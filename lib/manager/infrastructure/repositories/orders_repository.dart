@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -64,9 +65,9 @@ class OrdersRepository implements OrdersInterface {
     String? floor,
     String? house,
   }) async {
-    List<Map<String, dynamic>> products = [];
+    List<Map<String, Dyn>> products = [];
     for (final stock in stocks) {
-      List<Map<String, dynamic>> addons = [];
+      List<Map<String, Dyn>> addons = [];
       for (AddonData addon
           in stock.addons?.where((e) => e.active ?? false) ?? []) {
         addons.add({

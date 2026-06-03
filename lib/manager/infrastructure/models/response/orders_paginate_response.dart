@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/order_data.dart';
 
 class OrdersPaginateResponse {
@@ -18,8 +19,8 @@ class OrdersPaginateResponse {
 
   OrderResponseData? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_data != null) {
       map['data'] = _data?.toJson();
     }
@@ -60,8 +61,8 @@ class OrderResponseData {
 
   List<OrderData>? get orders => _orders;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_statistic != null) {
       map['statistic'] = _statistic?.toJson();
     }
@@ -173,8 +174,8 @@ class OrdersStatistic {
 
   int? get todayCount => _todayCount;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['progress_orders_count'] = _progressOrdersCount;
     map['delivered_orders_count'] = _deliveredOrdersCount;
     map['cancel_orders_count'] = _cancelOrdersCount;

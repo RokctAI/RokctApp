@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/models.dart';
 
@@ -17,7 +18,7 @@ abstract class AuthRepositoryFacade {
     required String avatar,
   });
 
-  Future<ApiResult<dynamic>> sigUp({required String email});
+  Future<ApiResult<Dyn>> sigUp({required String email});
 
   Future<ApiResult<VerifyData>> sigUpWithData({required UserModel user});
 

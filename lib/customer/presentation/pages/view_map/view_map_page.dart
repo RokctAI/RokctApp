@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 // ignore_for_file: prefer_interpolation_to_compose_strings, use_build_context_synchronously
 import 'dart:convert';
 
@@ -58,7 +59,7 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
   final GeolocatorPlatform _geolocatorPlatform = GeolocatorPlatform.instance;
   GoogleMapController? googleMapController;
   CameraPosition? cameraPosition;
-  dynamic check;
+  Dyn check;
   late LatLng latLng;
   final Delayed delayed = Delayed(milliseconds: 700);
 

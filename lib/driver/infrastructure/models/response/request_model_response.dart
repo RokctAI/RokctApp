@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 
 import 'package:rokctapp/driver/infrastructure/models/data/request_model_data.dart';
@@ -26,7 +27,7 @@ class RequestModelResponse {
     meta: meta ?? this.meta,
   );
 
-  factory RequestModelResponse.fromJson(Map<String, dynamic> json) =>
+  factory RequestModelResponse.fromJson(Map<String, Dyn> json) =>
       RequestModelResponse(
         data: json["data"] == null
             ? []
@@ -37,10 +38,10 @@ class RequestModelResponse {
         meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "data": data == null
         ? []
-        : List<dynamic>.from(data!.map((x) => x.toJson())),
+        : List<Dyn>.from(data!.map((x) => x.toJson())),
     "links": links?.toJson(),
     "meta": meta?.toJson(),
   };

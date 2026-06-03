@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
@@ -224,7 +225,7 @@ class AuthRepository implements AuthRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> sigUp({required String email}) async {
+  Future<ApiResult<Dyn>> sigUp({required String email}) async {
     final data = SignUpRequest(email: email.replaceAll('+', ""));
     try {
       final client = dioHttp.client(requireAuth: false);

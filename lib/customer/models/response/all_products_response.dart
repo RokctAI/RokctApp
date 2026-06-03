@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 
 import 'package:rokctapp/customer/models/data/translation.dart';
@@ -22,7 +23,7 @@ class AllProductsResponse {
     data: data ?? this.data,
   );
 
-  factory AllProductsResponse.fromJson(Map<String, dynamic> json) =>
+  factory AllProductsResponse.fromJson(Map<String, Dyn> json) =>
       AllProductsResponse(
         timestamp: json["timestamp"] == null
             ? null
@@ -34,7 +35,7 @@ class AllProductsResponse {
             : AllProductData.fromJson(json["data"]),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
@@ -54,7 +55,7 @@ class AllProductData {
         all: all ?? this.all,
       );
 
-  factory AllProductData.fromJson(Map<String, dynamic> json) => AllProductData(
+  factory AllProductData.fromJson(Map<String, Dyn> json) => AllProductData(
     recommended: json["recommended"] == null
         ? []
         : List<Product>.from(
@@ -65,11 +66,11 @@ class AllProductData {
         : List<All>.from(json["all"]!.map((x) => All.fromJson(x))),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "recommended": recommended == null
         ? []
-        : List<dynamic>.from(recommended!.map((x) => x.toJson())),
-    "all": all == null ? [] : List<dynamic>.from(all!.map((x) => x.toJson())),
+        : List<Dyn>.from(recommended!.map((x) => x.toJson())),
+    "all": all == null ? [] : List<Dyn>.from(all!.map((x) => x.toJson())),
   };
 }
 
@@ -84,7 +85,7 @@ class All {
   bool? active;
   String? status;
   Translation? translation;
-  List<dynamic>? children;
+  List<Dyn>? children;
   List<Product>? products;
 
   All({
@@ -113,7 +114,7 @@ class All {
     bool? active,
     String? status,
     Translation? translation,
-    List<dynamic>? children,
+    List<Dyn>? children,
     List<Product>? products,
   }) => All(
     id: id ?? this.id,
@@ -130,7 +131,7 @@ class All {
     products: products ?? this.products,
   );
 
-  factory All.fromJson(Map<String, dynamic> json) => All(
+  factory All.fromJson(Map<String, Dyn> json) => All(
     id: json["id"],
     uuid: json["uuid"],
     type: json["type"],
@@ -144,13 +145,13 @@ class All {
         : Translation.fromJson(json["translation"]),
     children: json["children"] == null
         ? []
-        : List<dynamic>.from(json["children"]!.map((x) => x)),
+        : List<Dyn>.from(json["children"]!.map((x) => x)),
     products: json["products"] == null
         ? []
         : List<Product>.from(json["products"]!.map((x) => Product.fromJson(x))),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "uuid": uuid,
     "type": type,
@@ -162,10 +163,10 @@ class All {
     "translation": translation?.toJson(),
     "children": children == null
         ? []
-        : List<dynamic>.from(children!.map((x) => x)),
+        : List<Dyn>.from(children!.map((x) => x)),
     "products": products == null
         ? []
-        : List<dynamic>.from(products!.map((x) => x.toJson())),
+        : List<Dyn>.from(products!.map((x) => x.toJson())),
   };
 }
 
@@ -182,7 +183,7 @@ class Product {
   int? minQty;
   int? maxQty;
   int? interval;
-  List<dynamic>? discounts;
+  List<Dyn>? discounts;
   Translation? translation;
   Stock? stock;
 
@@ -217,7 +218,7 @@ class Product {
     int? minQty,
     int? maxQty,
     int? interval,
-    List<dynamic>? discounts,
+    List<Dyn>? discounts,
     Translation? translation,
     Stock? stock,
   }) => Product(
@@ -238,7 +239,7 @@ class Product {
     stock: stock ?? this.stock,
   );
 
-  factory Product.fromJson(Map<String, dynamic> json) => Product(
+  factory Product.fromJson(Map<String, Dyn> json) => Product(
     id: json["id"],
     uuid: json["uuid"],
     shopId: json["shop_id"],
@@ -253,14 +254,14 @@ class Product {
     interval: json["interval"],
     discounts: json["discounts"] == null
         ? []
-        : List<dynamic>.from(json["discounts"]!.map((x) => x)),
+        : List<Dyn>.from(json["discounts"]!.map((x) => x)),
     translation: json["translation"] == null
         ? null
         : Translation.fromJson(json["translation"]),
     stock: json["stock"] == null ? null : Stock.fromJson(json["stock"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "uuid": uuid,
     "shop_id": shopId,
@@ -275,7 +276,7 @@ class Product {
     "interval": interval,
     "discounts": discounts == null
         ? []
-        : List<dynamic>.from(discounts!.map((x) => x)),
+        : List<Dyn>.from(discounts!.map((x) => x)),
     "translation": translation?.toJson(),
     "stock": stock?.toJson(),
   };
@@ -289,7 +290,7 @@ class Stock {
   double? tax;
   double? totalPrice;
   bool? addon;
-  dynamic bonus;
+  Dyn bonus;
 
   Stock({
     this.id,
@@ -310,7 +311,7 @@ class Stock {
     double? tax,
     double? totalPrice,
     bool? addon,
-    dynamic bonus,
+    Dyn bonus,
   }) => Stock(
     id: id ?? this.id,
     countableId: countableId ?? this.countableId,
@@ -322,7 +323,7 @@ class Stock {
     bonus: bonus ?? this.bonus,
   );
 
-  factory Stock.fromJson(Map<String, dynamic> json) => Stock(
+  factory Stock.fromJson(Map<String, Dyn> json) => Stock(
     id: json["id"],
     countableId: json["countable_id"],
     price: json["price"]?.toDouble(),
@@ -333,7 +334,7 @@ class Stock {
     bonus: json["bonus"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "countable_id": countableId,
     "price": price,

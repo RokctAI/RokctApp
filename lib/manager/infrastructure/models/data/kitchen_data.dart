@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 
 class KitchenModel {
@@ -20,7 +21,7 @@ class KitchenModel {
     translation: translation ?? this.translation,
   );
 
-  factory KitchenModel.fromJson(Map<String, dynamic> json) => KitchenModel(
+  factory KitchenModel.fromJson(Map<String, Dyn> json) => KitchenModel(
     id: json["id"],
     active: json["active"],
     shopId: json["shop_id"],
@@ -29,7 +30,7 @@ class KitchenModel {
         : Translation.fromJson(json["translation"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "active": active,
     "shop_id": shopId,

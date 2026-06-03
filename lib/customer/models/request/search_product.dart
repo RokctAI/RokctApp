@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
 class SearchProductModel {
@@ -5,8 +6,8 @@ class SearchProductModel {
   final int page;
   SearchProductModel({required this.text, required this.page});
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map["search"] = text;
     map["perPage"] = 10;
     map["status"] = "published";

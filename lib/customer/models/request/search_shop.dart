@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
 class SearchShopModel {
@@ -6,8 +7,8 @@ class SearchShopModel {
 
   SearchShopModel({required this.text, this.categoryId});
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{
       "address": {
         "latitude": LocalStorage.getAddressSelected()?.location?.latitude,
         "longitude": LocalStorage.getAddressSelected()?.location?.longitude,

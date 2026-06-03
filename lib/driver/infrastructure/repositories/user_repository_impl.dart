@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -420,7 +421,7 @@ class UserRepositoryImpl implements DriverUserRepository {
   Future<ApiResult<void>> updateDeliveryZones({
     required List<LatLng> points,
   }) async {
-    List<Map<String, dynamic>> tapped = [];
+    List<Map<String, Dyn>> tapped = [];
     for (final point in points) {
       final location = {'0': point.latitude, '1': point.longitude};
       tapped.add(location);

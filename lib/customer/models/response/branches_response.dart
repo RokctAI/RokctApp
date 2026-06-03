@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/order_body_data.dart';
 import 'package:rokctapp/customer/models/data/shop_data.dart';
 
@@ -22,7 +23,7 @@ class BranchResponse {
     meta: meta ?? this.meta,
   );
 
-  factory BranchResponse.fromJson(Map<String, dynamic> json) => BranchResponse(
+  factory BranchResponse.fromJson(Map<String, Dyn> json) => BranchResponse(
     data: json["data"] == null
         ? []
         : List<BranchModel>.from(
@@ -32,10 +33,10 @@ class BranchResponse {
     meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "data": data == null
         ? []
-        : List<dynamic>.from(data!.map((x) => x.toJson())),
+        : List<Dyn>.from(data!.map((x) => x.toJson())),
     "links": links?.toJson(),
     "meta": meta?.toJson(),
   };
@@ -82,7 +83,7 @@ class BranchModel {
     locales: locales ?? this.locales,
   );
 
-  factory BranchModel.fromJson(Map<String, dynamic> json) => BranchModel(
+  factory BranchModel.fromJson(Map<String, Dyn> json) => BranchModel(
     id: json["id"],
     address: json["address"] == null
         ? null
@@ -102,7 +103,7 @@ class BranchModel {
         : Translation.fromJson(json["translation"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "address": address?.toJson(),
     "location": location?.toJson(),
@@ -112,6 +113,6 @@ class BranchModel {
     "translation": translation?.toJson(),
     "locales": locales == null
         ? []
-        : List<dynamic>.from(locales!.map((x) => x)),
+        : List<Dyn>.from(locales!.map((x) => x)),
   };
 }

@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/shop_data.dart';
 
 class DeliveryZonePaginate {
@@ -21,8 +22,8 @@ class DeliveryZonePaginate {
 
   List<DeliveryZoneData>? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }
@@ -38,11 +39,11 @@ class DeliveryZoneData {
   }
 
   DeliveryZoneData.fromJson(dynamic json) {
-    final List<dynamic>? addresses = json['address'];
+    final List<Dyn>? addresses = json['address'];
     final List<List<double>> parsedAddresses = [];
     if (addresses != null) {
       for (int i = 0; i < addresses.length; i++) {
-        final List<dynamic> item = addresses[i];
+        final List<Dyn> item = addresses[i];
         List<double> items = [];
         for (int j = 0; j < item.length; j++) {
           items.add(double.parse(item[j].toString()));
@@ -75,8 +76,8 @@ class DeliveryZoneData {
 
   ShopData? get shop => _shop;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['address'] = _address;
     if (_shop != null) {

@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class ProductCalculateResponse {
   ProductCalculateResponse({
     String? timestamp,
@@ -43,8 +44,8 @@ class ProductCalculateResponse {
 
   CalculatedData? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;
@@ -113,8 +114,8 @@ class CalculatedData {
 
   num? get orderTotal => _orderTotal;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_products != null) {
       map['products'] = _products?.map((v) => v.toJson()).toList();
     }
@@ -203,8 +204,8 @@ class CalculatedProduct {
 
   num? get totalPrice => _totalPrice;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['price'] = _price;
     map['qty'] = _qty;

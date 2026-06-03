@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/address_new_data.dart';
 
 import 'package:rokctapp/core/infrastructure/models/data/notification_data.dart';
@@ -201,8 +202,8 @@ class ProfileData {
 
   Wallet? get wallet => _wallet;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     if (_firstname != null) {
@@ -318,8 +319,8 @@ class Wallet {
 
   CurrencyData? get currency => _currency;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['uuid'] = _uuid;
     map['user_id'] = _userId;
     map['id'] = _id;

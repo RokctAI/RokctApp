@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/product_data.dart';
 
 class BonusModel {
@@ -23,7 +24,7 @@ class BonusModel {
   DateTime? expiredAt;
   BonusStock? bonusStock;
 
-  factory BonusModel.fromJson(Map<String, dynamic>? json) {
+  factory BonusModel.fromJson(Map<String, Dyn>? json) {
     return BonusModel(
       bonusableType: json?["bonusable_type"],
       bonusableId: json?["bonusable_id"],
@@ -38,7 +39,7 @@ class BonusModel {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "bonusable_type": bonusableType,
     "bonusable_id": bonusableId,
     "bonus_quantity": bonusQuantity,
@@ -71,7 +72,7 @@ class BonusStock {
   num? totalPrice;
   ProductData? product;
 
-  factory BonusStock.fromJson(Map<String, dynamic> json) => BonusStock(
+  factory BonusStock.fromJson(Map<String, Dyn> json) => BonusStock(
     id: json["id"],
     countableId: json["countable_id"],
     price: json["price"],
@@ -83,7 +84,7 @@ class BonusStock {
         : null,
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "countable_id": countableId,
     "price": price,

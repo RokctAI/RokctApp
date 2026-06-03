@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/user.dart';
 
 class ReviewData {
@@ -90,8 +91,8 @@ class ReviewData {
 
   UserModel? get user => _user;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['reviewable_id'] = _reviewableId;
     map['rating'] = _rating;
@@ -170,8 +171,8 @@ class Galleries {
 
   String? get basePath => _basePath;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['title'] = _title;
     map['type'] = _type;

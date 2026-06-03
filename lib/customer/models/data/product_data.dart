@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/addons_data.dart';
 import 'package:rokctapp/customer/models/data/bonus_data.dart';
 import 'package:rokctapp/customer/models/models.dart';
@@ -21,7 +22,7 @@ class ProductData {
     String? createdAt,
     String? updatedAt,
     num? ratingAvg,
-    dynamic ordersCount,
+    Dyn ordersCount,
     Translation? translation,
     List<Properties>? properties,
     List<Stocks>? stocks,
@@ -122,7 +123,7 @@ class ProductData {
   String? _createdAt;
   String? _updatedAt;
   num? _ratingAvg;
-  dynamic _ordersCount;
+  Dyn _ordersCount;
   Translation? _translation;
   List<Properties>? _properties;
   List<Stocks>? _stocks;
@@ -153,7 +154,7 @@ class ProductData {
     String? createdAt,
     String? updatedAt,
     num? ratingAvg,
-    dynamic ordersCount,
+    Dyn ordersCount,
     Translation? translation,
     List<Properties>? properties,
     List<Stocks>? stocks,
@@ -223,7 +224,7 @@ class ProductData {
 
   num? get ratingAvg => _ratingAvg;
 
-  dynamic get ordersCount => _ordersCount;
+  Dyn get ordersCount => _ordersCount;
 
   Translation? get translation => _translation;
 
@@ -249,8 +250,8 @@ class ProductData {
 
   List<Galleries>? get galleries => _galleries;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['shop_id'] = _shopId;
@@ -365,8 +366,8 @@ class Unit {
 
   Translation? get translation => _translation;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['active'] = _active;
     map['position'] = _position;
@@ -405,8 +406,8 @@ class Brand {
 
   String? get title => _title;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['title'] = _title;
@@ -456,8 +457,8 @@ class Category {
 
   Translation? get translation => _translation;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['parent_id'] = _parentId;
@@ -495,7 +496,7 @@ class Stocks {
     _product = product;
   }
 
-  Stocks.fromJson(Map<String, dynamic> json) {
+  Stocks.fromJson(Map<String, Dyn> json) {
     _bonus = json["bonus"] == null ? null : BonusModel.fromJson(json["bonus"]);
     _id = json['id'];
     _countableId = json['countable_id'];
@@ -586,8 +587,8 @@ class Stocks {
 
   ProductData? get product => _product;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['countable_id'] = _countableId;
     map['price'] = _price;
@@ -650,8 +651,8 @@ class Extras {
 
   Group? get group => _group;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['extra_group_id'] = _extraGroupId;
     map['value'] = _value;
@@ -704,8 +705,8 @@ class Group {
 
   Translation? get translation => _translation;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['type'] = _type;
     map['active'] = _active;
@@ -746,8 +747,8 @@ class Properties {
 
   String? get value => _value;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['locale'] = _locale;
     map['key'] = _key;
     map['value'] = _value;
@@ -804,7 +805,7 @@ class DiscountData {
     updatedAt: updatedAt ?? this.updatedAt,
   );
 
-  factory DiscountData.fromJson(Map<String, dynamic> json) => DiscountData(
+  factory DiscountData.fromJson(Map<String, Dyn> json) => DiscountData(
     id: json["id"],
     shopId: json["shop_id"],
     type: json["type"],
@@ -821,7 +822,7 @@ class DiscountData {
         : DateTime.parse(json["updated_at"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "shop_id": shopId,
     "type": type,

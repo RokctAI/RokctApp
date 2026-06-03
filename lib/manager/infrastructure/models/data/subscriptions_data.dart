@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/services/extension.dart';
 
 class SubscriptionData {
@@ -69,7 +70,7 @@ class SubscriptionData {
     subscriptionId: subscriptionId ?? this.subscriptionId,
   );
 
-  factory SubscriptionData.fromJson(Map<String, dynamic> json) =>
+  factory SubscriptionData.fromJson(Map<String, Dyn> json) =>
       SubscriptionData(
         id: json["id"],
         type: json["type"],
@@ -96,7 +97,7 @@ class SubscriptionData {
         subscriptionId: json["subscription_id"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "type": type,
     "price": price,

@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 // Trace ID propagation context
 import 'dart:developer';
 import 'dart:io';
@@ -28,7 +29,7 @@ abstract class FirebaseService {
     return await firebaseM.getToken() ?? "";
   }
 
-  static Future<Either<UserCredential, dynamic>> socialGoogle() async {
+  static Future<Either<UserCredential, Dyn>> socialGoogle() async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
 
     await googleSignIn.disconnect();
@@ -56,7 +57,7 @@ abstract class FirebaseService {
     }
   }
 
-  static Future<Either<UserCredential, dynamic>> socialFacebook() async {
+  static Future<Either<UserCredential, Dyn>> socialFacebook() async {
     final fb = FacebookAuth.instance;
     try {
       TrackingStatus? status;
@@ -94,7 +95,7 @@ abstract class FirebaseService {
     }
   }
 
-  static Future<Either<UserCredential, dynamic>> socialApple() async {
+  static Future<Either<UserCredential, Dyn>> socialApple() async {
     try {
       final credential = await SignInWithApple.getAppleIDCredential(
         scopes: [

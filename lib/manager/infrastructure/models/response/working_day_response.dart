@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 import 'package:rokctapp/manager/infrastructure/models/data/working_day_data.dart';
 
@@ -20,7 +21,7 @@ class WorkingDayResponse {
     required this.data,
   });
 
-  factory WorkingDayResponse.fromJson(Map<String, dynamic> json) =>
+  factory WorkingDayResponse.fromJson(Map<String, Dyn> json) =>
       WorkingDayResponse(
         timestamp: DateTime.parse(json["timestamp"]),
         status: json["status"],
@@ -28,7 +29,7 @@ class WorkingDayResponse {
         data: WorkingDayData.fromJson(json["data"]),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "timestamp": timestamp.toIso8601String(),
     "status": status,
     "message": message,

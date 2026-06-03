@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/services/local_storage.dart';
 
 class ProductRequest {
@@ -6,8 +7,8 @@ class ProductRequest {
 
   ProductRequest({required this.shopId, required this.page});
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map["shop_id"] = shopId;
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
     map["page"] = page;

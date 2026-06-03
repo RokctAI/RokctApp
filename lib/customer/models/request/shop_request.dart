@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
@@ -27,8 +28,8 @@ class ShopRequest {
     required this.page,
   });
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (LocalStorage.getSelectedCurrency() != null) {
       map["currency_id"] = LocalStorage.getSelectedCurrency()?.id;
     }

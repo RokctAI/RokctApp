@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 
 GetCalculateModel getCalculateModelFromJson(String str) =>
@@ -24,12 +25,12 @@ class GetCalculateModel {
   num? totalShopTax;
   num? totalPrice;
   num? totalDiscount;
-  dynamic bonusShop;
+  Dyn bonusShop;
   num? deliveryFee;
   num? serviceFee;
   num? couponPrice;
 
-  factory GetCalculateModel.fromJson(Map<String, dynamic> json) =>
+  factory GetCalculateModel.fromJson(Map<String, Dyn> json) =>
       GetCalculateModel(
         totalTax: json["total_tax"],
         price: json["price"],
@@ -42,7 +43,7 @@ class GetCalculateModel {
         couponPrice: json["coupon_price"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "total_tax": totalTax,
     "price": price,
     "total_shop_tax": totalShopTax,

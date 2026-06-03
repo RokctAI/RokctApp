@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class SettingsData {
   SettingsData({
     int? id,
@@ -51,8 +52,8 @@ class SettingsData {
 
   String? get updatedAt => _updatedAt;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['key'] = _key;
     map['value'] = _value;

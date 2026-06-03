@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/local_location_data.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/shop_delivery.dart';
@@ -25,7 +26,7 @@ class ShopData {
     String? ratingAvg,
     String? createdAt,
     String? updatedAt,
-    dynamic deletedAt,
+    Dyn deletedAt,
     Translation? translation,
     Seller? seller,
     List<ShopDelivery>? deliveries,
@@ -123,7 +124,7 @@ class ShopData {
   String? _ratingAvg;
   String? _createdAt;
   String? _updatedAt;
-  dynamic _deletedAt;
+  Dyn _deletedAt;
   Translation? _translation;
   Seller? _seller;
   List<ShopDelivery>? _deliveries;
@@ -150,7 +151,7 @@ class ShopData {
     String? ratingAvg,
     String? createdAt,
     String? updatedAt,
-    dynamic deletedAt,
+    Dyn deletedAt,
     Translation? translation,
     Seller? seller,
     List<ShopDelivery>? deliveries,
@@ -224,7 +225,7 @@ class ShopData {
 
   String? get updatedAt => _updatedAt;
 
-  dynamic get deletedAt => _deletedAt;
+  Dyn get deletedAt => _deletedAt;
 
   Translation? get translation => _translation;
 
@@ -232,8 +233,8 @@ class ShopData {
 
   List<ShopDelivery>? get deliveries => _deliveries;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['user_id'] = _userId;
@@ -311,8 +312,8 @@ class Seller {
 
   String? get role => _role;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['firstname'] = _firstname;
     map['lastname'] = _lastname;

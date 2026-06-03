@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/blog_data.dart';
 
 class BlogsPaginateResponse {
@@ -38,8 +39,8 @@ class BlogsPaginateResponse {
 
   Meta? get meta => _meta;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }
@@ -135,8 +136,8 @@ class Meta {
 
   int? get total => _total;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['current_page'] = _currentPage;
     map['from'] = _from;
     map['last_page'] = _lastPage;
@@ -164,7 +165,7 @@ class Links {
     _active = json['active'];
   }
 
-  dynamic _url;
+  Dyn _url;
   String? _label;
   bool? _active;
 
@@ -174,14 +175,14 @@ class Links {
     active: active ?? _active,
   );
 
-  dynamic get url => _url;
+  Dyn get url => _url;
 
   String? get label => _label;
 
   bool? get active => _active;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['url'] = _url;
     map['label'] = _label;
     map['active'] = _active;

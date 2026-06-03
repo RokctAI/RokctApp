@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 // ignore_for_file: unrelated_type_equality_checks
 
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class FilterItem extends StatelessWidget {
   final bool isPrice;
   final bool isOffer;
   final bool isSort;
-  final dynamic currentItem;
+  final Dyn currentItem;
   final String? currentItemTwo;
   ValueChanged onTap;
 

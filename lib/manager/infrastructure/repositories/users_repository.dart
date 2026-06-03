@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -117,7 +118,7 @@ class UsersRepository implements UsersInterface {
   Future<ApiResult<void>> updateDeliveryZones({
     required List<LatLng> points,
   }) async {
-    List<Map<String, dynamic>> tapped = [];
+    List<Map<String, Dyn>> tapped = [];
     for (final point in points) {
       final location = {'0': point.latitude, '1': point.longitude};
       tapped.add(location);
@@ -167,7 +168,7 @@ class UsersRepository implements UsersInterface {
     required List<ShopWorkingDays> workingDays,
     String? uuid,
   }) async {
-    List<Map<String, dynamic>> days = [];
+    List<Map<String, Dyn>> days = [];
     for (final workingDay in workingDays) {
       final data = {
         'day': workingDay.day,
@@ -326,7 +327,7 @@ class UsersRepository implements UsersInterface {
   }
 
   @override
-  Future<ApiResult<dynamic>> setOnlineOffline() async {
+  Future<ApiResult<Dyn>> setOnlineOffline() async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post('/api/v1/dashboard/seller/shops/working/status');

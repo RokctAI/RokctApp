@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/driver/infrastructure/models/models.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
@@ -58,9 +59,9 @@ abstract class DriverUserRepository {
 
   Future<ApiResult<RequestModelResponse>> getRequestModel();
 
-  Future<ApiResult<dynamic>> setOnline();
+  Future<ApiResult<Dyn>> setOnline();
 
-  Future<ApiResult<dynamic>> setCurrentLocation(LatLng location);
+  Future<ApiResult<Dyn>> setCurrentLocation(LatLng location);
 
   Future<ApiResult<ProfileResponse>> editProfile({required EditProfile? user});
 
@@ -76,7 +77,7 @@ abstract class DriverUserRepository {
 
   Future<ApiResult<void>> updateFirebaseToken(String? token);
 
-  Future<ApiResult<dynamic>> deleteAccount();
+  Future<ApiResult<Dyn>> deleteAccount();
 
   Future<ApiResult<void>> updateDeliveryZones({required List<LatLng> points});
 

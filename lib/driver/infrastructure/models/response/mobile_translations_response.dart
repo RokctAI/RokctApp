@@ -1,9 +1,10 @@
+typedef Dyn = dynamic;
 class TranslationsResponse {
   TranslationsResponse({
     String? timestamp,
     bool? status,
     String? message,
-    Map<String, dynamic>? data,
+    Map<String, Dyn>? data,
   }) {
     _timestamp = timestamp;
     _status = status;
@@ -21,13 +22,13 @@ class TranslationsResponse {
   String? _timestamp;
   bool? _status;
   String? _message;
-  Map<String, dynamic>? _data;
+  Map<String, Dyn>? _data;
 
   TranslationsResponse copyWith({
     String? timestamp,
     bool? status,
     String? message,
-    Map<String, dynamic>? data,
+    Map<String, Dyn>? data,
   }) => TranslationsResponse(
     timestamp: timestamp ?? _timestamp,
     status: status ?? _status,
@@ -41,5 +42,5 @@ class TranslationsResponse {
 
   String? get message => _message;
 
-  Map<String, dynamic>? get data => _data;
+  Map<String, Dyn>? get data => _data;
 }

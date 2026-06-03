@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 // To parse this JSON data, do
 //
 //     final statisticsOrderModel = statisticsOrderModelFromJson(jsonString);
@@ -35,7 +36,7 @@ class StatisticsOrderResponse {
     data: data ?? this.data,
   );
 
-  factory StatisticsOrderResponse.fromJson(Map<String, dynamic> json) =>
+  factory StatisticsOrderResponse.fromJson(Map<String, Dyn> json) =>
       StatisticsOrderResponse(
         timestamp: json["timestamp"] == null
             ? null
@@ -49,13 +50,13 @@ class StatisticsOrderResponse {
               ),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
     "data": data == null
         ? []
-        : List<dynamic>.from(data!.map((x) => x.toJson())),
+        : List<Dyn>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -76,7 +77,7 @@ class StatisticsOrder {
     fmTotalPrice: fmTotalPrice ?? this.fmTotalPrice,
   );
 
-  factory StatisticsOrder.fromJson(Map<String, dynamic> json) =>
+  factory StatisticsOrder.fromJson(Map<String, Dyn> json) =>
       StatisticsOrder(
         createdAt: json["created_at"] == null
             ? null
@@ -85,7 +86,7 @@ class StatisticsOrder {
         fmTotalPrice: json["fm_total_price"]?.toDouble(),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "created_at": createdAt?.toIso8601String(),
     "total_price": totalPrice,
     "fm_total_price": fmTotalPrice,

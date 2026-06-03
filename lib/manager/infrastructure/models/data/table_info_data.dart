@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class TableInfoData {
   int id;
   int bookingId;
@@ -17,7 +18,7 @@ class TableInfoData {
     required this.status,
   });
 
-  factory TableInfoData.fromJson(Map<String, dynamic> json) => TableInfoData(
+  factory TableInfoData.fromJson(Map<String, Dyn> json) => TableInfoData(
     id: json["id"],
     bookingId: json["booking_id"],
     userId: json["user_id"],
@@ -27,7 +28,7 @@ class TableInfoData {
     status: json["status"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "booking_id": bookingId,
     "user_id": userId,

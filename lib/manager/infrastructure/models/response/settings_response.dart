@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/settings_data.dart';
 
 class SettingsResponse {
@@ -21,8 +22,8 @@ class SettingsResponse {
 
   List<SettingsData>? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }

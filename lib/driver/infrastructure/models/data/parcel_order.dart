@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 // To parse this JSON data, do
 //
 //     final parcelOrder = parcelOrderFromJson(jsonString);
@@ -26,10 +27,10 @@ class ParcelOrder {
   DateTime? createdAt;
   DateTime? updatedAt;
   num? km;
-  dynamic deliveryman;
+  Dyn deliveryman;
   Currency? currency;
   User? user;
-  dynamic transaction;
+  Dyn transaction;
   TypeModel? type;
 
   ParcelOrder({
@@ -81,10 +82,10 @@ class ParcelOrder {
     DateTime? createdAt,
     DateTime? updatedAt,
     num? km,
-    dynamic deliveryman,
+    Dyn deliveryman,
     Currency? currency,
     User? user,
-    dynamic transaction,
+    Dyn transaction,
     TypeModel? type,
   }) => ParcelOrder(
     id: id ?? this.id,
@@ -114,7 +115,7 @@ class ParcelOrder {
     type: type ?? this.type,
   );
 
-  factory ParcelOrder.fromJson(Map<String, dynamic> json) {
+  factory ParcelOrder.fromJson(Map<String, Dyn> json) {
     return ParcelOrder(
       id: json["id"],
       userId: json["user_id"],
@@ -156,7 +157,7 @@ class ParcelOrder {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "user_id": userId,
     "total_price": totalPrice,
@@ -200,13 +201,13 @@ class Address {
         longitude: longitude ?? this.longitude,
       );
 
-  factory Address.fromJson(Map<String, dynamic> json) => Address(
+  factory Address.fromJson(Map<String, Dyn> json) => Address(
     address: json["address"],
     latitude: json["latitude"]?.toDouble(),
     longitude: json["longitude"]?.toDouble(),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "address": address,
     "latitude": latitude,
     "longitude": longitude,
@@ -258,7 +259,7 @@ class Currency {
     updatedAt: updatedAt ?? this.updatedAt,
   );
 
-  factory Currency.fromJson(Map<String, dynamic> json) => Currency(
+  factory Currency.fromJson(Map<String, Dyn> json) => Currency(
     id: json["id"],
     symbol: json["symbol"],
     title: json["title"],
@@ -274,7 +275,7 @@ class Currency {
         : DateTime.parse(json["updated_at"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "symbol": symbol,
     "title": title,

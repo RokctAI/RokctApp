@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class DeliveryZonePaginate {
   DateTime? timestamp;
   bool? status;
@@ -18,7 +19,7 @@ class DeliveryZonePaginate {
     data: data ?? this.data,
   );
 
-  factory DeliveryZonePaginate.fromJson(Map<String, dynamic> json) =>
+  factory DeliveryZonePaginate.fromJson(Map<String, Dyn> json) =>
       DeliveryZonePaginate(
         timestamp: json["timestamp"] == null
             ? null
@@ -34,14 +35,14 @@ class DeliveryZonePaginate {
               ),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
     "data": data == null
         ? []
-        : List<dynamic>.from(
-            data!.map((x) => List<dynamic>.from(x.map((x) => x))),
+        : List<Dyn>.from(
+            data!.map((x) => List<Dyn>.from(x.map((x) => x))),
           ),
   };
 }

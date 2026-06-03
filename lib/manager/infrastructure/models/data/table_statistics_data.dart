@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class TableStatisticData {
   int available;
   int booked;
@@ -19,7 +20,7 @@ class TableStatisticData {
     required this.allOccupied,
   });
 
-  factory TableStatisticData.fromJson(Map<String, dynamic> json) =>
+  factory TableStatisticData.fromJson(Map<String, Dyn> json) =>
       TableStatisticData(
         available: json["available"],
         booked: json["booked"],
@@ -35,7 +36,7 @@ class TableStatisticData {
         ),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "available": available,
     "booked": booked,
     "occupied": occupied,
@@ -72,7 +73,7 @@ class AllStatisticStatusData {
     username: username ?? this.username,
   );
 
-  factory AllStatisticStatusData.fromJson(Map<String, dynamic> json) =>
+  factory AllStatisticStatusData.fromJson(Map<String, Dyn> json) =>
       AllStatisticStatusData(
         tableId: json["table_id"],
         tableName: json["table_name"],
@@ -80,7 +81,7 @@ class AllStatisticStatusData {
         username: json["username"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "table_id": tableId,
     "table_name": tableName,
     "table_start_date": tableStartDate?.toIso8601String(),

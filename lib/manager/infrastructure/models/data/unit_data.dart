@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 
 class UnitData {
@@ -55,8 +56,8 @@ class UnitData {
 
   List<String>? get locales => _locales;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['active'] = _active;
     map['position'] = _position;

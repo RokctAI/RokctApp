@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -196,7 +197,7 @@ class LoginNotifier extends Notifier<LoginState> {
 
   Future<void> loginWithSocial(BuildContext context, IconData type) async {
     state = state.copyWith(isLoading: true);
-    Either<UserCredential, dynamic>? user;
+    Either<UserCredential, Dyn>? user;
     switch (type) {
       case FlutterRemix.apple_fill:
         user = await FirebaseService.socialApple();

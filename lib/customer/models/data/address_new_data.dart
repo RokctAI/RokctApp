@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/location.dart';
 import 'package:rokctapp/customer/models/data/address_information.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
@@ -44,7 +45,7 @@ class AddressNewModel {
     active: active ?? this.active,
   );
 
-  factory AddressNewModel.fromJson(Map<String, dynamic> json) =>
+  factory AddressNewModel.fromJson(Map<String, Dyn> json) =>
       AddressNewModel(
         id: json["id"],
         title: json["title"],
@@ -64,7 +65,7 @@ class AddressNewModel {
             : DateTime.parse(json["updated_at"]),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     if (title != null && (title?.isNotEmpty ?? false)) "title": title,
     "active": 1,
@@ -72,7 +73,7 @@ class AddressNewModel {
     "address": address?.toJson(),
     "location": location == null
         ? []
-        : List<dynamic>.from(location!.map((x) => x)),
+        : List<Dyn>.from(location!.map((x) => x)),
     "created_at": createdAt?.toIso8601String(),
     "updated_at": updatedAt?.toIso8601String(),
   };

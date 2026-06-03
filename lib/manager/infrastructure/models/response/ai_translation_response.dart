@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class AiTranslationResponse {
   AiTranslationResponse({
     String? timestamp,
@@ -45,8 +46,8 @@ class AiTranslationResponse {
 
   AiTranslationData? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;
@@ -81,8 +82,8 @@ class AiTranslationData {
 
   String? get description => _description;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['title'] = _title;
     map['description'] = _description;
     return map;

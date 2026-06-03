@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/domain/interface/products.dart';
@@ -144,7 +145,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
     required int page,
     required int categoryId,
   }) async {
-    final Map<String, dynamic> data = {
+    final Map<String, Dyn> data = {
       "shop_id": shopId,
       "lang": LocalStorage.getLanguage()?.locale ?? "en",
       if (LocalStorage.getSelectedCurrency() != null)

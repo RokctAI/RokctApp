@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class BookingsData {
   int id;
   int? maxTime;
@@ -11,14 +12,14 @@ class BookingsData {
     required this.updatedAt,
   });
 
-  factory BookingsData.fromJson(Map<String, dynamic> json) => BookingsData(
+  factory BookingsData.fromJson(Map<String, Dyn> json) => BookingsData(
     id: json["id"],
     maxTime: json["max_time"] ?? 23,
     createdAt: DateTime.parse(json["created_at"]),
     updatedAt: DateTime.parse(json["updated_at"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "max_time": maxTime,
     "created_at": createdAt?.toIso8601String(),

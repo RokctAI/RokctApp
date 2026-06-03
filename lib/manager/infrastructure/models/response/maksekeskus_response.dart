@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/maksekeskus_data.dart';
 
 class MaksekeskusResponse {
@@ -20,7 +21,7 @@ class MaksekeskusResponse {
     data: data ?? this.data,
   );
 
-  factory MaksekeskusResponse.fromJson(Map<String, dynamic> json) =>
+  factory MaksekeskusResponse.fromJson(Map<String, Dyn> json) =>
       MaksekeskusResponse(
         timestamp: json["timestamp"] == null
             ? null
@@ -32,7 +33,7 @@ class MaksekeskusResponse {
             : MaksekeskusData.fromJson(json["data"]),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,

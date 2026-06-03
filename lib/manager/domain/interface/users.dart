@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
@@ -55,7 +56,7 @@ abstract class UsersInterface {
 
   Future<ApiResult<SingleShopResponse>> getMyShop();
 
-  Future<ApiResult<dynamic>> setOnlineOffline();
+  Future<ApiResult<Dyn>> setOnlineOffline();
 
   Future<ApiResult<ProfileResponse>> getProfileDetails();
 
@@ -73,5 +74,5 @@ abstract class UsersInterface {
 
   Future<ApiResult<void>> updateFirebaseToken(String? token);
 
-  Future<ApiResult<dynamic>> deleteAccount();
+  Future<ApiResult<Dyn>> deleteAccount();
 }

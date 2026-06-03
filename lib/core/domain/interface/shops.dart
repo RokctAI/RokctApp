@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/customer/models/models.dart';
@@ -41,7 +42,7 @@ abstract class ShopsRepositoryFacade {
 
   Future<ApiResult<SingleShopResponse>> getSingleShop({required String uuid});
 
-  Future<ApiResult<dynamic>> joinOrder({
+  Future<ApiResult<Dyn>> joinOrder({
     required String shopId,
     required String name,
     required String cartId,

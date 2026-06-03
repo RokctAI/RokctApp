@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/links.dart';
 import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
@@ -19,7 +20,7 @@ class ParcelTypeResponse {
     meta: meta ?? this.meta,
   );
 
-  factory ParcelTypeResponse.fromJson(Map<String, dynamic> json) =>
+  factory ParcelTypeResponse.fromJson(Map<String, Dyn> json) =>
       ParcelTypeResponse(
         data: json["data"] == null
             ? []
@@ -30,10 +31,10 @@ class ParcelTypeResponse {
         meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "data": data == null
         ? []
-        : List<dynamic>.from(data!.map((x) => x.toJson())),
+        : List<Dyn>.from(data!.map((x) => x.toJson())),
     "links": links?.toJson(),
     "meta": meta?.toJson(),
   };
@@ -112,7 +113,7 @@ class TypeModel {
     options: options ?? this.options,
   );
 
-  factory TypeModel.fromJson(Map<String, dynamic> json) => TypeModel(
+  factory TypeModel.fromJson(Map<String, Dyn> json) => TypeModel(
     id: json["id"],
     type: json["type"],
     img: json["img"],
@@ -137,7 +138,7 @@ class TypeModel {
         : List<Option>.from(json["options"]!.map((x) => Option.fromJson(x))),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "type": type,
     "img": img,
@@ -155,7 +156,7 @@ class TypeModel {
     "updated_at": updatedAt?.toIso8601String(),
     "options": options == null
         ? []
-        : List<dynamic>.from(options!.map((x) => x.toJson())),
+        : List<Dyn>.from(options!.map((x) => x.toJson())),
   };
 }
 
@@ -179,7 +180,7 @@ class Option {
     translation: translation ?? this.translation,
   );
 
-  factory Option.fromJson(Map<String, dynamic> json) => Option(
+  factory Option.fromJson(Map<String, Dyn> json) => Option(
     id: json["id"],
     createdAt: json["created_at"] == null
         ? null
@@ -192,7 +193,7 @@ class Option {
         : Translation.fromJson(json["translation"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "created_at": createdAt?.toIso8601String(),
     "updated_at": updatedAt?.toIso8601String(),

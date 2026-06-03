@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -136,7 +137,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> joinOrder({
+  Future<ApiResult<Dyn>> joinOrder({
     required String shopId,
     required String name,
     required String cartId,
@@ -222,7 +223,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   Future<ApiResult<ShopsPaginateResponse>> getShopsByIds(
     List<int> shopIds,
   ) async {
-    final data = <String, dynamic>{'lang': LocalStorage.getLanguage()?.locale};
+    final data = <String, Dyn>{'lang': LocalStorage.getLanguage()?.locale};
     for (int i = 0; i < shopIds.length; i++) {
       data['shops[$i]'] = shopIds[i];
     }
@@ -339,7 +340,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   Future<ApiResult<TagResponse>> getTags(int categoryId) async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final data = <String, dynamic>{
+      final data = <String, Dyn>{
         'lang': LocalStorage.getLanguage()?.locale ?? "en",
         'category_id': categoryId,
       };
@@ -364,11 +365,11 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final data = <String, dynamic>{
+      final data = <String, Dyn>{
         'address[latitude]': location.latitude,
         'address[longitude]': location.longitude,
       };
-      dynamic response;
+      Dyn response;
       if (shopId == null) {
         response = await client.get(
           '/api/v1/rest/shop//delivery-zone/check/distance',

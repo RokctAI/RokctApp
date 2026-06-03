@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/bonus_data.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
 
@@ -74,7 +75,7 @@ class ShopData {
   List<ShopClosedDate>? shopClosedDate;
   List<ShopPayment?>? shopPayments;
 
-  factory ShopData.fromJson(Map<String, dynamic> json) {
+  factory ShopData.fromJson(Map<String, Dyn> json) {
     return ShopData(
       id: json["id"] ?? 0,
       // uuid: json["uuid"] ?? 0,
@@ -156,7 +157,7 @@ class ShopData {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "user_id": userId,
     "tax": tax,
@@ -180,7 +181,7 @@ class ShopData {
     "translation": translation?.toJson(),
     "locales": locales == null
         ? null
-        : List<dynamic>.from(locales!.map((x) => x)),
+        : List<Dyn>.from(locales!.map((x) => x)),
     "seller": seller?.toJson(),
     "bonus": bonus,
   };
@@ -193,13 +194,13 @@ class DeliveryTime {
   String? from;
   String? type;
 
-  factory DeliveryTime.fromJson(Map<String, dynamic> json) => DeliveryTime(
+  factory DeliveryTime.fromJson(Map<String, Dyn> json) => DeliveryTime(
     to: json["to"].toString(),
     from: json["from"].toString(),
     type: json["type"] ?? "min",
   );
 
-  Map<String, dynamic> toJson() => {"to": to, "from": from, "type": type};
+  Map<String, Dyn> toJson() => {"to": to, "from": from, "type": type};
 }
 
 class Location {
@@ -208,12 +209,12 @@ class Location {
   double? latitude;
   double? longitude;
 
-  factory Location.fromJson(Map<String, dynamic> json) => Location(
+  factory Location.fromJson(Map<String, Dyn> json) => Location(
     latitude: double.tryParse(json["latitude"].toString()),
     longitude: double.tryParse(json["longitude"].toString()),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "latitude": latitude,
     "longitude": longitude,
   };
@@ -228,7 +229,7 @@ class Seller {
   bool? active;
   String? role;
 
-  factory Seller.fromJson(Map<String, dynamic> json) => Seller(
+  factory Seller.fromJson(Map<String, Dyn> json) => Seller(
     id: json["id"],
     firstname: json["firstname"],
     lastname: json["lastname"],
@@ -236,7 +237,7 @@ class Seller {
     role: json["role"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "firstname": firstname,
     "lastname": lastname,
@@ -253,14 +254,14 @@ class ShopClosedDate {
   DateTime? createdAt;
   DateTime? updatedAt;
 
-  factory ShopClosedDate.fromJson(Map<String, dynamic>? json) => ShopClosedDate(
+  factory ShopClosedDate.fromJson(Map<String, Dyn>? json) => ShopClosedDate(
     id: json?["id"],
     day: DateTime.tryParse(json?["day"])?.toLocal(),
     createdAt: DateTime.tryParse(json?["created_at"])?.toLocal(),
     updatedAt: DateTime.tryParse(json?["updated_at"])?.toLocal(),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "day":
         "${day!.year.toString().padLeft(4, '0')}-${day!.month.toString().padLeft(2, '0')}-${day!.day.toString().padLeft(2, '0')}",
@@ -288,7 +289,7 @@ class ShopWorkingDay {
   DateTime? createdAt;
   DateTime? updatedAt;
 
-  factory ShopWorkingDay.fromJson(Map<String, dynamic>? json) => ShopWorkingDay(
+  factory ShopWorkingDay.fromJson(Map<String, Dyn>? json) => ShopWorkingDay(
     id: json?["id"],
     day: json?["day"],
     from: json?["from"],
@@ -298,7 +299,7 @@ class ShopWorkingDay {
     updatedAt: DateTime.tryParse(json?["updated_at"])?.toLocal(),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "day": day,
     "from": from,
@@ -321,11 +322,11 @@ class ShopPayment {
   int? id;
   int? shopId;
   int? status;
-  dynamic clientId;
-  dynamic secretId;
+  Dyn clientId;
+  Dyn secretId;
   Payment? payment;
 
-  factory ShopPayment.fromJson(Map<String, dynamic> json) {
+  factory ShopPayment.fromJson(Map<String, Dyn> json) {
     return ShopPayment(
       id: json["id"],
       shopId: json["shop_id"],
@@ -336,7 +337,7 @@ class ShopPayment {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "shop_id": shopId,
     "status": status,
@@ -352,24 +353,24 @@ class Payment {
   int? id;
   String? tag;
   bool? active;
-  dynamic translation;
-  List<dynamic>? locales;
+  Dyn translation;
+  List<Dyn>? locales;
 
-  factory Payment.fromJson(Map<String, dynamic> json) => Payment(
+  factory Payment.fromJson(Map<String, Dyn> json) => Payment(
     id: json["id"],
     tag: json["tag"],
     active: json["active"],
     translation: json["translation"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "tag": tag,
     "active": active,
     "translation": translation,
     "locales": locales == null
         ? []
-        : List<dynamic>.from(locales!.map((x) => x)),
+        : List<Dyn>.from(locales!.map((x) => x)),
   };
 }
 
@@ -381,7 +382,7 @@ class TagsModel {
 
   TagsModel({this.id, this.img, this.translation, this.locales});
 
-  TagsModel.fromJson(Map<String, dynamic> json) {
+  TagsModel.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     img = json['img'];
     translation = json['translation'] != null
@@ -389,8 +390,8 @@ class TagsModel {
         : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['img'] = img;
     if (translation != null) {

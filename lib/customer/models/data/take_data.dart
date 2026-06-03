@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class TakeModel {
   int? id;
   String? img;
@@ -15,7 +16,7 @@ class TakeModel {
     this.translation,
   });
 
-  TakeModel.fromJson(Map<String, dynamic> json) {
+  TakeModel.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     img = json['img'];
     createdAt = json['created_at'];
@@ -26,8 +27,8 @@ class TakeModel {
         : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['img'] = img;
     data['created_at'] = createdAt;
@@ -55,7 +56,7 @@ class Translation {
     this.deletedAt,
   });
 
-  Translation.fromJson(Map<String, dynamic> json) {
+  Translation.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     shopTagId = json['shop_tag_id'];
     title = json['title'];
@@ -63,8 +64,8 @@ class Translation {
     deletedAt = json['deleted_at'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['shop_tag_id'] = shopTagId;
     data['title'] = title;

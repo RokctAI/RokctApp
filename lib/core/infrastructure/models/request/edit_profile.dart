@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class EditProfile {
   String? firstname;
   String? lastname;
@@ -25,7 +26,7 @@ class EditProfile {
     this.images,
   });
 
-  EditProfile.fromJson(Map<String, dynamic> json) {
+  EditProfile.fromJson(Map<String, Dyn> json) {
     firstname = json['firstname'];
     lastname = json['lastname'];
     birthday = json['birthday'];
@@ -36,8 +37,8 @@ class EditProfile {
     referral = json['referral'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     if (firstname != null) data['firstname'] = firstname;
     if (lastname != null) data['lastname'] = lastname;
     if (email != null) data['email'] = email;

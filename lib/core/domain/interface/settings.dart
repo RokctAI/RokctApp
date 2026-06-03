@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/help_data.dart';
 import 'package:rokctapp/customer/models/data/notification_list_data.dart';
 
@@ -14,7 +15,7 @@ abstract class SettingsRepositoryFacade {
 
   Future<ApiResult<NotificationsListModel>> getNotificationList();
 
-  Future<ApiResult<dynamic>> updateNotification(
+  Future<ApiResult<Dyn>> updateNotification(
     List<NotificationData>? notifications,
   );
 

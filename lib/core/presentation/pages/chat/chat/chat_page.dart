@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 // ignore_for_file: unused_result
 
 import 'package:auto_route/auto_route.dart';
@@ -102,8 +103,8 @@ class _ChatPageState extends ConsumerState<ChatPage> {
                           final List<ChatMessageData> messages = docs.map((
                             doc,
                           ) {
-                            final Map<String, dynamic> data =
-                                doc.data() as Map<String, dynamic>;
+                            final Map<String, Dyn> data =
+                                doc.data() as Map<String, Dyn>;
 
                             if (data['unread'] && data['sender'] == 0) {
                               _fireStore

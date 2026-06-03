@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
@@ -7,8 +8,8 @@ class BannersRequest {
 
   BannersRequest({required this.page, this.perPage = 4});
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map["page"] = page;
     map["perPage"] = perPage;
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";

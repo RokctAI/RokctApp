@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/services/extension.dart';
 
 import 'package:rokctapp/manager/infrastructure/models/data/kitchen_data.dart';
@@ -27,7 +28,7 @@ class OrderData {
     String? deliveryType,
     num? deliveryFee,
     num? otp,
-    dynamic deliveryman,
+    Dyn deliveryman,
     String? deliveryDate,
     String? deliveryTime,
     String? createdAt,
@@ -39,7 +40,7 @@ class OrderData {
     List<OrderDetail>? details,
     Transaction? transaction,
     OrderAddress? orderAddress,
-    dynamic review,
+    Dyn review,
     String? note,
     String? afterDeliveredImage,
     bool? seen,
@@ -141,7 +142,7 @@ class OrderData {
   String? _deliveryType;
   num? _deliveryFee;
   num? _otp;
-  dynamic _deliveryman;
+  Dyn _deliveryman;
   String? _deliveryDate;
   String? _deliveryTime;
   String? _createdAt;
@@ -152,7 +153,7 @@ class OrderData {
   List<OrderDetail>? _details;
   Transaction? _transaction;
   OrderAddress? _orderAddress;
-  dynamic _review;
+  Dyn _review;
   String? _note;
   bool? _seen;
 
@@ -170,7 +171,7 @@ class OrderData {
     String? deliveryType,
     num? deliveryFee,
     num? otp,
-    dynamic deliveryman,
+    Dyn deliveryman,
     String? deliveryDate,
     String? deliveryTime,
     String? createdAt,
@@ -181,7 +182,7 @@ class OrderData {
     List<OrderDetail>? details,
     Transaction? transaction,
     OrderAddress? orderAddress,
-    dynamic review,
+    Dyn review,
     String? note,
     bool? seen,
   }) => OrderData(
@@ -248,7 +249,7 @@ class OrderData {
   num? get deliveryFee => _deliveryFee;
   num? get otp => _otp;
 
-  dynamic get deliveryman => _deliveryman;
+  Dyn get deliveryman => _deliveryman;
 
   String? get deliveryDate => _deliveryDate;
 
@@ -270,14 +271,14 @@ class OrderData {
 
   OrderAddress? get orderAddress => _orderAddress;
 
-  dynamic get review => _review;
+  Dyn get review => _review;
 
   String? get note => _note;
 
   bool? get seen => _seen;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['user_id'] = _userId;
     map['total_price'] = _totalPrice;
@@ -486,8 +487,8 @@ class OrderDetail {
 
   String? get note => _note;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['order_id'] = _orderId;
     map['stock_id'] = _stockId;
@@ -516,7 +517,7 @@ class Transaction {
     num? price,
     String? paymentTrxId,
     String? note,
-    dynamic performTime,
+    Dyn performTime,
     String? status,
     String? statusDescription,
     String? createdAt,
@@ -557,7 +558,7 @@ class Transaction {
   num? _price;
   String? _paymentTrxId;
   String? _note;
-  dynamic _performTime;
+  Dyn _performTime;
   String? _status;
   String? _statusDescription;
   String? _createdAt;
@@ -570,7 +571,7 @@ class Transaction {
     num? price,
     String? paymentTrxId,
     String? note,
-    dynamic performTime,
+    Dyn performTime,
     String? status,
     String? statusDescription,
     String? createdAt,
@@ -600,7 +601,7 @@ class Transaction {
 
   String? get note => _note;
 
-  dynamic get performTime => _performTime;
+  Dyn get performTime => _performTime;
 
   String? get status => _status;
 
@@ -612,8 +613,8 @@ class Transaction {
 
   PaymentData? get paymentSystem => _paymentSystem;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['payable_id'] = _payableId;
     map['price'] = _price;
@@ -676,8 +677,8 @@ class OrderAddress {
 
   String? get floor => _floor;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['address'] = _address;
     map['office'] = _office;
     map['house'] = _house;

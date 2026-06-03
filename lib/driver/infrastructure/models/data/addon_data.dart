@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/product_data.dart';
 
@@ -83,8 +84,8 @@ class AddonData {
 
   Stock? get stock => _stock;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['stock_id'] = _stockId;
     map['addon_id'] = _addonId;

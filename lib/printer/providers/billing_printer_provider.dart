@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/printer/printer_manager.dart';
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -100,7 +101,7 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
     required String address1,
     required String address2,
     required String phone,
-    required List<Map<String, dynamic>> items,
+    required List<Map<String, Dyn>> items,
     required double total,
     required String footer,
   }) async {

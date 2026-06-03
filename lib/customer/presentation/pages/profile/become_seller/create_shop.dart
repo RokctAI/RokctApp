@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class _EditRestaurantState extends ConsumerState<CreateShopPage> {
   late TextEditingController deliveryTimeTo;
   late TextEditingController startPrice;
   late TextEditingController pricePerKm;
-  dynamic data;
+  Dyn data;
 
   List list = ["minute", "day", "month"];
 

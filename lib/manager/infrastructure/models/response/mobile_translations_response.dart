@@ -1,5 +1,6 @@
+typedef Dyn = dynamic;
 class TranslationsResponse {
-  TranslationsResponse({Map<String, dynamic>? data}) {
+  TranslationsResponse({Map<String, Dyn>? data}) {
     _data = data;
   }
 
@@ -7,10 +8,10 @@ class TranslationsResponse {
     _data = json['data'];
   }
 
-  Map<String, dynamic>? _data;
+  Map<String, Dyn>? _data;
 
-  TranslationsResponse copyWith({Map<String, dynamic>? data}) =>
+  TranslationsResponse copyWith({Map<String, Dyn>? data}) =>
       TranslationsResponse(data: data ?? _data);
 
-  Map<String, dynamic>? get data => _data;
+  Map<String, Dyn>? get data => _data;
 }

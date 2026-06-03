@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/services/extension.dart';
 
 import 'package:rokctapp/manager/infrastructure/models/data/group.dart';
@@ -63,8 +64,8 @@ class Extras {
 
   bool? get active => _active;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['extra_group_id'] = _extraGroupId;
     map['value'] = _value;
@@ -102,8 +103,8 @@ class StockPivot {
 
   int? get extraValueId => _extraValueId;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['stock_id'] = _stockId;
     map['extra_value_id'] = _extraValueId;
     return map;

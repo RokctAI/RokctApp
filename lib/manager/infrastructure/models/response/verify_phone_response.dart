@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
 
 class VerifyPhoneResponse {
@@ -16,8 +17,8 @@ class VerifyPhoneResponse {
 
   VerifyData? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
 
     if (_data != null) {
       map['data'] = _data?.toJson();
@@ -47,8 +48,8 @@ class VerifyData {
 
   UserData? get user => _user;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['token'] = _token;
     if (_user != null) {
       map['user'] = _user?.toJson();

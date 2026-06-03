@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/shop_data.dart';
 
 class RefundOrdersModel {
@@ -5,7 +6,7 @@ class RefundOrdersModel {
 
   List<RefundModel>? data;
 
-  factory RefundOrdersModel.fromJson(Map<String, dynamic> json) =>
+  factory RefundOrdersModel.fromJson(Map<String, Dyn> json) =>
       RefundOrdersModel(
         data: json["data"] == null
             ? []
@@ -14,10 +15,10 @@ class RefundOrdersModel {
               ),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "data": data == null
         ? []
-        : List<dynamic>.from(data!.map((x) => x.toJson())),
+        : List<Dyn>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -40,7 +41,7 @@ class RefundModel {
   DateTime? updatedAt;
   Order? order;
 
-  factory RefundModel.fromJson(Map<String, dynamic> json) => RefundModel(
+  factory RefundModel.fromJson(Map<String, Dyn> json) => RefundModel(
     id: json["id"],
     status: json["status"],
     cause: json["cause"],
@@ -50,7 +51,7 @@ class RefundModel {
     order: json["order"] != null ? Order.fromJson(json["order"]) : null,
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "status": status,
     "cause": cause,
@@ -67,10 +68,10 @@ class Order {
   int? id;
   ShopData? shop;
 
-  factory Order.fromJson(Map<String, dynamic> json) => Order(
+  factory Order.fromJson(Map<String, Dyn> json) => Order(
     id: json["id"],
     shop: json["shop"] != null ? ShopData.fromJson(json["shop"]) : null,
   );
 
-  Map<String, dynamic> toJson() => {"id": id};
+  Map<String, Dyn> toJson() => {"id": id};
 }

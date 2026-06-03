@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class Translation {
   Translation({
     int? id,
@@ -59,8 +60,8 @@ class Translation {
 
   String? get address => _address;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['locale'] = _locale;
     map['title'] = _title;

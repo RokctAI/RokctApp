@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/refund_data.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/data/repeat_data.dart';
@@ -75,11 +76,11 @@ class OrderActiveModel {
   List<OrderProduct>? details;
   List<RefundModel>? refunds;
   TransactionData? transaction;
-  dynamic review;
-  List<dynamic>? ponumHistories;
+  Dyn review;
+  List<Dyn>? ponumHistories;
   OrderStatusesData? orderStatusesData;
 
-  factory OrderActiveModel.fromJson(Map<String, dynamic> json) =>
+  factory OrderActiveModel.fromJson(Map<String, Dyn> json) =>
       OrderActiveModel(
         id: json["data"]["id"],
         userId: json["data"]["user_id"],
@@ -145,7 +146,7 @@ class OrderActiveModel {
         review: json["data"]["review"],
       );
 
-  factory OrderActiveModel.fromJsonWithoutData(Map<String, dynamic> json) {
+  factory OrderActiveModel.fromJsonWithoutData(Map<String, Dyn> json) {
     return OrderActiveModel(
       id: json["id"] ?? 0,
       userId: json["user_id"],
@@ -236,8 +237,8 @@ class OrderActiveModel {
     List<OrderProduct>? details,
     List<RefundModel>? refunds,
     TransactionData? transaction,
-    dynamic review,
-    List<dynamic>? ponumHistories,
+    Dyn review,
+    List<Dyn>? ponumHistories,
     OrderStatusesData? orderStatusesData,
   }) => OrderActiveModel(
     id: id ?? this.id,
@@ -315,7 +316,7 @@ class OrderProduct {
   Stocks? stock;
   List<Addons>? addons;
 
-  factory OrderProduct.fromJson(Map<String, dynamic> json) {
+  factory OrderProduct.fromJson(Map<String, Dyn> json) {
     return OrderProduct(
       id: json["id"] ?? 0,
       orderId: json["order_id"],
@@ -348,7 +349,7 @@ class OrderProduct {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "order_id": orderId,
     "stock_id": stockId,
@@ -374,15 +375,15 @@ class CurrencyModel {
 
   CurrencyModel({this.id, this.symbol, this.title, this.active});
 
-  CurrencyModel.fromJson(Map<String, dynamic> json) {
+  CurrencyModel.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     symbol = json['symbol'];
     title = json['title'];
     active = json['active'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['symbol'] = symbol;
     data['title'] = title;
@@ -409,8 +410,8 @@ class OrderStatusesData {
 
   OrderStatusesEditDate? get statuses => _statuses;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_statuses != null) {
       map['statuses'] = _statuses?.toJson();
     }
@@ -479,8 +480,8 @@ class OrderStatusesEditDate {
 
   String? get delivered => _delivered;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['new'] = _new;
     map['accepted'] = _accepted;
     map['cooking'] = _cooking;

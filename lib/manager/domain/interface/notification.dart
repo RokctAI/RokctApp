@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
@@ -6,7 +7,7 @@ abstract class NotificationInterface {
 
   Future<ApiResult<NotificationResponse>> getAllNotifications();
 
-  Future<ApiResult<dynamic>> readOne({int? id});
+  Future<ApiResult<Dyn>> readOne({int? id});
 
   Future<ApiResult<NotificationResponse>> readAll();
 

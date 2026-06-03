@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/product_data.dart';
 
 import 'package:rokctapp/customer/models/data/translation.dart';
@@ -25,7 +26,7 @@ class CareerData {
     this.locales,
   });
 
-  factory CareerData.fromJson(Map<String, dynamic> json) {
+  factory CareerData.fromJson(Map<String, Dyn> json) {
     return CareerData(
       id: json["id"],
       categoryId: json["category_id"],

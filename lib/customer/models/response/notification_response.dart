@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/models.dart';
 
 class NotificationResponse {
@@ -8,7 +9,7 @@ class NotificationResponse {
   NotificationResponse copyWith({List<NotificationModel>? data}) =>
       NotificationResponse(data: data ?? this.data);
 
-  factory NotificationResponse.fromJson(Map<String, dynamic> json) =>
+  factory NotificationResponse.fromJson(Map<String, Dyn> json) =>
       NotificationResponse(
         data: json["data"] == null
             ? []
@@ -17,10 +18,10 @@ class NotificationResponse {
               ),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "data": data == null
         ? []
-        : List<dynamic>.from(data!.map((x) => x.toJson())),
+        : List<Dyn>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -81,7 +82,7 @@ class NotificationModel {
     blogData: blogData ?? this.blogData,
   );
 
-  factory NotificationModel.fromJson(Map<String, dynamic> json) =>
+  factory NotificationModel.fromJson(Map<String, Dyn> json) =>
       NotificationModel(
         id: json["id"],
         type: json["type"],
@@ -105,7 +106,7 @@ class NotificationModel {
         blogData: json["blog"] == null ? null : BlogData.fromJson(json["blog"]),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "type": type,
     "title": title,
@@ -157,7 +158,7 @@ class Client {
     img: img ?? this.img,
   );
 
-  factory Client.fromJson(Map<String, dynamic> json) => Client(
+  factory Client.fromJson(Map<String, Dyn> json) => Client(
     id: json["id"],
     firstname: json["firstname"],
     lastname: json["lastname"],
@@ -167,7 +168,7 @@ class Client {
     img: json["img"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "firstname": firstname,
     "lastname": lastname,
@@ -191,8 +192,8 @@ class Data {
     status: status ?? this.status,
   );
 
-  factory Data.fromJson(Map<String, dynamic> json) =>
+  factory Data.fromJson(Map<String, Dyn> json) =>
       Data(id: json["id"], type: json["type"], status: json["status"]);
 
-  Map<String, dynamic> toJson() => {"id": id, "type": type, "status": status};
+  Map<String, Dyn> toJson() => {"id": id, "type": type, "status": status};
 }

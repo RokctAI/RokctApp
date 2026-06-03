@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
 
 class CartRequest {
@@ -19,8 +20,8 @@ class CartRequest {
     this.userUuid,
   });
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (shopId != null) map["shop_id"] = shopId;
     if (cartId != null) map["cart_id"] = cartId;
     if (userUuid != null) map["user_cart_uuid"] = userUuid;
@@ -32,8 +33,8 @@ class CartRequest {
     return map;
   }
 
-  Map<String, dynamic> toJsonInsert() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJsonInsert() {
+    final map = <String, Dyn>{};
     if (shopId != null) map["shop_id"] = shopId;
     map["lang"] = LocalStorage.getLanguage()?.locale;
     map["rate"] = LocalStorage.getSelectedCurrency()?.rate ?? 1;
@@ -44,10 +45,10 @@ class CartRequest {
     return map;
   }
 
-  List<Map<String, dynamic>> toJsonCart() {
-    List<Map<String, dynamic>> list = [];
+  List<Map<String, Dyn>> toJsonCart() {
+    List<Map<String, Dyn>> list = [];
     carts?.forEach((element) {
-      final map = <String, dynamic>{};
+      final map = <String, Dyn>{};
       map["stock_id"] = element.stockId;
       map["quantity"] = element.quantity;
       if (element.parentId != null) map["parent_id"] = element.parentId;

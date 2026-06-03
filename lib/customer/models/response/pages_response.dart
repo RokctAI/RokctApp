@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/translation.dart';
 
 class PagesResponse {
@@ -5,9 +6,9 @@ class PagesResponse {
 
   PagesResponse({required this.data});
 
-  factory PagesResponse.fromJson(Map<String, dynamic> json) {
+  factory PagesResponse.fromJson(Map<String, Dyn> json) {
     return PagesResponse(
-      data: (json['data'] as List<dynamic>)
+      data: (json['data'] as List<Dyn>)
           .map((e) => PageData.fromJson(e))
           .toList(),
     );
@@ -39,7 +40,7 @@ class PageData {
     required this.locales,
   });
 
-  factory PageData.fromJson(Map<String, dynamic> json) {
+  factory PageData.fromJson(Map<String, Dyn> json) {
     return PageData(
       id: json['id'],
       type: json['type'] ?? '',
@@ -53,7 +54,7 @@ class PageData {
       translation: json['translation'] != null
           ? Translation.fromJson(json['translation'])
           : null,
-      translations: (json['translations'] as List<dynamic>)
+      translations: (json['translations'] as List<Dyn>)
           .map((e) => Translation.fromJson(e))
           .toList(),
       locales: List<String>.from(json['locales'] ?? []),
@@ -67,7 +68,7 @@ class Buttons {
 
   Buttons({this.appStoreButtonLink, this.googlePlayButtonLink});
 
-  factory Buttons.fromJson(Map<String, dynamic> json) {
+  factory Buttons.fromJson(Map<String, Dyn> json) {
     return Buttons(
       appStoreButtonLink: json['app_store_button_link'],
       googlePlayButtonLink: json['google_play_button_link'],

@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 
@@ -9,7 +10,7 @@ abstract class TableInterface {
 
   Future<ApiResult<ShopSectionResponse>> getSection({int? page, String? query});
 
-  Future<ApiResult<dynamic>> createNewTable({required TableModel tableModel});
+  Future<ApiResult<Dyn>> createNewTable({required TableModel tableModel});
 
   Future<ApiResult<TableResponse>> getTables({
     int? page,
@@ -41,7 +42,7 @@ abstract class TableInterface {
 
   Future<ApiResult<BookingsResponse>> getBookings({int? page});
 
-  Future<ApiResult<dynamic>> setBookings({
+  Future<ApiResult<Dyn>> setBookings({
     int? bookingId,
     int? tableId,
     DateTime? startDate,
@@ -52,7 +53,7 @@ abstract class TableInterface {
 
   Future<ApiResult<CloseDayResponse>> getCloseDay();
 
-  Future<ApiResult<dynamic>> changeOrderStatus({
+  Future<ApiResult<Dyn>> changeOrderStatus({
     required String status,
     required int id,
   });

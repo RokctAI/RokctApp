@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 
 import 'package:rokctapp/customer/models/data/career_data.dart';
@@ -14,7 +15,7 @@ class CareerDataResponse {
 
   CareerDataResponse({this.data, this.links, this.meta});
 
-  factory CareerDataResponse.fromJson(Map<String, dynamic> json) {
+  factory CareerDataResponse.fromJson(Map<String, Dyn> json) {
     return CareerDataResponse(
       data: json["data"] == null
           ? []

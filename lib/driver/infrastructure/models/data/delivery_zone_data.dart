@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class DeliveryZoneData {
   int? id;
   List<List<double>>? address;
@@ -7,7 +8,7 @@ class DeliveryZoneData {
   DeliveryZoneData copyWith({int? id, List<List<double>>? address}) =>
       DeliveryZoneData(id: id ?? this.id, address: address ?? this.address);
 
-  factory DeliveryZoneData.fromJson(Map<String, dynamic> json) =>
+  factory DeliveryZoneData.fromJson(Map<String, Dyn> json) =>
       DeliveryZoneData(
         id: json["id"],
         address: json["address"] == null
@@ -19,12 +20,12 @@ class DeliveryZoneData {
               ),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "address": address == null
         ? []
-        : List<dynamic>.from(
-            address!.map((x) => List<dynamic>.from(x.map((x) => x))),
+        : List<Dyn>.from(
+            address!.map((x) => List<Dyn>.from(x.map((x) => x))),
           ),
   };
 }

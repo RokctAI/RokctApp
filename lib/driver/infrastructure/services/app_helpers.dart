@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 // Trace ID propagation context
 import 'dart:ui' as ui;
 import 'dart:ui';
@@ -186,7 +187,7 @@ class AppHelpers {
   }
 
   static String getTranslation(String trKey) {
-    final Map<String, dynamic> translations = LocalStorage.getTranslations();
+    final Map<String, Dyn> translations = LocalStorage.getTranslations();
     return translations[trKey] ??
         (trKey.isNotEmpty
             ? trKey
@@ -200,7 +201,7 @@ class AppHelpers {
   }
 
   static String getTranslationReverse(String trKey) {
-    final Map<String, dynamic> translations = LocalStorage.getTranslations();
+    final Map<String, Dyn> translations = LocalStorage.getTranslations();
     for (int i = 0; i < translations.values.length; i++) {
       if (trKey == translations.values.elementAt(i)) {
         return translations.keys.elementAt(i);

@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/translation.dart';
 
 class ReferralModel {
@@ -23,7 +24,7 @@ class ReferralModel {
     this.translation,
   });
 
-  ReferralModel.fromJson(Map<String, dynamic> json) {
+  ReferralModel.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     active = json['active'];
     priceFrom = json['price_from'];
@@ -37,8 +38,8 @@ class ReferralModel {
         : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['active'] = active;
     data['price_from'] = priceFrom;

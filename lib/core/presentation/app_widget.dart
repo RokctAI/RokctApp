@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class AppWidget extends ConsumerWidget {
         if (!Platform.isIOS) FlutterDisplayMode.setHighRefreshRate(),
         if (LocalStorage.getTranslations().isEmpty) fetchSetting(),
       ]),
-      builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+      builder: (context, AsyncSnapshot<List<Dyn>> snapshot) {
         final AppTheme theme = snapshot.data?[0] ?? AppTheme.light();
         return ScreenUtilInit(
           useInheritedMediaQuery: true,

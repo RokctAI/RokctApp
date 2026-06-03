@@ -77,7 +77,7 @@ abstract class CoreLocalStorage {
 
   // Translations
   static Future<void> setTranslations(
-    Map<String, dynamic>? translations,
+    Map<String, Object?>? translations,
   ) async {
     if (preferences != null) {
       final String encoded = jsonEncode(translations);
@@ -92,7 +92,7 @@ abstract class CoreLocalStorage {
     }
   }
 
-  static Map<String, dynamic> getTranslations({String? locale}) {
+  static Map<String, Object?> getTranslations({String? locale}) {
     final currentLocale = locale ?? getLanguage()?.locale ?? 'en';
     String encoded =
         preferences?.getString(
@@ -105,7 +105,7 @@ abstract class CoreLocalStorage {
     if (encoded.isEmpty) {
       return {};
     }
-    final Map<String, dynamic> decoded = jsonDecode(encoded);
+    final Map<String, Object?> decoded = jsonDecode(encoded);
     return decoded;
   }
 

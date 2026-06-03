@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/translation.dart';
 
 import 'package:rokctapp/customer/models/data/product_data.dart';
@@ -33,7 +34,7 @@ class Addons {
   Product? product;
   Stocks? stocks;
 
-  factory Addons.fromJson(Map<String, dynamic>? json) {
+  factory Addons.fromJson(Map<String, Dyn>? json) {
     return Addons(
       id: json?["id"],
       stockId: json?["stock_id"],
@@ -48,7 +49,7 @@ class Addons {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "stock_id": stockId,
     "addon_id": addonId,
@@ -95,13 +96,13 @@ class Product {
   int? maxQty;
   DateTime? createdAt;
   DateTime? updatedAt;
-  dynamic ratingPercent;
+  Dyn ratingPercent;
   Translation? translation;
   List<String>? locales;
   Stocks? stock;
-  List<dynamic>? reviews;
+  List<Dyn>? reviews;
 
-  factory Product.fromJson(Map<String, dynamic>? json) {
+  factory Product.fromJson(Map<String, Dyn>? json) {
     return Product(
       id: json?["id"],
       uuid: json?["uuid"],
@@ -122,7 +123,7 @@ class Product {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "uuid": uuid,
     "shop_id": shopId,

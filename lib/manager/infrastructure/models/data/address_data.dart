@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 
 class AddressData {
@@ -63,8 +64,8 @@ class AddressData {
 
   bool? get active => _active;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['title'] = _title;
     map['address'] = _address;

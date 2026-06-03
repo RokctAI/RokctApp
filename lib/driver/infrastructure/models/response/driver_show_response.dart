@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 // ignore_for_file: prefer_null_aware_operators
 
 class DeliveryResponse {
@@ -8,15 +9,15 @@ class DeliveryResponse {
 
   DeliveryResponse({this.timestamp, this.status, this.message, this.data});
 
-  DeliveryResponse.fromJson(Map<String, dynamic> json) {
+  DeliveryResponse.fromJson(Map<String, Dyn> json) {
     timestamp = json['timestamp'];
     status = json['status'];
     message = json['message'];
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['timestamp'] = timestamp;
     data['status'] = status;
     data['message'] = message;
@@ -70,7 +71,7 @@ class Data {
     this.galleries,
   });
 
-  Data.fromJson(Map<String, dynamic> json) {
+  Data.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     userId = json['user_id'];
     typeOfTechnique = json['type_of_technique'];
@@ -103,8 +104,8 @@ class Data {
     }
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['user_id'] = userId;
     data['type_of_technique'] = typeOfTechnique;
@@ -138,13 +139,13 @@ class Location {
 
   Location({this.latitude, this.longitude});
 
-  Location.fromJson(Map<String, dynamic> json) {
+  Location.fromJson(Map<String, Dyn> json) {
     latitude = json['latitude'].toString();
     longitude = json['longitude'].toString();
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['latitude'] = latitude;
     data['longitude'] = longitude;
     return data;
@@ -178,7 +179,7 @@ class DeliveryMan {
     this.registeredAt,
   });
 
-  DeliveryMan.fromJson(Map<String, dynamic> json) {
+  DeliveryMan.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     uuid = json['uuid'];
     firstname = json['firstname'];
@@ -194,8 +195,8 @@ class DeliveryMan {
     registeredAt = json['registered_at'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['uuid'] = uuid;
     data['firstname'] = firstname;
@@ -230,7 +231,7 @@ class Galleries {
     this.basePath,
   });
 
-  Galleries.fromJson(Map<String, dynamic> json) {
+  Galleries.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     title = json['title'];
     type = json['type'];
@@ -240,8 +241,8 @@ class Galleries {
     basePath = json['base_path'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['title'] = title;
     data['type'] = type;

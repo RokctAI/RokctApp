@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/table_data.dart';
 
 class TableResponse {
@@ -8,20 +9,20 @@ class TableResponse {
 
   TableResponse({this.timestamp, this.status, this.message, this.data});
 
-  TableResponse.fromJson(Map<String, dynamic> json) {
+  TableResponse.fromJson(Map<String, Dyn> json) {
     timestamp = json['timestamp'];
     status = json['status'];
     message = json['message'];
     data = List<TableData>.from(json["data"].map((x) => TableData.fromJson(x)));
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['timestamp'] = timestamp;
     data['status'] = status;
     data['message'] = message;
     if (this.data != null) {
-      data['data'] = List<dynamic>.from(this.data!.map((x) => x.toJson()));
+      data['data'] = List<Dyn>.from(this.data!.map((x) => x.toJson()));
     }
     return data;
   }

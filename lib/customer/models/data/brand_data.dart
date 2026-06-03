@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class BrandData {
   BrandData({
     int? id,
@@ -67,8 +68,8 @@ class BrandData {
 
   String? get updatedAt => _updatedAt;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['title'] = _title;
     map['active'] = _active;

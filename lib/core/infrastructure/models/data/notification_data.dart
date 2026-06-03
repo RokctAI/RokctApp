@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class NotificationsModel {
   NotificationsModel({
     this.id,
@@ -15,7 +16,7 @@ class NotificationsModel {
   DateTime? updatedAt;
   String? type;
 
-  factory NotificationsModel.fromJson(Map<String, dynamic> json) {
+  factory NotificationsModel.fromJson(Map<String, Dyn> json) {
     return NotificationsModel(
       id: json["id"],
       payload: json["payload"] == null
@@ -36,13 +37,13 @@ class NotificationsModel {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "payload": payload == null
         ? []
         : payload == null
         ? []
-        : List<dynamic>.from(payload!.map((x) => x)),
+        : List<Dyn>.from(payload!.map((x) => x)),
     "active": active,
     "created_at": createdAt?.toIso8601String(),
     "updated_at": updatedAt?.toIso8601String(),

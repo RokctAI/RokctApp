@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class MetaLinks {
   MetaLinks({String? url, String? label, bool? active}) {
     _url = url;
@@ -27,8 +28,8 @@ class MetaLinks {
 
   bool? get active => _active;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['url'] = _url;
     map['label'] = _label;
     map['active'] = _active;

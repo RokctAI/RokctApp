@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
 
 class LoginResponse {
@@ -16,8 +17,8 @@ class LoginResponse {
 
   LoginData? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_data != null) {
       map['data'] = _data?.toJson();
     }
@@ -58,8 +59,8 @@ class LoginData {
 
   UserData? get user => _user;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['access_token'] = _accessToken;
     map['token_type'] = _tokenType;
     if (_user != null) {

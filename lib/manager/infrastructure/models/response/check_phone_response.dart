@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 
 CheckPhoneResponse checkPhoneResponseFromJson(String str) =>
@@ -26,7 +27,7 @@ class CheckPhoneResponse {
     data: data ?? this.data,
   );
 
-  factory CheckPhoneResponse.fromJson(Map<String, dynamic> json) =>
+  factory CheckPhoneResponse.fromJson(Map<String, Dyn> json) =>
       CheckPhoneResponse(
         timestamp: json["timestamp"] == null
             ? null
@@ -38,7 +39,7 @@ class CheckPhoneResponse {
             : CheckPhoneData.fromJson(json["data"]),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
@@ -54,8 +55,8 @@ class CheckPhoneData {
   CheckPhoneData copyWith({bool? exist}) =>
       CheckPhoneData(exist: exist ?? this.exist);
 
-  factory CheckPhoneData.fromJson(Map<String, dynamic> json) =>
+  factory CheckPhoneData.fromJson(Map<String, Dyn> json) =>
       CheckPhoneData(exist: json["exist"]);
 
-  Map<String, dynamic> toJson() => {"exist": exist};
+  Map<String, Dyn> toJson() => {"exist": exist};
 }

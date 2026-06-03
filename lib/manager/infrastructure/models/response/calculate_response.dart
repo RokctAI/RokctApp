@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
 
 class CalculateResponse {
@@ -16,8 +17,8 @@ class CalculateResponse {
 
   NeedntData? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_data != null) {
       map['data'] = _data?.toJson();
     }
@@ -41,8 +42,8 @@ class NeedntData {
 
   CalculatedData? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_data != null) {
       map['data'] = _data?.toJson();
     }
@@ -140,8 +141,8 @@ class CalculatedData {
 
   num? get couponPrice => _couponPrice;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_stocks != null) {
       map['stocks'] = _stocks?.map((v) => v.toJson()).toList();
     }

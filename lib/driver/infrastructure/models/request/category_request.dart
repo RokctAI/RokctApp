@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/services/local_storage.dart';
 
 class CategoryModel {
@@ -5,8 +6,8 @@ class CategoryModel {
 
   CategoryModel({required this.page});
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
     map["page"] = page;
     map["perPage"] = 10;

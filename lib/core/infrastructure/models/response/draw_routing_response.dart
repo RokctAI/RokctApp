@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 
 DrawRouting drawRoutingFromJson(String str) =>
@@ -18,7 +19,7 @@ class DrawRouting {
   List<double> bbox;
   Metadata metadata;
 
-  factory DrawRouting.fromJson(Map<String, dynamic> json) {
+  factory DrawRouting.fromJson(Map<String, Dyn> json) {
     return DrawRouting(
       type: json["type"],
       features: List<Feature>.from(
@@ -29,10 +30,10 @@ class DrawRouting {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "type": type,
-    "features": List<dynamic>.from(features.map((x) => x.toJson())),
-    "bbox": List<dynamic>.from(bbox.map((x) => x)),
+    "features": List<Dyn>.from(features.map((x) => x.toJson())),
+    "bbox": List<Dyn>.from(bbox.map((x) => x)),
     "metadata": metadata.toJson(),
   };
 }
@@ -50,15 +51,15 @@ class Feature {
   Properties properties;
   Geometry geometry;
 
-  factory Feature.fromJson(Map<String, dynamic> json) => Feature(
+  factory Feature.fromJson(Map<String, Dyn> json) => Feature(
     bbox: List<double>.from(json["bbox"].map((x) => x.toDouble())),
     type: json["type"],
     properties: Properties.fromJson(json["properties"]),
     geometry: Geometry.fromJson(json["geometry"]),
   );
 
-  Map<String, dynamic> toJson() => {
-    "bbox": List<dynamic>.from(bbox.map((x) => x)),
+  Map<String, Dyn> toJson() => {
+    "bbox": List<Dyn>.from(bbox.map((x) => x)),
     "type": type,
     "properties": properties.toJson(),
     "geometry": geometry.toJson(),
@@ -71,7 +72,7 @@ class Geometry {
   List<List<double>> coordinates;
   String type;
 
-  factory Geometry.fromJson(Map<String, dynamic> json) => Geometry(
+  factory Geometry.fromJson(Map<String, Dyn> json) => Geometry(
     coordinates: List<List<double>>.from(
       json["coordinates"].map(
         (x) => List<double>.from(x.map((x) => x.toDouble())),
@@ -80,9 +81,9 @@ class Geometry {
     type: json["type"],
   );
 
-  Map<String, dynamic> toJson() => {
-    "coordinates": List<dynamic>.from(
-      coordinates.map((x) => List<dynamic>.from(x.map((x) => x))),
+  Map<String, Dyn> toJson() => {
+    "coordinates": List<Dyn>.from(
+      coordinates.map((x) => List<Dyn>.from(x.map((x) => x))),
     ),
     "type": type,
   };
@@ -99,7 +100,7 @@ class Properties {
   Summary summary;
   List<num> wayPoints;
 
-  factory Properties.fromJson(Map<String, dynamic> json) => Properties(
+  factory Properties.fromJson(Map<String, Dyn> json) => Properties(
     segments: List<Segment>.from(
       json["segments"].map((x) => Segment.fromJson(x)),
     ),
@@ -107,10 +108,10 @@ class Properties {
     wayPoints: List<int>.from(json["way_points"].map((x) => x)),
   );
 
-  Map<String, dynamic> toJson() => {
-    "segments": List<dynamic>.from(segments.map((x) => x.toJson())),
+  Map<String, Dyn> toJson() => {
+    "segments": List<Dyn>.from(segments.map((x) => x.toJson())),
     "summary": summary.toJson(),
-    "way_points": List<dynamic>.from(wayPoints.map((x) => x)),
+    "way_points": List<Dyn>.from(wayPoints.map((x) => x)),
   };
 }
 
@@ -125,16 +126,16 @@ class Segment {
   num duration;
   List<Step> steps;
 
-  factory Segment.fromJson(Map<String, dynamic> json) => Segment(
+  factory Segment.fromJson(Map<String, Dyn> json) => Segment(
     distance: json["distance"].toDouble(),
     duration: json["duration"],
     steps: List<Step>.from(json["steps"].map((x) => Step.fromJson(x))),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "distance": distance,
     "duration": duration,
-    "steps": List<dynamic>.from(steps.map((x) => x.toJson())),
+    "steps": List<Dyn>.from(steps.map((x) => x.toJson())),
   };
 }
 
@@ -155,7 +156,7 @@ class Step {
   String name;
   List<num> wayPoints;
 
-  factory Step.fromJson(Map<String, dynamic> json) => Step(
+  factory Step.fromJson(Map<String, Dyn> json) => Step(
     distance: json["distance"].toDouble(),
     duration: json["duration"].toDouble(),
     type: json["type"],
@@ -164,13 +165,13 @@ class Step {
     wayPoints: List<int>.from(json["way_points"].map((x) => x)),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "distance": distance,
     "duration": duration,
     "type": type,
     "instruction": instruction,
     "name": name,
-    "way_points": List<dynamic>.from(wayPoints.map((x) => x)),
+    "way_points": List<Dyn>.from(wayPoints.map((x) => x)),
   };
 }
 
@@ -180,12 +181,12 @@ class Summary {
   num distance;
   num duration;
 
-  factory Summary.fromJson(Map<String, dynamic> json) => Summary(
+  factory Summary.fromJson(Map<String, Dyn> json) => Summary(
     distance: json["distance"].toDouble(),
     duration: json["duration"],
   );
 
-  Map<String, dynamic> toJson() => {"distance": distance, "duration": duration};
+  Map<String, Dyn> toJson() => {"distance": distance, "duration": duration};
 }
 
 class Metadata {
@@ -203,7 +204,7 @@ class Metadata {
   Query query;
   Engine engine;
 
-  factory Metadata.fromJson(Map<String, dynamic> json) => Metadata(
+  factory Metadata.fromJson(Map<String, Dyn> json) => Metadata(
     attribution: json["attribution"],
     service: json["service"],
     timestamp: json["timestamp"],
@@ -211,7 +212,7 @@ class Metadata {
     engine: Engine.fromJson(json["engine"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "attribution": attribution,
     "service": service,
     "timestamp": timestamp,
@@ -231,7 +232,7 @@ class Engine {
   DateTime buildDate;
   DateTime graphDate;
 
-  factory Engine.fromJson(Map<String, dynamic> json) => Engine(
+  factory Engine.fromJson(Map<String, Dyn> json) => Engine(
     version: json["version"],
     buildDate:
         DateTime.tryParse(json["build_date"])?.toLocal() ?? DateTime.now(),
@@ -239,7 +240,7 @@ class Engine {
         DateTime.tryParse(json["graph_date"])?.toLocal() ?? DateTime.now(),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "version": version,
     "build_date": buildDate.toIso8601String(),
     "graph_date": graphDate.toIso8601String(),
@@ -257,7 +258,7 @@ class Query {
   String profile;
   String format;
 
-  factory Query.fromJson(Map<String, dynamic> json) => Query(
+  factory Query.fromJson(Map<String, Dyn> json) => Query(
     coordinates: List<List<double>>.from(
       json["coordinates"].map(
         (x) => List<double>.from(x.map((x) => x.toDouble())),
@@ -267,9 +268,9 @@ class Query {
     format: json["format"],
   );
 
-  Map<String, dynamic> toJson() => {
-    "coordinates": List<dynamic>.from(
-      coordinates.map((x) => List<dynamic>.from(x.map((x) => x))),
+  Map<String, Dyn> toJson() => {
+    "coordinates": List<Dyn>.from(
+      coordinates.map((x) => List<Dyn>.from(x.map((x) => x))),
     ),
     "profile": profile,
     "format": format,

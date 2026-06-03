@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/push_data.dart';
 
 import 'package:rokctapp/driver/infrastructure/models/data/product_data.dart';
@@ -7,12 +8,12 @@ class OrderDetailModel {
 
   OrderDetailModel({this.data});
 
-  OrderDetailModel.fromJson(Map<String, dynamic> json) {
+  OrderDetailModel.fromJson(Map<String, Dyn> json) {
     data = json['data'] != null ? OrderDetailData.fromJson(json['data']) : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -37,7 +38,7 @@ class OrderDetailData {
   String? deliveryType;
   num? deliveryFee;
   num? otp;
-  dynamic deliveryman;
+  Dyn deliveryman;
   String? deliveryDate;
   String? deliveryTime;
   String? createdAt;
@@ -51,7 +52,7 @@ class OrderDetailData {
   User? user;
   List<Details>? details;
   Transaction? transaction;
-  dynamic review;
+  Dyn review;
 
   OrderDetailData({
     this.id,
@@ -87,7 +88,7 @@ class OrderDetailData {
     this.review,
   });
 
-  OrderDetailData.fromJson(Map<String, dynamic> json) {
+  OrderDetailData.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     userId = json['user_id'];
     totalPrice = json['total_price'];
@@ -138,8 +139,8 @@ class OrderDetailData {
     review = json['review'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['user_id'] = userId;
     data['service_fee'] = serviceFee;
@@ -190,13 +191,13 @@ class Location {
 
   Location({this.latitude, this.longitude});
 
-  Location.fromJson(Map<String, dynamic> json) {
+  Location.fromJson(Map<String, Dyn> json) {
     latitude = json['latitude'].toString();
     longitude = json['longitude'].toString();
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['latitude'] = latitude;
     data['longitude'] = longitude;
     return data;
@@ -250,7 +251,7 @@ class Shop {
     this.locales,
   });
 
-  Shop.fromJson(Map<String, dynamic> json) {
+  Shop.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     uuid = json['uuid'];
     userId = json['user_id'];
@@ -282,8 +283,8 @@ class Shop {
     locales = json['locales'] != null ? json['locales'].cast<String>() : [];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['uuid'] = uuid;
     data['user_id'] = userId;
@@ -322,14 +323,14 @@ class DeliveryTime {
 
   DeliveryTime({this.to, this.from, this.type});
 
-  DeliveryTime.fromJson(Map<String, dynamic> json) {
+  DeliveryTime.fromJson(Map<String, Dyn> json) {
     to = json['to'].toString();
     from = json['from'].toString();
     type = json['type'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['to'] = to;
     data['from'] = from;
     data['type'] = type;
@@ -352,7 +353,7 @@ class Translation {
     this.address,
   });
 
-  Translation.fromJson(Map<String, dynamic> json) {
+  Translation.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     locale = json['locale'];
     title = json['title'];
@@ -360,8 +361,8 @@ class Translation {
     address = json['address'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['locale'] = locale;
     data['title'] = title;
@@ -379,15 +380,15 @@ class Currency {
 
   Currency({this.id, this.symbol, this.title, this.active});
 
-  Currency.fromJson(Map<String, dynamic> json) {
+  Currency.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     symbol = json['symbol'];
     title = json['title'];
     active = json['active'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['symbol'] = symbol;
     data['title'] = title;
@@ -427,7 +428,7 @@ class User {
     this.registeredAt,
   });
 
-  User.fromJson(Map<String, dynamic> json) {
+  User.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     uuid = json['uuid'];
     firstname = json['firstname'];
@@ -445,8 +446,8 @@ class User {
     registeredAt = json['registered_at'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['uuid'] = uuid;
     data['firstname'] = firstname;
@@ -495,7 +496,7 @@ class Details {
     this.note,
   });
 
-  Details.fromJson(Map<String, dynamic> json) {
+  Details.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     orderId = json['order_id'];
     stockId = json['stock_id'];
@@ -511,8 +512,8 @@ class Details {
     stock = json['stock'] != null ? Stock.fromJson(json['stock']) : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['order_id'] = orderId;
     data['stock_id'] = stockId;
@@ -555,7 +556,7 @@ class Stock {
     this.product,
   });
 
-  Stock.fromJson(Map<String, dynamic> json) {
+  Stock.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     countableId = json['countable_id'];
     price = json['price'];
@@ -573,8 +574,8 @@ class Stock {
         : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['countable_id'] = countableId;
     data['price'] = price;
@@ -600,7 +601,7 @@ class Extras {
 
   Extras({this.id, this.extraGroupId, this.value, this.active, this.group});
 
-  Extras.fromJson(Map<String, dynamic> json) {
+  Extras.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     extraGroupId = json['extra_group_id'];
     value = json['value'];
@@ -608,8 +609,8 @@ class Extras {
     group = json['group'] != null ? Group.fromJson(json['group']) : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['extra_group_id'] = extraGroupId;
     data['value'] = value;
@@ -630,7 +631,7 @@ class Group {
 
   Group({this.id, this.type, this.active, this.translation, this.locales});
 
-  Group.fromJson(Map<String, dynamic> json) {
+  Group.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     type = json['type'];
     active = json['active'];
@@ -639,8 +640,8 @@ class Group {
         : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['type'] = type;
     data['active'] = active;
@@ -694,7 +695,7 @@ class Product {
     this.locales,
   });
 
-  Product.fromJson(Map<String, dynamic> json) {
+  Product.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     uuid = json['uuid'];
     shopId = json['shop_id'];
@@ -717,8 +718,8 @@ class Product {
     unit = json['unit'] != null ? Unit.fromJson(json['unit']) : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['uuid'] = uuid;
     data['shop_id'] = shopId;
@@ -771,7 +772,7 @@ class Transaction {
     this.paymentSystem,
   });
 
-  Transaction.fromJson(Map<String, dynamic> json) {
+  Transaction.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     payableId = json['payable_id'];
     price = json['price'];
@@ -786,8 +787,8 @@ class Transaction {
         : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['payable_id'] = payableId;
     data['price'] = price;
@@ -811,7 +812,7 @@ class PaymentSystem {
 
   PaymentSystem({this.id, this.tag, this.active});
 
-  PaymentSystem.fromJson(Map<String, dynamic> json) {
+  PaymentSystem.fromJson(Map<String, Dyn> json) {
     id = json['id'];
     tag = json['tag'];
     active = json['active'].runtimeType == int
@@ -819,8 +820,8 @@ class PaymentSystem {
         : json['active'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['id'] = id;
     data['tag'] = tag;
     data['active'] = active;

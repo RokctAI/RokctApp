@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -212,7 +213,7 @@ class ProductsRepository implements ProductsInterface {
     String? uuid,
     bool isAddon = false,
   }) async {
-    final List<Map<String, dynamic>> extras = [];
+    final List<Map<String, Dyn>> extras = [];
     for (final stock in stocks) {
       List<int> ids = [];
       List<int> addonsIds = [];

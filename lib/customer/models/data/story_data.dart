@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 
 List<List<StoryModel?>?>? storyModelFromJson(dynamic str) => str == null
@@ -13,10 +14,10 @@ List<List<StoryModel?>?>? storyModelFromJson(dynamic str) => str == null
 String storyModelToJson(List<List<StoryModel?>?>? data) => json.encode(
   data == null
       ? []
-      : List<dynamic>.from(
+      : List<Dyn>.from(
           data.map(
             (x) =>
-                x == null ? [] : List<dynamic>.from(x.map((x) => x!.toJson())),
+                x == null ? [] : List<Dyn>.from(x.map((x) => x!.toJson())),
           ),
         ),
 );
@@ -42,7 +43,7 @@ class StoryModel {
   DateTime? createdAt;
   DateTime? updatedAt;
 
-  factory StoryModel.fromJson(Map<String, dynamic> json) {
+  factory StoryModel.fromJson(Map<String, Dyn> json) {
     return StoryModel(
       shopId: json["shop_id"],
       logoImg: json["logo_img"],
@@ -55,7 +56,7 @@ class StoryModel {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "shop_id": shopId,
     "logo_img": logoImg,
     "title": title,

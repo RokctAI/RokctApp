@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/local_location.dart';
 
 class LocalAddressData {
@@ -63,7 +64,7 @@ class LocalAddressData {
 
   bool? get isSelected => _isSelected;
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     'address': _address,
     'location': '${_location?.latitude},${_location?.longitude}',
     'active': 1,

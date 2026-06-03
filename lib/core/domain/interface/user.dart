@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:rokctapp/customer/models/models.dart';
 import 'package:rokctapp/core/infrastructure/models/request/edit_profile.dart';
@@ -20,20 +21,20 @@ abstract class UserRepositoryFacade {
 
   Future<ApiResult<BlogData>> getSingleBlog(String uuid);
 
-  Future<ApiResult<dynamic>> saveLocation({required AddressNewModel? address});
+  Future<ApiResult<Dyn>> saveLocation({required AddressNewModel? address});
 
-  Future<ApiResult<dynamic>> updateLocation({
+  Future<ApiResult<Dyn>> updateLocation({
     required AddressNewModel? address,
     required int? addressId,
   });
 
-  Future<ApiResult<dynamic>> setActiveAddress({required int id});
+  Future<ApiResult<Dyn>> setActiveAddress({required int id});
 
-  Future<ApiResult<dynamic>> deleteAddress({required int id});
+  Future<ApiResult<Dyn>> deleteAddress({required int id});
 
-  Future<ApiResult<dynamic>> deleteAccount();
+  Future<ApiResult<Dyn>> deleteAccount();
 
-  Future<ApiResult<dynamic>> logoutAccount({required String fcm});
+  Future<ApiResult<Dyn>> logoutAccount({required String fcm});
 
   Future<ApiResult<ProfileResponse>> editProfile({required EditProfile? user});
 

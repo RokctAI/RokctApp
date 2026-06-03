@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -47,7 +48,7 @@ class _CreateShopPageState extends ConsumerState<ManagerCreateShopPage> {
   late TextEditingController startPrice;
   late TextEditingController pricePerKm;
   final GlobalKey<FormState> form = GlobalKey<FormState>();
-  dynamic addressData;
+  Dyn addressData;
 
   final List<String> deliveryTypes = ["minute", "day", "month"];
   String selectedDeliveryType = "minute";

@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/galleries.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/kitchen_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
@@ -258,8 +259,8 @@ class ProductData {
 
   bool? get isSelectedAddon => _isSelectedAddon;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['shop_id'] = _shopId;
@@ -371,8 +372,8 @@ class ProductDiscounts {
 
   ProductPivot? get pivot => _pivot;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['shop_id'] = _shopId;
     map['type'] = _type;
@@ -411,8 +412,8 @@ class ProductPivot {
 
   int? get discountId => _discountId;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['product_id'] = _productId;
     map['discount_id'] = _discountId;
     return map;

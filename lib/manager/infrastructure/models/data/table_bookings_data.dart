@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class TableBookingData {
   int? id;
   int? bookingId;
@@ -47,7 +48,7 @@ class TableBookingData {
     table: table ?? this.table,
   );
   factory TableBookingData.fromJson(
-    Map<String, dynamic> json,
+    Map<String, Dyn> json,
   ) => TableBookingData(
     id: json["id"],
     bookingId: json["booking_id"],
@@ -61,7 +62,7 @@ class TableBookingData {
     table: json["table"] == null ? null : Table.fromJson(json["table"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "booking_id": bookingId,
     "user_id": userId,
@@ -81,10 +82,10 @@ class Booking {
 
   Booking({required this.id, required this.maxTime});
 
-  factory Booking.fromJson(Map<String, dynamic> json) =>
+  factory Booking.fromJson(Map<String, Dyn> json) =>
       Booking(id: json["id"], maxTime: json["max_time"]);
 
-  Map<String, dynamic> toJson() => {"id": id, "max_time": maxTime};
+  Map<String, Dyn> toJson() => {"id": id, "max_time": maxTime};
 }
 
 class Table {
@@ -102,7 +103,7 @@ class Table {
     required this.active,
   });
 
-  factory Table.fromJson(Map<String, dynamic> json) => Table(
+  factory Table.fromJson(Map<String, Dyn> json) => Table(
     id: json["id"],
     name: json["name"],
     shopSectionId: json["shop_section_id"],
@@ -110,7 +111,7 @@ class Table {
     active: json["active"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "name": name,
     "shop_section_id": shopSectionId,
@@ -171,7 +172,7 @@ class User {
     img: json["img"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "uuid": uuid,
     "firstname": firstname,
@@ -186,19 +187,19 @@ class User {
 class Links {
   String first;
   String last;
-  dynamic prev;
-  dynamic next;
+  Dyn prev;
+  Dyn next;
 
   Links({required this.first, required this.last, this.prev, this.next});
 
-  factory Links.fromJson(Map<String, dynamic> json) => Links(
+  factory Links.fromJson(Map<String, Dyn> json) => Links(
     first: json["first"],
     last: json["last"],
     prev: json["prev"],
     next: json["next"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "first": first,
     "last": last,
     "prev": prev,
@@ -227,7 +228,7 @@ class Meta {
     required this.total,
   });
 
-  factory Meta.fromJson(Map<String, dynamic> json) => Meta(
+  factory Meta.fromJson(Map<String, Dyn> json) => Meta(
     currentPage: json["current_page"],
     from: json["from"],
     lastPage: json["last_page"],
@@ -238,11 +239,11 @@ class Meta {
     total: json["total"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "current_page": currentPage,
     "from": from,
     "last_page": lastPage,
-    "links": List<dynamic>.from(links.map((x) => x.toJson())),
+    "links": List<Dyn>.from(links.map((x) => x.toJson())),
     "path": path,
     "per_page": perPage,
     "to": to,
@@ -257,10 +258,10 @@ class Link {
 
   Link({this.url, required this.label, required this.active});
 
-  factory Link.fromJson(Map<String, dynamic> json) =>
+  factory Link.fromJson(Map<String, Dyn> json) =>
       Link(url: json["url"], label: json["label"], active: json["active"]);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "url": url,
     "label": label,
     "active": active,

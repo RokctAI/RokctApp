@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 // Trace ID propagation context
 import 'package:rokctapp/core/domain/handlers/http_service.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
@@ -35,7 +36,7 @@ class BackgroundSyncService {
   Future<void> enqueueRequest(
     String url,
     String method,
-    Map<String, dynamic> payload,
+    Map<String, Dyn> payload,
   ) async {
     final uuid = const Uuid().v4();
     final companion = SyncQueueTableCompanion.insert(

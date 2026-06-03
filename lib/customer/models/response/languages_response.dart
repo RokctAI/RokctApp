@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/models/data/language.dart';
 export 'package:rokctapp/core/infrastructure/models/data/language.dart';
 
@@ -51,8 +52,8 @@ class LanguagesResponse {
 
   List<LanguageData>? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;

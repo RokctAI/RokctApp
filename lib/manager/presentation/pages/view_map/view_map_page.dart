@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -54,7 +55,7 @@ class _ViewMapPageState extends ConsumerState<ManagerViewMapPage> {
   final GeolocatorPlatform _geolocatorPlatform = GeolocatorPlatform.instance;
   GoogleMapController? googleMapController;
   CameraPosition? cameraPosition;
-  dynamic check;
+  Dyn check;
   late LatLng latLng;
 
   @override

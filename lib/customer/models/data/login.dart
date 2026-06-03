@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
 class LoginModel {
@@ -6,8 +7,8 @@ class LoginModel {
 
   LoginModel({required this.email, required this.password});
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     AppValidators.isValidEmail(email ?? "")
         ? (map['email'] = email)
         : (map['phone'] = email);

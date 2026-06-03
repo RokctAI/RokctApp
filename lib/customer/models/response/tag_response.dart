@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/customer/models/data/take_data.dart';
 
 class TagResponse {
@@ -35,7 +36,7 @@ class PriceModel {
   String message;
   PriceRangeData data;
 
-  factory PriceModel.fromJson(Map<String, dynamic> json) => PriceModel(
+  factory PriceModel.fromJson(Map<String, Dyn> json) => PriceModel(
     timestamp:
         DateTime.tryParse(json["timestamp"])?.toLocal() ?? DateTime.now(),
     status: json["status"],
@@ -43,7 +44,7 @@ class PriceModel {
     data: PriceRangeData.fromJson(json["data"]),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "timestamp": timestamp.toIso8601String(),
     "status": status,
     "message": message,
@@ -57,10 +58,10 @@ class PriceRangeData {
   double min;
   double max;
 
-  factory PriceRangeData.fromJson(Map<String, dynamic> json) => PriceRangeData(
+  factory PriceRangeData.fromJson(Map<String, Dyn> json) => PriceRangeData(
     min: double.tryParse(json["min"].toString()) ?? 1,
     max: double.tryParse(json["max"].toString()) ?? 100,
   );
 
-  Map<String, dynamic> toJson() => {"min": min, "max": max};
+  Map<String, Dyn> toJson() => {"min": min, "max": max};
 }

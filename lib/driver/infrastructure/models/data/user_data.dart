@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/address_data.dart';
 import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
@@ -191,8 +192,8 @@ class UserData {
 
   String? get conPassword => _confirmPassword;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['firstname'] = _firstname;
@@ -203,8 +204,8 @@ class UserData {
     map['gender'] = _gender;
     map['delivery_man_delivery_zone'] = _deliveryZone == null
         ? []
-        : List<dynamic>.from(
-            _deliveryZone!.map((x) => List<dynamic>.from(x.map((x) => x))),
+        : List<Dyn>.from(
+            _deliveryZone!.map((x) => List<Dyn>.from(x.map((x) => x))),
           );
     map["assign_reviews_avg_rating"] = _rate;
     map['email_verified_at'] = _emailVerifiedAt;
@@ -305,8 +306,8 @@ class Wallet {
 
   CurrencyData? get currency => _currency;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['uuid'] = _uuid;
     map['user_id'] = _userId;
     map['currency_id'] = _currencyId;

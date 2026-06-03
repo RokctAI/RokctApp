@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'dart:convert';
 
 class RepeatData {
@@ -38,7 +39,7 @@ class RepeatData {
 
   String toRawJson() => json.encode(toJson());
 
-  factory RepeatData.fromJson(Map<String, dynamic> json) => RepeatData(
+  factory RepeatData.fromJson(Map<String, Dyn> json) => RepeatData(
     id: json["id"],
     orderId: json["order_id"],
     from: json["from"],
@@ -47,7 +48,7 @@ class RepeatData {
     updatedAt: json["updated_at"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Dyn> toJson() => {
     "id": id,
     "order_id": orderId,
     "from": from,

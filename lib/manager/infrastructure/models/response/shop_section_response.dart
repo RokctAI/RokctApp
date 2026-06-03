@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/table_data.dart';
 
 class ShopSectionResponse {
@@ -5,7 +6,7 @@ class ShopSectionResponse {
 
   ShopSectionResponse({this.data});
 
-  ShopSectionResponse.fromJson(Map<String, dynamic> json) {
+  ShopSectionResponse.fromJson(Map<String, Dyn> json) {
     if (json['data'] != null) {
       data = <ShopSection>[];
       json['data'].forEach((v) {
@@ -14,8 +15,8 @@ class ShopSectionResponse {
     }
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }

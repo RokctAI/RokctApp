@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class CurrencyData {
   CurrencyData({
     int? id,
@@ -75,8 +76,8 @@ class CurrencyData {
 
   String? get position => _position;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['symbol'] = _symbol;
     map['title'] = _title;

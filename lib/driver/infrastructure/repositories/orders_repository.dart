@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -173,7 +174,7 @@ class OrdersRepository implements DriverOrdersRepository {
   }
 
   @override
-  Future<ApiResult<dynamic>> setCurrentOrder(int? orderId) async {
+  Future<ApiResult<Dyn>> setCurrentOrder(int? orderId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -209,7 +210,7 @@ class OrdersRepository implements DriverOrdersRepository {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateOrder(int? orderId, String? status) async {
+  Future<ApiResult<Dyn>> updateOrder(int? orderId, String? status) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -227,7 +228,7 @@ class OrdersRepository implements DriverOrdersRepository {
   }
 
   @override
-  Future<ApiResult<dynamic>> uploadImage(int? orderId, String? image) async {
+  Future<ApiResult<Dyn>> uploadImage(int? orderId, String? image) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(

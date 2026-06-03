@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/table_bookings_data.dart';
 import 'dart:convert';
 import 'dart:io';
@@ -63,7 +64,7 @@ class AppDatabase extends _$AppDatabase {
           final products = await select(productsTable).get();
           for (final product in products) {
             try {
-              final Map<String, dynamic> data = jsonDecode(product.data);
+              final Map<String, Dyn> data = jsonDecode(product.data);
               await (update(
                 productsTable,
               )..where((t) => t.id.equals(product.id))).write(
@@ -116,7 +117,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   // Generic getter to abstract out Drift Tables
-  TableInfo<Table, dynamic> getTable(String boxName) {
+  TableInfo<Table, Dyn> getTable(String boxName) {
     switch (boxName) {
       case 'products':
         return productsTable;
@@ -149,7 +150,7 @@ class AppDatabase extends _$AppDatabase {
   Future<void> putItem(
     String boxName,
     String key,
-    Map<String, dynamic> json,
+    Map<String, Dyn> json,
   ) async {
     final table = getTable(boxName);
     final dataString = jsonEncode(json);
@@ -160,7 +161,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   /// Get an item as Map by key.
-  Future<Map<String, dynamic>?> getItem(String boxName, String key) async {
+  Future<Map<String, Dyn>?> getItem(String boxName, String key) async {
     final table = getTable(boxName);
 
     final query = select(table)
@@ -172,17 +173,17 @@ class AppDatabase extends _$AppDatabase {
     if (result == null) return null;
 
     final dataString = _dataColumn(result);
-    return jsonDecode(dataString) as Map<String, dynamic>;
+    return jsonDecode(dataString) as Map<String, Dyn>;
   }
 
   /// Get all items from a box as a list of Maps.
-  Future<List<Map<String, dynamic>>> getAll(String boxName) async {
+  Future<List<Map<String, Dyn>>> getAll(String boxName) async {
     final table = getTable(boxName);
 
     final results = await select(table).get();
     return results.map((result) {
       final dataString = _dataColumn(result);
-      return jsonDecode(dataString) as Map<String, dynamic>;
+      return jsonDecode(dataString) as Map<String, Dyn>;
     }).toList();
   }
 
@@ -209,7 +210,7 @@ class AppDatabase extends _$AppDatabase {
   Future<int> enqueueSyncRequest({
     required String url,
     required String method,
-    required Map<String, dynamic> payload,
+    required Map<String, Dyn> payload,
   }) {
     return insertSyncRequest(
       SyncQueueTableCompanion.insert(
@@ -297,7 +298,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   /// High-quality upsert that flattens data on the fly
-  Future<void> upsertProduct(Map<String, dynamic> json) async {
+  Future<void> upsertProduct(Map<String, Dyn> json) async {
     final id = json['uuid'] ?? json['id']?.toString() ?? '';
     if (id.isEmpty) return;
 
@@ -317,25 +318,25 @@ class AppDatabase extends _$AppDatabase {
 
   // ─── High-Quality Category Helpers ───
 
-  Future<void> upsertCategory(Map<String, dynamic> json) async {
+  Future<void> upsertCategory(Map<String, Dyn> json) async {
     final id = json['name'] ?? json['id']?.toString() ?? '';
     if (id.isEmpty) return;
     await putItem('categories', id, json);
   }
 
-  Future<List<Map<String, dynamic>>> getCategoriesLocally() async {
+  Future<List<Map<String, Dyn>>> getCategoriesLocally() async {
     return getAll('categories');
   }
 
   // ─── High-Quality Shop Helpers ───
 
-  Future<void> upsertShop(Map<String, dynamic> json) async {
+  Future<void> upsertShop(Map<String, Dyn> json) async {
     final id = json['id']?.toString() ?? json['uuid'] ?? '';
     if (id.isEmpty) return;
     await putItem('shop', id, json);
   }
 
-  Future<List<Map<String, dynamic>>> getShopsLocally({
+  Future<List<Map<String, Dyn>>> getShopsLocally({
     String? categoryId,
   }) async {
     final allShops = await getAll('shop');
@@ -349,13 +350,13 @@ class AppDatabase extends _$AppDatabase {
 
   // ─── High-Quality Banner Helpers ───
 
-  Future<void> upsertBanner(Map<String, dynamic> json) async {
+  Future<void> upsertBanner(Map<String, Dyn> json) async {
     final id = json['name'] ?? json['id']?.toString() ?? '';
     if (id.isEmpty) return;
     await putItem('banners', id, json);
   }
 
-  Future<List<Map<String, dynamic>>> getBannersLocally() async {
+  Future<List<Map<String, Dyn>>> getBannersLocally() async {
     return getAll('banners');
   }
 
@@ -372,7 +373,7 @@ class AppDatabase extends _$AppDatabase {
     return query.get();
   }
 
-  Future<void> upsertOrder(Map<String, dynamic> json) async {
+  Future<void> upsertOrder(Map<String, Dyn> json) async {
     final id = json['id']?.toString() ?? json['uuid'] ?? '';
     if (id.isEmpty) return;
 
@@ -412,7 +413,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   // Helper methods to dynamically extract fields and create companions
-  Insertable<dynamic> _createInsertable(
+  Insertable<Dyn> _createInsertable(
     String boxName,
     String id,
     String data,
@@ -458,7 +459,7 @@ class AppDatabase extends _$AppDatabase {
     }
   }
 
-  Expression<String> _idColumn(TableInfo<Table, dynamic> table) {
+  Expression<String> _idColumn(TableInfo<Table, Dyn> table) {
     if (table is $ProductsTableTable) return table.id;
     if (table is $OrdersTableTable) return table.id;
     if (table is $ShopTableTable) return table.id;
@@ -486,7 +487,7 @@ class AppDatabase extends _$AppDatabase {
 
   // ─── High-Quality Notification Helpers ───
 
-  Future<void> upsertNotification(Map<String, dynamic> json) async {
+  Future<void> upsertNotification(Map<String, Dyn> json) async {
     final int id =
         int.tryParse(
           json['notification_id']?.toString() ?? json['id']?.toString() ?? '0',
@@ -512,7 +513,7 @@ class AppDatabase extends _$AppDatabase {
 
   // ─── User Helpers ───
 
-  Future<void> upsertUser(Map<String, dynamic> json, {String? password}) async {
+  Future<void> upsertUser(Map<String, Dyn> json, {String? password}) async {
     final id = json['uuid'] ?? json['id']?.toString() ?? '';
     if (id.isEmpty) return;
 

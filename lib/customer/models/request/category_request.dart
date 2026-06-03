@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
@@ -7,8 +8,8 @@ class CategoryModel {
 
   CategoryModel({required this.page});
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
     map["page"] = page;
     map["type"] = "shop";
@@ -26,8 +27,8 @@ class CategoryModel {
     return map;
   }
 
-  Map<String, dynamic> toJsonShop() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJsonShop() {
+    final map = <String, Dyn>{};
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
     map["perPage"] = 100;
     return map;

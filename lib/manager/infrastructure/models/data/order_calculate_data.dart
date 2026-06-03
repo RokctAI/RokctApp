@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
 
 class OrderCalculate {
@@ -7,7 +8,7 @@ class OrderCalculate {
 
   OrderCalculate({this.status, this.code, this.data});
 
-  OrderCalculate.fromJson(Map<String, dynamic> json) {
+  OrderCalculate.fromJson(Map<String, Dyn> json) {
     status = json['status'];
     code = json['code'];
     data = json['data'] != null
@@ -15,8 +16,8 @@ class OrderCalculate {
         : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     data['status'] = status;
     data['code'] = code;
     if (this.data != null) {
@@ -51,7 +52,7 @@ class OrderCalculateDetail {
     this.couponPrice,
   });
 
-  OrderCalculateDetail.fromJson(Map<String, dynamic> json) {
+  OrderCalculateDetail.fromJson(Map<String, Dyn> json) {
     totalTax = json['total_tax'];
     price = json['price'];
     totalShopTax = json['total_shop_tax'];
@@ -66,8 +67,8 @@ class OrderCalculateDetail {
         : List<Stock>.from(json["stocks"]!.map((x) => Stock.fromJson(x)));
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final Map<String, Dyn> data = <String, Dyn>{};
     if (stocks != null) {
       data['stocks'] = stocks!.map((v) => v.toJson()).toList();
     }

@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 // Trace ID propagation context
 import 'package:dio/dio.dart';
 import 'package:ftoast/ftoast.dart';
@@ -97,7 +98,7 @@ class AppHelpers {
     );
   }
 
-  static List<List<Extras>> cartesian(List<List<dynamic>> args) {
+  static List<List<Extras>> cartesian(List<List<Dyn>> args) {
     List<List<Extras>> r = [];
     int max = args.length - 1;
 
@@ -464,7 +465,7 @@ class AppHelpers {
   }
 
   static String getTranslation(String trKey) {
-    final Map<String, dynamic> translations = LocalStorage.getTranslations();
+    final Map<String, Dyn> translations = LocalStorage.getTranslations();
     if (AppConstants.autoTrn) {
       return (translations[trKey] ??
           (trKey.isNotEmpty

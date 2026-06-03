@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 // Trace ID propagation context
 import 'dart:convert';
 import 'package:rokctapp/core/infrastructure/models/data/language.dart';
@@ -67,10 +68,10 @@ class LocalStorage {
       CoreLocalStorage.getSettingsList();
 
   static Future<void> setTranslations(
-    Map<String, dynamic>? translations,
+    Map<String, Dyn>? translations,
   ) async => CoreLocalStorage.setTranslations(translations);
 
-  static Map<String, dynamic> getTranslations({String? locale}) =>
+  static Map<String, Dyn> getTranslations({String? locale}) =>
       CoreLocalStorage.getTranslations(locale: locale);
 
   static Future<void> setAppThemeMode(bool isDarkMode) async {

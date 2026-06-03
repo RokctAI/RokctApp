@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
@@ -65,7 +66,7 @@ class TableRepository extends TableInterface {
   }
 
   @override
-  Future<ApiResult<dynamic>> createNewTable({
+  Future<ApiResult<Dyn>> createNewTable({
     required TableModel tableModel,
   }) async {
     try {
@@ -246,7 +247,7 @@ class TableRepository extends TableInterface {
   }
 
   @override
-  Future<ApiResult<dynamic>> setBookings({
+  Future<ApiResult<Dyn>> setBookings({
     int? bookingId,
     int? tableId,
     DateTime? startDate,

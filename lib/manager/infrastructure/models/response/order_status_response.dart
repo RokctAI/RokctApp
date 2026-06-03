@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class OrderStatusResponse {
   OrderStatusResponse({OrderStatusData? data}) {
     _data = data;
@@ -16,8 +17,8 @@ class OrderStatusResponse {
 
   OrderStatusData? get data => _data;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     if (_data != null) {
       map['data'] = _data?.toJson();
     }
@@ -102,8 +103,8 @@ class OrderStatusData {
 
   String? get deliveryTime => _deliveryTime;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['shop_id'] = _shopId;
     map['delivery_fee'] = _deliveryFee;

@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 import 'package:rokctapp/driver/infrastructure/services/local_storage.dart';
 
 class SearchProductModel {
@@ -6,8 +7,8 @@ class SearchProductModel {
 
   SearchProductModel({required this.text, required this.page});
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map["search"] = text;
     map["perPage"] = 10;
     map["page"] = page;

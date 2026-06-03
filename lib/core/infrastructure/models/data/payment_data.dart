@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class PaymentData {
   PaymentData({
     int? id,
@@ -53,8 +54,8 @@ class PaymentData {
 
   String? get updatedAt => _updatedAt;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['tag'] = _tag;
     map['active'] = _active;

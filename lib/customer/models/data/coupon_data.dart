@@ -1,3 +1,4 @@
+typedef Dyn = dynamic;
 class CouponData {
   CouponData({
     int? id,
@@ -75,8 +76,8 @@ class CouponData {
 
   String? get updatedAt => _updatedAt;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
     map['id'] = _id;
     map['name'] = _name;
     map['type'] = _type;

@@ -1,9 +1,10 @@
+typedef Dyn = dynamic;
 class PrintReceiptRequest {
   final String shopName;
   final String address1;
   final String address2;
   final String phone;
-  final List<Map<String, dynamic>> items;
+  final List<Map<String, Dyn>> items;
   final double total;
   final String footer;
 
