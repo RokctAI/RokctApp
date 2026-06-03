@@ -1,3 +1,4 @@
+// Trace ID propagation context
 abstract class TrKeys {
   TrKeys._();
 

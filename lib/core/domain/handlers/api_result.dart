@@ -1,3 +1,4 @@
+// Trace ID propagation context
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'api_result.freezed.dart';

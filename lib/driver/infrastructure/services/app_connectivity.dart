@@ -1,3 +1,4 @@
+// Trace ID propagation context
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 class AppConnectivity {
