@@ -14,7 +14,7 @@ This documentation provides a comprehensive guide for App Links (Deep Links) imp
 8. [Testing](#testing)
 9. [Best Practices](#best-practices)
 
-## 🔍 Overview
+## Overview
 
 App Links is a technology that allows users to be directed directly to specific pages of the application. In the Foodyman app, this functionality is implemented using the `app_links` package.
 
@@ -25,7 +25,7 @@ App Links is a technology that allows users to be directed directly to specific 
 - ✅ Category link support
 - ✅ Legacy link format processing
 
-## 🛠 Technical Requirements
+## Technical Requirements
 
 ### Dependencies
 ```yaml
@@ -38,7 +38,7 @@ dependencies:
 - Flutter: 3.32.0+
 - Dart SDK: >=3.8.0 <4.0.0
 
-## 📱 Platform Configuration
+## Platform Configuration
 
 ### Android Configuration
 
@@ -97,7 +97,7 @@ dependencies:
 </array>
 ```
 
-## 💻 Code Implementation
+## Code Implementation
 
 ### Main Service File: `app_links_service.dart`
 
@@ -163,10 +163,10 @@ void initState() {
 }
 ```
 
-## 🔗 Supported Link Types
+## Supported Link Types
 
 ### 1. Group Order Links
-```
+```text
 https://your-domain.com/shop/123?group=cart_id&owner_id=456
 https://your-domain.com/restaurant/123?g=cart_id&o=456
 ```
@@ -177,7 +177,7 @@ https://your-domain.com/restaurant/123?g=cart_id&o=456
 - Activate group order functionality
 
 ### 2. Shop Links
-```
+```text
 https://your-domain.com/shop/123
 https://your-domain.com/restaurant/123
 https://your-domain.com/shop/123?product=product_id
@@ -189,7 +189,7 @@ https://your-domain.com/shop/123?product=product_id
 - Display specific shop
 
 ### 3. Product Links
-```
+```text
 https://your-domain.com/?product_id=123&shop_id=456
 ```
 
@@ -199,7 +199,7 @@ https://your-domain.com/?product_id=123&shop_id=456
 - Pass shop and product information
 
 ### 4. Category Links
-```
+```text
 https://your-domain.com/?category_id=123&shop_id=456
 ```
 
@@ -208,7 +208,7 @@ https://your-domain.com/?category_id=123&shop_id=456
 - Display specific category
 
 ### 5. Legacy Links
-```
+```text
 https://your-domain.com/?shop_id=123
 ```
 
@@ -216,7 +216,7 @@ https://your-domain.com/?shop_id=123
 - Support old format links
 - Convert to new format
 
-## 📝 Usage Examples
+## Usage Examples
 
 ### 1. Creating Deep Links
 
@@ -281,7 +281,7 @@ static void _handleDeepLink(BuildContext context, Uri uri) {
 }
 ```
 
-## ⚠️ Error Handling
+## Error Handling
 
 ### Common Issues
 
@@ -319,7 +319,7 @@ log("Error getting initial app link: $e");
 log("Error listening to app links: $err");
 ```
 
-## 🧪 Testing
+## Testing
 
 ### 1. Android Testing
 
@@ -352,7 +352,7 @@ test('should create correct deep link', () {
 });
 ```
 
-## 🎯 Best Practices
+## Best Practices
 
 ### 1. Link Structure
 
@@ -378,7 +378,7 @@ test('should create correct deep link', () {
 - **Fallback**: provide alternative when link fails
 - **Analytics**: collect link usage statistics
 
-## 📊 Monitoring and Analytics
+## Monitoring and Analytics
 
 ### Link Usage Statistics
 
@@ -408,7 +408,7 @@ try {
 }
 ```
 
-## 🔄 Future Improvements
+## Future Improvements
 
 1. **Universal Links** (iOS) and **App Links** (Android) full support
 2. **Dynamic Link** functionality restoration
@@ -416,7 +416,7 @@ try {
 4. **Deep link analytics** dashboard
 5. **Link shortening** service integration
 
-## 📞 Help and Support
+## Help and Support
 
 If you have questions or issues:
 

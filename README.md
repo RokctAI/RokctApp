@@ -13,13 +13,13 @@ Foodyman is a multi restaurant marketplace.
 ## Default Setup
 Run an existing flutter project on IDE
 
-#### Change App Logo
+### Change App Logo
 
 You can generate app icon using this website https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
 * Then go to /android/app/src/main/resand replace all mipmap folder with your /android folder
 *  Again go to /ios/Runner and replace Assets.xcassets with your generated Assets.xcassets folder
 
-#### Change App Name
+### Change App Name
 
 1. Change the value of label from/android/app/src/main/AndroidManifest.xml
  `android:label="My App"`
