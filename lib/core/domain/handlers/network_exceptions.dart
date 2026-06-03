@@ -78,11 +78,9 @@ sealed class NetworkExceptions with _$NetworkExceptions {
             case DioExceptionType.sendTimeout:
               break;
             case DioExceptionType.badCertificate:
-              // TODO: Handle this case.
-              break;
+              return const NetworkExceptions.unauthorisedRequest();
             case DioExceptionType.connectionError:
-              // TODO: Handle this case.
-              break;
+              return const NetworkExceptions.noInternetConnection();
           }
         } else if (error is SocketException) {
         } else {}
@@ -156,10 +154,10 @@ sealed class NetworkExceptions with _$NetworkExceptions {
               status = 500;
               break;
             case DioExceptionType.badCertificate:
-              // TODO: Handle this case.
+              status = 401;
               break;
             case DioExceptionType.connectionError:
-              // TODO: Handle this case.
+              status = 503;
               break;
           }
         } else if (error is SocketException) {
