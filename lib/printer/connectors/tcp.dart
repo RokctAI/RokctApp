@@ -13,8 +13,60 @@ class TcpConnector {
   Socket? _socket;
 
   Future<List<PrinterDevice>> discover() async {
-    // TODO: Implement TCP discovery logic
-    return [];
+    final List<PrinterDevice> devices = [];
+    try {
+      final interfaces = await NetworkInterface.list(
+        includeLinkLocal: false,
+        type: InternetAddressType.IPv4,
+      );
+
+      final List<String> subnets = [];
+      for (final interface in interfaces) {
+        for (final address in interface.addresses) {
+          final ip = address.address;
+          final parts = ip.split('.');
+          if (parts.length == 4) {
+            // Ignore localhost
+            if (parts[0] == '127') continue;
+            final subnet = '${parts[0]}.${parts[1]}.${parts[2]}';
+            if (!subnets.contains(subnet)) {
+              subnets.add(subnet);
+            }
+          }
+        }
+      }
+
+      final List<Future<void>> scans = [];
+      for (final subnet in subnets) {
+        for (int i = 1; i < 255; i++) {
+          final ip = '$subnet.$i';
+          scans.add(() async {
+            try {
+              final socket = await Socket.connect(
+                ip,
+                9100,
+                timeout: const Duration(milliseconds: 400),
+              );
+              socket.destroy();
+              devices.add(
+                PrinterDevice(
+                  name: 'Network Printer ($ip)',
+                  address: ip,
+                  type: PrinterType.tcp,
+                ),
+              );
+            } catch (_) {
+              // Port is closed or host is unreachable
+            }
+          }());
+        }
+      }
+
+      await Future.wait(scans);
+    } catch (e) {
+      debugPrint('==> TCP discovery failure: $e');
+    }
+    return devices;
   }
 
   Future<bool> connect(String ipAddress, {int port = 9100}) async {
