@@ -8,7 +8,7 @@ import 'package:rokctapp/customer/models/data/get_calculate_data.dart';
 
 abstract class OrdersInterface {
   Future<ApiResult<GetCalculateModel>> getCalculate({
-    required int cartId,
+    required String cartId,
     required double lat,
     required double long,
     required DeliveryTypeEnum type,
@@ -17,48 +17,60 @@ abstract class OrdersInterface {
 
   Future<ApiResult<OrderActiveModel>> createOrder(OrderBodyData orderBody);
 
-  Future<ApiResult> createAutoOrder(String from, String to, int orderId);
+  Future<ApiResult> createAutoOrder({
+    required String orderId,
+    required String startDate,
+    String? endDate,
+    String? cronPattern,
+    String? paymentMethod,
+    String? savedCardId,
+  });
 
-  Future<ApiResult> deleteAutoOrder(int orderId);
+  Future<ApiResult> deleteAutoOrder(String orderId);
 
   Future<ApiResult<OrderPaginateResponse>> getCompletedOrders(int page);
 
   Future<ApiResult<OrderPaginateResponse>> getActiveOrders(int page);
 
-  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page);
+  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page, {
+    DateTime? start,
+    DateTime? end,
+    List<String>? status,
+  });
 
   Future<ApiResult<RefundOrdersModel>> getRefundOrders(int page);
 
-  Future<ApiResult<OrderActiveModel>> getSingleOrder(num orderId);
+  Future<ApiResult<OrderActiveModel>> getSingleOrder(String orderId);
 
-  Future<ApiResult<LocalLocation>> getDriverLocation(int deliveryId);
+  Future<ApiResult<LocalLocation>> getDriverLocation(String deliveryId);
 
-  Future<ApiResult<void>> cancelOrder(num orderId);
+  Future<ApiResult<void>> cancelOrder(String orderId, [String? note]);
 
-  Future<ApiResult<void>> refundOrder(num orderId, String title);
+  Future<ApiResult<void>> refundOrder(String orderId, String title);
 
   Future<ApiResult<void>> addReview(
-    num orderId, {
+    dynamic orderId, {
     required double rating,
     required String comment,
   });
 
-  Future<ApiResult<String>> process(OrderBodyData orderBody, String name);
+  Future<ApiResult<String>> process(OrderBodyData orderBody, String name, {
+    bool forceCardPayment,
+    bool enableTokenization,
+  });
 
-  Future<ApiResult<String>> tipProcess(
-    int? orderId,
-    String paymentName,
-    int? paymentId,
-    num? tips,
-  );
+  Future<ApiResult<String>> tipProcess({
+    required String orderId,
+    required double tip,
+  });
 
   Future<ApiResult<CouponResponse>> checkCoupon({
     required String coupon,
-    required int shopId,
+    required String shopId,
   });
 
   Future<ApiResult<CashbackResponse>> checkCashback({
     required double amount,
-    required int shopId,
+    required String shopId,
   });
 }

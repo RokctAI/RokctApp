@@ -51,6 +51,7 @@ import 'package:rokctapp/customer/repository/user_repository.dart'
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:rokctapp/core/infrastructure/utils/app_database.dart';
 
 // Driver Interfaces
 import 'package:rokctapp/driver/domain/interface/notification.dart'
@@ -235,6 +236,9 @@ Future<void> setUpDependencies() async {
 }
 
 // Global variable accessors
+
+// Database (singleton, accessible to all repositories)
+final appDatabase = AppDatabase();
 
 // Core
 final dioHttp = getIt.get<HttpService>();

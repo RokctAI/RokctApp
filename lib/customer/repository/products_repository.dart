@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/domain/interface/products.dart';
@@ -12,17 +13,46 @@ class ProductsRepository implements ProductsRepositoryFacade {
     required String text,
     int? page,
   }) async {
-    final data = SearchProductModel(text: text, page: page ?? 1);
+    final params = {
+      'search': text,
+      if (page != null) 'page': page,
+      'limit_page_length': 10,
+    };
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/rest/products/paginate',
-        queryParameters: data.toJson(),
+        '/api/v1/method/paas.api.product.product.search_products',
+        queryParameters: params,
       );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ProductsPaginateResponse.fromJson(response.data);
+
+      // Cache locally on success
+      if (responseData.data != null) {
+        for (final product in responseData.data!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
+      debugPrint('==> searchProducts failure: $e');
+
+      // Offline fallback: search local DB
+      try {
+        final localProducts = await appDatabase.searchProducts(query: text);
+        if (localProducts.isNotEmpty) {
+          return ApiResult.success(
+            data: ProductsPaginateResponse(
+              data: localProducts
+                  .map((e) => ProductData.fromJson(jsonDecode(e.data)))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local search fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -34,51 +64,37 @@ class ProductsRepository implements ProductsRepositoryFacade {
   Future<ApiResult<SingleProductResponse>> getProductDetails(
     String uuid,
   ) async {
-    final data = {
-      if (LocalStorage.getSelectedCurrency() != null)
-        'currency_id': LocalStorage.getSelectedCurrency()?.id,
-      'lang': LocalStorage.getLanguage()?.locale,
-    };
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/rest/products/$uuid',
-        queryParameters: data,
+        '/api/v1/method/paas.api.product.product.get_product_by_uuid',
+        queryParameters: {'uuid': uuid},
       );
-      return ApiResult.success(
-        data: SingleProductResponse.fromJson(response.data),
-      );
-    } catch (e) {
-      debugPrint('==> get product details failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
-  }
+      final responseData = SingleProductResponse.fromJson(response.data);
 
-  @override
-  Future<ApiResult<ProductsPaginateResponse>> getProductsByCategoryPaginate({
-    String? shopId,
-    required int page,
-    required int categoryId,
-  }) async {
-    final data = ProductRequest(
-      shopId: shopId!,
-      page: page,
-      categoryId: categoryId,
-    );
-    try {
-      final client = dioHttp.client(requireAuth: false);
-      final response = await client.get(
-        '/api/v1/rest/products/paginate',
-        queryParameters: data.toJsonByCategory(),
-      );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      // Cache locally
+      if (responseData.data != null) {
+        await appDatabase.upsertProduct(responseData.data!.toJson());
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
-      debugPrint('==> getProductsByCategoryPaginate id failure: $e');
+      debugPrint('==> getProductDetails failure: $e');
+
+      // Offline fallback
+      try {
+        final local = await appDatabase.searchProducts(query: uuid);
+        if (local.isNotEmpty) {
+          return ApiResult.success(
+            data: SingleProductResponse(
+              data: ProductData.fromJson(jsonDecode(local.first.data)),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local details fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -89,20 +105,56 @@ class ProductsRepository implements ProductsRepositoryFacade {
   @override
   Future<ApiResult<ProductsPaginateResponse>> getProductsPaginate({
     String? shopId,
-    required int page,
+    String? categoryId,
+    String? brandId,
+    int? page,
+    String? orderBy,
   }) async {
-    final data = ProductRequest(shopId: shopId!, page: page);
+    final params = {
+      'limit_page_length': 10,
+      if (page != null) 'page': page,
+      if (shopId != null) 'shop_id': shopId,
+      if (categoryId != null) 'category_id': categoryId,
+      if (brandId != null) 'brand_id': brandId,
+      if (orderBy != null) 'order_by': orderBy,
+    };
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/rest/products/paginate',
-        queryParameters: data.toJson(),
+        '/api/v1/method/paas.api.product.product.get_products',
+        queryParameters: params,
       );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ProductsPaginateResponse.fromJson(response.data);
+
+      // Cache locally
+      if (responseData.data != null) {
+        for (final product in responseData.data!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> getProductsPaginate failure: $e');
+
+      // Offline fallback
+      try {
+        final localProducts = await appDatabase.searchProducts(
+          categoryId: categoryId,
+        );
+        if (localProducts.isNotEmpty) {
+          return ApiResult.success(
+            data: ProductsPaginateResponse(
+              data: localProducts
+                  .map((e) => ProductData.fromJson(jsonDecode(e.data)))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local pagination fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -117,60 +169,37 @@ class ProductsRepository implements ProductsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/rest/shops/$shopId/products',
-        queryParameters: {
-          "lang": LocalStorage.getLanguage()?.locale,
-          "currency_id": LocalStorage.getSelectedCurrency()?.id,
-        },
+        '/api/v1/method/paas.api.product.product.get_products',
+        queryParameters: {'shop_id': shopId, 'limit_page_length': 100},
       );
-      return ApiResult.success(
-        data: AllProductsResponse.fromJson(response.data),
-      );
+      final responseData = AllProductsResponse.fromJson(response.data);
+
+      // Cache locally
+      if (responseData.data != null && responseData.data!.recommended != null) {
+        for (final product in responseData.data!.recommended!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e, s) {
       debugPrint('==> getAllProducts failure: $e, $s');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
-  }
 
-  @override
-  Future<ApiResult<ProductsPaginateResponse>>
-  getProductsShopByCategoryPaginate({
-    String? shopId,
-    List<int>? brands,
-    int? sortIndex,
-    required int page,
-    required int categoryId,
-  }) async {
-    final Map<String, Dyn> data = {
-      "shop_id": shopId,
-      "lang": LocalStorage.getLanguage()?.locale ?? "en",
-      if (LocalStorage.getSelectedCurrency() != null)
-        "currency_id": LocalStorage.getSelectedCurrency()?.id,
-      "page": page,
-      "status": "published",
-      "category_id": categoryId,
-      "perPage": 6,
-      if (sortIndex != 0 && sortIndex != null)
-        "column": sortIndex == 1 ? "price_asc" : "price_desc",
-      if (brands?.isNotEmpty ?? false)
-        for (int i = 0; i < (brands?.length ?? 0); i++)
-          'brand_ids[$i]': brands?[i],
-    };
+      // Offline fallback
+      try {
+        final localProducts = await appDatabase.searchProducts(query: shopId);
+        if (localProducts.isNotEmpty) {
+          final products = localProducts
+              .map((e) => ProductData.fromJson(jsonDecode(e.data)))
+              .toList();
+          return ApiResult.success(
+            data: AllProductsResponse(data: products as dynamic),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local all products fallback failure: $localError');
+      }
 
-    try {
-      final client = dioHttp.client(requireAuth: false);
-      final response = await client.get(
-        '/api/v1/rest/shops/$shopId/products/paginate',
-        queryParameters: data,
-      );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
-    } catch (e) {
-      debugPrint('==> getProductsByCategoryPaginate id failure: $e');
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -183,50 +212,90 @@ class ProductsRepository implements ProductsRepositoryFacade {
     String? shopId,
     required int page,
   }) async {
-    final data = ProductRequest(shopId: shopId!, page: page);
-    try {
-      final client = dioHttp.client(requireAuth: false);
-      final response = await client.get(
-        '/api/v1/rest/shops/$shopId/products/recommended/paginate',
-        queryParameters: data.toJsonPopular(),
-      );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
-    } catch (e) {
-      debugPrint('==> getProductsPopularPaginate failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
+    return getProductsPaginate(
+      shopId: shopId,
+      page: page,
+      orderBy: 'rating',
+    );
+  }
+
+  @override
+  Future<ApiResult<ProductsPaginateResponse>> getProductsByCategoryPaginate({
+    String? shopId,
+    required int page,
+    required String categoryId,
+  }) async {
+    return getProductsPaginate(
+      shopId: shopId,
+      categoryId: categoryId,
+      page: page,
+    );
+  }
+
+  @override
+  Future<ApiResult<ProductsPaginateResponse>> getProductsShopByCategoryPaginate({
+    String? shopId,
+    List<String>? brands,
+    int? sortIndex,
+    required int page,
+    required String categoryId,
+  }) async {
+    return getProductsPaginate(
+      shopId: shopId,
+      categoryId: categoryId,
+      page: page,
+    );
   }
 
   @override
   Future<ApiResult<ProductsPaginateResponse>> getMostSoldProducts({
-    int? shopId,
-    int? categoryId,
-    int? brandId,
+    String? shopId,
+    String? categoryId,
+    String? brandId,
   }) async {
-    final data = {
+    final params = {
+      'limit_page_length': 14,
       if (shopId != null) 'shop_id': shopId,
       if (categoryId != null) 'category_id': categoryId,
       if (brandId != null) 'brand_id': brandId,
-      if (LocalStorage.getSelectedCurrency() != null)
-        'currency_id': LocalStorage.getSelectedCurrency()?.id,
-      'lang': LocalStorage.getLanguage()?.locale,
     };
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/rest/products/most-sold',
-        queryParameters: data,
+        '/api/v1/method/paas.api.product.product.most_sold_products',
+        queryParameters: params,
       );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ProductsPaginateResponse.fromJson(response.data);
+
+      // Cache locally
+      if (responseData.data != null) {
+        for (final product in responseData.data!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
-      debugPrint('==> get most sold products failure: $e');
+      debugPrint('==> getMostSoldProducts failure: $e');
+
+      // Offline fallback
+      try {
+        final localProducts = await appDatabase.searchProducts(
+          categoryId: categoryId,
+        );
+        if (localProducts.isNotEmpty) {
+          return ApiResult.success(
+            data: ProductsPaginateResponse(
+              data: localProducts
+                  .map((e) => ProductData.fromJson(jsonDecode(e.data)))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local most sold fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -236,87 +305,50 @@ class ProductsRepository implements ProductsRepositoryFacade {
 
   @override
   Future<ApiResult<ProductsPaginateResponse>> getRelatedProducts(
-    int? brandId,
-    int? shopId,
-    int? categoryId,
+    String? brandId,
+    String? shopId,
+    String? categoryId,
   ) async {
-    final data = {
-      'brand_id': brandId,
-      'shop_id': shopId,
-      'category_id': categoryId,
-      "status": "published",
-      'lang': LocalStorage.getLanguage()?.locale,
-    };
-    try {
-      final client = dioHttp.client(requireAuth: false);
-      final response = await client.get(
-        '/api/v1/rest/products/paginate',
-        queryParameters: data,
-      );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
-    } catch (e) {
-      debugPrint('==> getRelatedProduct failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
+    return getProductsPaginate(
+      shopId: shopId,
+      brandId: brandId,
+      categoryId: categoryId,
+      page: 1,
+    );
   }
 
   @override
   Future<ApiResult<ProductCalculateResponse>> getProductCalculations(
-    int stockId,
+    String stockId,
     int quantity,
   ) async {
-    final data = {
-      if (LocalStorage.getSelectedCurrency() != null)
-        'currency_id': LocalStorage.getSelectedCurrency()?.id,
-      'products[0][id]': stockId,
-      'products[0][quantity]': quantity,
-    };
-    try {
-      final client = dioHttp.client(requireAuth: false);
-      final response = await client.get(
-        '/api/v1/rest/products/calculate',
-        queryParameters: data,
-      );
-      return ApiResult.success(
-        data: ProductCalculateResponse.fromJson(response.data),
-      );
-    } catch (e) {
-      debugPrint('==> get product calculations failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
+    return getAllCalculations([
+      CartProductData(
+        selectedStock: Stocks(id: stockId),
+        quantity: quantity,
+      ),
+    ]);
   }
 
   @override
   Future<ApiResult<ProductCalculateResponse>> getAllCalculations(
     List<CartProductData> cartProducts,
   ) async {
-    final data = {
-      if (LocalStorage.getSelectedCurrency() != null)
-        'currency_id': LocalStorage.getSelectedCurrency()?.id,
-    };
-    for (int i = 0; i < cartProducts.length; i++) {
-      data['products[$i][id]'] = cartProducts[i].selectedStock?.id;
-      data['products[$i][quantity]'] = cartProducts[i].quantity;
-    }
+    final products = cartProducts
+        .map((p) => {'product_id': p.selectedStock?.id, 'quantity': p.quantity})
+        .toList();
+
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get(
-        '/api/v1/rest/products/calculate',
-        queryParameters: data,
+      final response = await client.post(
+        '/api/v1/method/paas.api.product.product.order_products_calculate',
+        data: {'products': products},
       );
       return ApiResult.success(
         data: ProductCalculateResponse.fromJson(response.data),
       );
     } catch (e) {
-      debugPrint('==> get all calculations failure: $e');
+      debugPrint('==> getAllCalculations failure: $e');
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -326,27 +358,45 @@ class ProductsRepository implements ProductsRepositoryFacade {
 
   @override
   Future<ApiResult<ProductsPaginateResponse>> getProductsByIds(
-    List<int> ids,
+    List<String> ids,
   ) async {
-    final data = {
-      if (LocalStorage.getSelectedCurrency() != null)
-        'currency_id': LocalStorage.getSelectedCurrency()?.id,
-      'lang': LocalStorage.getLanguage()?.locale,
-    };
-    for (int i = 0; i < ids.length; i++) {
-      data['products[$i]'] = ids[i];
-    }
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/rest/products/ids',
-        queryParameters: data,
+        '/api/v1/method/paas.api.product.product.get_products_by_ids',
+        queryParameters: {'ids': ids},
       );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ProductsPaginateResponse.fromJson(response.data);
+
+      // Cache locally
+      if (responseData.data != null) {
+        for (final product in responseData.data!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
-      debugPrint('==> get products by ids failure: $e');
+      debugPrint('==> getProductsByIds failure: $e');
+
+      // Offline fallback: fetch each by ID from local DB
+      try {
+        final List<ProductData> locals = [];
+        for (final id in ids) {
+          final local = await appDatabase.searchProducts(query: id);
+          if (local.isNotEmpty) {
+            locals.add(ProductData.fromJson(jsonDecode(local.first.data)));
+          }
+        }
+        if (locals.isNotEmpty) {
+          return ApiResult.success(
+            data: ProductsPaginateResponse(data: locals),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local batch fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -362,20 +412,32 @@ class ProductsRepository implements ProductsRepositoryFacade {
     String? imageUrl,
   ) async {
     final data = {
+      'uuid': productUuid,
       'rating': rating,
-      if (comment != "") 'comment': comment,
-      if (imageUrl != null) 'images': [imageUrl],
+      if (comment.isNotEmpty) 'comment': comment,
     };
-    debugPrint('===> add review data: $data');
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/rest/products/review/$productUuid',
+        '/api/v1/method/paas.api.product.product.add_product_review',
         data: data,
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      debugPrint('==> add review failure: $e');
+      debugPrint('==> addReview failure: $e');
+
+      // Sync queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/v1/method/paas.api.product.product.add_product_review',
+          method: 'POST',
+          payload: data,
+        );
+        return const ApiResult.success(data: null);
+      } catch (localError) {
+        debugPrint('==> local review queue failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -385,70 +447,71 @@ class ProductsRepository implements ProductsRepositoryFacade {
 
   @override
   Future<ApiResult<ProductsPaginateResponse>> getNewProducts({
-    int? shopId,
-    int? brandId,
-    int? categoryId,
+    String? shopId,
+    String? brandId,
+    String? categoryId,
     int? page,
   }) async {
-    final data = {
-      if (shopId != null) 'shop_id': shopId,
-      if (brandId != null) 'brand_id': brandId,
-      if (categoryId != null) 'category_id': categoryId,
-      if (page != null) 'page': page,
-      'sort': 'desc',
-      'column': 'created_at',
-      if (LocalStorage.getSelectedCurrency() != null)
-        'currency_id': LocalStorage.getSelectedCurrency()?.id,
-      'perPage': 14,
-      "status": "published",
-      'lang': LocalStorage.getLanguage()?.locale,
-    };
-    try {
-      final client = dioHttp.client(requireAuth: false);
-      final response = await client.get(
-        '/api/v1/rest/products/paginate',
-        queryParameters: data,
-      );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
-    } catch (e) {
-      debugPrint('==> get new products failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
+    return getProductsPaginate(
+      shopId: shopId,
+      brandId: brandId,
+      categoryId: categoryId,
+      page: page,
+      orderBy: 'created_at',
+    );
   }
 
   @override
   Future<ApiResult<ProductsPaginateResponse>> getDiscountProducts({
-    int? shopId,
-    int? brandId,
-    int? categoryId,
+    String? shopId,
+    String? brandId,
+    String? categoryId,
     int? page,
   }) async {
-    final data = {
+    final params = {
+      'limit_start': ((page ?? 1) - 1) * 14,
+      'limit_page_length': 14,
       if (shopId != null) 'shop_id': shopId,
-      if (brandId != null) 'brand_id': brandId,
       if (categoryId != null) 'category_id': categoryId,
-      if (page != null) 'page': page,
-      if (LocalStorage.getSelectedCurrency() != null)
-        'currency_id': LocalStorage.getSelectedCurrency()?.id,
-      'perPage': 14,
-      'lang': LocalStorage.getLanguage()?.locale,
+      if (brandId != null) 'brand_id': brandId,
     };
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/rest/products/discount',
-        queryParameters: data,
+        '/api/v1/method/paas.api.product.product.get_discounted_products',
+        queryParameters: params,
       );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ProductsPaginateResponse.fromJson(response.data);
+
+      // Cache locally
+      if (responseData.data != null) {
+        for (final product in responseData.data!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
-      debugPrint('==> get discount products failure: $e');
+      debugPrint('==> getDiscountProducts failure: $e');
+
+      // Offline fallback
+      try {
+        final localProducts = await appDatabase.searchProducts(
+          categoryId: categoryId,
+        );
+        if (localProducts.isNotEmpty) {
+          return ApiResult.success(
+            data: ProductsPaginateResponse(
+              data: localProducts
+                  .map((e) => ProductData.fromJson(jsonDecode(e.data)))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local discount fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -458,36 +521,16 @@ class ProductsRepository implements ProductsRepositoryFacade {
 
   @override
   Future<ApiResult<ProductsPaginateResponse>> getProfitableProducts({
-    int? brandId,
-    int? categoryId,
+    String? brandId,
+    String? categoryId,
     int? page,
   }) async {
-    final data = {
-      if (brandId != null) 'brand_id': brandId,
-      if (categoryId != null) 'category_id': categoryId,
-      if (page != null) 'page': page,
-      'profitable': true,
-      if (LocalStorage.getSelectedCurrency() != null)
-        'currency_id': LocalStorage.getSelectedCurrency()?.id,
-      'perPage': 14,
-      'lang': LocalStorage.getLanguage()?.locale,
-    };
-    try {
-      final client = dioHttp.client(requireAuth: false);
-      final response = await client.get(
-        '/api/v1/rest/products/discount',
-        queryParameters: data,
-      );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
-    } catch (e) {
-      debugPrint('==> get profitable products failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
+    return getProductsPaginate(
+      brandId: brandId,
+      categoryId: categoryId,
+      page: page,
+      orderBy: 'discount',
+    );
   }
 }
 
