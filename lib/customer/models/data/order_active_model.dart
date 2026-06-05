@@ -273,6 +273,64 @@ class OrderActiveModel {
     ponumHistories: ponumHistories ?? this.ponumHistories,
     orderStatusesData: orderStatusesData ?? this.orderStatusesData,
   );
+
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
+    map['id'] = id;
+    map['user_id'] = userId;
+    map['image_after_delivered'] = afterDeliveredImage;
+    map['total_price'] = totalPrice;
+    map['origin_price'] = originPrice;
+    map['coupon'] = coupon != null ? {'price': coupon} : null;
+    map['rate'] = rate;
+    map['tax'] = tax;
+    map['tips'] = tips;
+    if (currencyModel != null) {
+      map['currency'] = currencyModel?.toJson();
+    }
+    map['commission_fee'] = commissionFee;
+    map['status'] = status;
+    if (location != null) {
+      map['location'] = location?.toJson();
+    }
+    if (address != null) {
+      map['address'] = address?.toJson();
+    }
+    map['delivery_type'] = deliveryType;
+    map['delivery_fee'] = deliveryFee;
+    map['km'] = km;
+    map['minute'] = minute;
+    map['otp'] = otp;
+    if (deliveryMan != null) {
+      map['deliveryman'] = deliveryMan?.toJson();
+    }
+    if (orderStatusesData != null) {
+      map['data'] = orderStatusesData?.toJson();
+    }
+    map['delivery_date'] = deliveryDate?.toIso8601String();
+    map['delivery_time'] = deliveryTime;
+    map['total_discount'] = totalDiscount;
+    map['service_fee'] = serviceFee;
+    map['created_at'] = createdAt?.toIso8601String();
+    map['updated_at'] = updatedAt?.toIso8601String();
+    if (shop != null) {
+      map['shop'] = shop?.toJson();
+    }
+    if (repeat != null) {
+      map['repeat'] = repeat?.toJson();
+    }
+    if (user != null) {
+      map['user'] = user?.toJson();
+    }
+    if (details != null) {
+      map['details'] = details?.map((x) => x.toJson()).toList();
+    }
+    if (transaction != null) {
+      map['transaction'] = transaction?.toJson();
+    }
+    map['review'] = review;
+    return map;
+  }
 }
 
 class OrderProduct {

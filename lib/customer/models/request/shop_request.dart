@@ -11,7 +11,7 @@ class ShopRequest {
   final String? rating;
   final List<double>? price;
   final String? orderBy;
-  final int? categoryId;
+  final String? categoryId;
   final bool? verify;
 
   ShopRequest({

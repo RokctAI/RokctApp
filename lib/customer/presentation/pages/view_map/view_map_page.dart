@@ -33,7 +33,7 @@ class ViewMapPage extends ConsumerStatefulWidget {
   final bool isPop;
   final bool isParcel;
   final bool isSelectLocation;
-  final int? shopId;
+  final String? shopId;
   final int? indexAddress;
   final AddressNewModel? address;
 

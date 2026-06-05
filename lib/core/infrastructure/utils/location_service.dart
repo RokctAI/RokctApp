@@ -1,7 +1,6 @@
-// Trace ID propagation context
 import 'package:flutter/material.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/core/infrastructure/utils/app_helpers.dart';
+import 'package:rokctapp/core/infrastructure/constants/tr_keys.dart';
 import 'package:geolocator/geolocator.dart';
 
 class LocationService {
@@ -13,7 +12,6 @@ class LocationService {
     if (!serviceEnabled) {
       if (context.mounted) {
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(TrKeys.agreeLocation),
         );
@@ -28,7 +26,6 @@ class LocationService {
         if (context.mounted) {
           AppHelpers.showCheckTopSnackBar(
             context,
-            context,
             AppHelpers.getTranslation(TrKeys.agreeLocation),
           );
         }
@@ -39,7 +36,6 @@ class LocationService {
     if (permission == LocationPermission.deniedForever) {
       if (context.mounted) {
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(TrKeys.agreeLocation),
         );

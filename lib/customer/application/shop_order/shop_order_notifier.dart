@@ -52,7 +52,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
       List<CartRequest> list = [
         CartRequest(
           stockId:
-              state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? 0,
+              state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? "",
           quantity:
               state.cart?.userCarts?.first.cartDetails?[index].quantity ?? 1,
         ),
@@ -64,15 +64,15 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
             stockId: element.stocks?.id,
             quantity: element.quantity,
             parentId:
-                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? 0,
+                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? "",
           ),
         );
       }
       final response = await cartRepository.insertCart(
         cart: CartRequest(
-          shopId: state.cart?.shopId ?? 0,
+          shopId: state.cart?.shopId ?? "",
           stockId:
-              state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? 0,
+              state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? "",
           quantity:
               state.cart?.userCarts?.first.cartDetails?[index].quantity ?? 1,
           carts: list,
@@ -119,7 +119,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
         List<CartRequest> list = [
           CartRequest(
             stockId:
-                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? 0,
+                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? "",
             quantity:
                 state.cart?.userCarts?.first.cartDetails?[index].quantity ?? 1,
           ),
@@ -132,15 +132,15 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
               quantity: element.quantity,
               parentId:
                   state.cart?.userCarts?.first.cartDetails?[index].stock?.id ??
-                  0,
+                  "",
             ),
           );
         }
         final response = await cartRepository.insertCart(
           cart: CartRequest(
-            shopId: state.cart?.shopId ?? 0,
+            shopId: state.cart?.shopId ?? "",
             stockId:
-                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? 0,
+                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? "",
             quantity:
                 state.cart?.userCarts?.first.cartDetails?[index].quantity ?? 1,
             carts: list,
@@ -259,7 +259,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
                     .cartDetails?[productIndex]
                     .stock
                     ?.id ??
-                0,
+                "",
             quantity:
                 state
                     .cart
@@ -287,7 +287,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
                       .cartDetails?[productIndex]
                       .stock
                       ?.id ??
-                  0,
+                  "",
             ),
           );
         }
@@ -295,7 +295,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
           cart: CartRequest(
             cartId: state.cart?.id.toString(),
             userUuid: state.cart?.userCarts?[userIndex].uuid,
-            shopId: state.cart?.shopId ?? 0,
+            shopId: state.cart?.shopId ?? "",
             stockId:
                 state
                     .cart
@@ -303,7 +303,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
                     .cartDetails?[productIndex]
                     .stock
                     ?.id ??
-                0,
+                "",
             quantity:
                 state
                     .cart
@@ -380,7 +380,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
                       .cartDetails?[productIndex]
                       .stock
                       ?.id ??
-                  0,
+                  "",
               quantity:
                   state
                       .cart
@@ -408,7 +408,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
                         .cartDetails?[productIndex]
                         .stock
                         ?.id ??
-                    0,
+                    "",
               ),
             );
           }
@@ -416,7 +416,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
             cart: CartRequest(
               cartId: state.cart?.id.toString(),
               userUuid: state.cart?.userCarts?[userIndex].uuid,
-              shopId: state.cart?.shopId ?? 0,
+              shopId: state.cart?.shopId ?? "",
               stockId:
                   state
                       .cart
@@ -424,7 +424,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
                       .cartDetails?[productIndex]
                       .stock
                       ?.id ??
-                  0,
+                  "",
               quantity:
                   state
                       .cart
@@ -703,7 +703,7 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
     }
   }
 
-  void createCart(BuildContext context, int shopId) async {
+  void createCart(BuildContext context, String? shopId) async {
     state = state.copyWith(isCheckShopOrder: false, isOtherShop: false);
     final connected = await AppConnectivity.connectivity();
     if (connected) {

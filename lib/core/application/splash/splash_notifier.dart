@@ -1,10 +1,12 @@
+import 'dart:io' show Platform;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:uuid/uuid.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import 'package:rokctapp/core/application/splash/splash_state.dart';
 
@@ -20,6 +22,41 @@ class SplashNotifier extends Notifier<SplashState> {
   }) async {
     final connect = await AppConnectivity.connectivity();
     if (connect) {
+      String visitorUuid = LocalStorage.getVisitorUuid();
+      if (visitorUuid.isEmpty) {
+        visitorUuid = const Uuid().v4();
+        await LocalStorage.setVisitorUuid(visitorUuid);
+      }
+
+      // Collect telemetry metadata
+      String? appVersion;
+      try {
+        final packageInfo = await PackageInfo.fromPlatform();
+        appVersion = "${packageInfo.version} (${packageInfo.buildNumber})";
+      } catch (e) {
+        debugPrint("==> failed to fetch package info: $e");
+      }
+
+      String? os;
+      String? osVersion;
+      try {
+        os = Platform.operatingSystem;
+        osVersion = Platform.operatingSystemVersion;
+      } catch (e) {
+        debugPrint("==> failed to fetch platform info: $e");
+      }
+
+      final String? userId = LocalStorage.getUser()?.id?.toString();
+
+      // Report unique visit asynchronously (fire-and-forget telemetry)
+      settingsRepository.recordUniqueVisit(
+        visitorUuid,
+        userId: userId,
+        appVersion: appVersion,
+        os: os,
+        osVersion: osVersion,
+      );
+
       if (LocalStorage.getSettingsFetched()) {
         final response = await settingsRepository.getGlobalSettings();
         response.when(

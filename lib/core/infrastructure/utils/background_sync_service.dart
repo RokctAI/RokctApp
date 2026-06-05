@@ -1,15 +1,15 @@
 // Trace ID propagation context
 import 'package:rokctapp/core/domain/handlers/http_service.dart';
-import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
+import 'package:rokctapp/customer/models/data/profile_data.dart';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:drift/drift.dart';
 import 'package:uuid/uuid.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/infrastructure/utils/app_database.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
 
 class BackgroundSyncService {
   final AppDatabase database;

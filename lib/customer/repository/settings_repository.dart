@@ -166,4 +166,55 @@ class SettingsRepository implements SettingsRepositoryFacade {
       );
     }
   }
+
+  @override
+  Future<ApiResult<void>> recordUniqueVisit(
+    String visitorId, {
+    String? userId,
+    String? appVersion,
+    String? os,
+    String? osVersion,
+  }) async {
+    try {
+      final client = dioHttp.client(requireAuth: false);
+      await client.post(
+        '/api/method/rcore.tenant.api.record_unique_visit',
+        data: {
+          'visitor_id': visitorId,
+          if (userId != null && userId.isNotEmpty) 'user_id': userId,
+          if (appVersion != null) 'app_version': appVersion,
+          if (os != null) 'os': os,
+          if (osVersion != null) 'os_version': osVersion,
+        },
+      );
+      return const ApiResult.success(data: null);
+    } catch (e) {
+      debugPrint('==> record unique visit failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult<void>> reportClientError(String title, String error) async {
+    try {
+      final client = dioHttp.client(requireAuth: false);
+      await client.post(
+        '/api/method/rcore.tenant.api.report_client_error',
+        data: {
+          'title': title,
+          'error': error,
+        },
+      );
+      return const ApiResult.success(data: null);
+    } catch (e) {
+      debugPrint('==> report client error failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
 }

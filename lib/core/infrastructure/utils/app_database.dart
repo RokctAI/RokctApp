@@ -1,7 +1,8 @@
-import 'package:rokctapp/manager/infrastructure/models/data/table_bookings_data.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/table_bookings_data.dart' hide Table;
 import 'dart:convert';
 import 'dart:io';
-import 'package:drift/drift.dart';
+import 'package:drift/drift.dart' as drift;
+import 'package:drift/drift.dart' hide Table;
 import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
@@ -116,7 +117,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   // Generic getter to abstract out Drift Tables
-  TableInfo<Table, Dyn> getTable(String boxName) {
+  TableInfo<drift.Table, Dyn> getTable(String boxName) {
     switch (boxName) {
       case 'products':
         return productsTable;
@@ -452,7 +453,7 @@ class AppDatabase extends _$AppDatabase {
     }
   }
 
-  Expression<String> _idColumn(TableInfo<Table, Dyn> table) {
+  Expression<String> _idColumn(TableInfo<drift.Table, Dyn> table) {
     if (table is $ProductsTableTable) return table.id;
     if (table is $OrdersTableTable) return table.id;
     if (table is $ShopTableTable) return table.id;

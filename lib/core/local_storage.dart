@@ -170,4 +170,12 @@ abstract class CoreLocalStorage {
       preferences?.getString(StorageKeys.keyVisitorUuid) ?? '';
 
   static void deleteVisitorUuid() => preferences?.remove(StorageKeys.keyVisitorUuid);
+
+  // Guest mode tracking
+  static Future<void> setIsGuest(bool isGuest) async {
+    await preferences?.setBool(StorageKeys.keyIsGuest, isGuest);
+  }
+
+  static bool getIsGuest() =>
+      preferences?.getBool(StorageKeys.keyIsGuest) ?? true;
 }

@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -96,6 +97,31 @@ void main() async {
 
   await LocalStorage.init();
   setUpDependencies();
+
+  // Global Exception Handlers reporting to the Tenant backend
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    try {
+      settingsRepository.reportClientError(
+        "Flutter Uncaught Error: ${details.exception}",
+        details.stack.toString(),
+      );
+    } catch (e) {
+      debugPrint("==> failed to report Flutter error: $e");
+    }
+  };
+
+  PlatformDispatcher.instance.onError = (Object error, StackTrace stack) {
+    try {
+      settingsRepository.reportClientError(
+        "Platform Uncaught Error: $error",
+        stack.toString(),
+      );
+    } catch (e) {
+      debugPrint("==> failed to report Platform error: $e");
+    }
+    return true;
+  };
 
   // Initialize Background Tasks
   await Workmanager().initialize(callbackDispatcher);

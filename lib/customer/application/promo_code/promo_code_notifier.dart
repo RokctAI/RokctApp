@@ -17,7 +17,7 @@ class PromoCodeNotifier extends Notifier<PromoCodeState> {
   Future<void> checkPromoCode(
     BuildContext context,
     String promoCode,
-    int shopId,
+    String shopId,
   ) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {

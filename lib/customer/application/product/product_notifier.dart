@@ -28,7 +28,7 @@ class ProductNotifier extends Notifier<ProductState> {
     BuildContext context,
     ProductData productData,
     String? shopType,
-    int? shopId,
+    String? shopId,
   ) async {
     final List<Stocks> stocks = productData.stocks ?? <Stocks>[];
     state = state.copyWith(
@@ -58,7 +58,7 @@ class ProductNotifier extends Notifier<ProductState> {
     BuildContext context,
     String productId,
     String? shopType,
-    int? shopId, {
+    String? shopId, {
     bool isLoading = true,
   }) async {
     final connected = await AppConnectivity.connectivity();
@@ -130,9 +130,9 @@ class ProductNotifier extends Notifier<ProductState> {
 
   void createCart(
     BuildContext context,
-    int shopId,
+    String? shopId,
     VoidCallback onSuccess, {
-    int? stockId,
+    String? stockId,
     int? count,
     VoidCallback? onError,
     bool isGroupOrder = false,
@@ -146,7 +146,7 @@ class ProductNotifier extends Notifier<ProductState> {
         state = state.copyWith(isAddLoading: true);
         List<CartRequest> list = [
           CartRequest(
-            stockId: stockId ?? state.selectedStock?.id ?? 0,
+            stockId: stockId ?? state.selectedStock?.id ?? "",
             quantity: count ?? state.count,
           ),
         ];
@@ -155,25 +155,25 @@ class ProductNotifier extends Notifier<ProductState> {
             CartRequest(
               stockId: element.product?.stock?.id,
               quantity: (element.active ?? false) ? element.quantity : 0,
-              parentId: stockId ?? state.selectedStock?.id ?? 0,
+              parentId: stockId ?? state.selectedStock?.id ?? "",
             ),
           );
         }
         final response = isGroupOrder
             ? await cartRepository.insertCartWithGroup(
                 cart: CartRequest(
-                  shopId: state.productData?.shopId ?? 0,
+                  shopId: state.productData?.shopId?.toString() ?? "",
                   cartId: cartId,
                   userUuid: userUuid,
-                  stockId: stockId ?? state.selectedStock?.id ?? 0,
+                  stockId: stockId ?? state.selectedStock?.id ?? "",
                   quantity: count ?? state.count,
                   carts: list,
                 ),
               )
             : await cartRepository.insertCart(
                 cart: CartRequest(
-                  shopId: state.productData?.shopId ?? 0,
-                  stockId: stockId ?? state.selectedStock?.id ?? 0,
+                  shopId: state.productData?.shopId?.toString() ?? "",
+                  stockId: stockId ?? state.selectedStock?.id ?? "",
                   quantity: count ?? state.count,
                   carts: list,
                 ),
@@ -386,7 +386,7 @@ class ProductNotifier extends Notifier<ProductState> {
     state = state.copyWith(activeImageUrl: url);
   }
 
-  Future<void> generateShareLink(String? shopType, int? shopId) async {
+  Future<void> generateShareLink(String? shopType, String? shopId) async {
     shareLink = AppLinksService.createDeepLink(
       path: 'shop/$shopId',
       parameters: {'product': state.productData?.uuid ?? ''},

@@ -1,11 +1,11 @@
 import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
 
 class CartRequest {
-  final int? shopId;
+  final String? shopId;
   final String? cartId;
   final String? userUuid;
-  final int? stockId;
-  final int? parentId;
+  final String? stockId;
+  final String? parentId;
   final int? quantity;
   final List<CartRequest>? carts;
 
@@ -28,7 +28,7 @@ class CartRequest {
     if (parentId != null) map["parent_id"] = parentId;
     if (quantity != null) map["quantity"] = quantity;
     map["rate"] = LocalStorage.getSelectedCurrency()?.rate ?? 1;
-    map["currency_id"] = LocalStorage.getSelectedCurrency()?.id ?? 0;
+    map["currency_id"] = LocalStorage.getSelectedCurrency()?.id ?? "";
     return map;
   }
 
@@ -37,7 +37,7 @@ class CartRequest {
     if (shopId != null) map["shop_id"] = shopId;
     map["lang"] = LocalStorage.getLanguage()?.locale;
     map["rate"] = LocalStorage.getSelectedCurrency()?.rate ?? 1;
-    map["currency_id"] = LocalStorage.getSelectedCurrency()?.id ?? 0;
+    map["currency_id"] = LocalStorage.getSelectedCurrency()?.id ?? "";
     if (cartId != null) map["cart_id"] = cartId;
     if (userUuid != null) map["user_cart_uuid"] = userUuid;
     if (carts != null) map["products"] = toJsonCart();

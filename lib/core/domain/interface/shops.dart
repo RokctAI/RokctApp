@@ -4,16 +4,16 @@ import 'package:rokctapp/customer/models/models.dart';
 
 abstract class ShopsRepositoryFacade {
   Future<ApiResult<ShopsPaginateResponse>> getShopFilter({
-    int? categoryId,
+    String? categoryId,
     required int page,
-    int? subCategoryId,
+    String? subCategoryId,
   });
 
   Future<ApiResult<ShopsPaginateResponse>> getPickupShops();
 
   Future<ApiResult<ShopsPaginateResponse>> searchShops({
     required String text,
-    int? categoryId,
+    String? categoryId,
   });
 
   Future<ApiResult<ShopsPaginateResponse>> getNearbyShops(
@@ -23,15 +23,15 @@ abstract class ShopsRepositoryFacade {
 
   Future<ApiResult<ShopsPaginateResponse>> getAllShops(
     int page, {
-    int? categoryId,
+    String? categoryId,
     FilterModel? filterModel,
     required bool isOpen,
     bool? verify,
   });
 
-  Future<ApiResult<TagResponse>> getTags(int categoryId);
+  Future<ApiResult<TagResponse>> getTags(String categoryId);
 
-  Future<ApiResult<bool>> checkDriverZone(LatLng location, {int? shopId});
+  Future<ApiResult<bool>> checkDriverZone(LatLng location, {String? shopId});
 
   Future<ApiResult<PriceModel>> getSuggestPrice();
 
@@ -47,7 +47,7 @@ abstract class ShopsRepositoryFacade {
     required String cartId,
   });
 
-  Future<ApiResult<BranchResponse>> getShopBranch({required int uuid});
+  Future<ApiResult<BranchResponse>> getShopBranch({required String uuid});
 
   Future<ApiResult<ShopsPaginateResponse>> getShopsByIds(List<String> shopIds);
 
@@ -59,7 +59,7 @@ abstract class ShopsRepositoryFacade {
     required String deliveryType,
     required String phone,
     required String name,
-    required num category,
+    required String category,
     required String description,
     required double startPrice,
     required double perKm,

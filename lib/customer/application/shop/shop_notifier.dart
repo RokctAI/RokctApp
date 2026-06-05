@@ -120,7 +120,7 @@ class ShopNotifier extends Notifier<ShopState> {
     });
     state = state.copyWith(shopMarkers: markers, isMapLoading: false);
     final res = await shopsRepository.getShopBranch(
-      uuid: int.tryParse(state.shopData?.id ?? "") ?? 0,
+      uuid: state.shopData?.id ?? "",
     );
     res.when(
       success: (data) {
@@ -480,7 +480,7 @@ class ShopNotifier extends Notifier<ShopState> {
   Future<void> fetchProductsByCategory(
     BuildContext context,
     String shopId,
-    int categoryId,
+    String categoryId,
   ) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
@@ -492,7 +492,7 @@ class ShopNotifier extends Notifier<ShopState> {
             shopId: shopId,
             categoryId: categoryId,
             sortIndex: state.sortIndex,
-            brands: state.brandIds,
+            brands: state.brandIds.map((id) => id.toString()).toList(),
           );
       response.when(
         success: (data) {
@@ -516,7 +516,7 @@ class ShopNotifier extends Notifier<ShopState> {
   Future<void> fetchProductsByCategoryPage(
     BuildContext context,
     String shopId,
-    int categoryId, {
+    String categoryId, {
     RefreshController? controller,
   }) async {
     final connected = await AppConnectivity.connectivity();

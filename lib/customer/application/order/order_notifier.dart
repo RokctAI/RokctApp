@@ -51,7 +51,7 @@ class OrderNotifier extends Notifier<OrderState> {
         return;
       }
       final response = await ordersRepository.getDriverLocation(
-        state.orderData?.deliveryMan?.id ?? 0,
+        '${state.orderData?.deliveryMan?.id ?? ""}',
       );
       response.when(
         success: (data) async {
@@ -281,10 +281,10 @@ class OrderNotifier extends Notifier<OrderState> {
     }
   }
 
-  Future<void> fetchShopBranch(BuildContext context, int shopId) async {
+  Future<void> fetchShopBranch(BuildContext context, String shopId) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
-      final response = await shopsRepository.getShopBranch(uuid: shopId);
+       final response = await shopsRepository.getShopBranch(uuid: shopId);
       response.when(
         success: (data) async {
           state = state.copyWith(branches: data.data);
@@ -300,7 +300,7 @@ class OrderNotifier extends Notifier<OrderState> {
 
   Future<void> getCalculate({
     required BuildContext context,
-    required int cartId,
+    required String cartId,
     required double long,
     required double lat,
     required DeliveryTypeEnum type,
@@ -348,8 +348,8 @@ class OrderNotifier extends Notifier<OrderState> {
     }
   }
 
-  void setNotes({required int stockId, required String note}) {
-    if (stockId <= 0 || note.trim().isEmpty) {
+  void setNotes({required String stockId, required String note}) {
+    if (stockId.isEmpty || note.trim().isEmpty) {
       return;
     }
 
@@ -392,10 +392,8 @@ class OrderNotifier extends Notifier<OrderState> {
     }
     if (payment.tag?.toLowerCase() != "cash") {
       final res = await ordersRepository.tipProcess(
-        state.orderData?.id,
-        payment.tag ?? '',
-        payment.id,
-        price,
+        orderId: '${state.orderData?.id ?? ""}',
+        tip: (price ?? 0).toDouble(),
       );
       res.when(
         success: (key) {
@@ -427,7 +425,7 @@ class OrderNotifier extends Notifier<OrderState> {
       if (data.deliveryType == DeliveryTypeEnum.delivery) {
         final res = await shopsRepository.checkDriverZone(
           LatLng(data.location.latitude ?? 0, data.location.longitude ?? 0),
-          shopId: data.shopId,
+          shopId: '${data.shopId ?? ""}',
         );
         res.when(
           success: (status) async {
@@ -600,12 +598,12 @@ class OrderNotifier extends Notifier<OrderState> {
 
   void repeatOrder({
     required BuildContext context,
-    required int shopId,
+    required String shopId,
     required VoidCallback onSuccess,
     List<OrderProduct>? listOfProduct,
   }) async {
     state = state.copyWith(isCheckShopOrder: false);
-    if (shopId == 0) {
+    if (shopId.isEmpty) {
       final connected = await AppConnectivity.connectivity();
       if (connected) {
         state = state.copyWith(isAddLoading: true);
@@ -616,20 +614,20 @@ class OrderNotifier extends Notifier<OrderState> {
               CartRequest(
                 stockId: addon.stocks?.id,
                 quantity: addon.quantity,
-                parentId: element.stock?.id ?? 0,
+                parentId: element.stock?.id ?? "",
               ),
             );
           }
           list.add(
             CartRequest(
-              stockId: element.stock?.id ?? 0,
+              stockId: element.stock?.id ?? "",
               quantity: element.quantity ?? 0,
             ),
           );
         });
         final response = await cartRepository.insertCart(
           cart: CartRequest(
-            shopId: state.orderData?.shop?.id ?? 0,
+            shopId: state.orderData?.shop?.id ?? "",
             carts: list,
           ),
         );
@@ -667,7 +665,7 @@ class OrderNotifier extends Notifier<OrderState> {
 
   Future<void> showOrder(
     BuildContext context,
-    num orderId,
+    String orderId,
     bool isRefresh,
   ) async {
     final connected = await AppConnectivity.connectivity();
@@ -753,7 +751,7 @@ class OrderNotifier extends Notifier<OrderState> {
 
   Future<void> cancelOrder(
     BuildContext context,
-    num orderId,
+    String orderId,
     VoidCallback onSuccess,
   ) async {
     final connected = await AppConnectivity.connectivity();
@@ -785,7 +783,7 @@ class OrderNotifier extends Notifier<OrderState> {
     if (connected) {
       state = state.copyWith(isButtonLoading: true);
       final response = await ordersRepository.refundOrder(
-        state.orderData?.id ?? 0,
+        '${state.orderData?.id ?? ""}',
         title,
       );
       response.when(
@@ -820,7 +818,7 @@ class OrderNotifier extends Notifier<OrderState> {
     if (connected) {
       state = state.copyWith(isButtonLoading: true);
       final response = await ordersRepository.addReview(
-        state.orderData?.id ?? 0,
+        state.orderData?.id ?? "",
         rating: rating,
         comment: comment,
       );

@@ -122,7 +122,7 @@ class ProductMainButton extends StatelessWidget {
                           event.createCart(
                             context,
                             stateOrderShop.cart?.shopId ??
-                                (state.productData!.shopId ?? 0),
+                                (state.productData!.shopId ?? ""),
                             () {
                               Navigator.pop(context);
                               eventOrderShop.getCart(

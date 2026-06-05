@@ -2,7 +2,7 @@ import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
 class SearchShopModel {
   final String text;
-  final int? categoryId;
+  final String? categoryId;
 
   SearchShopModel({required this.text, this.categoryId});
 

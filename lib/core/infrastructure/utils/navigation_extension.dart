@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 extension NavigationContext on BuildContext {
   void replaceRouteNamed(String routeName) {
-    this.router.replaceNamed(routeName);
+    this.router.replacePath(routeName);
   }
 
   void pushRouteNamed(String routeName) {
-    this.router.pushNamed(routeName);
+    this.router.pushPath(routeName);
   }
 
   Future<bool> popRoute() async {

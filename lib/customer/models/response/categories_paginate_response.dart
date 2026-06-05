@@ -14,29 +14,21 @@ class CategoriesPaginateResponse {
         _data?.add(CategoryData.fromJson(v));
       });
     }
-    // _links = json['links'] != null ? Links.fromJson(json['links']) : null;
     _meta = json['meta'] != null ? Meta.fromJson(json['meta']) : null;
   }
 
   List<CategoryData>? _data;
-
-  // Links? _links;
   Meta? _meta;
 
   CategoriesPaginateResponse copyWith({
     List<CategoryData>? data,
-    // Links? links,
     Meta? meta,
   }) => CategoriesPaginateResponse(
     data: data ?? _data,
-    // links: links ?? _links,
     meta: meta ?? _meta,
   );
 
   List<CategoryData>? get data => _data;
-
-  // Links? get links => _links;
-
   Meta? get meta => _meta;
 
   Map<String, Dyn> toJson() {
@@ -44,9 +36,6 @@ class CategoriesPaginateResponse {
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }
-    // if (_links != null) {
-    //   map['links'] = _links?.toJson();
-    // }
     if (_meta != null) {
       map['meta'] = _meta?.toJson();
     }
@@ -56,10 +45,10 @@ class CategoriesPaginateResponse {
 
 class CategoryData {
   CategoryData({
-    int? id,
+    String? id,
     String? uuid,
     String? keywords,
-    int? parentId,
+    String? parentId,
     String? type,
     String? img,
     bool? active,
@@ -81,10 +70,10 @@ class CategoryData {
   }
 
   CategoryData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _uuid = json['uuid'];
-    _keywords = json['keywords']; // environment
-    _parentId = json['parent_id'];
+    _keywords = json['keywords']; 
+    _parentId = json['parent_id']?.toString();
     _type = json['type'];
     _img = json['img'];
     _active = json['active'];
@@ -101,10 +90,10 @@ class CategoryData {
     }
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
   String? _keywords;
-  int? _parentId;
+  String? _parentId;
   String? _type;
   String? _img;
   bool? _active;
@@ -114,10 +103,10 @@ class CategoryData {
   List<CategoryData>? _children;
 
   CategoryData copyWith({
-    int? id,
+    String? id,
     String? uuid,
     String? keywords,
-    int? parentId,
+    String? parentId,
     String? type,
     String? img,
     bool? active,
@@ -136,35 +125,26 @@ class CategoryData {
     createdAt: createdAt ?? _createdAt,
     updatedAt: updatedAt ?? _updatedAt,
     translation: translation ?? _translation,
+    children: children ?? _children,
   );
 
-  int? get id => _id;
-
+  String? get id => _id;
   String? get uuid => _uuid;
-
   String? get keywords => _keywords;
-
-  int? get parentId => _parentId;
-
+  String? get parentId => _parentId;
   String? get type => _type;
-
   String? get img => _img;
-
   bool? get active => _active;
-
   String? get createdAt => _createdAt;
-
   String? get updatedAt => _updatedAt;
-
   Translation? get translation => _translation;
-
   List<CategoryData>? get children => _children;
 
   Map<String, Dyn> toJson() {
     final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
-    map['keywords'] = _keywords; // environment
+    map['keywords'] = _keywords; 
     map['parent_id'] = _parentId;
     map['type'] = _type;
     map['img'] = _img;

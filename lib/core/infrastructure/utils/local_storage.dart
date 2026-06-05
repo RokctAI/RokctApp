@@ -305,6 +305,18 @@ abstract class LocalStorage {
     deleteOfflineUser();
     deleteOnline();
   }
+
+  static Future<void> setIsGuest(bool isGuest) async =>
+      CoreLocalStorage.setIsGuest(isGuest);
+
+  static bool getIsGuest() => CoreLocalStorage.getIsGuest();
+
+  static Future<void> setVisitorUuid(String uuid) async =>
+      CoreLocalStorage.setVisitorUuid(uuid);
+
+  static String getVisitorUuid() => CoreLocalStorage.getVisitorUuid();
+
+  static void deleteVisitorUuid() => CoreLocalStorage.deleteVisitorUuid();
 }
 
 typedef Dyn = dynamic;

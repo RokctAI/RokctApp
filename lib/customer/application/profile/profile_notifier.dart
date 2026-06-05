@@ -320,7 +320,7 @@ class ProfileNotifier extends Notifier<ProfileState> {
     required String perKm,
     required AddressNewModel address,
     required String deliveryType,
-    required num categoryId,
+    required String categoryId,
   }) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {

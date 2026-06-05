@@ -137,7 +137,7 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
                             // ignore: use_build_context_synchronously
                             context,
                             ref.watch(shopOrderProvider).cart?.shopId ??
-                                (state.productData!.shopId ?? 0),
+                                (state.productData!.shopId ?? ""),
                             () {
                               eventOrderShop.getCart(
                                 context,

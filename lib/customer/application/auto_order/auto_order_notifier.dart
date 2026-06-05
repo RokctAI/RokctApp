@@ -53,14 +53,14 @@ class AutoOrderNotifier extends Notifier<AutoOrderState> {
   }
 
   Future<void> startAutoOrder({
-    required int orderId,
+    required String orderId,
     required BuildContext context,
     VoidCallback? onSuccess,
   }) async {
     final res = await ordersRepository.createAutoOrder(
-      DateFormat('yyyy-MM-dd').format(state.from),
-      DateFormat('yyyy-MM-dd').format(state.to),
-      orderId,
+      orderId: orderId,
+      startDate: DateFormat('yyyy-MM-dd').format(state.from),
+      endDate: DateFormat('yyyy-MM-dd').format(state.to),
     );
 
     res.when(
@@ -82,7 +82,7 @@ class AutoOrderNotifier extends Notifier<AutoOrderState> {
   }
 
   Future<void> deleteAutoOrder({
-    required int orderId,
+    required String orderId,
     required BuildContext context,
   }) async {
     final res = await ordersRepository.deleteAutoOrder(orderId);

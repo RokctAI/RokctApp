@@ -116,7 +116,7 @@ class ViewMapNotifier extends Notifier<ViewMapState> {
   Future<void> checkDriverZone({
     required BuildContext context,
     required LatLng location,
-    int? shopId,
+    String? shopId,
   }) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {

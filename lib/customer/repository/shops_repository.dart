@@ -14,7 +14,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   @override
   Future<ApiResult<ShopsPaginateResponse>> searchShops({
     required String text,
-    int? categoryId,
+    String? categoryId,
   }) async {
     final data = SearchShopModel(text: text, categoryId: categoryId);
     try {
@@ -62,7 +62,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   @override
   Future<ApiResult<ShopsPaginateResponse>> getAllShops(
     int page, {
-    int? categoryId,
+    String? categoryId,
     FilterModel? filterModel,
     required bool isOpen,
     bool? verify,
@@ -98,7 +98,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<BranchResponse>> getShopBranch({required int uuid}) async {
+  Future<ApiResult<BranchResponse>> getShopBranch({required String uuid}) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
@@ -156,9 +156,9 @@ class ShopsRepository implements ShopsRepositoryFacade {
 
   @override
   Future<ApiResult<ShopsPaginateResponse>> getShopFilter({
-    int? categoryId,
+    String? categoryId,
     required int page,
-    int? subCategoryId,
+    String? subCategoryId,
   }) async {
     final data = {
       'category_id': subCategoryId ?? categoryId,
@@ -253,7 +253,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
     required String deliveryType,
     required String phone,
     required String name,
-    required num category,
+    required String category,
     required String description,
     required double startPrice,
     required double perKm,
@@ -336,7 +336,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<TagResponse>> getTags(int categoryId) async {
+  Future<ApiResult<TagResponse>> getTags(String categoryId) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final data = <String, Dyn>{
@@ -360,7 +360,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   @override
   Future<ApiResult<bool>> checkDriverZone(
     LatLng location, {
-    int? shopId,
+    String? shopId,
   }) async {
     try {
       final client = dioHttp.client(requireAuth: false);

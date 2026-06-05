@@ -22,7 +22,7 @@ class FilterNotifier extends Notifier<FilterState> {
   Future<void> setFilterModel(
     BuildContext context,
     FilterModel? data,
-    int categoryId,
+    String categoryId,
   ) async {
     state = state.copyWith(filterModel: data);
     final connected = await AppConnectivity.connectivity();
@@ -53,7 +53,7 @@ class FilterNotifier extends Notifier<FilterState> {
     }
   }
 
-  void clear(BuildContext context, int categoryId) {
+  void clear(BuildContext context, String categoryId) {
     state = state.copyWith(
       filterModel: FilterModel(),
       rangeValues: RangeValues(1, state.endPrice),
@@ -66,7 +66,7 @@ class FilterNotifier extends Notifier<FilterState> {
     bool check,
     bool deal,
     bool open,
-    int categoryId,
+    String categoryId,
   ) async {
     state.filterModel?.isFreeDelivery = check;
     state.filterModel?.isDeal = deal;
@@ -100,7 +100,7 @@ class FilterNotifier extends Notifier<FilterState> {
     }
   }
 
-  void setRange(RangeValues values, BuildContext context, int categoryId) {
+  void setRange(RangeValues values, BuildContext context, String categoryId) {
     state.filterModel?.price = [values.start, values.end];
     state = state.copyWith(
       rangeValues: RangeValues(values.start, values.end),
@@ -117,7 +117,7 @@ class FilterNotifier extends Notifier<FilterState> {
     });
   }
 
-  Future<void> init(BuildContext context, int categoryId) async {
+  Future<void> init(BuildContext context, String categoryId) async {
     state = state.copyWith(filterModel: FilterModel(), isTagLoading: true);
     final connected = await AppConnectivity.connectivity();
     if (connected) {
@@ -161,7 +161,7 @@ class FilterNotifier extends Notifier<FilterState> {
     }
   }
 
-  Future<void> fetchRestaurant(BuildContext context, int categoryId) async {
+  Future<void> fetchRestaurant(BuildContext context, String categoryId) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isRestaurantLoading: true);
@@ -194,7 +194,7 @@ class FilterNotifier extends Notifier<FilterState> {
   Future<void> fetchRestaurantPage(
     BuildContext context,
     RefreshController shopController,
-    int categoryId, {
+    String categoryId, {
     bool isRefresh = false,
   }) async {
     final connected = await AppConnectivity.connectivity();

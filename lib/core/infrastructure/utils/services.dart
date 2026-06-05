@@ -7,7 +7,7 @@ export 'package:rokctapp/core/infrastructure/constants/enums.dart';
 export 'package:rokctapp/core/infrastructure/utils/extension.dart';
 export 'package:rokctapp/core/infrastructure/utils/img_service.dart';
 export 'package:rokctapp/core/infrastructure/utils/input_formatter.dart';
-export 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
+export 'package:rokctapp/core/infrastructure/utils/local_storage.dart' hide Dyn;
 export 'package:rokctapp/core/infrastructure/utils/marker_image_cropper.dart';
 export 'package:rokctapp/core/infrastructure/constants/storage_keys.dart';
 export 'package:rokctapp/core/infrastructure/utils/time_service.dart';

@@ -23,6 +23,16 @@ abstract class SettingsRepositoryFacade {
   Future<ApiResult<Translation>> getTerm();
 
   Future<ApiResult<Translation>> getPolicy();
+
+  Future<ApiResult<void>> recordUniqueVisit(
+    String visitorId, {
+    String? userId,
+    String? appVersion,
+    String? os,
+    String? osVersion,
+  });
+
+  Future<ApiResult<void>> reportClientError(String title, String error);
 }
 
 typedef Dyn = dynamic;
