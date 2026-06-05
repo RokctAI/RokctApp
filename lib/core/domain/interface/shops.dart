@@ -49,7 +49,7 @@ abstract class ShopsRepositoryFacade {
 
   Future<ApiResult<BranchResponse>> getShopBranch({required int uuid});
 
-  Future<ApiResult<ShopsPaginateResponse>> getShopsByIds(List<int> shopIds);
+  Future<ApiResult<ShopsPaginateResponse>> getShopsByIds(List<String> shopIds);
 
   Future<ApiResult<void>> createShop({
     required double tax,

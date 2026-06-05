@@ -39,8 +39,9 @@ class ShopData {
     this.shopPayments,
   });
 
-  int? id;
-  int? userId;
+  String? id;
+  String? uuid;
+  String? userId;
   num? tax;
   num? pricePerKm;
   num? minPrice;
@@ -75,24 +76,35 @@ class ShopData {
   List<ShopPayment?>? shopPayments;
 
   factory ShopData.fromJson(Map<String, Dyn> json) {
+    bool? openValue;
+    if (json["open"] != null) {
+      if (json["open"] is bool) {
+        openValue = json["open"];
+      } else if (json["open"] is int) {
+        openValue = json["open"] == 1;
+      } else if (json["open"] is String) {
+        openValue = json["open"] == '1' || json["open"].toLowerCase() == 'true';
+      } else {
+        openValue = false;
+      }
+    } else {
+      openValue = true; // Default value
+    }
+
     return ShopData(
-      id: json["id"] ?? 0,
-      // uuid: json["uuid"] ?? 0,
-      userId: json["user_id"] ?? 0,
+      id: json["id"]?.toString(),
+      uuid: json["uuid"]?.toString(),
+      userId: json["user_id"]?.toString(),
       tax: json["tax"] ?? 0,
       pricePerKm: json["price_per_km"] ?? 0,
       minPrice: json["price"] ?? 0,
       percentage: json["percentage"] ?? 0,
       phone: json["phone"].toString(),
-      open:
-          (json["open"].runtimeType == int
-              ? (json["open"] == 1)
-              : json["open"]) ??
-          true,
+      open: openValue,
       verify:
           (json["verify"].runtimeType == int
-              ? (json["verify"] == 1)
-              : json["verify"]) ??
+               ? (json["verify"] == 1)
+               : json["verify"]) ??
           false,
       openTime: json["open_time"] ?? "00:00",
       closeTime: json["close_time"] ?? "00:00",
@@ -100,9 +112,7 @@ class ShopData {
       logoImg: json["logo_img"] ?? "",
       minAmount: json["min_amount"] ?? 0,
       status: json["status"] ?? "",
-      type: json["type"].runtimeType == int
-          ? (json["type"] == 1 ? "shop" : "restaurant")
-          : json["type"],
+      type: json["type"]?.toString(),
       isRecommend: json["is_recommended"] ?? false,
       isDiscount: json["discount"] == null
           ? false
@@ -158,6 +168,7 @@ class ShopData {
 
   Map<String, Dyn> toJson() => {
     "id": id,
+    "uuid": uuid,
     "user_id": userId,
     "tax": tax,
     "price_per_km": pricePerKm,
@@ -182,6 +193,75 @@ class ShopData {
     "seller": seller?.toJson(),
     "bonus": bonus,
   };
+
+  Map<String, dynamic> checkWorkingDay() {
+    if (this.open == false) return {"isOpen": false};
+    if (shopWorkingDays == null || shopWorkingDays!.isEmpty) {
+      return {"isOpen": this.open ?? true};
+    }
+
+    final now = DateTime.now();
+    final dayName = _dayName(now).toLowerCase();
+
+    final workingDay = shopWorkingDays!.firstWhere(
+      (d) => d.day?.toLowerCase() == dayName && !(d.disabled ?? true),
+      orElse: () => ShopWorkingDay(),
+    );
+    if (workingDay.day == null) return {"isOpen": false};
+
+    if (shopClosedDate != null) {
+      for (final closed in shopClosedDate!) {
+        if (closed.day != null &&
+            closed.day!.year == now.year &&
+            closed.day!.month == now.month &&
+            closed.day!.day == now.day) {
+          return {"isOpen": false};
+        }
+      }
+    }
+
+    try {
+      final fromStr = workingDay.from ?? "";
+      final toStr = workingDay.to ?? "";
+      if (fromStr.isEmpty || toStr.isEmpty) return {"isOpen": true};
+
+      final startHour =
+          int.tryParse(fromStr.substring(0, fromStr.indexOf("-"))) ?? 0;
+      final startMin =
+          int.tryParse(fromStr.substring(fromStr.indexOf("-") + 1)) ?? 0;
+      final endHour = int.tryParse(toStr.substring(0, toStr.indexOf("-"))) ?? 0;
+      final endMin = int.tryParse(toStr.substring(toStr.indexOf("-") + 1)) ?? 0;
+
+      final start = DateTime(now.year, now.month, now.day, startHour, startMin);
+      final end = DateTime(now.year, now.month, now.day, endHour, endMin);
+
+      if (end.isBefore(start)) {
+        if (now.isAfter(start) || now.isBefore(end)) {
+          return {"isOpen": true, "startTodayTime": start, "endTodayTime": end};
+        }
+      } else {
+        if (now.isAfter(start) && now.isBefore(end)) {
+          return {"isOpen": true, "startTodayTime": start, "endTodayTime": end};
+        }
+      }
+      return {"isOpen": false, "startTodayTime": start, "endTodayTime": end};
+    } catch (e) {
+      return {"isOpen": true};
+    }
+  }
+
+  String _dayName(DateTime date) {
+    const days = [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ];
+    return days[date.weekday - 1];
+  }
 }
 
 class DeliveryTime {
@@ -217,14 +297,14 @@ class Location {
 class Seller {
   Seller({this.id, this.firstname, this.lastname, this.active, this.role});
 
-  num? id;
+  String? id;
   String? firstname;
   String? lastname;
   bool? active;
   String? role;
 
   factory Seller.fromJson(Map<String, Dyn> json) => Seller(
-    id: json["id"],
+    id: json["id"]?.toString(),
     firstname: json["firstname"],
     lastname: json["lastname"],
     active: json["active"],
@@ -313,8 +393,8 @@ class ShopPayment {
     this.payment,
   });
 
-  int? id;
-  int? shopId;
+  String? id;
+  String? shopId;
   int? status;
   Dyn clientId;
   Dyn secretId;
@@ -322,11 +402,11 @@ class ShopPayment {
 
   factory ShopPayment.fromJson(Map<String, Dyn> json) {
     return ShopPayment(
-      id: json["id"],
-      shopId: json["shop_id"],
+      id: json["id"]?.toString(),
+      shopId: json["shop_id"]?.toString(),
       status: json["status"],
-      clientId: json["client_id"],
-      secretId: json["secret_id"],
+      clientId: json["client_id"]?.toString(),
+      secretId: json["secret_id"]?.toString(),
       payment: Payment.fromJson(json["payment"]),
     );
   }
@@ -344,14 +424,14 @@ class ShopPayment {
 class Payment {
   Payment({this.id, this.tag, this.active, this.translation, this.locales});
 
-  int? id;
+  String? id;
   String? tag;
   bool? active;
   Dyn translation;
   List<Dyn>? locales;
 
   factory Payment.fromJson(Map<String, Dyn> json) => Payment(
-    id: json["id"],
+    id: json["id"]?.toString(),
     tag: json["tag"],
     active: json["active"],
     translation: json["translation"],
@@ -367,7 +447,7 @@ class Payment {
 }
 
 class TagsModel {
-  int? id;
+  String? id;
   String? img;
   Translation? translation;
   List<String>? locales;
@@ -375,7 +455,7 @@ class TagsModel {
   TagsModel({this.id, this.img, this.translation, this.locales});
 
   TagsModel.fromJson(Map<String, Dyn> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     img = json['img'];
     translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
@@ -395,3 +475,4 @@ class TagsModel {
 }
 
 typedef Dyn = dynamic;
+

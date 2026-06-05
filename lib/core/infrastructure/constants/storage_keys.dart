@@ -33,4 +33,14 @@ abstract class StorageKeys {
       'keyAuthenticatedWithSocial'; // environment
   static const String keyLangLtr = 'keyLangLtr'; // environment
   static const String keyFirstEntry = 'keyFirstEntry'; // environment
+  static const String keyCarInfo = 'keyCarInfo'; // environment
+  static const String keyOfflineUser = 'keyOfflineUser'; // environment
+  static const String keyOfflineQueue = 'keyOfflineQueue'; // environment
+  static const String keyRemoteConfig = 'keyRemoteConfig'; // environment
+  static const String keyActiveLanguages = 'keyActiveLanguages'; // environment
+  static const String keyWallet = 'keyWallet'; // environment
+  static const String keyShop = 'keyShop'; // environment
+  static const String keySystemLanguage = 'keySystemLanguage'; // environment
+  static const String keyOnline = 'keyOnline'; // environment
+  static const String keyVisitorUuid = 'keyVisitorUuid'; // environment
 }

@@ -220,7 +220,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
 
   @override
   Future<ApiResult<ShopsPaginateResponse>> getShopsByIds(
-    List<int> shopIds,
+    List<String> shopIds,
   ) async {
     final data = <String, Dyn>{'lang': LocalStorage.getLanguage()?.locale};
     for (int i = 0; i < shopIds.length; i++) {

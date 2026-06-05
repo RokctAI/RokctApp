@@ -147,4 +147,27 @@ abstract class CoreLocalStorage {
       !(preferences?.getBool(StorageKeys.keyLangLtr) ?? false);
 
   static void deleteLangLtr() => preferences?.remove(StorageKeys.keyLangLtr);
+
+  // Online status
+  static Future<void> setOnline(bool online) async {
+    if (preferences != null) {
+      await preferences!.setBool(StorageKeys.keyOnline, online);
+    }
+  }
+
+  static bool getOnline() {
+    return preferences?.getBool(StorageKeys.keyOnline) ?? false;
+  }
+
+  static void deleteOnline() => preferences?.remove(StorageKeys.keyOnline);
+
+  // Visitor UUID
+  static Future<void> setVisitorUuid(String uuid) async {
+    await preferences?.setString(StorageKeys.keyVisitorUuid, uuid);
+  }
+
+  static String getVisitorUuid() =>
+      preferences?.getString(StorageKeys.keyVisitorUuid) ?? '';
+
+  static void deleteVisitorUuid() => preferences?.remove(StorageKeys.keyVisitorUuid);
 }

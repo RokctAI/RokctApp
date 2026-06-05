@@ -17,7 +17,7 @@ class ShopNotifier extends Notifier<ShopState> {
   ShopState build() => const ShopState();
 
   int page = 1;
-  List<int> _list = [];
+  List<String> _list = [];
   String? shareLink;
 
   void showWeekTime() {
@@ -120,7 +120,7 @@ class ShopNotifier extends Notifier<ShopState> {
     });
     state = state.copyWith(shopMarkers: markers, isMapLoading: false);
     final res = await shopsRepository.getShopBranch(
-      uuid: state.shopData?.id ?? 0,
+      uuid: int.tryParse(state.shopData?.id ?? "") ?? 0,
     );
     res.when(
       success: (data) {
@@ -139,7 +139,7 @@ class ShopNotifier extends Notifier<ShopState> {
         }
       }
     } else {
-      _list.add(state.shopData?.id ?? 0);
+      _list.add(state.shopData?.id ?? "");
     }
     state = state.copyWith(isLike: !state.isLike);
     LocalStorage.setSavedShopsList(_list);
@@ -245,7 +245,7 @@ class ShopNotifier extends Notifier<ShopState> {
 
   Future<void> setShop(ShopData shop) async {
     _list = LocalStorage.getSavedShopsList();
-    for (int e in _list) {
+    for (String e in _list) {
       if (e == shop.id) {
         state = state.copyWith(isLike: true);
         break;
@@ -255,12 +255,12 @@ class ShopNotifier extends Notifier<ShopState> {
     generateShareLink();
     checkWorkingDay();
     final response = await shopsRepository.getSingleShop(
-      uuid: (shop.id ?? 0).toString(),
+      uuid: (shop.id ?? "").toString(),
     );
     response.when(
       success: (data) async {
         _list = LocalStorage.getSavedShopsList();
-        for (int e in _list) {
+        for (String e in _list) {
           if (e == data.data?.id) {
             state = state.copyWith(isLike: true);
             break;
@@ -324,7 +324,7 @@ class ShopNotifier extends Notifier<ShopState> {
       response.when(
         success: (data) async {
           _list = LocalStorage.getSavedShopsList();
-          for (int e in _list) {
+          for (String e in _list) {
             if (e == data.data?.id) {
               state = state.copyWith(isLike: true);
               break;

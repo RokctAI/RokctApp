@@ -85,26 +85,18 @@ abstract class LocalStorage {
   static void deleteSearchList() =>
       CoreLocalStorage.preferences?.remove(StorageKeys.keySearchStores);
 
-  static Future<void> setSavedShopsList(List<int> ids) async {
-    final List<String> idsStrings = ids.map((e) => e.toString()).toList();
+  static Future<void> setSavedShopsList(List<String> ids) async {
     await CoreLocalStorage.preferences?.setStringList(
       StorageKeys.keySavedStores,
-      idsStrings,
+      ids,
     );
   }
 
-  static List<int> getSavedShopsList() {
-    final List<String> strings =
-        CoreLocalStorage.preferences?.getStringList(
+  static List<String> getSavedShopsList() {
+    return CoreLocalStorage.preferences?.getStringList(
           StorageKeys.keySavedStores,
         ) ??
         [];
-    if (strings.isNotEmpty) {
-      final List<int> ids = strings.map((e) => int.parse(e)).toList();
-      return ids;
-    } else {
-      return [];
-    }
   }
 
   static void deleteSavedShopsList() =>
@@ -255,6 +247,53 @@ abstract class LocalStorage {
 
   static void deleteLangLtr() => CoreLocalStorage.deleteLangLtr();
 
+  // Offline capabilities
+  static Future<void> setOfflineUser(Map<String, dynamic>? data) async {
+    await CoreLocalStorage.preferences?.setString(StorageKeys.keyOfflineUser, jsonEncode(data));
+  }
+
+  static Map<String, dynamic>? getOfflineUser() {
+    final data = CoreLocalStorage.preferences?.getString(StorageKeys.keyOfflineUser);
+    return data != null ? jsonDecode(data) : null;
+  }
+
+  static void deleteOfflineUser() =>
+      CoreLocalStorage.preferences?.remove(StorageKeys.keyOfflineUser);
+
+  static Future<void> setOfflineQueue(List<dynamic> items) async {
+    await CoreLocalStorage.preferences?.setStringList(
+      StorageKeys.keyOfflineQueue,
+      items.map((item) => jsonEncode(item)).toList(),
+    );
+  }
+
+  static List<dynamic> getOfflineQueue() {
+    final List<String> strings =
+        CoreLocalStorage.preferences?.getStringList(StorageKeys.keyOfflineQueue) ?? [];
+    return strings.map((s) => jsonDecode(s)).toList();
+  }
+
+  static Future<void> setSyncErrorCount(int count) async {
+    await CoreLocalStorage.preferences?.setInt('sync_error_count', count);
+  }
+
+  static int getSyncErrorCount() =>
+      CoreLocalStorage.preferences?.getInt('sync_error_count') ?? 0;
+
+  static Future<void> setLastSyncError(String? error) async {
+    await CoreLocalStorage.preferences?.setString('last_sync_error', error ?? '');
+  }
+
+  static String getLastSyncError() =>
+      CoreLocalStorage.preferences?.getString('last_sync_error') ?? '';
+
+  static Future<void> setOnline(bool online) async =>
+      CoreLocalStorage.setOnline(online);
+
+  static bool getOnline() => CoreLocalStorage.getOnline();
+
+  static void deleteOnline() => CoreLocalStorage.deleteOnline();
+
   static void logout() {
     deleteWalletData();
     deleteSavedShopsList();
@@ -263,6 +302,8 @@ abstract class LocalStorage {
     deleteToken();
     deleteAddressSelected();
     deleteAddressInformation();
+    deleteOfflineUser();
+    deleteOnline();
   }
 }
 
