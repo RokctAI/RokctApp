@@ -23,8 +23,8 @@ Source file: `lib/customer/application/auto_order/auto_order_notifier.dart`
 ### `isTimeChanged(RepeatData? repeatData)`
 *No documentation provided (generation failed).*
 
-### `startAutoOrder({ required int orderId, required BuildContext context, VoidCallback? onSuccess, }) async { final res = await ordersRepository.createAutoOrder( DateFormat('yyyy-MM-dd').format(state.from), DateFormat('yyyy-MM-dd').format(state.to), orderId, ); res.when( success: (data)`
+### `startAutoOrder({ required String orderId, required BuildContext context, VoidCallback? onSuccess, }) async { final res = await ordersRepository.createAutoOrder( orderId: orderId, startDate: DateFormat('yyyy-MM-dd').format(state.from), endDate: DateFormat('yyyy-MM-dd').format(state.to), ); res.when( success: (data)`
 *No documentation provided (generation failed).*
 
-### `deleteAutoOrder({ required int orderId, required BuildContext context, }) async { final res = await ordersRepository.deleteAutoOrder(orderId); res.when( success: (data)`
+### `deleteAutoOrder({ required String orderId, required BuildContext context, }) async { final res = await ordersRepository.deleteAutoOrder(orderId); res.when( success: (data)`
 *No documentation provided (generation failed).*

@@ -56,16 +56,16 @@ Source file: `lib/customer/application/order/order_notifier.dart`
 ### `MarkerId("Shop"), position: LatLng( data.data?.location?.latitude ?? AppConstants.demoLatitude, data.data?.location?.longitude ?? AppConstants.demoLongitude, ), icon: await imageCropper.resizeAndCircle( data.data?.logoImg ?? "", 120, ), ), ); state = state.copyWith(shopMarkers: list); }, failure: (failure, status)`
 *No documentation provided (generation failed).*
 
-### `fetchShopBranch(BuildContext context, int shopId) async { final connected = await AppConnectivity.connectivity(); if (connected)`
+### `fetchShopBranch(BuildContext context, String shopId) async { final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*
 
-### `getCalculate({ required BuildContext context, required int cartId, required double long, required double lat, required DeliveryTypeEnum type, bool isLoading = true, }) async { final connected = await AppConnectivity.connectivity(); if (connected)`
+### `getCalculate({ required BuildContext context, required String cartId, required double long, required double lat, required DeliveryTypeEnum type, bool isLoading = true, }) async { final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*
 
 ### `LoginRoute()); } }, ); } else { if (context.mounted)`
 *No documentation provided (generation failed).*
 
-### `setNotes({required int stockId, required String note})`
+### `setNotes({required String stockId, required String note})`
 *No documentation provided (generation failed).*
 
 ### `sendTips({ required BuildContext context, required num? price, required PaymentData payment, VoidCallback? onSuccess, ValueChanged<String>? onWebview, }) async { final num wallet = LocalStorage.getWalletData()?.price ?? 0; if (payment.tag == "wallet" && wallet < (price ?? 0))`
@@ -99,10 +99,10 @@ data.location?.longitude ?? AppConstants.demoLongitude,
 );
 Map<MarkerId, Marker> list = {
 
-### `repeatOrder({ required BuildContext context, required int shopId, required VoidCallback onSuccess, List<OrderProduct>? listOfProduct, }) async { state = state.copyWith(isCheckShopOrder: false); if (shopId == 0)`
+### `repeatOrder({ required BuildContext context, required String shopId, required VoidCallback onSuccess, List<OrderProduct>? listOfProduct, }) async { state = state.copyWith(isCheckShopOrder: false); if (shopId.isEmpty)`
 *No documentation provided (generation failed).*
 
-### `getResizedMarker(String assetPath, int width) async { final byteData = await rootBundle.load(assetPath); final codec = await instantiateImageCodec( byteData.buffer.asUint8List(), targetWidth: width, ); final frame = await codec.getNextFrame(); final data = await frame.image.toByteData(format: ImageByteFormat.png); return BitmapDescriptor.fromBytes(data!.buffer.asUint8List()); } Future<void> showOrder( BuildContext context, num orderId, bool isRefresh, ) async { final connected = await AppConnectivity.connectivity(); if (connected)`
+### `getResizedMarker(String assetPath, int width) async { final byteData = await rootBundle.load(assetPath); final codec = await instantiateImageCodec( byteData.buffer.asUint8List(), targetWidth: width, ); final frame = await codec.getNextFrame(); final data = await frame.image.toByteData(format: ImageByteFormat.png); return BitmapDescriptor.fromBytes(data!.buffer.asUint8List()); } Future<void> showOrder( BuildContext context, String orderId, bool isRefresh, ) async { final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*
 
 ### `MarkerId("Shop"): Marker( markerId: const MarkerId("Shop"), position: shopLatLng, icon: await getResizedMarker(Assets.imageMarker, 90), ), const MarkerId("User"): Marker( markerId: const MarkerId("User"), position: userLatLng, icon: await getResizedMarker(Assets.userMarker, 100), ), }); state = state.copyWith(markers: list, isMapLoading: false); if (context.mounted)`
@@ -111,7 +111,7 @@ Map<MarkerId, Marker> list = {
 ### `MarkerId("Shop"): Marker( markerId: const MarkerId("Shop"), position: LatLng( data.shop?.location?.latitude ?? AppConstants.demoLatitude, data.shop?.location?.longitude ?? AppConstants.demoLongitude, ), icon: await getResizedMarker(Assets.imageMarker, 90), ), const MarkerId("User"): Marker( markerId: const MarkerId("User"), position: LatLng( data.location?.latitude ?? AppConstants.demoLatitude, data.location?.longitude ?? AppConstants.demoLongitude, ), icon: await getResizedMarker(Assets.userMarker, 100), ), }); state = state.copyWith(markers: list); } }, failure: (failure, status)`
 *No documentation provided (generation failed).*
 
-### `cancelOrder(BuildContext context, num orderId, VoidCallback onSuccess, ) async { final connected = await AppConnectivity.connectivity(); if (connected)`
+### `cancelOrder(BuildContext context, String orderId, VoidCallback onSuccess, ) async { final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*
 
 ### `refundOrder(BuildContext context, String title) async { final connected = await AppConnectivity.connectivity(); if (connected)`

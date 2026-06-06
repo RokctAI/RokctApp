@@ -14,10 +14,10 @@ Source file: `lib/customer/application/product/product_notifier.dart`
 ### `changeImage(Galleries image)`
 *No documentation provided (generation failed).*
 
-### `getProductDetails(BuildContext context, ProductData productData, String? shopType, int? shopId, ) async { final List<Stocks> stocks = productData.stocks ?? <Stocks>[]; state = state.copyWith( count: productData.minQty ?? 1, isCheckShopOrder: false, productData: productData, activeImageUrl: '${productData.img}', selectImage: Galleries(path: productData.img), initialStocks: stocks, ); generateShareLink(shopType, shopId); if (stocks.isNotEmpty)`
+### `getProductDetails(BuildContext context, ProductData productData, String? shopType, String? shopId, ) async { final List<Stocks> stocks = productData.stocks ?? <Stocks>[]; state = state.copyWith( count: productData.minQty ?? 1, isCheckShopOrder: false, productData: productData, activeImageUrl: '${productData.img}', selectImage: Galleries(path: productData.img), initialStocks: stocks, ); generateShareLink(shopType, shopId); if (stocks.isNotEmpty)`
 *No documentation provided (generation failed).*
 
-### `getProductDetailsById(BuildContext context, String productId, String? shopType, int? shopId, { bool isLoading = true, }) async { final connected = await AppConnectivity.connectivity(); if (connected)`
+### `getProductDetailsById(BuildContext context, String productId, String? shopType, String? shopId, { bool isLoading = true, }) async { final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*
 
 ### `addCount(BuildContext context)`
@@ -26,7 +26,7 @@ Source file: `lib/customer/application/product/product_notifier.dart`
 ### `disCount(BuildContext context)`
 *No documentation provided (generation failed).*
 
-### `createCart(BuildContext context, int shopId, VoidCallback onSuccess, { int? stockId, int? count, VoidCallback? onError, bool isGroupOrder = false, String? cartId, String? userUuid, }) async { state = state.copyWith(isCheckShopOrder: false); if (shopId == state.productData?.shopId)`
+### `createCart(BuildContext context, String? shopId, VoidCallback onSuccess, { String? stockId, int? count, VoidCallback? onError, bool isGroupOrder = false, String? cartId, String? userUuid, }) async { state = state.copyWith(isCheckShopOrder: false); if (shopId == state.productData?.shopId)`
 *No documentation provided (generation failed).*
 
 ### `updateSelectedIndexes(BuildContext context, int index, int value)`

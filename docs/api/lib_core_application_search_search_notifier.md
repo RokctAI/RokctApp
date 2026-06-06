@@ -11,7 +11,7 @@ Source file: `lib/core/application/search/search_notifier.dart`
 ### `build() => const SearchState(); int productIndex = 1; void init()`
 *No documentation provided (generation failed).*
 
-### `setSelectCategory(int index, BuildContext context, {int? categoryId})`
+### `setSelectCategory(int index, BuildContext context, {String? categoryId})`
 *No documentation provided (generation failed).*
 
 ### `changeSearch(String text) async { List<String> list = List.from(state.searchHistory); if (text.isNotEmpty && !list.contains(text))`
@@ -23,7 +23,7 @@ Source file: `lib/core/application/search/search_notifier.dart`
 ### `clearHistory(int index)`
 *No documentation provided (generation failed).*
 
-### `searchShop(BuildContext context, String text, { int? categoryId, }) async { final connected = await AppConnectivity.connectivity(); if (connected)`
+### `searchShop(BuildContext context, String text, { String? categoryId, }) async { final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*
 
 ### `searchProduct(BuildContext context, String text) async { final connected = await AppConnectivity.connectivity(); if (connected)`

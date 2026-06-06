@@ -31,3 +31,9 @@ Source file: `lib/customer/repository/settings_repository.dart`
 
 ### `updateNotification(List<NotificationData>? notifications, ) async { try { final client = dioHttp.client(requireAuth: true); final data = { for (int i = 0; i < notifications!.length; i++) "notifications[$i][notification_id]": notifications[i].id, for (int i = 0; i < notifications.length; i++) "notifications[$i][active]": notifications[i].active! ? 1 : 0, }; await client.post( '/api/v1/dashboard/user/update/notifications', queryParameters: data, ); return const ApiResult.success(data: null); } catch (e)`
 *No documentation provided (generation failed).*
+
+### `recordUniqueVisit(String visitorId, { String? userId, String? appVersion, String? os, String? osVersion, }) async { try { final client = dioHttp.client(requireAuth: false); await client.post( '/api/method/rcore.tenant.api.record_unique_visit', data: { 'visitor_id': visitorId, if (userId != null && userId.isNotEmpty) 'user_id': userId, if (appVersion != null) 'app_version': appVersion, if (os != null) 'os': os, if (osVersion != null) 'os_version': osVersion, }, ); return const ApiResult.success(data: null); } catch (e)`
+*No documentation provided (generation failed).*
+
+### `reportClientError(String title, String error) async { try { final client = dioHttp.client(requireAuth: false); await client.post( '/api/method/rcore.tenant.api.report_client_error', data: { 'title': title, 'error': error, }, ); return const ApiResult.success(data: null); } catch (e)`
+*No documentation provided (generation failed).*

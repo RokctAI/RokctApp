@@ -26,5 +26,5 @@ Source file: `lib/customer/application/map/view_map_notifier.dart`
 ### `updateLocation(BuildContext context, int? id, { VoidCallback? onSuccess, }) async { final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*
 
-### `checkDriverZone({ required BuildContext context, required LatLng location, int? shopId, }) async { final connected = await AppConnectivity.connectivity(); if (connected)`
+### `checkDriverZone({ required BuildContext context, required LatLng location, String? shopId, }) async { final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*

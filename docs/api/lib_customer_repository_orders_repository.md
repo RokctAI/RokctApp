@@ -8,53 +8,44 @@ Source file: `lib/customer/repository/orders_repository.dart`
 
 ## Whitelisted API Endpoints
 
-### `createOrder(OrderBodyData orderBody, ) async { try { final client = dioHttp.client(requireAuth: true); final response = await client.post( '/api/v1/dashboard/user/orders', data: orderBody.toJson(), ); return ApiResult.success(data: OrderActiveModel.fromJson(response.data)); } catch (e)`
+### `createOrder(OrderBodyData orderBody, ) async { try { final client = dioHttp.client(requireAuth: true); final response = await client.post( '/api/v1/method/paas.api.order.order.create_order', data: orderBody.toJson(), ); final responseData = OrderActiveModel.fromJson(response.data); await appDatabase.upsertOrder(responseData.toJson()); return ApiResult.success(data: responseData); } catch (e)`
 *No documentation provided (generation failed).*
 
-### `createAutoOrder(String from, String to, int orderId) async { try { final client = dioHttp.client(requireAuth: true); await client.post( '/api/v1/dashboard/user/orders/$orderId/repeat', data: {"from": from, "to": to}, ); return const ApiResult.success(data: true); } catch (e)`
+### `getCompletedOrders(int page)`
 *No documentation provided (generation failed).*
 
-### `deleteAutoOrder(int orderId) async { try { final client = dioHttp.client(requireAuth: true); await client.delete( '/api/v1/dashboard/user/orders/$orderId/delete-repeat', ); return const ApiResult.success(data: true); } catch (e)`
+### `addReview(String orderId, { required double rating, required String comment, }) async { final data = { 'order_id': orderId, 'rating': rating, if (comment.isNotEmpty) 'comment': comment, }; try { final client = dioHttp.client(requireAuth: true); await client.post( '/api/v1/method/paas.api.order.order.add_order_review', data: data, ); return const ApiResult.success(data: null); } catch (e)`
 *No documentation provided (generation failed).*
 
-### `getCompletedOrders(int page) async { final data = { if (LocalStorage.getSelectedCurrency() != null) 'currency_id': LocalStorage.getSelectedCurrency()?.id, 'lang': LocalStorage.getLanguage()?.locale, 'page': page, 'status': 'completed', }; try { final client = dioHttp.client(requireAuth: true); final response = await client.get( '/api/v1/dashboard/user/orders/paginate', queryParameters: data, ); return ApiResult.success( data: OrderPaginateResponse.fromJson(response.data), ); } catch (e)`
+### `process(OrderBodyData orderBody, String name, { bool forceCardPayment = false, bool enableTokenization = false, }) async { try { final client = dioHttp.client(requireAuth: true); var res = await client.post( '/api/v1/method/paas.api.payment.payment.initiate_${name.toLowerCase()}_payment', data: {'order_id': orderBody.cartId}, ); return ApiResult.success(data: res.data['redirect_url']); } catch (e, s)`
 *No documentation provided (generation failed).*
 
-### `getActiveOrders(int page) async { final data = { if (LocalStorage.getSelectedCurrency() != null) 'currency_id': LocalStorage.getSelectedCurrency()?.id, 'lang': LocalStorage.getLanguage()?.locale, 'page': page, 'statuses[0]': "new", "statuses[1]": "accepted", "statuses[2]": "cooking", "statuses[3]": "ready", "statuses[4]": "on_a_way", "order_statuses": true, "perPage": 10, }; try { final client = dioHttp.client(requireAuth: true); final response = await client.get( '/api/v1/dashboard/user/orders/paginate', queryParameters: data, ); return ApiResult.success( data: OrderPaginateResponse.fromJson(response.data), ); } catch (e, s)`
+### `cancelOrder(String orderId, [String? note]) async { try { final client = dioHttp.client(requireAuth: true); await client.post( '/api/v1/method/paas.api.order.order.cancel_order', data: {'order_id': orderId}, ); return const ApiResult.success(data: null); } catch (e)`
 *No documentation provided (generation failed).*
 
-### `getHistoryOrders(int page) async { final data = { if (LocalStorage.getSelectedCurrency() != null) 'currency_id': LocalStorage.getSelectedCurrency()?.id, 'lang': LocalStorage.getLanguage()?.locale, 'statuses[0]': "delivered", "statuses[1]": "canceled", "order_statuses": true, "perPage": 10, "page": page, }; try { final client = dioHttp.client(requireAuth: true); final response = await client.get( '/api/v1/dashboard/user/orders/paginate', queryParameters: data, ); return ApiResult.success( data: OrderPaginateResponse.fromJson(response.data), ); } catch (e)`
+### `refundOrder(String orderId, String title) async { final data = {'order': orderId, 'cause': title}; try { final client = dioHttp.client(requireAuth: true); await client.post( '/api/v1/method/paas.api.user.user.create_order_refund', data: data, ); return const ApiResult.success(data: null); } catch (e)`
 *No documentation provided (generation failed).*
 
-### `getSingleOrder(num orderId) async { final data = { if (LocalStorage.getSelectedCurrency() != null) 'currency_id': LocalStorage.getSelectedCurrency()?.id, 'lang': LocalStorage.getLanguage()?.locale, }; try { final client = dioHttp.client(requireAuth: true); final response = await client.get( '/api/v1/dashboard/user/orders/$orderId', queryParameters: data, ); return ApiResult.success(data: OrderActiveModel.fromJson(response.data)); } catch (e, s)`
+### `getRefundOrders(int page) async { final data = {'page': page}; try { final client = dioHttp.client(requireAuth: true); final response = await client.get( '/api/v1/method/paas.api.user.user.get_user_order_refunds', queryParameters: data, ); return ApiResult.success(data: RefundOrdersModel.fromJson(response.data)); } catch (e)`
 *No documentation provided (generation failed).*
 
-### `addReview(num orderId, { required double rating, required String comment, }) async { final data = {'rating': rating, if (comment != "") 'comment': comment}; try { final client = dioHttp.client(requireAuth: true); await client.post( '/api/v1/dashboard/user/orders/review/$orderId', data: data, ); await client.post( '/api/v1/dashboard/user/orders/deliveryman-review/$orderId', data: data, ); return const ApiResult.success(data: null); } catch (e)`
+### `getCalculate({ required String cartId, required double lat, required double long, required DeliveryTypeEnum type, String? coupon, }) async { final data = { 'cart_id': cartId, 'address': {'latitude': lat, 'longitude': long}, if (coupon != null) 'coupon': coupon, }; try { final client = dioHttp.client(requireAuth: true); final response = await client.post( '/api/v1/method/paas.api.order.order.get_calculate', data: data, ); return ApiResult.success( data: GetCalculateModel.fromJson(response.data['message']), ); } catch (e)`
 *No documentation provided (generation failed).*
 
-### `process(OrderBodyData orderBody, String name, ) async { try { debugPrint( '==> order process request: ${jsonEncode(orderBody.toJson(paymentTag: name))}', ); final client = dioHttp.client(requireAuth: true); var res = await client.get( '/api/v1/dashboard/user/order-$name-process', data: orderBody.toJson(paymentTag: name), ); if (name == "pay-fast")`
+### `checkCoupon({ required String coupon, required String shopId, }) async { final data = {'coupon': coupon, 'shop': shopId}; try { final client = dioHttp.client(requireAuth: true); final response = await client.post( '/api/v1/method/paas.api.coupon.coupon.check_coupon', data: data, ); return ApiResult.success(data: CouponResponse.fromJson(response.data)); } catch (e)`
 *No documentation provided (generation failed).*
 
-### `tipProcess(int? orderId, String paymentName, int? paymentId, num? tips, ) async { try { final client = dioHttp.client(requireAuth: true); if (paymentName.toLowerCase() == 'wallet')`
+### `checkCashback({ required double amount, required String shopId, }) async { try { final client = dioHttp.client(requireAuth: false); final response = await client.post( '/api/v1/method/paas.api.shop.shop.check_cashback', data: {'shop_id': shopId, 'amount': amount}, ); return ApiResult.success( data: CashbackResponse.fromJson(response.data['message']), ); } catch (e)`
 *No documentation provided (generation failed).*
 
-### `checkCoupon({ required String coupon, required int shopId, }) async { final data = {'coupon': coupon, 'shop_id': shopId}; try { final client = dioHttp.client(requireAuth: true); final response = await client.post( '/api/v1/rest/coupons/check', data: data, ); return ApiResult.success(data: CouponResponse.fromJson(response.data)); } catch (e)`
+### `createAutoOrder({ required String orderId, required String startDate, String? endDate, String? cronPattern, String? paymentMethod, String? savedCardId, }) async { try { final client = dioHttp.client(requireAuth: true); await client.post( '/api/v1/method/paas.api.repeating_order.create_repeating_order', data: { 'original_order': orderId, 'start_date': startDate, 'cron_pattern': cronPattern ?? '0 0 * * *', if (endDate != null) 'end_date': endDate, if (paymentMethod != null) 'payment_method': paymentMethod, if (savedCardId != null) 'saved_card': savedCardId, }, ); return const ApiResult.success(data: null); } catch (e)`
 *No documentation provided (generation failed).*
 
-### `checkCashback({ required double amount, required int shopId, }) async { final data = {'amount': amount, "shop_id": shopId}; try { final client = dioHttp.client(requireAuth: false); final response = await client.post( '/api/v1/rest/cashback/check', data: data, ); return ApiResult.success(data: CashbackResponse.fromJson(response.data)); } catch (e)`
+### `deleteAutoOrder(String orderId) async { try { final client = dioHttp.client(requireAuth: true); await client.post( '/api/v1/method/paas.api.repeating_order.delete_repeating_order', data: {'repeating_order_id': orderId}, ); return const ApiResult.success(data: null); } catch (e)`
 *No documentation provided (generation failed).*
 
-### `getCalculate({ required int cartId, required double lat, required double long, required DeliveryTypeEnum type, String? coupon, }) async { final data = { 'address[latitude]': lat, 'address[longitude]': long, if (LocalStorage.getSelectedCurrency() != null) 'currency_id': LocalStorage.getSelectedCurrency()?.id, "type": type == DeliveryTypeEnum.delivery ? "delivery" : "pickup", "coupon": coupon, }; try { final client = dioHttp.client(requireAuth: true); final response = await client.post( '/api/v1/dashboard/user/cart/calculate/$cartId', queryParameters: data, ); return ApiResult.success( data: GetCalculateModel.fromJson(response.data["data"]), ); } catch (e)`
+### `tipProcess({ required String orderId, required double tip, }) async { try { final client = dioHttp.client(requireAuth: true); final response = await client.post( '/api/v1/method/paas.api.payment.payment.tip_process', data: {'order_id': orderId, 'tip': tip}, ); return ApiResult.success(data: response.data['redirect_url']); } catch (e)`
 *No documentation provided (generation failed).*
 
-### `cancelOrder(num orderId) async { try { final client = dioHttp.client(requireAuth: true); await client.post( '/api/v1/dashboard/user/orders/$orderId/status/change?status=canceled', ); return const ApiResult.success(data: null); } catch (e)`
-*No documentation provided (generation failed).*
-
-### `refundOrder(num orderId, String title) async { try { final data = {"order_id": orderId, "cause": title}; final client = dioHttp.client(requireAuth: true); await client.post('/api/v1/dashboard/user/order-refunds', data: data); return const ApiResult.success(data: null); } catch (e)`
-*No documentation provided (generation failed).*
-
-### `getRefundOrders(int page) async { final data = { if (LocalStorage.getSelectedCurrency() != null) 'currency_id': LocalStorage.getSelectedCurrency()?.id, 'lang': LocalStorage.getLanguage()?.locale, "perPage": 10, "page": page, }; try { final client = dioHttp.client(requireAuth: true); final response = await client.get( '/api/v1/dashboard/user/order-refunds/paginate', queryParameters: data, ); return ApiResult.success(data: RefundOrdersModel.fromJson(response.data)); } catch (e)`
-*No documentation provided (generation failed).*
-
-### `getDriverLocation(int deliveryId) async { try { final client = dioHttp.client(requireAuth: false); final response = await client.get( '/api/v1/rest/orders/deliveryman/$deliveryId', ); return ApiResult.success( data: LocalLocation.fromJson( response.data["data"]["delivery_man_setting"]["location"], ), ); } catch (e)`
+### `getDriverLocation(String deliveryId) async { try { final client = dioHttp.client(requireAuth: false); final response = await client.get( '/api/v1/method/paas.api.delivery.delivery.get_driver_location', queryParameters: {'order_id': deliveryId}, ); return ApiResult.success( data: LocalLocation.fromJson(response.data['message']), ); } catch (e)`
 *No documentation provided (generation failed).*

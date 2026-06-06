@@ -22,3 +22,9 @@ Source file: `lib/core/local_storage.dart`
 
 ### `deleteTranslations() => preferences?.remove(StorageKeys.keyTranslations); static Future<void> setSelectedCurrency(CurrencyData? currency) async { final String currencyString = jsonEncode(currency?.toJson()); await preferences?.setString( StorageKeys.keySelectedCurrency, currencyString, ); } static CurrencyData? getSelectedCurrency()`
 *No documentation provided (generation failed).*
+
+### `deleteSelectedCurrency() => preferences?.remove(StorageKeys.keySelectedCurrency); static Future<void> setLangLtr(bool? backward) async { await preferences?.setBool(StorageKeys.keyLangLtr, (backward ?? false)); } static bool getLangLtr() => !(preferences?.getBool(StorageKeys.keyLangLtr) ?? false); static void deleteLangLtr() => preferences?.remove(StorageKeys.keyLangLtr); static Future<void> setOnline(bool online) async { if (preferences != null)`
+*No documentation provided (generation failed).*
+
+### `getOnline()`
+*No documentation provided (generation failed).*

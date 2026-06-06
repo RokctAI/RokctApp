@@ -18,11 +18,11 @@ class UsbConnector {
   Future<List<PrinterDevice>> getDevices() async {
     if (!Platform.isAndroid) return [];
     try {
-      final List<dynamic>? result = await _channel.invokeMethod('getDevices');
+      final List<Dyn>? result = await _channel.invokeMethod('getDevices');
       if (result == null) return [];
 
       return result.map((e) {
-        final Map<dynamic, dynamic> map = e as Map<dynamic, dynamic>;
+        final Map<Dyn, Dyn> map = e as Map<Dyn, Dyn>;
         final String vId = map['vendorId']?.toString() ?? '0';
         final String pId = map['productId']?.toString() ?? '0';
         return PrinterDevice(
@@ -80,3 +80,5 @@ class UsbConnector {
     }
   }
 }
+
+typedef Dyn = dynamic;

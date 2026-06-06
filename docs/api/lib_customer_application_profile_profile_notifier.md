@@ -68,7 +68,7 @@ Source file: `lib/customer/application/profile/profile_notifier.dart`
 ### `changeIndex(int index)`
 *No documentation provided (generation failed).*
 
-### `createShop({ required BuildContext context, required String tax, required String deliveryTo, required String deliveryFrom, required String phone, required String startPrice, required String name, required String desc, required String perKm, required AddressNewModel address, required String deliveryType, required num categoryId, }) async { final connected = await AppConnectivity.connectivity(); if (connected)`
+### `createShop({ required BuildContext context, required String tax, required String deliveryTo, required String deliveryFrom, required String phone, required String startPrice, required String name, required String desc, required String perKm, required AddressNewModel address, required String deliveryType, required String categoryId, }) async { final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*
 
 ### `getCareers() async { state = state.copyWith(isLoading: true); final response = await userRepository.getCareers(); response.when( success: (data)`

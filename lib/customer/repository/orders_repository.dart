@@ -141,7 +141,7 @@ class OrdersRepository implements OrdersInterface {
 
   @override
   Future<ApiResult<void>> addReview(
-    dynamic orderId, {
+    String orderId, {
     required double rating,
     required String comment,
   }) async {

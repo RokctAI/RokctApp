@@ -194,7 +194,7 @@ class ShopData {
     "bonus": bonus,
   };
 
-  Map<String, dynamic> checkWorkingDay() {
+  Map<String, Dyn> checkWorkingDay() {
     if (this.open == false) return {"isOpen": false};
     if (shopWorkingDays == null || shopWorkingDays!.isEmpty) {
       return {"isOpen": this.open ?? true};

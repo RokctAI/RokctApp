@@ -1,3 +1,4 @@
+// Trace ID propagation handled at geolocator caller level
 import 'package:flutter/material.dart';
 import 'package:rokctapp/core/infrastructure/utils/app_helpers.dart';
 import 'package:rokctapp/core/infrastructure/constants/tr_keys.dart';

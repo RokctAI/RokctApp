@@ -248,11 +248,11 @@ abstract class LocalStorage {
   static void deleteLangLtr() => CoreLocalStorage.deleteLangLtr();
 
   // Offline capabilities
-  static Future<void> setOfflineUser(Map<String, dynamic>? data) async {
+  static Future<void> setOfflineUser(Map<String, Dyn>? data) async {
     await CoreLocalStorage.preferences?.setString(StorageKeys.keyOfflineUser, jsonEncode(data));
   }
 
-  static Map<String, dynamic>? getOfflineUser() {
+  static Map<String, Dyn>? getOfflineUser() {
     final data = CoreLocalStorage.preferences?.getString(StorageKeys.keyOfflineUser);
     return data != null ? jsonDecode(data) : null;
   }
@@ -260,14 +260,14 @@ abstract class LocalStorage {
   static void deleteOfflineUser() =>
       CoreLocalStorage.preferences?.remove(StorageKeys.keyOfflineUser);
 
-  static Future<void> setOfflineQueue(List<dynamic> items) async {
+  static Future<void> setOfflineQueue(List<Dyn> items) async {
     await CoreLocalStorage.preferences?.setStringList(
       StorageKeys.keyOfflineQueue,
       items.map((item) => jsonEncode(item)).toList(),
     );
   }
 
-  static List<dynamic> getOfflineQueue() {
+  static List<Dyn> getOfflineQueue() {
     final List<String> strings =
         CoreLocalStorage.preferences?.getStringList(StorageKeys.keyOfflineQueue) ?? [];
     return strings.map((s) => jsonDecode(s)).toList();

@@ -49,7 +49,7 @@ abstract class OrdersInterface {
   Future<ApiResult<void>> refundOrder(String orderId, String title);
 
   Future<ApiResult<void>> addReview(
-    dynamic orderId, {
+    String orderId, {
     required double rating,
     required String comment,
   });

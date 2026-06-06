@@ -8,7 +8,7 @@ Source file: `lib/customer/application/shop/shop_notifier.dart`
 
 ## Whitelisted API Endpoints
 
-### `build() => const ShopState(); int page = 1; List<int> _list = []; String? shareLink; void showWeekTime()`
+### `build() => const ShopState(); int page = 1; List<String> _list = []; String? shareLink; void showWeekTime()`
 *No documentation provided (generation failed).*
 
 ### `showBranch()`
@@ -20,7 +20,7 @@ Source file: `lib/customer/application/shop/shop_notifier.dart`
 ### `getRoutingAll({ required BuildContext context, required LatLng start, required LatLng end, }) async { if (await AppConnectivity.connectivity())`
 *No documentation provided (generation failed).*
 
-### `changeMap({required LatLng shopLocation}) async { state = state.copyWith(isMapLoading: true); final ImageCropperForMarker image = ImageCropperForMarker(); Set<Marker> markers = {}; markers.addAll({ Marker( markerId: const MarkerId("shop"), position: shopLocation, icon: await image.resizeAndCircle(state.shopData?.logoImg ?? "", 120), ), Marker( markerId: const MarkerId("user"), position: LatLng( LocalStorage.getAddressSelected()?.location?.latitude ?? AppConstants.demoLatitude, LocalStorage.getAddressSelected()?.location?.longitude ?? AppConstants.demoLongitude, ), icon: await image.resizeAndCircle(LocalStorage.getUser()?.img, 120), ), }); state = state.copyWith(isMapLoading: false, shopMarkers: markers); } Future<void> getMarker() async { state = state.copyWith( isMapLoading: true, showBranch: false, showWeekTime: false, ); final ImageCropperForMarker image = ImageCropperForMarker(); Set<Marker> markers = {}; markers.addAll({ Marker( markerId: const MarkerId("shop"), position: LatLng( state.shopData?.location?.latitude ?? AppConstants.demoLatitude, state.shopData?.location?.longitude ?? AppConstants.demoLongitude, ), icon: await image.resizeAndCircle(state.shopData?.logoImg ?? "", 120), ), Marker( markerId: const MarkerId("user"), position: LatLng( LocalStorage.getAddressSelected()?.location?.latitude ?? AppConstants.demoLatitude, LocalStorage.getAddressSelected()?.location?.longitude ?? AppConstants.demoLongitude, ), icon: await image.resizeAndCircle(LocalStorage.getUser()?.img, 120), ), }); state = state.copyWith(shopMarkers: markers, isMapLoading: false); final res = await shopsRepository.getShopBranch( uuid: state.shopData?.id ?? 0, ); res.when( success: (data)`
+### `changeMap({required LatLng shopLocation}) async { state = state.copyWith(isMapLoading: true); final ImageCropperForMarker image = ImageCropperForMarker(); Set<Marker> markers = {}; markers.addAll({ Marker( markerId: const MarkerId("shop"), position: shopLocation, icon: await image.resizeAndCircle(state.shopData?.logoImg ?? "", 120), ), Marker( markerId: const MarkerId("user"), position: LatLng( LocalStorage.getAddressSelected()?.location?.latitude ?? AppConstants.demoLatitude, LocalStorage.getAddressSelected()?.location?.longitude ?? AppConstants.demoLongitude, ), icon: await image.resizeAndCircle(LocalStorage.getUser()?.img, 120), ), }); state = state.copyWith(isMapLoading: false, shopMarkers: markers); } Future<void> getMarker() async { state = state.copyWith( isMapLoading: true, showBranch: false, showWeekTime: false, ); final ImageCropperForMarker image = ImageCropperForMarker(); Set<Marker> markers = {}; markers.addAll({ Marker( markerId: const MarkerId("shop"), position: LatLng( state.shopData?.location?.latitude ?? AppConstants.demoLatitude, state.shopData?.location?.longitude ?? AppConstants.demoLongitude, ), icon: await image.resizeAndCircle(state.shopData?.logoImg ?? "", 120), ), Marker( markerId: const MarkerId("user"), position: LatLng( LocalStorage.getAddressSelected()?.location?.latitude ?? AppConstants.demoLatitude, LocalStorage.getAddressSelected()?.location?.longitude ?? AppConstants.demoLongitude, ), icon: await image.resizeAndCircle(LocalStorage.getUser()?.img, 120), ), }); state = state.copyWith(shopMarkers: markers, isMapLoading: false); final res = await shopsRepository.getShopBranch( uuid: state.shopData?.id ?? "", ); res.when( success: (data)`
 *No documentation provided (generation failed).*
 
 ### `onLike()`
@@ -38,7 +38,7 @@ Source file: `lib/customer/application/shop/shop_notifier.dart`
 ### `checkWorkingDay()`
 *No documentation provided (generation failed).*
 
-### `setShop(ShopData shop) async { _list = LocalStorage.getSavedShopsList(); for (int e in _list)`
+### `setShop(ShopData shop) async { _list = LocalStorage.getSavedShopsList(); for (String e in _list)`
 *No documentation provided (generation failed).*
 
 ### `leaveGroup()`
@@ -59,7 +59,7 @@ Source file: `lib/customer/application/shop/shop_notifier.dart`
 ### `checkProductsPopular(BuildContext context, String shopId) async { final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*
 
-### `fetchProductsByCategory(BuildContext context, String shopId, int categoryId, ) async { final connected = await AppConnectivity.connectivity(); if (connected)`
+### `fetchProductsByCategory(BuildContext context, String shopId, String categoryId, ) async { final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*
 
 ### `fetchBrands(BuildContext context, int categoryId) async { final connected = await AppConnectivity.connectivity(); if (connected)`

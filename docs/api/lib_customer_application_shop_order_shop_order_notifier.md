@@ -38,5 +38,5 @@ Source file: `lib/customer/application/shop_order/shop_order_notifier.dart`
 ### `joinGroupOrder(BuildContext context) async { state = state.copyWith(isStartGroup: false); state = state.copyWith(isStartGroup: true); } Future<void> startGroupOrder(BuildContext context, int cartId) async { final connected = await AppConnectivity.connectivity(); state = state.copyWith(isStartGroup: false, isStartGroupLoading: true); if (connected)`
 *No documentation provided (generation failed).*
 
-### `createCart(BuildContext context, int shopId) async { state = state.copyWith(isCheckShopOrder: false, isOtherShop: false); final connected = await AppConnectivity.connectivity(); if (connected)`
+### `createCart(BuildContext context, String? shopId) async { state = state.copyWith(isCheckShopOrder: false, isOtherShop: false); final connected = await AppConnectivity.connectivity(); if (connected)`
 *No documentation provided (generation failed).*
