@@ -169,7 +169,8 @@ abstract class CoreLocalStorage {
   static String getVisitorUuid() =>
       preferences?.getString(StorageKeys.keyVisitorUuid) ?? '';
 
-  static void deleteVisitorUuid() => preferences?.remove(StorageKeys.keyVisitorUuid);
+  static void deleteVisitorUuid() =>
+      preferences?.remove(StorageKeys.keyVisitorUuid);
 
   // Guest mode tracking
   static Future<void> setIsGuest(bool isGuest) async {
