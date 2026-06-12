@@ -32,7 +32,8 @@ abstract class OrdersInterface {
 
   Future<ApiResult<OrderPaginateResponse>> getActiveOrders(int page);
 
-  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page, {
+  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(
+    int page, {
     DateTime? start,
     DateTime? end,
     List<String>? status,
@@ -54,7 +55,9 @@ abstract class OrdersInterface {
     required String comment,
   });
 
-  Future<ApiResult<String>> process(OrderBodyData orderBody, String name, {
+  Future<ApiResult<String>> process(
+    OrderBodyData orderBody,
+    String name, {
     bool forceCardPayment,
     bool enableTokenization,
   });
