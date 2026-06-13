@@ -203,10 +203,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
       final client = dioHttp.client(requireAuth: false);
       await client.post(
         '/api/method/rcore.tenant.api.report_client_error',
-        data: {
-          'title': title,
-          'error': error,
-        },
+        data: {'title': title, 'error': error},
       );
       return const ApiResult.success(data: null);
     } catch (e) {

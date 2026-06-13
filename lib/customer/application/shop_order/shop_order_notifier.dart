@@ -64,7 +64,8 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
             stockId: element.stocks?.id,
             quantity: element.quantity,
             parentId:
-                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? "",
+                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ??
+                "",
           ),
         );
       }
@@ -119,7 +120,8 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
         List<CartRequest> list = [
           CartRequest(
             stockId:
-                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? "",
+                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ??
+                "",
             quantity:
                 state.cart?.userCarts?.first.cartDetails?[index].quantity ?? 1,
           ),
@@ -140,7 +142,8 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
           cart: CartRequest(
             shopId: state.cart?.shopId ?? "",
             stockId:
-                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ?? "",
+                state.cart?.userCarts?.first.cartDetails?[index].stock?.id ??
+                "",
             quantity:
                 state.cart?.userCarts?.first.cartDetails?[index].quantity ?? 1,
             carts: list,
