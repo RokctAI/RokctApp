@@ -6,6 +6,14 @@ import 'package:rokctapp/core/infrastructure/models/data/language.dart';
 import 'package:rokctapp/core/infrastructure/constants/storage_keys.dart';
 
 abstract class CoreLocalStorage {
+  /// Token expiry duration — tokens are considered invalid after this period.
+  static const Duration tokenLifetime = Duration(hours: 24);
+  static DateTime? _tokenIssuedAt;
+
+  static bool get isTokenExpired =>
+      _tokenIssuedAt == null ||
+      DateTime.now().difference(_tokenIssuedAt!) > tokenLifetime;
+
   CoreLocalStorage._();
   static SharedPreferences? preferences;
 

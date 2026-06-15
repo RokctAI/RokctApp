@@ -38,7 +38,7 @@ class ImageCropperForMarker {
     final String tempPath = tempDir.path;
     try {
       final File file = File('$tempPath${rd.nextInt(100)}.png');
-      final http.Response response = await http.get(Uri.parse(imageUrl ?? ''));
+      final http.Response response = await http.get(Uri.parse(imageUrl ?? '').timeout(const Duration(seconds: 30)));
       await file.writeAsBytes(response.bodyBytes);
       return file;
     } catch (e) {
