@@ -46,6 +46,8 @@ class GalleryRepository implements GalleryRepositoryFacade {
     });
     try {
       final client = dioHttp.client(requireAuth: true);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.post(
         '/api/v1/dashboard/galleries',
         data: data,
@@ -87,6 +89,8 @@ class GalleryRepository implements GalleryRepositoryFacade {
     });
     try {
       final client = dioHttp.client(requireAuth: true);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.post(
         '/api/v1/dashboard/galleries/store-many',
         data: data,

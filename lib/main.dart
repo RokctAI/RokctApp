@@ -56,6 +56,8 @@ void callbackDispatcher() {
           final Dio client = Dio(
             BaseOptions(
               baseUrl: AppConstants.baseUrl,
+              connectTimeout: const Duration(seconds: 30),
+              receiveTimeout: const Duration(seconds: 30),
               headers: {
                 'Accept':
                     'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',

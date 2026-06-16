@@ -49,6 +49,8 @@ class SettingsRepositoryImpl implements DriverSettingsRepository {
     });
     try {
       final client = dioHttp.client(requireAuth: true);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.post(
         '/api/v1/dashboard/galleries',
         data: data,
@@ -69,6 +71,8 @@ class SettingsRepositoryImpl implements DriverSettingsRepository {
   Future<ApiResult<CurrenciesResponse>> getCurrencies() async {
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get('/api/v1/rest/currencies');
       return ApiResult.success(
         data: CurrenciesResponse.fromJson(response.data),
@@ -86,6 +90,8 @@ class SettingsRepositoryImpl implements DriverSettingsRepository {
   Future<ApiResult<SettingsResponse>> getGlobalSettings() async {
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get('/api/v1/rest/settings');
       return ApiResult.success(data: SettingsResponse.fromJson(response.data));
     } catch (e) {
@@ -102,6 +108,8 @@ class SettingsRepositoryImpl implements DriverSettingsRepository {
     final data = {'lang': LocalStorage.getLanguage()?.locale ?? 'en'};
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get(
         '/api/v1/rest/translations/paginate',
         queryParameters: data,
@@ -122,6 +130,8 @@ class SettingsRepositoryImpl implements DriverSettingsRepository {
   Future<ApiResult<LanguagesResponse>> getLanguages() async {
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get('/api/v1/rest/languages/active');
       if (LocalStorage.getLanguage() != null &&
           !(LanguagesResponse.fromJson(response.data).data

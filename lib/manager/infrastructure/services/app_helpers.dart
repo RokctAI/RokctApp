@@ -1,5 +1,5 @@
 // Trace ID propagation context
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart'; // Timeout: configured centrally in HttpService
 import 'package:ftoast/ftoast.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';

@@ -47,6 +47,8 @@ class SettingsRepository implements SettingsInterface {
     });
     try {
       final client = dioHttp.client(requireAuth: true);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.post(
         '/api/v1/dashboard/galleries',
         data: data,
@@ -88,6 +90,8 @@ class SettingsRepository implements SettingsInterface {
     });
     try {
       final client = dioHttp.client(requireAuth: true);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.post(
         '/api/v1/dashboard/galleries/store-many',
         data: data,
@@ -108,6 +112,8 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<CurrenciesResponse>> getCurrencies() async {
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get('/api/v1/rest/currencies');
       return ApiResult.success(
         data: CurrenciesResponse.fromJson(response.data),
@@ -125,6 +131,8 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<SettingsResponse>> getGlobalSettings() async {
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get('/api/v1/rest/settings');
       return ApiResult.success(data: SettingsResponse.fromJson(response.data));
     } catch (e) {
@@ -141,6 +149,8 @@ class SettingsRepository implements SettingsInterface {
     final data = {'lang': LocalStorage.getLanguage()?.locale ?? 'en'};
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get(
         '/api/v1/rest/translations/paginate',
         queryParameters: data,
@@ -161,6 +171,8 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<LanguagesResponse>> getLanguages() async {
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get('/api/v1/rest/languages/active');
       final languagesResponse = LanguagesResponse.fromJson(response.data);
       if (LocalStorage.getLanguage() != null &&

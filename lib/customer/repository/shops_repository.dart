@@ -19,6 +19,8 @@ class ShopsRepository implements ShopsRepositoryFacade {
     final data = SearchShopModel(text: text, categoryId: categoryId);
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get(
         '/api/v1/rest/shops/search',
         queryParameters: data.toJson(),
@@ -43,6 +45,8 @@ class ShopsRepository implements ShopsRepositoryFacade {
     final data = {'clientLocation': '$latitude,$longitude'};
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get(
         '/api/v1/rest/shops/nearby',
         queryParameters: data,
@@ -81,6 +85,8 @@ class ShopsRepository implements ShopsRepositoryFacade {
     );
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get(
         '/api/v1/rest/shops/paginate',
         queryParameters: data.toJson(),
@@ -101,6 +107,8 @@ class ShopsRepository implements ShopsRepositoryFacade {
   Future<ApiResult<BranchResponse>> getShopBranch({required String uuid}) async {
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get(
         '/api/v1/rest/branches?lang=en&shop_id=$uuid&page=1&perPage=100',
       );
@@ -120,6 +128,8 @@ class ShopsRepository implements ShopsRepositoryFacade {
     final data = OnlyShopRequest();
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get(
         '/api/v1/rest/shops/$uuid',
         queryParameters: data.toJson(),
@@ -144,6 +154,8 @@ class ShopsRepository implements ShopsRepositoryFacade {
     final data = {"shop_id": shopId, "name": name, "cart_id": cartId};
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.post('/api/v1/rest/cart/open', data: data);
       return ApiResult.success(data: response.data["data"]["uuid"]);
     } catch (e) {
@@ -228,8 +240,10 @@ class ShopsRepository implements ShopsRepositoryFacade {
     }
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get(
-        '/api/v1/rest/shops',
+        '/api/v1/rest/shops/paginate',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -284,6 +298,8 @@ class ShopsRepository implements ShopsRepositoryFacade {
     };
     try {
       final client = dioHttp.client(requireAuth: true);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       await client.post('/api/v1/dashboard/user/shops', data: data);
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -300,6 +316,8 @@ class ShopsRepository implements ShopsRepositoryFacade {
     final data = ShopRequest(page: page, onlyOpen: true);
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get(
         '/api/v1/rest/shops/recommended',
         queryParameters: data.toJson(),
@@ -321,9 +339,11 @@ class ShopsRepository implements ShopsRepositoryFacade {
     final data = StoryRequest(page: page);
     try {
       final client = dioHttp.client(requireAuth: false);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
       final response = await client.get(
         '/api/v1/rest/stories/paginate',
-        queryParameters: data.toJson(),
+        queryParameters: data,
       );
       return ApiResult.success(data: storyModelFromJson(response.data));
     } catch (e) {
