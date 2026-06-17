@@ -62,7 +62,9 @@ abstract class ProductsRepositoryFacade {
     List<CartProductData> cartProducts,
   );
 
-  Future<ApiResult<ProductsPaginateResponse>> getProductsByIds(List<String> ids);
+  Future<ApiResult<ProductsPaginateResponse>> getProductsByIds(
+    List<String> ids,
+  );
 
   Future<ApiResult<void>> addReview(
     String productUuid,
