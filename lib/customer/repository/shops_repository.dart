@@ -98,7 +98,9 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<BranchResponse>> getShopBranch({required String uuid}) async {
+  Future<ApiResult<BranchResponse>> getShopBranch({
+    required String uuid,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
