@@ -1,0 +1,93 @@
+{
+  "timestamp": "2026-06-18T22:02:51.132338+00:00Z",
+  "control_id": "SOC2-CC7.1-COMPLIANCE",
+  "status": "FAIL",
+  "system": "compliance-scanner",
+  "detail": "Architectural compliance scan failed with 14 violations across source code checks.",
+  "violations": [
+    {
+      "file": ".\\lib\\core\\presentation\\pages\\chat\\chat\\chat_page.dart",
+      "line": 166,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'TextField' found in 'chat_page.dart' line 166 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\core\\presentation\\pages\\search\\search_page.dart",
+      "line": 91,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'SearchTextField' found in 'search_page.dart' line 91 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\customer\\presentation\\pages\\home\\home_three\\home_page_three.dart",
+      "line": 168,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'SearchTextField' found in 'home_page_three.dart' line 168 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\customer\\presentation\\pages\\shop\\shop_page.dart",
+      "line": 87,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'OutlinedBorderTextField' found in 'shop_page.dart' line 87 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\customer\\presentation\\pages\\view_map\\map_search_page.dart",
+      "line": 36,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'SearchTextField' found in 'map_search_page.dart' line 36 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\customer\\presentation\\pages\\view_map\\view_map_page.dart",
+      "line": 313,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'SearchTextField' found in 'view_map_page.dart' line 313 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\manager\\presentation\\pages\\main\\create_order\\create_order_page.dart",
+      "line": 86,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'SearchTextField' found in 'create_order_page.dart' line 86 but layout does not handle keyboard avoidance. Since local override 'resizeToAvoidBottomInset: false', you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\manager\\presentation\\pages\\main\\create_order\\shipping\\address\\select_address_page.dart",
+      "line": 149,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'TextFormField' found in 'select_address_page.dart' line 149 but layout does not handle keyboard avoidance. Since local override 'resizeToAvoidBottomInset: false', you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\manager\\presentation\\pages\\main\\create_order\\shipping\\select_section\\select_section_page.dart",
+      "line": 63,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'SearchTextField' found in 'select_section_page.dart' line 63 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\manager\\presentation\\pages\\main\\create_order\\shipping\\select_table\\select_table_page.dart",
+      "line": 67,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'SearchTextField' found in 'select_table_page.dart' line 67 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\manager\\presentation\\pages\\main\\create_order\\shipping\\select_user\\select_user_page.dart",
+      "line": 65,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'SearchTextField' found in 'select_user_page.dart' line 65 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\manager\\presentation\\pages\\main\\foods\\foods_page.dart",
+      "line": 104,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'SearchTextField' found in 'foods_page.dart' line 104 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\manager\\presentation\\pages\\view_map\\map_search_page.dart",
+      "line": 30,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'SearchTextField' found in 'map_search_page.dart' line 30 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    },
+    {
+      "file": ".\\lib\\manager\\presentation\\pages\\view_map\\view_map_page.dart",
+      "line": 348,
+      "what": "Layer 12 (Usability - Keyboard Avoidance)",
+      "why": "Input field 'SearchTextField' found in 'view_map_page.dart' line 348 but layout does not handle keyboard avoidance. Since global scaffold config is set to false, you must wrap the parent container with a margin/padding using 'MediaQuery.of(context).viewInsets' or add a compliance override comment: '// compliance: ignore-keyboard-avoidance'."
+    }
+  ]
+}
