@@ -6,7 +6,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/customer/presentation/pages/home/home_three/shimmer/news_shop_shimmer.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/core/application/currency/currency_provider.dart';
+import 'package:profile_sdk/profile_sdk.dart';
 import 'package:rokctapp/customer/application/home/home_notifier.dart';
 import 'package:rokctapp/customer/application/home/home_provider.dart';
 import 'package:rokctapp/customer/application/home/home_state.dart';

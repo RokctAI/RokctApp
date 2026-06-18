@@ -1,0 +1,19 @@
+name: betassist_sdk
+description: "Rokct BetAssist AR Scanner and Telemetry Overlay Mobile SDK."
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI Animations
+  flip_card: ^0.7.0
+
+  # Hardware Sensors (Gyroscope)
+  sensors_plus: ^5.0.1
+  get_it: ^9.2.0
+

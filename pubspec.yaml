@@ -8,6 +8,58 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  core_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/core_sdk
+      ref: v1.0.0
+  auth_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/auth_sdk
+      ref: v1.0.0
+  wallet_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/wallet_sdk
+      ref: v1.0.0
+  profile_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/profile_sdk
+      ref: v1.0.0
+  order_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/order_sdk
+      ref: v1.0.0
+  delivery_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/delivery_sdk
+      ref: v1.0.0
+  comms_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/comms_sdk
+      ref: v1.0.0
+  polaris_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/polaris_sdk
+      ref: v1.0.0
+  hardware_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/hardware_sdk
+      ref: v1.0.0
+  map_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/map_sdk
+      ref: v1.0.0
+
+
   # Base & Networking
   json_annotation: ^4.8.0
   dio: ^5.9.0

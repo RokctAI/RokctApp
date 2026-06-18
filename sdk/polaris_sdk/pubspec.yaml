@@ -1,0 +1,37 @@
+name: polaris_sdk
+description: "Polaris lending engine integrations, loan applications, eligibility, and disbursements."
+version: 1.0.0
+homepage:
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: '>=3.38.5'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/core_sdk
+      ref: ^1.0.0
+  auth_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/auth_sdk
+      ref: ^1.0.0
+  wallet_sdk:
+    git:
+      url: https://github.com/RokctAI/flutter_sdk.git
+      path: sdk/wallet_sdk
+      ref: ^1.0.0
+  dartz: ^0.10.1
+  flutter_riverpod: ^2.6.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: 2.10.4
+
+flutter:

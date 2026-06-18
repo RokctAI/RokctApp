@@ -13,7 +13,7 @@ import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/application/search/search_notifier.dart';
 import 'package:rokctapp/core/application/search/search_provider.dart';
-import 'package:rokctapp/core/application/main/main_provider.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/pages/search/shimmer/category_shimmer.dart';
 import 'package:rokctapp/core/presentation/pages/search/shimmer/search_product_shimmer.dart';
 import 'package:rokctapp/core/presentation/pages/search/shimmer/search_shop_shimmer.dart';

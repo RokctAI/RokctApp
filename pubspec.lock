@@ -153,6 +153,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.3.0"
+  auth_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/auth_sdk"
+      relative: true
+    source: path
+    version: "0.0.1"
   auto_route:
     dependency: "direct main"
     description:
@@ -395,6 +402,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.19.1"
+  comms_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/comms_sdk"
+      relative: true
+    source: path
+    version: "0.0.1"
   confetti:
     dependency: "direct main"
     description:
@@ -475,6 +489,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.11"
+  delivery_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/delivery_sdk"
+      relative: true
+    source: path
+    version: "0.0.1"
   device_info_plus:
     dependency: transitive
     description:
@@ -1251,6 +1272,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
+  hardware_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/hardware_sdk"
+      relative: true
+    source: path
+    version: "0.0.1"
   hotreloader:
     dependency: transitive
     description:
@@ -1539,6 +1567,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.5.0"
+  map_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/map_sdk"
+      relative: true
+    source: path
+    version: "0.0.1"
   matcher:
     dependency: transitive
     description:
@@ -1571,6 +1606,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  mobile_scanner:
+    dependency: transitive
+    description:
+      name: mobile_scanner
+      sha256: "0b466a0a8a211b366c2e87f3345715faef9b6011c7147556ad22f37de6ba3173"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.11"
   nested:
     dependency: transitive
     description:
@@ -1595,6 +1638,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
+  order_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/order_sdk"
+      relative: true
+    source: path
+    version: "0.0.1"
   osm_nominatim:
     dependency: "direct main"
     description:
@@ -1796,6 +1846,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  polaris_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/polaris_sdk"
+      relative: true
+    source: path
+    version: "0.0.1"
   pool:
     dependency: transitive
     description:
@@ -1812,6 +1869,21 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.3"
+  print_bluetooth_thermal:
+    dependency: transitive
+    description:
+      name: print_bluetooth_thermal
+      sha256: "5d524b9c445779fa46796b84130e63530c81f04864fb2ecbce47a0f5c91d1788"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.1"
+  profile_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/profile_sdk"
+      relative: true
+    source: path
+    version: "0.0.1"
   proste_indexed_stack:
     dependency: "direct main"
     description:
@@ -1988,6 +2060,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.1"
+  shared_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/shared_sdk"
+      relative: true
+    source: path
+    version: "0.0.1"
   shelf:
     dependency: transitive
     description:
@@ -2417,6 +2496,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "15.0.2"
+  wallet_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/wallet_sdk"
+      relative: true
+    source: path
+    version: "0.0.1"
   watcher:
     dependency: transitive
     description:
@@ -2497,6 +2583,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
+  win_ble:
+    dependency: transitive
+    description:
+      name: win_ble
+      sha256: "2a867e13c4b355b101fc2c6e2ac85eeebf965db34eca46856f8b478e93b41e96"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   workmanager:
     dependency: "direct main"
     description:
@@ -2563,5 +2657,5 @@ packages:
     source: hosted
     version: "3.1.3"
 sdks:
-  dart: ">=3.10.0 <4.0.0"
+  dart: ">=3.10.4 <4.0.0"
   flutter: ">=3.38.5"

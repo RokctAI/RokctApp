@@ -1,0 +1,18 @@
+{
+  "name": "comms_sdk",
+  "version": "1.0.0",
+  "installs": [
+    {
+      "from": "templates/pages",
+      "to": "lib/core/presentation/pages/chat"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/chat",
+      "page": "ChatRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/core/presentation/pages/chat/chat/chat_page.dart"
+    }
+  ]
+}

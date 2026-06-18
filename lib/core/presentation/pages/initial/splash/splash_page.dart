@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/application/splash/splash_provider.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 @RoutePage()
