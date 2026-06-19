@@ -153,13 +153,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.3.0"
-  auth_sdk:
-    dependency: "direct main"
-    description:
-      path: "sdk/auth_sdk"
-      relative: true
-    source: path
-    version: "1.0.0"
   auto_route:
     dependency: "direct main"
     description:
@@ -402,13 +395,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.19.1"
-  comms_sdk:
-    dependency: "direct main"
-    description:
-      path: "sdk/comms_sdk"
-      relative: true
-    source: path
-    version: "1.0.0"
   confetti:
     dependency: "direct main"
     description:
@@ -441,13 +427,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
-  core_sdk:
-    dependency: "direct main"
-    description:
-      path: "sdk/core_sdk"
-      relative: true
-    source: path
-    version: "1.0.0"
   cross_file:
     dependency: transitive
     description:
@@ -496,13 +475,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.11"
-  delivery_sdk:
-    dependency: "direct main"
-    description:
-      path: "sdk/delivery_sdk"
-      relative: true
-    source: path
-    version: "1.0.0"
   device_info_plus:
     dependency: transitive
     description:
@@ -1574,13 +1546,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.5.0"
-  map_sdk:
-    dependency: "direct main"
-    description:
-      path: "sdk/map_sdk"
-      relative: true
-    source: path
-    version: "1.0.0"
   matcher:
     dependency: transitive
     description:
@@ -1645,13 +1610,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
-  order_sdk:
-    dependency: "direct main"
-    description:
-      path: "sdk/order_sdk"
-      relative: true
-    source: path
-    version: "1.0.0"
   osm_nominatim:
     dependency: "direct main"
     description:
@@ -1853,13 +1811,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
-  polaris_sdk:
-    dependency: "direct main"
-    description:
-      path: "sdk/polaris_sdk"
-      relative: true
-    source: path
-    version: "1.0.0"
   pool:
     dependency: transitive
     description:
@@ -1884,13 +1835,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
-  profile_sdk:
-    dependency: "direct main"
-    description:
-      path: "sdk/profile_sdk"
-      relative: true
-    source: path
-    version: "1.0.0"
   proste_indexed_stack:
     dependency: "direct main"
     description:
@@ -2496,13 +2440,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "15.0.2"
-  wallet_sdk:
-    dependency: "direct main"
-    description:
-      path: "sdk/wallet_sdk"
-      relative: true
-    source: path
-    version: "1.0.0"
   watcher:
     dependency: transitive
     description:
@@ -2657,5 +2594,5 @@ packages:
     source: hosted
     version: "3.1.3"
 sdks:
-  dart: ">=3.10.4 <4.0.0"
+  dart: ">=3.10.0 <4.0.0"
   flutter: ">=3.38.5"

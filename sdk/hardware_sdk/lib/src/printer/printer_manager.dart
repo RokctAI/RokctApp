@@ -1,11 +1,13 @@
-import 'package:rokctapp/printer/models/response/printer_response.dart';
-import 'package:rokctapp/printer/models/data/esc_pos.dart';
-import 'package:rokctapp/printer/models/data/printer_device.dart';
-import 'package:rokctapp/printer/models/request/print_receipt_request.dart';
+import 'models/response/printer_response.dart';
+import 'models/data/esc_pos.dart';
+import 'models/data/printer_device.dart';
+import 'models/request/print_receipt_request.dart';
 
-import 'package:rokctapp/printer/connectors/connectors.dart';
+import 'mobile/bluetooth_connector.dart';
+import 'desktop/tcp_connector.dart';
+import 'desktop/usb_connector.dart';
+import 'discovery.dart';
 import 'package:intl/intl.dart';
-import 'package:rokctapp/infrastructure/models/response/branches_response.dart';
 
 class PrinterManager {
   static final PrinterManager _instance = PrinterManager._internal();

@@ -8,26 +8,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  core_sdk:
-    path: sdk/core_sdk
-  auth_sdk:
-    path: sdk/auth_sdk
-  wallet_sdk:
-    path: sdk/wallet_sdk
-  profile_sdk:
-    path: sdk/profile_sdk
-  order_sdk:
-    path: sdk/order_sdk
-  delivery_sdk:
-    path: sdk/delivery_sdk
-  comms_sdk:
-    path: sdk/comms_sdk
-  polaris_sdk:
-    path: sdk/polaris_sdk
   hardware_sdk:
     path: sdk/hardware_sdk
-  map_sdk:
-    path: sdk/map_sdk
+
+
 
 
   # Base & Networking

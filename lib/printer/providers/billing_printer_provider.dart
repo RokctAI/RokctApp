@@ -1,8 +1,7 @@
-import 'package:rokctapp/printer/printer_manager.dart';
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/printer/printer.dart';
+import 'package:hardware_sdk/hardware_sdk.dart';
 import 'package:rokctapp/printer/providers/billing_printer_state.dart';
 
 class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {

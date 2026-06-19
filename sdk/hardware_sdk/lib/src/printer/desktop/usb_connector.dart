@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
-import 'package:rokctapp/printer/models/data/printer_device.dart';
+import '../models/data/printer_device.dart';
 
 class UsbConnector {
   static final UsbConnector _instance = UsbConnector._internal();
