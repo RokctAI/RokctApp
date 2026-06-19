@@ -11,20 +11,11 @@ dependencies:
   flutter:
     sdk: flutter
   core_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/core_sdk
-      ref: ^1.0.0
+    path: ../core_sdk
   auth_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/auth_sdk
-      ref: ^1.0.0
+    path: ../auth_sdk
   wallet_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/wallet_sdk
-      ref: ^1.0.0
+    path: ../wallet_sdk
   dartz: ^0.10.1
   flutter_riverpod: ^2.6.1
 

@@ -11,15 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
   core_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/core_sdk
-      ref: ^1.0.0
+    path: ../core_sdk
   map_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/map_sdk
-      ref: ^1.0.0
+    path: ../map_sdk
 
   dartz: ^0.10.1
   flutter_riverpod: ^2.6.1

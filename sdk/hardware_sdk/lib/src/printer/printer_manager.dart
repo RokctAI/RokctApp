@@ -109,6 +109,10 @@ class PrinterManager {
     }
   }
 
+  Future<void> sendRawBytes(List<int> bytes) async {
+    await _sendBytes(bytes);
+  }
+
   Future<PrinterResponse> printText(String text) async {
     if (!isConnected) return PrinterResponse.failure('Printer not connected');
     await _sendBytes(text.codeUnits);

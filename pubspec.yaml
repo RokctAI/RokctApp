@@ -9,55 +9,25 @@ dependencies:
   flutter:
     sdk: flutter
   core_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/core_sdk
-      ref: v1.0.0
+    path: sdk/core_sdk
   auth_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/auth_sdk
-      ref: v1.0.0
+    path: sdk/auth_sdk
   wallet_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/wallet_sdk
-      ref: v1.0.0
+    path: sdk/wallet_sdk
   profile_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/profile_sdk
-      ref: v1.0.0
+    path: sdk/profile_sdk
   order_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/order_sdk
-      ref: v1.0.0
+    path: sdk/order_sdk
   delivery_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/delivery_sdk
-      ref: v1.0.0
+    path: sdk/delivery_sdk
   comms_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/comms_sdk
-      ref: v1.0.0
+    path: sdk/comms_sdk
   polaris_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/polaris_sdk
-      ref: v1.0.0
+    path: sdk/polaris_sdk
   hardware_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/hardware_sdk
-      ref: v1.0.0
+    path: sdk/hardware_sdk
   map_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/map_sdk
-      ref: v1.0.0
+    path: sdk/map_sdk
 
 
   # Base & Networking

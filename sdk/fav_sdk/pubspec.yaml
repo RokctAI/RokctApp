@@ -12,7 +12,4 @@ dependencies:
   flutter_riverpod: ^2.6.1
   get_it: ^9.2.0
   core_sdk:
-    git:
-      url: https://github.com/RokctAI/flutter_sdk.git
-      path: sdk/core_sdk
-      ref: ^1.0.0
+    path: ../core_sdk
