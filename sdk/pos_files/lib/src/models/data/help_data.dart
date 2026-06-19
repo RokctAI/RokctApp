@@ -10,12 +10,12 @@ class HelpModel {
   List<Datum>? data;
 
   factory HelpModel.fromJson(Map<String, dynamic> json) => HelpModel(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-      );
+    data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+  );
 
   Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data!.map((x) => x.toJson())),
-      };
+    "data": List<dynamic>.from(data!.map((x) => x.toJson())),
+  };
 }
 
 class Datum {
@@ -40,27 +40,27 @@ class Datum {
   List<String>? locales;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        id: json["id"],
-        uuid: json["uuid"],
-        type: json["type"],
-        active: json["active"],
-        createdAt: DateTime.tryParse(json["created_at"])?.toLocal(),
-        updatedAt: DateTime.tryParse(json["updated_at"])?.toLocal(),
-        translation: json["translation"] != null
-            ? HelpTranslation.fromJson(json["translation"])
-            : null,
-      );
+    id: json["id"],
+    uuid: json["uuid"],
+    type: json["type"],
+    active: json["active"],
+    createdAt: DateTime.tryParse(json["created_at"])?.toLocal(),
+    updatedAt: DateTime.tryParse(json["updated_at"])?.toLocal(),
+    translation: json["translation"] != null
+        ? HelpTranslation.fromJson(json["translation"])
+        : null,
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "uuid": uuid,
-        "type": type,
-        "active": active,
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-        "translation": translation?.toJson(),
-        "locales": List<dynamic>.from(locales!.map((x) => x)),
-      };
+    "id": id,
+    "uuid": uuid,
+    "type": type,
+    "active": active,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+    "translation": translation?.toJson(),
+    "locales": List<dynamic>.from(locales!.map((x) => x)),
+  };
 }
 
 class HelpTranslation {
@@ -80,9 +80,9 @@ class HelpTranslation {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "locale": locale,
-        "question": question,
-        "answer": answer,
-      };
+    "id": id,
+    "locale": locale,
+    "question": question,
+    "answer": answer,
+  };
 }

@@ -46,21 +46,21 @@ class DialogStatus extends StatelessWidget {
                 child: Consumer(
                   builder:
                       (BuildContext context, WidgetRef ref, Widget? child) {
-                    return LoginButton(
-                      isLoading: ref.watch(orderDetailsProvider).isUpdating,
-                      title: AppHelpers.getTranslation(TrKeys.apply),
-                      onPressed: () {
-                        ref
-                            .read(orderDetailsProvider.notifier)
-                            .updateOrderStatus(
-                              status: orderStatus,
-                              success: () {
-                                context.maybePop();
-                              },
-                            );
+                        return LoginButton(
+                          isLoading: ref.watch(orderDetailsProvider).isUpdating,
+                          title: AppHelpers.getTranslation(TrKeys.apply),
+                          onPressed: () {
+                            ref
+                                .read(orderDetailsProvider.notifier)
+                                .updateOrderStatus(
+                                  status: orderStatus,
+                                  success: () {
+                                    context.maybePop();
+                                  },
+                                );
+                          },
+                        );
                       },
-                    );
-                  },
                 ),
               ),
             ],

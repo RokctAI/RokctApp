@@ -31,18 +31,17 @@ class IncomeCartResponse {
     String? revenueType,
     String? ordersType,
     String? averageType,
-  }) =>
-      IncomeCartResponse(
-        revenue: revenue ?? this.revenue,
-        revenuePercent: revenuePercent ?? this.revenuePercent,
-        orders: orders ?? this.orders,
-        ordersPercent: ordersPercent ?? this.ordersPercent,
-        average: average ?? this.average,
-        averagePercent: averagePercent ?? this.averagePercent,
-        revenueType: revenueType ?? this.revenueType,
-        ordersType: ordersType ?? this.ordersType,
-        averageType: averageType ?? this.averageType,
-      );
+  }) => IncomeCartResponse(
+    revenue: revenue ?? this.revenue,
+    revenuePercent: revenuePercent ?? this.revenuePercent,
+    orders: orders ?? this.orders,
+    ordersPercent: ordersPercent ?? this.ordersPercent,
+    average: average ?? this.average,
+    averagePercent: averagePercent ?? this.averagePercent,
+    revenueType: revenueType ?? this.revenueType,
+    ordersType: ordersType ?? this.ordersType,
+    averageType: averageType ?? this.averageType,
+  );
 
   factory IncomeCartResponse.fromJson(Map<String, dynamic> json) =>
       IncomeCartResponse(
@@ -58,11 +57,11 @@ class IncomeCartResponse {
       );
 
   Map<String, dynamic> toJson() => {
-        "revenue": revenue,
-        "revenue_percent": revenuePercent,
-        "orders": orders,
-        "orders_percent": ordersPercent,
-        "average": average,
-        "average_percent": averagePercent,
-      };
+    "revenue": revenue,
+    "revenue_percent": revenuePercent,
+    "orders": orders,
+    "orders_percent": ordersPercent,
+    "average": average,
+    "average_percent": averagePercent,
+  };
 }

@@ -6,5 +6,5 @@ import 'edit_discount_state.dart';
 
 final editDiscountProvider =
     StateNotifierProvider<EditDiscountNotifier, EditDiscountState>(
-  (ref) => EditDiscountNotifier(discountRepository, galleryRepository),
-);
+      (ref) => EditDiscountNotifier(discountRepository, galleryRepository),
+    );

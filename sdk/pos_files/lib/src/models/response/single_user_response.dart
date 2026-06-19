@@ -30,13 +30,12 @@ class SingleUserResponse {
     bool? status,
     String? message,
     UserData? data,
-  }) =>
-      SingleUserResponse(
-        timestamp: timestamp ?? _timestamp,
-        status: status ?? _status,
-        message: message ?? _message,
-        data: data ?? _data,
-      );
+  }) => SingleUserResponse(
+    timestamp: timestamp ?? _timestamp,
+    status: status ?? _status,
+    message: message ?? _message,
+    data: data ?? _data,
+  );
 
   String? get timestamp => _timestamp;
 

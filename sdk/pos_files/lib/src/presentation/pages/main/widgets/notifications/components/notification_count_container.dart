@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../../theme/theme.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 
 class NotificationCountsContainer extends StatelessWidget {
   final String? count;
-  final Color? color;
-  const NotificationCountsContainer({super.key, this.count, this.color});
+  const NotificationCountsContainer({super.key, this.count});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class NotificationCountsContainer extends StatelessWidget {
       width: 38.r,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        color: AppStyle.black,
+        color: AppStyle.primary,
       ),
       child: Center(
         child: Text(
@@ -24,7 +23,7 @@ class NotificationCountsContainer extends StatelessWidget {
           style: GoogleFonts.inter(
             fontWeight: FontWeight.w500,
             fontSize: 14.sp,
-            color: color,
+            color: AppStyle.white,
           ),
         ),
       ),

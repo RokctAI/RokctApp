@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:admin_desktop/src/models/response/income_chart_response.dart';
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -10,67 +9,45 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
-import '../../models/models.dart';
+import 'package:admin_desktop/src/models/models.dart';
 import '../../presentation/theme/theme.dart';
 import '../constants/constants.dart';
 import 'local_storage.dart';
 
 class AppHelpers {
   AppHelpers._();
-  static void showCustomModalBottomSheet({
-    required BuildContext context,
-    required Widget modal,
-    // required bool isDarkMode,
-    double radius = 16,
-    bool isDrag = true,
-    bool isDismissible = true,
-    double paddingTop = 200,
-  }) {
-    showModalBottomSheet(
-      isDismissible: isDismissible,
-      enableDrag: isDrag,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(radius.r),
-          topRight: Radius.circular(radius.r),
-        ),
-      ),
-      isScrollControlled: true,
-      constraints: BoxConstraints(
-        maxHeight: MediaQuery.of(context).size.height - paddingTop.r,
-      ),
-      backgroundColor: AppStyle.transparent,
-      context: context,
-      builder: (context) => modal,
-    );
-  }
 
   static String numberFormat(
     num? number, {
-    String? symbol,
+    // String? symbol,
+    CurrencyData? currency,
     int? decimalDigits,
   }) {
     number = number ?? 0;
+    if (currency != null &&
+        currency.id != LocalStorage.getSelectedCurrency().id) {
+      number = number * (currency.rate ?? 1);
+    }
     if (LocalStorage.getSelectedCurrency().position == "before") {
       return NumberFormat.currency(
         customPattern: '\u00a4 #,###.#',
-        symbol: (symbol ?? LocalStorage.getSelectedCurrency().symbol),
+        symbol: (currency?.symbol ?? LocalStorage.getSelectedCurrency().symbol),
         decimalDigits: decimalDigits ?? (number > 99999 ? 0 : 2),
       ).format(number);
     } else {
       return NumberFormat.currency(
         customPattern: '#,###.# \u00a4',
-        symbol: (symbol ?? LocalStorage.getSelectedCurrency().symbol),
+        symbol: (currency?.symbol ?? LocalStorage.getSelectedCurrency().symbol),
         decimalDigits: decimalDigits ?? (number > 99999 ? 0 : 2),
       ).format(number);
     }
   }
 
-  static String? getAppName() {
+  static String getAppName() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
       if (setting.key == 'title') {
-        return setting.value;
+        return setting.value ?? '';
       }
     }
     return '';
@@ -100,6 +77,7 @@ class AppHelpers {
     return LocalStorage.getSettingsList()
             .firstWhere(
               (element) => element.key == "before_order_phone_required",
+              orElse: () => SettingsData(key: "", value: "0"),
             )
             .value ==
         '1';
@@ -199,7 +177,7 @@ class AppHelpers {
     return DateFormat("yyyy-MM-dd").format(time ?? DateTime.now());
   }
 
-  static getPhotoGallery(ValueChanged<String> onChange) async {
+  static Future<void> getPhotoGallery(ValueChanged<String> onChange) async {
     if (Platform.isMacOS) {
       FilePickerResult? result;
       try {
@@ -253,26 +231,15 @@ class AppHelpers {
     required Widget child,
     double radius = 16,
     Color? backgroundColor,
-    Color textColor = AppStyle.black,
-    double? width,
-    double? height, // New parameter for height
   }) {
     AlertDialog alert = AlertDialog(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      contentPadding: EdgeInsets.zero,
-      content: Container(
-        width: width,
-        height: height, // Use the height parameter
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(radius.r),
-        ),
-        child: DefaultTextStyle(
-          style: TextStyle(color: textColor),
-          child: Padding(padding: EdgeInsets.all(20.r), child: child),
-        ),
+      backgroundColor: backgroundColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(radius.r),
       ),
+      contentPadding: EdgeInsets.all(20.r),
+      iconPadding: EdgeInsets.zero,
+      content: child,
     );
 
     ///todo Directionality
@@ -284,7 +251,7 @@ class AppHelpers {
     );
   }
 
-  static showSnackBar(
+  static void showSnackBar(
     BuildContext context,
     String title, {
     bool isIcon = false,
@@ -335,10 +302,13 @@ class AppHelpers {
     if (AppConstants.autoTrn) {
       return (translations[trKey] ??
           (trKey.isNotEmpty
-              ? trKey.replaceAll(".", " ").replaceAll("_", " ").replaceFirst(
-                    trKey.substring(0, 1),
-                    trKey.substring(0, 1).toUpperCase(),
-                  )
+              ? trKey
+                    .replaceAll(".", " ")
+                    .replaceAll("_", " ")
+                    .replaceFirst(
+                      trKey.substring(0, 1),
+                      trKey.substring(0, 1).toUpperCase(),
+                    )
               : ''));
     } else {
       return translations[trKey] ?? trKey;
@@ -492,10 +462,10 @@ class AppHelpers {
         color: text == "new"
             ? AppStyle.blue
             : text == "accept"
-                ? AppStyle.deepPurple
-                : text == "ready"
-                    ? AppStyle.rate
-                    : AppStyle.primary,
+            ? Colors.deepPurple
+            : text == "ready"
+            ? AppStyle.rate
+            : AppStyle.primary,
       ),
       child: Text(
         getTranslation(text),
@@ -542,26 +512,26 @@ class AppHelpers {
     return PositionModel(top: top, left: left, right: right, bottom: bottom);
   }
 
-  static String errorHandler(e) {
+  static String errorHandler(dynamic e) {
     try {
       return (e.runtimeType == DioException)
           ? ((e as DioException).response?.data["message"] == "Bad request."
-              ? (e.response?.data["params"] as Map).values.first[0]
-              : e.response?.data["message"])
+                ? (e.response?.data["params"] as Map).values.first[0]
+                : e.response?.data["message"])
           : e.toString();
     } catch (s) {
       try {
         return (e.runtimeType == DioException)
             ? ((e as DioException).response?.data.toString().substring(
-                  (e.response?.data.toString().indexOf("<title>") ?? 0) + 7,
-                  e.response?.data.toString().indexOf("</title") ?? 0,
-                )).toString()
+                (e.response?.data.toString().indexOf("<title>") ?? 0) + 7,
+                e.response?.data.toString().indexOf("</title") ?? 0,
+              )).toString()
             : e.toString();
       } catch (r) {
         try {
           return (e.runtimeType == DioException)
               ? ((e as DioException).response?.data["error"]["message"])
-                  .toString()
+                    .toString()
               : e.toString();
         } catch (f) {
           return e.toString();

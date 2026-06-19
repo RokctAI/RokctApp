@@ -1,14 +1,14 @@
 import 'package:admin_desktop/generated/assets.dart';
 import 'package:admin_desktop/src/models/data/order_data.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../core/constants/constants.dart';
-import '../../../core/utils/app_helpers.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/core/utils/app_helpers.dart';
 import '../../pages/main/widgets/order_detail/generate_check.dart';
-import '../../theme/theme.dart';
 import 'animation_button_effect.dart';
 
 class InvoiceDownload extends StatelessWidget {
@@ -28,11 +28,10 @@ class InvoiceDownload extends StatelessWidget {
                 builder: (context, constraints) {
                   return SimpleDialog(
                     title: SizedBox(
-                      height: constraints.maxHeight * 0.7,
+                      height: constraints.maxHeight * 0.8,
                       width: 300.r,
                       child: GenerateCheckPage(orderData: orderData),
                     ),
-                    backgroundColor: AppStyle.white,
                   );
                 },
               );

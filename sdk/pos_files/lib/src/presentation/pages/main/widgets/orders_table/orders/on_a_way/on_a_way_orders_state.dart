@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'on_a_way_orders_state.freezed.dart';
 
 @freezed
-class OnAWayOrdersState with _$OnAWayOrdersState {
+abstract class OnAWayOrdersState with _$OnAWayOrdersState {
   const factory OnAWayOrdersState({
     @Default(false) bool isLoading,
     @Default(true) bool hasMore,

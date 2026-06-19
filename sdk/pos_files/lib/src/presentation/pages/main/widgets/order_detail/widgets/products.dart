@@ -37,7 +37,6 @@ class ProductsScreen extends StatelessWidget {
             style: GoogleFonts.inter(
               fontWeight: FontWeight.w600,
               fontSize: 18.sp,
-              color: AppStyle.black,
             ),
           ),
           18.verticalSpace,

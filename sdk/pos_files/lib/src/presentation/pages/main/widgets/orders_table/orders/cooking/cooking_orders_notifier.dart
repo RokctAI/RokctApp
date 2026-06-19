@@ -16,7 +16,7 @@ class CookingOrdersNotifier extends StateNotifier<CookingOrdersState> {
   Timer? _refreshTime;
 
   CookingOrdersNotifier(this._ordersRepository)
-      : super(const CookingOrdersState());
+    : super(const CookingOrdersState());
 
   void setOrdersQuery(BuildContext context, String query) {
     if (state.query == query) {
@@ -149,7 +149,7 @@ class CookingOrdersNotifier extends StateNotifier<CookingOrdersState> {
     );
   }
 
-  addList(OrderData orderData, BuildContext context) async {
+  Future<void> addList(OrderData orderData, BuildContext context) async {
     List<OrderData> list = List.from(state.orders);
     list.insert(0, orderData);
     state = state.copyWith(orders: list, totalCount: state.totalCount + 1);
@@ -175,13 +175,13 @@ class CookingOrdersNotifier extends StateNotifier<CookingOrdersState> {
     );
   }
 
-  removeList(int index) {
+  void removeList(int index) {
     List<OrderData> list = List.from(state.orders);
     list.removeAt(index);
     state = state.copyWith(orders: list, totalCount: state.totalCount - 1);
   }
 
-  deleteOrder(BuildContext context, {required orderId}) async {
+  Future<void> deleteOrder(BuildContext context, {required orderId}) async {
     removeList(getIndex(orderId));
     final response = await _ordersRepository.deleteOrder(orderId: orderId);
     response.when(
@@ -202,7 +202,7 @@ class CookingOrdersNotifier extends StateNotifier<CookingOrdersState> {
     );
   }
 
-  int getIndex(id) {
+  int getIndex(int id) {
     List<OrderData> list = List.from(state.orders);
     for (int i = 0; i < list.length; i++) {
       if (list[i].id == id) {
@@ -214,10 +214,5 @@ class CookingOrdersNotifier extends StateNotifier<CookingOrdersState> {
 
   void stopTimer() {
     _refreshTime?.cancel();
-  }
-
-  void clearSearch(BuildContext context) {
-    state = state.copyWith(query: '');
-    setOrdersQuery(context, '');
   }
 }

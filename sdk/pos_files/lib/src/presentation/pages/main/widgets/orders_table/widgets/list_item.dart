@@ -97,7 +97,7 @@ class ListItem extends ConsumerWidget {
                   child: Text(
                     AppHelpers.numberFormat(
                       orderData.totalPrice ?? 0,
-                      symbol: orderData.currency?.symbol,
+                      currency: orderData.currency,
                     ),
                     style: GoogleFonts.inter(
                       fontSize: 16.sp,

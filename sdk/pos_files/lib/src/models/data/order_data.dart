@@ -138,177 +138,176 @@ class OrderData {
     List<Galleries>? galleries,
     dynamic myAddress,
     TableData? table,
-  }) =>
-      OrderData(
-        id: id ?? this.id,
-        tips: tips ?? this.tips,
-        userId: userId ?? this.userId,
-        location: location ?? this.location,
-        totalPrice: totalPrice ?? this.totalPrice,
-        originPrice: originPrice ?? this.originPrice,
-        sellerFee: sellerFee ?? this.sellerFee,
-        deliveryFee: deliveryFee ?? this.deliveryFee,
-        totalDiscount: totalDiscount ?? this.totalDiscount,
-        rate: rate ?? this.rate,
-        tax: tax ?? this.tax,
-        note: note ?? this.note,
-        phone: phone ?? this.phone,
-        username: username ?? this.username,
-        commissionFee: commissionFee ?? this.commissionFee,
-        serviceFee: serviceFee ?? this.serviceFee,
-        status: status ?? this.status,
-        orderAddress: orderAddress ?? this.orderAddress,
-        deliveryType: deliveryType ?? this.deliveryType,
-        deliveryDate: deliveryDate ?? this.deliveryDate,
-        deliveryTime: deliveryTime ?? this.deliveryTime,
-        deliveryDateTime: deliveryDateTime ?? this.deliveryDateTime,
-        current: current ?? this.current,
-        split: split ?? this.split,
-        paidBySplit: paidBySplit ?? this.paidBySplit,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-        deliveryman: deliveryman ?? this.deliveryman,
-        shop: shop ?? this.shop,
-        currency: currency ?? this.currency,
-        user: user ?? this.user,
-        details: details ?? this.details,
-        transaction: transaction ?? this.transaction,
-        review: review ?? this.review,
-        pointHistories: pointHistories ?? this.pointHistories,
-        orderRefunds: orderRefunds ?? this.orderRefunds,
-        coupon: coupon ?? this.coupon,
-        galleries: galleries ?? this.galleries,
-        myAddress: myAddress ?? this.myAddress,
-        table: table ?? this.table,
-        couponPrice: couponPrice ?? this.couponPrice,
-      );
+  }) => OrderData(
+    id: id ?? this.id,
+    tips: tips ?? this.tips,
+    userId: userId ?? this.userId,
+    location: location ?? this.location,
+    totalPrice: totalPrice ?? this.totalPrice,
+    originPrice: originPrice ?? this.originPrice,
+    sellerFee: sellerFee ?? this.sellerFee,
+    deliveryFee: deliveryFee ?? this.deliveryFee,
+    totalDiscount: totalDiscount ?? this.totalDiscount,
+    rate: rate ?? this.rate,
+    tax: tax ?? this.tax,
+    note: note ?? this.note,
+    phone: phone ?? this.phone,
+    username: username ?? this.username,
+    commissionFee: commissionFee ?? this.commissionFee,
+    serviceFee: serviceFee ?? this.serviceFee,
+    status: status ?? this.status,
+    orderAddress: orderAddress ?? this.orderAddress,
+    deliveryType: deliveryType ?? this.deliveryType,
+    deliveryDate: deliveryDate ?? this.deliveryDate,
+    deliveryTime: deliveryTime ?? this.deliveryTime,
+    deliveryDateTime: deliveryDateTime ?? this.deliveryDateTime,
+    current: current ?? this.current,
+    split: split ?? this.split,
+    paidBySplit: paidBySplit ?? this.paidBySplit,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deliveryman: deliveryman ?? this.deliveryman,
+    shop: shop ?? this.shop,
+    currency: currency ?? this.currency,
+    user: user ?? this.user,
+    details: details ?? this.details,
+    transaction: transaction ?? this.transaction,
+    review: review ?? this.review,
+    pointHistories: pointHistories ?? this.pointHistories,
+    orderRefunds: orderRefunds ?? this.orderRefunds,
+    coupon: coupon ?? this.coupon,
+    galleries: galleries ?? this.galleries,
+    myAddress: myAddress ?? this.myAddress,
+    table: table ?? this.table,
+    couponPrice: couponPrice ?? this.couponPrice,
+  );
 
   factory OrderData.fromJson(Map<String, dynamic> json) => OrderData(
-        id: json["id"],
-        userId: json["user_id"],
-        note: json["note"],
-        totalPrice: json["total_price"],
-        originPrice: json["origin_price"],
-        sellerFee: json["seller_fee"],
-        rate: json["rate"],
-        tips: json["tips"],
-        tax: json["tax"],
-        phone: json["phone"],
-        username: json["username"],
-        commissionFee: json["commission_fee"],
-        deliveryFee: json["delivery_fee"],
-        totalDiscount: json["total_discount"],
-        serviceFee: json["service_fee"],
-        status: json["status"],
-        orderAddress: json["address"] == null
-            ? null
-            : OrderAddress.fromJson(json["address"]),
-        location: json["location"] == null
-            ? null
-            : LocationData.fromJson(json["location"]),
-        deliveryType: json["delivery_type"],
-        deliveryDate: json["delivery_date"] == null
-            ? null
-            : DateTime.parse(json["delivery_date"]),
-        deliveryTime: json["delivery_time"],
-        deliveryDateTime: json["delivery_date_time"] == null
-            ? null
-            : DateTime.parse(json["delivery_date_time"]),
-        current: json["current"],
-        split: json["split"],
-        paidBySplit: json["paid_by_split"],
-        createdAt: json["created_at"] == null
-            ? null
-            : DateTime.parse(json["created_at"]),
-        updatedAt: json["updated_at"] == null
-            ? null
-            : DateTime.parse(json["updated_at"]),
-        deliveryman: json["deliveryman"] == null
-            ? null
-            : UserData.fromJson(json["deliveryman"]),
-        shop: json["shop"] == null ? null : ShopData.fromJson(json["shop"]),
-        currency: json["currency"] == null
-            ? null
-            : CurrencyData.fromJson(json["currency"]),
-        user: json["user"] == null ? null : UserData.fromJson(json["user"]),
-        details: json["details"] == null
-            ? []
-            : List<OrderDetail>.from(
-                json["details"]!.map((x) => OrderDetail.fromJson(x)),
-              ),
-        transaction: json["transaction"] == null
-            ? null
-            : Transaction.fromJson(json["transaction"]),
-        review: json["review"],
-        pointHistories: json["point_histories"] == null
-            ? []
-            : List<dynamic>.from(json["point_histories"]!.map((x) => x)),
-        orderRefunds: json["order_refunds"] == null
-            ? []
-            : List<dynamic>.from(json["order_refunds"]!.map((x) => x)),
-        coupon: json["coupon"],
-        galleries: json["galleries"] == null
-            ? []
-            : List<Galleries>.from(
-                json["galleries"]!.map((x) => Galleries.fromJson(x)),
-              ),
-        myAddress: json["my_address"],
-        couponPrice: json["coupon_price"],
-        table: json["table"] == null ? null : TableData.fromJson(json["table"]),
-      );
+    id: json["id"],
+    userId: json["user_id"],
+    note: json["note"],
+    totalPrice: json["total_price"],
+    originPrice: json["origin_price"],
+    sellerFee: json["seller_fee"],
+    rate: json["rate"],
+    tips: json["tips"],
+    tax: json["tax"],
+    phone: json["phone"],
+    username: json["username"],
+    commissionFee: json["commission_fee"],
+    deliveryFee: json["delivery_fee"],
+    totalDiscount: json["total_discount"],
+    serviceFee: json["service_fee"],
+    status: json["status"],
+    orderAddress: json["address"] == null
+        ? null
+        : OrderAddress.fromJson(json["address"]),
+    location: json["location"] == null
+        ? null
+        : LocationData.fromJson(json["location"]),
+    deliveryType: json["delivery_type"],
+    deliveryDate: json["delivery_date"] == null
+        ? null
+        : DateTime.parse(json["delivery_date"]),
+    deliveryTime: json["delivery_time"],
+    deliveryDateTime: json["delivery_date_time"] == null
+        ? null
+        : DateTime.parse(json["delivery_date_time"]),
+    current: json["current"],
+    split: json["split"],
+    paidBySplit: json["paid_by_split"],
+    createdAt: json["created_at"] == null
+        ? null
+        : DateTime.parse(json["created_at"]),
+    updatedAt: json["updated_at"] == null
+        ? null
+        : DateTime.parse(json["updated_at"]),
+    deliveryman: json["deliveryman"] == null
+        ? null
+        : UserData.fromJson(json["deliveryman"]),
+    shop: json["shop"] == null ? null : ShopData.fromJson(json["shop"]),
+    currency: json["currency"] == null
+        ? null
+        : CurrencyData.fromJson(json["currency"]),
+    user: json["user"] == null ? null : UserData.fromJson(json["user"]),
+    details: json["details"] == null
+        ? []
+        : List<OrderDetail>.from(
+            json["details"]!.map((x) => OrderDetail.fromJson(x)),
+          ),
+    transaction: json["transaction"] == null
+        ? null
+        : Transaction.fromJson(json["transaction"]),
+    review: json["review"],
+    pointHistories: json["point_histories"] == null
+        ? []
+        : List<dynamic>.from(json["point_histories"]!.map((x) => x)),
+    orderRefunds: json["order_refunds"] == null
+        ? []
+        : List<dynamic>.from(json["order_refunds"]!.map((x) => x)),
+    coupon: json["coupon"],
+    galleries: json["galleries"] == null
+        ? []
+        : List<Galleries>.from(
+            json["galleries"]!.map((x) => Galleries.fromJson(x)),
+          ),
+    myAddress: json["my_address"],
+    couponPrice: json["coupon_price"],
+    table: json["table"] == null ? null : TableData.fromJson(json["table"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "user_id": userId,
-        "phone": phone,
-        "tips": tips,
-        "coupon_price": couponPrice,
-        "note": note,
-        "username": username,
-        "total_price": totalPrice,
-        "origin_price": originPrice,
-        "seller_fee": sellerFee,
-        "delivery_fee": deliveryFee,
-        "total_discount": totalDiscount,
-        "rate": rate,
-        "tax": tax,
-        "commission_fee": commissionFee,
-        "service_fee": serviceFee,
-        "status": status,
-        "location": location?.toJson(),
-        "address": orderAddress?.toJson(),
-        "delivery_type": deliveryType,
-        "delivery_date":
-            "${deliveryDate!.year.toString().padLeft(4, '0')}-${deliveryDate!.month.toString().padLeft(2, '0')}-${deliveryDate!.day.toString().padLeft(2, '0')}",
-        "delivery_time": deliveryTime,
-        "delivery_date_time": deliveryDateTime?.toIso8601String(),
-        "current": current,
-        "split": split,
-        "paid_by_split": paidBySplit,
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-        "deliveryman": deliveryman?.toJson(),
-        "shop": shop?.toJson(),
-        "currency": currency?.toJson(),
-        "user": user?.toJson(),
-        "details": details == null
-            ? []
-            : List<dynamic>.from(details!.map((x) => x.toJson())),
-        "transaction": transaction,
-        "review": review,
-        "point_histories": pointHistories == null
-            ? []
-            : List<dynamic>.from(pointHistories!.map((x) => x)),
-        "order_refunds": orderRefunds == null
-            ? []
-            : List<dynamic>.from(orderRefunds!.map((x) => x)),
-        "coupon": coupon,
-        "galleries": galleries == null
-            ? []
-            : List<dynamic>.from(galleries!.map((x) => x)),
-        "my_address": myAddress,
-        "table": table?.toJson(),
-      };
+    "id": id,
+    "user_id": userId,
+    "phone": phone,
+    "tips": tips,
+    "coupon_price": couponPrice,
+    "note": note,
+    "username": username,
+    "total_price": totalPrice,
+    "origin_price": originPrice,
+    "seller_fee": sellerFee,
+    "delivery_fee": deliveryFee,
+    "total_discount": totalDiscount,
+    "rate": rate,
+    "tax": tax,
+    "commission_fee": commissionFee,
+    "service_fee": serviceFee,
+    "status": status,
+    "location": location?.toJson(),
+    "address": orderAddress?.toJson(),
+    "delivery_type": deliveryType,
+    "delivery_date":
+        "${deliveryDate!.year.toString().padLeft(4, '0')}-${deliveryDate!.month.toString().padLeft(2, '0')}-${deliveryDate!.day.toString().padLeft(2, '0')}",
+    "delivery_time": deliveryTime,
+    "delivery_date_time": deliveryDateTime?.toIso8601String(),
+    "current": current,
+    "split": split,
+    "paid_by_split": paidBySplit,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+    "deliveryman": deliveryman?.toJson(),
+    "shop": shop?.toJson(),
+    "currency": currency?.toJson(),
+    "user": user?.toJson(),
+    "details": details == null
+        ? []
+        : List<dynamic>.from(details!.map((x) => x.toJson())),
+    "transaction": transaction,
+    "review": review,
+    "point_histories": pointHistories == null
+        ? []
+        : List<dynamic>.from(pointHistories!.map((x) => x)),
+    "order_refunds": orderRefunds == null
+        ? []
+        : List<dynamic>.from(orderRefunds!.map((x) => x)),
+    "coupon": coupon,
+    "galleries": galleries == null
+        ? []
+        : List<dynamic>.from(galleries!.map((x) => x)),
+    "my_address": myAddress,
+    "table": table?.toJson(),
+  };
 }
 
 class OrderDetail {
@@ -358,13 +357,15 @@ class OrderDetail {
     _tax = json['tax'];
     _discount = json['discount'];
     _quantity = json['quantity'];
-    _bonus =
-        json['bonus'].runtimeType == int ? (json['bonus'] != 0) : json['bonus'];
+    _bonus = json['bonus'].runtimeType == int
+        ? (json['bonus'] != 0)
+        : json['bonus'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
     _stock = json['stock'] != null ? Stocks.fromJson(json['stock']) : null;
-    _kitchen =
-        json['kitchen'] != null ? KitchenModel.fromJson(json['kitchen']) : null;
+    _kitchen = json['kitchen'] != null
+        ? KitchenModel.fromJson(json['kitchen'])
+        : null;
     if (json['addons'] != null) {
       _addons = [];
       json['addons'].forEach((v) {
@@ -408,25 +409,24 @@ class OrderDetail {
     KitchenModel? kitchen,
     List<Addons>? addons,
     bool? isChecked,
-  }) =>
-      OrderDetail(
-        id: id ?? _id,
-        orderId: orderId ?? _orderId,
-        stockId: stockId ?? _stockId,
-        originPrice: originPrice ?? _originPrice,
-        totalPrice: totalPrice ?? _totalPrice,
-        tax: tax ?? _tax,
-        discount: discount ?? _discount,
-        quantity: quantity ?? _quantity,
-        bonus: bonus ?? _bonus,
-        kitchen: kitchen ?? _kitchen,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        stock: stock ?? _stock,
-        addons: addons ?? _addons,
-        status: status ?? _status,
-        isChecked: isChecked ?? _isChecked,
-      );
+  }) => OrderDetail(
+    id: id ?? _id,
+    orderId: orderId ?? _orderId,
+    stockId: stockId ?? _stockId,
+    originPrice: originPrice ?? _originPrice,
+    totalPrice: totalPrice ?? _totalPrice,
+    tax: tax ?? _tax,
+    discount: discount ?? _discount,
+    quantity: quantity ?? _quantity,
+    bonus: bonus ?? _bonus,
+    kitchen: kitchen ?? _kitchen,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    stock: stock ?? _stock,
+    addons: addons ?? _addons,
+    status: status ?? _status,
+    isChecked: isChecked ?? _isChecked,
+  );
 
   int? get id => _id;
 
@@ -551,20 +551,19 @@ class Transaction {
     String? createdAt,
     String? updatedAt,
     PaymentData? paymentSystem,
-  }) =>
-      Transaction(
-        id: id ?? _id,
-        payableId: payableId ?? _payableId,
-        price: price ?? _price,
-        paymentTrxId: paymentTrxId ?? _paymentTrxId,
-        note: note ?? _note,
-        performTime: performTime ?? _performTime,
-        status: status ?? _status,
-        statusDescription: statusDescription ?? _statusDescription,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        paymentSystem: paymentSystem ?? _paymentSystem,
-      );
+  }) => Transaction(
+    id: id ?? _id,
+    payableId: payableId ?? _payableId,
+    price: price ?? _price,
+    paymentTrxId: paymentTrxId ?? _paymentTrxId,
+    note: note ?? _note,
+    performTime: performTime ?? _performTime,
+    status: status ?? _status,
+    statusDescription: statusDescription ?? _statusDescription,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    paymentSystem: paymentSystem ?? _paymentSystem,
+  );
 
   int? get id => _id;
 
@@ -637,13 +636,12 @@ class OrderAddress {
     String? office,
     String? house,
     String? floor,
-  }) =>
-      OrderAddress(
-        address: address ?? _address,
-        office: office ?? _office,
-        house: house ?? _house,
-        floor: floor ?? _floor,
-      );
+  }) => OrderAddress(
+    address: address ?? _address,
+    office: office ?? _office,
+    house: house ?? _house,
+    floor: floor ?? _floor,
+  );
 
   String? get address => _address;
 

@@ -12,7 +12,7 @@ class StoriesNotifier extends StateNotifier<StoriesState> {
 
   StoriesNotifier(this._storiesRepository) : super(const StoriesState());
 
-  fetchStories({
+  Future<void> fetchStories({
     BuildContext? context,
     bool? isRefresh,
     RefreshController? controller,
@@ -48,7 +48,7 @@ class StoriesNotifier extends StateNotifier<StoriesState> {
     );
   }
 
-  deleteStories({BuildContext? context, int? id}) async {
+  Future<void> deleteStories({BuildContext? context, int? id}) async {
     if (id == null) return;
     List<StoriesData> list = List.from(state.stories);
     list.removeWhere((element) => element.id == id);

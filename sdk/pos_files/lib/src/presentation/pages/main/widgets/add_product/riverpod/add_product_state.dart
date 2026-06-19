@@ -5,7 +5,7 @@ import 'package:admin_desktop/src/models/models.dart';
 part 'add_product_state.freezed.dart';
 
 @freezed
-class AddProductState with _$AddProductState {
+abstract class AddProductState with _$AddProductState {
   const factory AddProductState({
     @Default(false) bool isLoading,
     @Default(false) bool isReviewing,

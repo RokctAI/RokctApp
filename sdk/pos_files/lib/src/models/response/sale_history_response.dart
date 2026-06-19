@@ -18,10 +18,10 @@ class SaleHistoryResponse {
       );
 
   Map<String, dynamic> toJson() => {
-        "data": list == null
-            ? []
-            : List<dynamic>.from(list!.map((x) => x.toJson())),
-      };
+    "data": list == null
+        ? []
+        : List<dynamic>.from(list!.map((x) => x.toJson())),
+  };
 }
 
 class SaleHistoryModel {
@@ -51,16 +51,15 @@ class SaleHistoryModel {
     String? note,
     UserData? user,
     List<Transaction>? transactions,
-  }) =>
-      SaleHistoryModel(
-        id: id ?? this.id,
-        userId: userId ?? this.userId,
-        totalPrice: totalPrice ?? this.totalPrice,
-        createdAt: createdAt ?? this.createdAt,
-        note: note ?? this.note,
-        user: user ?? this.user,
-        transactions: transactions ?? this.transactions,
-      );
+  }) => SaleHistoryModel(
+    id: id ?? this.id,
+    userId: userId ?? this.userId,
+    totalPrice: totalPrice ?? this.totalPrice,
+    createdAt: createdAt ?? this.createdAt,
+    note: note ?? this.note,
+    user: user ?? this.user,
+    transactions: transactions ?? this.transactions,
+  );
 
   factory SaleHistoryModel.fromJson(Map<String, dynamic> json) =>
       SaleHistoryModel(
@@ -80,16 +79,16 @@ class SaleHistoryModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "user_id": userId,
-        "total_price": totalPrice,
-        "created_at": createdAt?.toIso8601String(),
-        "note": note,
-        "user": user?.toJson(),
-        "transactions": transactions == null
-            ? []
-            : List<dynamic>.from(transactions!.map((x) => x.toJson())),
-      };
+    "id": id,
+    "user_id": userId,
+    "total_price": totalPrice,
+    "created_at": createdAt?.toIso8601String(),
+    "note": note,
+    "user": user?.toJson(),
+    "transactions": transactions == null
+        ? []
+        : List<dynamic>.from(transactions!.map((x) => x.toJson())),
+  };
 }
 
 class Transaction {
@@ -116,35 +115,34 @@ class Transaction {
     String? status,
     int? paymentSysId,
     PaymentSystem? paymentSystem,
-  }) =>
-      Transaction(
-        id: id ?? this.id,
-        payableId: payableId ?? this.payableId,
-        payableType: payableType ?? this.payableType,
-        status: status ?? this.status,
-        paymentSysId: paymentSysId ?? this.paymentSysId,
-        paymentSystem: paymentSystem ?? this.paymentSystem,
-      );
+  }) => Transaction(
+    id: id ?? this.id,
+    payableId: payableId ?? this.payableId,
+    payableType: payableType ?? this.payableType,
+    status: status ?? this.status,
+    paymentSysId: paymentSysId ?? this.paymentSysId,
+    paymentSystem: paymentSystem ?? this.paymentSystem,
+  );
 
   factory Transaction.fromJson(Map<String, dynamic> json) => Transaction(
-        id: json["id"],
-        payableId: json["payable_id"],
-        payableType: json["payable_type"],
-        status: json["status"],
-        paymentSysId: json["payment_sys_id"],
-        paymentSystem: json["payment_system"] == null
-            ? null
-            : PaymentSystem.fromJson(json["payment_system"]),
-      );
+    id: json["id"],
+    payableId: json["payable_id"],
+    payableType: json["payable_type"],
+    status: json["status"],
+    paymentSysId: json["payment_sys_id"],
+    paymentSystem: json["payment_system"] == null
+        ? null
+        : PaymentSystem.fromJson(json["payment_system"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "payable_id": payableId,
-        "payable_type": payableType,
-        "status": status,
-        "payment_sys_id": paymentSysId,
-        "payment_system": paymentSystem?.toJson(),
-      };
+    "id": id,
+    "payable_id": payableId,
+    "payable_type": payableType,
+    "status": status,
+    "payment_sys_id": paymentSysId,
+    "payment_system": paymentSystem?.toJson(),
+  };
 }
 
 class PaymentSystem {

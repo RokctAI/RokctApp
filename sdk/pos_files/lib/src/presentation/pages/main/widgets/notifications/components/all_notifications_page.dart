@@ -83,9 +83,9 @@ class AllNotificationsPage extends ConsumerWidget {
                                       shape: BoxShape.circle,
                                       color:
                                           state.notifications[index].readAt ==
-                                                  null
-                                              ? AppStyle.primary
-                                              : AppStyle.transparent,
+                                              null
+                                          ? AppStyle.primary
+                                          : AppStyle.transparent,
                                     ),
                                   ),
                                 ],

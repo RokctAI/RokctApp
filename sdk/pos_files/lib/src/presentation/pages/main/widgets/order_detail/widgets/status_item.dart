@@ -1,9 +1,8 @@
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../../../theme/theme.dart';
 
 class StatusItemPage extends StatelessWidget {
   final String title;
@@ -30,8 +29,9 @@ class StatusItemPage extends StatelessWidget {
             color: isActive ? AppStyle.primary : AppStyle.white,
             shape: BoxShape.circle,
             border: Border.all(
-              color:
-                  isActive || isOldStatus ? AppStyle.primary : AppStyle.border,
+              color: isActive || isOldStatus
+                  ? AppStyle.primary
+                  : AppStyle.border,
             ),
           ),
           padding: EdgeInsets.all(8.r),

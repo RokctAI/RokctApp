@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../theme/app_style.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 
 class PinContainer extends StatelessWidget {
   final bool isActive;
@@ -15,23 +15,10 @@ class PinContainer extends StatelessWidget {
       margin: EdgeInsets.only(right: 12.w),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color:
-            isActive ? AppStyle.primary.withOpacity(0.9) : AppStyle.transparent,
+        color: isActive ? AppStyle.primary : AppStyle.transparent,
         border: Border.all(
-          color: isActive
-              ? AppStyle.transparent
-              : AppStyle.outlineButtonBorder.withOpacity(0.7),
-          width: 2.r,
+          color: isActive ? AppStyle.transparent : AppStyle.outlineButtonBorder,
         ),
-        boxShadow: isActive
-            ? [
-                BoxShadow(
-                  color: AppStyle.primary.withOpacity(0.3),
-                  blurRadius: 8,
-                  spreadRadius: 2,
-                ),
-              ]
-            : null,
       ),
     );
   }

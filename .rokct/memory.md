@@ -15,6 +15,8 @@
 *   [Active] Prefer "Next.js + AI SDK" for frontend.
 *   [Active] Prefer "Flutter" for mobile.
 *   [Active] "Premium" design aesthetic is non-negotiable.
+*   [Active] CRITICAL: The directory 'sdk_old/' is locked. Do not write, copy, or modify any files in it.
+
 
 ## Lessons Learned
 *(Agent to append new lessons here when a mistake is made or a correction is received)*

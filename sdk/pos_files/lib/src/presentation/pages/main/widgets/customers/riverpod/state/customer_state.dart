@@ -4,7 +4,7 @@ import 'package:admin_desktop/src/models/models.dart';
 part 'customer_state.freezed.dart';
 
 @freezed
-class CustomerState with _$CustomerState {
+abstract class CustomerState with _$CustomerState {
   const factory CustomerState({
     @Default(false) bool isLoading,
     @Default(false) bool isMoreLoading,

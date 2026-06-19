@@ -7,7 +7,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 part 'select_address_state.freezed.dart';
 
 @freezed
-class SelectAddressState with _$SelectAddressState {
+abstract class SelectAddressState with _$SelectAddressState {
   const factory SelectAddressState({
     @Default(false) bool isLoading,
     @Default(false) bool isActive,

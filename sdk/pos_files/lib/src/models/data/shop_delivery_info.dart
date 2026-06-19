@@ -22,12 +22,11 @@ class ShopDeliveryInfo {
     String? deliveryTime,
     List<ShopDelivery>? shopDeliveries,
     ShopDelivery? selectedShopDelivery,
-  }) =>
-      ShopDeliveryInfo(
-        shop: shop ?? this.shop,
-        deliveryDate: deliveryDate ?? this.deliveryDate,
-        deliveryTime: deliveryTime ?? this.deliveryTime,
-        shopDeliveries: shopDeliveries ?? this.shopDeliveries,
-        selectedShopDelivery: selectedShopDelivery ?? this.selectedShopDelivery,
-      );
+  }) => ShopDeliveryInfo(
+    shop: shop ?? this.shop,
+    deliveryDate: deliveryDate ?? this.deliveryDate,
+    deliveryTime: deliveryTime ?? this.deliveryTime,
+    shopDeliveries: shopDeliveries ?? this.shopDeliveries,
+    selectedShopDelivery: selectedShopDelivery ?? this.selectedShopDelivery,
+  );
 }

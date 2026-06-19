@@ -1,3 +1,0 @@
-class GoalsScreen {
-  const GoalsScreen();
-}

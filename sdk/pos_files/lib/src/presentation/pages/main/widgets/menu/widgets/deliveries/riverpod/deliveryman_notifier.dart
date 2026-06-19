@@ -81,7 +81,7 @@ class DeliverymanNotifier extends StateNotifier<DeliverymanState> {
     }
   }
 
-  addCreatedUser(UserData? user) {
+  void addCreatedUser(UserData? user) {
     if (user == null) return;
     List<UserData> users = List.from(state.users);
     users.insert(0, user);

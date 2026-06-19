@@ -33,13 +33,12 @@ class TransactionsResponse {
     bool? status,
     String? message,
     List<TransactionData>? data,
-  }) =>
-      TransactionsResponse(
-        timestamp: timestamp ?? _timestamp,
-        status: status ?? _status,
-        message: message ?? _message,
-        data: data ?? _data,
-      );
+  }) => TransactionsResponse(
+    timestamp: timestamp ?? _timestamp,
+    status: status ?? _status,
+    message: message ?? _message,
+    data: data ?? _data,
+  );
 
   String? get timestamp => _timestamp;
 
@@ -116,17 +115,16 @@ class TransactionData {
     String? createdAt,
     String? updatedAt,
     List<TransactionDetails>? details,
-  }) =>
-      TransactionData(
-        id: id ?? _id,
-        userId: userId ?? _userId,
-        price: price ?? _price,
-        currencyPrice: currencyPrice ?? _currencyPrice,
-        rate: rate ?? _rate,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        details: details ?? _details,
-      );
+  }) => TransactionData(
+    id: id ?? _id,
+    userId: userId ?? _userId,
+    price: price ?? _price,
+    currencyPrice: currencyPrice ?? _currencyPrice,
+    rate: rate ?? _rate,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    details: details ?? _details,
+  );
 
   int? get id => _id;
 
@@ -220,19 +218,18 @@ class TransactionDetails {
     String? deliveryTime,
     String? createdAt,
     String? updatedAt,
-  }) =>
-      TransactionDetails(
-        id: id ?? _id,
-        shopId: shopId ?? _shopId,
-        deliveryFee: deliveryFee ?? _deliveryFee,
-        price: price ?? _price,
-        tax: tax ?? _tax,
-        status: status ?? _status,
-        deliveryDate: deliveryDate ?? _deliveryDate,
-        deliveryTime: deliveryTime ?? _deliveryTime,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-      );
+  }) => TransactionDetails(
+    id: id ?? _id,
+    shopId: shopId ?? _shopId,
+    deliveryFee: deliveryFee ?? _deliveryFee,
+    price: price ?? _price,
+    tax: tax ?? _tax,
+    status: status ?? _status,
+    deliveryDate: deliveryDate ?? _deliveryDate,
+    deliveryTime: deliveryTime ?? _deliveryTime,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+  );
 
   int? get id => _id;
 

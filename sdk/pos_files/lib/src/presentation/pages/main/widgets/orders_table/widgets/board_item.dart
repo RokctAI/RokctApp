@@ -9,7 +9,7 @@ import 'package:admin_desktop/src/core/utils/app_helpers.dart';
 import '../../../../../../models/data/order_data.dart';
 import 'package:admin_desktop/src/presentation/theme/theme.dart';
 
-BoardItem({
+List<DragAndDropItem> BoardItem({
   required List<OrderData> list,
   required BuildContext context,
   required bool hasMore,

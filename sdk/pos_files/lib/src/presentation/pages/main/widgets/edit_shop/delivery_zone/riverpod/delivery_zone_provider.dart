@@ -6,5 +6,5 @@ import 'delivery_zone_notifier.dart';
 
 final deliveryZoneProvider =
     StateNotifierProvider<DeliveryZoneNotifier, DeliveryZoneState>(
-  (ref) => DeliveryZoneNotifier(usersRepository),
-);
+      (ref) => DeliveryZoneNotifier(usersRepository),
+    );

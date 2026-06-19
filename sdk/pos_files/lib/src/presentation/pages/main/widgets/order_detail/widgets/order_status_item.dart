@@ -1,24 +1,22 @@
+import 'package:admin_desktop/generated/assets.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:remixicon/remixicon.dart';
-
-import '../../../../../theme/theme.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class OrderStatusItem extends StatelessWidget {
   final Widget icon;
   final bool isActive;
   final bool isProgress;
-  late final Color bgColor;
+  final Color? bgColor;
 
-  OrderStatusItem({
+  const OrderStatusItem({
     super.key,
     required this.icon,
     required this.isActive,
     required this.isProgress,
-    Color? bgColor,
-  }) {
-    this.bgColor = bgColor ?? AppStyle.primary;
-  }
+    this.bgColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,7 @@ class OrderStatusItem extends StatelessWidget {
       duration: const Duration(milliseconds: 500),
       padding: EdgeInsets.all(4.r),
       decoration: BoxDecoration(
-        color: isActive ? bgColor : AppStyle.white,
+        color: isActive ? (bgColor ?? AppStyle.primary) : AppStyle.white,
         shape: BoxShape.circle,
       ),
       child: Stack(
@@ -39,7 +37,12 @@ class OrderStatusItem extends StatelessWidget {
             child: icon,
           ),
           isProgress
-              ? Icon(Remix.timer_line, color: AppStyle.primary, size: 26.r)
+              ? SvgPicture.asset(
+                  Assets.svgOrderTime,
+                  color: AppStyle.primary,
+                  width: 52.r,
+                  height: 52.r,
+                )
               : SizedBox(width: 52.r, height: 52.r),
         ],
       ),

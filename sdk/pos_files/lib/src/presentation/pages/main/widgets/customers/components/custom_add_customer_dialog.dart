@@ -3,10 +3,10 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../../../core/constants/constants.dart';
-import '../../../../../../core/utils/app_helpers.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/core/utils/app_helpers.dart';
 import '../../../../../components/components.dart';
-import '../../../../../theme/theme.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import '../riverpod/provider/customer_provider.dart';
 
 class AddCustomerDialog extends ConsumerStatefulWidget {
@@ -56,7 +56,6 @@ class _AddCustomDialogState extends ConsumerState<AddCustomerDialog> {
     final notifier = ref.read(customerProvider.notifier);
     final state = ref.watch(customerProvider);
     return AlertDialog(
-      backgroundColor: AppStyle.white,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -71,7 +70,7 @@ class _AddCustomDialogState extends ConsumerState<AddCustomerDialog> {
           IconButton(
             splashRadius: 28.r,
             onPressed: () => Navigator.pop(context),
-            icon: const Icon(FlutterRemix.close_fill, color: AppStyle.black),
+            icon: const Icon(FlutterRemix.close_fill),
           ),
         ],
       ),

@@ -1,12 +1,13 @@
+import 'package:admin_desktop/generated/assets.dart';
 import 'package:admin_desktop/src/presentation/components/category_tab_bar_item.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:remixicon/remixicon.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../core/constants/constants.dart';
-import '../../../../core/utils/utils.dart';
-import '../../../theme/theme.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/core/utils/utils.dart';
 import '../riverpod/provider/main_provider.dart';
 
 class MainAppbar extends ConsumerWidget {
@@ -42,33 +43,31 @@ class MainAppbar extends ConsumerWidget {
                         return index == 0
                             ? Padding(
                                 padding: EdgeInsets.only(right: 6.r),
-                                child: Icon(
-                                  Remix.equalizer_2_fill,
-                                  color: AppStyle.black,
-                                ),
+                                child: SvgPicture.asset(Assets.svgMenu),
                               )
                             : index == 1
-                                ? CategoryTabBarItem(
-                                    isActive:
-                                        state.selectedCategory?.id == null,
-                                    onTap: () {
-                                      notifier.setSelectedCategory(context, -1);
-                                    },
-                                    title:
-                                        AppHelpers.getTranslation(TrKeys.all),
-                                  )
-                                : CategoryTabBarItem(
-                                    isActive: state.categories[index - 2].id ==
-                                        state.selectedCategory?.id,
-                                    onTap: () {
-                                      notifier.setSelectedCategory(
-                                        context,
-                                        index - 2,
-                                      );
-                                    },
-                                    title: state.categories[index - 2]
-                                        .translation?.title,
+                            ? CategoryTabBarItem(
+                                isActive: state.selectedCategory?.id == null,
+                                onTap: () {
+                                  notifier.setSelectedCategory(context, -1);
+                                },
+                                title: AppHelpers.getTranslation(TrKeys.all),
+                              )
+                            : CategoryTabBarItem(
+                                isActive:
+                                    state.categories[index - 2].id ==
+                                    state.selectedCategory?.id,
+                                onTap: () {
+                                  notifier.setSelectedCategory(
+                                    context,
+                                    index - 2,
                                   );
+                                },
+                                title: state
+                                    .categories[index - 2]
+                                    .translation
+                                    ?.title,
+                              );
                       },
                     ),
                   ),

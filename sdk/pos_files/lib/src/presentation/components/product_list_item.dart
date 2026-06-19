@@ -1,4 +1,4 @@
-import 'package:admin_desktop/src/presentation/theme/app_style.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

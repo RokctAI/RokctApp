@@ -20,9 +20,9 @@ class StoriesResponse {
       );
 
   Map<String, dynamic> toJson() => {
-        "data": data == null
-            ? []
-            : List<dynamic>.from(data!.map((x) => x.toJson())),
-        "meta": meta?.toJson(),
-      };
+    "data": data == null
+        ? []
+        : List<dynamic>.from(data!.map((x) => x.toJson())),
+    "meta": meta?.toJson(),
+  };
 }

@@ -40,10 +40,7 @@ class LanguagesModal extends ConsumerWidget {
                   Navigator.pop(context);
                 },
                 splashRadius: 25,
-                icon: const Icon(
-                  FlutterRemix.close_fill,
-                  color: AppStyle.black,
-                ),
+                icon: const Icon(FlutterRemix.close_fill),
               ),
             ],
           ),
@@ -64,7 +61,8 @@ class LanguagesModal extends ConsumerWidget {
                         notifier.change(index, afterUpdate: afterUpdate);
                         Navigator.pop(context);
                       },
-                      isActive: LocalStorage.getLanguage()?.locale ==
+                      isActive:
+                          LocalStorage.getLanguage()?.locale ==
                           state.languages[index].locale,
                       title: state.languages[index].title ?? '',
                     );

@@ -4,10 +4,10 @@ class ClockModel {
   late int second;
   late bool is24HourFormat;
 
-  get is24HourTimeFormat => is24HourFormat;
+  bool get is24HourTimeFormat => is24HourFormat;
 }
 
-hTOhh_24hTrue(int hour) {
+String hTOhh_24hTrue(int hour) {
   late String sHour;
   if (hour < 10) {
     sHour = "0$hour";
@@ -17,7 +17,7 @@ hTOhh_24hTrue(int hour) {
   return sHour;
 }
 
-hTOhh_24hFalse(int hour) {
+List<dynamic> hTOhh_24hFalse(int hour) {
   late String sHour;
   late String h12State;
   var times = [];
@@ -42,7 +42,7 @@ hTOhh_24hFalse(int hour) {
   return times;
 }
 
-mTOmm(int minute) {
+String mTOmm(int minute) {
   late String sMinute;
   if (minute < 10) {
     sMinute = "0$minute";
@@ -52,7 +52,7 @@ mTOmm(int minute) {
   return sMinute;
 }
 
-sTOss(int second) {
+String sTOss(int second) {
   late String sSecond;
   if (second < 10) {
     sSecond = "0$second";

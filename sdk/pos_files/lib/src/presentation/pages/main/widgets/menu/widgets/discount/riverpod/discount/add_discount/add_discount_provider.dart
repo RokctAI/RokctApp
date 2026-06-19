@@ -6,5 +6,5 @@ import 'add_discount_state.dart';
 
 final addDiscountProvider =
     StateNotifierProvider<AddDiscountNotifier, AddDiscountState>(
-  (ref) => AddDiscountNotifier(discountRepository, galleryRepository),
-);
+      (ref) => AddDiscountNotifier(discountRepository, galleryRepository),
+    );

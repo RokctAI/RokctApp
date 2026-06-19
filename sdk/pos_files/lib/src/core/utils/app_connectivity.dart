@@ -4,13 +4,12 @@ abstract class AppConnectivity {
   AppConnectivity._();
 
   static Future<bool> connectivity() async {
-    var connectivityResults = await Connectivity().checkConnectivity();
-    return connectivityResults.contains(ConnectivityResult.mobile) ||
-        connectivityResults.contains(ConnectivityResult.wifi) ||
-        connectivityResults.contains(ConnectivityResult.ethernet);
-  }
-
-  static Future<List<ConnectivityResult>> checkConnectivity() async {
-    return await Connectivity().checkConnectivity();
+    var connectivityResult = await Connectivity().checkConnectivity();
+    if (connectivityResult.contains(ConnectivityResult.mobile) ||
+        connectivityResult.contains(ConnectivityResult.wifi) ||
+        connectivityResult.contains(ConnectivityResult.ethernet)) {
+      return true;
+    }
+    return true;
   }
 }

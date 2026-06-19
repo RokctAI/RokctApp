@@ -3,7 +3,7 @@ import '../../../../../../../../models/data/user_data.dart';
 part 'deliveryman_state.freezed.dart';
 
 @freezed
-class DeliverymanState with _$DeliverymanState {
+abstract class DeliverymanState with _$DeliverymanState {
   const factory DeliverymanState({
     @Default(false) bool isLoading,
     @Default(false) bool isUpdate,

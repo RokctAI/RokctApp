@@ -72,7 +72,6 @@ class PaymentData {
   String? _createdAt;
   String? _updatedAt;
   Translation? _translation;
-  bool get isTerminal => tag?.toLowerCase() == 'terminal';
 
   PaymentData copyWith({
     int? id,
@@ -83,17 +82,16 @@ class PaymentData {
     String? createdAt,
     String? updatedAt,
     Translation? translation,
-  }) =>
-      PaymentData(
-        id: id ?? _id,
-        tag: tag ?? _tag,
-        input: input ?? _input,
-        sandbox: sandbox ?? _sandbox,
-        active: active ?? _active,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        translation: translation ?? _translation,
-      );
+  }) => PaymentData(
+    id: id ?? _id,
+    tag: tag ?? _tag,
+    input: input ?? _input,
+    sandbox: sandbox ?? _sandbox,
+    active: active ?? _active,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    translation: translation ?? _translation,
+  );
 
   int? get id => _id;
 

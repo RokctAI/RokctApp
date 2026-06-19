@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'sale_history_state.freezed.dart';
 
 @freezed
-class SaleHistoryState with _$SaleHistoryState {
+abstract class SaleHistoryState with _$SaleHistoryState {
   const factory SaleHistoryState({
     @Default(true) bool isLoading,
     @Default(false) bool isMoreLoading,

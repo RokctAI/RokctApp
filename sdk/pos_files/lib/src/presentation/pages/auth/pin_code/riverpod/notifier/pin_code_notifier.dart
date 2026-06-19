@@ -33,7 +33,7 @@ class PinCodeNotifier extends StateNotifier<PinCodeState> {
     }
   }
 
-  checkCode({required VoidCallback onSuccess, bool isNotSet = true}) {
+  void checkCode({required VoidCallback onSuccess, bool isNotSet = true}) {
     if (state.pinCode.length == 4) {
       String pinCode = LocalStorage.getPinCode();
       if (pinCode == state.pinCode) {
@@ -49,7 +49,7 @@ class PinCodeNotifier extends StateNotifier<PinCodeState> {
     }
   }
 
-  checkNewCode({required VoidCallback onSuccess}) {
+  void checkNewCode({required VoidCallback onSuccess}) {
     if (state.pinCode.length == 4) {
       LocalStorage.setPinCode(state.pinCode);
       onSuccess();

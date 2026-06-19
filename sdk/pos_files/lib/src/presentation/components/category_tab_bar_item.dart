@@ -1,24 +1,26 @@
-import 'package:admin_desktop/src/presentation/components/buttons/animation_button_effect.dart';
 import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'buttons/button_effect_animation.dart';
 
 class CategoryTabBarItem extends StatelessWidget {
   final String? title;
   final bool isActive;
+  final bool isHaveChildren;
   final Function() onTap;
 
   const CategoryTabBarItem({
     super.key,
     this.title,
     required this.isActive,
+    this.isHaveChildren = false,
     required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return AnimationButtonEffect(
+    return ButtonEffectAnimation(
       child: GestureDetector(
         onTap: isActive ? null : onTap,
         child: AnimatedContainer(
@@ -37,17 +39,22 @@ class CategoryTabBarItem extends StatelessWidget {
             ],
           ),
           alignment: Alignment.center,
-          padding: REdgeInsets.symmetric(horizontal: 18),
-          margin: REdgeInsets.only(right: 8),
+          padding: EdgeInsets.symmetric(horizontal: 18.r),
+          margin: EdgeInsets.only(right: 8.r),
           child: Row(
             children: [
               Text(
                 '$title',
-                style: GoogleFonts.inter(
-                  fontSize: 13.sp,
-                  color: AppStyle.black,
+                style: AppStyle.interNormal(
+                  size: 12,
+                  color: isActive ? AppStyle.buttonFontColor : AppStyle.black,
                 ),
               ),
+              if (isHaveChildren)
+                Icon(
+                  FlutterRemix.arrow_down_s_line,
+                  color: isActive ? AppStyle.white : AppStyle.black,
+                ),
             ],
           ),
         ),

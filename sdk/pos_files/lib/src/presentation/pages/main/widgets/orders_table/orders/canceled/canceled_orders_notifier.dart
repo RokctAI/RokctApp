@@ -16,12 +16,7 @@ class CanceledOrdersNotifier extends StateNotifier<CanceledOrdersState> {
   Timer? _refreshTime;
 
   CanceledOrdersNotifier(this._ordersRepository)
-      : super(const CanceledOrdersState());
-
-  void clearSearch(BuildContext context) {
-    state = state.copyWith(query: '');
-    setOrdersQuery(context, '');
-  }
+    : super(const CanceledOrdersState());
 
   void setOrdersQuery(BuildContext context, String query) {
     if (state.query == query) {
@@ -88,8 +83,9 @@ class CanceledOrdersNotifier extends StateNotifier<CanceledOrdersState> {
     );
     response.when(
       success: (data) {
-        List<OrderData> orders =
-            isRefresh || state.query.isNotEmpty ? [] : List.from(state.orders);
+        List<OrderData> orders = isRefresh || state.query.isNotEmpty
+            ? []
+            : List.from(state.orders);
         final List<OrderData> newOrders = data.data?.orders ?? [];
         orders.addAll(newOrders);
         state = state.copyWith(
@@ -147,7 +143,7 @@ class CanceledOrdersNotifier extends StateNotifier<CanceledOrdersState> {
     );
   }
 
-  addList(OrderData orderData, BuildContext context) async {
+  Future<void> addList(OrderData orderData, BuildContext context) async {
     List<OrderData> list = List.from(state.orders);
     list.insert(0, orderData);
     state = state.copyWith(orders: list, totalCount: state.totalCount + 1);
@@ -173,13 +169,13 @@ class CanceledOrdersNotifier extends StateNotifier<CanceledOrdersState> {
     );
   }
 
-  removeList(int index) {
+  void removeList(int index) {
     List<OrderData> list = List.from(state.orders);
     list.removeAt(index);
     state = state.copyWith(orders: list, totalCount: state.totalCount - 1);
   }
 
-  deleteOrder(BuildContext context, {required orderId}) async {
+  Future<void> deleteOrder(BuildContext context, {required orderId}) async {
     removeList(getIndex(orderId));
     final response = await _ordersRepository.deleteOrder(orderId: orderId);
     response.when(
@@ -200,7 +196,7 @@ class CanceledOrdersNotifier extends StateNotifier<CanceledOrdersState> {
     );
   }
 
-  int getIndex(id) {
+  int getIndex(int id) {
     List<OrderData> list = List.from(state.orders);
     for (int i = 0; i < list.length; i++) {
       if (list[i].id == id) {

@@ -3,10 +3,9 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:audioplayers/audioplayers.dart';
 
-import '../../../../../core/constants/constants.dart';
-import '../../../../../core/utils/utils.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/core/utils/utils.dart';
 import '../../../../components/components.dart';
 import '../../../../theme/theme.dart';
 import 'page_view_item.dart';
@@ -21,17 +20,11 @@ class RightSide extends ConsumerStatefulWidget {
 
 class _RightSideState extends ConsumerState<RightSide> {
   late PageController _pageController;
-  List<AudioPlayer> _audioPlayers = [];
-  int _currentPlayerIndex = 0;
-  static const int _maxAudioPlayers = 5;
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController();
-    for (int i = 0; i < _maxAudioPlayers; i++) {
-      _audioPlayers.add(AudioPlayer());
-    }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.read(rightSideProvider.notifier)
         ..fetchBags()
@@ -41,7 +34,6 @@ class _RightSideState extends ConsumerState<RightSide> {
               context,
               AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
             );
-            _playSound('wrong.wav');
           },
         )
         ..fetchPayments(
@@ -50,7 +42,6 @@ class _RightSideState extends ConsumerState<RightSide> {
               context,
               AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
             );
-            _playSound('wrong.wav');
           },
         )
         ..fetchCarts(
@@ -59,7 +50,6 @@ class _RightSideState extends ConsumerState<RightSide> {
               context,
               AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
             );
-            _playSound('wrong.wav');
           },
         );
     });
@@ -67,19 +57,8 @@ class _RightSideState extends ConsumerState<RightSide> {
 
   @override
   void dispose() {
-    _pageController.dispose();
-    for (var player in _audioPlayers) {
-      player.dispose();
-    }
     super.dispose();
-  }
-
-  Future<void> _playSound(String soundFile) async {
-    if (AppConstants.sound) {
-      final player = _audioPlayers[_currentPlayerIndex];
-      await player.play(AssetSource('sounds/$soundFile'));
-      _currentPlayerIndex = (_currentPlayerIndex + 1) % _maxAudioPlayers;
-    }
+    _pageController.dispose();
   }
 
   @override
@@ -114,15 +93,14 @@ class _RightSideState extends ConsumerState<RightSide> {
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.ease,
                             );
-                            _playSound('tap.wav');
                           },
                           child: Container(
                             height: 56.r,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.r),
                               color: isSelected
-                                  ? AppStyle.brandGreen
-                                  : AppStyle.brandGreen.withOpacity(0.1),
+                                  ? AppStyle.white
+                                  : AppStyle.transparent,
                             ),
                             padding: REdgeInsets.only(
                               left: 20,
@@ -137,7 +115,7 @@ class _RightSideState extends ConsumerState<RightSide> {
                                   size: 20.r,
                                   color: isSelected
                                       ? AppStyle.black
-                                      : AppStyle.brandGreen.withOpacity(0.5),
+                                      : AppStyle.unselectedTab,
                                 ),
                                 8.horizontalSpace,
                                 Text(
@@ -147,7 +125,7 @@ class _RightSideState extends ConsumerState<RightSide> {
                                     fontSize: 14.sp,
                                     color: isSelected
                                         ? AppStyle.black
-                                        : AppStyle.brandGreen.withOpacity(0.5),
+                                        : AppStyle.unselectedTab,
                                     letterSpacing: -14 * 0.02,
                                   ),
                                 ),
@@ -161,11 +139,8 @@ class _RightSideState extends ConsumerState<RightSide> {
                                         iconData: FlutterRemix.close_line,
                                         icon: isSelected
                                             ? AppStyle.black
-                                            : AppStyle.primary,
-                                        onTap: () {
-                                          notifier.removeBag(index);
-                                          _playSound('wrong.wav');
-                                        },
+                                            : AppStyle.unselectedTab,
+                                        onTap: () => notifier.removeBag(index),
                                         size: 30,
                                       ),
                                     ],
@@ -183,21 +158,16 @@ class _RightSideState extends ConsumerState<RightSide> {
             ),
             9.horizontalSpace,
             InkWell(
-              onTap: () {
-                notifier.addANewBag();
-                _playSound('tap.wav');
-              },
+              onTap: notifier.addANewBag,
               child: AnimationButtonEffect(
                 child: Container(
                   width: 52.r,
                   height: 52.r,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.r),
-                    color: AppStyle.brandGreen,
+                    color: AppStyle.white,
                   ),
-                  child: const Center(
-                    child: Icon(FlutterRemix.add_line, color: AppStyle.black),
-                  ),
+                  child: const Center(child: Icon(FlutterRemix.add_line)),
                 ),
               ),
             ),
@@ -208,15 +178,7 @@ class _RightSideState extends ConsumerState<RightSide> {
           child: PageView(
             controller: _pageController,
             physics: const NeverScrollableScrollPhysics(),
-            children: state.bags
-                .map(
-                  (bag) => PageViewItem(
-                    bag: bag,
-                    onAddItem: () => _playSound('tap.wav'),
-                    onRemoveItem: () => _playSound('wrong.wav'),
-                  ),
-                )
-                .toList(),
+            children: state.bags.map((bag) => PageViewItem(bag: bag)).toList(),
           ),
         ),
       ],

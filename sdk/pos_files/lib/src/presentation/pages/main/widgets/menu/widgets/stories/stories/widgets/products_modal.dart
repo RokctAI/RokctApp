@@ -21,7 +21,7 @@ class _ProductsModalState extends ConsumerState<ProductsModal> {
     refreshController = RefreshController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (ref.watch(mainProvider).products.isEmpty) {
-        ref.read(mainProvider.notifier).fetchProducts(isRefresh: true);
+        ref.read(mainProvider.notifier).fetchProducts(context, isRefresh: true);
       }
     });
     super.initState();
@@ -59,7 +59,8 @@ class _ProductsModalState extends ConsumerState<ProductsModal> {
                                 .setProduct(state.products[index]);
                             Navigator.pop(context);
                           },
-                          isSelected: ref
+                          isSelected:
+                              ref
                                   .watch(editStoriesProvider)
                                   .selectProduct
                                   ?.id ==
@@ -69,7 +70,7 @@ class _ProductsModalState extends ConsumerState<ProductsModal> {
                       HasMoreButton(
                         hasMore: state.hasMore,
                         onViewMore: () {
-                          notifier.fetchProducts();
+                          notifier.fetchProducts(context);
                         },
                       ),
                       20.verticalSpace,

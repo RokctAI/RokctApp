@@ -165,10 +165,10 @@ class TableOrder extends StatelessWidget {
                 color: tableBookingData?.status == TrKeys.newKey
                     ? AppStyle.blue
                     : tableBookingData?.status == TrKeys.accepted
-                        ? AppStyle.deepPurple
-                        : tableBookingData?.status == TrKeys.canceled
-                            ? AppStyle.red
-                            : AppStyle.revenueColor,
+                    ? AppStyle.deepPurple
+                    : tableBookingData?.status == TrKeys.canceled
+                    ? AppStyle.red
+                    : AppStyle.revenueColor,
                 borderRadius: BorderRadiusDirectional.circular(100),
               ),
               child: Text(

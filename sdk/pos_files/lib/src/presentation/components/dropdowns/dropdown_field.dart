@@ -67,10 +67,10 @@ class _DropDownFieldState extends ConsumerState<_DropDownField> {
     final bool isSelected = (widget.dropDownType == DropDownType.section
         ? rightSideState.selectedSection != null
         : widget.dropDownType == DropDownType.table
-            ? rightSideState.selectedTable != null
-            : widget.dropDownType == DropDownType.deliveryman
-                ? state.selectedUser != null
-                : rightSideState.selectedUser != null);
+        ? rightSideState.selectedTable != null
+        : widget.dropDownType == DropDownType.deliveryman
+        ? state.selectedUser != null
+        : rightSideState.selectedUser != null);
     return TextFormField(
       controller: widget.controller,
       readOnly: true,
@@ -121,7 +121,7 @@ class _DropDownFieldState extends ConsumerState<_DropDownField> {
         hintStyle: GoogleFonts.inter(
           fontWeight: FontWeight.w500,
           fontSize: 14.sp,
-          color: AppStyle.black,
+          color: AppStyle.searchHint,
         ),
         hoverColor: AppStyle.transparent,
         errorStyle: _noTextStyle,

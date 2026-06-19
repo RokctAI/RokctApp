@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'kitchen_state.freezed.dart';
 
 @freezed
-class KitchenState with _$KitchenState {
+abstract class KitchenState with _$KitchenState {
   const factory KitchenState({
     @Default(true) bool isLoading,
     @Default(TrKeys.all) String selectType,

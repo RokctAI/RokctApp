@@ -5,5 +5,5 @@ import '../riverpod/add_product_state.dart';
 
 final addProductProvider =
     StateNotifierProvider<AddProductNotifier, AddProductState>(
-  (ref) => AddProductNotifier(),
-);
+      (ref) => AddProductNotifier(),
+    );

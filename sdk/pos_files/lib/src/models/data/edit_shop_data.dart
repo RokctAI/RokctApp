@@ -75,8 +75,9 @@ class EditShopData {
     _perKm = json['price_per_km'];
     _deliveryRange = json['delivery_range'];
     _percentage = json['percentage'];
-    _location =
-        json['location'] != null ? Location.fromJson(json['location']) : null;
+    _location = json['location'] != null
+        ? Location.fromJson(json['location'])
+        : null;
     _phone = json['phone'];
     _openTime = json['open_time'];
     _closeTime = json['close_time'];
@@ -186,37 +187,36 @@ class EditShopData {
     List<ShopWorkingDays>? shopWorkingDays,
     List<CategoryData>? categoryData,
     List<ShopTag>? shopTag,
-  }) =>
-      EditShopData(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        userId: userId ?? _userId,
-        tax: tax ?? _tax,
-        price: price ?? _price,
-        perKm: perKm ?? _perKm,
-        deliveryRange: deliveryRange ?? _deliveryRange,
-        percentage: percentage ?? _percentage,
-        location: location ?? _location,
-        phone: phone ?? _phone,
-        openTime: openTime ?? _openTime,
-        closeTime: closeTime ?? _closeTime,
-        backgroundImg: backgroundImg ?? _backgroundImg,
-        logoImg: logoImg ?? _logoImg,
-        minAmount: minAmount ?? _minAmount,
-        status: status ?? _status,
-        statusNote: statusNote ?? _statusNote,
-        ratingAvg: ratingAvg ?? _ratingAvg,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        deletedAt: deletedAt ?? _deletedAt,
-        translation: translation ?? _translation,
-        seller: seller ?? _seller,
-        deliveryTime: deliveryTime ?? _deliveryTime,
-        deliveries: deliveries ?? _deliveries,
-        shopWorkingDays: shopWorkingDays ?? _shopWorkingDays,
-        categoryData: categoryData ?? _categoryData,
-        shopTag: shopTag ?? _shopTag,
-      );
+  }) => EditShopData(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    userId: userId ?? _userId,
+    tax: tax ?? _tax,
+    price: price ?? _price,
+    perKm: perKm ?? _perKm,
+    deliveryRange: deliveryRange ?? _deliveryRange,
+    percentage: percentage ?? _percentage,
+    location: location ?? _location,
+    phone: phone ?? _phone,
+    openTime: openTime ?? _openTime,
+    closeTime: closeTime ?? _closeTime,
+    backgroundImg: backgroundImg ?? _backgroundImg,
+    logoImg: logoImg ?? _logoImg,
+    minAmount: minAmount ?? _minAmount,
+    status: status ?? _status,
+    statusNote: statusNote ?? _statusNote,
+    ratingAvg: ratingAvg ?? _ratingAvg,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    deletedAt: deletedAt ?? _deletedAt,
+    translation: translation ?? _translation,
+    seller: seller ?? _seller,
+    deliveryTime: deliveryTime ?? _deliveryTime,
+    deliveries: deliveries ?? _deliveries,
+    shopWorkingDays: shopWorkingDays ?? _shopWorkingDays,
+    categoryData: categoryData ?? _categoryData,
+    shopTag: shopTag ?? _shopTag,
+  );
 
   int? get id => _id;
 
@@ -316,8 +316,9 @@ class EditShopData {
       map['deliveries'] = _deliveries?.map((v) => v.toJson()).toList();
     }
     if (_shopWorkingDays != null) {
-      map['shop_working_days'] =
-          _shopWorkingDays?.map((v) => v.toJson()).toList();
+      map['shop_working_days'] = _shopWorkingDays
+          ?.map((v) => v.toJson())
+          .toList();
     }
     return map;
   }
@@ -348,13 +349,12 @@ class Seller {
     String? firstname,
     String? lastname,
     String? role,
-  }) =>
-      Seller(
-        id: id ?? _id,
-        firstname: firstname ?? _firstname,
-        lastname: lastname ?? _lastname,
-        role: role ?? _role,
-      );
+  }) => Seller(
+    id: id ?? _id,
+    firstname: firstname ?? _firstname,
+    lastname: lastname ?? _lastname,
+    role: role ?? _role,
+  );
 
   int? get id => _id;
 
@@ -434,13 +434,12 @@ class ShopWorkingDays {
     String? from,
     String? to,
     bool? disabled,
-  }) =>
-      ShopWorkingDays(
-        day: day ?? _day,
-        from: from ?? _from,
-        to: to ?? _to,
-        disabled: disabled ?? _disabled,
-      );
+  }) => ShopWorkingDays(
+    day: day ?? _day,
+    from: from ?? _from,
+    to: to ?? _to,
+    disabled: disabled ?? _disabled,
+  );
 
   String? get day => _day;
 
@@ -512,17 +511,16 @@ class CategoryData {
     String? img,
     bool? active,
     Translation? translation,
-  }) =>
-      CategoryData(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        keywords: keywords ?? _keywords,
-        parentId: parentId ?? _parentId,
-        type: type ?? _type,
-        img: img ?? _img,
-        active: active ?? _active,
-        translation: translation ?? _translation,
-      );
+  }) => CategoryData(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    keywords: keywords ?? _keywords,
+    parentId: parentId ?? _parentId,
+    type: type ?? _type,
+    img: img ?? _img,
+    active: active ?? _active,
+    translation: translation ?? _translation,
+  );
 
   int? get id => _id;
 
@@ -588,13 +586,12 @@ class ShopTag {
     String? img,
     Translation? translation,
     List<String>? locales,
-  }) =>
-      ShopTag(
-        id: id ?? _id,
-        img: img ?? _img,
-        translation: translation ?? _translation,
-        locales: locales ?? _locales,
-      );
+  }) => ShopTag(
+    id: id ?? _id,
+    img: img ?? _img,
+    translation: translation ?? _translation,
+    locales: locales ?? _locales,
+  );
 
   int? get id => _id;
 

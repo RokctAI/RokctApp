@@ -66,24 +66,23 @@ class _DiscountPageState extends ConsumerState<DiscountPage> {
                 return discountState.isLoading
                     ? const Center(child: Loading())
                     : discountState.discounts.isEmpty
-                        ? const NoItem(title: TrKeys.noDiscount)
-                        : AnimationLimiter(
-                            child: SingleChildScrollView(
-                              child: Column(
-                                children: [
-                                  ListView.builder(
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    padding: REdgeInsets.only(
-                                      top: 16,
-                                      bottom: 56.r,
-                                      left: 12,
-                                      right: 12,
-                                    ),
-                                    shrinkWrap: true,
-                                    itemCount: discountState.discounts.length,
-                                    itemBuilder: (context, index) =>
-                                        AnimationConfiguration.staggeredList(
+                    ? const NoItem(title: TrKeys.noDiscount)
+                    : AnimationLimiter(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              ListView.builder(
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: REdgeInsets.only(
+                                  top: 16,
+                                  bottom: 56.r,
+                                  left: 12,
+                                  right: 12,
+                                ),
+                                shrinkWrap: true,
+                                itemCount: discountState.discounts.length,
+                                itemBuilder: (context, index) =>
+                                    AnimationConfiguration.staggeredList(
                                       position: index,
                                       duration: AppConstants.animationDuration,
                                       child: ScaleAnimation(
@@ -107,11 +106,13 @@ class _DiscountPageState extends ConsumerState<DiscountPage> {
                                               AppHelpers.showAlertDialog(
                                                 context: context,
                                                 child: SizedBox(
-                                                  height: MediaQuery.sizeOf(
+                                                  height:
+                                                      MediaQuery.sizeOf(
                                                         context,
                                                       ).height /
                                                       1.5,
-                                                  width: MediaQuery.sizeOf(
+                                                  width:
+                                                      MediaQuery.sizeOf(
                                                         context,
                                                       ).width /
                                                       2,
@@ -148,24 +149,24 @@ class _DiscountPageState extends ConsumerState<DiscountPage> {
                                                       width: 112.r,
                                                       child: ConfirmButton(
                                                         paddingSize: 0,
-                                                        title: AppHelpers
-                                                            .getTranslation(
-                                                          TrKeys.no,
-                                                        ),
+                                                        title:
+                                                            AppHelpers.getTranslation(
+                                                              TrKeys.no,
+                                                            ),
                                                         onTap: () =>
                                                             Navigator.pop(
-                                                          context,
-                                                        ),
+                                                              context,
+                                                            ),
                                                       ),
                                                     ),
                                                     SizedBox(
                                                       width: 112.r,
                                                       child: ConfirmButton(
                                                         paddingSize: 0,
-                                                        title: AppHelpers
-                                                            .getTranslation(
-                                                          TrKeys.yes,
-                                                        ),
+                                                        title:
+                                                            AppHelpers.getTranslation(
+                                                              TrKeys.yes,
+                                                            ),
                                                         onTap: () {
                                                           ref
                                                               .read(
@@ -175,8 +176,7 @@ class _DiscountPageState extends ConsumerState<DiscountPage> {
                                                               .deleteDiscount(
                                                                 context,
                                                                 discountState
-                                                                        .discounts[
-                                                                            index]
+                                                                        .discounts[index]
                                                                         .id ??
                                                                     0,
                                                               );
@@ -195,18 +195,17 @@ class _DiscountPageState extends ConsumerState<DiscountPage> {
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  HasMoreButton(
-                                    hasMore: discountState.hasMore,
-                                    onViewMore: () =>
-                                        discountEvent.fetchDiscounts(
-                                      context: context,
-                                    ),
-                                  ),
-                                ],
                               ),
-                            ),
-                          );
+                              HasMoreButton(
+                                hasMore: discountState.hasMore,
+                                onViewMore: () => discountEvent.fetchDiscounts(
+                                  context: context,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
               },
             ),
           ),

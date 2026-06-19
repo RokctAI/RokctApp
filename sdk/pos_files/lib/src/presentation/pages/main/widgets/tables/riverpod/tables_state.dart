@@ -9,7 +9,7 @@ import 'package:admin_desktop/src/models/models.dart';
 part 'tables_state.freezed.dart';
 
 @freezed
-class TablesState with _$TablesState {
+abstract class TablesState with _$TablesState {
   const factory TablesState({
     @Default(false) bool isLoading,
     @Default(false) bool isInfoLoading,

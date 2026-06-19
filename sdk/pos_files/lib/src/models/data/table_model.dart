@@ -11,10 +11,10 @@ class TableModel {
     required this.shopSectionId,
   });
 
-  toJson() => {
-        "name": name,
-        "chair_count": chairCount,
-        "tax": tax,
-        "shop_section_id": shopSectionId,
-      };
+  Map<String, Object> toJson() => {
+    "name": name,
+    "chair_count": chairCount,
+    "tax": tax,
+    "shop_section_id": shopSectionId,
+  };
 }

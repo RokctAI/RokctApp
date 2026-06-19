@@ -79,59 +79,68 @@ class _AddNewTableState extends ConsumerState<AddNewTable> {
         Form(
           key: formKey,
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                24.r.verticalSpace,
-                CustomDropDownField(
-                  iconData: FlutterRemix.building_line,
-                  list: state.sectionListTitle,
-                  onChanged: (value) =>
-                      notifier.setSection(title: value.toString()),
-                  value: state.sectionListTitle[state.selectSection],
-                ),
-                12.r.verticalSpace,
-                TableFormField(
-                  prefixSvg: Assets.svgDine,
-                  validator: ValidatorUtils.validateEmpty,
-                  hintText: TrKeys.tableName,
-                  textEditingController: name,
-                ),
-                12.r.verticalSpace,
-                TableFormField(
-                  prefixSvg: Assets.svgAvatar,
-                  inputType: TextInputType.number,
-                  validator: ValidatorUtils.validateEmpty,
-                  hintText: TrKeys.personCount,
-                  textEditingController: count,
-                ),
-                12.r.verticalSpace,
-                TableFormField(
-                  prefixSvg: Assets.svgTax,
-                  inputType: TextInputType.number,
-                  validator: ValidatorUtils.validateEmpty,
-                  hintText: TrKeys.tax,
-                  textEditingController: tax,
-                ),
-                30.verticalSpace,
-                LoginButton(
-                  title: AppHelpers.getTranslation(TrKeys.create),
-                  onPressed: () {
-                    if (formKey.currentState?.validate() ?? false) {
-                      notifier.addTable(
-                        tableModel: TableModel(
-                          name: name.text,
-                          chairCount: int.tryParse(count.text) ?? 4,
-                          tax: int.tryParse(tax.text) ?? 0,
-                          shopSectionId: state.selectAddSection,
-                        ),
-                        context: context,
-                      );
-                      Navigator.pop(context);
-                    }
-                  },
-                ),
-              ],
-            ),
+            child: state.sectionListTitle.isEmpty
+                ? SizedBox(
+                    height: 100.r,
+                    child: Center(
+                      child: Text(
+                        AppHelpers.getTranslation(TrKeys.addNewSection),
+                      ),
+                    ),
+                  )
+                : Column(
+                    children: [
+                      24.verticalSpace,
+                      CustomDropDownField(
+                        iconData: FlutterRemix.building_line,
+                        list: state.sectionListTitle,
+                        onChanged: (value) =>
+                            notifier.setSection(title: value.toString()),
+                        value: state.sectionListTitle[state.selectSection],
+                      ),
+                      12.verticalSpace,
+                      TableFormField(
+                        prefixSvg: Assets.svgDine,
+                        validator: ValidatorUtils.validateEmpty,
+                        hintText: TrKeys.tableName,
+                        textEditingController: name,
+                      ),
+                      12.verticalSpace,
+                      TableFormField(
+                        prefixSvg: Assets.svgAvatar,
+                        inputType: TextInputType.number,
+                        validator: ValidatorUtils.validateEmpty,
+                        hintText: TrKeys.personCount,
+                        textEditingController: count,
+                      ),
+                      12.verticalSpace,
+                      TableFormField(
+                        prefixSvg: Assets.svgTax,
+                        inputType: TextInputType.number,
+                        validator: ValidatorUtils.validateEmpty,
+                        hintText: TrKeys.tax,
+                        textEditingController: tax,
+                      ),
+                      30.verticalSpace,
+                      LoginButton(
+                        title: AppHelpers.getTranslation(TrKeys.create),
+                        onPressed: () {
+                          if (formKey.currentState?.validate() ?? false) {
+                            notifier.addTable(
+                              tableModel: TableModel(
+                                name: name.text,
+                                chairCount: int.tryParse(count.text) ?? 4,
+                                tax: int.tryParse(tax.text) ?? 0,
+                                shopSectionId: state.selectAddSection,
+                              ),
+                              context: context,
+                            );
+                            Navigator.pop(context);
+                          }
+                        },
+                      ),
+                    ],
+                  ),
           ),
         ),
       ],

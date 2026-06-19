@@ -8,8 +8,8 @@ import 'package:drag_and_drop_lists/drag_and_drop_lists.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../../core/constants/constants.dart';
-import '../../../../../../core/utils/utils.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/core/utils/utils.dart';
 import '../../../../../../models/data/order_data.dart';
 import '../../../../../theme/theme.dart';
 import '../orders/accepted/accepted_orders_provider.dart';
@@ -101,8 +101,8 @@ class _BoardViewState extends ConsumerState<BoardViewMode> {
         list = widget.listNew;
         header = AppHelpers.getTranslation(TrKeys.newKey);
         hasMore = ref.watch(newOrdersProvider).hasMore;
-        onViewMore =
-            () => ref.read(newOrdersProvider.notifier).fetchNewOrders();
+        onViewMore = () =>
+            ref.read(newOrdersProvider.notifier).fetchNewOrders();
         itemColor = AppStyle.blue;
         count = ref.watch(newOrdersProvider).totalCount.toString();
         isLoading = ref.watch(newOrdersProvider).isLoading;
@@ -129,8 +129,8 @@ class _BoardViewState extends ConsumerState<BoardViewMode> {
         list = widget.listCooking;
         header = AppHelpers.getTranslation(TrKeys.cooking);
         hasMore = ref.watch(cookingOrdersProvider).hasMore;
-        onViewMore =
-            () => ref.read(cookingOrdersProvider.notifier).fetchCookingOrders();
+        onViewMore = () =>
+            ref.read(cookingOrdersProvider.notifier).fetchCookingOrders();
         itemColor = AppStyle.rate;
         count = ref.watch(cookingOrdersProvider).totalCount.toString();
         isLoading = ref.watch(cookingOrdersProvider).isLoading;
@@ -144,8 +144,8 @@ class _BoardViewState extends ConsumerState<BoardViewMode> {
         list = widget.listReady;
         header = AppHelpers.getTranslation(TrKeys.ready);
         hasMore = ref.watch(readyOrdersProvider).hasMore;
-        onViewMore =
-            () => ref.read(readyOrdersProvider.notifier).fetchReadyOrders();
+        onViewMore = () =>
+            ref.read(readyOrdersProvider.notifier).fetchReadyOrders();
         itemColor = AppStyle.revenueColor;
         count = ref.watch(readyOrdersProvider).totalCount.toString();
         isLoading = ref.watch(readyOrdersProvider).isLoading;
@@ -159,8 +159,8 @@ class _BoardViewState extends ConsumerState<BoardViewMode> {
         list = widget.listOnAWay;
         header = AppHelpers.getTranslation(TrKeys.onAWay);
         hasMore = ref.watch(onAWayOrdersProvider).hasMore;
-        onViewMore =
-            () => ref.read(onAWayOrdersProvider.notifier).fetchOnAWayOrders();
+        onViewMore = () =>
+            ref.read(onAWayOrdersProvider.notifier).fetchOnAWayOrders();
         itemColor = AppStyle.black;
         count = ref.watch(onAWayOrdersProvider).totalCount.toString();
         isLoading = ref.watch(onAWayOrdersProvider).isLoading;
@@ -169,6 +169,7 @@ class _BoardViewState extends ConsumerState<BoardViewMode> {
               .read(onAWayOrdersProvider.notifier)
               .fetchOnAWayOrders(isRefresh: true);
         };
+
         break;
       case OrderStatus.delivered:
         list = widget.listDelivered;
@@ -185,6 +186,7 @@ class _BoardViewState extends ConsumerState<BoardViewMode> {
               .read(deliveredOrdersProvider.notifier)
               .fetchDeliveredOrders(isRefresh: true);
         };
+
         break;
       case OrderStatus.canceled:
         list = widget.listCanceled;
@@ -201,16 +203,6 @@ class _BoardViewState extends ConsumerState<BoardViewMode> {
               .read(canceledOrdersProvider.notifier)
               .fetchCanceledOrders(isRefresh: true);
         };
-        break;
-      default:
-        list = [];
-        header = '';
-        hasMore = false;
-        onViewMore = () {};
-        itemColor = AppStyle.transparent;
-        count = "0";
-        isLoading = false;
-        onRefresh = () {};
         break;
     }
 
@@ -241,202 +233,146 @@ class _BoardViewState extends ConsumerState<BoardViewMode> {
     int newListIndex,
   ) {
     if (newListIndex > oldListIndex) {
-      // Get the order being dragged
-      OrderData? orderData;
-      switch (oldListIndex) {
-        case 0:
-          orderData = ref.watch(newOrdersProvider).orders[oldItemIndex];
-          break;
+      switch (newListIndex) {
         case 1:
-          orderData = ref.watch(acceptedOrdersProvider).orders[oldItemIndex];
-          break;
-        case 2:
-          orderData = ref.watch(cookingOrdersProvider).orders[oldItemIndex];
-          break;
-        case 3:
-          orderData = ref.watch(readyOrdersProvider).orders[oldItemIndex];
-          break;
-        case 4:
-          if (LocalStorage.getUser()?.role != TrKeys.waiter) {
-            orderData = ref.watch(onAWayOrdersProvider).orders[oldItemIndex];
+          {
+            ref
+                .read(acceptedOrdersProvider.notifier)
+                .addList(
+                  ref.watch(newOrdersProvider).orders[oldItemIndex],
+                  context,
+                );
+            break;
           }
-          break;
-      }
-
-      // Check if the order exists and we're moving to onAWay status
-      if (orderData != null &&
-          newListIndex == 4 &&
-          (orderData.deliveryType ?? "") != TrKeys.dine &&
-          (orderData.deliveryType ?? "") != TrKeys.delivery) {
-        // Skip onAWay status and move directly to delivered
-        ref.read(deliveredOrdersProvider.notifier).addList(orderData, context);
-      } else {
-        // Handle normal status transitions
-        switch (newListIndex) {
-          case 1:
-            {
-              ref.read(acceptedOrdersProvider.notifier).addList(
-                    ref.watch(newOrdersProvider).orders[oldItemIndex],
-                    context,
-                  );
-              break;
-            }
-          case 2:
-            {
-              if (LocalStorage.getUser()?.role != TrKeys.waiter) {
-                ref.read(cookingOrdersProvider.notifier).addList(
-                      oldListIndex == 0
-                          ? ref.watch(newOrdersProvider).orders[oldItemIndex]
-                          : ref
+        case 2:
+          {
+            if (LocalStorage.getUser()?.role != TrKeys.waiter) {
+              ref
+                  .read(cookingOrdersProvider.notifier)
+                  .addList(
+                    oldListIndex == 0
+                        ? ref.watch(newOrdersProvider).orders[oldItemIndex]
+                        : ref
                               .watch(acceptedOrdersProvider)
                               .orders[oldItemIndex],
-                      context,
-                    );
-              }
-              break;
+                    context,
+                  );
             }
-          case 3:
-            {
-              if (LocalStorage.getUser()?.role != TrKeys.waiter) {
-                ref.read(readyOrdersProvider.notifier).addList(
-                      oldListIndex == 0
-                          ? ref.watch(newOrdersProvider).orders[oldItemIndex]
-                          : oldListIndex == 1
-                              ? ref
-                                  .watch(acceptedOrdersProvider)
-                                  .orders[oldItemIndex]
-                              : ref
-                                  .watch(cookingOrdersProvider)
-                                  .orders[oldItemIndex],
-                      context,
-                    );
-              }
-              break;
+            break;
+          }
+        case 3:
+          {
+            if (LocalStorage.getUser()?.role != TrKeys.waiter) {
+              ref
+                  .read(readyOrdersProvider.notifier)
+                  .addList(
+                    oldListIndex == 0
+                        ? ref.watch(newOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 1
+                        ? ref.watch(acceptedOrdersProvider).orders[oldItemIndex]
+                        : ref.watch(cookingOrdersProvider).orders[oldItemIndex],
+                    context,
+                  );
             }
-          case 4:
-            {
-              if (LocalStorage.getUser()?.role != TrKeys.waiter) {
-                ref.read(onAWayOrdersProvider.notifier).addList(
-                      oldListIndex == 0
-                          ? ref.watch(newOrdersProvider).orders[oldItemIndex]
-                          : oldListIndex == 1
-                              ? ref
-                                  .watch(acceptedOrdersProvider)
-                                  .orders[oldItemIndex]
-                              : oldListIndex == 2
-                                  ? ref
-                                      .watch(cookingOrdersProvider)
-                                      .orders[oldItemIndex]
-                                  : ref
-                                      .watch(readyOrdersProvider)
-                                      .orders[oldItemIndex],
-                      context,
-                    );
-              } else {
-                ref.read(deliveredOrdersProvider.notifier).addList(
-                      oldListIndex == 0
-                          ? ref.watch(newOrdersProvider).orders[oldItemIndex]
-                          : oldListIndex == 1
-                              ? ref
-                                  .watch(acceptedOrdersProvider)
-                                  .orders[oldItemIndex]
-                              : oldListIndex == 2
-                                  ? ref
-                                      .watch(cookingOrdersProvider)
-                                      .orders[oldItemIndex]
-                                  : oldListIndex == 3
-                                      ? ref
-                                          .watch(readyOrdersProvider)
-                                          .orders[oldItemIndex]
-                                      : ref
-                                          .watch(onAWayOrdersProvider)
-                                          .orders[oldItemIndex],
-                      context,
-                    );
-              }
-              break;
+            break;
+          }
+        case 4:
+          {
+            if (LocalStorage.getUser()?.role != TrKeys.waiter) {
+              ref
+                  .read(onAWayOrdersProvider.notifier)
+                  .addList(
+                    oldListIndex == 0
+                        ? ref.watch(newOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 1
+                        ? ref.watch(acceptedOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 2
+                        ? ref.watch(cookingOrdersProvider).orders[oldItemIndex]
+                        : ref.watch(readyOrdersProvider).orders[oldItemIndex],
+                    context,
+                  );
+            } else {
+              ref
+                  .read(deliveredOrdersProvider.notifier)
+                  .addList(
+                    oldListIndex == 0
+                        ? ref.watch(newOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 1
+                        ? ref.watch(acceptedOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 2
+                        ? ref.watch(cookingOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 3
+                        ? ref.watch(readyOrdersProvider).orders[oldItemIndex]
+                        : ref.watch(onAWayOrdersProvider).orders[oldItemIndex],
+                    context,
+                  );
             }
-          case 5:
-            {
-              if (LocalStorage.getUser()?.role != TrKeys.waiter) {
-                ref.read(deliveredOrdersProvider.notifier).addList(
-                      oldListIndex == 0
-                          ? ref.watch(newOrdersProvider).orders[oldItemIndex]
-                          : oldListIndex == 1
-                              ? ref
-                                  .watch(acceptedOrdersProvider)
-                                  .orders[oldItemIndex]
-                              : oldListIndex == 2
-                                  ? ref
-                                      .watch(cookingOrdersProvider)
-                                      .orders[oldItemIndex]
-                                  : oldListIndex == 3
-                                      ? ref
-                                          .watch(readyOrdersProvider)
-                                          .orders[oldItemIndex]
-                                      : ref
-                                          .watch(onAWayOrdersProvider)
-                                          .orders[oldItemIndex],
-                      context,
-                    );
-              } else {
-                ref.read(canceledOrdersProvider.notifier).addList(
-                      oldListIndex == 0
-                          ? ref.watch(newOrdersProvider).orders[oldItemIndex]
-                          : oldListIndex == 1
-                              ? ref
-                                  .watch(acceptedOrdersProvider)
-                                  .orders[oldItemIndex]
-                              : oldListIndex == 2
-                                  ? ref
-                                      .watch(cookingOrdersProvider)
-                                      .orders[oldItemIndex]
-                                  : oldListIndex == 3
-                                      ? ref
-                                          .watch(readyOrdersProvider)
-                                          .orders[oldItemIndex]
-                                      : ref
-                                          .watch(deliveredOrdersProvider)
-                                          .orders[oldItemIndex],
-                      context,
-                    );
-              }
-              break;
+            break;
+          }
+
+        case 5:
+          {
+            if (LocalStorage.getUser()?.role != TrKeys.waiter) {
+              ref
+                  .read(deliveredOrdersProvider.notifier)
+                  .addList(
+                    oldListIndex == 0
+                        ? ref.watch(newOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 1
+                        ? ref.watch(acceptedOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 2
+                        ? ref.watch(cookingOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 3
+                        ? ref.watch(readyOrdersProvider).orders[oldItemIndex]
+                        : ref.watch(onAWayOrdersProvider).orders[oldItemIndex],
+                    context,
+                  );
+            } else {
+              ref
+                  .read(canceledOrdersProvider.notifier)
+                  .addList(
+                    oldListIndex == 0
+                        ? ref.watch(newOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 1
+                        ? ref.watch(acceptedOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 2
+                        ? ref.watch(cookingOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 3
+                        ? ref.watch(readyOrdersProvider).orders[oldItemIndex]
+                        : ref
+                              .watch(deliveredOrdersProvider)
+                              .orders[oldItemIndex],
+                    context,
+                  );
             }
-          case 6:
-            {
-              if (LocalStorage.getUser()?.role != TrKeys.waiter) {
-                ref.read(canceledOrdersProvider.notifier).addList(
-                      oldListIndex == 0
-                          ? ref.watch(newOrdersProvider).orders[oldItemIndex]
-                          : oldListIndex == 1
-                              ? ref
-                                  .watch(acceptedOrdersProvider)
-                                  .orders[oldItemIndex]
-                              : oldListIndex == 2
-                                  ? ref
-                                      .watch(cookingOrdersProvider)
-                                      .orders[oldItemIndex]
-                                  : oldListIndex == 3
-                                      ? ref
-                                          .watch(readyOrdersProvider)
-                                          .orders[oldItemIndex]
-                                      : oldListIndex == 4
-                                          ? ref
-                                              .watch(onAWayOrdersProvider)
-                                              .orders[oldItemIndex]
-                                          : ref
-                                              .watch(deliveredOrdersProvider)
-                                              .orders[oldItemIndex],
-                      context,
-                    );
-              }
-              break;
+            break;
+          }
+        case 6:
+          {
+            if (LocalStorage.getUser()?.role != TrKeys.waiter) {
+              ref
+                  .read(canceledOrdersProvider.notifier)
+                  .addList(
+                    oldListIndex == 0
+                        ? ref.watch(newOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 1
+                        ? ref.watch(acceptedOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 2
+                        ? ref.watch(cookingOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 3
+                        ? ref.watch(readyOrdersProvider).orders[oldItemIndex]
+                        : oldListIndex == 4
+                        ? ref.watch(onAWayOrdersProvider).orders[oldItemIndex]
+                        : ref
+                              .watch(deliveredOrdersProvider)
+                              .orders[oldItemIndex],
+                    context,
+                  );
             }
-        }
+            break;
+          }
       }
 
-      // Remove from old list
       switch (oldListIndex) {
         case 0:
           {
@@ -484,7 +420,5 @@ class _BoardViewState extends ConsumerState<BoardViewMode> {
     }
   }
 
-  void onReorderList(int oldListIndex, int newListIndex) {
-    // Implementation for list reordering if needed
-  }
+  void onReorderList(int oldListIndex, int newListIndex) {}
 }

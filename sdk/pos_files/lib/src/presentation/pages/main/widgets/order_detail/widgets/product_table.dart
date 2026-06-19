@@ -239,7 +239,7 @@ class ProductTable extends StatelessWidget {
                     Text(
                       AppHelpers.numberFormat(
                         orderData?.details?[i].totalPrice ?? 0,
-                        symbol: orderData?.currency?.symbol,
+                        currency: orderData?.currency,
                       ),
                       style: GoogleFonts.inter(
                         fontSize: 14.sp,
@@ -280,8 +280,13 @@ class ProductTable extends StatelessWidget {
                     children: [
                       const Divider(),
                       Text(
-                        (orderData?.details?[i].addons?[j].stocks?.product
-                                ?.translation?.title ??
+                        (orderData
+                                ?.details?[i]
+                                .addons?[j]
+                                .stocks
+                                ?.product
+                                ?.translation
+                                ?.title ??
                             ""),
                         style: GoogleFonts.inter(
                           fontSize: 14.sp,
@@ -353,7 +358,7 @@ class ProductTable extends StatelessWidget {
                       Text(
                         AppHelpers.numberFormat(
                           orderData?.details?[i].addons?[j].price ?? 0,
-                          symbol: orderData?.currency?.symbol,
+                          currency: orderData?.currency,
                         ),
                         style: GoogleFonts.inter(
                           fontSize: 14.sp,

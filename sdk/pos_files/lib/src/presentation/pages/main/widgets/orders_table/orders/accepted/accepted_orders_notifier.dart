@@ -18,7 +18,7 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
   Timer? _refreshTime;
 
   AcceptedOrdersNotifier(this._ordersRepository)
-      : super(const AcceptedOrdersState());
+    : super(const AcceptedOrdersState());
 
   void setOrdersQuery(BuildContext context, String query) {
     if (state.query == query) {
@@ -85,8 +85,9 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
     );
     response.when(
       success: (data) {
-        List<OrderData> orders =
-            isRefresh || state.query.isNotEmpty ? [] : List.from(state.orders);
+        List<OrderData> orders = isRefresh || state.query.isNotEmpty
+            ? []
+            : List.from(state.orders);
         final List<OrderData> newOrders = data.data?.orders ?? [];
         for (OrderData element in newOrders) {
           if (!orders.map((item) => item.id).contains(element.id)) {
@@ -150,7 +151,7 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
     );
   }
 
-  addList(OrderData orderData, BuildContext context) async {
+  Future<void> addList(OrderData orderData, BuildContext context) async {
     List<OrderData> list = List.from(state.orders);
     list.insert(0, orderData);
     state = state.copyWith(orders: list, totalCount: state.totalCount + 1);
@@ -194,13 +195,13 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
     );
   }
 
-  removeList(int index) {
+  void removeList(int index) {
     List<OrderData> list = List.from(state.orders);
     list.removeAt(index);
     state = state.copyWith(orders: list, totalCount: state.totalCount - 1);
   }
 
-  deleteOrder(BuildContext context, {required orderId}) async {
+  Future<void> deleteOrder(BuildContext context, {required orderId}) async {
     removeList(getIndex(orderId));
     final response = await _ordersRepository.deleteOrder(orderId: orderId);
     response.when(
@@ -221,7 +222,7 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
     );
   }
 
-  int getIndex(id) {
+  int getIndex(int id) {
     List<OrderData> list = List.from(state.orders);
     for (int i = 0; i < list.length; i++) {
       if (list[i].id == id) {
@@ -233,10 +234,5 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
 
   void stopTimer() {
     _refreshTime?.cancel();
-  }
-
-  void clearSearch(BuildContext context) {
-    state = state.copyWith(query: '');
-    setOrdersQuery(context, '');
   }
 }

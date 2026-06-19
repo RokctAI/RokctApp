@@ -11,5 +11,4 @@ PRODUCT_NAME = admin_desktop
 PRODUCT_BUNDLE_IDENTIFIER = org.goshops.adminDesktop
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2025 ROKCT INTELLIGENCE (PTY) LTD. All rights reserved.
-
+PRODUCT_COPYRIGHT = Copyright © 2022 org.goshops. All rights reserved.

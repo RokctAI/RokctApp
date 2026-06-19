@@ -30,7 +30,9 @@ class _MapDialogState extends ConsumerState<MapDialog> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      ref.read(orderTableProvider.notifier).setMarkerIcon(
+      ref
+          .read(orderTableProvider.notifier)
+          .setMarkerIcon(
             LatLng(
               widget.orderData.location?.latitude ?? AppConstants.demoLatitude,
               widget.orderData.location?.longitude ??
@@ -181,7 +183,11 @@ class _MapDialogState extends ConsumerState<MapDialog> {
                           ),
                           children: [
                             TextSpan(
-                              text: widget.orderData.transaction?.paymentSystem
+                              text:
+                                  widget
+                                      .orderData
+                                      .transaction
+                                      ?.paymentSystem
                                       ?.tag ??
                                   "- -",
                               style: GoogleFonts.inter(

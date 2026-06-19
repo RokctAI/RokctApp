@@ -6,5 +6,5 @@ import 'canceled_orders_notifier.dart';
 
 final canceledOrdersProvider =
     StateNotifierProvider<CanceledOrdersNotifier, CanceledOrdersState>(
-  (ref) => CanceledOrdersNotifier(ordersRepository),
-);
+      (ref) => CanceledOrdersNotifier(ordersRepository),
+    );

@@ -14,11 +14,11 @@ class OrderTableNotifier extends StateNotifier<OrderTableState> {
     state = state.copyWith(isListView: index == 0 ? false : true);
   }
 
-  setTime(DateTime? start, DateTime? end) {
+  void setTime(DateTime? start, DateTime? end) {
     state = state.copyWith(start: start, end: end);
   }
 
-  changeFilter() {
+  void changeFilter() {
     state = state.copyWith(showFilter: !state.showFilter);
   }
 

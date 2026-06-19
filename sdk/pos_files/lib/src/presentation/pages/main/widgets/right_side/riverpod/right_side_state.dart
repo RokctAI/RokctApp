@@ -8,7 +8,7 @@ import 'package:admin_desktop/src/models/models.dart';
 part 'right_side_state.freezed.dart';
 
 @freezed
-class RightSideState with _$RightSideState {
+abstract class RightSideState with _$RightSideState {
   const factory RightSideState({
     @Default(false) bool isBagsLoading,
     @Default(false) bool isUsersLoading,
@@ -41,7 +41,6 @@ class RightSideState with _$RightSideState {
     @Default('') String sectionQuery,
     @Default('') String orderType,
     @Default('') String calculate,
-    @Default('') String? terminalTransactionId,
     @Default('') String comment,
     @Default(null) String? selectUserError,
     @Default(null) String? selectAddressError,

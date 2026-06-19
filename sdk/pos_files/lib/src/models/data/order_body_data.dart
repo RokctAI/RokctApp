@@ -2,7 +2,7 @@ import 'package:admin_desktop/src/core/utils/local_storage.dart';
 import 'package:admin_desktop/src/models/data/bag_data.dart';
 import 'package:admin_desktop/src/models/data/location_data.dart';
 
-import '../../core/constants/constants.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
 
 class OrderBodyData {
   final String? note;

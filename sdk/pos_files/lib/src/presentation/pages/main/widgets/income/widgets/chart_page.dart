@@ -1,12 +1,12 @@
 import 'package:admin_desktop/src/core/constants/constants.dart';
 import 'package:admin_desktop/src/core/utils/utils.dart';
 import 'package:admin_desktop/src/models/response/income_chart_response.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import '../../../../../theme/theme.dart';
 
 class ChartPage extends StatefulWidget {
   final List<num> price;
@@ -36,13 +36,8 @@ class _ChartPageState extends State<ChartPage> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 260.h,
-      padding: EdgeInsets.only(
-        left: 12.r, // Reduced left padding to accommodate axis labels
-        //right: 12.r,
-        top: 30.r,
-        bottom: 12.r, // Reduced bottom padding
-      ),
+      height: 326.h,
+      padding: EdgeInsets.symmetric(horizontal: 20.r, vertical: 30.r),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.r),
         color: AppStyle.white,
@@ -55,7 +50,6 @@ class _ChartPageState extends State<ChartPage> {
             style: GoogleFonts.inter(
               fontSize: 22.sp,
               fontWeight: FontWeight.w600,
-              color: AppStyle.black,
             ),
           ),
           24.verticalSpace,
@@ -68,7 +62,6 @@ class _ChartPageState extends State<ChartPage> {
                       style: GoogleFonts.inter(
                         fontSize: 22.sp,
                         fontWeight: FontWeight.w600,
-                        color: AppStyle.black,
                       ),
                     ),
                   ),
@@ -79,10 +72,10 @@ class _ChartPageState extends State<ChartPage> {
   }
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
-    final style = GoogleFonts.inter(fontSize: 10.sp, color: AppStyle.black);
+    final style = GoogleFonts.inter(fontSize: 10.sp);
 
     return SideTitleWidget(
-      axisSide: meta.axisSide,
+      meta: meta,
       child: Text(
         DateFormat(
           widget.isDay ? "HH:00" : "MMM d",
@@ -93,18 +86,12 @@ class _ChartPageState extends State<ChartPage> {
   }
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
-    final style = GoogleFonts.inter(fontSize: 12.sp, color: AppStyle.black);
+    final style = GoogleFonts.inter(fontSize: 12.sp);
     return Text(
       AppHelpers.numberFormat(widget.price[value.toInt()], decimalDigits: 0),
       style: style,
       textAlign: TextAlign.left,
     );
-  }
-
-  String getTooltipText(double x, double y) {
-    final date = widget.times[x.toInt()];
-    final amount = widget.price[y.toInt()];
-    return '${DateFormat(widget.isDay ? "HH:00" : "MMM d").format(date)}\n${NumberFormat.currency(decimalDigits: 0, symbol: LocalStorage.getSelectedCurrency().symbol).format(amount)}';
   }
 
   LineChartData mainData() {
@@ -120,44 +107,6 @@ class _ChartPageState extends State<ChartPage> {
             strokeWidth: 1,
             dashArray: [10],
           );
-        },
-      ),
-      lineTouchData: LineTouchData(
-        enabled: true,
-        touchTooltipData: LineTouchTooltipData(
-          //tooltipBgColor: AppStyle.black.withOpacity(0.8),
-          tooltipRoundedRadius: 8.r,
-          tooltipPadding: EdgeInsets.symmetric(horizontal: 12.r, vertical: 8.r),
-          getTooltipItems: (List<LineBarSpot> touchedSpots) {
-            return touchedSpots.map((spot) {
-              return LineTooltipItem(
-                getTooltipText(spot.x, spot.y),
-                GoogleFonts.inter(
-                  color: AppStyle.white,
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w500,
-                ),
-              );
-            }).toList();
-          },
-        ),
-        handleBuiltInTouches: true,
-        getTouchedSpotIndicator:
-            (LineChartBarData barData, List<int> spotIndexes) {
-          return spotIndexes.map((index) {
-            return TouchedSpotIndicatorData(
-              FlLine(color: AppStyle.primary, strokeWidth: 2),
-              FlDotData(
-                getDotPainter: (spot, percent, barData, index) =>
-                    FlDotCirclePainter(
-                  radius: 4,
-                  color: AppStyle.white,
-                  strokeWidth: 2,
-                  strokeColor: AppStyle.primary,
-                ),
-              ),
-            );
-          }).toList();
         },
       ),
       titlesData: FlTitlesData(

@@ -3,8 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import '../../../../../../../generated/assets.dart';
-import '../../core/utils/app_helpers.dart';
-import '../theme/app_style.dart';
+import 'package:admin_desktop/src/core/utils/app_helpers.dart';
 
 class NoItem extends StatelessWidget {
   final String title;
@@ -28,7 +27,6 @@ class NoItem extends StatelessWidget {
               style: GoogleFonts.inter(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
-                color: AppStyle.black,
               ),
               textAlign: TextAlign.center,
             ),

@@ -65,8 +65,9 @@ class AddProductNotifier extends StateNotifier<AddProductState> {
     final Stocks? selectedStock = getSelectedStock(groupExtras);
     final int minQty = state.product?.minQty ?? 0;
     final int selectedStockQty = selectedStock?.quantity ?? 0;
-    final int stockCount =
-        minQty <= selectedStockQty ? minQty : selectedStockQty;
+    final int stockCount = minQty <= selectedStockQty
+        ? minQty
+        : selectedStockQty;
     state = state.copyWith(
       typedExtras: groupExtras,
       selectedStock: selectedStock,
@@ -264,16 +265,15 @@ class AddProductNotifier extends StateNotifier<AddProductState> {
           state.selectedStock?.addons
               ?.where((element) => element.active ?? false)
               .forEach((e) {
-            if (bagProducts[i]
-                    .carts
-                    ?.map((i) => i.stockId)
-                    .contains(e.product?.stock?.id) ??
-                false) {
-              newStockIndex = i;
-            } else {
-              newStockIndex = -1;
-            }
-          });
+                if (bagProducts[i].carts
+                        ?.map((i) => i.stockId)
+                        .contains(e.product?.stock?.id) ??
+                    false) {
+                  newStockIndex = i;
+                } else {
+                  newStockIndex = -1;
+                }
+              });
         }
       }
     }

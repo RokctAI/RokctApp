@@ -12,7 +12,7 @@ class EditDiscountNotifier extends StateNotifier<EditDiscountState> {
   final GalleryRepositoryFacade _galleryRepository;
 
   EditDiscountNotifier(this._discountRepository, this._galleryRepository)
-      : super(EditDiscountState(dateController: TextEditingController()));
+    : super(EditDiscountState(dateController: TextEditingController()));
 
   void changeActive(bool? active) {
     state = state.copyWith(active: !state.active);

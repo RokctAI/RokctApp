@@ -1,18 +1,13 @@
-import 'address_data.dart';
-
 class CustomerModel {
-  int? id;
   String? firstname;
   String? lastname;
   String? email;
-  String? phone;
+  int? phone;
   String? password;
   String? role;
   String? imageUrl;
-  List<AddressData>? addresses;
 
   CustomerModel({
-    this.id,
     this.firstname,
     this.lastname,
     this.email,
@@ -20,47 +15,35 @@ class CustomerModel {
     this.role,
     this.password,
     this.imageUrl,
-    this.addresses,
   });
 
   CustomerModel copyWith({
-    int? id,
     String? firstname,
     String? lastname,
     String? email,
-    String? phone,
+    int? phone,
     String? role,
     String? password,
     String? imageUrl,
-    List<AddressData>? addresses,
-  }) =>
-      CustomerModel(
-        id: id ?? this.id,
-        firstname: firstname ?? this.firstname,
-        lastname: lastname ?? this.lastname,
-        email: email ?? this.email,
-        phone: phone ?? this.phone,
-        role: role ?? this.role,
-        password: password ?? this.password,
-        imageUrl: imageUrl ?? this.imageUrl,
-        addresses: addresses ?? this.addresses,
-      );
+  }) => CustomerModel(
+    firstname: firstname ?? this.firstname,
+    lastname: lastname ?? this.lastname,
+    email: email ?? this.email,
+    phone: phone ?? this.phone,
+    role: role ?? this.role,
+    password: password ?? this.password,
+    imageUrl: imageUrl ?? this.imageUrl,
+  );
 
   factory CustomerModel.fromJson(Map<String, dynamic> json) => CustomerModel(
-        id: json["id"],
-        firstname: json["firstname"],
-        lastname: json["lastname"],
-        email: json["email"],
-        phone: json["phone"],
-        role: json["role"],
-        password: json["password"],
-        imageUrl: json["img"],
-        addresses: json["addresses"] == null
-            ? []
-            : List<AddressData>.from(
-                json["addresses"].map((x) => AddressData.fromJson(x)),
-              ),
-      );
+    firstname: json["firstname"],
+    lastname: json["lastname"],
+    email: json["email"],
+    phone: json["phone"],
+    role: json["role"],
+    password: json["password"],
+    imageUrl: json["imageUrl"],
+  );
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> jsonMap = {

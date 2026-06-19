@@ -69,11 +69,7 @@ class BoardTopBar extends StatelessWidget {
                     height: 32,
                     fit: BoxFit.fill,
                   )
-                : const Icon(
-                    FlutterRemix.refresh_line,
-                    size: 24,
-                    color: AppStyle.black,
-                  ),
+                : const Icon(FlutterRemix.refresh_line, size: 24),
           ),
         ],
       ),

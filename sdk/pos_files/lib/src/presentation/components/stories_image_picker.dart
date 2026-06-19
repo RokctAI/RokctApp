@@ -31,7 +31,7 @@ class StoriesImagePicker extends StatelessWidget {
     return _editExtrasImage(context);
   }
 
-  _editExtrasImage(BuildContext context) {
+  Column _editExtrasImage(BuildContext context) {
     int itemCount = (listOfImages?.length ?? 0) + (imageUrls?.length ?? 0);
     return Column(
       children: [
@@ -84,7 +84,8 @@ class StoriesImagePicker extends StatelessWidget {
                                   try {
                                     path = imageUrls?[index] ?? "";
                                   } catch (e) {
-                                    path = listOfImages?[(index -
+                                    path =
+                                        listOfImages?[(index -
                                             (imageUrls?.length ?? 0))] ??
                                         "";
                                   }

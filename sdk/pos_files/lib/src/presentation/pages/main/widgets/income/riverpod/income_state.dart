@@ -5,16 +5,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:admin_desktop/src/core/constants/constants.dart';
 
-import '../../JuvoONE/widgets/expenses/expense_details_income.dart';
-import '../../JuvoONE/widgets/roSystem/models/data/expense_data.dart';
-
 part 'income_state.freezed.dart';
 
 @freezed
-class IncomeState with _$IncomeState {
+abstract class IncomeState with _$IncomeState {
   const factory IncomeState({
     @Default(true) bool isLoading,
-    @Default(TrKeys.month) String selectType,
+    @Default(TrKeys.week) String selectType,
     @Default(null) IncomeCartResponse? incomeCart,
     @Default(null) IncomeStatisticResponse? incomeStatistic,
     @Default([]) List<IncomeChartResponse>? incomeCharts,
@@ -22,10 +19,6 @@ class IncomeState with _$IncomeState {
     @Default([]) List<DateTime> time,
     @Default(null) DateTime? start,
     @Default(null) DateTime? end,
-    // Added expense-related fields with defaults
-    @Default([]) List<Expense>? expenses,
-    @Default([]) List<ExpenseType>? expenseTypes,
-    @Default(ExpenseDetailsIncome()) ExpenseDetailsIncome? expenseRevenue,
   }) = _IncomeState;
 
   const IncomeState._();

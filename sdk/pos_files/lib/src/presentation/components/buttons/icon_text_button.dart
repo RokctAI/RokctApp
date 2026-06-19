@@ -1,3 +1,4 @@
+import 'package:admin_desktop/src/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,10 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 class IconTextButton extends StatelessWidget {
   final Color backgroundColor;
   final IconData iconData;
-  final Color icon;
+  final Color? icon;
   final String title;
   final double height;
-  final Color textColor;
+  final Color? textColor;
   final BorderRadius? radius;
   final Function()? onPressed;
 
@@ -16,9 +17,9 @@ class IconTextButton extends StatelessWidget {
     super.key,
     required this.backgroundColor,
     required this.iconData,
-    required this.icon,
+    this.icon,
     required this.title,
-    required this.textColor,
+    this.textColor,
     required this.onPressed,
     this.height = 40,
     this.radius,
@@ -38,14 +39,18 @@ class IconTextButton extends StatelessWidget {
           padding: REdgeInsets.symmetric(horizontal: 20),
           child: Row(
             children: [
-              Icon(iconData, size: 24.r, color: icon),
+              Icon(
+                iconData,
+                size: 24.r,
+                color: icon ?? AppStyle.buttonFontColor,
+              ),
               12.horizontalSpace,
               Text(
                 title,
                 style: GoogleFonts.inter(
                   fontWeight: FontWeight.w500,
                   fontSize: 14.sp,
-                  color: textColor,
+                  color: textColor ?? AppStyle.buttonFontColor,
                   letterSpacing: -14 * 0.02,
                 ),
               ),

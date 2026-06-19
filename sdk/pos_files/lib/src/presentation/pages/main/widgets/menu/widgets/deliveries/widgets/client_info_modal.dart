@@ -26,8 +26,9 @@ class ClientInfoModal extends ConsumerWidget {
                 width: 4,
                 margin: REdgeInsets.symmetric(vertical: 12),
                 decoration: ShapeDecoration(
-                  color:
-                      (user?.active ?? false) ? AppStyle.primary : AppStyle.red,
+                  color: (user?.active ?? false)
+                      ? AppStyle.primary
+                      : AppStyle.red,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10.r),

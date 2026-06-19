@@ -12,7 +12,7 @@ class BrandsRepositoryImpl extends BrandsRepository {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_seller_brands',
+        '/api/v1/rest/brands/paginate',
         queryParameters: data,
       );
       return ApiResult.success(

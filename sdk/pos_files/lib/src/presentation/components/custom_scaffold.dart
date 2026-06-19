@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:admin_desktop/src/core/utils/local_storage.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import '../theme/theme/theme.dart';
@@ -44,7 +45,7 @@ class _CustomScaffoldState extends State<CustomScaffold>
     });
   }
 
-  initStateFunc() {
+  void initStateFunc() {
     _checkCurrentNetworkState();
     connectivitySubscription = Connectivity().onConnectivityChanged.listen((
       result,
@@ -83,24 +84,31 @@ class _CustomScaffoldState extends State<CustomScaffold>
         ThemeWrapper(
           builder: (colors, controller) {
             return KeyboardDismisser(
-              child: Scaffold(
-                extendBody: widget.extendBody,
-                resizeToAvoidBottomInset: false,
-                appBar: widget.appBar?.call(colors),
-                backgroundColor:
-                    widget.backgroundColor ?? colors.backgroundColor,
-                body: widget.body(colors),
-                floatingActionButton: widget.floatingActionButton?.call(colors),
-                floatingActionButtonLocation:
-                    widget.floatingActionButtonLocation,
-                bottomNavigationBar: widget.bottomNavigationBar?.call(colors),
+              child: Directionality(
+                textDirection: LocalStorage.getLangLtr()
+                    ? TextDirection.ltr
+                    : TextDirection.rtl,
+                child: Scaffold(
+                  extendBody: widget.extendBody,
+                  resizeToAvoidBottomInset: false,
+                  appBar: widget.appBar?.call(colors),
+                  backgroundColor:
+                      widget.backgroundColor ?? colors.backgroundColor,
+                  body: widget.body(colors),
+                  floatingActionButton: widget.floatingActionButton?.call(
+                    colors,
+                  ),
+                  floatingActionButtonLocation:
+                      widget.floatingActionButtonLocation,
+                  bottomNavigationBar: widget.bottomNavigationBar?.call(colors),
+                ),
               ),
             );
           },
         ),
         ValueListenableBuilder(
           valueListenable: isNetworkDisabled,
-          builder: (_, bool networkDisabled, __) => Visibility(
+          builder: (_, bool networkDisabled, _) => Visibility(
             visible: networkDisabled,
             child: const SizedBox.shrink(),
           ),

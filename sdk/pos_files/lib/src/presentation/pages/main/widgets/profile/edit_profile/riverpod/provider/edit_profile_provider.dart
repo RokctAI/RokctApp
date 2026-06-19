@@ -6,5 +6,5 @@ import '../state/edit_profile_state.dart';
 
 final editProfileProvider =
     StateNotifierProvider.autoDispose<EditProfileNotifier, EditProfileState>(
-  (ref) => EditProfileNotifier(galleryRepository),
-);
+      (ref) => EditProfileNotifier(galleryRepository),
+    );

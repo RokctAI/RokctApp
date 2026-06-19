@@ -2,15 +2,15 @@ import 'package:admin_desktop/src/presentation/components/components.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/menu/widgets/deliveries/add_deliveryman_page.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/menu/widgets/deliveries/riverpod/deliveryman_provider.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/menu/widgets/deliveries/widgets/deliveryman_item.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-import '../../../../../../../core/constants/constants.dart';
-import '../../../../../../../core/utils/app_helpers.dart';
-import '../../../../../../theme/theme.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/core/utils/app_helpers.dart';
 import 'widgets/status_dialog.dart';
 
 class DeliveriesPage extends ConsumerStatefulWidget {
@@ -36,7 +36,6 @@ class _DeliveriesPageState extends ConsumerState<DeliveriesPage> {
     final state = ref.watch(deliverymanProvider);
     final notifier = ref.read(deliverymanProvider.notifier);
     return Scaffold(
-      backgroundColor: AppStyle.bg,
       body: Column(
         children: [
           Row(

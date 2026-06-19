@@ -12,9 +12,8 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../../../core/constants/constants.dart';
-import '../../../../../../core/utils/utils.dart';
-import '../../../../../theme/app_style.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/core/utils/utils.dart';
 import '../../../../../theme/theme.dart';
 import '../../../riverpod/provider/main_provider.dart';
 import '../../order_detail/generate_check.dart';
@@ -39,7 +38,6 @@ class CustomPopup extends ConsumerWidget {
     return _CustomPopupItem(
       onLocation: () {
         AppHelpers.showAlertDialog(
-          backgroundColor: AppStyle.white,
           context: context,
           child: MapDialog(orderData: orderData),
         );
@@ -57,7 +55,6 @@ class CustomPopup extends ConsumerWidget {
                     width: constraints.maxWidth * 0.4,
                     child: GenerateCheckPage(orderData: orderData),
                   ),
-                  backgroundColor: AppStyle.white,
                 );
               },
             );
@@ -124,7 +121,6 @@ class CustomPopup extends ConsumerWidget {
                 ),
               ),
             ],
-            backgroundColor: AppStyle.white,
           ),
         );
       },
@@ -154,9 +150,7 @@ class _CustomPopupItem extends StatelessWidget {
       tooltip: "",
       splashRadius: 40,
       iconSize: 24,
-      color: AppStyle.white,
-      icon: const Icon(FlutterRemix.more_fill, color: AppStyle.black),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      icon: const Icon(FlutterRemix.more_fill),
       itemBuilder: (c) {
         if (isLocation) {
           return [
@@ -236,7 +230,7 @@ class _CustomPopupItem extends StatelessWidget {
         child: Row(
           children: [
             2.horizontalSpace,
-            Icon(iconData, size: 21, color: AppStyle.black),
+            Icon(iconData, size: 21),
             8.horizontalSpace,
             Text(
               title,

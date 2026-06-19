@@ -6,5 +6,5 @@ import 'accepted_orders_notifier.dart';
 
 final acceptedOrdersProvider =
     StateNotifierProvider<AcceptedOrdersNotifier, AcceptedOrdersState>(
-  (ref) => AcceptedOrdersNotifier(ordersRepository),
-);
+      (ref) => AcceptedOrdersNotifier(ordersRepository),
+    );

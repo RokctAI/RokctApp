@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:admin_desktop/src/models/models.dart';
+
 part 'edit_stories_state.freezed.dart';
 
 @freezed
-class EditStoriesState with _$EditStoriesState {
+abstract class EditStoriesState with _$EditStoriesState {
   const factory EditStoriesState({
     @Default(false) bool isLoading,
     @Default(null) ProductData? selectProduct,

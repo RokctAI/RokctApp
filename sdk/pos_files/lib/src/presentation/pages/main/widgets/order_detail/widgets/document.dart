@@ -6,11 +6,10 @@ import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:remixicon/remixicon.dart';
 
 import '../../../../../components/components.dart';
-import '../../../../../theme/app_style.dart';
 
 class DocumentScreen extends StatelessWidget {
   final OrderData? orderData;
@@ -39,10 +38,7 @@ class DocumentScreen extends StatelessWidget {
                     text:
                         "${orderData?.user?.firstname ?? ""} ${orderData?.user?.lastname ?? ""}",
                   ),
-                  suffixIcon: const Icon(
-                    FlutterRemix.arrow_down_s_line,
-                    color: AppStyle.black,
-                  ),
+                  suffixIcon: const Icon(FlutterRemix.arrow_down_s_line),
                 ),
               ),
               42.horizontalSpace,
@@ -53,10 +49,7 @@ class DocumentScreen extends StatelessWidget {
                     text: orderData?.orderAddress?.address ?? "",
                   ),
                   label: null,
-                  suffixIcon: const Icon(
-                    FlutterRemix.arrow_down_s_line,
-                    color: AppStyle.black,
-                  ),
+                  suffixIcon: const Icon(FlutterRemix.arrow_down_s_line),
                 ),
               ),
             ],
@@ -72,10 +65,7 @@ class DocumentScreen extends StatelessWidget {
                         "${orderData?.currency?.title ?? ""} (${orderData?.currency?.symbol ?? ""})",
                   ),
                   label: null,
-                  suffixIcon: const Icon(
-                    FlutterRemix.arrow_down_s_line,
-                    color: AppStyle.black,
-                  ),
+                  suffixIcon: const Icon(FlutterRemix.arrow_down_s_line),
                 ),
               ),
               42.horizontalSpace,
@@ -88,10 +78,7 @@ class DocumentScreen extends StatelessWidget {
                     ),
                   ),
                   label: null,
-                  suffixIcon: const Icon(
-                    FlutterRemix.arrow_down_s_line,
-                    color: AppStyle.black,
-                  ),
+                  suffixIcon: const Icon(FlutterRemix.arrow_down_s_line),
                 ),
               ),
             ],
@@ -104,7 +91,6 @@ class DocumentScreen extends StatelessWidget {
             style: GoogleFonts.inter(
               fontWeight: FontWeight.w600,
               fontSize: 18.r,
-              color: AppStyle.black,
             ),
           ),
           16.verticalSpace,
@@ -119,10 +105,7 @@ class DocumentScreen extends StatelessWidget {
                     text: TimeService.dateFormatYMDHm(orderData?.deliveryDate),
                   ),
                   label: null,
-                  suffixIcon: const Icon(
-                    FlutterRemix.arrow_down_s_line,
-                    color: AppStyle.black,
-                  ),
+                  suffixIcon: const Icon(FlutterRemix.arrow_down_s_line),
                 ),
               ),
               42.horizontalSpace,
@@ -133,10 +116,7 @@ class DocumentScreen extends StatelessWidget {
                     text: orderData?.deliveryTime ?? "",
                   ),
                   label: null,
-                  suffixIcon: const Icon(
-                    FlutterRemix.arrow_down_s_line,
-                    color: AppStyle.black,
-                  ),
+                  suffixIcon: const Icon(FlutterRemix.arrow_down_s_line),
                 ),
               ),
             ],
@@ -151,7 +131,6 @@ class DocumentScreen extends StatelessWidget {
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.w600,
                     fontSize: 18.r,
-                    color: AppStyle.black,
                   ),
                 ),
                 Text(
@@ -192,11 +171,7 @@ class DocumentScreen extends StatelessWidget {
                       border: Border.all(color: AppStyle.black),
                     ),
                     padding: EdgeInsets.all(6.r),
-                    child: Icon(
-                      FlutterRemix.takeaway_fill,
-                      size: 18.sp,
-                      color: AppStyle.black,
-                    ),
+                    child: Icon(FlutterRemix.takeaway_fill, size: 18.sp),
                   ),
                   8.horizontalSpace,
                   Text(
@@ -204,7 +179,6 @@ class DocumentScreen extends StatelessWidget {
                     style: GoogleFonts.inter(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
-                      color: AppStyle.black,
                     ),
                   ),
                 ],
@@ -233,7 +207,7 @@ class DocumentScreen extends StatelessWidget {
                       border: Border.all(color: AppStyle.black),
                     ),
                     padding: EdgeInsets.all(6.r),
-                    child: const Icon(Remix.walk_fill, color: AppStyle.black),
+                    child: SvgPicture.asset("assets/svg/pickup.svg"),
                   ),
                   8.horizontalSpace,
                   Text(
@@ -241,7 +215,6 @@ class DocumentScreen extends StatelessWidget {
                     style: GoogleFonts.inter(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
-                      color: AppStyle.black,
                     ),
                   ),
                 ],
@@ -270,7 +243,7 @@ class DocumentScreen extends StatelessWidget {
                       border: Border.all(color: AppStyle.black),
                     ),
                     padding: EdgeInsets.all(6.r),
-                    child: const Icon(Remix.sofa_fill, color: AppStyle.black),
+                    child: SvgPicture.asset("assets/svg/dine.svg"),
                   ),
                   8.horizontalSpace,
                   Text(
@@ -278,7 +251,6 @@ class DocumentScreen extends StatelessWidget {
                     style: GoogleFonts.inter(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
-                      color: AppStyle.black,
                     ),
                   ),
                 ],

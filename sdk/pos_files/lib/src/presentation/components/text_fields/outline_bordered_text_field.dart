@@ -71,12 +71,7 @@ class OutlinedBorderTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (label != null)
-          Column(
-            children: [
-              Text(label ?? "", style: const TextStyle(color: AppStyle.black)),
-              4.verticalSpace,
-            ],
-          ),
+          Column(children: [Text(label ?? ""), 4.verticalSpace]),
         Container(
           width: width.r,
           decoration: BoxDecoration(
@@ -88,8 +83,8 @@ class OutlinedBorderTextField extends StatelessWidget {
               color: isError
                   ? AppStyle.red
                   : isSuccess
-                      ? AppStyle.primary
-                      : border ?? AppStyle.border,
+                  ? AppStyle.primary
+                  : border ?? AppStyle.border,
             ),
           ),
           child: ClipRRect(
@@ -166,8 +161,8 @@ class OutlinedBorderTextField extends StatelessWidget {
                   color: isError
                       ? AppStyle.red
                       : isSuccess
-                          ? AppStyle.primary
-                          : AppStyle.black,
+                      ? AppStyle.primary
+                      : AppStyle.black,
                 ),
               ),
             ],

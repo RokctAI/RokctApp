@@ -1,36 +1,24 @@
 import 'dart:async';
+
 import 'package:admin_desktop/src/core/constants/constants.dart';
 import 'package:admin_desktop/src/core/utils/app_helpers.dart';
 import 'package:admin_desktop/src/models/data/order_data.dart';
 import 'package:admin_desktop/src/repository/repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'kitchen_state.dart';
 
 class KitchenNotifier extends StateNotifier<KitchenState> {
   final OrdersRepository _ordersRepository;
-  int _page = 0;
-  Timer? _searchProductsTimer;
-  Timer? _refreshTimer;
-  bool _isAutoDeselect = true;
 
   KitchenNotifier(this._ordersRepository) : super(const KitchenState());
-
-  void setAutoDeselect(bool value) {
-    _isAutoDeselect = value;
-  }
-
-  void clearSelectedOrder() {
-    state = state.copyWith(selectOrder: null, selectIndex: -1);
-  }
+  int _page = 0;
+  Timer? _searchProductsTimer;
+  Timer? _refreshTime;
 
   void changeType(String type) {
-    state = state.copyWith(
-      selectType: type,
-      orders: [],
-      selectOrder: null,
-      selectIndex: -1,
-    );
+    state = state.copyWith(selectType: type, orders: []);
     fetchOrders(isRefresh: true);
   }
 
@@ -39,174 +27,88 @@ class KitchenNotifier extends StateNotifier<KitchenState> {
     required int? id,
     VoidCallback? success,
   }) async {
-    if (state.isUpdatingStatus) return;
     state = state.copyWith(isUpdatingStatus: true);
-
-    try {
-      final response = await _ordersRepository.updateOrderDetailStatus(
-        status: status,
-        orderId: id,
-      );
-
-      response.when(
-        success: (data) async {
-          await fetchOrderDetails();
-          await _checkAndUpdateOrderStatus();
-          success?.call();
-
-          // Refresh the orders list to update timers
-          fetchOrders(isRefresh: true);
-        },
-        failure: (failure) {
-          debugPrint('===> update order detail status fail $failure');
-          fetchOrderDetails();
-        },
-      );
-    } finally {
-      state = state.copyWith(isUpdatingStatus: false);
-    }
-  }
-
-  Future<void> _checkAndUpdateOrderStatus() async {
-    if (state.selectOrder == null) return;
-
-    final details = state.selectOrder!.details ?? [];
-    if (details.isEmpty) return;
-
-    final allDetailsCanceled = details.every(
-      (detail) => detail.status == TrKeys.canceled,
+    final response = await _ordersRepository.updateOrderDetailStatus(
+      status: status,
+      orderId: id,
     );
-
-    if (allDetailsCanceled && state.selectOrder?.status != TrKeys.canceled) {
-      await changeStatus(status: TrKeys.canceled);
-      return;
-    }
-
-    if (!allDetailsCanceled) {
-      if (state.selectOrder?.status == TrKeys.cooking) {
-        final allDetailsReady = details.every(
-          (detail) =>
-              detail.status == TrKeys.ready ||
-              detail.status == TrKeys.canceled ||
-              detail.status == TrKeys.ended,
-        );
-
-        if (allDetailsReady) {
-          await changeStatus(status: TrKeys.ready);
-          return;
-        }
-      }
-
-      if (state.selectOrder?.status == TrKeys.ready) {
-        final allDetailsEnded = details.every(
-          (detail) => detail.status == TrKeys.ended,
-        );
-
-        if (allDetailsEnded) {
-          final deliveryType =
-              state.selectOrder?.deliveryType?.toLowerCase() ?? "";
-
-          if (deliveryType == TrKeys.pickup.toLowerCase() ||
-              deliveryType == TrKeys.dine.toLowerCase()) {
-            await changeStatus(status: TrKeys.delivered);
-          } else if (deliveryType == TrKeys.delivery.toLowerCase()) {
-            await changeStatus(status: TrKeys.onAWay);
-          }
-        }
-      }
-    }
+    response.when(
+      success: (data) {
+        state = state.copyWith(isUpdatingStatus: false);
+        fetchOrderDetails();
+        success?.call();
+      },
+      failure: (failure) {
+        debugPrint('===> update order detail status fail $failure');
+        state = state.copyWith(isUpdatingStatus: false);
+      },
+    );
   }
 
   void changeDetailStatus(String status) {
     state = state.copyWith(detailStatus: status);
   }
 
-  void clearSearch(BuildContext context) {
-    state = state.copyWith(query: '');
-    setOrdersQuery(context, '');
-  }
-
   Future<void> selectIndex(int index) async {
-    if (index < 0 || index >= state.orders.length) {
-      clearSelectedOrder();
-      return;
-    }
-
-    _isAutoDeselect = true;
     state = state.copyWith(
       selectIndex: index,
       selectOrder: state.orders[index],
     );
-    await fetchOrderDetails();
-  }
-
-  Future<void> setOrder(OrderData order) async {
-    _isAutoDeselect = false;
-    final index = state.orders.indexWhere((o) => o.id == order.id);
-    if (index != -1) {
-      state = state.copyWith(selectIndex: index, selectOrder: order);
-      await fetchOrderDetails();
-    }
+    fetchOrderDetails();
   }
 
   Future<void> fetchOrderDetails() async {
-    if (state.selectOrder?.id == null) return;
-
     final response = await _ordersRepository.getOrderDetailsKitchen(
       orderId: state.selectOrder?.id,
     );
-
     response.when(
-      success: (data) async {
+      success: (data) {
         state = state.copyWith(selectOrder: data.data);
-
-        final details = data.data?.details ?? [];
-        final allDetailsCanceled = details.every(
-          (detail) => detail.status == TrKeys.canceled,
-        );
-
-        if (allDetailsCanceled && data.data?.status != TrKeys.canceled) {
-          await changeStatus(status: TrKeys.canceled);
-          return;
-        }
-
-        if (_isAutoDeselect &&
-            data.data?.status != TrKeys.canceled &&
-            (data.data?.status == TrKeys.onAWay ||
-                data.data?.status == TrKeys.delivered)) {
-          clearSelectedOrder();
-        }
       },
-      failure: (e) {
-        debugPrint('===> fetch order details fail $e');
-      },
+      failure: (e) {},
     );
   }
 
   void setOrdersQuery(BuildContext context, String query) {
-    if (state.query == query) return;
-
-    _searchProductsTimer?.cancel();
+    if (state.query == query) {
+      return;
+    }
     state = state.copyWith(query: query.trim());
-
-    _searchProductsTimer = Timer(const Duration(milliseconds: 500), () {
-      state = state.copyWith(
-        hasMore: true,
-        orders: [],
-        selectOrder: null,
-        selectIndex: -1,
-      );
-      _page = 0;
-      fetchOrders(
-        isRefresh: true,
-        checkYourNetwork: () {
-          AppHelpers.showSnackBar(
-            context,
-            AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-          );
-        },
-      );
-    });
+    if (state.query.isNotEmpty) {
+      if (_searchProductsTimer?.isActive ?? false) {
+        _searchProductsTimer?.cancel();
+      }
+      _searchProductsTimer = Timer(const Duration(milliseconds: 500), () {
+        state = state.copyWith(hasMore: true, orders: []);
+        _page = 0;
+        fetchOrders(
+          isRefresh: true,
+          checkYourNetwork: () {
+            AppHelpers.showSnackBar(
+              context,
+              AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+            );
+          },
+        );
+      });
+    } else {
+      if (_searchProductsTimer?.isActive ?? false) {
+        _searchProductsTimer?.cancel();
+      }
+      _searchProductsTimer = Timer(const Duration(milliseconds: 500), () {
+        state = state.copyWith(hasMore: true, orders: []);
+        _page = 0;
+        fetchOrders(
+          isRefresh: true,
+          checkYourNetwork: () {
+            AppHelpers.showSnackBar(
+              context,
+              AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+            );
+          },
+        );
+      });
+    }
   }
 
   Future<void> fetchOrders({
@@ -214,233 +116,108 @@ class KitchenNotifier extends StateNotifier<KitchenState> {
     VoidCallback? checkYourNetwork,
   }) async {
     if (isRefresh) {
-      _refreshTimer?.cancel();
+      _refreshTime?.cancel();
       _page = 0;
+      state = state.copyWith(hasMore: true, orders: []);
     }
-
-    if (!state.hasMore && !isRefresh) return;
-
+    if (!state.hasMore) {
+      return;
+    }
     state = state.copyWith(isLoading: true);
-
-    try {
-      final response = await _ordersRepository.getKitchenOrders(
-        status: state.selectType,
-        page: isRefresh ? 1 : ++_page,
-        search: state.query.isEmpty ? null : state.query,
-      );
-
-      response.when(
-        success: (data) {
-          final List<OrderData> newOrders = data.orders ?? [];
-
-          if (isRefresh) {
-            // Update existing orders if they exist in the new data
-            final List<OrderData> updatedOrders = [];
-            if (state.orders.isNotEmpty) {
-              for (var order in newOrders) {
-                final existingIndex = state.orders.indexWhere(
-                  (o) => o.id == order.id,
-                );
-                if (existingIndex != -1) {
-                  // Preserve the selected state if this was the selected order
-                  if (state.selectOrder?.id == order.id) {
-                    state = state.copyWith(selectOrder: order);
-                  }
+    final response = await _ordersRepository.getKitchenOrders(
+      status: state.selectType,
+      page: ++_page,
+      search: state.query.isEmpty ? null : state.query,
+    );
+    response.when(
+      success: (data) {
+        List<OrderData> orders = isRefresh || state.query.isNotEmpty
+            ? []
+            : List.from(state.orders);
+        final List<OrderData> newOrders = data.orders ?? [];
+        for (OrderData element in data.orders ?? []) {
+          if (!orders.map((item) => item.id).contains(element.id)) {
+            orders.add(element);
+          }
+        }
+        state = state.copyWith(hasMore: newOrders.length >= 6);
+        if (_page == 1 && !isRefresh) {
+          state = state.copyWith(isLoading: false, orders: orders);
+        } else {
+          state = state.copyWith(isLoading: false, orders: orders);
+        }
+        if (isRefresh && (data.orders?.isNotEmpty ?? false)) {
+          selectIndex(0);
+          _refreshTime = Timer.periodic(AppConstants.refreshTime, (s) async {
+            final response = await _ordersRepository.getKitchenOrders(
+              status: state.selectType,
+              page: 1,
+              search: state.query.isEmpty ? null : state.query,
+            );
+            response.when(
+              success: (data) {
+                // bool isAdd = false;
+                // List<OrderData> orders = List.from(state.orders);
+                // for (OrderData element in data.orders ?? []) {
+                //   if (!orders.map((item) => item.id).contains(element.id)) {
+                //     orders.insert(0, element);
+                //     isAdd = true;
+                //   }
+                // }
+                state = state.copyWith(orders: data.orders ?? []);
+                if (state.selectIndex > (data.orders?.length ?? 0)) {
+                  selectIndex(0);
                 }
-                updatedOrders.add(order);
-              }
-            } else {
-              updatedOrders.addAll(newOrders);
-            }
-
-            state = state.copyWith(
-              hasMore: newOrders.length >= 6,
-              isLoading: false,
-              orders: updatedOrders,
-              selectOrder: _isAutoDeselect ? null : state.selectOrder,
-              selectIndex: _isAutoDeselect ? -1 : state.selectIndex,
+              },
+              failure: (f) {},
             );
-
-            if (newOrders.isNotEmpty && _isAutoDeselect) {
-              selectIndex(0);
-              _setupRefreshTimer();
-            } else if (newOrders.isEmpty) {
-              clearSelectedOrder();
-            }
-          } else {
-            final List<OrderData> updatedOrders = [...state.orders];
-            for (OrderData element in newOrders) {
-              if (!updatedOrders.map((item) => item.id).contains(element.id)) {
-                updatedOrders.add(element);
-              }
-            }
-
-            state = state.copyWith(
-              hasMore: newOrders.length >= 6,
-              isLoading: false,
-              orders: updatedOrders,
-            );
-          }
-        },
-        failure: (failure) {
-          if (!isRefresh) _page--;
-          if (_page == 0) {
-            state = state.copyWith(isLoading: false);
-          }
-          checkYourNetwork?.call();
-        },
-      );
-    } catch (e) {
-      debugPrint('===> fetch orders error $e');
-      state = state.copyWith(isLoading: false);
-      checkYourNetwork?.call();
-    }
-  }
-
-  void _setupRefreshTimer() {
-    _refreshTimer?.cancel();
-    _refreshTimer = Timer.periodic(AppConstants.refreshTime, (timer) async {
-      final response = await _ordersRepository.getKitchenOrders(
-        status: state.selectType,
-        page: 1,
-        search: state.query.isEmpty ? null : state.query,
-      );
-
-      response.when(
-        success: (data) {
-          final orders = data.orders ?? [];
-
-          // Update existing orders while preserving selected state
-          final List<OrderData> updatedOrders = [];
-          for (var order in orders) {
-            if (state.selectOrder?.id == order.id) {
-              state = state.copyWith(selectOrder: order);
-            }
-            updatedOrders.add(order);
-          }
-
-          state = state.copyWith(orders: updatedOrders);
-
-          if (_isAutoDeselect && state.selectIndex >= orders.length) {
-            selectIndex(orders.isEmpty ? -1 : 0);
-          } else if (state.selectOrder != null) {
-            final updatedOrder = orders.firstWhere(
-              (order) => order.id == state.selectOrder!.id,
-              orElse: () => state.selectOrder!,
-            );
-            state = state.copyWith(selectOrder: updatedOrder);
-          }
-        },
-        failure: (f) {
-          debugPrint('===> refresh timer fetch fail $f');
-        },
-      );
-    });
+          });
+        } else if (isRefresh && (data.orders?.isEmpty ?? true)) {
+          state = state.copyWith(selectOrder: null);
+        }
+      },
+      failure: (failure) {
+        _page--;
+        if (_page == 0) {
+          state = state.copyWith(isLoading: false);
+        }
+      },
+    );
   }
 
   Future<void> changeStatus({String? status}) async {
-    if (state.selectOrder == null) return;
-
-    final newStatus = status ??
-        AppHelpers.getOrderStatusText(
-          AppHelpers.getOrderStatus(
-            state.selectOrder?.status,
-            isNextStatus: true,
+    OrderData? newOrder = state.selectOrder?.copyWith(
+      status:
+          status ??
+          AppHelpers.getOrderStatusText(
+            AppHelpers.getOrderStatus(
+              state.selectOrder?.status,
+              isNextStatus: true,
+            ),
           ),
-        );
+    );
+    state = state.copyWith(selectOrder: newOrder);
 
-    try {
-      if (newStatus == TrKeys.ready &&
-          state.selectOrder?.status == TrKeys.cooking) {
-        final details = state.selectOrder?.details ?? [];
-        final hasReadyItems = details.any(
-          (detail) =>
-              detail.status == TrKeys.ready || detail.status == TrKeys.ended,
-        );
+    List<OrderData> orders = List.from(state.orders);
 
-        if (!hasReadyItems) {
-          return;
-        }
-      }
-
-      if (newStatus == TrKeys.cooking) {
-        await _updateAllDetailsToCooking();
-      } else if (newStatus == TrKeys.canceled) {
-        await _updateAllDetailsToCanceled();
-      }
-
-      final updatedOrder = state.selectOrder!.copyWith(status: newStatus);
-
-      await _ordersRepository.updateOrderStatusKitchen(
-        status: AppHelpers.getOrderStatus(newStatus),
-        orderId: updatedOrder.id,
-      );
-
-      if (_isAutoDeselect && newStatus != TrKeys.canceled) {
-        clearSelectedOrder();
-      } else {
-        state = state.copyWith(selectOrder: updatedOrder);
-      }
-
-      // Refresh orders to update all timers and states
-      await fetchOrders(isRefresh: true);
-    } catch (e) {
-      debugPrint('===> change status error $e');
-      await fetchOrderDetails();
-    }
-  }
-
-  Future<void> _updateAllDetailsToCooking() async {
-    final orderDetails = state.selectOrder?.details;
-    if (orderDetails == null) return;
-
-    for (final detail in orderDetails) {
-      if (detail.status != TrKeys.canceled && detail.status != TrKeys.ended) {
-        final response = await _ordersRepository.updateOrderDetailStatus(
-          status: TrKeys.cooking,
-          orderId: detail.id,
-        );
-        response.when(
-          success: (_) {},
-          failure: (e) => debugPrint('===> update detail to cooking fail $e'),
-        );
-      }
-    }
-    await fetchOrderDetails();
-  }
-
-  Future<void> _updateAllDetailsToCanceled() async {
-    final orderDetails = state.selectOrder?.details;
-    if (orderDetails == null) return;
-
-    bool anyUpdated = false;
-    for (final detail in orderDetails) {
-      if (detail.status != TrKeys.canceled) {
-        anyUpdated = true;
-        final response = await _ordersRepository.updateOrderDetailStatus(
-          status: TrKeys.canceled,
-          orderId: detail.id,
-        );
-        response.when(
-          success: (_) {},
-          failure: (e) => debugPrint('===> update detail to canceled fail $e'),
-        );
+    for (int i = 0; i < orders.length; i++) {
+      if (orders[i].id == state.selectOrder?.id) {
+        orders.removeAt(i);
+        orders.insert(i, newOrder ?? OrderData());
       }
     }
 
-    if (anyUpdated) {
-      await fetchOrderDetails();
-    }
+    state = state.copyWith(orders: orders);
+
+    await _ordersRepository.updateOrderStatusKitchen(
+      status: AppHelpers.getOrderStatus(state.selectOrder?.status),
+      orderId: state.selectOrder?.id,
+    );
+    _page = 0;
+    fetchOrders();
   }
 
   void stopTimer() {
-    _refreshTimer?.cancel();
-    _searchProductsTimer?.cancel();
-  }
-
-  @override
-  void dispose() {
-    stopTimer();
-    super.dispose();
+    _refreshTime?.cancel();
   }
 }

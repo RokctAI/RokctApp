@@ -12,11 +12,12 @@ class AuthRepositoryImpl extends AuthRepository {
     required String email,
     required String password,
   }) async {
+    final data = {'email': email, 'password': password};
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/method/login',
-        data: {'usr': email, 'pwd': password},
+        '/api/v1/auth/login',
+        queryParameters: data,
       );
       return ApiResult.success(data: LoginResponse.fromJson(response.data));
     } catch (e) {
@@ -27,14 +28,11 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<ApiResult<void>> updateFirebaseToken(String? token) async {
-    final data = {
-      'device_token': token,
-      'provider': 'fcm', // Assuming FCM
-    };
+    final data = {if (token != null) 'firebase_token': token};
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/method/paas.api.register_device_token',
+        '/api/v1/dashboard/user/profile/firebase/token/update',
         data: data,
       );
       return const ApiResult.success(data: null);

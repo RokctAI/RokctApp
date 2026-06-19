@@ -6,5 +6,5 @@ import 'cooking_orders_notifier.dart';
 
 final cookingOrdersProvider =
     StateNotifierProvider<CookingOrdersNotifier, CookingOrdersState>(
-  (ref) => CookingOrdersNotifier(ordersRepository),
-);
+      (ref) => CookingOrdersNotifier(ordersRepository),
+    );

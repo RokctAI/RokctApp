@@ -1,15 +1,20 @@
 import 'package:admin_desktop/src/presentation/components/custom_scaffold.dart';
-import '../../../../theme/app_style.dart';
+import 'package:admin_desktop/src/presentation/pages/main/widgets/orders_table/widgets/view_mode.dart';
 import 'widgets/board_table_info.dart';
 import 'riverpod/tables_provider.dart';
+import 'widgets/custom_refresher.dart';
 import 'widgets/list_table_info.dart';
 import 'widgets/tables_board.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../../core/constants/constants.dart';
-import '../../../../../core/utils/utils.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/core/utils/utils.dart';
+import '../../../../components/filter_screen.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
+import '../orders_table/widgets/start_end_date.dart';
 import 'widgets/tables_list.dart';
 
 class TablesPage extends ConsumerStatefulWidget {
@@ -46,6 +51,51 @@ class _TablesPageState extends ConsumerState<TablesPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    Row(
+                      children: [
+                        Text(
+                          AppHelpers.getTranslation(TrKeys.tables),
+                          style: GoogleFonts.inter(
+                            fontSize: 22.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        16.horizontalSpace,
+                        StartEndDate(
+                          start: state.start,
+                          end: state.end,
+                          filterScreen: FilterScreen(
+                            isTable: !state.isListView ? true : false,
+                            isBooking: state.isListView ? true : false,
+                          ),
+                        ),
+                        12.horizontalSpace,
+                        CustomRefresher(
+                          onTap: () {
+                            notifier.refresh();
+                          },
+                          isLoading: state.isLoading,
+                        ),
+                        const Spacer(),
+                        Row(
+                          children: [
+                            ViewMode(
+                              title: TrKeys.board,
+                              isActive: !state.isListView,
+                              icon: FlutterRemix.dashboard_line,
+                              onTap: () => notifier.changeViewMode(0),
+                            ),
+                            ViewMode(
+                              title: TrKeys.list,
+                              isActive: state.isListView,
+                              isLeft: false,
+                              icon: FlutterRemix.menu_fill,
+                              onTap: () => notifier.changeViewMode(1),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                     Expanded(
                       child: Stack(
                         children: [
@@ -84,7 +134,6 @@ class _TablesPageState extends ConsumerState<TablesPage> {
                                             style: GoogleFonts.inter(
                                               fontSize: 14.sp,
                                               fontWeight: FontWeight.w600,
-                                              color: AppStyle.black,
                                             ),
                                           ),
                                         ),
@@ -100,7 +149,7 @@ class _TablesPageState extends ConsumerState<TablesPage> {
                                           tableStatus: TrKeys.available,
                                           tableCount:
                                               state.tableStatistic?.available ??
-                                                  0,
+                                              0,
                                           statusColor: AppStyle.hint,
                                           isLoading: state.isStatisticLoading,
                                         ),
@@ -115,7 +164,7 @@ class _TablesPageState extends ConsumerState<TablesPage> {
                                           tableStatus: TrKeys.occupied,
                                           tableCount:
                                               state.tableStatistic?.occupied ??
-                                                  0,
+                                              0,
                                           statusColor: AppStyle.red,
                                           isLoading: state.isStatisticLoading,
                                         ),
@@ -132,38 +181,39 @@ class _TablesPageState extends ConsumerState<TablesPage> {
                               child: Consumer(
                                 builder: (context, ref, child) {
                                   return DragTarget<int>(
-                                    builder: (
-                                      BuildContext context,
-                                      List<dynamic> accepted,
-                                      List<dynamic> rejected,
-                                    ) {
-                                      return Padding(
-                                        padding: REdgeInsets.only(
-                                          top: 100,
-                                          left: 48,
-                                          right: 36,
-                                          bottom: 6,
-                                        ),
-                                        child: Container(
-                                          height: 42.r,
-                                          padding: REdgeInsets.symmetric(
-                                            horizontal: 16,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                            color: AppStyle.shimmerBase,
-                                          ),
-                                          child: Center(
-                                            child: Icon(
-                                              Icons.delete,
-                                              size: 21.sp,
-                                              color: AppStyle.black,
+                                    builder:
+                                        (
+                                          BuildContext context,
+                                          List<dynamic> accepted,
+                                          List<dynamic> rejected,
+                                        ) {
+                                          return Padding(
+                                            padding: REdgeInsets.only(
+                                              top: 100,
+                                              left: 48,
+                                              right: 36,
+                                              bottom: 6,
                                             ),
-                                          ),
-                                        ),
-                                      );
-                                    },
+                                            child: Container(
+                                              height: 42.r,
+                                              padding: REdgeInsets.symmetric(
+                                                horizontal: 16,
+                                              ),
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                color: AppStyle.shimmerBase,
+                                              ),
+                                              child: Center(
+                                                child: Icon(
+                                                  Icons.delete,
+                                                  size: 21.sp,
+                                                  color: AppStyle.black,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
                                     onAcceptWithDetails: (index) {
                                       debugPrint(index.toString());
                                       ref
@@ -193,7 +243,7 @@ class _TablesPageState extends ConsumerState<TablesPage> {
     );
   }
 
-  _tableStatus({
+  Padding _tableStatus({
     required String tableStatus,
     required int tableCount,
     required Color statusColor,

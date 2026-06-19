@@ -8,8 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../../theme/app_style.dart';
-
 class StartEndDate extends StatelessWidget {
   final DateTime? start;
   final DateTime? end;
@@ -27,7 +25,6 @@ class StartEndDate extends StatelessWidget {
             width: MediaQuery.of(context).size.width / 3,
             child: filterScreen,
           ),
-          backgroundColor: AppStyle.white,
         );
       },
       child: AnimationButtonEffect(
@@ -43,19 +40,13 @@ class StartEndDate extends StatelessWidget {
           ),
           child: Row(
             children: [
-              const Icon(
-                FlutterRemix.calendar_check_line,
-                color: AppStyle.black,
-              ),
+              const Icon(FlutterRemix.calendar_check_line),
               16.horizontalSpace,
               Text(
                 start == null
                     ? AppHelpers.getTranslation(TrKeys.startEnd)
                     : "${DateFormat("MMM d,yyyy").format(start ?? DateTime.now())} - ${DateFormat("MMM d,yyyy").format(end ?? DateTime.now())}",
-                style: GoogleFonts.inter(
-                  fontSize: 14.sp,
-                  color: AppStyle.black,
-                ),
+                style: GoogleFonts.inter(fontSize: 14.sp),
               ),
             ],
           ),

@@ -10,13 +10,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:multi_dropdown/models/value_item.dart';
+import 'package:multi_dropdown/multi_dropdown.dart';
 import '../../right_side/address/riverpod/select_address_provider.dart';
 
 class DeliveryTimeWidget extends ConsumerWidget {
-  final List<ValueItem> selectedCategory;
-  final List<ValueItem> selectedTag;
-  final List<ValueItem> selectedType;
+  final List<DropdownItem<String>> selectedCategory;
+  final List<DropdownItem<String>> selectedTag;
+  final List<DropdownItem<String>> selectedType;
   final GlobalKey<FormState> formKey;
 
   const DeliveryTimeWidget({
@@ -124,28 +124,28 @@ class DeliveryTimeWidget extends ConsumerWidget {
                                         1,
                                         int.parse(
                                           workingDays[index].from?.substring(
-                                                    0,
-                                                    2,
-                                                  ) ??
+                                                0,
+                                                2,
+                                              ) ??
                                               '',
                                         ),
                                         int.parse(
                                           workingDays[index].from?.substring(
-                                                    3,
-                                                    5,
-                                                  ) ??
+                                                3,
+                                                5,
+                                              ) ??
                                               '',
                                         ),
                                       ),
                                       onDateTimeChanged:
                                           (DateTime newDateTime) {
-                                        setTimeToDay(
-                                          time: TimeOfDay.fromDateTime(
-                                            newDateTime,
-                                          ),
-                                          currentIndex: index,
-                                        );
-                                      },
+                                            setTimeToDay(
+                                              time: TimeOfDay.fromDateTime(
+                                                newDateTime,
+                                              ),
+                                              currentIndex: index,
+                                            );
+                                          },
                                       use24hFormat: true,
                                       minuteInterval: 1,
                                     ),
@@ -162,29 +162,29 @@ class DeliveryTimeWidget extends ConsumerWidget {
                                         1,
                                         int.parse(
                                           workingDays[index].to?.substring(
-                                                    0,
-                                                    2,
-                                                  ) ??
+                                                0,
+                                                2,
+                                              ) ??
                                               '',
                                         ),
                                         int.parse(
                                           workingDays[index].to?.substring(
-                                                    3,
-                                                    5,
-                                                  ) ??
+                                                3,
+                                                5,
+                                              ) ??
                                               '',
                                         ),
                                       ),
                                       onDateTimeChanged:
                                           (DateTime newDateTime) {
-                                        setTimeToDay(
-                                          time: TimeOfDay.fromDateTime(
-                                            newDateTime,
-                                          ),
-                                          currentIndex: index,
-                                          isFrom: false,
-                                        );
-                                      },
+                                            setTimeToDay(
+                                              time: TimeOfDay.fromDateTime(
+                                                newDateTime,
+                                              ),
+                                              currentIndex: index,
+                                              isFrom: false,
+                                            );
+                                          },
                                       use24hFormat: true,
                                       minuteInterval: 1,
                                     ),

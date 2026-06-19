@@ -21,8 +21,8 @@ class UnitData {
     _id = json['id'];
     _active = json['active'].runtimeType == int
         ? json['active'] == 1
-            ? true
-            : false
+              ? true
+              : false
         : json['active'];
     _position = json['position'];
     _createdAt = json['created_at'];
@@ -46,15 +46,14 @@ class UnitData {
     String? createdAt,
     String? updatedAt,
     Translation? translation,
-  }) =>
-      UnitData(
-        id: id ?? _id,
-        active: active ?? _active,
-        position: position ?? _position,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        translation: translation ?? _translation,
-      );
+  }) => UnitData(
+    id: id ?? _id,
+    active: active ?? _active,
+    position: position ?? _position,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    translation: translation ?? _translation,
+  );
 
   int? get id => _id;
 

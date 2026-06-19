@@ -5,17 +5,17 @@ class Location {
   }
 
   Location.fromJson(dynamic json) {
-    _latitude = json['latitude'];
-    _longitude = json['longitude'];
+    _latitude = json['latitude'].toString();
+    _longitude = json['longitude'].toString();
   }
 
   String? _latitude;
   String? _longitude;
 
   Location copyWith({String? latitude, String? longitude}) => Location(
-        latitude: latitude ?? _latitude,
-        longitude: longitude ?? _longitude,
-      );
+    latitude: latitude ?? _latitude,
+    longitude: longitude ?? _longitude,
+  );
 
   String? get latitude => _latitude;
 

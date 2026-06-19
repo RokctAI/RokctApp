@@ -24,16 +24,17 @@ if (flutterRoot == null) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
-    flutterVersionCode = '49'
+    flutterVersionCode = '1'
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0.0'
 }
+
 def dartDefines = [:]
 
-// 1. Load from .env/production.env in repo root
+// 1. Load from .env/production.env in repo root (useful for CI and local fallbacks)
 def envFile = rootProject.file("../.env/production.env")
 if (envFile.exists()) {
     envFile.eachLine { line ->
@@ -47,21 +48,20 @@ if (envFile.exists()) {
     }
 }
 
-// 2. Load from flutter.dart-defines - Highest priority
+// 2. Load from flutter.dart-defines (CLI / IDE injection) - Highest priority
 if (project.hasProperty('flutter.dart-defines')) {
     dartDefines = dartDefines + project.property('flutter.dart-defines')
-        .split(',')
-        .collectEntries { entry ->
-            def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
-            [(pair[0]): pair.length > 1 ? pair[1] : '']
-        }
+            .split(',')
+            .collectEntries { entry ->
+                def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+                [(pair[0]): pair.length > 1 ? pair[1] : '']
+            }
 }
 
 android {
-    namespace "org.foodyman.pos"
-    compileSdkVersion 34
-    ndkVersion "26.1.10909125"
-
+    compileSdkVersion 36
+    ndkVersion "29.0.14206865"
+    namespace 'org.foodyman.pos'
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -76,16 +76,15 @@ android {
     }
 
     defaultConfig {
-        applicationId "org.foodyman.pos"
-        minSdkVersion 21
+        applicationId dartDefines.POS_ANDROID_PACKAGE_NAME
+        minSdkVersion flutter.minSdkVersion
         multiDexEnabled true
-        targetSdkVersion 35
+        targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
-        // Synchronized configurations from dart-defines
         resValue "string", "google_maps_api_key", dartDefines.GOOGLE_MAPS_API_KEY ?: ""
-        resValue "string", "app_name", dartDefines.POS_APP_NAME ?: ""
+        resValue "string", "app_name", dartDefines.POS_APP_NAME
     }
 
     signingConfigs {
@@ -104,8 +103,8 @@ android {
         }
         
         release {
-            signingConfig signingConfigs.release
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -116,7 +115,6 @@ flutter {
 }
 
 dependencies {
-    implementation platform('com.google.firebase:firebase-bom:32.7.2')
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
 }

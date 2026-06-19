@@ -1,5 +1,5 @@
-import '../core/handlers/handlers.dart';
-import '../models/models.dart';
+import 'package:admin_desktop/src/core/handlers/handlers.dart';
+import 'package:admin_desktop/src/models/models.dart';
 
 abstract class PaymentsRepository {
   Future<ApiResult<PaymentsResponse>> getPayments();
@@ -7,22 +7,5 @@ abstract class PaymentsRepository {
   Future<ApiResult<TransactionsResponse>> createTransaction({
     required int orderId,
     required int paymentId,
-    String? terminalTransactionId,
   });
-
-  Future<ApiResult<TransactionData>> getTransactionById({
-    required int transactionId,
-  });
-
-  Future<ApiResult<List<TransactionData>>> getTransactionsByOrderId({
-    required int orderId,
-  });
-
-  Future<ApiResult<TransactionData>> updateTransactionStatus({
-    required int transactionId,
-    required String status,
-    String? note,
-  });
-
-  Future<ApiResult<void>> deleteTransaction({required int transactionId});
 }

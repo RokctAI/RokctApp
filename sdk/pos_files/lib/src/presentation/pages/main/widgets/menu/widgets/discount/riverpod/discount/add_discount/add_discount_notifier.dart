@@ -12,7 +12,7 @@ class AddDiscountNotifier extends StateNotifier<AddDiscountState> {
   final GalleryRepositoryFacade _galleryRepository;
 
   AddDiscountNotifier(this._discountsRepository, this._galleryRepository)
-      : super(AddDiscountState(dateController: TextEditingController()));
+    : super(AddDiscountState(dateController: TextEditingController()));
 
   void setActiveIndex(String? value) {
     if (state.type == value || value == null) {

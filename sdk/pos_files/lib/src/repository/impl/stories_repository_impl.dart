@@ -10,11 +10,16 @@ import '../stories_repository.dart';
 class StoriesRepositoryImpl extends StoriesRepository {
   @override
   Future<ApiResult<StoriesResponse>> getStories({int? page}) async {
-    final data = {'limit_start': (page ?? 1) - 1 * 12, 'limit_page_length': 12};
+    final data = {
+      'page': page,
+      'perPage': 12,
+      'lang': LocalStorage.getLanguage()?.locale ?? 'en',
+      'shop_id': LocalStorage.getUser()?.shop?.id,
+    };
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        "/api/v1/method/paas.api.get_seller_stories",
+        "/api/v1/dashboard/seller/stories",
         queryParameters: data,
       );
       return ApiResult.success(data: StoriesResponse.fromJson(response.data));
@@ -26,15 +31,19 @@ class StoriesRepositoryImpl extends StoriesRepository {
 
   @override
   Future<ApiResult<void>> deleteStories(int id) async {
+    final data = {
+      'ids': [id],
+    };
+    debugPrint('====> delete brand request ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post(
-        '/api/v1/method/paas.api.delete_seller_story',
-        data: {'story_name': id},
+      await client.delete(
+        '/api/v1/dashboard/seller/stories/delete',
+        data: data,
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      debugPrint('==> delete story failure: $e');
+      debugPrint('==> delete brand failure: $e');
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
   }
@@ -44,12 +53,16 @@ class StoriesRepositoryImpl extends StoriesRepository {
     required List<String> img,
     int? id,
   }) async {
-    final data = {'images': img, if (id != null) 'product_id': id};
+    final data = {
+      for (int i = 0; i < img.length; i++) 'file_urls[$i]': img[i],
+      if (id != null) 'product_id': id,
+    };
+    debugPrint('====> add stories request ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/method/paas.api.create_seller_story',
-        data: {'story_data': data},
+        '/api/v1/dashboard/seller/stories',
+        queryParameters: data,
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -64,12 +77,16 @@ class StoriesRepositoryImpl extends StoriesRepository {
     int? id,
     required int storyId,
   }) async {
-    final data = {'images': img, if (id != null) 'product_id': id};
+    final data = {
+      for (int i = 0; i < img.length; i++) 'file_urls[$i]': img[i],
+      if (id != null) 'product_id': id,
+    };
+    debugPrint('====> update stories request ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.put(
-        '/api/v1/method/paas.api.update_seller_story',
-        data: {'story_name': storyId, 'story_data': data},
+        '/api/v1/dashboard/seller/stories/$storyId',
+        queryParameters: data,
       );
       return const ApiResult.success(data: null);
     } catch (e) {

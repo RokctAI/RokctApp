@@ -6,5 +6,5 @@ import '../state/edit_stories_state.dart';
 
 final editStoriesProvider =
     StateNotifierProvider<EditStoriesNotifier, EditStoriesState>(
-  (ref) => EditStoriesNotifier(storiesRepository, galleryRepository),
-);
+      (ref) => EditStoriesNotifier(storiesRepository, galleryRepository),
+    );

@@ -6,8 +6,9 @@ class OrdersPaginateResponse {
   }
 
   OrdersPaginateResponse.fromJson(dynamic json) {
-    _data =
-        json['data'] != null ? OrderResponseData.fromJson(json['data']) : null;
+    _data = json['data'] != null
+        ? OrderResponseData.fromJson(json['data'])
+        : null;
   }
 
   OrderResponseData? _data;
@@ -50,11 +51,10 @@ class OrderResponseData {
   OrderResponseData copyWith({
     OrdersStatistic? statistic,
     List<OrderData>? orders,
-  }) =>
-      OrderResponseData(
-        statistic: statistic ?? _statistic,
-        orders: orders ?? _orders,
-      );
+  }) => OrderResponseData(
+    statistic: statistic ?? _statistic,
+    orders: orders ?? _orders,
+  );
 
   OrdersStatistic? get statistic => _statistic;
 
@@ -137,20 +137,19 @@ class OrdersStatistic {
     int? ordersCount,
     num? totalPrice,
     int? todayCount,
-  }) =>
-      OrdersStatistic(
-        progressOrdersCount: progressOrdersCount ?? _progressOrdersCount,
-        deliveredOrdersCount: deliveredOrdersCount ?? _deliveredOrdersCount,
-        cancelOrdersCount: cancelOrdersCount ?? _cancelOrdersCount,
-        newOrdersCount: newOrdersCount ?? _newOrdersCount,
-        cookingOrdersCount: cookingOrdersCount ?? _cookingOrdersCount,
-        acceptedOrdersCount: acceptedOrdersCount ?? _acceptedOrdersCount,
-        readyOrdersCount: readyOrdersCount ?? _readyOrdersCount,
-        onAWayOrdersCount: onAWayOrdersCount ?? _onAWayOrdersCount,
-        ordersCount: ordersCount ?? _ordersCount,
-        totalPrice: totalPrice ?? _totalPrice,
-        todayCount: todayCount ?? _todayCount,
-      );
+  }) => OrdersStatistic(
+    progressOrdersCount: progressOrdersCount ?? _progressOrdersCount,
+    deliveredOrdersCount: deliveredOrdersCount ?? _deliveredOrdersCount,
+    cancelOrdersCount: cancelOrdersCount ?? _cancelOrdersCount,
+    newOrdersCount: newOrdersCount ?? _newOrdersCount,
+    cookingOrdersCount: cookingOrdersCount ?? _cookingOrdersCount,
+    acceptedOrdersCount: acceptedOrdersCount ?? _acceptedOrdersCount,
+    readyOrdersCount: readyOrdersCount ?? _readyOrdersCount,
+    onAWayOrdersCount: onAWayOrdersCount ?? _onAWayOrdersCount,
+    ordersCount: ordersCount ?? _ordersCount,
+    totalPrice: totalPrice ?? _totalPrice,
+    todayCount: todayCount ?? _todayCount,
+  );
 
   int? get progressOrdersCount => _progressOrdersCount;
 

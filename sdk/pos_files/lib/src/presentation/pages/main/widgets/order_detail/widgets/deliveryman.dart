@@ -41,7 +41,6 @@ class DeliverymanScreen extends StatelessWidget {
               style: GoogleFonts.inter(
                 fontSize: 24.sp,
                 fontWeight: FontWeight.w700,
-                color: AppStyle.black,
               ),
             ),
             (orderData?.status == TrKeys.ready) &&
@@ -98,7 +97,6 @@ class DeliverymanScreen extends StatelessWidget {
                                 ),
                               ),
                             ],
-                            backgroundColor: AppStyle.white,
                           );
                         },
                       );
@@ -112,109 +110,98 @@ class DeliverymanScreen extends StatelessWidget {
         orderData?.deliveryType == TrKeys.pickup
             ? Text(
                 AppHelpers.getTranslation(TrKeys.typePickup),
-                style: GoogleFonts.inter(
-                  fontSize: 16.sp,
-                  color: AppStyle.black,
-                ),
+                style: GoogleFonts.inter(fontSize: 16.sp),
               )
             : orderData?.deliveryman != null
-                ? Row(
-                    children: [
-                      CommonImage(
-                        imageUrl: orderData?.deliveryman?.img,
-                        width: 60.r,
-                        height: 60.r,
-                        radius: 30.r,
-                      ),
-                      16.horizontalSpace,
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "${orderData?.deliveryman?.firstname ?? ""} ${orderData?.deliveryman?.lastname ?? ""}",
-                              style: GoogleFonts.inter(
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.w700,
-                                color: AppStyle.black,
-                              ),
-                            ),
-                            4.verticalSpace,
-                            Text(
-                              AppHelpers.getTranslation(
-                                orderData?.deliveryman?.role ?? "",
-                              ),
-                              style: GoogleFonts.inter(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w500,
-                                color: AppStyle.black,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () async {
-                          final Uri launchUri = Uri(
-                            scheme: 'tel',
-                            path: orderData?.deliveryman?.phone ?? "",
-                          );
-                          await launchUrl(launchUri);
-                        },
-                        child: AnimationButtonEffect(
-                          child: Container(
-                            decoration: const BoxDecoration(
-                              color: AppStyle.black,
-                              shape: BoxShape.circle,
-                            ),
-                            padding: EdgeInsets.all(10.r),
-                            child: const Icon(
-                              FlutterRemix.phone_fill,
-                              color: AppStyle.white,
-                            ),
+            ? Row(
+                children: [
+                  CommonImage(
+                    imageUrl: orderData?.deliveryman?.img,
+                    width: 60.r,
+                    height: 60.r,
+                    radius: 30.r,
+                  ),
+                  16.horizontalSpace,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "${orderData?.deliveryman?.firstname ?? ""} ${orderData?.deliveryman?.lastname ?? ""}",
+                          style: GoogleFonts.inter(
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
-                      ),
-                      8.horizontalSpace,
-                      InkWell(
-                        onTap: () async {
-                          final Uri launchUri = Uri(
-                            scheme: 'sms',
-                            path: orderData?.deliveryman?.phone ?? "",
-                          );
-                          await launchUrl(launchUri);
-                        },
-                        child: AnimationButtonEffect(
-                          child: Container(
-                            decoration: const BoxDecoration(
-                              color: AppStyle.black,
-                              shape: BoxShape.circle,
-                            ),
-                            padding: EdgeInsets.all(10.r),
-                            child: const Icon(
-                              FlutterRemix.chat_1_fill,
-                              color: AppStyle.white,
-                            ),
+                        4.verticalSpace,
+                        Text(
+                          AppHelpers.getTranslation(
+                            orderData?.deliveryman?.role ?? "",
+                          ),
+                          style: GoogleFonts.inter(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
-                      ),
-                    ],
-                  )
-                : orderData?.status != "ready"
-                    ? Text(
-                        AppHelpers.getTranslation(TrKeys.statusReady),
-                        style: GoogleFonts.inter(
-                          fontSize: 16.sp,
+                      ],
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      final Uri launchUri = Uri(
+                        scheme: 'tel',
+                        path: orderData?.deliveryman?.phone ?? "",
+                      );
+                      await launchUrl(launchUri);
+                    },
+                    child: AnimationButtonEffect(
+                      child: Container(
+                        decoration: const BoxDecoration(
                           color: AppStyle.black,
+                          shape: BoxShape.circle,
                         ),
-                      )
-                    : Text(
-                        AppHelpers.getTranslation(TrKeys.notAssigned),
-                        style: GoogleFonts.inter(
-                          fontSize: 16.sp,
-                          color: AppStyle.black,
+                        padding: EdgeInsets.all(10.r),
+                        child: const Icon(
+                          FlutterRemix.phone_fill,
+                          color: AppStyle.white,
                         ),
                       ),
+                    ),
+                  ),
+                  8.horizontalSpace,
+                  InkWell(
+                    onTap: () async {
+                      final Uri launchUri = Uri(
+                        scheme: 'sms',
+                        path: orderData?.deliveryman?.phone ?? "",
+                      );
+                      await launchUrl(launchUri);
+                    },
+                    child: AnimationButtonEffect(
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: AppStyle.black,
+                          shape: BoxShape.circle,
+                        ),
+                        padding: EdgeInsets.all(10.r),
+                        child: const Icon(
+                          FlutterRemix.chat_1_fill,
+                          color: AppStyle.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            : orderData?.status != "ready"
+            ? Text(
+                AppHelpers.getTranslation(TrKeys.statusReady),
+                style: GoogleFonts.inter(fontSize: 16.sp),
+              )
+            : Text(
+                AppHelpers.getTranslation(TrKeys.notAssigned),
+                style: GoogleFonts.inter(fontSize: 16.sp),
+              ),
       ],
     );
   }

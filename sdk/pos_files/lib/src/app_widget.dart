@@ -1,6 +1,5 @@
 import 'package:admin_desktop/src/core/utils/utils.dart';
 import 'package:admin_desktop/src/presentation/components/components.dart';
-import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:admin_desktop/src/presentation/theme/theme/theme.dart';
 import 'package:admin_desktop/src/repository/repository.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -10,6 +9,7 @@ import 'package:flutter_isolate/flutter_isolate.dart';
 import 'package:provider/provider.dart';
 import 'core/di/dependency_manager.dart';
 import 'core/routes/app_router.dart';
+import 'presentation/theme/theme.dart';
 
 @pragma('vm:entry-point')
 Future<int> getOtherTranslation(int arg) async {

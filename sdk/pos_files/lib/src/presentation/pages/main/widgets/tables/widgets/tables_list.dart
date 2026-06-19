@@ -79,19 +79,19 @@ class TablesList extends ConsumerWidget {
                 ),
               )
             : state.isLoading
-                ? const SizedBox.shrink()
-                : Center(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16.r),
-                      child: Text(
-                        AppHelpers.getTranslation(TrKeys.thereAreNoOrders),
-                        style: GoogleFonts.inter(
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+            ? const SizedBox.shrink()
+            : Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16.r),
+                  child: Text(
+                    AppHelpers.getTranslation(TrKeys.thereAreNoOrders),
+                    style: GoogleFonts.inter(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
+                ),
+              ),
         if (state.isLoading)
           AnimationLimiter(
             child: GridView.builder(
@@ -153,12 +153,17 @@ class TablesList extends ConsumerWidget {
               textSize: 14,
               isActive: state.selectListTabIndex == i,
               title: AppHelpers.getTranslation(statusList[i]),
-              textColor: AppStyle.black,
+              textColor: AppStyle.white,
               isTab: true,
               isShadow: true,
               onTap: () => notifier.changeListTabIndex(i),
             ),
           ),
+        const Spacer(),
+        CustomRefresher(
+          onTap: () => notifier.changeListTabIndex(state.selectListTabIndex),
+          isLoading: state.isLoading,
+        ),
       ],
     );
   }

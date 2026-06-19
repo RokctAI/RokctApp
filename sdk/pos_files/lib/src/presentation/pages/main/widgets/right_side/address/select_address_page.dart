@@ -90,7 +90,8 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                     _animationController.repeat(
                       min: AppConstants.pinLoadingMin,
                       max: AppConstants.pinLoadingMax,
-                      period: _animationController.duration! *
+                      period:
+                          _animationController.duration! *
                           (AppConstants.pinLoadingMax -
                               AppConstants.pinLoadingMin),
                     );
@@ -227,7 +228,8 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                                 children: [
                                   22.verticalSpace,
                                   Text(
-                                    state.searchedPlaces[index]
+                                    state
+                                            .searchedPlaces[index]
                                             .address?["country"] ??
                                         "",
                                   ),

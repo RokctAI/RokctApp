@@ -92,87 +92,90 @@ class _StoriesPageState extends ConsumerState<StoriesPage> {
                               itemCount: state.stories.length,
                               itemBuilder: (context, index) =>
                                   AnimationConfiguration.staggeredList(
-                                position: index,
-                                duration: AppConstants.animationDuration,
-                                child: ScaleAnimation(
-                                  scale: 0.5,
-                                  child: FadeInAnimation(
-                                    child: StoriesItem(
-                                      stories: state.stories[index],
-                                      spacing: 10,
-                                      onEdit: () {
-                                        controller.resetNoData();
-                                        ref
-                                            .read(
-                                              editStoriesProvider.notifier,
-                                            )
-                                            .setStoryDetails(
-                                              state.stories[index],
+                                    position: index,
+                                    duration: AppConstants.animationDuration,
+                                    child: ScaleAnimation(
+                                      scale: 0.5,
+                                      child: FadeInAnimation(
+                                        child: StoriesItem(
+                                          stories: state.stories[index],
+                                          spacing: 10,
+                                          onEdit: () {
+                                            controller.resetNoData();
+                                            ref
+                                                .read(
+                                                  editStoriesProvider.notifier,
+                                                )
+                                                .setStoryDetails(
+                                                  state.stories[index],
+                                                );
+                                            AppHelpers.showAlertDialog(
+                                              context: context,
+                                              child: EditStoriesPage(() {}),
                                             );
-                                        AppHelpers.showAlertDialog(
-                                          context: context,
-                                          child: EditStoriesPage(() {}),
-                                        );
-                                      },
-                                      onDelete: () {
-                                        showDialog(
-                                          context: context,
-                                          builder: (_) => AlertDialog(
-                                            titlePadding:
-                                                const EdgeInsets.all(16),
-                                            actionsPadding:
-                                                const EdgeInsets.all(16),
-                                            title: Text(
-                                              AppHelpers.getTranslation(
-                                                TrKeys.deleteProduct,
-                                              ),
-                                              style: GoogleFonts.inter(
-                                                fontSize: 18,
-                                                color: AppStyle.black,
-                                                fontWeight: FontWeight.w400,
-                                              ),
-                                            ),
-                                            actions: [
-                                              SizedBox(
-                                                width: 112.r,
-                                                child: ConfirmButton(
-                                                  paddingSize: 0,
-                                                  title:
-                                                      AppHelpers.getTranslation(
-                                                    TrKeys.no,
-                                                  ),
-                                                  onTap: () => Navigator.pop(
-                                                    context,
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 112.r,
-                                                child: ConfirmButton(
-                                                  paddingSize: 0,
-                                                  title:
-                                                      AppHelpers.getTranslation(
-                                                    TrKeys.yes,
-                                                  ),
-                                                  onTap: () {
-                                                    notifier.deleteStories(
-                                                      context: context,
-                                                      id: state
-                                                          .stories[index].id,
-                                                    );
+                                          },
 
-                                                    Navigator.pop(context);
-                                                  },
+                                          onDelete: () {
+                                            showDialog(
+                                              context: context,
+                                              builder: (_) => AlertDialog(
+                                                titlePadding:
+                                                    const EdgeInsets.all(16),
+                                                actionsPadding:
+                                                    const EdgeInsets.all(16),
+                                                title: Text(
+                                                  AppHelpers.getTranslation(
+                                                    TrKeys.deleteProduct,
+                                                  ),
+                                                  style: GoogleFonts.inter(
+                                                    fontSize: 18,
+                                                    color: AppStyle.black,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
                                                 ),
+                                                actions: [
+                                                  SizedBox(
+                                                    width: 112.r,
+                                                    child: ConfirmButton(
+                                                      paddingSize: 0,
+                                                      title:
+                                                          AppHelpers.getTranslation(
+                                                            TrKeys.no,
+                                                          ),
+                                                      onTap: () =>
+                                                          Navigator.pop(
+                                                            context,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 112.r,
+                                                    child: ConfirmButton(
+                                                      paddingSize: 0,
+                                                      title:
+                                                          AppHelpers.getTranslation(
+                                                            TrKeys.yes,
+                                                          ),
+                                                      onTap: () {
+                                                        notifier.deleteStories(
+                                                          context: context,
+                                                          id: state
+                                                              .stories[index]
+                                                              .id,
+                                                        );
+
+                                                        Navigator.pop(context);
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
-                                        );
-                                      },
+                                            );
+                                          },
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
                             ),
                           ),
                   ),

@@ -220,38 +220,46 @@ class _EditDiscountPageState extends ConsumerState<EditDiscountPage> {
                                       : ListView.separated(
                                           scrollDirection: Axis.horizontal,
                                           itemCount: state.stocks.length,
-                                          itemBuilder: (
-                                            BuildContext context,
-                                            int index,
-                                          ) {
-                                            return Chip(
-                                              backgroundColor: AppStyle.primary,
-                                              deleteIcon: Icon(
-                                                FlutterRemix.close_circle_fill,
-                                                size: 20.r,
-                                                color: AppStyle.white,
-                                              ),
-                                              onDeleted: () =>
-                                                  event.deleteFromAddedProducts(
-                                                state.stocks[index].id,
-                                              ),
-                                              label: Text(
-                                                state.stocks[index].product
-                                                        ?.translation?.title ??
-                                                    "",
-                                                style: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: AppStyle.white,
-                                                ),
-                                              ),
-                                            );
-                                          },
-                                          separatorBuilder: (
-                                            BuildContext context,
-                                            int index,
-                                          ) {
-                                            return 10.horizontalSpace;
-                                          },
+                                          itemBuilder:
+                                              (
+                                                BuildContext context,
+                                                int index,
+                                              ) {
+                                                return Chip(
+                                                  backgroundColor:
+                                                      AppStyle.primary,
+                                                  deleteIcon: Icon(
+                                                    FlutterRemix
+                                                        .close_circle_fill,
+                                                    size: 20.r,
+                                                    color: AppStyle.white,
+                                                  ),
+                                                  onDeleted: () => event
+                                                      .deleteFromAddedProducts(
+                                                        state.stocks[index].id,
+                                                      ),
+                                                  label: Text(
+                                                    state
+                                                            .stocks[index]
+                                                            .product
+                                                            ?.translation
+                                                            ?.title ??
+                                                        "",
+                                                    style: GoogleFonts.inter(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: AppStyle.white,
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                          separatorBuilder:
+                                              (
+                                                BuildContext context,
+                                                int index,
+                                              ) {
+                                                return 10.horizontalSpace;
+                                              },
                                         ),
                                 ),
                               ),

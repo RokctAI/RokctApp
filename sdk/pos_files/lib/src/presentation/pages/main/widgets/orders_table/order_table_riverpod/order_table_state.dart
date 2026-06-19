@@ -4,7 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 part 'order_table_state.freezed.dart';
 
 @freezed
-class OrderTableState with _$OrderTableState {
+abstract class OrderTableState with _$OrderTableState {
   const factory OrderTableState({
     @Default(false) bool isListView,
     @Default(0) int selectTabIndex,

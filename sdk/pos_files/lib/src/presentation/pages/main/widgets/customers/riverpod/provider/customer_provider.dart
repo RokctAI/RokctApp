@@ -5,5 +5,5 @@ import '../notifier/customer_notifier.dart';
 
 final customerProvider =
     StateNotifierProvider.autoDispose<CustomerNotifier, CustomerState>(
-  (ref) => CustomerNotifier(usersRepository, galleryRepository),
-);
+      (ref) => CustomerNotifier(usersRepository, galleryRepository),
+    );

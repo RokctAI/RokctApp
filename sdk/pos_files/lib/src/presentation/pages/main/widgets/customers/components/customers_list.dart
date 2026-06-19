@@ -24,13 +24,7 @@ class CustomersList extends StatelessWidget {
         14.verticalSpace,
         Row(
           children: [
-            CommonImage(
-              imageUrl: user?.img,
-              radius: 25,
-              height: 50,
-              width: 50,
-              userData: user,
-            ),
+            CommonImage(imageUrl: user?.img, radius: 25, height: 50, width: 50),
             14.horizontalSpace,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

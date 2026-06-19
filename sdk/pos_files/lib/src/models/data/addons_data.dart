@@ -42,8 +42,8 @@ class Addons {
       product: json?["product"] != null
           ? Product.fromJson(json?["product"])
           : json?["countable"] != null
-              ? Product.fromJson(json?["countable"])
-              : null,
+          ? Product.fromJson(json?["countable"])
+          : null,
       stocks: json?["stock"] == null ? null : Stocks.fromJson(json?["stock"]),
       quantity: json?["quantity"] ?? json?["product"]["min_qty"] ?? 0,
       price: json?["price"] ?? json?["total_price"],
@@ -51,11 +51,11 @@ class Addons {
   }
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "stock_id": stockId,
-        "addon_id": addonId,
-        "product": product?.toJson(),
-      };
+    "id": id,
+    "stock_id": stockId,
+    "addon_id": addonId,
+    "product": product?.toJson(),
+  };
 }
 
 class Product {
@@ -130,22 +130,22 @@ class Product {
   }
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "uuid": uuid,
-        "shop_id": shopId,
-        "category_id": categoryId,
-        "brand_id": brandId,
-        "tax": tax,
-        "bar_code": barCode,
-        "status": status,
-        "active": active,
-        "addon": addon,
-        "img": img,
-        "min_qty": minQty,
-        "max_qty": maxQty,
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-        "rating_percent": ratingPercent,
-        "translation": translation?.toJson(),
-      };
+    "id": id,
+    "uuid": uuid,
+    "shop_id": shopId,
+    "category_id": categoryId,
+    "brand_id": brandId,
+    "tax": tax,
+    "bar_code": barCode,
+    "status": status,
+    "active": active,
+    "addon": addon,
+    "img": img,
+    "min_qty": minQty,
+    "max_qty": maxQty,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+    "rating_percent": ratingPercent,
+    "translation": translation?.toJson(),
+  };
 }

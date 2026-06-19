@@ -1,6 +1,7 @@
 import 'package:admin_desktop/src/core/utils/time_service.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/kitchen/riverpod/kitchen_provider.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/kitchen/widgets/order_details_item.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:admin_desktop/src/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +9,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../../core/constants/constants.dart';
-import '../../../../../core/utils/app_helpers.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/core/utils/app_helpers.dart';
 import '../../../../components/components.dart';
 
 class OrderInfo extends ConsumerStatefulWidget {
@@ -24,7 +25,6 @@ class _OrderInfoState extends ConsumerState<OrderInfo> {
   Widget build(BuildContext context) {
     final state = ref.watch(kitchenProvider);
     final event = ref.read(kitchenProvider.notifier);
-
     return Container(
       margin: EdgeInsets.only(right: 16.r, top: 16.r, bottom: 16.r),
       padding: REdgeInsets.all(16),
@@ -47,7 +47,6 @@ class _OrderInfoState extends ConsumerState<OrderInfo> {
                         style: GoogleFonts.inter(
                           fontWeight: FontWeight.w600,
                           fontSize: 18.sp,
-                          color: AppStyle.black,
                         ),
                       ),
                       10.verticalSpace,
@@ -95,7 +94,6 @@ class _OrderInfoState extends ConsumerState<OrderInfo> {
                         style: GoogleFonts.inter(
                           fontWeight: FontWeight.w600,
                           fontSize: 18.sp,
-                          color: AppStyle.black,
                         ),
                       ),
                       ListView.builder(
@@ -107,10 +105,18 @@ class _OrderInfoState extends ConsumerState<OrderInfo> {
                           return OrderDetailsItem(
                             orderDetail: state.selectOrder?.details?[index],
                             onEdit: (id, status) {
-                              event.updateOrderDetailStatus(
-                                status: status,
-                                id: id,
-                                success: () {},
+                              ref
+                                  .read(kitchenProvider.notifier)
+                                  .changeDetailStatus(status);
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return _changeDetailStatusDialog(
+                                    status,
+                                    id,
+                                    context,
+                                  );
+                                },
                               );
                             },
                           );
@@ -119,8 +125,7 @@ class _OrderInfoState extends ConsumerState<OrderInfo> {
                     ],
                   ),
                   const Divider(),
-                  if (state.selectOrder?.note != null &&
-                      state.selectOrder!.note!.isNotEmpty)
+                  if (state.selectOrder?.note != null)
                     Column(
                       children: [
                         Row(
@@ -135,16 +140,13 @@ class _OrderInfoState extends ConsumerState<OrderInfo> {
                                 letterSpacing: -0.4,
                               ),
                             ),
-                            Expanded(
-                              child: Text(
-                                state.selectOrder?.note ?? '',
-                                textAlign: TextAlign.end,
-                                style: GoogleFonts.inter(
-                                  color: AppStyle.black,
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.w500,
-                                  letterSpacing: -0.4,
-                                ),
+                            Text(
+                              state.selectOrder?.note ?? '',
+                              style: GoogleFonts.inter(
+                                color: AppStyle.black,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: -0.4,
                               ),
                             ),
                           ],
@@ -164,105 +166,184 @@ class _OrderInfoState extends ConsumerState<OrderInfo> {
                                 ? TrKeys.startCooking
                                 : TrKeys.ready,
                           ),
-                          onPressed: () => event.changeStatus(),
+                          onPressed: () {
+                            event.changeStatus();
+                          },
                         ),
                         16.verticalSpace,
                         LoginButton(
                           titleColor: AppStyle.white,
                           title: AppHelpers.getTranslation(TrKeys.cancel),
                           bgColor: AppStyle.red,
-                          onPressed: () =>
-                              _showCancelConfirmation(context, event),
+                          onPressed: () {
+                            AppHelpers.showAlertDialog(
+                              context: context,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16.r),
+                                ),
+                                padding: EdgeInsets.all(16.r),
+                                width: 300.r,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      "${AppHelpers.getTranslation(TrKeys.areYouSureChange)} ${AppHelpers.getTranslation(TrKeys.cancel)}",
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.inter(),
+                                    ),
+                                    16.verticalSpace,
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: LoginButton(
+                                            title: AppHelpers.getTranslation(
+                                              TrKeys.cancel,
+                                            ),
+                                            onPressed: () {
+                                              context.maybePop();
+                                            },
+                                            bgColor: AppStyle.transparent,
+                                          ),
+                                        ),
+                                        24.horizontalSpace,
+                                        Expanded(
+                                          child: LoginButton(
+                                            title: AppHelpers.getTranslation(
+                                              TrKeys.apply,
+                                            ),
+                                            onPressed: () {
+                                              context.maybePop();
+                                              event.changeStatus(
+                                                status: TrKeys.canceled,
+                                              );
+                                            },
+                                            bgColor: AppStyle.red,
+                                            titleColor: AppStyle.white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
                         ),
                         16.verticalSpace,
                       ],
                     ),
-                  _buildStatusMessage(state.selectOrder),
+                  if (state.selectOrder?.status == TrKeys.canceled)
+                    Center(
+                      child: Text(
+                        AppHelpers.getTranslation(TrKeys.thisOrderCancelled),
+                        style: AppStyle.interNormal(),
+                      ),
+                    ),
+                  if (state.selectOrder?.status == TrKeys.ready)
+                    Center(
+                      child: Text(
+                        AppHelpers.getTranslation(TrKeys.thisOrderReady),
+                        style: AppStyle.interNormal(),
+                      ),
+                    ),
                 ],
               ),
             )
           : Center(
+              child: Text(AppHelpers.getTranslation(TrKeys.thereAreNoOrders)),
+            ),
+    );
+  }
+
+  AlertDialog _changeDetailStatusDialog(
+    String status,
+    int? id,
+    BuildContext context,
+  ) {
+    return AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
+      content: PopupMenuButton<String>(
+        itemBuilder: (context) {
+          return [
+            PopupMenuItem<String>(
+              value: status,
               child: Text(
-                state.orders.isEmpty
-                    ? AppHelpers.getTranslation(TrKeys.thereAreNoOrders)
-                    : AppHelpers.getTranslation(TrKeys.noOrderIsSelected),
+                AppHelpers.getTranslation(status),
+                style: GoogleFonts.inter(
+                  fontSize: 14.sp,
+                  color: AppStyle.black,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-    );
-  }
-
-  Widget _buildStatusMessage(dynamic order) {
-    if (order == null) return const SizedBox.shrink();
-
-    String? messageKey;
-    switch (order.status) {
-      case TrKeys.canceled:
-        messageKey = TrKeys.thisOrderCancelled;
-        break;
-      case TrKeys.ready:
-        messageKey = TrKeys.thisOrderReady;
-        break;
-      case TrKeys.onAWay:
-        messageKey = TrKeys.thisOrderOnWay;
-        break;
-      case TrKeys.delivered:
-        messageKey = TrKeys.thisOrderDelivered;
-        break;
-      default:
-        return const SizedBox.shrink();
-    }
-
-    return Center(
-      child: Text(
-        AppHelpers.getTranslation(messageKey),
-        style: AppStyle.interNormal(color: AppStyle.black),
-      ),
-    );
-  }
-
-  void _showCancelConfirmation(BuildContext context, dynamic event) {
-    AppHelpers.showAlertDialog(
-      context: context,
-      backgroundColor: AppStyle.white,
-      child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16.r)),
-        padding: EdgeInsets.all(16.r),
-        width: 300.r,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              "${AppHelpers.getTranslation(TrKeys.areYouSureChange)} ${AppHelpers.getTranslation(TrKeys.cancel)}",
-              textAlign: TextAlign.center,
-              style: GoogleFonts.inter(),
-            ),
-            16.verticalSpace,
-            Row(
-              children: [
-                Expanded(
-                  child: LoginButton(
-                    title: AppHelpers.getTranslation(TrKeys.cancel),
-                    onPressed: () => context.maybePop(),
-                    bgColor: AppStyle.transparent,
-                  ),
+            PopupMenuItem<String>(
+              value: AppHelpers.getNextOrderStatus(status),
+              child: Text(
+                AppHelpers.getTranslation(
+                  AppHelpers.getNextOrderStatus(status),
                 ),
-                24.horizontalSpace,
-                Expanded(
-                  child: LoginButton(
-                    title: AppHelpers.getTranslation(TrKeys.apply),
-                    onPressed: () {
-                      context.maybePop();
-                      event.changeStatus(status: TrKeys.canceled);
-                    },
-                    bgColor: AppStyle.red,
-                    titleColor: AppStyle.white,
-                  ),
+                style: GoogleFonts.inter(
+                  fontSize: 14.sp,
+                  color: AppStyle.black,
+                  fontWeight: FontWeight.w500,
                 ),
-              ],
+              ),
             ),
-          ],
+            PopupMenuItem<String>(
+              value: TrKeys.canceled,
+              child: Text(
+                AppHelpers.getTranslation(TrKeys.cancel),
+                style: GoogleFonts.inter(
+                  fontSize: 14.sp,
+                  color: AppStyle.black,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ];
+        },
+        onSelected: (s) {
+          ref.read(kitchenProvider.notifier).changeDetailStatus(s);
+        },
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+        color: AppStyle.white,
+        elevation: 10,
+        child: Consumer(
+          builder: (context, ref, child) {
+            return SelectFromButton(
+              title: AppHelpers.getTranslation(
+                ref.watch(kitchenProvider).detailStatus,
+              ),
+            );
+          },
         ),
       ),
+      actionsPadding: REdgeInsets.only(bottom: 16, left: 16, right: 16),
+      actions: [
+        SizedBox(
+          width: 208.w,
+          child: ConfirmButton(
+            isLoading: ref.watch(kitchenProvider).isUpdatingStatus,
+            title: AppHelpers.getTranslation(TrKeys.save),
+            onTap: () {
+              ref.watch(kitchenProvider).detailStatus == status
+                  ? null
+                  : ref
+                        .read(kitchenProvider.notifier)
+                        .updateOrderDetailStatus(
+                          status: ref.watch(kitchenProvider).detailStatus,
+                          id: id,
+                          success: () {
+                            Navigator.pop(context);
+                          },
+                        );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

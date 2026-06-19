@@ -1,4 +1,4 @@
-import 'package:admin_desktop/src/printer/printer_help.dart';
+import 'package:flutter_pos_printer_platform_image_3/flutter_pos_printer_platform_image_3.dart';
 
 class BluetoothPrinter {
   int? id;

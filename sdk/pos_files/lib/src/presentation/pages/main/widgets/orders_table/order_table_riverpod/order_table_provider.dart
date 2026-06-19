@@ -5,5 +5,5 @@ import 'order_table_state.dart';
 
 final orderTableProvider =
     StateNotifierProvider<OrderTableNotifier, OrderTableState>(
-  (ref) => OrderTableNotifier(),
-);
+      (ref) => OrderTableNotifier(),
+    );

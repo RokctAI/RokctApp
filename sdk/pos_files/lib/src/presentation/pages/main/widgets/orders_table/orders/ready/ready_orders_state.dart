@@ -5,7 +5,7 @@ import '../../../../../../../models/data/order_data.dart';
 part 'ready_orders_state.freezed.dart';
 
 @freezed
-class ReadyOrdersState with _$ReadyOrdersState {
+abstract class ReadyOrdersState with _$ReadyOrdersState {
   const factory ReadyOrdersState({
     @Default(false) bool isLoading,
     @Default(true) bool hasMore,

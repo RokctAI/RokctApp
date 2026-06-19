@@ -62,18 +62,18 @@ class CustomEditWidget extends StatelessWidget {
                           radius: radius.r,
                         )
                       : isEmptyorNot2
-                          ? Image.file(
-                              File(imagePath),
-                              fit: BoxFit.fitWidth,
-                              width: width.r,
-                              height: height.r,
-                            )
-                          : CommonImage(
-                              imageUrl: image,
-                              height: height.r,
-                              width: width.r,
-                              radius: radius.r,
-                            ),
+                      ? Image.file(
+                          File(imagePath),
+                          fit: BoxFit.fitWidth,
+                          width: width.r,
+                          height: height.r,
+                        )
+                      : CommonImage(
+                          imageUrl: image,
+                          height: height.r,
+                          width: width.r,
+                          radius: radius.r,
+                        ),
                 ),
               ),
         Positioned(

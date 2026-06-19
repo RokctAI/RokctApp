@@ -4,5 +4,5 @@ import '../state/pin_code_state.dart';
 
 final pinCodeProvider =
     StateNotifierProvider.autoDispose<PinCodeNotifier, PinCodeState>(
-  (ref) => PinCodeNotifier(),
-);
+      (ref) => PinCodeNotifier(),
+    );

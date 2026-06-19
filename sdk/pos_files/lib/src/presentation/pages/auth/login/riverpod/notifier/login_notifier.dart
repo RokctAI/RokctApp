@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:admin_desktop/src/core/constants/constants.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:admin_desktop/src/core/utils/utils.dart';
@@ -60,24 +60,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       response.when(
         success: (data) async {
           LocalStorage.setToken(data.data?.accessToken ?? '');
-
-          // Save user data
-          final userData = data.data?.user;
-          await LocalStorage.setUser(userData);
-
-          // Save shop location
-          if (userData != null) {
-            print(
-              'Saving shop location for user: ${userData.id}',
-            ); // Debug print
-            await LocalStorage.saveUserShopLocation(userData);
-
-            // Debug prints to verify location
-            final savedLocation = LocalStorage.getShopLocation();
-            print(
-              'Saved shop location: lat=${savedLocation?.latitude}, lon=${savedLocation?.longitude}',
-            );
-          }
+          LocalStorage.setUser(data.data?.user);
 
           fetchCurrencies(
             checkYourNetworkConnection: () {
@@ -96,8 +79,6 @@ class LoginNotifier extends StateNotifier<LoginState> {
           res.when(
             success: (s) {
               LocalStorage.setUser(s.data);
-              // Also save shop location after getting profile details
-              LocalStorage.saveUserShopLocation(s.data);
             },
             failure: (failure) {},
           );
@@ -105,7 +86,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
           if (Platform.isAndroid || Platform.isIOS) {
             String? fcmToken;
             try {
-              fcmToken = await FirebaseMessaging.instance.getToken();
+              // fcmToken = await FirebaseMessaging.instance.getToken();
             } catch (e) {
               debugPrint('===> error with getting firebase token $e');
             }

@@ -20,25 +20,24 @@ class Data {
   Data({this.bookingShopClosedDate});
 
   Data copyWith({List<BookingShopClosedDate>? bookingShopClosedDate}) => Data(
-        bookingShopClosedDate:
-            bookingShopClosedDate ?? this.bookingShopClosedDate,
-      );
+    bookingShopClosedDate: bookingShopClosedDate ?? this.bookingShopClosedDate,
+  );
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        bookingShopClosedDate: json["booking_shop_closed_date"] == null
-            ? []
-            : List<BookingShopClosedDate>.from(
-                json["booking_shop_closed_date"]!.map(
-                  (x) => BookingShopClosedDate.fromJson(x),
-                ),
-              ),
-      );
+    bookingShopClosedDate: json["booking_shop_closed_date"] == null
+        ? []
+        : List<BookingShopClosedDate>.from(
+            json["booking_shop_closed_date"]!.map(
+              (x) => BookingShopClosedDate.fromJson(x),
+            ),
+          ),
+  );
 
   Map<String, dynamic> toJson() => {
-        "booking_shop_closed_date": bookingShopClosedDate == null
-            ? []
-            : List<dynamic>.from(bookingShopClosedDate!.map((x) => x.toJson())),
-      };
+    "booking_shop_closed_date": bookingShopClosedDate == null
+        ? []
+        : List<dynamic>.from(bookingShopClosedDate!.map((x) => x.toJson())),
+  };
 }
 
 class BookingShopClosedDate {
@@ -59,8 +58,8 @@ class BookingShopClosedDate {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "day":
-            "${day!.year.toString().padLeft(4, '0')}-${day!.month.toString().padLeft(2, '0')}-${day!.day.toString().padLeft(2, '0')}",
-      };
+    "id": id,
+    "day":
+        "${day!.year.toString().padLeft(4, '0')}-${day!.month.toString().padLeft(2, '0')}-${day!.day.toString().padLeft(2, '0')}",
+  };
 }

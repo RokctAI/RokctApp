@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'canceled_orders_state.freezed.dart';
 
 @freezed
-class CanceledOrdersState with _$CanceledOrdersState {
+abstract class CanceledOrdersState with _$CanceledOrdersState {
   const factory CanceledOrdersState({
     @Default(false) bool isLoading,
     @Default(true) bool hasMore,

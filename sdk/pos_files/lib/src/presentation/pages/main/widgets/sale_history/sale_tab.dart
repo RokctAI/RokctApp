@@ -278,38 +278,38 @@ class SaleTab extends StatelessWidget {
                           ),
                         )
                       : hasMore
-                          ? InkWell(
-                              borderRadius: BorderRadius.circular(10.r),
-                              onTap: () {
-                                viewMore.call();
-                              },
-                              child: AnimationButtonEffect(
-                                child: Container(
-                                  margin: EdgeInsets.symmetric(
-                                    horizontal: 64.r,
-                                    vertical: 16.r,
-                                  ),
-                                  height: 50.r,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.r),
-                                    border: Border.all(
-                                      color: AppStyle.black.withOpacity(0.17),
-                                      width: 1.r,
-                                    ),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    AppHelpers.getTranslation(TrKeys.viewMore),
-                                    style: GoogleFonts.inter(
-                                      fontSize: 16.sp,
-                                      color: AppStyle.black,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
+                      ? InkWell(
+                          borderRadius: BorderRadius.circular(10.r),
+                          onTap: () {
+                            viewMore.call();
+                          },
+                          child: AnimationButtonEffect(
+                            child: Container(
+                              margin: EdgeInsets.symmetric(
+                                horizontal: 64.r,
+                                vertical: 16.r,
+                              ),
+                              height: 50.r,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.r),
+                                border: Border.all(
+                                  color: AppStyle.black.withOpacity(0.17),
+                                  width: 1.r,
                                 ),
                               ),
-                            )
-                          : const SizedBox.shrink(),
+                              alignment: Alignment.center,
+                              child: Text(
+                                AppHelpers.getTranslation(TrKeys.viewMore),
+                                style: GoogleFonts.inter(
+                                  fontSize: 16.sp,
+                                  color: AppStyle.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      : const SizedBox.shrink(),
                 ],
               ),
             ),

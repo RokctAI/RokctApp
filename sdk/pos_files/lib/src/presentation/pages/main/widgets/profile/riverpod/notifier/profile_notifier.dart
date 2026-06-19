@@ -20,7 +20,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
   ) : super(const ProfileState());
   int page = 1;
 
-  resetShopData() {
+  void resetShopData() {
     state = state.copyWith(
       bgImage: "",
       logoImage: "",
@@ -29,15 +29,15 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     );
   }
 
-  setBgImage(String bgImage) {
+  void setBgImage(String bgImage) {
     state = state.copyWith(bgImage: bgImage);
   }
 
-  setLogoImage(String logoImage) {
+  void setLogoImage(String logoImage) {
     state = state.copyWith(logoImage: logoImage);
   }
 
-  setAddress(dynamic data) {
+  void setAddress(dynamic data) {
     state = state.copyWith(addressModel: data);
   }
 

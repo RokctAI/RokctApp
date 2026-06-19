@@ -9,29 +9,9 @@ import 'package:admin_desktop/src/repository/stock_repository.dart';
 import 'package:admin_desktop/src/repository/stories_repository.dart';
 import 'package:admin_desktop/src/repository/table_repository.dart';
 import 'package:get_it/get_it.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/providers/personal_mastery_provider.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/providers/plan_provider.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/providers/roadmap_provider.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/providers/task_provider.dart';
-//import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/providers/tender_provider.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/repository/impl/personal_mastery_repository_impl.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/repository/impl/plan_repository_impl.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/repository/impl/roadmap_repository_impl.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/repository/impl/task_repository_impl.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/repository/personal_mastery_repository.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/repository/plan_repository.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/repository/roadmap_repository.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/repository/task_repository.dart';
-//import '../../presentation/pages/main/widgets/JuvoONE/widgets/dashboard/repository/tender_repository.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/expenses/repository/expense_repository.dart';
-import '../../presentation/pages/main/widgets/JuvoONE/widgets/expenses/repository/expenses_api.dart';
 import '../../repository/impl/gallery_repository.dart';
 import '../../repository/repository.dart';
 import '../handlers/handlers.dart';
-import 'package:admin_desktop/src/repository/delivery_points_repository.dart';
-import 'package:admin_desktop/src/repository/impl/delivery_points_repository_impl.dart';
-import 'package:admin_desktop/src/repository/parcel_repository.dart';
-import 'package:admin_desktop/src/repository/impl/parcel_repository_impl.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -53,31 +33,6 @@ void setUpDependencies() {
   getIt.registerSingleton<DiscountsRepository>(DiscountsRepositoryImpl());
   getIt.registerSingleton<StockRepository>(StockRepositoryImpl());
   getIt.registerSingleton<StoriesRepository>(StoriesRepositoryImpl());
-  getIt.registerSingleton<ExpenseRepository>(
-    ExpenseRepository(ExpenseService()),
-  );
-  getIt.registerSingleton<ExpenseService>(ExpenseService());
-  getIt.registerSingleton<PlanRepository>(PlanRepositoryImpl(dioHttp));
-  getIt.registerSingleton<TaskRepository>(TaskRepositoryImpl(dioHttp));
-  getIt.registerSingleton<PersonalMasteryRepository>(
-    PersonalMasteryRepositoryImpl(dioHttp),
-  );
-  getIt.registerSingleton<RoadmapRepository>(RoadmapRepositoryImpl(dioHttp));
-  getIt.registerSingleton<DeliveryPointsRepository>(
-    DeliveryPointsRepositoryImpl(),
-  );
-
-  getIt.registerSingleton<PlanProvider>(PlanProvider(getIt<PlanRepository>()));
-  getIt.registerSingleton<TaskProvider>(TaskProvider(getIt<TaskRepository>()));
-  getIt.registerSingleton<PersonalMasteryProvider>(
-    PersonalMasteryProvider(getIt<PersonalMasteryRepository>()),
-  );
-  getIt.registerSingleton<RoadmapProvider>(
-    RoadmapProvider(getIt<RoadmapRepository>()),
-  );
-  getIt.registerSingleton<ParcelRepository>(ParcelRepositoryImpl());
-  //getIt.registerSingleton<TenderRepository>(TenderRepository());
-  //getIt.registerSingleton<TenderProvider>(TenderProvider(getIt<TenderRepository>(),getIt<TaskProvider>()));
 }
 
 final dioHttp = getIt.get<HttpService>();
@@ -97,12 +52,3 @@ final tableRepository = getIt.get<TableRepository>();
 final discountRepository = getIt.get<DiscountsRepository>();
 final stockRepository = getIt.get<StockRepository>();
 final storiesRepository = getIt.get<StoriesRepository>();
-final expenseRepository = getIt.get<ExpenseRepository>();
-final planRepository = getIt.get<PlanRepository>();
-final personalMasteryRepository = getIt.get<PersonalMasteryRepository>();
-final roadmapRepository = getIt.get<RoadmapRepository>();
-final taskRepository = getIt.get<TaskRepository>();
-final deliveryPointsRepository = getIt.get<DeliveryPointsRepository>();
-final parcelRepository = getIt.get<ParcelRepository>();
-//final tenderRepository = getIt.get<TenderRepository>();
-//final tenderProvider = getIt.get<TenderProvider>();

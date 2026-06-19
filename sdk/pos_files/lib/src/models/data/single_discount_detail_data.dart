@@ -36,19 +36,18 @@ class SingleDiscountDetailData {
     DateTime? updatedAt,
     List<Stocks>? stocks,
     List<Galleries>? galleries,
-  }) =>
-      SingleDiscountDetailData(
-        id: id ?? this.id,
-        shopId: shopId ?? this.shopId,
-        type: type ?? this.type,
-        start: start ?? this.start,
-        end: end ?? this.end,
-        active: active ?? this.active,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-        stocks: stocks ?? this.stocks,
-        galleries: galleries ?? this.galleries,
-      );
+  }) => SingleDiscountDetailData(
+    id: id ?? this.id,
+    shopId: shopId ?? this.shopId,
+    type: type ?? this.type,
+    start: start ?? this.start,
+    end: end ?? this.end,
+    active: active ?? this.active,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    stocks: stocks ?? this.stocks,
+    galleries: galleries ?? this.galleries,
+  );
 
   factory SingleDiscountDetailData.fromJson(Map<String, dynamic> json) =>
       SingleDiscountDetailData(
@@ -75,21 +74,21 @@ class SingleDiscountDetailData {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "shop_id": shopId,
-        "type": type,
-        "start":
-            "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
-        "end":
-            "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
-        "active": active,
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-        "stocks": stocks == null
-            ? []
-            : List<dynamic>.from(stocks!.map((x) => x.toJson())),
-        "galleries": galleries == null
-            ? []
-            : List<dynamic>.from(galleries!.map((x) => x.toJson())),
-      };
+    "id": id,
+    "shop_id": shopId,
+    "type": type,
+    "start":
+        "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
+    "end":
+        "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
+    "active": active,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+    "stocks": stocks == null
+        ? []
+        : List<dynamic>.from(stocks!.map((x) => x.toJson())),
+    "galleries": galleries == null
+        ? []
+        : List<dynamic>.from(galleries!.map((x) => x.toJson())),
+  };
 }

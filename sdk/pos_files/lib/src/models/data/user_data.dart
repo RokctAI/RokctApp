@@ -73,8 +73,9 @@ class UserData {
       });
     }
     _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
-    _invite =
-        json['invite'] != null ? InviteData.fromJson(json['invite']) : null;
+    _invite = json['invite'] != null
+        ? InviteData.fromJson(json['invite'])
+        : null;
     _wallet = json['wallet'] != null ? Wallet.fromJson(json['wallet']) : null;
   }
 
@@ -122,30 +123,29 @@ class UserData {
     Wallet? wallet,
     String? password,
     String? conPassword,
-  }) =>
-      UserData(
-        id: id ?? _id,
-        ordersCount: ordersCount ?? _ordersCount,
-        ordersSumPrice: ordersSumPrice ?? _ordersSumPrice,
-        uuid: uuid ?? _uuid,
-        firstname: firstname ?? _firstname,
-        lastname: lastname ?? _lastname,
-        email: email ?? _email,
-        phone: phone ?? _phone,
-        birthday: birthday ?? _birthday,
-        gender: gender ?? _gender,
-        emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
-        registeredAt: registeredAt ?? _registeredAt,
-        active: active ?? _active,
-        img: img ?? _img,
-        role: role ?? _role,
-        addresses: addresses ?? _addresses,
-        shop: shop ?? _shop,
-        wallet: wallet ?? _wallet,
-        confirmPassword: conPassword ?? _confirmPassword,
-        password: password ?? _password,
-        invite: invite ?? _invite,
-      );
+  }) => UserData(
+    id: id ?? _id,
+    ordersCount: ordersCount ?? _ordersCount,
+    ordersSumPrice: ordersSumPrice ?? _ordersSumPrice,
+    uuid: uuid ?? _uuid,
+    firstname: firstname ?? _firstname,
+    lastname: lastname ?? _lastname,
+    email: email ?? _email,
+    phone: phone ?? _phone,
+    birthday: birthday ?? _birthday,
+    gender: gender ?? _gender,
+    emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
+    registeredAt: registeredAt ?? _registeredAt,
+    active: active ?? _active,
+    img: img ?? _img,
+    role: role ?? _role,
+    addresses: addresses ?? _addresses,
+    shop: shop ?? _shop,
+    wallet: wallet ?? _wallet,
+    confirmPassword: conPassword ?? _confirmPassword,
+    password: password ?? _password,
+    invite: invite ?? _invite,
+  );
 
   int? get id => _id;
 
@@ -266,16 +266,15 @@ class Wallet {
     String? createdAt,
     String? updatedAt,
     CurrencyData? currency,
-  }) =>
-      Wallet(
-        uuid: uuid ?? _uuid,
-        userId: userId ?? _userId,
-        currencyId: currencyId ?? _currencyId,
-        price: price ?? _price,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        currency: currency ?? _currency,
-      );
+  }) => Wallet(
+    uuid: uuid ?? _uuid,
+    userId: userId ?? _userId,
+    currencyId: currencyId ?? _currencyId,
+    price: price ?? _price,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    currency: currency ?? _currency,
+  );
 
   String? get uuid => _uuid;
 

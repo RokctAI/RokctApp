@@ -6,7 +6,7 @@ import 'package:admin_desktop/src/models/models.dart';
 part 'shop_state.freezed.dart';
 
 @freezed
-class ShopState with _$ShopState {
+abstract class ShopState with _$ShopState {
   const factory ShopState({
     @Default(false) bool isBagsLoading,
     @Default(true) bool isEditShopData,

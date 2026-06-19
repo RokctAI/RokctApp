@@ -46,10 +46,7 @@ class UsbPrinterInfo {
 }
 
 class UsbPrinterConnector implements PrinterConnector<UsbPrinterInput> {
-  UsbPrinterConnector._()
-      : vendorId = '',
-        productId = '',
-        name = '' {
+  UsbPrinterConnector._() : vendorId = '', productId = '', name = '' {
     if (Platform.isAndroid) {
       flutterPrinterEventChannelUSB.receiveBroadcastStream().listen((data) {
         if (data is int) {
@@ -69,11 +66,11 @@ class UsbPrinterConnector implements PrinterConnector<UsbPrinterInput> {
       StreamController.broadcast();
 
   UsbPrinterConnector.android({required this.vendorId, required this.productId})
-      : name = '';
+    : name = '';
 
   UsbPrinterConnector.windows({required this.name})
-      : vendorId = '',
-        productId = '';
+    : vendorId = '',
+      productId = '';
 
   String vendorId;
   String productId;

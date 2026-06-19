@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'accepted_orders_state.freezed.dart';
 
 @freezed
-class AcceptedOrdersState with _$AcceptedOrdersState {
+abstract class AcceptedOrdersState with _$AcceptedOrdersState {
   const factory AcceptedOrdersState({
     @Default(false) bool isLoading,
     @Default(true) bool hasMore,

@@ -4,7 +4,7 @@ import 'package:admin_desktop/src/models/models.dart';
 part 'add_discount_state.freezed.dart';
 
 @freezed
-class AddDiscountState with _$AddDiscountState {
+abstract class AddDiscountState with _$AddDiscountState {
   const factory AddDiscountState({
     @Default("fix") String type,
     @Default(true) bool active,

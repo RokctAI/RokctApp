@@ -1,6 +1,4 @@
-import 'package:admin_desktop/src/core/constants/constants.dart';
 import 'package:flutter/material.dart';
-
 import 'package:admin_desktop/src/core/di/dependency_manager.dart';
 import 'package:admin_desktop/src/core/handlers/handlers.dart';
 import 'package:admin_desktop/src/core/utils/utils.dart';
@@ -10,13 +8,25 @@ import '../repository.dart';
 class CategoriesRepositoryImpl extends CategoriesRepository {
   @override
   Future<ApiResult<CategoriesPaginateResponse>> searchCategories(
+    int page, {
     String? query,
-  ) async {
-    final data = {'search': query, 'limit_page_length': 100};
+    String? type,
+  }) async {
+    final data = {
+      'lang': LocalStorage.getLanguage()?.locale ?? 'en',
+      'perPage': 100,
+      'page': page,
+      if (type == null) 'type': 'main',
+      "has_products": 1,
+      if (query != null && query.isNotEmpty) 'search': query,
+      if (type != null && type.isNotEmpty) 'type': type,
+      type == 'combo' ? "c_shop_id" : "p_shop_id":
+          LocalStorage.getUser()?.shop?.id,
+    };
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_seller_categories',
+        '/api/v1/rest/categories/paginate',
         queryParameters: data,
       );
       return ApiResult.success(

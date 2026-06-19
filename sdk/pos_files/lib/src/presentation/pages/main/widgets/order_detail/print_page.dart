@@ -5,11 +5,10 @@ import 'dart:developer';
 
 import 'package:admin_desktop/src/models/data/addons_data.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/order_detail/printer/bluetooth_printer.dart';
-import 'package:admin_desktop/src/printer/printer_help.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_esc_pos_utils/flutter_esc_pos_utils.dart';
+import 'package:flutter_pos_printer_platform_image_3/flutter_pos_printer_platform_image_3.dart';
 import 'dart:io';
-
 import 'package:intl/intl.dart';
 
 import 'package:admin_desktop/src/core/constants/constants.dart';
@@ -113,18 +112,18 @@ class _PrintPageState extends State<PrintPage> {
     _subscription = printerManager
         .discovery(type: defaultPrinterType, isBle: _isBle)
         .listen((device) {
-      devices.add(
-        BluetoothPrinter(
-          deviceName: device.name,
-          address: device.address,
-          isBle: _isBle,
-          vendorId: device.vendorId,
-          productId: device.productId,
-          typePrinter: defaultPrinterType,
-        ),
-      );
-      setState(() {});
-    });
+          devices.add(
+            BluetoothPrinter(
+              deviceName: device.name,
+              address: device.address,
+              isBle: _isBle,
+              vendorId: device.vendorId,
+              productId: device.productId,
+              typePrinter: defaultPrinterType,
+            ),
+          );
+          setState(() {});
+        });
   }
 
   void setPort(String value) {
@@ -170,7 +169,8 @@ class _PrintPageState extends State<PrintPage> {
   Future _printReceiveTest() async {
     List<int> bytes = [];
     num subTotal = 0;
-    subTotal = ((widget.orderData?.totalPrice ?? 0) -
+    subTotal =
+        ((widget.orderData?.totalPrice ?? 0) -
         (widget.orderData?.tax ?? 0) -
         (widget.orderData?.deliveryFee ?? 0) +
         (widget.orderData?.totalDiscount ?? 0));
@@ -233,35 +233,40 @@ class _PrintPageState extends State<PrintPage> {
     ]);
 
     bytes += generator.text(customLine);
-    for (int index = 0;
-        index < (widget.orderData?.details?.length ?? 0);
-        index++) {
+    for (
+      int index = 0;
+      index < (widget.orderData?.details?.length ?? 0);
+      index++
+    ) {
+      final detail = widget.orderData?.details?[index];
       bytes += generator.setStyles(const PosStyles(align: PosAlign.center));
       bytes += generator.row([
         PosColumn(
           width: 8,
           text:
-              "$customSpace${widget.orderData?.details?[index].stock?.product?.translation?.title ?? ""} x ${widget.orderData?.details?[index].quantity ?? ""}",
+              "$customSpace${detail?.stock?.product?.translation?.title ?? ""} ${(detail?.stock?.extras?.isNotEmpty ?? false) ? "(${detail?.stock?.extras?.map((e) => e.value ?? '')})" : ''} x ${detail?.quantity ?? ""}",
           styles: const PosStyles(align: PosAlign.left, bold: true),
         ),
         PosColumn(
           width: 4,
           text: AppHelpers.numberFormat(
-            widget.orderData?.details?[index].totalPrice ?? 0,
-            symbol: widget.orderData?.currency?.symbol,
+            detail?.totalPrice ?? 0,
+            currency: widget.orderData?.currency,
           ),
           styles: const PosStyles(align: PosAlign.right, bold: true),
         ),
       ]);
-      for (int i = 0;
-          i < (widget.orderData?.details?[index].addons?.length ?? 0);
-          i++) {
+      for (
+        int i = 0;
+        i < (widget.orderData?.details?[index].addons?.length ?? 0);
+        i++
+      ) {
         Addons addons = widget.orderData!.details![index].addons![i];
         bytes += generator.row([
           PosColumn(
             width: 10,
             text:
-                "$customSpace${addons.stocks?.product?.translation?.title ?? ""} ( ${AppHelpers.numberFormat((addons.price ?? 0) / (addons.quantity ?? 1), symbol: widget.orderData?.currency?.symbol ?? "")} x ${(addons.quantity ?? 1)} )",
+                "$customSpace${addons.stocks?.product?.translation?.title ?? ""} ( ${AppHelpers.numberFormat((addons.price ?? 0) / (addons.quantity ?? 1), currency: widget.orderData?.currency)} x ${(addons.quantity ?? 1)} )",
             styles: const PosStyles(align: PosAlign.left),
           ),
           PosColumn(
@@ -386,7 +391,6 @@ class _PrintPageState extends State<PrintPage> {
         );
         if (!connectedTCP) debugPrint(' --- please review your connection ---');
         break;
-      default:
     }
     if (bluetoothPrinter.typePrinter == PrinterType.bluetooth &&
         Platform.isAndroid) {
@@ -447,7 +451,8 @@ class _PrintPageState extends State<PrintPage> {
             },
           ),
           Visibility(
-            visible: defaultPrinterType == PrinterType.bluetooth &&
+            visible:
+                defaultPrinterType == PrinterType.bluetooth &&
                 Platform.isAndroid,
             child: SwitchListTile.adaptive(
               contentPadding: const EdgeInsets.only(bottom: 20.0, left: 20),
@@ -468,7 +473,8 @@ class _PrintPageState extends State<PrintPage> {
             ),
           ),
           Visibility(
-            visible: defaultPrinterType == PrinterType.bluetooth &&
+            visible:
+                defaultPrinterType == PrinterType.bluetooth &&
                 Platform.isAndroid,
             child: SwitchListTile.adaptive(
               contentPadding: const EdgeInsets.only(bottom: 20.0, left: 20),
@@ -490,7 +496,8 @@ class _PrintPageState extends State<PrintPage> {
                 .map(
                   (device) => ListTile(
                     title: Text('${device.deviceName}'),
-                    subtitle: Platform.isAndroid &&
+                    subtitle:
+                        Platform.isAndroid &&
                             defaultPrinterType == PrinterType.usb
                         ? null
                         : Visibility(
@@ -498,20 +505,22 @@ class _PrintPageState extends State<PrintPage> {
                             child: Text("${device.address}"),
                           ),
                     onTap: () => selectDevice(device),
-                    leading: selectedPrinter != null &&
+                    leading:
+                        selectedPrinter != null &&
                             ((device.typePrinter == PrinterType.usb &&
                                         Platform.isWindows
                                     ? device.deviceName ==
-                                        selectedPrinter!.deviceName
+                                          selectedPrinter!.deviceName
                                     : device.vendorId != null &&
-                                        selectedPrinter!.vendorId ==
-                                            device.vendorId) ||
+                                          selectedPrinter!.vendorId ==
+                                              device.vendorId) ||
                                 (device.address != null &&
                                     selectedPrinter!.address == device.address))
                         ? const Icon(Icons.check, color: Colors.green)
                         : null,
                     trailing: OutlinedButton(
-                      onPressed: selectedPrinter == null ||
+                      onPressed:
+                          selectedPrinter == null ||
                               device.deviceName != selectedPrinter?.deviceName
                           ? null
                           : () async {

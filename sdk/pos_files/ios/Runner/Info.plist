@@ -23,11 +23,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(FLUTTER_BUILD_NAME)</string>
+	<string>1.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<string>65</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>sms</string>
@@ -36,9 +36,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Allow App use bluetooth?</string>
+	<string>Our app uses bluetooth to print from various printers</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>Allow App use bluetooth?</string>
+	<string>Our app uses bluetooth to print from various printers</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Allowing the access to your camera helps us to show you the media files to upload to Shop app</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -65,7 +65,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
-    <false/>
+	<false/>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations~ipad</key>
@@ -77,4 +77,3 @@
 	<false/>
 </dict>
 </plist>
-

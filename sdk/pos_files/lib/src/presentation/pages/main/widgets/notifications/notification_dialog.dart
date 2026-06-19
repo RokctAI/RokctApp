@@ -8,9 +8,9 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../../core/constants/constants.dart';
-import '../../../../../core/utils/app_helpers.dart';
-import '../../../../theme/theme.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/core/utils/app_helpers.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 
 class NotificationDialog extends ConsumerStatefulWidget {
   const NotificationDialog({super.key});
@@ -54,10 +54,7 @@ class _NotificationDialogState extends ConsumerState<NotificationDialog>
 
     return Container(
       width: 446.w,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: AppStyle.white,
-      ),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
@@ -80,7 +77,6 @@ class _NotificationDialogState extends ConsumerState<NotificationDialog>
                     Navigator.pop(context);
                   },
                   icon: const Icon(FlutterRemix.close_fill),
-                  color: AppStyle.black,
                 ),
               ],
             ),
@@ -109,9 +105,6 @@ class _NotificationDialogState extends ConsumerState<NotificationDialog>
                     8.horizontalSpace,
                     NotificationCountsContainer(
                       count: '${state.countOfNotifications?.notification ?? 0}',
-                      color: (AppConstants.enableJuvoONE
-                          ? AppStyle.blueBonus
-                          : AppStyle.white),
                     ),
                   ],
                 ),
@@ -136,66 +129,61 @@ class _NotificationDialogState extends ConsumerState<NotificationDialog>
                           ),
                         )
                       : state.notifications.isNotEmpty
-                          ? ListView(
-                              children: [
-                                26.verticalSpace,
-                                ListView.builder(
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemCount: state.notifications.length,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return AllNotificationsPage(index);
-                                  },
-                                ),
-                                4.verticalSpace,
-                                state.isMoreNotificationLoading
-                                    ? const LineShimmer(isActiveLine: true)
-                                    : state.hasMoreNotification
-                                        ? ViewMoreButton(
-                                            onTap: () {
-                                              return notifier
-                                                  .fetchNotificationsPaginate();
-                                            },
-                                          )
-                                        : const SizedBox(),
-                                25.verticalSpace,
-                                if (state.notifications.isNotEmpty)
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                          FlutterRemix.check_double_fill),
-                                      5.horizontalSpace,
-                                      TextButton(
-                                        style: ButtonStyle(
-                                          overlayColor:
-                                              MaterialStateProperty.all(
-                                            AppStyle.primary,
-                                          ),
-                                        ),
-                                        onPressed: () {
-                                          notifier.readAll(context);
-                                        },
-                                        child: Text(
-                                          AppHelpers.getTranslation(
-                                              TrKeys.readAll),
-                                          style: GoogleFonts.inter(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14.sp,
-                                            color: AppStyle.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                              ],
-                            )
-                          : Center(
-                              child: Text(
-                                AppHelpers.getTranslation(
-                                    TrKeys.noNotification),
-                              ),
+                      ? ListView(
+                          children: [
+                            26.verticalSpace,
+                            ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: state.notifications.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return AllNotificationsPage(index);
+                              },
                             ),
+                            4.verticalSpace,
+                            state.isMoreNotificationLoading
+                                ? const LineShimmer(isActiveLine: true)
+                                : state.hasMoreNotification
+                                ? ViewMoreButton(
+                                    onTap: () {
+                                      return notifier
+                                          .fetchNotificationsPaginate();
+                                    },
+                                  )
+                                : const SizedBox(),
+                            25.verticalSpace,
+                            if (state.notifications.isNotEmpty)
+                              Row(
+                                children: [
+                                  const Icon(FlutterRemix.check_double_fill),
+                                  5.horizontalSpace,
+                                  TextButton(
+                                    style: ButtonStyle(
+                                      overlayColor: MaterialStateProperty.all(
+                                        AppStyle.primary,
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      notifier.readAll(context);
+                                    },
+                                    child: Text(
+                                      AppHelpers.getTranslation(TrKeys.readAll),
+                                      style: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14.sp,
+                                        color: AppStyle.black,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                          ],
+                        )
+                      : Center(
+                          child: Text(
+                            AppHelpers.getTranslation(TrKeys.noNotification),
+                          ),
+                        ),
                   Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

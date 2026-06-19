@@ -2,13 +2,14 @@
 *.class
 *.log
 *.pyc
-__pycache__/
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
+.swiftpm/
 migrate_working_dir/
 
 # IntelliJ related
@@ -17,8 +18,10 @@ migrate_working_dir/
 *.iws
 .idea/
 
-# Visual Studio Code related
-.vscode/
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -42,27 +45,8 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Firebase configuration files
-google-services.json
-GoogleService-Info.plist
+# Visual Studio / VS Code configuration
+.vs/
 
-# Environment variables and secrets
-.env
-.env.local
-*.env.development
-*.env.production
-*.jks
-**/*.jks
-key.properties
-
-# Generated files
-*.g.dart
-*.freezed.dart
-*.mocks.dart
-
-# Coverage reports
-/coverage/
-
-# App constants
-#lib/app_constants.dart
-#lib/infrastructure/services/app_constants.dart
+# FVM Version Cache
+.fvm/

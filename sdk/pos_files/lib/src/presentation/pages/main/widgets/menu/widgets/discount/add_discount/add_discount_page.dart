@@ -192,32 +192,35 @@ class _AddDiscountPageState extends ConsumerState<AddDiscountPage> {
                                       itemCount: state.stocks.length,
                                       itemBuilder:
                                           (BuildContext context, int index) {
-                                        return Chip(
-                                          backgroundColor: AppStyle.primary,
-                                          deleteIcon: Icon(
-                                            FlutterRemix.close_circle_fill,
-                                            size: 20.r,
-                                            color: AppStyle.white,
-                                          ),
-                                          onDeleted: () =>
-                                              notifier.deleteFromAddedProducts(
-                                            state.stocks[index].id,
-                                          ),
-                                          label: Text(
-                                            state.stocks[index].product
-                                                    ?.translation?.title ??
-                                                "",
-                                            style: GoogleFonts.inter(
-                                              fontWeight: FontWeight.w500,
-                                              color: AppStyle.white,
-                                            ),
-                                          ),
-                                        );
-                                      },
+                                            return Chip(
+                                              backgroundColor: AppStyle.primary,
+                                              deleteIcon: Icon(
+                                                FlutterRemix.close_circle_fill,
+                                                size: 20.r,
+                                                color: AppStyle.white,
+                                              ),
+                                              onDeleted: () => notifier
+                                                  .deleteFromAddedProducts(
+                                                    state.stocks[index].id,
+                                                  ),
+                                              label: Text(
+                                                state
+                                                        .stocks[index]
+                                                        .product
+                                                        ?.translation
+                                                        ?.title ??
+                                                    "",
+                                                style: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w500,
+                                                  color: AppStyle.white,
+                                                ),
+                                              ),
+                                            );
+                                          },
                                       separatorBuilder:
                                           (BuildContext context, int index) {
-                                        return 10.horizontalSpace;
-                                      },
+                                            return 10.horizontalSpace;
+                                          },
                                     ),
                             ),
                           ),

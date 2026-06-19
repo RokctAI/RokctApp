@@ -1,6 +1,7 @@
 import 'package:admin_desktop/src/core/constants/constants.dart';
 import 'package:admin_desktop/src/core/utils/utils.dart';
 import 'package:admin_desktop/src/models/data/order_data.dart';
+import 'package:admin_desktop/src/presentation/components/buttons/animation_button_effect.dart';
 import 'package:admin_desktop/src/presentation/components/custom_scaffold.dart';
 import 'package:admin_desktop/src/presentation/components/filter_screen.dart';
 import 'package:admin_desktop/src/presentation/pages/main/riverpod/provider/main_provider.dart';
@@ -16,13 +17,13 @@ import 'package:admin_desktop/src/presentation/pages/main/widgets/orders_table/w
 import 'package:admin_desktop/src/presentation/pages/main/widgets/orders_table/widgets/list_view.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/orders_table/widgets/start_end_date.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/orders_table/widgets/view_mode.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../theme/theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'order_table_riverpod/order_table_provider.dart';
-import 'package:audioplayers/audioplayers.dart';
 
 class OrdersTablesPage extends ConsumerStatefulWidget {
   const OrdersTablesPage({super.key});
@@ -32,59 +33,30 @@ class OrdersTablesPage extends ConsumerStatefulWidget {
 }
 
 class _OrdersTablesState extends ConsumerState<OrdersTablesPage> {
-  final AudioPlayer _audioPlayer = AudioPlayer();
-  int _previousAcceptedCount = 0;
-  int _previousNewCount = 0;
-
   @override
   void initState() {
-    super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _initializeOrderCounts();
-      _refreshAllOrders();
-    });
-  }
-
-  void _initializeOrderCounts() {
-    final acceptedOrders = ref.read(acceptedOrdersProvider).orders;
-    final newOrders = ref.read(newOrdersProvider).orders;
-    _previousAcceptedCount = acceptedOrders.length;
-    _previousNewCount = newOrders.length;
-  }
-
-  void _refreshAllOrders() {
-    ref.read(newOrdersProvider.notifier).fetchNewOrders(isRefresh: true);
-    ref
-        .read(acceptedOrdersProvider.notifier)
-        .fetchAcceptedOrders(isRefresh: true);
-    if (LocalStorage.getUser()?.role != TrKeys.waiter) {
+      ref.read(newOrdersProvider.notifier).fetchNewOrders(isRefresh: true);
       ref
-          .read(onAWayOrdersProvider.notifier)
-          .fetchOnAWayOrders(isRefresh: true);
-    }
-    ref.read(readyOrdersProvider.notifier).fetchReadyOrders(isRefresh: true);
-    ref
-        .read(deliveredOrdersProvider.notifier)
-        .fetchDeliveredOrders(isRefresh: true);
-    ref
-        .read(canceledOrdersProvider.notifier)
-        .fetchCanceledOrders(isRefresh: true);
-    ref
-        .read(cookingOrdersProvider.notifier)
-        .fetchCookingOrders(isRefresh: true);
-  }
-
-  void _checkAndPlaySound() {
-    final acceptedOrders = ref.read(acceptedOrdersProvider).orders;
-    final newOrders = ref.read(newOrdersProvider).orders;
-
-    if (acceptedOrders.length > _previousAcceptedCount ||
-        newOrders.length > _previousNewCount) {
-      _audioPlayer.play(AssetSource('audio/notification.wav'));
-    }
-
-    _previousAcceptedCount = acceptedOrders.length;
-    _previousNewCount = newOrders.length;
+          .read(acceptedOrdersProvider.notifier)
+          .fetchAcceptedOrders(isRefresh: true);
+      if (LocalStorage.getUser()?.role != TrKeys.waiter) {
+        ref
+            .read(onAWayOrdersProvider.notifier)
+            .fetchOnAWayOrders(isRefresh: true);
+      }
+      ref.read(readyOrdersProvider.notifier).fetchReadyOrders(isRefresh: true);
+      ref
+          .read(deliveredOrdersProvider.notifier)
+          .fetchDeliveredOrders(isRefresh: true);
+      ref
+          .read(canceledOrdersProvider.notifier)
+          .fetchCanceledOrders(isRefresh: true);
+      ref
+          .read(cookingOrdersProvider.notifier)
+          .fetchCookingOrders(isRefresh: true);
+    });
+    super.initState();
   }
 
   @override
@@ -100,10 +72,6 @@ class _OrdersTablesState extends ConsumerState<OrdersTablesPage> {
     final state = ref.watch(orderTableProvider);
     final stateMain = ref.watch(mainProvider);
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _checkAndPlaySound();
-    });
-
     return CustomScaffold(
       body: (c) => stateMain.selectedOrder != null
           ? OrderDetailPage(order: stateMain.selectedOrder ?? OrderData())
@@ -112,11 +80,121 @@ class _OrdersTablesState extends ConsumerState<OrdersTablesPage> {
                 children: [
                   Container(
                     padding: EdgeInsets.symmetric(
-                      vertical: 10.r,
+                      vertical: state.showFilter ? 20.r : 10.r,
                       horizontal: 16.r,
                     ),
                     decoration: const BoxDecoration(color: AppStyle.white),
-                    child: Column(crossAxisAlignment: CrossAxisAlignment.start),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              AppHelpers.getTranslation(TrKeys.order),
+                              style: GoogleFonts.inter(
+                                color: AppStyle.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20.sp,
+                              ),
+                            ),
+                            const Spacer(),
+                            IconButton(
+                              onPressed: () => notifier.changeFilter(),
+                              icon: state.showFilter
+                                  ? const Icon(FlutterRemix.arrow_up_s_line)
+                                  : const Icon(FlutterRemix.arrow_down_s_line),
+                            ),
+                          ],
+                        ),
+                        Visibility(
+                          visible: state.showFilter,
+                          child: Column(
+                            children: [
+                              16.verticalSpace,
+                              Row(
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      ref
+                                          .read(orderTableProvider.notifier)
+                                          .setTime(null, null);
+                                      ref
+                                          .read(newOrdersProvider.notifier)
+                                          .fetchNewOrders(isRefresh: true);
+                                      ref
+                                          .read(cookingOrdersProvider.notifier)
+                                          .fetchCookingOrders(isRefresh: true);
+                                      ref
+                                          .read(acceptedOrdersProvider.notifier)
+                                          .fetchAcceptedOrders(isRefresh: true);
+                                      if (LocalStorage.getUser()?.role !=
+                                          TrKeys.waiter) {
+                                        ref
+                                            .read(onAWayOrdersProvider.notifier)
+                                            .fetchOnAWayOrders(isRefresh: true);
+                                      }
+                                      ref
+                                          .read(readyOrdersProvider.notifier)
+                                          .fetchReadyOrders(isRefresh: true);
+                                      ref
+                                          .read(
+                                            deliveredOrdersProvider.notifier,
+                                          )
+                                          .fetchDeliveredOrders(
+                                            isRefresh: true,
+                                          );
+                                      ref
+                                          .read(canceledOrdersProvider.notifier)
+                                          .fetchCanceledOrders(isRefresh: true);
+                                    },
+                                    child: AnimationButtonEffect(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: AppStyle.white,
+                                          borderRadius: BorderRadius.circular(
+                                            10.r,
+                                          ),
+                                          border: Border.all(
+                                            color: AppStyle
+                                                .unselectedBottomBarBack,
+                                          ),
+                                        ),
+                                        padding: EdgeInsets.all(8.r),
+                                        child: const Icon(
+                                          FlutterRemix.restart_line,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  16.horizontalSpace,
+                                  StartEndDate(
+                                    start: state.start,
+                                    end: state.end,
+                                    filterScreen: const FilterScreen(
+                                      isOrder: true,
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  ViewMode(
+                                    title: TrKeys.board,
+                                    isActive: !state.isListView,
+                                    icon: FlutterRemix.dashboard_line,
+                                    onTap: () => notifier.changeViewMode(0),
+                                  ),
+                                  ViewMode(
+                                    title: TrKeys.list,
+                                    isActive: state.isListView,
+                                    isLeft: false,
+                                    icon: FlutterRemix.menu_fill,
+                                    onTap: () => notifier.changeViewMode(1),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: !state.isListView
@@ -143,11 +221,5 @@ class _OrdersTablesState extends ConsumerState<OrdersTablesPage> {
               ),
             ),
     );
-  }
-
-  @override
-  void dispose() {
-    _audioPlayer.dispose();
-    super.dispose();
   }
 }

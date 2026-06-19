@@ -16,7 +16,7 @@ class OnAWayOrdersNotifier extends StateNotifier<OnAWayOrdersState> {
   Timer? _refreshTime;
 
   OnAWayOrdersNotifier(this._ordersRepository)
-      : super(const OnAWayOrdersState());
+    : super(const OnAWayOrdersState());
 
   void setOrdersQuery(BuildContext context, String query) {
     if (state.query == query) {
@@ -84,8 +84,9 @@ class OnAWayOrdersNotifier extends StateNotifier<OnAWayOrdersState> {
     );
     response.when(
       success: (data) {
-        List<OrderData> orders =
-            isRefresh || state.query.isNotEmpty ? [] : List.from(state.orders);
+        List<OrderData> orders = isRefresh || state.query.isNotEmpty
+            ? []
+            : List.from(state.orders);
         final List<OrderData> newOrders = data.data?.orders ?? [];
         for (OrderData element in newOrders) {
           if (!orders.map((item) => item.id).contains(element.id)) {
@@ -146,7 +147,7 @@ class OnAWayOrdersNotifier extends StateNotifier<OnAWayOrdersState> {
     );
   }
 
-  addList(OrderData orderData, BuildContext context) async {
+  Future<void> addList(OrderData orderData, BuildContext context) async {
     List<OrderData> list = List.from(state.orders);
     list.insert(0, orderData);
     state = state.copyWith(orders: list, totalCount: state.totalCount + 1);
@@ -172,13 +173,13 @@ class OnAWayOrdersNotifier extends StateNotifier<OnAWayOrdersState> {
     );
   }
 
-  removeList(int index) {
+  void removeList(int index) {
     List<OrderData> list = List.from(state.orders);
     list.removeAt(index);
     state = state.copyWith(orders: list, totalCount: state.totalCount - 1);
   }
 
-  deleteOrder(BuildContext context, {required orderId}) async {
+  Future<void> deleteOrder(BuildContext context, {required orderId}) async {
     removeList(getIndex(orderId));
     final response = await _ordersRepository.deleteOrder(orderId: orderId);
     response.when(
@@ -199,7 +200,7 @@ class OnAWayOrdersNotifier extends StateNotifier<OnAWayOrdersState> {
     );
   }
 
-  int getIndex(id) {
+  int getIndex(int id) {
     List<OrderData> list = List.from(state.orders);
     for (int i = 0; i < list.length; i++) {
       if (list[i].id == id) {
@@ -211,10 +212,5 @@ class OnAWayOrdersNotifier extends StateNotifier<OnAWayOrdersState> {
 
   void stopTimer() {
     _refreshTime?.cancel();
-  }
-
-  void clearSearch(BuildContext context) {
-    state = state.copyWith(query: '');
-    setOrdersQuery(context, '');
   }
 }

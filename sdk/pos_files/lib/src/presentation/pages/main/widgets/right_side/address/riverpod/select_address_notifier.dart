@@ -20,7 +20,7 @@ class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
   final GeolocatorPlatform _geolocatorPlatform = GeolocatorPlatform.instance;
 
   SelectAddressNotifier(this._usersRepository)
-      : super(SelectAddressState(textController: TextEditingController()));
+    : super(SelectAddressState(textController: TextEditingController()));
 
   void setQuery(BuildContext context) {
     if (state.textController?.text.trim().isNotEmpty ?? false) {
@@ -36,7 +36,7 @@ class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
   Future<void> searchLocations() async {
     state = state.copyWith(isSearching: true, isSearchLoading: true);
     try {
-      final result = await Nominatim.searchByName(
+      final result = await Nominatim(userAgent: "Foodyman_pos").searchByName(
         query: state.textController?.text.trim() ?? '',
         limit: 5,
         addressDetails: true,
@@ -85,7 +85,7 @@ class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
     state = state.copyWith(searchedPlaces: [], isSearching: false);
     Place? place;
     try {
-      place = await Nominatim.reverseSearch(
+      place = await Nominatim(userAgent: "Foodyman_pos").reverseSearch(
         lat: location?.latitude,
         lon: location?.longitude,
         addressDetails: true,
@@ -140,7 +140,7 @@ class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
     state = state.copyWith(searchedPlaces: [], isSearching: false);
     Place? place;
     try {
-      place = await Nominatim.reverseSearch(
+      place = await Nominatim(userAgent: "Foodyman_pos").reverseSearch(
         lat: latLng.latitude,
         lon: latLng.longitude,
         addressDetails: true,
@@ -187,7 +187,7 @@ class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
     );
     Place? place;
     try {
-      place = await Nominatim.reverseSearch(
+      place = await Nominatim(userAgent: "Foodyman_pos").reverseSearch(
         lat: latLng?.latitude,
         lon: latLng?.longitude,
         addressDetails: true,

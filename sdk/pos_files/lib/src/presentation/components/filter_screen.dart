@@ -20,7 +20,7 @@ import '../pages/main/widgets/orders_table/orders/new/new_orders_provider.dart';
 import '../pages/main/widgets/orders_table/orders/on_a_way/on_a_way_orders_provider.dart';
 import '../pages/main/widgets/orders_table/orders/ready/ready_orders_provider.dart';
 import 'components.dart';
-//import 'text_fields/custom_date_time_field.dart';
+import 'text_fields/custom_date_time_field.dart';
 
 class FilterScreen extends StatefulWidget {
   final DateTime? start;
@@ -78,27 +78,27 @@ class _FilterScreenState extends State<FilterScreen> {
           onChange: (n) => _newList = n,
         ),
         16.verticalSpace,
-        /* Row(
+        Row(
           children: [
-           /* Expanded(
+            Expanded(
               child: CustomDateTimeField(
                 label: TrKeys.startTime,
-                onTimeChange: (time){
-                  _newList[0]=_newList[0]?.addTime(time);
+                onTimeChange: (time) {
+                  _newList[0] = _newList[0]?.addTime(time);
                 },
               ),
-            ),*/
-           // 12.horizontalSpace,
-            /*Expanded(
+            ),
+            12.horizontalSpace,
+            Expanded(
               child: CustomDateTimeField(
                 label: TrKeys.endTime,
-                onTimeChange: (time){
-                  _newList[1]=_newList[1]?.addTime(time);
+                onTimeChange: (time) {
+                  _newList[1] = _newList[1]?.addTime(time);
                 },
               ),
-            ),*/
+            ),
           ],
-        ),*/
+        ),
         16.verticalSpace,
         SizedBox(
           width: 200.w,
@@ -113,7 +113,9 @@ class _FilterScreenState extends State<FilterScreen> {
                       ref
                           .read(orderTableProvider.notifier)
                           .setTime(_newList.first, _newList.last);
-                      ref.read(newOrdersProvider.notifier).fetchNewOrders(
+                      ref
+                          .read(newOrdersProvider.notifier)
+                          .fetchNewOrders(
                             start: _newList.first,
                             end: _newList.last,
                             isRefresh: true,
@@ -132,12 +134,16 @@ class _FilterScreenState extends State<FilterScreen> {
                             end: _newList.last,
                             isRefresh: true,
                           );
-                      ref.read(onAWayOrdersProvider.notifier).fetchOnAWayOrders(
+                      ref
+                          .read(onAWayOrdersProvider.notifier)
+                          .fetchOnAWayOrders(
                             start: _newList.first,
                             end: _newList.last,
                             isRefresh: true,
                           );
-                      ref.read(readyOrdersProvider.notifier).fetchReadyOrders(
+                      ref
+                          .read(readyOrdersProvider.notifier)
+                          .fetchReadyOrders(
                             start: _newList.first,
                             end: _newList.last,
                             isRefresh: true,
@@ -173,7 +179,9 @@ class _FilterScreenState extends State<FilterScreen> {
                           .read(tablesProvider.notifier)
                           .setTime(_newList.first, _newList.last);
 
-                      ref.read(tablesProvider.notifier).fetchBookings(
+                      ref
+                          .read(tablesProvider.notifier)
+                          .fetchBookings(
                             start: _newList.first,
                             end: _newList.last,
                             isRefresh: true,
@@ -189,10 +197,6 @@ class _FilterScreenState extends State<FilterScreen> {
                           end: _newList.last,
                         )
                         ..fetchIncomeStatistic(
-                          start: _newList.first,
-                          end: _newList.last,
-                        )
-                        ..fetchExpenseData(
                           start: _newList.first,
                           end: _newList.last,
                         );

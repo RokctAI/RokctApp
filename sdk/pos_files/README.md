@@ -1,66 +1,46 @@
-# pos_app
+# Foodyman POS
 
-A new Flutter project for the ROKCT POS application.
+A Flutter-based Point of Sale (POS) system designed for restaurants and food businesses. It supports multiple platforms including Android, iOS, and Desktop.
 
-## Building & Release (CI/CD)
+## Features
 
-The project uses GitHub Actions for automated builds and releases. To enable signed builds, you must configure the following **Secrets** in your repository settings (`Settings > Secrets and variables > Actions`).
+- **Point of Sale Interface**: Efficient order management.
+- **Kitchen Management**: Specific features for kitchen workflow.
+- **Printing**: Integrated thermal printer support for receipts.
+- **Maps & Location**: Location services for delivery or store location.
+- **Authentication**: Secure login and user management.
+- **Dark/Light Mode**: Theming support.
 
-### 🔑 Required Secrets
+## Tech Stack
 
-#### 🤖 Android Secrets
-*   `GOOGLE_SERVICES_JSON`: The **Base64 encoded** content of your `android/app/google-services.json`.
-*   `KEY_JKS`: The **Base64 encoded** content of your release keystore file (`.jks`).
-*   `KEY_PASSWORD`: The password for your keystore.
-*   `ALIAS_PASSWORD`: The password for your key alias.
-*   `PRODUCTION_ENV`: The **Base64 encoded** content of your `.env/production.env` file.
+- **Framework**: Flutter
+- **Language**: Dart
+- **State Management**: Riverpod & Provider
+- **Navigation**: AutoRoute
+- **Networking**: Dio
+- **Maps**: Google Maps Flutter & OSM Nominatim
+- **Local Storage**: Shared Preferences
+- **Dependency Injection**: GetIt
 
-#### 🍎 iOS Secrets
-*   `IOS_GOOGLE_SERVICE_INFO_PLIST`: The **Base64 encoded** content of `ios/Runner/GoogleService-Info.plist`.
-*   `IOS_P12_BASE64`: The **Base64 encoded** `.p12` export of your Apple Distribution Certificate.
-*   `IOS_MOBILEPROVISION_BASE64`: The **Base64 encoded** `.mobileprovision` file for your app.
-*   `IOS_CERTIFICATE_PASSWORD`: The password used when exporting the `.p12` certificate.
+## Getting Started
 
----
+To run the project locally, ensure you have Flutter installed and set up.
 
-### 🛠️ How to Encode Files
-To provide the file contents as secrets, you must encode them to Base64 first. Use the following commands from the **root of your repository**:
+1.  **Get Dependencies**
+    ```bash
+    flutter pub get
+    ```
 
-**macOS/Linux:**
-```bash
-# For Android
-base64 -i android/app/google-services.json | pbcopy
+2.  **Run Application**
+    ```bash
+    flutter run
+    ```
 
-# For iOS
-base64 -i ios/Runner/GoogleService-Info.plist | pbcopy
+## Folder Structure
 
-# For Production Environment
-base64 -i .env/production.env | pbcopy
-```
+The project follows a clean architecture within `lib/src`:
 
-**Windows (PowerShell):**
-```powershell
-# For Android (Auto-Clip)
-[Convert]::ToBase64String([IO.File]::ReadAllBytes("android/app/google-services.json")) | clip
-
-# For iOS (Auto-Clip)
-[Convert]::ToBase64String([IO.File]::ReadAllBytes("ios/Runner/GoogleService-Info.plist")) | clip
-
-# For Production Environment (Auto-Clip)
-[Convert]::ToBase64String([IO.File]::ReadAllBytes(".env/production.env")) | clip
-```
-
-Paste the resulting string into the corresponding GitHub Secret value.
-
-### 🏗️ Multi-Tenant Build Support (build_* branches)
-You can trigger dynamic builds for specific clients by creating a branch following the `build_<client>-*` pattern (e.g., `build_clientname-v1.0`).
-
-The workflow will automatically look for client-specific secrets:
-*   `GOOGLE_SERVICES_JSON_<CLIENT>`
-*   `IOS_GOOGLE_SERVICE_INFO_PLIST_<CLIENT>`
-*   `PRODUCTION_ENV_<CLIENT>`
-
-If found, these will take precedence over the default secrets. The release candidate will also be tagged with the client suffix (e.g., `v1.0.0-clientname`).
-
-### 📦 Change App Package
-Firstly, find out the existing package name. You can find it out from top of `/app/src/main/AndroidManifest.xml` file. Then right click on project folder from android studio and click on **Replace in Path**. You will see a popup window with two input boxes. In first box you have to put existing package name that you saw in `AndroidManifest.xml` file previously and then write down your preferred package name in second box and then click on **Replace All** button.
+-   `core`: Contains utilities, constants, and shared logic.
+-   `presentation`: Contains UI components, pages, and theme definitions.
+-   `repository`: Handles data fetching and business logic interfaces.
+-   `riverpod`: Manages application state.

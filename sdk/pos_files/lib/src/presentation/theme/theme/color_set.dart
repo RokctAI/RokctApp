@@ -2,19 +2,33 @@ part of 'theme.dart';
 
 class CustomColorSet {
   final Color primary;
+
   final Color white;
+
   final Color textHint;
+
   final Color textBlack;
+
   final Color textWhite;
+
   final Color icon;
+
   final Color success;
+
   final Color error;
+
   final Color transparent;
+
   final Color backgroundColor;
+
   final Color socialButtonColor;
+
   final Color newBoxColor;
+
   final Color bottomBarColor;
+
   final Color categoryColor;
+
   final Color categoryTitleColor;
 
   CustomColorSet._({
@@ -39,24 +53,38 @@ class CustomColorSet {
     final isLight = mode.isLight;
 
     final textHint = isLight ? AppStyle.hint : AppStyle.white;
+
     final textBlack = isLight ? AppStyle.black : AppStyle.white;
+
     final textWhite = isLight ? AppStyle.white : AppStyle.black;
+
     final categoryColor = isLight ? AppStyle.black : AppStyle.iconButtonBack;
+
     final categoryTitleColor = isLight ? AppStyle.black : AppStyle.white;
 
-    // Removed const keywords since AppStyle values might not be constant
     final primary = AppStyle.primary;
-    final white = AppStyle.white;
-    final icon = AppStyle.icon;
-    final backgroundColor =
-        isLight ? AppStyle.mainBack : AppStyle.iconButtonBack;
+
+    const white = AppStyle.white;
+
+    const icon = AppStyle.icon;
+
+    final backgroundColor = isLight
+        ? AppStyle.mainBack
+        : AppStyle.iconButtonBack;
+
     final newBoxColor = isLight ? AppStyle.icon : AppStyle.iconButtonBack;
+
     final success = AppStyle.primary;
-    final error = AppStyle.red;
-    final transparent = AppStyle.transparent;
+
+    const error = AppStyle.red;
+
+    const transparent = AppStyle.transparent;
+
     final socialButtonColor = isLight ? AppStyle.icon : AppStyle.iconButtonBack;
-    final bottomBarColor =
-        isLight ? AppStyle.icon.withOpacity(0.8) : AppStyle.iconButtonBack;
+
+    final bottomBarColor = isLight
+        ? AppStyle.icon.withOpacity(0.8)
+        : AppStyle.iconButtonBack;
 
     return CustomColorSet._(
       categoryColor: categoryColor,

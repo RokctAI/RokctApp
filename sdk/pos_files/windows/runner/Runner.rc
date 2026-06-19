@@ -13,15 +13,6 @@
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
-// Get current year at build time
-#define STRING2(x) #x
-#define STRING(x) STRING2(x)
-#define BUILD_YEAR ( (__DATE__ [7] - '0') * 1000 + \
-                    (__DATE__ [8] - '0') * 100 + \
-                    (__DATE__ [9] - '0') * 10 + \
-                    (__DATE__ [10] - '0') )
-#define COPYRIGHT_YEAR STRING(BUILD_YEAR)
-
 /////////////////////////////////////////////////////////////////////////////
 // English (United States) resources
 
@@ -29,7 +20,7 @@
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 #ifdef APSTUDIO_INVOKED
-        /////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 //
 // TEXTINCLUDE
 //
@@ -82,37 +73,37 @@ IDI_APP_ICON            ICON                    "resources\\app_icon.ico"
 #endif
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION VERSION_AS_NUMBER
-PRODUCTVERSION VERSION_AS_NUMBER
-FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+ FILEVERSION VERSION_AS_NUMBER
+ PRODUCTVERSION VERSION_AS_NUMBER
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
 #ifdef _DEBUG
-FILEFLAGS VS_FF_DEBUG
+ FILEFLAGS VS_FF_DEBUG
 #else
-FILEFLAGS 0x0L
+ FILEFLAGS 0x0L
 #endif
-FILEOS VOS__WINDOWS32
-FILETYPE VFT_APP
-FILESUBTYPE 0x0L
+ FILEOS VOS__WINDOWS32
+ FILETYPE VFT_APP
+ FILESUBTYPE 0x0L
 BEGIN
-        BLOCK "StringFileInfo"
-BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
         BLOCK "040904e4"
-BEGIN
-        VALUE "CompanyName", "Juvo Platforms" "\0"
-VALUE "FileDescription", "JuvoONE" "\0"
-VALUE "FileVersion", VERSION_AS_STRING "\0"
-VALUE "InternalName", "JuvoONE" "\0"
-VALUE "LegalCopyright", "Copyright (C) " COPYRIGHT_YEAR " Juvo Platforms. All rights reserved." "\0"
-VALUE "OriginalFilename", "JuvoONE.exe" "\0"
-VALUE "ProductName", "JuvoONE" "\0"
-VALUE "ProductVersion", VERSION_AS_STRING "\0"
-END
+        BEGIN
+            VALUE "CompanyName", "org.goshops" "\0"
+            VALUE "FileDescription", "admin_desktop" "\0"
+            VALUE "FileVersion", VERSION_AS_STRING "\0"
+            VALUE "InternalName", "admin_desktop" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 org.goshops. All rights reserved." "\0"
+            VALUE "OriginalFilename", "admin_desktop.exe" "\0"
+            VALUE "ProductName", "admin_desktop" "\0"
+            VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
-BLOCK "VarFileInfo"
-BEGIN
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
         VALUE "Translation", 0x409, 1252
+    END
 END
-        END
 
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////

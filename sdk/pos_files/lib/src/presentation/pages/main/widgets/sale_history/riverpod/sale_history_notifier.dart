@@ -13,14 +13,14 @@ class SaleHistoryNotifier extends StateNotifier<SaleHistoryState> {
   int historyPage = 0;
 
   SaleHistoryNotifier(this._settingsRepository)
-      : super(const SaleHistoryState());
+    : super(const SaleHistoryState());
 
-  changeIndex(int index) {
+  void changeIndex(int index) {
     state = state.copyWith(selectIndex: index, hasMore: false);
     fetchSale();
   }
 
-  fetchSaleCarts() async {
+  Future<void> fetchSaleCarts() async {
     final response = await _settingsRepository.getSaleCart();
     response.when(
       success: (data) async {
@@ -30,19 +30,7 @@ class SaleHistoryNotifier extends StateNotifier<SaleHistoryState> {
     );
   }
 
-  double getNonCashTotal() {
-    if (state.saleCart == null) return 0;
-
-    return state.saleCart!.getNonCashTotal(
-      state.selectIndex == 0
-          ? state.listDriver
-          : state.selectIndex == 1
-              ? state.listToday
-              : state.listHistory,
-    );
-  }
-
-  fetchSale() async {
+  Future<void> fetchSale() async {
     final response = await _settingsRepository.getSaleHistory(
       state.selectIndex,
       1,
@@ -51,8 +39,8 @@ class SaleHistoryNotifier extends StateNotifier<SaleHistoryState> {
       isLoading: state.selectIndex == 0
           ? state.listDriver.isEmpty
           : state.selectIndex == 1
-              ? state.listToday.isEmpty
-              : state.listHistory.isEmpty,
+          ? state.listToday.isEmpty
+          : state.listHistory.isEmpty,
     );
     response.when(
       success: (data) async {
@@ -105,8 +93,8 @@ class SaleHistoryNotifier extends StateNotifier<SaleHistoryState> {
           state.selectIndex == 0
               ? ++driverPage
               : state.selectIndex == 1
-                  ? ++salePage
-                  : ++historyPage,
+              ? ++salePage
+              : ++historyPage,
         );
 
         response.when(
@@ -156,8 +144,8 @@ class SaleHistoryNotifier extends StateNotifier<SaleHistoryState> {
           state.selectIndex == 0
               ? ++driverPage
               : state.selectIndex == 1
-                  ? ++salePage
-                  : ++historyPage,
+              ? ++salePage
+              : ++historyPage,
         );
         response.when(
           success: (data) async {
@@ -200,17 +188,5 @@ class SaleHistoryNotifier extends StateNotifier<SaleHistoryState> {
     } else {
       checkYourNetwork?.call();
     }
-  }
-
-  // Add method to calculate today's total sales
-  double getTodayTotalSales() {
-    double total = 0;
-    for (var sale in state.listToday) {
-      // Assuming the price is stored in total_price field
-      if (sale.totalPrice != null) {
-        total += sale.totalPrice!;
-      }
-    }
-    return total;
   }
 }

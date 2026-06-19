@@ -66,18 +66,8 @@ class OrderDetailsItem extends StatelessWidget {
           GestureDetector(
             onTap: () {
               if (orderDetail?.status != TrKeys.canceled &&
-                  orderDetail?.status != TrKeys.ended) {
-                // Get next status and update
-                final nextStatus = AppHelpers.getNextOrderStatus(
-                  orderDetail?.status ?? "",
-                );
-                onEdit.call(orderDetail?.id, nextStatus);
-              }
-            },
-            onDoubleTap: () {
-              if (orderDetail?.status != TrKeys.canceled &&
-                  orderDetail?.status != TrKeys.ended) {
-                onEdit.call(orderDetail?.id, TrKeys.canceled);
+                  orderDetail?.status != TrKeys.ready) {
+                onEdit.call(orderDetail?.id, orderDetail?.status ?? "");
               }
             },
             child: Container(
@@ -93,16 +83,16 @@ class OrderDetailsItem extends StatelessWidget {
                     style: GoogleFonts.inter(
                       fontWeight: FontWeight.w600,
                       fontSize: 16.sp,
-                      color: AppStyle.black,
+                      color: AppStyle.white,
                     ),
                   ),
                   if (orderDetail?.status != TrKeys.canceled &&
-                      orderDetail?.status != TrKeys.ended)
+                      orderDetail?.status != TrKeys.ready)
                     Padding(
                       padding: REdgeInsets.only(left: 6),
                       child: Icon(
                         FlutterRemix.pencil_fill,
-                        color: AppStyle.black,
+                        color: AppStyle.white,
                         size: 21.r,
                       ),
                     ),

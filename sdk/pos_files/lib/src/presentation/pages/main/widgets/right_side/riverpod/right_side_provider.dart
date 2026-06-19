@@ -5,5 +5,5 @@ import 'right_side_state.dart';
 
 final rightSideProvider =
     StateNotifierProvider<RightSideNotifier, RightSideState>(
-  (ref) => RightSideNotifier(),
-);
+      (ref) => RightSideNotifier(),
+    );

@@ -78,10 +78,7 @@ class ListTopBar extends StatelessWidget {
                                 height: 32.r,
                                 fit: BoxFit.fill,
                               )
-                            : const Icon(
-                                FlutterRemix.refresh_line,
-                                color: AppStyle.black,
-                              ),
+                            : const Icon(FlutterRemix.refresh_line),
                       )
                     : const SizedBox.shrink(),
               ),

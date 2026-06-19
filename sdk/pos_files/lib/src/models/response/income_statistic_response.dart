@@ -25,22 +25,22 @@ class IncomeStatisticResponse {
     StatisticModel? delivered,
     StatisticModel? canceled,
     Group? group,
-  }) =>
-      IncomeStatisticResponse(
-        incomeStatisticResponseNew:
-            incomeStatisticResponseNew ?? this.incomeStatisticResponseNew,
-        accepted: accepted ?? this.accepted,
-        ready: ready ?? this.ready,
-        onAWay: onAWay ?? this.onAWay,
-        delivered: delivered ?? this.delivered,
-        canceled: canceled ?? this.canceled,
-        group: group ?? this.group,
-      );
+  }) => IncomeStatisticResponse(
+    incomeStatisticResponseNew:
+        incomeStatisticResponseNew ?? this.incomeStatisticResponseNew,
+    accepted: accepted ?? this.accepted,
+    ready: ready ?? this.ready,
+    onAWay: onAWay ?? this.onAWay,
+    delivered: delivered ?? this.delivered,
+    canceled: canceled ?? this.canceled,
+    group: group ?? this.group,
+  );
 
   factory IncomeStatisticResponse.fromJson(Map<String, dynamic> json) =>
       IncomeStatisticResponse(
-        incomeStatisticResponseNew:
-            json["new"] == null ? null : StatisticModel.fromJson(json["new"]),
+        incomeStatisticResponseNew: json["new"] == null
+            ? null
+            : StatisticModel.fromJson(json["new"]),
         accepted: json["accepted"] == null
             ? null
             : StatisticModel.fromJson(json["accepted"]),
@@ -60,14 +60,14 @@ class IncomeStatisticResponse {
       );
 
   Map<String, dynamic> toJson() => {
-        "new": incomeStatisticResponseNew?.toJson(),
-        "accepted": accepted?.toJson(),
-        "ready": ready?.toJson(),
-        "on_a_way": onAWay?.toJson(),
-        "delivered": delivered?.toJson(),
-        "canceled": canceled?.toJson(),
-        "group": group?.toJson(),
-      };
+    "new": incomeStatisticResponseNew?.toJson(),
+    "accepted": accepted?.toJson(),
+    "ready": ready?.toJson(),
+    "on_a_way": onAWay?.toJson(),
+    "delivered": delivered?.toJson(),
+    "canceled": canceled?.toJson(),
+    "group": group?.toJson(),
+  };
 }
 
 class StatisticModel {
@@ -96,28 +96,27 @@ class Group {
     StatisticModel? active,
     StatisticModel? completed,
     StatisticModel? ended,
-  }) =>
-      Group(
-        active: active ?? this.active,
-        completed: completed ?? this.completed,
-        ended: ended ?? this.ended,
-      );
+  }) => Group(
+    active: active ?? this.active,
+    completed: completed ?? this.completed,
+    ended: ended ?? this.ended,
+  );
 
   factory Group.fromJson(Map<String, dynamic> json) => Group(
-        active: json["active"] == null
-            ? null
-            : StatisticModel.fromJson(json["active"]),
-        completed: json["completed"] == null
-            ? null
-            : StatisticModel.fromJson(json["completed"]),
-        ended: json["ended"] == null
-            ? null
-            : StatisticModel.fromJson(json["ended"]),
-      );
+    active: json["active"] == null
+        ? null
+        : StatisticModel.fromJson(json["active"]),
+    completed: json["completed"] == null
+        ? null
+        : StatisticModel.fromJson(json["completed"]),
+    ended: json["ended"] == null
+        ? null
+        : StatisticModel.fromJson(json["ended"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "active": active?.toJson(),
-        "completed": completed?.toJson(),
-        "ended": ended?.toJson(),
-      };
+    "active": active?.toJson(),
+    "completed": completed?.toJson(),
+    "ended": ended?.toJson(),
+  };
 }

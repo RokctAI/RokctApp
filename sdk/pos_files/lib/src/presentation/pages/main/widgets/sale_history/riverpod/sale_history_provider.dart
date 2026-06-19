@@ -5,5 +5,5 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final saleHistoryProvider =
     StateNotifierProvider<SaleHistoryNotifier, SaleHistoryState>(
-  (ref) => SaleHistoryNotifier(settingsRepository),
-);
+      (ref) => SaleHistoryNotifier(settingsRepository),
+    );

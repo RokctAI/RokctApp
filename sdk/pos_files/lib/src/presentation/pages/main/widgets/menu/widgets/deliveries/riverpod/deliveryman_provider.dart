@@ -5,5 +5,5 @@ import 'deliveryman_state.dart';
 
 final deliverymanProvider =
     StateNotifierProvider<DeliverymanNotifier, DeliverymanState>(
-  (ref) => DeliverymanNotifier(usersRepository),
-);
+      (ref) => DeliverymanNotifier(usersRepository),
+    );

@@ -10,18 +10,17 @@ import 'package:admin_desktop/src/presentation/pages/main/widgets/order_detail/w
 import 'package:admin_desktop/src/presentation/pages/main/widgets/order_detail/widgets/products.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/order_detail/widgets/status_screen.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/order_detail/widgets/user_information.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../../core/utils/local_storage.dart';
+import 'package:admin_desktop/src/core/utils/local_storage.dart';
 import '../../../../components/components.dart';
-import '../../../../theme/theme.dart';
 import '../../riverpod/provider/main_provider.dart';
 import 'generate_check.dart';
-import 'widgets/send_to_pickup/send_to_pickup_dialog.dart';
 
 class OrderDetailPage extends ConsumerStatefulWidget {
   final OrderData order;
@@ -47,7 +46,8 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
   Widget build(BuildContext context) {
     final state = ref.watch(orderDetailsProvider);
     num subTotal = 0;
-    subTotal = ((state.order?.totalPrice ?? 0) -
+    subTotal =
+        ((state.order?.totalPrice ?? 0) -
         (state.order?.tax ?? 0) -
         (state.order?.deliveryFee ?? 0) +
         (state.order?.totalDiscount ?? 0));
@@ -63,17 +63,10 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
                   onTap: () => ref.read(mainProvider.notifier).setOrder(null),
                   child: Row(
                     children: [
-                      Icon(
-                        FlutterRemix.arrow_left_s_line,
-                        color: AppStyle.black,
-                        size: 32.r,
-                      ),
+                      Icon(FlutterRemix.arrow_left_s_line, size: 32.r),
                       Text(
                         AppHelpers.getTranslation(TrKeys.back),
-                        style: GoogleFonts.inter(
-                          fontSize: 16.sp,
-                          color: AppStyle.black,
-                        ),
+                        style: GoogleFonts.inter(fontSize: 16.sp),
                       ),
                     ],
                   ),
@@ -81,25 +74,9 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
                 const Spacer(),
                 InvoiceDownload(orderData: state.order),
                 16.horizontalSpace,
-                if (state.order?.status == TrKeys.accepted)
-                  ConfirmButton(
-                    textColor: AppStyle.black,
-                    title: "Send to Pickup Point",
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return SendToPickupDialog(order: state.order);
-                        },
-                      );
-                    },
-                    height: 52.r,
-                  ),
-                16.horizontalSpace,
                 state.order?.status != TrKeys.delivered &&
                         LocalStorage.getUser()?.role != TrKeys.waiter
                     ? ConfirmButton(
-                        textColor: AppStyle.black,
                         title: AppHelpers.getTranslation(TrKeys.statusChanged),
                         onTap: () {
                           if (LocalStorage.getUser()?.role != TrKeys.waiter) {
@@ -182,7 +159,6 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
     BuildContext context,
   ) {
     return AlertDialog(
-      backgroundColor: AppStyle.white,
       content: PopupMenuButton<String>(
         itemBuilder: (context) {
           return [
@@ -252,14 +228,16 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
                 ref.watch(orderDetailsProvider).detailStatus == status
                     ? null
                     : ref
-                        .read(orderDetailsProvider.notifier)
-                        .updateOrderDetailStatus(
-                          status: ref.watch(orderDetailsProvider).detailStatus,
-                          id: id,
-                          success: () {
-                            Navigator.pop(context);
-                          },
-                        );
+                          .read(orderDetailsProvider.notifier)
+                          .updateOrderDetailStatus(
+                            status: ref
+                                .watch(orderDetailsProvider)
+                                .detailStatus,
+                            id: id,
+                            success: () {
+                              Navigator.pop(context);
+                            },
+                          );
               },
             ),
           ),
@@ -273,7 +251,6 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
     BuildContext context,
   ) {
     return AlertDialog(
-      backgroundColor: AppStyle.white,
       content: PopupMenuButton<String>(
         itemBuilder: (context) {
           return [
@@ -364,38 +341,40 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
               onTap: () {
                 ref.watch(orderDetailsProvider).status.isEmpty
                     ? null
-                    : ref.read(orderDetailsProvider.notifier).updateOrderStatus(
-                          status: AppHelpers.getOrderStatus(
-                            ref.watch(orderDetailsProvider).status,
-                          ),
-                          success: () {
-                            Navigator.pop(context);
-                            if (AppHelpers.getAutoPrint() &&
-                                AppHelpers.getOrderStatus(
-                                      ref.watch(orderDetailsProvider).status,
-                                    ) ==
-                                    OrderStatus.accepted) {
-                              showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return LayoutBuilder(
-                                    builder: (context, constraints) {
-                                      return SimpleDialog(
-                                        title: SizedBox(
-                                          height: constraints.maxHeight * 0.7,
-                                          width: 300.r,
-                                          child: GenerateCheckPage(
-                                            orderData: state.order,
+                    : ref
+                          .read(orderDetailsProvider.notifier)
+                          .updateOrderStatus(
+                            status: AppHelpers.getOrderStatus(
+                              ref.watch(orderDetailsProvider).status,
+                            ),
+                            success: () {
+                              Navigator.pop(context);
+                              if (AppHelpers.getAutoPrint() &&
+                                  AppHelpers.getOrderStatus(
+                                        ref.watch(orderDetailsProvider).status,
+                                      ) ==
+                                      OrderStatus.accepted) {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return LayoutBuilder(
+                                      builder: (context, constraints) {
+                                        return SimpleDialog(
+                                          title: SizedBox(
+                                            height: constraints.maxHeight * 0.7,
+                                            width: 300.r,
+                                            child: GenerateCheckPage(
+                                              orderData: state.order,
+                                            ),
                                           ),
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
-                              );
-                            }
-                          },
-                        );
+                                        );
+                                      },
+                                    );
+                                  },
+                                );
+                              }
+                            },
+                          );
               },
             ),
           ),

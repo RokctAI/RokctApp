@@ -28,20 +28,21 @@ class _SpinnerTextState extends State<SpinnerText>
   void initState() {
     super.initState();
     bottomText = widget.text;
-    _spinTextAnimationController = AnimationController(
-      duration: const Duration(milliseconds: 500),
-      vsync: this,
-    )
-      ..addListener(() => setState(() {}))
-      ..addStatusListener((AnimationStatus status) {
-        if (status == AnimationStatus.completed) {
-          setState(() {
-            bottomText = topText;
-            topText = "";
-            _spinTextAnimationController.value = 0.0;
+    _spinTextAnimationController =
+        AnimationController(
+            duration: const Duration(milliseconds: 500),
+            vsync: this,
+          )
+          ..addListener(() => setState(() {}))
+          ..addStatusListener((AnimationStatus status) {
+            if (status == AnimationStatus.completed) {
+              setState(() {
+                bottomText = topText;
+                topText = "";
+                _spinTextAnimationController.value = 0.0;
+              });
+            }
           });
-        }
-      });
 
     _spinAnimation = CurvedAnimation(
       parent: _spinTextAnimationController,

@@ -15,7 +15,7 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
   final UsersRepository _usersRepository;
 
   OrderDetailsNotifier(this._ordersRepository, this._usersRepository)
-      : super(const OrderDetailsState());
+    : super(const OrderDetailsState());
   Timer? _searchUsersTimer;
 
   Future<void> updateOrderStatus({

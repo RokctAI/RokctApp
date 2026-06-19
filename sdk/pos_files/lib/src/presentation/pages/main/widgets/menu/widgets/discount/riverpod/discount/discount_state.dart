@@ -5,7 +5,7 @@ import '../../../../../../../../../models/data/discount_data.dart';
 part 'discount_state.freezed.dart';
 
 @freezed
-class DiscountState with _$DiscountState {
+abstract class DiscountState with _$DiscountState {
   const factory DiscountState({
     @Default(false) bool isLoading,
     @Default(true) bool hasMore,

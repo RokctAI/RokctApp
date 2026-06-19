@@ -1,4 +1,5 @@
 // ignore_for_file: must_be_immutable
+
 import 'package:admin_desktop/src/core/constants/constants.dart';
 import 'package:admin_desktop/src/core/utils/app_helpers.dart';
 import 'package:admin_desktop/src/core/utils/app_validators.dart';
@@ -15,7 +16,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:multi_dropdown/multiselect_dropdown.dart';
+import 'package:multi_dropdown/multi_dropdown.dart';
 import '../../../../components/custom_scaffold.dart';
 import 'select_map.dart';
 import 'widget/delivery_time.dart';
@@ -28,11 +29,11 @@ class EditShop extends ConsumerStatefulWidget {
 }
 
 class _EditShopState extends ConsumerState<EditShop> {
-  List<ValueItem> selectedType = [];
-  List<ValueItem> selectedCategory = [];
-  List<ValueItem> selectedTag = [];
-  List<ValueItem> categoryItem = [];
-  List<ValueItem> tagItem = [];
+  List<DropdownItem<String>> selectedType = [];
+  List<DropdownItem<String>> selectedCategory = [];
+  List<DropdownItem<String>> selectedTag = [];
+  List<DropdownItem<String>> categoryItem = [];
+  List<DropdownItem<String>> tagItem = [];
   MultiSelectController controller = MultiSelectController();
 
   final _formKey = GlobalKey<FormState>();
@@ -41,36 +42,38 @@ class _EditShopState extends ConsumerState<EditShop> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (ref.watch(shopProvider).isUpdate) {
-        ref.read(shopProvider.notifier).fetchShopData(
-          onSuccess: () {
-            final state = ref.watch(shopProvider);
-            state.categories?.data?.forEach((element) {
-              categoryItem.add(
-                ValueItem(
-                  label: element.translation?.title ?? "",
-                  value: element.id.toString(),
-                ),
-              );
-            });
-            state.editShopData?.categoryData?.forEach((element) {
-              selectedCategory.add(
-                ValueItem(
-                  label: element.translation?.title ?? "",
-                  value: element.id.toString(),
-                ),
-              );
-            });
+        ref
+            .read(shopProvider.notifier)
+            .fetchShopData(
+              onSuccess: () {
+                final state = ref.watch(shopProvider);
+                state.categories?.data?.forEach((element) {
+                  categoryItem.add(
+                    DropdownItem(
+                      label: element.translation?.title ?? "",
+                      value: element.id.toString(),
+                    ),
+                  );
+                });
+                state.editShopData?.categoryData?.forEach((element) {
+                  selectedCategory.add(
+                    DropdownItem(
+                      label: element.translation?.title ?? "",
+                      value: element.id.toString(),
+                    ),
+                  );
+                });
 
-            state.tag?.data?.forEach((element) {
-              tagItem.add(
-                ValueItem(
-                  label: element.translation?.title ?? "",
-                  value: element.id.toString(),
-                ),
-              );
-            });
-          },
-        );
+                state.tag?.data?.forEach((element) {
+                  tagItem.add(
+                    DropdownItem(
+                      label: element.translation?.title ?? "",
+                      value: element.id.toString(),
+                    ),
+                  );
+                });
+              },
+            );
       }
     });
     super.initState();
@@ -246,23 +249,42 @@ class _EditShopState extends ConsumerState<EditShop> {
                                         ),
                                       ),
                                       4.verticalSpace,
-                                      MultiSelectDropDown(
-                                        borderColor: AppStyle.border,
-                                        borderRadius: 10,
-                                        onOptionSelected:
-                                            (List<ValueItem> selectedOptions) {
-                                          selectedTag = selectedOptions;
+                                      MultiDropdown(
+                                        items: tagItem,
+                                        onSelectionChange: (selectedOptions) {
+                                          selectedTag = selectedOptions
+                                              .cast<DropdownItem<String>>();
                                         },
-                                        options: tagItem,
-                                        selectedOptions: selectedTag,
-                                        selectionType: SelectionType.multi,
-                                        dropdownHeight: 220.h,
-                                        optionTextStyle: const TextStyle(
-                                          fontSize: 16,
+
+                                        fieldDecoration: FieldDecoration(
+                                          hintStyle: const TextStyle(
+                                            fontSize: 16,
+                                          ),
+                                          border: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: AppStyle.border,
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                              10,
+                                            ),
+                                          ),
+                                          borderRadius: 10,
                                         ),
-                                        selectedOptionIcon: const Icon(
-                                          Icons.check_circle,
-                                        ),
+                                        // borderColor: AppStyle.border,
+                                        // borderRadius: 10,
+                                        // onOptionSelected: (List<DropdownItem>
+                                        //     selectedOptions) {
+                                        //   selectedTag = selectedOptions;
+                                        // },
+                                        // options: tagItem,
+                                        // selectedOptions: selectedTag,
+                                        // selectionType:
+                                        //     SelectionType.multi,
+                                        // dropdownHeight: 220.h,
+                                        // optionTextStyle:
+                                        //     const TextStyle(fontSize: 16),
+                                        // selectedOptionIcon: const Icon(
+                                        //     Icons.check_circle),
                                       ),
                                     ],
                                   ),
@@ -276,7 +298,9 @@ class _EditShopState extends ConsumerState<EditShop> {
                                   OutlinedBorderTextField(
                                     maxLine: 6,
                                     initialText: state
-                                        .editShopData?.translation?.description,
+                                        .editShopData
+                                        ?.translation
+                                        ?.description,
                                     onChanged: notifier.setDescription,
                                     label: AppHelpers.getTranslation(
                                       TrKeys.description,
@@ -293,23 +317,43 @@ class _EditShopState extends ConsumerState<EditShop> {
                                         ),
                                       ),
                                       4.verticalSpace,
-                                      MultiSelectDropDown(
-                                        borderColor: AppStyle.border,
-                                        borderRadius: 10,
-                                        onOptionSelected:
-                                            (List<ValueItem> selectedOptions) {
-                                          selectedCategory = selectedOptions;
+                                      MultiDropdown(
+                                        items: categoryItem,
+                                        onSelectionChange: (selectedOptions) {
+                                          selectedCategory = selectedOptions
+                                              .cast<DropdownItem<String>>();
                                         },
-                                        options: categoryItem,
-                                        selectedOptions: selectedCategory,
-                                        selectionType: SelectionType.multi,
-                                        dropdownHeight: 220.h,
-                                        optionTextStyle: const TextStyle(
-                                          fontSize: 16,
+
+                                        fieldDecoration: FieldDecoration(
+                                          hintStyle: const TextStyle(
+                                            fontSize: 16,
+                                          ),
+                                          border: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: AppStyle.border,
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                              10,
+                                            ),
+                                          ),
+                                          borderRadius: 10,
                                         ),
-                                        selectedOptionIcon: const Icon(
-                                          Icons.check_circle,
-                                        ),
+                                        // borderColor: AppStyle.border,
+                                        // borderRadius: 10,
+                                        // onOptionSelected: (List<DropdownItem>
+                                        //     selectedOptions) {
+                                        //   selectedCategory =
+                                        //       selectedOptions;
+                                        // },
+                                        // options: categoryItem,
+                                        // selectedOptions: selectedCategory,
+                                        // selectionType:
+                                        //     SelectionType.multi,
+                                        // dropdownHeight: 220.h,
+                                        // optionTextStyle:
+                                        //     const TextStyle(fontSize: 16),
+                                        // selectedOptionIcon: const Icon(
+                                        //     Icons.check_circle),
                                       ),
                                     ],
                                   ),
@@ -359,8 +403,8 @@ class _EditShopState extends ConsumerState<EditShop> {
                                       FilteringTextInputFormatter.digitsOnly,
                                     ],
                                     validator: AppValidators.emptyCheck,
-                                    initialText:
-                                        state.editShopData?.price.toString(),
+                                    initialText: state.editShopData?.price
+                                        .toString(),
                                     label: AppHelpers.getTranslation(
                                       TrKeys.minPrice,
                                     ),
@@ -391,39 +435,65 @@ class _EditShopState extends ConsumerState<EditShop> {
                                         ),
                                       ),
                                       4.verticalSpace,
-                                      MultiSelectDropDown(
-                                        hintStyle: const TextStyle(
-                                          fontSize: 16,
-                                        ),
-                                        borderColor: AppStyle.border,
-                                        borderRadius: 10,
-                                        onOptionSelected:
-                                            (List<ValueItem> selectedOptions) {
-                                          selectedType = selectedOptions;
-                                        },
-                                        selectedOptions: selectedType,
-                                        options: [
-                                          ValueItem(
+                                      MultiDropdown(
+                                        items: [
+                                          DropdownItem(
                                             label: AppHelpers.getTranslation(
                                               TrKeys.hour,
                                             ),
                                             value: "hour",
                                           ),
-                                          ValueItem(
+                                          DropdownItem(
                                             label: AppHelpers.getTranslation(
                                               TrKeys.minut,
                                             ),
                                             value: "minute",
                                           ),
                                         ],
-                                        selectionType: SelectionType.single,
-                                        dropdownHeight: 220.h,
-                                        optionTextStyle: const TextStyle(
-                                          fontSize: 16,
+                                        onSelectionChange: (selectedOptions) {
+                                          selectedType = selectedOptions
+                                              .cast<DropdownItem<String>>();
+                                        },
+
+                                        fieldDecoration: FieldDecoration(
+                                          border: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: AppStyle.border,
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                              10,
+                                            ),
+                                          ),
+                                          borderRadius: 10,
                                         ),
-                                        selectedOptionIcon: const Icon(
-                                          Icons.check_circle,
-                                        ),
+
+                                        // hintStyle:
+                                        //     const TextStyle(fontSize: 16),
+                                        // borderColor: AppStyle.border,
+                                        // borderRadius: 10,
+                                        // onOptionSelected: (List<ValueItem>
+                                        //     selectedOptions) {
+                                        //   selectedType = selectedOptions;
+                                        // },
+                                        // selectedOptions: selectedType,
+                                        // options: [
+                                        //   ValueItem(
+                                        //       label:
+                                        //           AppHelpers.getTranslation(
+                                        //               TrKeys.hour),
+                                        //       value: "hour"),
+                                        //   ValueItem(
+                                        //       label:
+                                        //           AppHelpers.getTranslation(
+                                        //               TrKeys.minut),
+                                        //       value: "minute")
+                                        // ],
+                                        // selectionType: SelectionType.single,
+                                        // dropdownHeight: 220.h,
+                                        // optionTextStyle:
+                                        //     const TextStyle(fontSize: 16),
+                                        // selectedOptionIcon:
+                                        //     const Icon(Icons.check_circle),
                                       ),
                                     ],
                                   ),

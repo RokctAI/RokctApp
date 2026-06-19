@@ -12,24 +12,48 @@ class GalleryRepository implements GalleryRepositoryFacade {
   @override
   Future<ApiResult<GalleryUploadResponse>> uploadImage(
     String file,
-    String docType,
-    String docName,
+    UploadType uploadType,
   ) async {
+    String type = '';
+    switch (uploadType) {
+      case UploadType.brands:
+        type = 'brands';
+        break;
+      case UploadType.extras:
+        type = 'extras';
+        break;
+      case UploadType.categories:
+        type = 'categories';
+        break;
+      case UploadType.shopsLogo:
+        type = 'shops/logo';
+        break;
+      case UploadType.shopsBack:
+        type = 'shops/background';
+        break;
+      case UploadType.products:
+        type = 'products';
+        break;
+      case UploadType.reviews:
+        type = 'reviews';
+        break;
+      case UploadType.users:
+        type = 'users';
+        break;
+      case UploadType.discounts:
+        type = 'discounts';
+        break;
+    }
     final data = FormData.fromMap({
-      'file': await MultipartFile.fromFile(file),
-      'doctype': docType,
-      'docname': docName,
-      'is_private': 0,
+      'image': await MultipartFile.fromFile(file),
+      'type': type,
     });
     try {
       final client = dioHttp.client(requireAuth: true);
-      // NOTE: Using Frappe's standard file upload method
       final response = await client.post(
-        '/api/v1/method/upload_file',
+        '/api/v1/dashboard/galleries',
         data: data,
       );
-      // The response will contain the file URL, which needs to be saved
-      // to the appropriate document in a separate API call.
       return ApiResult.success(
         data: GalleryUploadResponse.fromJson(response.data),
       );
@@ -39,13 +63,41 @@ class GalleryRepository implements GalleryRepositoryFacade {
     }
   }
 
-  // NOTE: The `uploadMultiImage` method is no longer needed, as multiple
-  // images can be uploaded by calling `uploadImage` multiple times.
   @override
   Future<ApiResult<MultiGalleryUploadResponse>> uploadMultiImage(
     List<String?> filePaths,
     UploadType uploadType,
-  ) {
-    throw UnimplementedError();
+  ) async {
+    String type = '';
+    switch (uploadType) {
+      case UploadType.shopsLogo:
+        type = 'shops/logo';
+        break;
+      case UploadType.shopsBack:
+        type = 'shops/background';
+        break;
+      default:
+        type = uploadType.name;
+        break;
+    }
+    final data = FormData.fromMap({
+      for (int i = 0; i < filePaths.length; i++)
+        if (filePaths[i] != null)
+          'images[$i]': await MultipartFile.fromFile(filePaths[i]!),
+      'type': type,
+    });
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      final response = await client.post(
+        '/api/v1/dashboard/galleries/store-many',
+        data: data,
+      );
+      return ApiResult.success(
+        data: MultiGalleryUploadResponse.fromJson(response.data),
+      );
+    } catch (e, s) {
+      debugPrint('==> upload multi image failure: $e, $s');
+      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+    }
   }
 }

@@ -111,20 +111,19 @@ class CategoryData {
     String? updatedAt,
     Translation? translation,
     List<CategoryData>? children,
-  }) =>
-      CategoryData(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        keywords: keywords ?? _keywords,
-        parentId: parentId ?? _parentId,
-        type: type ?? _type,
-        img: img ?? _img,
-        active: active ?? _active,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        translation: translation ?? _translation,
-        children: children ?? _children,
-      );
+  }) => CategoryData(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    keywords: keywords ?? _keywords,
+    parentId: parentId ?? _parentId,
+    type: type ?? _type,
+    img: img ?? _img,
+    active: active ?? _active,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    translation: translation ?? _translation,
+    children: children ?? _children,
+  );
 
   int? get id => _id;
 

@@ -55,20 +55,19 @@ class ReadOneNotificationModel {
     DateTime? readAt,
     User? user,
     Client? client,
-  }) =>
-      ReadOneNotificationModel(
-        id: id ?? this.id,
-        type: type ?? this.type,
-        title: title ?? this.title,
-        body: body ?? this.body,
-        data: data ?? this.data,
-        userId: userId ?? this.userId,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-        readAt: readAt ?? this.readAt,
-        user: user ?? this.user,
-        client: client ?? this.client,
-      );
+  }) => ReadOneNotificationModel(
+    id: id ?? this.id,
+    type: type ?? this.type,
+    title: title ?? this.title,
+    body: body ?? this.body,
+    data: data ?? this.data,
+    userId: userId ?? this.userId,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    readAt: readAt ?? this.readAt,
+    user: user ?? this.user,
+    client: client ?? this.client,
+  );
 
   factory ReadOneNotificationModel.fromJson(Map<String, dynamic> json) =>
       ReadOneNotificationModel(
@@ -92,18 +91,18 @@ class ReadOneNotificationModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "type": type,
-        "title": title,
-        "body": body,
-        "data": data?.toJson(),
-        "user_id": userId,
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-        "read_at": readAt?.toIso8601String(),
-        "user": user?.toJson(),
-        "client": client?.toJson(),
-      };
+    "id": id,
+    "type": type,
+    "title": title,
+    "body": body,
+    "data": data?.toJson(),
+    "user_id": userId,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+    "read_at": readAt?.toIso8601String(),
+    "user": user?.toJson(),
+    "client": client?.toJson(),
+  };
 }
 
 class Client {
@@ -130,33 +129,32 @@ class Client {
     bool? emptyP,
     int? active,
     String? role,
-  }) =>
-      Client(
-        id: id ?? this.id,
-        firstname: firstname ?? this.firstname,
-        lastname: lastname ?? this.lastname,
-        emptyP: emptyP ?? this.emptyP,
-        active: active ?? this.active,
-        role: role ?? this.role,
-      );
+  }) => Client(
+    id: id ?? this.id,
+    firstname: firstname ?? this.firstname,
+    lastname: lastname ?? this.lastname,
+    emptyP: emptyP ?? this.emptyP,
+    active: active ?? this.active,
+    role: role ?? this.role,
+  );
 
   factory Client.fromJson(Map<String, dynamic> json) => Client(
-        id: json["id"],
-        firstname: json["firstname"],
-        lastname: json["lastname"],
-        emptyP: json["empty_p"],
-        active: json["active"],
-        role: json["role"],
-      );
+    id: json["id"],
+    firstname: json["firstname"],
+    lastname: json["lastname"],
+    emptyP: json["empty_p"],
+    active: json["active"],
+    role: json["role"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "firstname": firstname,
-        "lastname": lastname,
-        "empty_p": emptyP,
-        "active": active,
-        "role": role,
-      };
+    "id": id,
+    "firstname": firstname,
+    "lastname": lastname,
+    "empty_p": emptyP,
+    "active": active,
+    "role": role,
+  };
 }
 
 class DataData {
@@ -167,10 +165,10 @@ class DataData {
   DataData({this.id, this.type, this.status});
 
   DataData copyWith({int? id, String? type, String? status}) => DataData(
-        id: id ?? this.id,
-        type: type ?? this.type,
-        status: status ?? this.status,
-      );
+    id: id ?? this.id,
+    type: type ?? this.type,
+    status: status ?? this.status,
+  );
 
   factory DataData.fromJson(Map<String, dynamic> json) =>
       DataData(id: json["id"], type: json["type"], status: json["status"]);
@@ -235,74 +233,73 @@ class User {
     DateTime? registeredAt,
     DateTime? createdAt,
     DateTime? updatedAt,
-  }) =>
-      User(
-        id: id ?? this.id,
-        uuid: uuid ?? this.uuid,
-        firstname: firstname ?? this.firstname,
-        lastname: lastname ?? this.lastname,
-        emptyP: emptyP ?? this.emptyP,
-        email: email ?? this.email,
-        phone: phone ?? this.phone,
-        birthday: birthday ?? this.birthday,
-        gender: gender ?? this.gender,
-        active: active ?? this.active,
-        img: img ?? this.img,
-        myReferral: myReferral ?? this.myReferral,
-        role: role ?? this.role,
-        emailVerifiedAt: emailVerifiedAt ?? this.emailVerifiedAt,
-        registeredAt: registeredAt ?? this.registeredAt,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  }) => User(
+    id: id ?? this.id,
+    uuid: uuid ?? this.uuid,
+    firstname: firstname ?? this.firstname,
+    lastname: lastname ?? this.lastname,
+    emptyP: emptyP ?? this.emptyP,
+    email: email ?? this.email,
+    phone: phone ?? this.phone,
+    birthday: birthday ?? this.birthday,
+    gender: gender ?? this.gender,
+    active: active ?? this.active,
+    img: img ?? this.img,
+    myReferral: myReferral ?? this.myReferral,
+    role: role ?? this.role,
+    emailVerifiedAt: emailVerifiedAt ?? this.emailVerifiedAt,
+    registeredAt: registeredAt ?? this.registeredAt,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-        id: json["id"],
-        uuid: json["uuid"],
-        firstname: json["firstname"],
-        lastname: json["lastname"],
-        emptyP: json["empty_p"],
-        email: json["email"],
-        phone: json["phone"],
-        birthday: json["birthday"] == null
-            ? null
-            : DateTime.tryParse(json["birthday"])?.toLocal(),
-        gender: json["gender"],
-        active: json["active"],
-        img: json["img"],
-        myReferral: json["my_referral"],
-        role: json["role"],
-        emailVerifiedAt: json["email_verified_at"] == null
-            ? null
-            : DateTime.tryParse(json["email_verified_at"])?.toLocal(),
-        registeredAt: json["registered_at"] == null
-            ? null
-            : DateTime.tryParse(json["registered_at"])?.toLocal(),
-        createdAt: json["created_at"] == null
-            ? null
-            : DateTime.tryParse(json["created_at"])?.toLocal(),
-        updatedAt: json["updated_at"] == null
-            ? null
-            : DateTime.tryParse(json["updated_at"])?.toLocal(),
-      );
+    id: json["id"],
+    uuid: json["uuid"],
+    firstname: json["firstname"],
+    lastname: json["lastname"],
+    emptyP: json["empty_p"],
+    email: json["email"],
+    phone: json["phone"],
+    birthday: json["birthday"] == null
+        ? null
+        : DateTime.tryParse(json["birthday"])?.toLocal(),
+    gender: json["gender"],
+    active: json["active"],
+    img: json["img"],
+    myReferral: json["my_referral"],
+    role: json["role"],
+    emailVerifiedAt: json["email_verified_at"] == null
+        ? null
+        : DateTime.tryParse(json["email_verified_at"])?.toLocal(),
+    registeredAt: json["registered_at"] == null
+        ? null
+        : DateTime.tryParse(json["registered_at"])?.toLocal(),
+    createdAt: json["created_at"] == null
+        ? null
+        : DateTime.tryParse(json["created_at"])?.toLocal(),
+    updatedAt: json["updated_at"] == null
+        ? null
+        : DateTime.tryParse(json["updated_at"])?.toLocal(),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "uuid": uuid,
-        "firstname": firstname,
-        "lastname": lastname,
-        "empty_p": emptyP,
-        "email": email,
-        "phone": phone,
-        "birthday": birthday?.toIso8601String(),
-        "gender": gender,
-        "active": active,
-        "img": img,
-        "my_referral": myReferral,
-        "role": role,
-        "email_verified_at": emailVerifiedAt?.toIso8601String(),
-        "registered_at": registeredAt?.toIso8601String(),
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-      };
+    "id": id,
+    "uuid": uuid,
+    "firstname": firstname,
+    "lastname": lastname,
+    "empty_p": emptyP,
+    "email": email,
+    "phone": phone,
+    "birthday": birthday?.toIso8601String(),
+    "gender": gender,
+    "active": active,
+    "img": img,
+    "my_referral": myReferral,
+    "role": role,
+    "email_verified_at": emailVerifiedAt?.toIso8601String(),
+    "registered_at": registeredAt?.toIso8601String(),
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+  };
 }

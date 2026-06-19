@@ -13,12 +13,11 @@ class OrderKitchenResponse {
     List<OrderData>? orders,
     Links? links,
     Meta? meta,
-  }) =>
-      OrderKitchenResponse(
-        orders: orders ?? this.orders,
-        links: links ?? this.links,
-        meta: meta ?? this.meta,
-      );
+  }) => OrderKitchenResponse(
+    orders: orders ?? this.orders,
+    links: links ?? this.links,
+    meta: meta ?? this.meta,
+  );
 
   factory OrderKitchenResponse.fromJson(Map<String, dynamic> json) =>
       OrderKitchenResponse(
@@ -32,12 +31,12 @@ class OrderKitchenResponse {
       );
 
   Map<String, dynamic> toJson() => {
-        "data": orders == null
-            ? []
-            : List<dynamic>.from(orders!.map((x) => x.toJson())),
-        "links": links?.toJson(),
-        "meta": meta?.toJson(),
-      };
+    "data": orders == null
+        ? []
+        : List<dynamic>.from(orders!.map((x) => x.toJson())),
+    "links": links?.toJson(),
+    "meta": meta?.toJson(),
+  };
 }
 
 class KitchenModel {
@@ -53,27 +52,26 @@ class KitchenModel {
     int? active,
     int? shopId,
     Translation? translation,
-  }) =>
-      KitchenModel(
-        id: id ?? this.id,
-        active: active ?? this.active,
-        shopId: shopId ?? this.shopId,
-        translation: translation ?? this.translation,
-      );
+  }) => KitchenModel(
+    id: id ?? this.id,
+    active: active ?? this.active,
+    shopId: shopId ?? this.shopId,
+    translation: translation ?? this.translation,
+  );
 
   factory KitchenModel.fromJson(Map<String, dynamic> json) => KitchenModel(
-        id: json["id"],
-        active: json["active"],
-        shopId: json["shop_id"],
-        translation: json["translation"] == null
-            ? null
-            : Translation.fromJson(json["translation"]),
-      );
+    id: json["id"],
+    active: json["active"],
+    shopId: json["shop_id"],
+    translation: json["translation"] == null
+        ? null
+        : Translation.fromJson(json["translation"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "active": active,
-        "shop_id": shopId,
-        "translation": translation?.toJson(),
-      };
+    "id": id,
+    "active": active,
+    "shop_id": shopId,
+    "translation": translation?.toJson(),
+  };
 }

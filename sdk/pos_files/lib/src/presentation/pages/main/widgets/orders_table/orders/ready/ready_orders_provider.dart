@@ -6,5 +6,5 @@ import 'ready_orders_notifier.dart';
 
 final readyOrdersProvider =
     StateNotifierProvider<ReadyOrdersNotifier, ReadyOrdersState>(
-  (ref) => ReadyOrdersNotifier(ordersRepository),
-);
+      (ref) => ReadyOrdersNotifier(ordersRepository),
+    );

@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-import '../../../../../../core/constants/constants.dart';
-import '../../../../../theme/theme.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 
 class StatisticPage extends StatelessWidget {
   final IncomeStatisticResponse? statistic;
@@ -16,7 +16,7 @@ class StatisticPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        height: 290.r,
+        height: 360.r,
         padding: EdgeInsets.symmetric(horizontal: 20.r, vertical: 30.r),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
@@ -30,7 +30,6 @@ class StatisticPage extends StatelessWidget {
               style: GoogleFonts.inter(
                 fontSize: 22.sp,
                 fontWeight: FontWeight.w600,
-                color: AppStyle.black,
               ),
             ),
             24.verticalSpace,
@@ -47,10 +46,7 @@ class StatisticPage extends StatelessWidget {
                 6.horizontalSpace,
                 Text(
                   AppHelpers.getTranslation(TrKeys.accepted),
-                  style: GoogleFonts.inter(
-                    fontSize: 14.sp,
-                    color: AppStyle.black,
-                  ),
+                  style: GoogleFonts.inter(fontSize: 14.sp),
                 ),
                 24.horizontalSpace,
                 Container(
@@ -64,10 +60,7 @@ class StatisticPage extends StatelessWidget {
                 6.horizontalSpace,
                 Text(
                   AppHelpers.getTranslation(TrKeys.ready),
-                  style: GoogleFonts.inter(
-                    fontSize: 14.sp,
-                    color: AppStyle.black,
-                  ),
+                  style: GoogleFonts.inter(fontSize: 14.sp),
                 ),
                 24.horizontalSpace,
                 Container(
@@ -81,10 +74,7 @@ class StatisticPage extends StatelessWidget {
                 6.horizontalSpace,
                 Text(
                   AppHelpers.getTranslation(TrKeys.onAWay),
-                  style: GoogleFonts.inter(
-                    fontSize: 14.sp,
-                    color: AppStyle.black,
-                  ),
+                  style: GoogleFonts.inter(fontSize: 14.sp),
                 ),
                 24.horizontalSpace,
                 Container(
@@ -98,10 +88,7 @@ class StatisticPage extends StatelessWidget {
                 6.horizontalSpace,
                 Text(
                   AppHelpers.getTranslation(TrKeys.delivered),
-                  style: GoogleFonts.inter(
-                    fontSize: 14.sp,
-                    color: AppStyle.black,
-                  ),
+                  style: GoogleFonts.inter(fontSize: 14.sp),
                 ),
                 24.horizontalSpace,
                 Container(
@@ -115,10 +102,7 @@ class StatisticPage extends StatelessWidget {
                 6.horizontalSpace,
                 Text(
                   AppHelpers.getTranslation(TrKeys.cancel),
-                  style: GoogleFonts.inter(
-                    fontSize: 14.sp,
-                    color: AppStyle.black,
-                  ),
+                  style: GoogleFonts.inter(fontSize: 14.sp),
                 ),
               ],
             ),

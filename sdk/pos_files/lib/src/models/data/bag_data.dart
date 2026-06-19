@@ -73,17 +73,16 @@ class BagData {
     CurrencyData? selectedCurrency,
     PaymentData? selectedPayment,
     List<BagProductData>? bagProducts,
-  }) =>
-      BagData(
-        index: index ?? _index,
-        selectedUser: selectedUser,
-        selectedSection: selectedSection,
-        selectedTable: selectedTable,
-        selectedAddress: selectedAddress,
-        selectedCurrency: selectedCurrency ?? _selectedCurrency,
-        selectedPayment: selectedPayment ?? _selectedPayment,
-        bagProducts: bagProducts ?? _bagProducts,
-      );
+  }) => BagData(
+    index: index ?? _index,
+    selectedUser: selectedUser,
+    selectedSection: selectedSection,
+    selectedTable: selectedTable,
+    selectedAddress: selectedAddress,
+    selectedCurrency: selectedCurrency ?? _selectedCurrency,
+    selectedPayment: selectedPayment ?? _selectedPayment,
+    bagProducts: bagProducts ?? _bagProducts,
+  );
 
   int? get index => _index;
 

@@ -92,7 +92,9 @@ class _AddNewSectionState extends ConsumerState<AddNewSection> {
                     title: AppHelpers.getTranslation(TrKeys.create),
                     onPressed: () {
                       if (formKey.currentState?.validate() ?? false) {
-                        ref.read(tablesProvider.notifier).addNewSection(
+                        ref
+                            .read(tablesProvider.notifier)
+                            .addNewSection(
                               name: name.text,
                               area: double.tryParse(area.text) ?? 0,
                               context: context,

@@ -13,7 +13,8 @@ class _ThemePreference {
   }
 
   CustomThemeMode getMode() {
-    final modeKey = _preferences.getString(_ThemePreference.prefKey) ??
+    final modeKey =
+        _preferences.getString(_ThemePreference.prefKey) ??
         CustomThemeMode.light.toKey;
 
     return CustomThemeModeX.toValue(modeKey);

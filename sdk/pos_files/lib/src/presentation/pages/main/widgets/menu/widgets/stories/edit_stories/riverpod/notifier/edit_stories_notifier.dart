@@ -12,7 +12,7 @@ class EditStoriesNotifier extends StateNotifier<EditStoriesState> {
   final GalleryRepositoryFacade _galleryRepository;
 
   EditStoriesNotifier(this._storiesRepository, this._galleryRepository)
-      : super(EditStoriesState(textEditingController: TextEditingController()));
+    : super(EditStoriesState(textEditingController: TextEditingController()));
 
   Future<void> updateStories(
     BuildContext context, {

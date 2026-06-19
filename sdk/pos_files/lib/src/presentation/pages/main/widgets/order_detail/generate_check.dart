@@ -3,17 +3,16 @@
 import 'package:admin_desktop/src/core/constants/constants.dart';
 import 'package:admin_desktop/src/core/utils/app_helpers.dart';
 import 'package:admin_desktop/src/core/utils/time_service.dart';
+import 'package:admin_desktop/src/core/utils/utils.dart';
 import 'package:admin_desktop/src/models/data/addons_data.dart';
 import 'package:admin_desktop/src/models/data/order_data.dart';
 import 'package:admin_desktop/src/presentation/components/components.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/order_detail/print_page.dart';
-import 'package:admin_desktop/src/core/utils/local_storage.dart';
-
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../../theme/theme.dart';
 
 class GenerateCheckPage extends StatefulWidget {
   final OrderData? orderData;
@@ -28,27 +27,11 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
   @override
   Widget build(BuildContext context) {
     num subTotal = 0;
-    subTotal = ((widget.orderData?.totalPrice ?? 0) -
+    subTotal =
+        ((widget.orderData?.totalPrice ?? 0) -
         (widget.orderData?.tax ?? 0) -
         (widget.orderData?.deliveryFee ?? 0) +
         (widget.orderData?.totalDiscount ?? 0));
-
-    // Get current user safely
-    final currentUser = LocalStorage.getUser();
-    final currentUserName = currentUser?.firstname ?? "";
-
-    // Get order user safely
-    final orderUser = widget.orderData?.user;
-    final orderUserName = orderUser?.firstname ?? "";
-
-    // Show client row if either:
-    // 1. Current user is logged in and different from order user
-    // 2. Order has a user but current user is not logged in
-    final shouldShowClientRow = (currentUser != null &&
-            orderUser != null &&
-            currentUserName != orderUserName) ||
-        (currentUser == null && orderUser != null);
-
     return Container(
       decoration: BoxDecoration(
         color: AppStyle.white,
@@ -65,16 +48,14 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
               style: GoogleFonts.inter(
                 fontSize: 22.sp,
                 fontWeight: FontWeight.w600,
-                color: AppStyle.black,
               ),
             ),
             8.verticalSpace,
             Text(
-              "№${widget.orderData?.id}",
+              "${AppHelpers.getTranslation(TrKeys.order)} #${AppHelpers.getTranslation(TrKeys.id)}${widget.orderData?.id}",
               style: GoogleFonts.inter(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
-                color: AppStyle.black,
               ),
             ),
             12.verticalSpace,
@@ -101,7 +82,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                     style: GoogleFonts.inter(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
-                      color: AppStyle.black,
                     ),
                   ),
                 ),
@@ -110,39 +90,34 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    color: AppStyle.black,
                   ),
                 ),
               ],
             ),
             8.verticalSpace,
-            if (shouldShowClientRow) ...[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: 100.w,
-                    child: Text(
-                      AppHelpers.getTranslation(TrKeys.client),
-                      style: GoogleFonts.inter(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        color: AppStyle.black,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    "${orderUser?.firstname ?? ""} ${orderUser?.lastname ?? ""}",
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: 100.w,
+                  child: Text(
+                    AppHelpers.getTranslation(TrKeys.client),
                     style: GoogleFonts.inter(
                       fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                      color: AppStyle.black,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                ],
-              ),
-              8.verticalSpace,
-            ],
+                ),
+                Text(
+                  "${widget.orderData?.user?.firstname ?? ""} ${widget.orderData?.user?.lastname ?? ""}",
+                  style: GoogleFonts.inter(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
+            8.verticalSpace,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -153,7 +128,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                     style: GoogleFonts.inter(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
-                      color: AppStyle.black,
                     ),
                   ),
                 ),
@@ -162,7 +136,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
-                    color: AppStyle.black,
                   ),
                 ),
               ],
@@ -175,6 +148,7 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
               shrinkWrap: true,
               itemCount: widget.orderData?.details?.length ?? 0,
               itemBuilder: (context, index) {
+                final detail = widget.orderData?.details?[index];
                 return Padding(
                   padding: EdgeInsets.only(bottom: 16.r),
                   child: Column(
@@ -187,20 +161,44 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "${widget.orderData?.details?[index].stock?.product?.translation?.title ?? ""} x ${widget.orderData?.details?[index].quantity ?? ""}",
-                                  style: GoogleFonts.inter(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 14.sp,
-                                    color: AppStyle.black,
+                                RichText(
+                                  text: TextSpan(
+                                    text: detail
+                                        ?.stock
+                                        ?.product
+                                        ?.translation
+                                        ?.title,
+                                    style: GoogleFonts.inter(
+                                      fontSize: 14.sp,
+                                      color: AppStyle.black,
+                                    ),
+                                    children: [
+                                      if (detail?.stock?.extras?.isNotEmpty ??
+                                          false)
+                                        ...?detail?.stock?.extras?.map(
+                                          (e) => TextSpan(
+                                            text: " (${e.value ?? ""})",
+                                            style: GoogleFonts.inter(
+                                              fontSize: 14.sp,
+                                              color: AppStyle.black,
+                                            ),
+                                          ),
+                                        ),
+                                      TextSpan(
+                                        text:
+                                            " x ${widget.orderData?.details?[index].quantity ?? ""}",
+                                        style: GoogleFonts.inter(
+                                          fontSize: 14.sp,
+                                          color: AppStyle.black,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                                 6.verticalSpace,
-                                for (Addons e in (widget
-                                        .orderData?.details?[index].addons ??
-                                    []))
+                                for (Addons e in (detail?.addons ?? []))
                                   Text(
-                                    "${e.stocks?.product?.translation?.title ?? ""} ( ${AppHelpers.numberFormat((e.price ?? 0) / (e.quantity ?? 1), symbol: widget.orderData?.currency?.symbol ?? "")} x ${(e.quantity ?? 1)} )",
+                                    "${e.stocks?.product?.translation?.title ?? ""} ( ${AppHelpers.numberFormat((e.price ?? 0) / (e.quantity ?? 1), currency: widget.orderData?.currency)} x ${(e.quantity ?? 1)} )",
                                     style: GoogleFonts.inter(
                                       fontSize: 14.sp,
                                       color: AppStyle.unselectedTab,
@@ -209,10 +207,11 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                               ],
                             ),
                           ),
+                          4.horizontalSpace,
                           Text(
                             AppHelpers.numberFormat(
-                              widget.orderData?.details?[index].totalPrice ?? 0,
-                              symbol: widget.orderData?.currency?.symbol,
+                              detail?.totalPrice,
+                              currency: widget.orderData?.currency,
                             ),
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.w500,
@@ -260,7 +259,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
-                    color: AppStyle.black,
                   ),
                 ),
                 const Spacer(),
@@ -269,7 +267,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    color: AppStyle.black,
                   ),
                 ),
               ],
@@ -282,7 +279,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
-                    color: AppStyle.black,
                   ),
                 ),
                 const Spacer(),
@@ -291,7 +287,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    color: AppStyle.black,
                   ),
                 ),
               ],
@@ -304,7 +299,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
-                    color: AppStyle.black,
                   ),
                 ),
                 const Spacer(),
@@ -313,7 +307,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    color: AppStyle.black,
                   ),
                 ),
               ],
@@ -326,7 +319,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
-                    color: AppStyle.black,
                   ),
                 ),
                 const Spacer(),
@@ -335,7 +327,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    color: AppStyle.black,
                   ),
                 ),
               ],
@@ -348,7 +339,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w700,
-                    color: AppStyle.black,
                   ),
                 ),
                 const Spacer(),
@@ -357,7 +347,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    color: AppStyle.black,
                   ),
                 ),
               ],
@@ -381,7 +370,6 @@ class _GenerateCheckPageState extends State<GenerateCheckPage> {
               style: GoogleFonts.inter(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
-                color: AppStyle.black,
               ),
             ),
             24.verticalSpace,

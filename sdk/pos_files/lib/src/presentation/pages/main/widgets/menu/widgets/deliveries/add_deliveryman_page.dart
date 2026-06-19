@@ -169,6 +169,7 @@ class _AddDeliverymanPageState extends ConsumerState<AddDeliverymanPage> {
                             ],
                           ),
                           24.verticalSpace,
+
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [

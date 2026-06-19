@@ -6,5 +6,5 @@ import 'on_a_way_orders_notifier.dart';
 
 final onAWayOrdersProvider =
     StateNotifierProvider<OnAWayOrdersNotifier, OnAWayOrdersState>(
-  (ref) => OnAWayOrdersNotifier(ordersRepository),
-);
+      (ref) => OnAWayOrdersNotifier(ordersRepository),
+    );

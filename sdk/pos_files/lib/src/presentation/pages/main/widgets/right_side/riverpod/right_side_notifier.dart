@@ -6,31 +6,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:admin_desktop/src/core/constants/constants.dart';
 import 'package:admin_desktop/src/core/utils/utils.dart';
 import 'package:admin_desktop/src/models/models.dart';
-import '../../JuvoONE/components/payment_dialog.dart';
 import 'right_side_state.dart';
 
 class RightSideNotifier extends StateNotifier<RightSideState> {
   Timer? _searchUsersTimer;
   Timer? _searchSectionTimer;
   Timer? _searchTableTimer;
+
   String _phone = '';
 
   RightSideNotifier() : super(const RightSideState());
   Timer? timer;
-
-  PaymentData _createTerminalPayment() {
-    return PaymentData(
-      id: -1,
-      tag: 'terminal',
-      input: 1,
-      sandbox: LocalStorage.isYocoTest(),
-      active: true,
-      translation: Translation(
-        title: 'Card Terminal',
-        description: 'Pay with card via Yoco terminal',
-      ),
-    );
-  }
 
   void setCoupon(String coupon, BuildContext context) {
     state = state.copyWith(coupon: coupon, isActive: false);
@@ -45,47 +31,22 @@ class RightSideNotifier extends StateNotifier<RightSideState> {
   }
 
   void setCalculate(String item) {
-    // Handle backspace
     if (item == "-1" && state.calculate.isNotEmpty) {
-      if (state.calculate.length == 1) {
-        state = state.copyWith(calculate: "0");
-      } else {
-        state = state.copyWith(
-          calculate: state.calculate.substring(0, state.calculate.length - 1),
-        );
-      }
+      state = state.copyWith(
+        calculate: state.calculate.substring(0, state.calculate.length - 1),
+      );
+      return;
+    } else if (state.calculate.length > 25) {
+      return;
+    } else if (item == "." && state.calculate.isEmpty) {
+      state = state.copyWith(calculate: "${state.calculate}0$item");
+      return;
+    } else if (item == "." && state.calculate.contains(".")) {
+      return;
+    } else if (item != "-1") {
+      state = state.copyWith(calculate: state.calculate + item);
       return;
     }
-
-    // Length check
-    if (state.calculate.length > 25) {
-      return;
-    }
-
-    // Handle decimal point
-    if (item == ".") {
-      if (state.calculate.isEmpty || state.calculate == "0") {
-        state = state.copyWith(calculate: "0.");
-        return;
-      }
-      if (state.calculate.contains(".")) {
-        return;
-      }
-    }
-
-    // Handle number input
-    if (item != "-1") {
-      // If current value is "0" and new input is not decimal point
-      if (state.calculate == "0" && item != ".") {
-        state = state.copyWith(calculate: item);
-      } else {
-        state = state.copyWith(calculate: state.calculate + item);
-      }
-    }
-  }
-
-  void clearCalculate() {
-    state = state.copyWith(calculate: "0");
   }
 
   void setUpdate() {
@@ -146,8 +107,9 @@ class RightSideNotifier extends StateNotifier<RightSideState> {
       BagData(
         index: newBags.length,
         bagProducts: [],
-        selectedPayment:
-            state.payments.where((element) => element.tag == 'cash').first,
+        selectedPayment: state.payments
+            .where((element) => element.tag == 'cash')
+            .first,
         selectedCurrency: LocalStorage.getSelectedCurrency(),
       ),
     );
@@ -160,6 +122,7 @@ class RightSideNotifier extends StateNotifier<RightSideState> {
       selectedBagIndex: index,
       selectedUser: state.bags[index].selectedUser,
     );
+    fetchCarts();
   }
 
   void removeBag(int index) {
@@ -167,12 +130,14 @@ class RightSideNotifier extends StateNotifier<RightSideState> {
     List<BagData> newBags = [];
     bags.removeAt(index);
     for (int i = 0; i < bags.length; i++) {
-      newBags.add(BagData(index: i, bagProducts: bags[i].bagProducts));
+      newBags.add(bags[i].copyWith(index: i));
     }
     LocalStorage.setBags(newBags);
-    final int selectedIndex =
-        state.selectedBagIndex == index ? 0 : state.selectedBagIndex;
+    final int selectedIndex = state.selectedBagIndex == index
+        ? 0
+        : state.selectedBagIndex;
     state = state.copyWith(bags: newBags, selectedBagIndex: selectedIndex);
+    fetchCarts();
   }
 
   void removeOrderedBag(BuildContext context) {
@@ -200,63 +165,6 @@ class RightSideNotifier extends StateNotifier<RightSideState> {
           : TrKeys.pickup,
     );
     setInitialBagData(context, newBags[0]);
-  }
-
-  Future<void> fetchPayments({VoidCallback? checkYourNetwork}) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      if (!LocalStorage.hasYocoCredentials()) {
-        print('Initializing Yoco credentials');
-        await LocalStorage.setYocoKeys(
-          publicKey: AppConstants.YOCO_TEST_PUBLIC_KEY,
-          privateKey: AppConstants.YOCO_TEST_PRIVATE_KEY,
-          isTest: true,
-        );
-      }
-
-      print('Checking Yoco configuration:');
-      print('Has Yoco credentials: ${LocalStorage.hasYocoCredentials()}');
-      print('Yoco public key: ${LocalStorage.getYocoPublicKey()}');
-      print('Yoco environment: ${LocalStorage.isYocoTest() ? 'test' : 'live'}');
-
-      state = state.copyWith(isPaymentsLoading: true, payments: []);
-      final response = await paymentsRepository.getPayments();
-
-      response.when(
-        success: (data) async {
-          List<PaymentData> allPayments = [];
-
-          if (LocalStorage.hasYocoCredentials()) {
-            print('Adding terminal payment to options');
-            allPayments.add(_createTerminalPayment());
-          }
-
-          if (data.data != null) {
-            for (final payment in data.data!) {
-              if (payment.tag == 'cash' || payment.tag == 'wallet') {
-                allPayments.add(payment);
-              }
-            }
-          }
-
-          print('Final payment methods:');
-          for (var payment in allPayments) {
-            print('Payment: ${payment.tag} (ID: ${payment.id})');
-          }
-
-          state = state.copyWith(
-            isPaymentsLoading: false,
-            payments: allPayments,
-          );
-        },
-        failure: (failure) {
-          state = state.copyWith(isPaymentsLoading: false);
-          debugPrint('==> get payments failure: $failure');
-        },
-      );
-    } else {
-      checkYourNetwork?.call();
-    }
   }
 
   Future<void> fetchUsers({VoidCallback? checkYourNetwork}) async {
@@ -539,6 +447,7 @@ class RightSideNotifier extends StateNotifier<RightSideState> {
 
   void setSelectedAddress({AddressData? address}) {
     final List<BagData> bags = List.from(LocalStorage.getBags());
+
     final user = bags[state.selectedBagIndex].selectedUser;
     final BagData bag = bags[state.selectedBagIndex].copyWith(
       selectedAddress: address,
@@ -549,56 +458,36 @@ class RightSideNotifier extends StateNotifier<RightSideState> {
     state = state.copyWith(bags: bags, selectedAddress: address);
   }
 
-  void setSelectedPayment(int? paymentId) {
-    final List<BagData> bags = List.from(LocalStorage.getBags());
-    final user = bags[state.selectedBagIndex].selectedUser;
-    final address = bags[state.selectedBagIndex].selectedAddress;
-    PaymentData? paymentData;
-
-    print('Setting payment with ID: $paymentId');
-    print(
-      'Available payments: ${state.payments.map((p) => '${p.tag}:${p.id}').join(', ')}',
+  void setInitialBagData(BuildContext context, BagData bag) {
+    state = state.copyWith(
+      selectedAddress: bag.selectedAddress,
+      selectedUser: bag.selectedUser,
+      selectedCurrency: bag.selectedCurrency,
+      selectedPayment: bag.selectedPayment,
+      orderType: state.orderType.isEmpty
+          ? LocalStorage.getUser()?.role == 'waiter'
+                ? TrKeys.dine
+                : TrKeys.pickup
+          : state.orderType,
     );
-
-    for (final payment in state.payments) {
-      if ((payment.id == paymentId) ||
-          (payment.tag == 'terminal' && paymentId == -1)) {
-        paymentData = payment;
-        break;
-      }
+    if (bag.selectedUser != null) {
+      fetchUserDetails(
+        checkYourNetwork: () {
+          AppHelpers.showSnackBar(
+            context,
+            AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+          );
+        },
+      );
     }
-
-    final BagData bag = bags[state.selectedBagIndex].copyWith(
-      selectedAddress: address,
-      selectedUser: user,
-      selectedPayment: paymentData,
+    fetchCarts(
+      checkYourNetwork: () {
+        AppHelpers.showSnackBar(
+          context,
+          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+        );
+      },
     );
-
-    bags[state.selectedBagIndex] = bag;
-    LocalStorage.setBags(bags);
-    state = state.copyWith(bags: bags, selectedPayment: paymentData);
-  }
-
-  void setSelectedCurrency(int? currencyId) {
-    final List<BagData> bags = List.from(LocalStorage.getBags());
-    final user = bags[state.selectedBagIndex].selectedUser;
-    final address = bags[state.selectedBagIndex].selectedAddress;
-    CurrencyData? currencyData;
-    for (final currency in state.currencies) {
-      if (currencyId == currency.id) {
-        currencyData = currency;
-        break;
-      }
-    }
-    final BagData bag = bags[state.selectedBagIndex].copyWith(
-      selectedAddress: address,
-      selectedUser: user,
-      selectedCurrency: currencyData,
-    );
-    bags[state.selectedBagIndex] = bag;
-    LocalStorage.setBags(bags);
-    state = state.copyWith(bags: bags, selectedCurrency: currencyData);
-    fetchCarts(checkYourNetwork: () {}, isNotLoading: true);
   }
 
   Future<void> fetchCurrencies({VoidCallback? checkYourNetwork}) async {
@@ -623,277 +512,140 @@ class RightSideNotifier extends StateNotifier<RightSideState> {
     }
   }
 
-  void setInitialBagData(BuildContext context, BagData bag) {
-    state = state.copyWith(
-      selectedAddress: bag.selectedAddress,
-      selectedUser: bag.selectedUser,
-      selectedCurrency: bag.selectedCurrency,
-      selectedPayment: bag.selectedPayment,
-      orderType: state.orderType.isEmpty
-          ? LocalStorage.getUser()?.role == 'waiter'
-              ? TrKeys.dine
-              : TrKeys.pickup
-          : state.orderType,
-    );
-    if (bag.selectedUser != null) {
-      fetchUserDetails(
-        checkYourNetwork: () {
-          AppHelpers.showSnackBar(
-            context,
-            AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-          );
-        },
-      );
+  void setSelectedCurrency(int? currencyId) {
+    final List<BagData> bags = List.from(LocalStorage.getBags());
+    final user = bags[state.selectedBagIndex].selectedUser;
+    final address = bags[state.selectedBagIndex].selectedAddress;
+    CurrencyData? currencyData;
+    for (final currency in state.currencies) {
+      if (currencyId == currency.id) {
+        currencyData = currency;
+        break;
+      }
     }
-    fetchCarts(
-      checkYourNetwork: () {
-        AppHelpers.showSnackBar(
-          context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-        );
-      },
+    final BagData bag = bags[state.selectedBagIndex].copyWith(
+      selectedAddress: address,
+      selectedUser: user,
+      selectedCurrency: currencyData,
     );
+    bags[state.selectedBagIndex] = bag;
+    LocalStorage.setBags(bags);
+    state = state.copyWith(bags: bags, selectedCurrency: currencyData);
+    fetchCarts(checkYourNetwork: () {}, isNotLoading: true);
   }
 
-  bool _validateOrderInputs() {
-    bool active = true;
-
-    if (state.orderType == TrKeys.dine) {
-      if (state.selectedSection == null) {
-        active = false;
-        state = state.copyWith(selectSectionError: TrKeys.selectSection);
-      }
-      if (state.selectedTable == null) {
-        active = false;
-        state = state.copyWith(selectTableError: TrKeys.selectTable);
-      }
-    }
-
-    if (state.orderType == TrKeys.delivery) {
-      if (state.selectedUser == null) {
-        active = false;
-        state = state.copyWith(selectUserError: TrKeys.selectUser);
-      }
-      if (state.selectedAddress == null) {
-        active = false;
-        state = state.copyWith(selectAddressError: TrKeys.selectAddress);
-      }
-    }
-
-    if (state.selectedCurrency == null) {
-      active = false;
-      state = state.copyWith(selectCurrencyError: TrKeys.selectCurrency);
-    }
-
-    if (state.selectedPayment == null) {
-      active = false;
-      state = state.copyWith(selectPaymentError: TrKeys.selectPayment);
-    }
-
-    return active;
-  }
-
-  Future<void> placeOrder({
-    required BuildContext context,
-    VoidCallback? checkYourNetwork,
-    VoidCallback? openSelectDeliveriesDrawer,
-  }) async {
+  Future<void> fetchPayments({VoidCallback? checkYourNetwork}) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
-      if (!_validateOrderInputs()) {
-        return;
-      }
-
-      if (state.selectedPayment?.tag == 'terminal') {
-        if (!LocalStorage.hasYocoCredentials()) {
-          state = state.copyWith(selectPaymentError: 'Terminal not configured');
-          return;
-        }
-
-        final result = await showDialog<Map<String, dynamic>>(
-          context: context,
-          barrierDismissible: false,
-          builder: (context) => YocoTerminalDialog(
-            amount: state.paginateResponse?.totalPrice ?? 0,
-            currency: state.selectedCurrency?.title ?? 'ZAR',
-            onComplete: (success, transactionId) {
-              Navigator.of(
-                context,
-              ).pop({'success': success, 'transactionId': transactionId});
-            },
-          ),
-        );
-
-        if (result == null || result['success'] != true) {
-          return;
-        }
-
-        state = state.copyWith(terminalTransactionId: result['transactionId']);
-      }
-
-      if (state.orderType != TrKeys.delivery) {
-        openSelectDeliveriesDrawer?.call();
-      } else {
-        if (state.selectedUser?.phone?.isEmpty ?? true) {
+      state = state.copyWith(isPaymentsLoading: true, payments: []);
+      final response = await paymentsRepository.getPayments();
+      response.when(
+        success: (data) async {
+          final List<PaymentData> payments = data.data ?? [];
+          List<PaymentData> filteredPayments = [];
+          PaymentData? selectedPayment;
+          for (final payment in payments) {
+            if (payment.tag == 'cash' || payment.tag == 'wallet') {
+              filteredPayments.add(payment);
+            }
+            if (payment.tag == 'cash') {
+              selectedPayment = payment;
+            }
+          }
           state = state.copyWith(
-            selectedUser: state.selectedUser?.copyWith(phone: _phone),
+            isPaymentsLoading: false,
+            payments: filteredPayments,
+            selectedPayment: selectedPayment,
           );
-        }
-        openSelectDeliveriesDrawer?.call();
-      }
+        },
+        failure: (failure) {
+          state = state.copyWith(isPaymentsLoading: false);
+          debugPrint('==> get payments failure: $failure');
+        },
+      );
     } else {
       checkYourNetwork?.call();
     }
   }
 
-  Future<void> createOrder(
-    BuildContext context,
-    OrderBodyData data, {
-    VoidCallback? onSuccess,
+  void setSelectedPayment(int? paymentId) {
+    final List<BagData> bags = List.from(LocalStorage.getBags());
+    final user = bags[state.selectedBagIndex].selectedUser;
+    final address = bags[state.selectedBagIndex].selectedAddress;
+    PaymentData? paymentData;
+    for (final payment in state.payments) {
+      if (paymentId == payment.id) {
+        paymentData = payment;
+        break;
+      }
+    }
+    final BagData bag = bags[state.selectedBagIndex].copyWith(
+      selectedAddress: address,
+      selectedUser: user,
+      selectedPayment: paymentData,
+    );
+    bags[state.selectedBagIndex] = bag;
+    LocalStorage.setBags(bags);
+    state = state.copyWith(bags: bags, selectedPayment: paymentData);
+  }
+
+  Future<void> fetchCarts({
+    VoidCallback? checkYourNetwork,
+    bool isNotLoading = false,
   }) async {
     final connected = await AppConnectivity.connectivity();
-    if (!connected) {
-      if (context.mounted) {
-        AppHelpers.showSnackBar(
-          context,
-          AppHelpers.getTranslation(TrKeys.noInternetConnection),
-        );
-      }
-      return;
-    }
 
-    if (!_validateOrderInputs()) {
-      return;
-    }
-
-    state = state.copyWith(isOrderLoading: true);
-
-    // Handle wallet payments
-    if (data.bagData.selectedPayment?.tag == "wallet") {
-      final num wallet = state.selectedUser?.wallet?.price ?? 0;
-      if (wallet < (state.paginateResponse?.totalPrice ?? 0)) {
-        if (context.mounted) {
-          AppHelpers.showSnackBar(
-            context,
-            AppHelpers.getTranslation(TrKeys.notEnoughMoney),
-          );
-        }
-        state = state.copyWith(isOrderLoading: false);
-        return;
-      }
-    }
-
-    // Handle terminal payments
-    if (data.bagData.selectedPayment?.tag == 'terminal') {
-      if (!LocalStorage.hasYocoCredentials()) {
+    if (connected) {
+      if (isNotLoading) {
+        state = state.copyWith(isButtonLoading: true);
+      } else {
         state = state.copyWith(
-          selectPaymentError: 'Terminal not configured',
-          isOrderLoading: false,
+          isProductCalculateLoading: true,
+          paginateResponse: null,
+          bags: LocalStorage.getBags(),
         );
-        return;
       }
 
-      final result = await showDialog<Map<String, dynamic>>(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) => YocoTerminalDialog(
-          amount: state.paginateResponse?.totalPrice ?? 0,
-          currency: state.selectedCurrency?.title ?? 'ZAR',
-          onComplete: (success, transactionId) {
-            Navigator.of(
-              context,
-            ).pop({'success': success, 'transactionId': transactionId});
-          },
-        ),
-      );
-
-      if (result == null || result['success'] != true) {
-        state = state.copyWith(isOrderLoading: false);
-        return;
-      }
-
-      state = state.copyWith(terminalTransactionId: result['transactionId']);
-    }
-
-    try {
-      // Create order
-      final response = await ordersRepository.createOrder(data);
-
-      if (!context.mounted) return;
-
-      await response.when(
-        success: (res) async {
-          if (res.data?.id == null) {
-            throw Exception('Order ID is null');
-          }
-
-          try {
-            // Create transaction
-            await paymentsRepository.createTransaction(
-              orderId: res.data!.id!,
-              paymentId: data.bagData.selectedPayment?.id ?? 0,
-              terminalTransactionId:
-                  data.bagData.selectedPayment?.tag == 'terminal'
-                      ? state.terminalTransactionId
-                      : null,
+      final List<BagProductData> bagProducts =
+          LocalStorage.getBags()[state.selectedBagIndex].bagProducts ?? [];
+      if (bagProducts.isNotEmpty) {
+        final response = await productsRepository.getAllCalculations(
+          bagProducts,
+          state.orderType,
+          coupon: state.coupon,
+        );
+        response.when(
+          success: (data) async {
+            state = state.copyWith(
+              isButtonLoading: false,
+              isProductCalculateLoading: false,
+              paginateResponse: data.data?.data,
             );
-
-            if (!context.mounted) return;
-
-            // Handle auto-deliver if enabled
-            if (AppConstants.autoDeliver) {
-              try {
-                await ordersRepository.updateOrderStatus(
-                  orderId: res.data!.id!,
-                  status: OrderStatus.delivered,
-                );
-              } catch (e) {
-                debugPrint('Auto-deliver update error: $e');
-              }
-            }
-
-            state = state.copyWith(isOrderLoading: false);
-            onSuccess?.call();
-
-            // Delay bag removal slightly to ensure proper state updates
-            Future.microtask(() {
-              if (context.mounted) {
-                removeOrderedBag(context);
-              }
-            });
-          } catch (e) {
-            debugPrint('Transaction error (but continuing): $e');
-            // Continue even if transaction has error since it's recorded
-
-            state = state.copyWith(isOrderLoading: false);
-            onSuccess?.call();
-
-            if (context.mounted) {
-              removeOrderedBag(context);
-            }
-          }
-        },
-        failure: (failure) {
-          state = state.copyWith(isOrderLoading: false);
-          if (context.mounted) {
-            AppHelpers.showSnackBar(context, failure.toString());
-          }
-        },
-      );
-    } catch (e) {
-      debugPrint('Error in order/transaction process: $e');
-      state = state.copyWith(isOrderLoading: false);
-      if (context.mounted) {
-        AppHelpers.showSnackBar(
-          context,
-          AppHelpers.getTranslation(TrKeys.orderProcessingError),
+          },
+          failure: (failure) {
+            state = state.copyWith(
+              isProductCalculateLoading: false,
+              isButtonLoading: false,
+            );
+            debugPrint('==> get product calculate failure: $failure');
+          },
         );
       }
+      state = state.copyWith(
+        isButtonLoading: false,
+        isProductCalculateLoading: false,
+      );
+    } else {
+      checkYourNetwork?.call();
     }
   }
 
-  void setNote(String note) {
-    state = state.copyWith(comment: note);
+  void setDate(DateTime date) {
+    state = state.copyWith(orderDate: date);
+  }
+
+  void setTime(TimeOfDay time) {
+    state = state.copyWith(orderTime: time);
   }
 
   void clearBag() {
@@ -980,6 +732,29 @@ class RightSideNotifier extends StateNotifier<RightSideState> {
       bagProducts.removeAt(productIndex);
       bagProducts.insert(productIndex, newProductData);
 
+      // for (int i = 0; i < bagProducts.length; i++) {
+      //   if (bagProducts[i].stockId == product?.stock?.id &&
+      //       bagProducts[i]
+      //               .carts
+      //               ?.map(
+      //                 (e) => "${e.stockId}${e.quantity}",
+      //               )
+      //               .toList()
+      //               .join('') ==
+      //           product?.addons
+      //               ?.map(
+      //                 (e) => "${e.id}${e.quantity}",
+      //               )
+      //               .toList()
+      //               .join('')) {
+      //     BagProductData newProductData = bagProducts[i]
+      //         .copyWith(quantity: (bagProducts[i].quantity ?? 0) - 1);
+      //     bagProducts.removeAt(i);
+      //     bagProducts.insert(i, newProductData);
+      //     break;
+      //   }
+      // }
+
       List<BagData> bags = List.from(LocalStorage.getBags());
       bags[state.selectedBagIndex] = bags[state.selectedBagIndex].copyWith(
         bagProducts: bagProducts,
@@ -1049,6 +824,29 @@ class RightSideNotifier extends StateNotifier<RightSideState> {
     bagProducts.removeAt(productIndex);
     bagProducts.insert(productIndex, newProductData);
 
+    // for (int i = 0; i < bagProducts.length; i++) {
+    //   if (bagProducts[i].stockId == product?.stock?.id &&
+    //       bagProducts[i]
+    //               .carts
+    //               ?.map(
+    //                 (e) => "${e.stockId}${e.quantity}",
+    //               )
+    //               .toList()
+    //               .join('') ==
+    //           product?.addons
+    //               ?.map(
+    //                 (e) => "${e.id}${e.quantity}",
+    //               )
+    //               .toList()
+    //               .join('')) {
+    //     BagProductData newProductData = bagProducts[productIndex]
+    //         .copyWith(quantity: (bagProducts[productIndex].quantity ?? 0) + 1);
+    //     bagProducts.removeAt(i);
+    //     bagProducts.insert(i, newProductData);
+    //     break;
+    //   }
+    // }
+
     List<BagData> bags = List.from(LocalStorage.getBags());
     bags[state.selectedBagIndex] = bags[state.selectedBagIndex].copyWith(
       bagProducts: bagProducts,
@@ -1060,72 +858,124 @@ class RightSideNotifier extends StateNotifier<RightSideState> {
     );
   }
 
-  Future<void> fetchCarts({
+  Future<void> placeOrder({
     VoidCallback? checkYourNetwork,
-    bool isNotLoading = false,
+    VoidCallback? openSelectDeliveriesDrawer,
   }) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
-      if (isNotLoading) {
-        state = state.copyWith(isButtonLoading: true);
-      } else {
-        state = state.copyWith(
-          isProductCalculateLoading: true,
-          paginateResponse: null,
-          bags: LocalStorage.getBags(),
-        );
+      bool active = true;
+      if (state.orderType == TrKeys.dine) {
+        if (state.selectedSection == null) {
+          active = false;
+          state = state.copyWith(selectSectionError: TrKeys.selectSection);
+        }
+        if (state.selectedTable == null) {
+          active = false;
+          state = state.copyWith(selectTableError: TrKeys.selectTable);
+        }
+      }
+      if (state.orderType == TrKeys.delivery) {
+        if (state.selectedUser == null) {
+          active = false;
+          state = state.copyWith(selectUserError: TrKeys.selectUser);
+        }
+        if (state.selectedAddress == null) {
+          active = false;
+          state = state.copyWith(selectAddressError: TrKeys.selectAddress);
+        }
       }
 
-      final List<BagProductData> bagProducts =
-          LocalStorage.getBags()[state.selectedBagIndex].bagProducts ?? [];
-      if (bagProducts.isNotEmpty) {
-        final response = await productsRepository.getAllCalculations(
-          bagProducts,
-          state.orderType,
-          coupon: state.coupon,
-        );
-
-        response.when(
-          success: (data) async {
-            state = state.copyWith(
-              isButtonLoading: false,
-              isProductCalculateLoading: false,
-              paginateResponse: data.data?.data,
-            );
-          },
-          failure: (failure) {
-            state = state.copyWith(
-              isProductCalculateLoading: false,
-              isButtonLoading: false,
-            );
-            debugPrint('==> get product calculate failure: $failure');
-          },
-        );
+      if (state.selectedCurrency == null) {
+        active = false;
+        state = state.copyWith(selectCurrencyError: TrKeys.selectCurrency);
+      }
+      if (state.selectedPayment == null) {
+        active = false;
+        state = state.copyWith(selectPaymentError: TrKeys.selectPayment);
       }
 
-      state = state.copyWith(
-        isButtonLoading: false,
-        isProductCalculateLoading: false,
-      );
+      if (state.orderType == TrKeys.delivery) {
+        if (state.selectedUser?.phone?.isEmpty ?? true) {
+          state = state.copyWith(
+            selectedUser: state.selectedUser?.copyWith(phone: _phone),
+          );
+        }
+      }
+      if (active) {
+        openSelectDeliveriesDrawer?.call();
+      }
     } else {
       checkYourNetwork?.call();
     }
   }
 
-  void setDate(DateTime date) {
-    state = state.copyWith(orderDate: date);
+  void setNote(String note) {
+    state = state.copyWith(comment: note);
   }
 
-  void setTime(TimeOfDay time) {
-    state = state.copyWith(orderTime: time);
-  }
+  Future createOrder(
+    BuildContext context,
+    OrderBodyData data, {
+    VoidCallback? onSuccess,
+  }) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isOrderLoading: true);
+      final num wallet = state.selectedUser?.wallet?.price ?? 0;
+      if (data.bagData.selectedPayment?.tag == "wallet" &&
+          wallet < (state.paginateResponse?.totalPrice ?? 0)) {
+        if (context.mounted) {
+          AppHelpers.showSnackBar(
+            context,
+            AppHelpers.getTranslation(TrKeys.notEnoughMoney),
+          );
+        }
 
-  @override
-  void dispose() {
-    _searchUsersTimer?.cancel();
-    _searchSectionTimer?.cancel();
-    _searchTableTimer?.cancel();
-    timer?.cancel();
-    super.dispose();
+        state = state.copyWith(isOrderLoading: false);
+        return;
+      }
+      final response = await ordersRepository.createOrder(data);
+      response.when(
+        success: (res) async {
+          state = state.copyWith(isOrderLoading: false);
+          onSuccess?.call();
+          removeOrderedBag(context);
+          switch (data.bagData.selectedPayment?.tag) {
+            case 'cash':
+              paymentsRepository.createTransaction(
+                orderId: res.data?.id ?? 0,
+                paymentId: data.bagData.selectedPayment?.id ?? 0,
+              );
+              break;
+            case 'wallet':
+              paymentsRepository.createTransaction(
+                orderId: res.data?.id ?? 0,
+                paymentId: data.bagData.selectedPayment?.id ?? 0,
+              );
+              break;
+            default:
+              paymentsRepository.createTransaction(
+                orderId: res.data?.id ?? 0,
+                paymentId: data.bagData.selectedPayment?.id ?? 0,
+              );
+              break;
+          }
+        },
+        failure: (failure) {
+          state = state.copyWith(isOrderLoading: false);
+          if (mounted) {
+            AppHelpers.showSnackBar(context, failure);
+          }
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showSnackBar(
+          context,
+          AppHelpers.getTranslation(TrKeys.noInternetConnection),
+        );
+      }
+    }
   }
 }

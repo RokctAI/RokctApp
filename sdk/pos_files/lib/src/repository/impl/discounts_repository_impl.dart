@@ -14,11 +14,16 @@ class DiscountsRepositoryImpl extends DiscountsRepository {
     //bool isActive = true,
     int? page,
   }) async {
-    final data = {'page': page, 'limit_page_length': 10};
+    final data = {
+      'page': page,
+      'perPage': 10,
+      'lang': LocalStorage.getLanguage()?.locale ?? 'en',
+      //'status': 'published'
+    };
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_seller_discounts',
+        '/api/v1/dashboard/seller/discounts/paginate',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -31,12 +36,34 @@ class DiscountsRepositoryImpl extends DiscountsRepository {
   }
 
   @override
-  Future<ApiResult<void>> deleteDiscount(int? discountId) async {
+  Future<ApiResult<DiscountDetail>> getDiscountDetails({
+    required int id,
+  }) async {
+    final data = {'lang': LocalStorage.getLanguage()?.locale ?? 'en'};
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post(
-        '/api/v1/method/paas.api.delete_seller_discount',
-        data: {'discount_name': discountId},
+      final response = await client.get(
+        '/api/v1/dashboard/seller/discounts/$id',
+        queryParameters: data,
+      );
+      return ApiResult.success(data: DiscountDetail.fromJson(response.data));
+    } catch (e, s) {
+      debugPrint('==> get discount details failure: $e,$s');
+      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+    }
+  }
+
+  @override
+  Future<ApiResult<void>> deleteDiscount(int? discountId) async {
+    final data = {
+      'ids': [discountId],
+    };
+    debugPrint('====> delete discount request ${jsonEncode(data)}');
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      await client.delete(
+        '/api/v1/dashboard/seller/discounts/delete',
+        data: data,
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -58,16 +85,18 @@ class DiscountsRepositoryImpl extends DiscountsRepository {
     final data = {
       'type': type,
       'active': active ? 1 : 0,
-      'valid_from': startDate,
-      'valid_upto': endDate,
-      'rate': price,
-      'items': ids,
+      'start': startDate,
+      'end': endDate,
+      'price': price,
+      for (int i = 0; i < ids.length; i++) 'stocks[$i]': ids[i],
+      if (image != null) 'images[0]': image,
     };
+    debugPrint('====> add discount request ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/method/paas.api.create_seller_discount',
-        data: {'discount_data': data},
+        '/api/v1/dashboard/seller/discounts',
+        queryParameters: data,
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -90,28 +119,23 @@ class DiscountsRepositoryImpl extends DiscountsRepository {
     final data = {
       'type': type,
       'active': active ? 1 : 0,
-      'valid_from': startDate,
-      'valid_upto': endDate,
-      'rate': price,
-      'items': ids,
+      'start': startDate,
+      'end': endDate,
+      'price': price,
+      for (int i = 0; i < ids.length; i++) 'stocks[$i]': ids[i],
+      if (image != null) 'images[0]': image,
     };
+    debugPrint('====> update discount request ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.put(
-        '/api/v1/method/paas.api.update_seller_discount',
-        data: {'discount_name': id, 'discount_data': data},
+        '/api/v1/dashboard/seller/discounts/$id',
+        queryParameters: data,
       );
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update discount failure: $e');
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
-  }
-
-  // NOTE: The getDiscountDetails method is no longer needed, as the
-  // getAllDiscounts method now returns all the necessary data.
-  @override
-  Future<ApiResult<DiscountDetail>> getDiscountDetails({required int id}) {
-    throw UnimplementedError();
   }
 }

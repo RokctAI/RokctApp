@@ -103,8 +103,8 @@ class CustomTextField extends StatelessWidget {
                   color: isError
                       ? AppStyle.red
                       : isSuccess
-                          ? AppStyle.primary
-                          : AppStyle.black,
+                      ? AppStyle.primary
+                      : AppStyle.black,
                 ),
               ),
             ],

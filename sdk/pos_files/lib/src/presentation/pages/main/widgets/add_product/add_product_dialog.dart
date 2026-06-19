@@ -4,16 +4,17 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:audioplayers/audioplayers.dart';
 
-import '../../../../../core/constants/constants.dart';
-import '../../../../../core/utils/utils.dart';
-import '../../../../../models/models.dart';
+import 'package:admin_desktop/src/core/constants/constants.dart';
+import 'package:admin_desktop/src/core/utils/utils.dart';
+import 'package:admin_desktop/src/models/models.dart';
 import '../../../../components/components.dart';
 import '../../../../theme/theme.dart';
 import '../right_side/riverpod/right_side_provider.dart';
 import 'provider/add_product_provider.dart';
-import 'riverpod/add_product_state.dart';
+import 'widgets/extras/color_extras.dart';
+import 'widgets/extras/image_extras.dart';
+import 'widgets/extras/text_extras.dart';
 import 'widgets/w_ingredient.dart';
 
 class AddProductDialog extends ConsumerStatefulWidget {
@@ -26,35 +27,17 @@ class AddProductDialog extends ConsumerStatefulWidget {
 }
 
 class _AddProductDialogState extends ConsumerState<AddProductDialog> {
-  final AudioPlayer _audioPlayer = AudioPlayer();
-
   @override
   void initState() {
     super.initState();
-    _audioPlayer.setReleaseMode(ReleaseMode.release);
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(addProductProvider.notifier).setProduct(
+      ref
+          .read(addProductProvider.notifier)
+          .setProduct(
             widget.product,
             ref.watch(rightSideProvider).selectedBagIndex,
           );
     });
-  }
-
-  @override
-  void dispose() {
-    _audioPlayer.dispose();
-    super.dispose();
-  }
-
-  Future<void> _playSound(String soundFile) async {
-    if (AppConstants.sound) {
-      try {
-        await _audioPlayer.play(AssetSource('sounds/$soundFile'));
-        print('Playing sound: $soundFile'); // Debug print
-      } catch (e) {
-        print('Error playing sound: $e'); // Debug print
-      }
-    }
   }
 
   @override
@@ -64,8 +47,7 @@ class _AddProductDialogState extends ConsumerState<AddProductDialog> {
     final notifier = ref.read(addProductProvider.notifier);
     final rightSideNotifier = ref.read(rightSideProvider.notifier);
     final List<Stocks> stocks = state.product?.stocks ?? <Stocks>[];
-
-    if (stocks.isEmpty) {
+    if (stocks.isEmpty || (stocks[0].quantity ?? 0) == 0) {
       return Dialog(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.r),
@@ -83,10 +65,9 @@ class _AddProductDialogState extends ConsumerState<AddProductDialog> {
         ),
       );
     }
-
-    final bool hasDiscount = (state.selectedStock?.discount != null &&
+    final bool hasDiscount =
+        (state.selectedStock?.discount != null &&
         (state.selectedStock?.discount ?? 0) > 0);
-    // final double totalPrice = calculateTotalPrice(state);
     final String price = AppHelpers.numberFormat(
       hasDiscount
           ? (state.selectedStock?.totalPrice ?? 0)
@@ -121,10 +102,7 @@ class _AddProductDialogState extends ConsumerState<AddProductDialog> {
                     backgroundColor: AppStyle.transparent,
                     iconData: FlutterRemix.close_circle_line,
                     icon: AppStyle.black,
-                    onTap: () {
-                      _playSound('wrong.wav');
-                      context.maybePop();
-                    },
+                    onTap: context.maybePop,
                   ),
                 ],
               ),
@@ -144,22 +122,14 @@ class _AddProductDialogState extends ConsumerState<AddProductDialog> {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6.r),
-                          border: Border.all(
-                            color: (AppConstants.enableJuvoONE)
-                                ? AppStyle.blue[900]!
-                                : AppStyle.icon,
-                          ),
+                          border: Border.all(color: AppStyle.icon),
                         ),
                         child: Row(
                           children: [
                             IconButton(
-                              onPressed: () {
-                                notifier.decreaseStockCount(
-                                  rightSideState.selectedBagIndex,
-                                );
-                                _playSound('tap.wav');
-                                setState(() {});
-                              },
+                              onPressed: () => notifier.decreaseStockCount(
+                                rightSideState.selectedBagIndex,
+                              ),
                               icon: const Icon(FlutterRemix.subtract_line),
                             ),
                             13.horizontalSpace,
@@ -174,30 +144,9 @@ class _AddProductDialogState extends ConsumerState<AddProductDialog> {
                             ),
                             12.horizontalSpace,
                             IconButton(
-                              onPressed: () {
-                                int maxQuantity =
-                                    state.selectedStock?.quantity ?? 0;
-                                print(
-                                  'Current count: ${state.stockCount}, Max quantity: $maxQuantity',
-                                ); // Debug print
-                                if (state.stockCount < maxQuantity) {
-                                  notifier.increaseStockCount(
-                                    rightSideState.selectedBagIndex,
-                                  );
-                                  _playSound('tap.wav');
-                                } else {
-                                  print(
-                                    'Maximum quantity reached, playing wrong.wav',
-                                  ); // Debug print
-                                  _playSound('wrong.wav');
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text('Maximum quantity reached'),
-                                    ),
-                                  );
-                                }
-                                setState(() {});
-                              },
+                              onPressed: () => notifier.increaseStockCount(
+                                rightSideState.selectedBagIndex,
+                              ),
                               icon: const Icon(FlutterRemix.add_line),
                             ),
                           ],
@@ -229,9 +178,7 @@ class _AddProductDialogState extends ConsumerState<AddProductDialog> {
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.w500,
                               fontSize: 16.sp,
-                              color: (AppConstants.enableJuvoONE)
-                                  ? AppStyle.black.withOpacity(0.5)
-                                  : AppStyle.icon,
+                              color: AppStyle.icon,
                               letterSpacing: -0.4,
                             ),
                           ),
@@ -255,19 +202,63 @@ class _AddProductDialogState extends ConsumerState<AddProductDialog> {
                             itemBuilder: (context, index) {
                               final TypedExtra typedExtra =
                                   state.typedExtras[index];
-                              return ExtraDropdown(
-                                typedExtra: typedExtra,
-                                onChanged: (UiExtra? newValue) {
-                                  if (newValue != null) {
-                                    notifier.updateSelectedIndexes(
-                                      index: typedExtra.groupIndex,
-                                      value: newValue.index,
-                                      bagIndex: rightSideState.selectedBagIndex,
-                                    );
-                                    _playSound('tap.wav');
-                                    setState(() {});
-                                  }
-                                },
+                              return Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                  color: AppStyle.white,
+                                ),
+                                padding: REdgeInsets.symmetric(vertical: 6),
+                                margin: REdgeInsets.only(bottom: 6),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      typedExtra.title,
+                                      style: GoogleFonts.inter(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppStyle.black,
+                                        letterSpacing: -0.4,
+                                      ),
+                                    ),
+                                    8.verticalSpace,
+                                    typedExtra.type == ExtrasType.text
+                                        ? TextExtras(
+                                            uiExtras: typedExtra.uiExtras,
+                                            groupIndex: typedExtra.groupIndex,
+                                            onUpdate: (s) {
+                                              notifier.updateSelectedIndexes(
+                                                index: typedExtra.groupIndex,
+                                                value: s.index,
+                                                bagIndex: rightSideState
+                                                    .selectedBagIndex,
+                                              );
+                                            },
+                                          )
+                                        : typedExtra.type == ExtrasType.color
+                                        ? ColorExtras(
+                                            uiExtras: typedExtra.uiExtras,
+                                            groupIndex: typedExtra.groupIndex,
+                                          )
+                                        : typedExtra.type == ExtrasType.image
+                                        ? ImageExtras(
+                                            uiExtras: typedExtra.uiExtras,
+                                            groupIndex: typedExtra.groupIndex,
+                                          )
+                                        : const SizedBox(),
+                                    8.verticalSpace,
+                                    SizedBox(
+                                      width:
+                                          MediaQuery.of(context).size.width /
+                                              1.6 -
+                                          370.w,
+                                      child: Divider(
+                                        color: AppStyle.black.withOpacity(0.2),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               );
                             },
                           ),
@@ -280,18 +271,12 @@ class _AddProductDialogState extends ConsumerState<AddProductDialog> {
                             list: state.selectedStock?.addons ?? [],
                             onChange: (int value) {
                               notifier.updateIngredient(context, value);
-                              _playSound('tap.wav');
-                              setState(() {});
                             },
                             add: (int value) {
                               notifier.addIngredient(context, value);
-                              _playSound('tap.wav');
-                              setState(() {});
                             },
                             remove: (int value) {
                               notifier.removeIngredient(context, value);
-                              _playSound('wrong.wav');
-                              setState(() {});
                             },
                           ),
                         ),
@@ -311,29 +296,13 @@ class _AddProductDialogState extends ConsumerState<AddProductDialog> {
                       isLoading: state.isLoading,
                       title: AppHelpers.getTranslation(TrKeys.add),
                       onPressed: () {
-                        try {
-                          notifier.addProductToBag(
-                            context,
-                            rightSideState.selectedBagIndex,
-                            rightSideNotifier,
-                          );
-                          _playSound('tap.wav');
-                        } catch (e) {
-                          _playSound('wrong.wav');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                'Failed to add product: ${e.toString()}',
-                              ),
-                            ),
-                          );
-                        } finally {
-                          context.maybePop();
-                        }
+                        notifier.addProductToBag(
+                          context,
+                          rightSideState.selectedBagIndex,
+                          rightSideNotifier,
+                        );
+                        context.maybePop();
                       },
-                      bgColor: (AppConstants.enableJuvoONE)
-                          ? AppStyle.blue[900]
-                          : AppStyle.brandGreen,
                     ),
                   ),
                   const Spacer(),
@@ -387,66 +356,6 @@ class _AddProductDialogState extends ConsumerState<AddProductDialog> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  double calculateTotalPrice(AddProductState state) {
-    num basePrice = state.selectedStock?.totalPrice ?? 0;
-    double extrasPrice = 0;
-
-    // Calculate price for extras
-    for (var extra in state.typedExtras) {
-      for (var uiExtra in extra.uiExtras) {
-        if (uiExtra.isSelected) {
-          extrasPrice += double.tryParse(uiExtra.value) ?? 0;
-        }
-      }
-    }
-
-    // Calculate price for ingredients
-    double ingredientsPrice = 0;
-    for (var addon in state.selectedStock?.addons ?? []) {
-      ingredientsPrice += addon.price * addon.quantity;
-    }
-
-    return (basePrice + extrasPrice + ingredientsPrice) * state.stockCount;
-  }
-}
-
-class ExtraDropdown extends StatelessWidget {
-  final TypedExtra typedExtra;
-  final ValueChanged<UiExtra?> onChanged;
-
-  const ExtraDropdown({
-    super.key,
-    required this.typedExtra,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: REdgeInsets.only(bottom: 8),
-      child: DropdownButtonFormField<UiExtra>(
-        decoration: InputDecoration(
-          labelText: typedExtra.title,
-          contentPadding: REdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r)),
-        ),
-        items: typedExtra.uiExtras.map((UiExtra uiExtra) {
-          return DropdownMenuItem<UiExtra>(
-            value: uiExtra,
-            child: Text(uiExtra.value),
-          );
-        }).toList(),
-        onChanged: onChanged,
-        selectedItemBuilder: (BuildContext context) {
-          return typedExtra.uiExtras.map<Widget>((UiExtra uiExtra) {
-            return Text(uiExtra.value);
-          }).toList();
-        },
-        isDense: true,
       ),
     );
   }

@@ -1,22 +1,25 @@
-import 'dart:io' show Platform;
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:admin_desktop/src/core/constants/constants.dart';
 import 'package:admin_desktop/src/core/utils/app_helpers.dart';
-import 'package:admin_desktop/src/core/utils/local_storage.dart';
+import 'package:admin_desktop/src/core/utils/utils.dart';
 import 'package:admin_desktop/src/models/response/income_statistic_response.dart';
+import 'package:admin_desktop/src/presentation/components/buttons/animation_button_effect.dart';
+import 'package:admin_desktop/src/presentation/pages/main/widgets/income/riverpod/income_notifier.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/income/riverpod/income_provider.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/income/riverpod/income_state.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/income/widgets/statistics_page.dart';
+import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:remixicon/remixicon.dart';
+
+import 'package:admin_desktop/generated/assets.dart';
 import '../../../../components/custom_scaffold.dart';
-import '../../../../theme/theme.dart';
 import 'widgets/chart_page.dart';
+import '../../../../components/filter_screen.dart';
 import 'widgets/pie_chart.dart';
 
 class InComePage extends ConsumerStatefulWidget {
@@ -35,15 +38,9 @@ class _InComePageState extends ConsumerState<InComePage> {
       ref.read(incomeProvider.notifier)
         ..fetchIncomeCarts()
         ..fetchIncomeCharts()
-        ..fetchIncomeStatistic()
-        ..fetchExpenseData();
+        ..fetchIncomeStatistic();
     });
     super.initState();
-  }
-
-  bool get _isDesktop {
-    return !kIsWeb &&
-        (Platform.isWindows || Platform.isLinux || Platform.isMacOS);
   }
 
   @override
@@ -57,24 +54,34 @@ class _InComePageState extends ConsumerState<InComePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                AppHelpers.getTranslation(TrKeys.income),
+                style: GoogleFonts.inter(
+                  fontSize: 22.r,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              16.verticalSpace,
+              _filter(state, event),
+              16.verticalSpace,
               _carts(state),
-              10.verticalSpace,
+              16.verticalSpace,
+              ChartPage(
+                isDay: state.selectType == TrKeys.day,
+                price: state.prices,
+                chart: state.incomeCharts ?? [],
+                times: state.time,
+              ),
+              16.verticalSpace,
               Row(
                 children: [
                   PieChartPage(
                     statistic:
                         state.incomeStatistic ?? IncomeStatisticResponse(),
                   ),
-                  10.horizontalSpace,
+                  16.horizontalSpace,
                   StatisticPage(statistic: state.incomeStatistic),
                 ],
-              ),
-              10.verticalSpace,
-              ChartPage(
-                isDay: state.selectType == TrKeys.day,
-                price: state.prices,
-                chart: state.incomeCharts ?? [],
-                times: state.time,
               ),
             ],
           ),
@@ -84,7 +91,6 @@ class _InComePageState extends ConsumerState<InComePage> {
   }
 
   Widget _carts(IncomeState state) {
-    final isManualDateSelected = state.start != null && state.end != null;
     return Row(
       children: [
         Expanded(
@@ -105,29 +111,27 @@ class _InComePageState extends ConsumerState<InComePage> {
                       style: GoogleFonts.inter(
                         fontSize: 22.sp,
                         fontWeight: FontWeight.w600,
-                        color: AppStyle.black,
                       ),
                     ),
-                    16.verticalSpace,
+                    20.verticalSpace,
                     Row(
                       children: [
                         Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
-                            color: AppStyle.green[500],
+                            color: AppStyle.revenueColor,
                           ),
                           padding: EdgeInsets.all(10.r),
-                          child: const Icon(Remix.arrow_left_down_line),
+                          child: SvgPicture.asset(Assets.svgRevenue),
                         ),
-                        10.horizontalSpace,
+                        24.horizontalSpace,
                         Text(
-                          NumberFormat.currency(
-                            symbol: LocalStorage.getSelectedCurrency().symbol,
-                          ).format(state.incomeCart?.revenue ?? 0),
+                          AppHelpers.numberFormat(
+                            state.incomeCart?.revenue ?? 0,
+                          ),
                           style: GoogleFonts.inter(
                             fontSize: 24.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppStyle.black,
                           ),
                         ),
                       ],
@@ -140,7 +144,7 @@ class _InComePageState extends ConsumerState<InComePage> {
                     state.incomeCart?.revenueType == TrKeys.plus
                         ? Icon(
                             FlutterRemix.arrow_up_line,
-                            color: AppStyle.inStockText,
+                            color: AppStyle.primary,
                             size: 18.r,
                           )
                         : Icon(
@@ -154,86 +158,7 @@ class _InComePageState extends ConsumerState<InComePage> {
                       style: GoogleFonts.inter(
                         fontSize: 16.sp,
                         color: state.incomeCart?.revenueType == TrKeys.plus
-                            ? AppStyle.inStockText
-                            : AppStyle.red,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-        12.horizontalSpace,
-        // if (!isManualDateSelected)
-        Expanded(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.r, vertical: 30.r),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.r),
-              color: AppStyle.white,
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      AppHelpers.getTranslation(TrKeys.profit),
-                      style: GoogleFonts.inter(
-                        fontSize: 22.sp,
-                        fontWeight: FontWeight.w600,
-                        color: AppStyle.black,
-                      ),
-                    ),
-                    16.verticalSpace,
-                    Row(
-                      children: [
-                        Container(
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppStyle.revenueColor,
-                          ),
-                          padding: EdgeInsets.all(10.r),
-                          child: const Icon(Remix.goblet_2_fill),
-                        ),
-                        10.horizontalSpace,
-                        Text(
-                          NumberFormat.currency(
-                            symbol: LocalStorage.getSelectedCurrency().symbol,
-                          ).format(state.expenseRevenue?.profit ?? 0),
-                          style: GoogleFonts.inter(
-                            fontSize: 24.sp,
-                            fontWeight: FontWeight.w600,
-                            color: AppStyle.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                const Spacer(),
-                Row(
-                  children: [
-                    state.expenseRevenue?.expenseType == TrKeys.plus
-                        ? Icon(
-                            FlutterRemix.arrow_up_line,
-                            color: AppStyle.inStockText,
-                            size: 18.r,
-                          )
-                        : Icon(
-                            FlutterRemix.arrow_down_line,
-                            color: AppStyle.red,
-                            size: 18.r,
-                          ),
-                    4.horizontalSpace,
-                    Text(
-                      "${state.expenseRevenue?.expensePercent?.ceil() ?? 0}%",
-                      style: GoogleFonts.inter(
-                        fontSize: 16.sp,
-                        color: state.expenseRevenue?.expenseType == TrKeys.plus
-                            ? AppStyle.inStockText
+                            ? AppStyle.primary
                             : AppStyle.red,
                       ),
                     ),
@@ -262,10 +187,9 @@ class _InComePageState extends ConsumerState<InComePage> {
                       style: GoogleFonts.inter(
                         fontSize: 22.sp,
                         fontWeight: FontWeight.w600,
-                        color: AppStyle.black,
                       ),
                     ),
-                    16.verticalSpace,
+                    20.verticalSpace,
                     Row(
                       children: [
                         Container(
@@ -279,7 +203,7 @@ class _InComePageState extends ConsumerState<InComePage> {
                             color: AppStyle.white,
                           ),
                         ),
-                        10.horizontalSpace,
+                        24.horizontalSpace,
                         Text(
                           AppHelpers.numberFormat(
                             state.incomeCart?.orders ?? 0,
@@ -287,7 +211,6 @@ class _InComePageState extends ConsumerState<InComePage> {
                           style: GoogleFonts.inter(
                             fontSize: 24.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppStyle.black,
                           ),
                         ),
                       ],
@@ -300,7 +223,7 @@ class _InComePageState extends ConsumerState<InComePage> {
                     state.incomeCart?.ordersType == TrKeys.plus
                         ? Icon(
                             FlutterRemix.arrow_up_line,
-                            color: AppStyle.inStockText,
+                            color: AppStyle.primary,
                             size: 18.r,
                           )
                         : Icon(
@@ -314,7 +237,7 @@ class _InComePageState extends ConsumerState<InComePage> {
                       style: GoogleFonts.inter(
                         fontSize: 16.sp,
                         color: state.incomeCart?.ordersType == TrKeys.plus
-                            ? AppStyle.inStockText
+                            ? AppStyle.primary
                             : AppStyle.red,
                       ),
                     ),
@@ -343,21 +266,20 @@ class _InComePageState extends ConsumerState<InComePage> {
                       style: GoogleFonts.inter(
                         fontSize: 22.sp,
                         fontWeight: FontWeight.w600,
-                        color: AppStyle.black,
                       ),
                     ),
-                    16.verticalSpace,
+                    20.verticalSpace,
                     Row(
                       children: [
                         Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
-                            color: AppStyle.green[600],
+                            color: AppStyle.black,
                           ),
                           padding: EdgeInsets.all(10.r),
-                          child: const Icon(Remix.arrow_up_down_line),
+                          child: SvgPicture.asset(Assets.svgAverage),
                         ),
-                        10.horizontalSpace,
+                        24.horizontalSpace,
                         Text(
                           AppHelpers.numberFormat(
                             state.incomeCart?.average ?? 0,
@@ -365,7 +287,6 @@ class _InComePageState extends ConsumerState<InComePage> {
                           style: GoogleFonts.inter(
                             fontSize: 24.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppStyle.black,
                           ),
                         ),
                       ],
@@ -378,7 +299,7 @@ class _InComePageState extends ConsumerState<InComePage> {
                     state.incomeCart?.averageType == TrKeys.plus
                         ? Icon(
                             FlutterRemix.arrow_up_line,
-                            color: AppStyle.inStockText,
+                            color: AppStyle.primary,
                             size: 18.r,
                           )
                         : Icon(
@@ -392,13 +313,100 @@ class _InComePageState extends ConsumerState<InComePage> {
                       style: GoogleFonts.inter(
                         fontSize: 16.sp,
                         color: state.incomeCart?.averageType == TrKeys.plus
-                            ? AppStyle.inStockText
+                            ? AppStyle.primary
                             : AppStyle.red,
                       ),
                     ),
                   ],
                 ),
               ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _filter(IncomeState state, IncomeNotifier event) {
+    return Row(
+      children: [
+        SvgPicture.asset(Assets.svgMenu),
+        8.horizontalSpace,
+        ...list.map(
+          (e) => GestureDetector(
+            onTap: () => event.changeIndex(e),
+            child: AnimationButtonEffect(
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 12.r, horizontal: 18.r),
+                margin: EdgeInsets.only(right: 8.r),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.r),
+                  color: state.selectType == e
+                      ? AppStyle.primary
+                      : AppStyle.white,
+                ),
+                child: Text(
+                  AppHelpers.getTranslation(e),
+                  style: GoogleFonts.inter(
+                    fontSize: 14.sp,
+                    color: state.selectType == e
+                        ? AppStyle.white
+                        : AppStyle.black,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        const Spacer(),
+        InkWell(
+          onTap: () {
+            event
+              ..fetchIncomeCarts()
+              ..fetchIncomeCharts()
+              ..fetchIncomeStatistic();
+          },
+          child: AnimationButtonEffect(
+            child: Container(
+              decoration: BoxDecoration(
+                color: AppStyle.white,
+                borderRadius: BorderRadius.circular(10.r),
+              ),
+              padding: EdgeInsets.all(10.r),
+              child: const Icon(FlutterRemix.restart_line),
+            ),
+          ),
+        ),
+        8.horizontalSpace,
+        InkWell(
+          onTap: () {
+            AppHelpers.showAlertDialog(
+              context: context,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width / 3,
+                child: const FilterScreen(),
+              ),
+            );
+          },
+          child: AnimationButtonEffect(
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 10.r, horizontal: 16.r),
+              decoration: BoxDecoration(
+                color: AppStyle.white,
+                borderRadius: BorderRadius.circular(10.r),
+              ),
+              child: Row(
+                children: [
+                  const Icon(FlutterRemix.calendar_check_line),
+                  16.horizontalSpace,
+                  Text(
+                    state.start == null
+                        ? AppHelpers.getTranslation(TrKeys.startEnd)
+                        : "${DateFormat("MMM d,yyyy").format(state.start ?? DateTime.now())} - ${DateFormat("MMM d,yyyy").format(state.end ?? DateTime.now())}",
+                    style: GoogleFonts.inter(fontSize: 14.sp),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
