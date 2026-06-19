@@ -1,0 +1,24 @@
+import 'package:rokctapp/core/infrastructure/utils/services.dart';
+
+class SearchShopModel {
+  final String text;
+  final String? categoryId;
+
+  SearchShopModel({required this.text, this.categoryId});
+
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{
+      "address": {
+        "latitude": LocalStorage.getAddressSelected()?.location?.latitude,
+        "longitude": LocalStorage.getAddressSelected()?.location?.longitude,
+      },
+    };
+    map["search"] = text;
+    map["perPage"] = 100;
+    if (categoryId != null) map["category_id"] = categoryId;
+    map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
+    return map;
+  }
+}
+
+typedef Dyn = dynamic;

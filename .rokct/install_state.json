@@ -1,3 +1,9 @@
 {
-  "packages": {}
+  "packages": {
+    "kitchen_sdk": {
+      "version": "1.0.0",
+      "files": {},
+      "routes": []
+    }
+  }
 }

@@ -1,0 +1,28 @@
+import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
+
+class ProfileResponse {
+  ProfileResponse({UserData? data}) {
+    _data = data;
+  }
+
+  ProfileResponse.fromJson(dynamic json) {
+    _data = json['data'] != null ? UserData.fromJson(json['data']) : null;
+  }
+
+  UserData? _data;
+
+  ProfileResponse copyWith({UserData? data}) =>
+      ProfileResponse(data: data ?? _data);
+
+  UserData? get data => _data;
+
+  Map<String, Dyn> toJson() {
+    final map = <String, Dyn>{};
+    if (_data != null) {
+      map['data'] = _data?.toJson();
+    }
+    return map;
+  }
+}
+
+typedef Dyn = dynamic;

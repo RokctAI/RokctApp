@@ -8,13 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:get_it/get_it.dart';
-
-// @generated-sdk-imports-start
-
-// @generated-sdk-imports-end
-
-
+import 'package:rokctapp/core/presentation/app_widget.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:geolocator/geolocator.dart';
@@ -161,13 +155,4 @@ void main() async {
   );
 
   runApp(ProviderScope(child: Phoenix(child: AppWidget())));
-}
-
-Future<void> setUpDependencies() async {
-  // 1. Initialize core app shell dependencies
-  DependencyManager.registerCore();
-
-  // @generated-sdk-di-start
-
-// @generated-sdk-di-end
 }

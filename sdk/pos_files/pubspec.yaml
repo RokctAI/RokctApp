@@ -13,13 +13,14 @@ dependencies:
     sdk: flutter
 
   dio: ^5.7.0
-  intl: ^0.20.2
+  intl: ^0.19.0
+  msix: ^3.12.1
   lottie: ^3.1.2
-  get_it: ^9.2.0
+  get_it: ^7.7.0
   shimmer: ^3.0.0
   provider: ^6.0.5
   fl_chart: ^0.69.0
-  auto_route: ^11.1.0
+  auto_route: ^9.2.0
   geolocator: ^13.0.1
   top_snackbar_flutter: ^3.0.0+1
   google_fonts: 6.3.0
@@ -38,10 +39,10 @@ dependencies:
   pull_to_refresh: ^2.0.0
   bitsdojo_window: ^0.1.5
   flutter_slidable: ^3.1.0
-  flutter_riverpod: ^2.6.1
-  connectivity_plus: ^7.0.0
+  flutter_riverpod: ^2.5.1
+  connectivity_plus: ^6.1.2
   percent_indicator: ^4.2.3
-  freezed_annotation: 3.1.0
+  freezed_annotation: ^2.1.0
   flutter_screenutil: ^5.8.1
   shared_preferences: ^2.0.15
   google_maps_flutter: ^2.7.0
@@ -53,8 +54,6 @@ dependencies:
   proste_indexed_stack: ^0.2.4
   calendar_date_picker2: ^1.1.5
   flutter_esc_pos_utils: ^1.0.0
-  hardware_sdk:
-    path: ../hardware_sdk
   flutter_advanced_switch: ^3.0.1
   flutter_staggered_animations: ^1.1.1
   network_info_plus: ^6.0.2
@@ -85,11 +84,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  freezed: 3.2.3
-  build_runner: 2.10.4
+  freezed: ^2.4.9
+  build_runner: ^2.4.11
   flutter_lints: ^5.0.0
-  auto_route_generator: ^10.4.0
-  msix: ^3.12.1
+  auto_route_generator: ^9.0.0
 
 
 
@@ -123,7 +121,4 @@ flutter:
     - family: FlutterRemix
       fonts:
         - asset: packages/flutter_remix/fonts/FlutterRemix.ttf
-
-dependency_overrides:
-  get_it: ^9.2.0
 

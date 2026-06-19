@@ -6,7 +6,7 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/components/components.dart';
-import 'package:core_sdk/core_sdk.dart';
+import 'package:rokctapp/core/application/language/language_provider.dart';
 
 class LanguageScreen extends ConsumerStatefulWidget {
   final Function(LanguageData?)? afterUpdate;

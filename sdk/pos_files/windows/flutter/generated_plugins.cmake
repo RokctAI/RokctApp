@@ -9,8 +9,6 @@ list(APPEND FLUTTER_PLUGIN_LIST
   file_selector_windows
   firebase_core
   geolocator_windows
-  permission_handler_windows
-  print_bluetooth_thermal
   screen_retriever_windows
   url_launcher_windows
   webview_windows

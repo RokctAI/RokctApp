@@ -159,7 +159,7 @@ packages:
       path: "sdk/auth_sdk"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   auto_route:
     dependency: "direct main"
     description:
@@ -408,7 +408,7 @@ packages:
       path: "sdk/comms_sdk"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   confetti:
     dependency: "direct main"
     description:
@@ -441,6 +441,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
+  core_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/core_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
   cross_file:
     dependency: transitive
     description:
@@ -495,7 +502,7 @@ packages:
       path: "sdk/delivery_sdk"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   device_info_plus:
     dependency: transitive
     description:
@@ -1278,7 +1285,7 @@ packages:
       path: "sdk/hardware_sdk"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   hotreloader:
     dependency: transitive
     description:
@@ -1573,7 +1580,7 @@ packages:
       path: "sdk/map_sdk"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   matcher:
     dependency: transitive
     description:
@@ -1644,7 +1651,7 @@ packages:
       path: "sdk/order_sdk"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   osm_nominatim:
     dependency: "direct main"
     description:
@@ -1852,7 +1859,7 @@ packages:
       path: "sdk/polaris_sdk"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   pool:
     dependency: transitive
     description:
@@ -1883,7 +1890,7 @@ packages:
       path: "sdk/profile_sdk"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   proste_indexed_stack:
     dependency: "direct main"
     description:
@@ -2060,13 +2067,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.1"
-  shared_sdk:
-    dependency: "direct main"
-    description:
-      path: "sdk/shared_sdk"
-      relative: true
-    source: path
-    version: "0.0.1"
   shelf:
     dependency: transitive
     description:
@@ -2502,7 +2502,7 @@ packages:
       path: "sdk/wallet_sdk"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   watcher:
     dependency: transitive
     description:

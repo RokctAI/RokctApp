@@ -1,0 +1,18 @@
+name: kitchen_sdk
+description: "Kitchen display system (KDS) SDK for tracking cooking statuses and ticket flows."
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: '>=3.38.5'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.6.1
+  get_it: ^9.2.0
+  core_sdk:
+    path: ../core_sdk
+  order_sdk:
+    path: ../order_sdk
