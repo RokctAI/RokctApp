@@ -284,7 +284,7 @@ class OrderNotifier extends Notifier<OrderState> {
   Future<void> fetchShopBranch(BuildContext context, String shopId) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
-       final response = await shopsRepository.getShopBranch(uuid: shopId);
+      final response = await shopsRepository.getShopBranch(uuid: shopId);
       response.when(
         success: (data) async {
           state = state.copyWith(branches: data.data);

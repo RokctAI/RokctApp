@@ -202,14 +202,14 @@ class RegisterNotifier extends Notifier<RegisterState> {
         ),
       );
       response.when(
-         success: (data) async {
-           state = state.copyWith(isLoading: false);
-           LocalStorage.setToken(data.token);
-           if (LocalStorage.isTokenExpired) {
-             debugPrint('Token is expired');
-           }
-           _success(context);
-         },
+        success: (data) async {
+          state = state.copyWith(isLoading: false);
+          LocalStorage.setToken(data.token);
+          if (LocalStorage.isTokenExpired) {
+            debugPrint('Token is expired');
+          }
+          _success(context);
+        },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(context, failure);
@@ -249,15 +249,15 @@ class RegisterNotifier extends Notifier<RegisterState> {
         ),
       );
 
-       response.when(
-         success: (data) async {
-           state = state.copyWith(isLoading: false);
-           LocalStorage.setToken(data.token);
-           if (LocalStorage.isTokenExpired) {
-             debugPrint('Token is expired');
-           }
-           _success(context, addresses: data.user?.addresses);
-         },
+      response.when(
+        success: (data) async {
+          state = state.copyWith(isLoading: false);
+          LocalStorage.setToken(data.token);
+          if (LocalStorage.isTokenExpired) {
+            debugPrint('Token is expired');
+          }
+          _success(context, addresses: data.user?.addresses);
+        },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
