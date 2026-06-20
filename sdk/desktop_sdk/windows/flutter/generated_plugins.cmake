@@ -3,16 +3,6 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  audioplayers_windows
-  bitsdojo_window_windows
-  connectivity_plus
-  file_selector_windows
-  firebase_core
-  flutter_pos_printer_platform_image_3
-  geolocator_windows
-  permission_handler_windows
-  print_bluetooth_thermal
-  url_launcher_windows
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
