@@ -2,8 +2,9 @@ import 'package:admin_desktop/src/core/constants/constants.dart';
 
 import 'package:admin_desktop/src/core/handlers/handlers.dart';
 import 'package:admin_desktop/src/models/models.dart';
+import 'package:kitchen_sdk/kitchen_sdk.dart';
 
-abstract class OrdersRepository {
+abstract class OrdersRepository implements KitchenRepository<ApiResult<dynamic>, ApiResult<SingleKitchenOrderResponse>, OrderStatus> {
   Future<ApiResult<CreateOrderResponse>> createOrder(OrderBodyData orderBody);
 
   Future<ApiResult<OrdersPaginateResponse>> getOrders({
