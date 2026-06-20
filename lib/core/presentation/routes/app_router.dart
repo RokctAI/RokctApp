@@ -35,7 +35,7 @@ import 'package:rokctapp/customer/presentation/pages/shop/shop_page.dart';
 import 'package:rokctapp/customer/presentation/pages/view_map/map_search_page.dart';
 import 'package:rokctapp/customer/presentation/pages/view_map/view_map_page.dart';
 import 'package:rokctapp/customer/models/data/address_new_data.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/core/presentation/pages/chat/chat/chat_page.dart';
 import 'package:rokctapp/customer/presentation/pages/home/widgets/shops_banner_page.dart';

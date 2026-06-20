@@ -1,4 +1,6 @@
-class TableBookingData {
+import 'package:processing_sdk/processing_sdk.dart';
+
+class TableBookingData implements ProcessingContract {
   int? id;
   int? bookingId;
   int? userId;
@@ -9,6 +11,53 @@ class TableBookingData {
   Booking? booking;
   User? user;
   Table? table;
+
+  // ProcessingContract overrides
+  @override
+  String get contractId => id?.toString() ?? '';
+
+  @override
+  String get contractType => 'table_booking';
+
+  @override
+  ProcessingState get currentState {
+    switch (status?.toLowerCase()) {
+      case 'new':
+      case 'booked':
+        return ProcessingState.submitted;
+      case 'confirmed':
+      case 'accepted':
+        return ProcessingState.accepted;
+      case 'active':
+      case 'checked_in':
+        return ProcessingState.active;
+      case 'completed':
+      case 'checked_out':
+        return ProcessingState.completed;
+      case 'rejected':
+        return ProcessingState.failed;
+      case 'cancelled':
+      case 'canceled':
+        return ProcessingState.cancelled;
+      default:
+        return ProcessingState.draft;
+    }
+  }
+
+  @override
+  bool get isPaid => true;
+
+  @override
+  Map<String, dynamic> get metadata => {
+        'bookingId': bookingId,
+        'userId': userId,
+        'tableId': tableId,
+        'startDate': startDate?.toIso8601String(),
+        'endDate': endDate?.toIso8601String(),
+      };
+
+  @override
+  DateTime get updatedAt => endDate ?? DateTime.now();
 
   TableBookingData({
     required this.id,

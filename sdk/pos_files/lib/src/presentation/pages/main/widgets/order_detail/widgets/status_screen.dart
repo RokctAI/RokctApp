@@ -1,5 +1,5 @@
 import 'package:admin_desktop/src/core/utils/utils.dart';
-import 'package:admin_desktop/src/models/data/shop_data.dart';
+import 'package:admin_desktop/src/models/data/merchant_data.dart';
 import 'package:admin_desktop/src/presentation/components/common_image.dart';
 import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,7 @@ import 'order_status.dart';
 
 class StatusScreen extends StatelessWidget {
   final String orderDataStatus;
-  final ShopData? shop;
+  final MerchantData? shop;
 
   const StatusScreen({
     super.key,

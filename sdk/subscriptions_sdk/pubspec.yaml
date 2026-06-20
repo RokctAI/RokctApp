@@ -1,0 +1,30 @@
+name: subscriptions_sdk
+description: "Merchant and POS subscription plans, feature toggling matrices, payment link integration, and active state tracking."
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: ">=3.38.5"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core_sdk:
+    path: ../core_sdk
+  wallet_sdk:
+    path: ../wallet_sdk
+  payments_sdk:
+    path: ../payments_sdk
+  flutter_riverpod: ^2.4.9
+  freezed_annotation: ^2.4.1
+  auto_route: ^7.8.4
+  pull_to_refresh: ^2.0.0
+  dio: ^5.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.4.8
+  freezed: ^2.4.7
+

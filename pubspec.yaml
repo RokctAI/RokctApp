@@ -10,6 +10,29 @@ dependencies:
     sdk: flutter
   hardware_sdk:
     path: sdk/hardware_sdk
+  productivity_sdk:
+    path: sdk/productivity_sdk
+  processing_sdk:
+    path: sdk/processing_sdk
+  orders_sdk:
+    path: sdk/orders_sdk
+  merchants_sdk:
+    path: sdk/merchants_sdk
+  core_sdk:
+    path: sdk/core_sdk
+  auth_sdk:
+    path: sdk/auth_sdk
+  profile_sdk:
+    path: sdk/profile_sdk
+  wallet_sdk:
+    path: sdk/wallet_sdk
+  products_sdk:
+    path: sdk/products_sdk
+  users_sdk:
+    path: sdk/users_sdk
+  subscriptions_sdk:
+    path: sdk/subscriptions_sdk
+
 
 
 
@@ -44,7 +67,7 @@ dependencies:
   drift: ^2.19.0
   # UI Components & Animations
   jiffy: ^6.4.4
-  lottie: ^3.3.2
+  lottie: ^3.1.0
   confetti: ^0.8.0
   flutter_svg: ^2.2.3
   share_plus: ^12.0.1
@@ -138,6 +161,9 @@ dev_dependencies:
   auto_route_generator: ^10.4.0
   drift_dev: ^2.19.0
   flutter_launcher_icons: ^0.14.4
+
+dependency_overrides:
+  archive: 3.3.0
 flutter_native_splash:
   background_image: 'assets/image/splash.png'
   android_12:

@@ -1,0 +1,10 @@
+name: processing_sdk
+description: "Generalized, industry-agnostic State Machine & Lifecycle Orchestration Engine."
+version: 1.0.0
+publish_to: 'none'
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: ">=3.38.5"
+dependencies:
+  flutter:
+    sdk: flutter

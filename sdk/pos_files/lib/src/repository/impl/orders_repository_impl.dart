@@ -6,6 +6,8 @@ import 'package:admin_desktop/src/core/di/dependency_manager.dart';
 import 'package:admin_desktop/src/core/handlers/handlers.dart';
 import 'package:admin_desktop/src/models/models.dart';
 import '../repository.dart';
+import 'package:orders_sdk/orders_sdk.dart';
+
 
 class OrdersRepositoryImpl extends OrdersRepository {
   @override
@@ -134,6 +136,7 @@ class OrdersRepositoryImpl extends OrdersRepository {
   }) async {
     String? statusText;
     switch (status) {
+      case OrderStatus.open:
       case OrderStatus.newOrder:
         statusText = 'new';
         break;
@@ -143,6 +146,7 @@ class OrdersRepositoryImpl extends OrdersRepository {
       case OrderStatus.ready:
         statusText = 'ready';
         break;
+      case OrderStatus.onWay:
       case OrderStatus.onAWay:
         statusText = 'on_a_way';
         break;
@@ -204,6 +208,7 @@ class OrdersRepositoryImpl extends OrdersRepository {
   }) async {
     String? statusText;
     switch (status) {
+      case OrderStatus.open:
       case OrderStatus.newOrder:
         statusText = 'new';
         break;
@@ -216,6 +221,7 @@ class OrdersRepositoryImpl extends OrdersRepository {
       case OrderStatus.ready:
         statusText = 'ready';
         break;
+      case OrderStatus.onWay:
       case OrderStatus.onAWay:
         statusText = 'on_a_way';
         break;

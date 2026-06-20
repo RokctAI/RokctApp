@@ -5,8 +5,8 @@ import 'package:rokctapp/manager/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/category_data.dart';
 
-class ShopData {
-  ShopData({
+class MerchantData {
+  MerchantData({
     int? id,
     String? uuid,
     int? discountsCount,
@@ -81,7 +81,7 @@ class ShopData {
     _tags = tags;
   }
 
-  ShopData.fromJson(dynamic json) {
+  MerchantData.fromJson(dynamic json) {
     _id = json['id'];
     _orderPayment = json['order_payment'];
     _uuid = json['uuid'];
@@ -191,7 +191,7 @@ class ShopData {
   List<ShopWorkingDays>? _shopWorkingDays;
   List<ShopTag>? _tags;
 
-  ShopData copyWith({
+  MerchantData copyWith({
     int? id,
     String? uuid,
     String? orderPayment,
@@ -228,7 +228,7 @@ class ShopData {
     List<ShopPayments>? shopPayments,
     List<ShopWorkingDays>? shopWorkingDays,
     List<ShopTag>? tags,
-  }) => ShopData(
+  }) => MerchantData(
     id: id ?? _id,
     uuid: uuid ?? _uuid,
     orderPayment: orderPayment ?? _orderPayment,

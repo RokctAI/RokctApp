@@ -1,8 +1,8 @@
 import '../data/meta.dart';
-import '../data/shop_data.dart';
+import '../data/merchant_data.dart';
 
 class ShopsPaginateResponse {
-  ShopsPaginateResponse({List<ShopData>? data, Meta? meta}) {
+  ShopsPaginateResponse({List<MerchantData>? data, Meta? meta}) {
     _data = data;
     _meta = meta;
   }
@@ -11,19 +11,19 @@ class ShopsPaginateResponse {
     if (json['data'] != null) {
       _data = [];
       json['data'].forEach((v) {
-        _data?.add(ShopData.fromJson(v));
+        _data?.add(MerchantData.fromJson(v));
       });
     }
     _meta = json['meta'] != null ? Meta.fromJson(json['meta']) : null;
   }
 
-  List<ShopData>? _data;
+  List<MerchantData>? _data;
   Meta? _meta;
 
-  ShopsPaginateResponse copyWith({List<ShopData>? data, Meta? meta}) =>
+  ShopsPaginateResponse copyWith({List<MerchantData>? data, Meta? meta}) =>
       ShopsPaginateResponse(data: data ?? _data, meta: meta ?? _meta);
 
-  List<ShopData>? get data => _data;
+  List<MerchantData>? get data => _data;
 
   Meta? get meta => _meta;
 

@@ -1,7 +1,7 @@
 import 'package:admin_desktop/src/core/constants/constants.dart';
 import 'package:admin_desktop/src/core/utils/app_helpers.dart';
 import 'package:admin_desktop/src/models/data/bag_data.dart';
-import 'package:admin_desktop/src/models/data/bag_shop_data.dart';
+import 'package:admin_desktop/src/models/data/bag_merchant_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';

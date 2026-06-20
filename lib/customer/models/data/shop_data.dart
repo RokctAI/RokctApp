@@ -1,8 +1,8 @@
 import 'package:rokctapp/customer/models/data/bonus_data.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
 
-class ShopData {
-  ShopData({
+class MerchantData {
+  MerchantData({
     this.id,
     this.userId,
     this.tax,
@@ -75,7 +75,7 @@ class ShopData {
   List<ShopClosedDate>? shopClosedDate;
   List<ShopPayment?>? shopPayments;
 
-  factory ShopData.fromJson(Map<String, Dyn> json) {
+  factory MerchantData.fromJson(Map<String, Dyn> json) {
     bool? openValue;
     if (json["open"] != null) {
       if (json["open"] is bool) {
@@ -91,7 +91,7 @@ class ShopData {
       openValue = true; // Default value
     }
 
-    return ShopData(
+    return MerchantData(
       id: json["id"]?.toString(),
       uuid: json["uuid"]?.toString(),
       userId: json["user_id"]?.toString(),

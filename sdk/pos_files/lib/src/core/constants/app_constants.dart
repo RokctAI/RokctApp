@@ -51,13 +51,3 @@ enum UploadType {
   users,
   discounts,
 }
-
-enum OrderStatus {
-  newOrder,
-  accepted,
-  cooking,
-  ready,
-  onAWay,
-  delivered,
-  canceled,
-}

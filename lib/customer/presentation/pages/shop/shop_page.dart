@@ -8,7 +8,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/customer/application/shop/shop_notifier.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/application/like/like_notifier.dart';
 import 'package:rokctapp/customer/application/like/like_provider.dart';
@@ -29,7 +29,7 @@ import 'package:rokctapp/customer/presentation/pages/shop/widgets/shop_page_avat
 
 @RoutePage()
 class ShopPage extends ConsumerStatefulWidget {
-  final ShopData? shop;
+  final MerchantData? shop;
   final String shopId;
   final String? cartId;
   final int? ownerId;
@@ -276,7 +276,7 @@ class _ShopPageState extends ConsumerState<ShopPage>
                               eventLike.fetchLikeShop(context);
                             },
                             isLike: state.isLike,
-                            shop: state.shopData ?? ShopData(),
+                            shop: state.shopData ?? MerchantData(),
                             onShare: event.onShare,
                             bonus: state.shopData?.bonus,
                             cartId: widget.cartId,
@@ -335,7 +335,7 @@ class _ShopPageState extends ConsumerState<ShopPage>
             //                     eventLike.fetchLikeShop(context);
             //                   },
             //                   isLike: state.isLike,
-            //                   shop: state.shopData ?? ShopData(),
+            //                   shop: state.shopData ?? MerchantData(),
             //                   onShare: event.onShare,
             //                   bonus: state.shopData?.bonus,
             //                   cartId: widget.cartId,

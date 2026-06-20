@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../../../models/data/edit_shop_data.dart';
+import '../../../../../../models/data/edit_merchant_data.dart';
 import 'package:admin_desktop/src/models/models.dart';
 
 part 'shop_state.freezed.dart';

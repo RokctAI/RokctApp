@@ -15,10 +15,10 @@ sealed class FoodsFilterState with _$FoodsFilterState {
     @Default(true) bool isShopLoading,
     @Default(true) bool isRestaurantLoading,
     @Default(RangeValues(1, 100)) RangeValues rangeValues,
-    // @Default([]) List<ShopData> shops,
+    // @Default([]) List<MerchantData> shops,
     @Default([]) List<String> tags,
     @Default([]) List<int> prices,
-    // @Default([]) List<ShopData> restaurant,
+    // @Default([]) List<MerchantData> restaurant,
   }) = _FoodsFilterState;
 
   const FoodsFilterState._();

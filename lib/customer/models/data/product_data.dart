@@ -25,7 +25,7 @@ class ProductData {
     Translation? translation,
     List<Properties>? properties,
     List<Stocks>? stocks,
-    ShopData? shop,
+    MerchantData? shop,
     Category? category,
     Brand? brand,
     Stocks? stock,
@@ -126,7 +126,7 @@ class ProductData {
   Translation? _translation;
   List<Properties>? _properties;
   List<Stocks>? _stocks;
-  ShopData? _shop;
+  MerchantData? _shop;
   Category? _category;
   Brand? _brand;
   Unit? _unit;
@@ -157,7 +157,7 @@ class ProductData {
     Translation? translation,
     List<Properties>? properties,
     List<Stocks>? stocks,
-    ShopData? shop,
+    MerchantData? shop,
     Stocks? stock,
     Category? category,
     Brand? brand,
@@ -235,7 +235,7 @@ class ProductData {
 
   List<DiscountData>? get discounts => _discounts;
 
-  ShopData? get shop => _shop;
+  MerchantData? get shop => _shop;
 
   Category? get category => _category;
 

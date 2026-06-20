@@ -2,8 +2,8 @@ import 'translation.dart';
 import 'location.dart';
 import 'shop_delivery.dart';
 
-class ShopData {
-  ShopData({
+class MerchantData {
+  MerchantData({
     int? id,
     String? uuid,
     int? userId,
@@ -54,7 +54,7 @@ class ShopData {
     _deliveries = deliveries;
   }
 
-  ShopData.fromJson(dynamic json) {
+  MerchantData.fromJson(dynamic json) {
     _id = json['id'];
     _uuid = json['uuid'];
     _userId = json['user_id'];
@@ -114,7 +114,7 @@ class ShopData {
   Seller? _seller;
   List<ShopDelivery>? _deliveries;
 
-  ShopData copyWith({
+  MerchantData copyWith({
     int? id,
     String? uuid,
     int? userId,
@@ -140,7 +140,7 @@ class ShopData {
     Translation? translation,
     Seller? seller,
     List<ShopDelivery>? deliveries,
-  }) => ShopData(
+  }) => MerchantData(
     id: id ?? _id,
     uuid: uuid ?? _uuid,
     userId: userId ?? _userId,

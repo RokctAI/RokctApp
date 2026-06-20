@@ -1,5 +1,5 @@
 import 'package:admin_desktop/src/models/data/product_data.dart';
-import 'package:admin_desktop/src/models/data/shop_data.dart';
+import 'package:admin_desktop/src/models/data/merchant_data.dart';
 
 class ProductCalculateResponse {
   ProductCalculateResponse({
@@ -103,7 +103,7 @@ class PriceDate {
   num? deliveryFee;
   num? rate;
   num? couponPrice;
-  ShopData? shop;
+  MerchantData? shop;
   double? km;
 
   PriceDate copyWith({
@@ -117,7 +117,7 @@ class PriceDate {
     num? serviceFee,
     num? rate,
     num? couponPrice,
-    ShopData? shop,
+    MerchantData? shop,
     double? km,
   }) => PriceDate(
     stocks: stocks ?? this.stocks,
@@ -150,7 +150,7 @@ class PriceDate {
       serviceFee: json["service_fee"],
       rate: json["rate"],
       couponPrice: json["coupon_price"],
-      shop: json["shop"] == null ? null : ShopData.fromJson(json["shop"]),
+      shop: json["shop"] == null ? null : MerchantData.fromJson(json["shop"]),
       km: json["km"]?.toDouble(),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:admin_desktop/src/core/constants/tr_keys.dart';
 import 'package:admin_desktop/src/core/utils/app_helpers.dart';
-import 'package:admin_desktop/src/models/data/edit_shop_data.dart';
+import 'package:admin_desktop/src/models/data/edit_merchant_data.dart';
 import 'package:admin_desktop/src/presentation/components/login_button.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/edit_shop/riverpod/shop_provider.dart';
 import 'package:admin_desktop/src/presentation/pages/main/widgets/profile/edit_profile/riverpod/provider/edit_profile_provider.dart';

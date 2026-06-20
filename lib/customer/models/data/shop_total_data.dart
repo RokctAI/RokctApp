@@ -1,8 +1,8 @@
 import 'package:rokctapp/customer/models/data/cart_product_data.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 
 class ShopTotalData {
-  final ShopData shopData;
+  final MerchantData shopData;
   final double shopTax;
   final double onlyShopTax;
   final double discount;

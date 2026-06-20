@@ -69,7 +69,7 @@ class OrderActiveModel {
   num? minute;
   DateTime? createdAt;
   DateTime? updatedAt;
-  ShopData? shop;
+  MerchantData? shop;
   RepeatData? repeat;
   UserModel? user;
   List<OrderProduct>? details;
@@ -120,7 +120,7 @@ class OrderActiveModel {
     createdAt: DateTime.tryParse(json["data"]["created_at"])?.toLocal(),
     updatedAt: DateTime.tryParse(json["data"]["updated_at"])?.toLocal(),
     shop: json["data"]["shop"] != null
-        ? ShopData.fromJson(json["data"]["shop"])
+        ? MerchantData.fromJson(json["data"]["shop"])
         : null,
     repeat: json["data"]["repeat"] != null
         ? RepeatData.fromJson(json["data"]["repeat"])
@@ -183,7 +183,7 @@ class OrderActiveModel {
       updatedAt: json['updated_at'] != null
           ? DateTime.tryParse(json["updated_at"])?.toLocal()
           : null,
-      shop: json["shop"] != null ? ShopData.fromJson(json["shop"]) : null,
+      shop: json["shop"] != null ? MerchantData.fromJson(json["shop"]) : null,
       repeat: json["repeat"] != null
           ? RepeatData.fromJson(json["repeat"])
           : null,
@@ -227,7 +227,7 @@ class OrderActiveModel {
     num? minute,
     DateTime? createdAt,
     DateTime? updatedAt,
-    ShopData? shop,
+    MerchantData? shop,
     RepeatData? repeat,
     UserModel? user,
     List<OrderProduct>? details,

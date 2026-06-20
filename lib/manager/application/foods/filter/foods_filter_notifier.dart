@@ -174,7 +174,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //         shopController.refreshCompleted();
     //       } else {
     //         if (data.data?.isNotEmpty ?? false) {
-    //           List<ShopData> list = List.from(state.shops);
+    //           List<MerchantData> list = List.from(state.shops);
     //           list.addAll(data.data!);
     //           state = state.copyWith(
     //             restaurant: list,
@@ -255,7 +255,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //         shopController.refreshCompleted();
     //       } else {
     //         if (data.data?.isNotEmpty ?? false) {
-    //           List<ShopData> list = List.from(state.shops);
+    //           List<MerchantData> list = List.from(state.shops);
     //           list.addAll(data.data!);
     //           state = state.copyWith(
     //             shops: list,

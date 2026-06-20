@@ -242,7 +242,7 @@ class HomeNotifier extends Notifier<HomeState> {
             shopController.refreshCompleted();
           } else {
             if (data.data?.isNotEmpty ?? false) {
-              List<ShopData> list = List.from(state.shops);
+              List<MerchantData> list = List.from(state.shops);
               list.addAll(data.data!);
               state = state.copyWith(shops: list);
               shopController.loadComplete();
@@ -316,7 +316,7 @@ class HomeNotifier extends Notifier<HomeState> {
             shopController.refreshCompleted();
           } else {
             if (data.data?.isNotEmpty ?? false) {
-              List<ShopData> list = List.from(state.restaurant);
+              List<MerchantData> list = List.from(state.restaurant);
               list.addAll(data.data!);
               state = state.copyWith(restaurant: list);
               shopController.loadComplete();
@@ -394,7 +394,7 @@ class HomeNotifier extends Notifier<HomeState> {
             shopController.refreshCompleted();
           } else {
             if (data.data?.isNotEmpty ?? false) {
-              List<ShopData> list = List.from(state.newRestaurant);
+              List<MerchantData> list = List.from(state.newRestaurant);
               list.addAll(data.data!);
               state = state.copyWith(newRestaurant: list);
               shopController.loadComplete();
@@ -535,7 +535,7 @@ class HomeNotifier extends Notifier<HomeState> {
             shopController.refreshCompleted();
           } else {
             if (data.data?.isNotEmpty ?? false) {
-              List<ShopData> list = List.from(state.shopsRecommend);
+              List<MerchantData> list = List.from(state.shopsRecommend);
               list.addAll(data.data!);
               state = state.copyWith(shopsRecommend: list);
               shopController.loadComplete();
@@ -679,7 +679,7 @@ class HomeNotifier extends Notifier<HomeState> {
       );
       response.when(
         success: (data) {
-          List<ShopData> list = List.from(state.filterShops);
+          List<MerchantData> list = List.from(state.filterShops);
           list.addAll(data.data ?? []);
           state = state.copyWith(
             isSelectCategoryLoading: 1,

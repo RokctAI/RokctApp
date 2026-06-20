@@ -1,11 +1,11 @@
 import 'product_data.dart';
-import 'shop_data.dart';
+import 'merchant_data.dart';
 
 class StoriesData {
   int? id;
   List<String>? fileUrls;
   ProductData? product;
-  ShopData? shop;
+  MerchantData? shop;
 
   StoriesData({this.id, this.fileUrls, this.product, this.shop});
 
@@ -13,7 +13,7 @@ class StoriesData {
     int? id,
     List<String>? fileUrls,
     ProductData? product,
-    ShopData? shop,
+    MerchantData? shop,
   }) => StoriesData(
     id: id ?? this.id,
     fileUrls: fileUrls ?? this.fileUrls,
@@ -29,7 +29,7 @@ class StoriesData {
     product: json["product"] == null
         ? null
         : ProductData.fromJson(json["product"]),
-    shop: json["shop"] == null ? null : ShopData.fromJson(json["shop"]),
+    shop: json["shop"] == null ? null : MerchantData.fromJson(json["shop"]),
   );
 
   Map<String, dynamic> toJson() => {

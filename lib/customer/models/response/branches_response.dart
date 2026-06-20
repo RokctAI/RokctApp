@@ -1,5 +1,5 @@
 import 'package:rokctapp/customer/models/data/order_body_data.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 
 import 'package:rokctapp/customer/models/data/links.dart';
 import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
@@ -56,7 +56,7 @@ class BranchModel {
   Location? location;
   DateTime? createdAt;
   DateTime? updatedAt;
-  ShopData? shop;
+  MerchantData? shop;
   Translation? translation;
   List<String>? locales;
 
@@ -66,7 +66,7 @@ class BranchModel {
     Location? location,
     DateTime? createdAt,
     DateTime? updatedAt,
-    ShopData? shop,
+    MerchantData? shop,
     Translation? translation,
     List<String>? locales,
   }) => BranchModel(
@@ -94,7 +94,7 @@ class BranchModel {
     updatedAt: json["updated_at"] == null
         ? null
         : DateTime.tryParse(json["updated_at"])?.toLocal(),
-    shop: json["shop"] == null ? null : ShopData.fromJson(json["shop"]),
+    shop: json["shop"] == null ? null : MerchantData.fromJson(json["shop"]),
     translation: json["translation"] == null
         ? null
         : Translation.fromJson(json["translation"]),

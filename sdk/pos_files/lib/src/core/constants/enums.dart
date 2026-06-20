@@ -1,3 +1,5 @@
+import 'package:processing_sdk/processing_sdk.dart';
+
 enum DropDownType { deliveryman, users, section, table }
 
 enum ExtrasType { color, text, image }
@@ -16,14 +18,4 @@ enum UploadType {
   reviews,
   users,
   discounts,
-}
-
-enum OrderStatus {
-  newOrder,
-  accepted,
-  cooking,
-  ready,
-  onAWay,
-  delivered,
-  canceled,
 }

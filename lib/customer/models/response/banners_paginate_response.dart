@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 
 import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
@@ -46,7 +46,7 @@ class BannerData {
     int? id,
     int? shopId,
     String? url,
-    List<ShopData>? shops,
+    List<MerchantData>? shops,
     String? img,
     int? active,
     int? likes,
@@ -73,7 +73,7 @@ class BannerData {
     if (json['shops'] != null) {
       _shops = [];
       json['shops'].forEach((v) {
-        _shops?.add(ShopData.fromJson(v));
+        _shops?.add(MerchantData.fromJson(v));
       });
     }
     _img = json['img'];
@@ -89,7 +89,7 @@ class BannerData {
   int? _id;
   int? _shopId;
   String? _url;
-  List<ShopData>? _shops;
+  List<MerchantData>? _shops;
   String? _img;
   int? _active;
   int? _likes;
@@ -101,7 +101,7 @@ class BannerData {
     int? id,
     int? shopId,
     String? url,
-    List<ShopData>? shops,
+    List<MerchantData>? shops,
     String? img,
     int? active,
     int? likes,
@@ -127,7 +127,7 @@ class BannerData {
 
   String? get url => _url;
 
-  List<ShopData>? get shops => _shops;
+  List<MerchantData>? get shops => _shops;
 
   String? get img => _img;
 

@@ -1,0 +1,13 @@
+name: productivity_sdk
+description: "Team task tracking, checklists, workflow management, and operational action items."
+version: 1.0.0
+publish_to: 'none'
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: ">=3.38.5"
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: ^2.5.4
+  processing_sdk:
+    path: ../processing_sdk

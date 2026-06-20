@@ -11,7 +11,7 @@ sealed class RestaurantState with _$RestaurantState {
     String? backgroundImageFile,
     String? logoImageFile,
     String? orderPayment,
-    ShopData? shop,
+    MerchantData? shop,
   }) = _RestaurantState;
 
   const RestaurantState._();

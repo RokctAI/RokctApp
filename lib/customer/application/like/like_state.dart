@@ -7,7 +7,7 @@ part 'like_state.freezed.dart';
 sealed class LikeState with _$LikeState {
   const factory LikeState({
     @Default(true) bool isShopLoading,
-    @Default([]) List<ShopData> shops,
+    @Default([]) List<MerchantData> shops,
   }) = _LikeState;
 
   const LikeState._();

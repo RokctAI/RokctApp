@@ -170,7 +170,7 @@ abstract class FirebaseService {
   //     if (link.contains("shop_id")) {
   //       // AppRouteShop.goShopPage(
   //       //   context: context,
-  //       //   shop: ShopData(
+  //       //   shop: MerchantData(
   //       //     id: int.tryParse(link.substring(link.indexOf('shop_id=') + 8)),
   //       //   ),
   //       // );

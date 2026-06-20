@@ -1,4 +1,43 @@
+import 'package:processing_sdk/processing_sdk.dart';
+
 enum ShopStatus { notRequested, newShop, edited, approved, rejected }
+
+extension ShopStatusProcessingMapping on ShopStatus {
+  ProcessingState toProcessingState() {
+    switch (this) {
+      case ShopStatus.notRequested:
+        return ProcessingState.draft;
+      case ShopStatus.newShop:
+        return ProcessingState.submitted;
+      case ShopStatus.edited:
+        return ProcessingState.processing;
+      case ShopStatus.approved:
+        return ProcessingState.active;
+      case ShopStatus.rejected:
+        return ProcessingState.failed;
+    }
+  }
+
+  static ShopStatus fromProcessingState(ProcessingState state) {
+    switch (state) {
+      case ProcessingState.draft:
+        return ShopStatus.notRequested;
+      case ProcessingState.submitted:
+        return ShopStatus.newShop;
+      case ProcessingState.accepted:
+      case ProcessingState.processing:
+      case ProcessingState.ready:
+      case ProcessingState.dispatched:
+        return ShopStatus.edited;
+      case ProcessingState.active:
+      case ProcessingState.completed:
+        return ShopStatus.approved;
+      case ProcessingState.failed:
+      case ProcessingState.cancelled:
+        return ShopStatus.rejected;
+    }
+  }
+}
 
 enum UploadType {
   extras,
@@ -25,8 +64,6 @@ enum ShippingDeliveryVisibilityType {
   onlyPickup,
   both,
 }
-
-enum OrderStatus { open, accepted, ready, onWay, delivered, canceled }
 
 enum CouponType { fix, percent }
 

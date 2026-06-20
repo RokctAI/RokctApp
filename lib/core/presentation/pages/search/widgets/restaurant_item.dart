@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
@@ -10,7 +10,7 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/customer/presentation/components/components.dart';
 
 class RestaurantItem extends StatelessWidget {
-  final ShopData shop;
+  final MerchantData shop;
   final CustomColorSet colors;
 
   const RestaurantItem({super.key, required this.shop, required this.colors});

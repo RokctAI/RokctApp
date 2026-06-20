@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 
 class RefundOrdersModel {
   RefundOrdersModel({this.data});
@@ -63,11 +63,11 @@ class Order {
   Order({this.id, this.shop});
 
   int? id;
-  ShopData? shop;
+  MerchantData? shop;
 
   factory Order.fromJson(Map<String, Dyn> json) => Order(
     id: json["id"],
-    shop: json["shop"] != null ? ShopData.fromJson(json["shop"]) : null,
+    shop: json["shop"] != null ? MerchantData.fromJson(json["shop"]) : null,
   );
 
   Map<String, Dyn> toJson() => {"id": id};

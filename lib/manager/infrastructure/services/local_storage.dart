@@ -191,7 +191,7 @@ class LocalStorage {
   static void _deleteWallet() =>
       CoreLocalStorage.preferences?.remove(StorageKeys.keyWallet);
 
-  static Future<void> setShop(ShopData? shop) async {
+  static Future<void> setShop(MerchantData? shop) async {
     if (CoreLocalStorage.preferences != null) {
       final String shopString = shop != null ? jsonEncode(shop.toJson()) : '';
       await CoreLocalStorage.preferences!.setString(
@@ -201,7 +201,7 @@ class LocalStorage {
     }
   }
 
-  static ShopData? getShop() {
+  static MerchantData? getShop() {
     final savedString = CoreLocalStorage.preferences?.getString(
       StorageKeys.keyShop,
     );
@@ -212,7 +212,7 @@ class LocalStorage {
     if (map == null) {
       return null;
     }
-    return ShopData.fromJson(map);
+    return MerchantData.fromJson(map);
   }
 
   static void _deleteShop() =>

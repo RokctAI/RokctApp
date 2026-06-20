@@ -8,7 +8,7 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/customer/models/data/filter_model.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 import 'package:rokctapp/core/application/filter/filter_state.dart';
 
 class FilterNotifier extends Notifier<FilterState> {
@@ -215,7 +215,7 @@ class FilterNotifier extends Notifier<FilterState> {
             shopController.refreshCompleted();
           } else {
             if (data.data?.isNotEmpty ?? false) {
-              List<ShopData> list = List.from(state.restaurant);
+              List<MerchantData> list = List.from(state.restaurant);
               list.addAll(data.data!);
               state = state.copyWith(restaurant: list);
               shopController.loadComplete();

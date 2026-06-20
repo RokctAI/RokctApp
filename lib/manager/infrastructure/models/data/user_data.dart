@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/merchant_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
 import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 
@@ -16,7 +16,7 @@ class UserData {
     String? img,
     String? role,
     List<AddressData>? addresses,
-    ShopData? shop,
+    MerchantData? shop,
     Wallet? wallet,
   }) {
     _id = id;
@@ -55,7 +55,7 @@ class UserData {
         _addresses?.add(AddressData.fromJson(v));
       });
     }
-    _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
+    _shop = json['shop'] != null ? MerchantData.fromJson(json['shop']) : null;
     _wallet = json['wallet'] != null ? Wallet.fromJson(json['wallet']) : null;
   }
 
@@ -71,7 +71,7 @@ class UserData {
   String? _img;
   String? _role;
   List<AddressData>? _addresses;
-  ShopData? _shop;
+  MerchantData? _shop;
   Wallet? _wallet;
 
   UserData copyWith({
@@ -87,7 +87,7 @@ class UserData {
     String? img,
     String? role,
     List<AddressData>? addresses,
-    ShopData? shop,
+    MerchantData? shop,
     Wallet? wallet,
   }) => UserData(
     id: id ?? _id,
@@ -130,7 +130,7 @@ class UserData {
 
   List<AddressData>? get addresses => _addresses;
 
-  ShopData? get shop => _shop;
+  MerchantData? get shop => _shop;
 
   Wallet? get wallet => _wallet;
 

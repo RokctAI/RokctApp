@@ -2,7 +2,7 @@ import 'package:admin_desktop/src/models/response/product_calculate_response.dar
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../../../../models/data/edit_shop_data.dart';
+import '../../../../../../../models/data/edit_merchant_data.dart';
 import '../../../../../../../models/models.dart';
 
 part 'right_side_state.freezed.dart';
@@ -31,7 +31,7 @@ class RightSideState with _$RightSideState {
     @Default([]) List<AddressData> userAddresses,
     @Default([]) List<CurrencyData> currencies,
     @Default([]) List<PaymentData> payments,
-    @Default([]) List<ShopData> shops,
+    @Default([]) List<MerchantData> shops,
     @Default([]) List<BagShopData> bagShops,
     @Default(0) int selectedBagIndex,
     @Default(-1) int selectedCloseDay,

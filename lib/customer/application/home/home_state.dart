@@ -22,13 +22,13 @@ sealed class HomeState with _$HomeState {
     @Default([]) List<BannerData> banners,
     @Default([]) List<BannerData> ads,
     @Default(null) BannerData? banner,
-    @Default([]) List<ShopData> shops,
-    @Default([]) List<ShopData> restaurant,
-    @Default([]) List<ShopData> newRestaurant,
+    @Default([]) List<MerchantData> shops,
+    @Default([]) List<MerchantData> restaurant,
+    @Default([]) List<MerchantData> newRestaurant,
     @Default([]) List<List<StoryModel?>?>? story,
-    @Default([]) List<ShopData> shopsRecommend,
-    @Default([]) List<ShopData> filterShops,
-    @Default([]) List<ShopData> filterMarket,
+    @Default([]) List<MerchantData> shopsRecommend,
+    @Default([]) List<MerchantData> filterShops,
+    @Default([]) List<MerchantData> filterMarket,
   }) = _HomeState;
 
   const HomeState._();

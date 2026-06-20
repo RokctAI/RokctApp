@@ -1,6 +1,6 @@
 import 'address_data.dart';
 import 'invite_data.dart';
-import 'shop_data.dart';
+import 'merchant_data.dart';
 import 'currency_data.dart';
 
 class UserData {
@@ -21,7 +21,7 @@ class UserData {
     String? img,
     String? role,
     List<AddressData>? addresses,
-    ShopData? shop,
+    MerchantData? shop,
     InviteData? invite,
     Wallet? wallet,
     String? password,
@@ -72,7 +72,7 @@ class UserData {
         _addresses?.add(AddressData.fromJson(v));
       });
     }
-    _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
+    _shop = json['shop'] != null ? MerchantData.fromJson(json['shop']) : null;
     _invite = json['invite'] != null
         ? InviteData.fromJson(json['invite'])
         : null;
@@ -95,7 +95,7 @@ class UserData {
   String? _img;
   String? _role;
   List<AddressData>? _addresses;
-  ShopData? _shop;
+  MerchantData? _shop;
   InviteData? _invite;
   Wallet? _wallet;
   String? _password;
@@ -118,7 +118,7 @@ class UserData {
     String? img,
     String? role,
     List<AddressData>? addresses,
-    ShopData? shop,
+    MerchantData? shop,
     InviteData? invite,
     Wallet? wallet,
     String? password,
@@ -179,7 +179,7 @@ class UserData {
 
   List<AddressData>? get addresses => _addresses;
 
-  ShopData? get shop => _shop;
+  MerchantData? get shop => _shop;
   InviteData? get invite => _invite;
 
   Wallet? get wallet => _wallet;

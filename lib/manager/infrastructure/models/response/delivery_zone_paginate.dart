@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/merchant_data.dart';
 
 class DeliveryZonePaginate {
   DeliveryZonePaginate({List<DeliveryZoneData>? data}) {
@@ -31,7 +31,7 @@ class DeliveryZonePaginate {
 }
 
 class DeliveryZoneData {
-  DeliveryZoneData({int? id, List<List<double>>? address, ShopData? shop}) {
+  DeliveryZoneData({int? id, List<List<double>>? address, MerchantData? shop}) {
     _id = id;
     _address = address;
     _shop = shop;
@@ -52,17 +52,17 @@ class DeliveryZoneData {
     }
     _id = json['id'];
     _address = parsedAddresses;
-    _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
+    _shop = json['shop'] != null ? MerchantData.fromJson(json['shop']) : null;
   }
 
   int? _id;
   List<List<double>>? _address;
-  ShopData? _shop;
+  MerchantData? _shop;
 
   DeliveryZoneData copyWith({
     int? id,
     List<List<double>>? address,
-    ShopData? shop,
+    MerchantData? shop,
   }) => DeliveryZoneData(
     id: id ?? _id,
     address: address ?? _address,
@@ -73,7 +73,7 @@ class DeliveryZoneData {
 
   List<List<double>>? get address => _address;
 
-  ShopData? get shop => _shop;
+  MerchantData? get shop => _shop;
 
   Map<String, Dyn> toJson() {
     final map = <String, Dyn>{};

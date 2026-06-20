@@ -1,11 +1,11 @@
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 
 class SingleShopResponse {
   SingleShopResponse({
     String? timestamp,
     bool? status,
     String? message,
-    ShopData? data,
+    MerchantData? data,
   }) {
     _timestamp = timestamp;
     _status = status;
@@ -17,19 +17,19 @@ class SingleShopResponse {
     _timestamp = json['timestamp'];
     _status = json['status'];
     _message = json['message'];
-    _data = json['data'] != null ? ShopData.fromJson(json['data']) : null;
+    _data = json['data'] != null ? MerchantData.fromJson(json['data']) : null;
   }
 
   String? _timestamp;
   bool? _status;
   String? _message;
-  ShopData? _data;
+  MerchantData? _data;
 
   SingleShopResponse copyWith({
     String? timestamp,
     bool? status,
     String? message,
-    ShopData? data,
+    MerchantData? data,
   }) => SingleShopResponse(
     timestamp: timestamp ?? _timestamp,
     status: status ?? _status,
@@ -43,7 +43,7 @@ class SingleShopResponse {
 
   String? get message => _message;
 
-  ShopData? get data => _data;
+  MerchantData? get data => _data;
 
   Map<String, Dyn> toJson() {
     final map = <String, Dyn>{};

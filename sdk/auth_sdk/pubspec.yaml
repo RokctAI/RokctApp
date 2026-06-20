@@ -1,0 +1,26 @@
+dependencies:
+  auto_route: ^11.1.0
+  core_sdk:
+    path: ../core_sdk
+  dartz: ^0.10.1
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.6.1
+  freezed_annotation: ^3.1.0
+  users_sdk:
+    path: ../users_sdk
+  profile_sdk:
+    path: ../profile_sdk
+  flutter_remix: ^0.0.3
+description: Authentication and User Identity SDK
+dev_dependencies:
+  build_runner: ^2.10.4
+  flutter_test:
+    sdk: flutter
+  freezed: ^3.2.3
+environment:
+  flutter: '>=3.38.5'
+  sdk: '>=3.10.0 <4.0.0'
+name: auth_sdk
+publish_to: none
+version: 1.0.0

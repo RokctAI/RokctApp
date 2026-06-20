@@ -5,7 +5,7 @@ import 'currency_data.dart';
 import 'location_data.dart';
 import 'product_data.dart';
 import 'review_data.dart';
-import 'shop_data.dart';
+import 'merchant_data.dart';
 import 'table_data.dart';
 import 'user_data.dart';
 
@@ -39,7 +39,7 @@ class OrderData {
   DateTime? createdAt;
   DateTime? updatedAt;
   UserData? deliveryman;
-  ShopData? shop;
+  MerchantData? shop;
   CurrencyData? currency;
   UserData? user;
   List<OrderDetail>? details;
@@ -126,7 +126,7 @@ class OrderData {
     DateTime? createdAt,
     DateTime? updatedAt,
     UserData? deliveryman,
-    ShopData? shop,
+    MerchantData? shop,
     CurrencyData? currency,
     UserData? user,
     List<OrderDetail>? details,
@@ -225,7 +225,7 @@ class OrderData {
     deliveryman: json["deliveryman"] == null
         ? null
         : UserData.fromJson(json["deliveryman"]),
-    shop: json["shop"] == null ? null : ShopData.fromJson(json["shop"]),
+    shop: json["shop"] == null ? null : MerchantData.fromJson(json["shop"]),
     currency: json["currency"] == null
         ? null
         : CurrencyData.fromJson(json["currency"]),

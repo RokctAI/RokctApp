@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
@@ -15,7 +15,7 @@ import 'package:rokctapp/customer/presentation/pages/home/home_two/widget/two_bo
 import 'package:rokctapp/customer/presentation/components/components.dart';
 
 class MarketTwoItem extends StatelessWidget {
-  final ShopData shop;
+  final MerchantData shop;
   final bool isSimpleShop;
   final bool isShop;
   final bool isFilter;

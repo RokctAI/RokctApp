@@ -243,7 +243,7 @@ class ShopNotifier extends Notifier<ShopState> {
     }
   }
 
-  Future<void> setShop(ShopData shop) async {
+  Future<void> setShop(MerchantData shop) async {
     _list = LocalStorage.getSavedShopsList();
     for (String e in _list) {
       if (e == shop.id) {

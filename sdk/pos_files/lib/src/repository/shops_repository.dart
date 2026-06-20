@@ -1,6 +1,6 @@
 import 'package:admin_desktop/src/core/handlers/handlers.dart';
 import 'package:multi_dropdown/multi_dropdown.dart';
-import '../models/data/edit_shop_data.dart';
+import '../models/data/edit_merchant_data.dart';
 import 'package:admin_desktop/src/models/models.dart';
 
 abstract class ShopsRepository {

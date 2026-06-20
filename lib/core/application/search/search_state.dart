@@ -10,7 +10,7 @@ sealed class SearchState with _$SearchState {
     @Default(true) bool isProductLoading,
     @Default("") String search,
     @Default([]) List<ProductData> products,
-    @Default([]) List<ShopData> shops,
+    @Default([]) List<MerchantData> shops,
     @Default(-1) int selectIndexCategory,
     @Default([]) List<String> searchHistory,
   }) = _SearchState;

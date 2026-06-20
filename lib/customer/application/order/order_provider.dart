@@ -1,8 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:rokctapp/customer/application/order/order_notifier.dart';
-import 'package:rokctapp/customer/application/order/order_state.dart';
+import 'package:orders_sdk/orders_sdk.dart';
 
 final orderProvider = NotifierProvider<OrderNotifier, OrderState>(
   () => OrderNotifier(),
 );
+

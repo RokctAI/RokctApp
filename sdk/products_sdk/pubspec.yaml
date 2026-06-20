@@ -1,0 +1,16 @@
+name: products_sdk
+description: "Shared product catalog, categories, search, and inventory interfaces."
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: ">=3.38.5"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core_sdk:
+    path: ../core_sdk
+  merchants_sdk:
+    path: ../merchants_sdk

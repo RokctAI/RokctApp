@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
 import 'package:rokctapp/core/presentation/theme/theme.dart';
@@ -11,7 +11,7 @@ import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
 import 'package:rokctapp/customer/presentation/components/components.dart';
 
 class MarketOneItem extends StatelessWidget {
-  final ShopData shop;
+  final MerchantData shop;
   final bool isSimpleShop;
   final bool isShop;
 

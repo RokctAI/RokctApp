@@ -5,7 +5,7 @@ import 'package:rokctapp/core/infrastructure/models/data/payment_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/table_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/manager/infrastructure/models/data/merchant_data.dart';
 import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 
@@ -32,7 +32,7 @@ class OrderData {
     String? deliveryTime,
     String? createdAt,
     String? updatedAt,
-    ShopData? shop,
+    MerchantData? shop,
     TableData? table,
     CurrencyData? currency,
     UserData? user,
@@ -100,7 +100,7 @@ class OrderData {
     _deliveryTime = json['delivery_time'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
-    _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
+    _shop = json['shop'] != null ? MerchantData.fromJson(json['shop']) : null;
     _table = json['table'] != null ? TableData.fromJson(json['table']) : null;
     _currency = json['currency'] != null
         ? CurrencyData.fromJson(json['currency'])
@@ -146,7 +146,7 @@ class OrderData {
   String? _deliveryTime;
   String? _createdAt;
   String? _updatedAt;
-  ShopData? _shop;
+  MerchantData? _shop;
   CurrencyData? _currency;
   UserData? _user;
   List<OrderDetail>? _details;
@@ -175,7 +175,7 @@ class OrderData {
     String? deliveryTime,
     String? createdAt,
     String? updatedAt,
-    ShopData? shop,
+    MerchantData? shop,
     CurrencyData? currency,
     UserData? user,
     List<OrderDetail>? details,
@@ -258,7 +258,7 @@ class OrderData {
 
   String? get updatedAt => _updatedAt;
 
-  ShopData? get shop => _shop;
+  MerchantData? get shop => _shop;
 
   CurrencyData? get currency => _currency;
 

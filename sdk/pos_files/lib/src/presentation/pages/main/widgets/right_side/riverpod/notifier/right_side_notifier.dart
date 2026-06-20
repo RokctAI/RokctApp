@@ -7,7 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:multi_dropdown/models/value_item.dart';
 import '../../../../../../../core/constants/constants.dart';
 import '../../../../../../../core/utils/utils.dart';
-import '../../../../../../../models/data/edit_shop_data.dart';
+import '../../../../../../../models/data/edit_merchant_data.dart';
 import '../../../../../../../models/data/location_data.dart';
 import '../../../../../../../models/models.dart';
 import '../../../../../../../repository/repository.dart';

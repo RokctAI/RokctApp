@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/customer/application/shop/shop_provider.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_map.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
@@ -17,7 +17,7 @@ import 'package:rokctapp/customer/presentation/components/components.dart';
 
 @RoutePage()
 class ShopDetailPage extends ConsumerStatefulWidget {
-  final ShopData shop;
+  final MerchantData shop;
   final String workTime;
 
   const ShopDetailPage({super.key, required this.shop, required this.workTime});

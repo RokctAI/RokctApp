@@ -16,6 +16,21 @@ dependencies:
     path: ../hardware_sdk
   kitchen_sdk:
     path: ../kitchen_sdk
+  processing_sdk:
+    path: ../processing_sdk
+  orders_sdk:
+    path: ../orders_sdk
+  merchants_sdk:
+    path: ../merchants_sdk
+  core_sdk:
+    path: ../core_sdk
+  auth_sdk:
+    path: ../auth_sdk
+  profile_sdk:
+    path: ../profile_sdk
+  wallet_sdk:
+    path: ../wallet_sdk
+
 
   dio: ^5.9.0
   intl: ^0.20.2

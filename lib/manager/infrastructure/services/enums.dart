@@ -1,14 +1,5 @@
+import 'package:processing_sdk/processing_sdk.dart';
 // Trace ID propagation context
-enum OrderStatus {
-  newOrder,
-  cooking,
-  accepted,
-  ready,
-  onAWay,
-  delivered,
-  canceled,
-}
-
 enum SnackBarType { success, info, error }
 
 enum ExtrasType { color, text, image }
@@ -25,6 +16,37 @@ enum UploadType {
 }
 
 enum ProductStatus { published, pending, unpublished }
+
+extension ProductStatusProcessingMapping on ProductStatus {
+  ProcessingState toProcessingState() {
+    switch (this) {
+      case ProductStatus.pending:
+        return ProcessingState.submitted;
+      case ProductStatus.published:
+        return ProcessingState.active;
+      case ProductStatus.unpublished:
+        return ProcessingState.cancelled;
+    }
+  }
+
+  static ProductStatus fromProcessingState(ProcessingState state) {
+    switch (state) {
+      case ProcessingState.draft:
+      case ProcessingState.submitted:
+      case ProcessingState.accepted:
+      case ProcessingState.processing:
+      case ProcessingState.ready:
+      case ProcessingState.dispatched:
+        return ProductStatus.pending;
+      case ProcessingState.active:
+      case ProcessingState.completed:
+        return ProductStatus.published;
+      case ProcessingState.failed:
+      case ProcessingState.cancelled:
+        return ProductStatus.unpublished;
+    }
+  }
+}
 
 enum WeekDays { monday, tuesday, wednesday, thursday, friday, saturday, sunday }
 

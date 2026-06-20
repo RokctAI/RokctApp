@@ -22,6 +22,7 @@
 *(Agent to append new lessons here when a mistake is made or a correction is received)*
 
 *   **[Date]** - [Lesson]
+*   **2026-06-21** - UI Migration TrKeys Deferral: Defer modularizing `tr_keys.dart` into individual SDKs until we migrate the UI layer. For now, they remain centralized in `core_sdk`.
 
 
 ## Safe ID

@@ -1,0 +1,15 @@
+name: merchants_sdk
+description: "Generic merchant entity contract (shops, restaurants, companies) and service hooks."
+version: 1.0.0
+publish_to: 'none'
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: ">=3.38.5"
+dependencies:
+  flutter:
+    sdk: flutter
+  core_sdk:
+    path: ../core_sdk
+  products_sdk:
+    path: ../products_sdk
+

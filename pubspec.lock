@@ -74,13 +74,13 @@ packages:
     source: hosted
     version: "2.0.6+1"
   archive:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: archive
-      sha256: "2fde1607386ab523f7a36bb3e7edb43bd58e6edaf2ffb29d8a6d578b297fdbbd"
+      sha256: eb33140ede1b4039f4ad631f7bf3cfa58e24514e8bf87184bc32f17541af87fc
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.7"
+    version: "3.3.0"
   args:
     dependency: transitive
     description:
@@ -153,6 +153,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.3.0"
+  auth_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/auth_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
   auto_route:
     dependency: "direct main"
     description:
@@ -427,6 +434,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
+  core_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/core_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
   cross_file:
     dependency: transitive
     description:
@@ -531,6 +545,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.31.0"
+  enum_to_string:
+    dependency: transitive
+    description:
+      name: enum_to_string
+      sha256: "93b75963d3b0c9f6a90c095b3af153e1feccb79f6f08282d3274ff8d9eea52bc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.1"
   equatable:
     dependency: transitive
     description:
@@ -832,6 +854,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.0"
+  flutter_pos_printer_platform_image_3:
+    dependency: transitive
+    description:
+      name: flutter_pos_printer_platform_image_3
+      sha256: d640f9337bb929182784d99b938eb54799787e6093905dbbe40de34c20881694
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.3"
   flutter_rating_bar:
     dependency: "direct main"
     description:
@@ -1394,6 +1424,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.2"
+  image_v3:
+    dependency: transitive
+    description:
+      name: image_v3
+      sha256: dd9f790f2397dd243a74e606a57780e03e2fb67f372baf587e7780c37bd0258d
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.0"
   intl:
     dependency: "direct main"
     description:
@@ -1562,6 +1600,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.11.1"
+  merchants_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/merchants_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
   meta:
     dependency: transitive
     description:
@@ -1594,6 +1639,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  network_info_plus:
+    dependency: transitive
+    description:
+      name: network_info_plus
+      sha256: "4601b815b1c6a46d84839f65cd774a7d999738471d910fae00d813e9e98b04e1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.0+1"
+  network_info_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: network_info_plus_platform_interface
+      sha256: "881f5029c5edaf19c616c201d3d8b366c5b1384afd5c1da5a49e4345de82fb8b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.3"
   nm:
     dependency: transitive
     description:
@@ -1610,6 +1671,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
+  orders_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/orders_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
   osm_nominatim:
     dependency: "direct main"
     description:
@@ -1787,6 +1855,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.5.2"
+  ping_discover_network_forked:
+    dependency: transitive
+    description:
+      name: ping_discover_network_forked
+      sha256: d3975c4f3fbaa388f78fb4037ad9c33059d8e2ec0e804ed45e05277d2451fe77
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   pinput:
     dependency: "direct main"
     description:
@@ -1819,14 +1895,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.2"
-  posix:
-    dependency: transitive
-    description:
-      name: posix
-      sha256: "6323a5b0fa688b6a010df4905a56b00181479e6d10534cecfecede2aa55add61"
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.0.3"
   print_bluetooth_thermal:
     dependency: transitive
     description:
@@ -1835,6 +1903,34 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
+  processing_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/processing_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
+  productivity_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/productivity_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
+  products_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/products_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
+  profile_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/profile_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
   proste_indexed_stack:
     dependency: "direct main"
     description:
@@ -2208,6 +2304,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.1"
+  subscriptions_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/subscriptions_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
   synchronized:
     dependency: transitive
     description:
@@ -2328,6 +2431,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.5"
+  users_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/users_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
   uuid:
     dependency: "direct main"
     description:
@@ -2440,6 +2550,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "15.0.2"
+  wallet_sdk:
+    dependency: "direct main"
+    description:
+      path: "sdk/wallet_sdk"
+      relative: true
+    source: path
+    version: "1.0.0"
   watcher:
     dependency: transitive
     description:

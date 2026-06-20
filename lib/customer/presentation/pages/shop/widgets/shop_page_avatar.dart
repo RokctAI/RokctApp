@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/customer/application/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/customer/presentation/pages/shop/group_order/group_order.dart';
@@ -23,7 +23,7 @@ import 'package:rokctapp/customer/presentation/pages/shop/widgets/shop_descripti
 import 'package:rokctapp/customer/presentation/components/components.dart';
 
 class ShopPageAvatar extends StatelessWidget {
-  final ShopData shop;
+  final MerchantData shop;
   final String? cartId;
   final String? userUuid;
   final String workTime;

@@ -16,6 +16,9 @@ import 'package:dio/dio.dart';
 import 'package:rokctapp/core/infrastructure/constants/app_constants.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/local_location_data.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:rokctapp/core/infrastructure/utils/app_helpers.dart';
+import 'package:payments_sdk/payments_sdk.dart' as sdk;
+import 'package:subscriptions_sdk/subscriptions_sdk.dart' as sub_sdk;
 
 // --- Phoenix Widget for App Rebirth ---
 class Phoenix extends StatefulWidget {
@@ -154,5 +157,30 @@ void main() async {
     ),
   );
 
-  runApp(ProviderScope(child: Phoenix(child: AppWidget())));
+  runApp(
+    ProviderScope(
+      overrides: [
+        sdk.paymentsRepositoryProvider.overrideWithValue(managerPaymentRepositoryNew),
+        sdk.connectivityProvider.overrideWithValue(AppConnectivity.connectivity),
+        sdk.snackBarProvider.overrideWithValue((context, message) => AppHelpers.showCheckTopSnackBar(context, message)),
+        sdk.noConnectionSnackBarProvider.overrideWithValue(AppHelpers.showNoConnectionSnackBar),
+        sdk.translationProvider.overrideWithValue(AppHelpers.getTranslation),
+        sub_sdk.subscriptionProvider.overrideWith((ref) {
+          return sub_sdk.SubscriptionNotifier(
+            managerSubscriptionRepository,
+            managerPaymentRepositoryNew,
+            getWalletPrice: () => LocalStorage.getUser()?.wallet?.price ?? 0,
+            onNavigateToWebView: (context, url) async {
+              await ref.read(appRouterProvider).push(ManagerWebViewRoute(url: url));
+            },
+            onError: (context, message) {
+              AppHelpers.errorSnackBar(context, text: message);
+            },
+            getTranslation: (key) => AppHelpers.getTranslation(key),
+          );
+        }),
+      ],
+      child: Phoenix(child: AppWidget()),
+    ),
+  );
 }

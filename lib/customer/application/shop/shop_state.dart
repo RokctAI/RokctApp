@@ -33,7 +33,7 @@ sealed class ShopState with _$ShopState {
     @Default(0) int subCategoryIndex,
     @Default({}) Set<Marker> shopMarkers,
     @Default([]) List<LatLng> polylineCoordinates,
-    @Default(null) ShopData? shopData,
+    @Default(null) MerchantData? shopData,
     // @Default([]) List<ProductData> products,
     // @Default([]) List<ProductData> popularProducts,
     @Default([]) List<ProductData> categoryProducts,

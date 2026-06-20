@@ -1,0 +1,11 @@
+name: core_sdk
+description: "Common utilities, shared models (Translation, Location), storage, and network foundation."
+version: 1.0.0
+publish_to: 'none'
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: ">=3.38.5"
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.4.0

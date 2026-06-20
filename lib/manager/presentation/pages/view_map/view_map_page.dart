@@ -12,7 +12,8 @@ import 'package:rokctapp/manager/application/map/view_map_provider.dart';
 import 'package:rokctapp/manager/application/map/view_map_state.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:rokctapp/manager/infrastructure/services/services.dart' hide TrKeys;
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
@@ -199,7 +200,7 @@ class _ViewMapPageState extends ConsumerState<ManagerViewMapPage> {
                                 AddressData(
                                   title: controller.text,
                                   address: controller.text,
-                                  location: LocationData(
+                                  location: LocationModel(
                                     latitude:
                                         cameraPosition?.target.latitude ??
                                         latLng.latitude,
@@ -252,7 +253,7 @@ class _ViewMapPageState extends ConsumerState<ManagerViewMapPage> {
                                 AddressData(
                                   title: controller.text,
                                   address: controller.text,
-                                  location: LocationData(
+                                  location: LocationModel(
                                     latitude:
                                         cameraPosition?.target.latitude ??
                                         latLng.latitude,
@@ -394,7 +395,7 @@ class _ViewMapPageState extends ConsumerState<ManagerViewMapPage> {
                 AddressData(
                   title: controller.text,
                   address: controller.text,
-                  location: LocationData(
+                  location: LocationModel(
                     latitude:
                         res?.result?.geometry?.location?.lat ?? latLng.latitude,
                     longitude:

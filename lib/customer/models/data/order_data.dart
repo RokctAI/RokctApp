@@ -1,7 +1,7 @@
 import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/data/product_data.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
 import 'package:rokctapp/customer/models/data/review_data.dart';
 import 'package:rokctapp/customer/models/data/coupon_data.dart';
@@ -167,7 +167,7 @@ class ShopOrderDetails {
     Dyn deliveryman,
     DeliveryType? deliveryType,
     // List<dynamic>? transactions,
-    ShopData? shop,
+    MerchantData? shop,
   }) {
     _id = id;
     _shopId = shopId;
@@ -217,7 +217,7 @@ class ShopOrderDetails {
     //     _transactions?.add(Dynamic.fromJson(v));
     //   });
     // }
-    _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
+    _shop = json['shop'] != null ? MerchantData.fromJson(json['shop']) : null;
   }
 
   String? _id;
@@ -236,7 +236,7 @@ class ShopOrderDetails {
   DeliveryType? _deliveryType;
 
   // List<dynamic>? _transactions;
-  ShopData? _shop;
+  MerchantData? _shop;
 
   ShopOrderDetails copyWith({
     String? id,
@@ -254,7 +254,7 @@ class ShopOrderDetails {
     Dyn deliveryman,
     DeliveryType? deliveryType,
     // List<dynamic>? transactions,
-    ShopData? shop,
+    MerchantData? shop,
   }) => ShopOrderDetails(
     id: id ?? _id,
     shopId: shopId ?? _shopId,
@@ -303,7 +303,7 @@ class ShopOrderDetails {
   DeliveryType? get deliveryType => _deliveryType;
 
   // List<dynamic>? get transactions => _transactions;
-  ShopData? get shop => _shop;
+  MerchantData? get shop => _shop;
 
   Map<String, Dyn> toJson() {
     final map = <String, Dyn>{};

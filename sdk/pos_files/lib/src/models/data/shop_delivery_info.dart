@@ -1,8 +1,8 @@
-import 'shop_data.dart';
+import 'merchant_data.dart';
 import 'shop_delivery.dart';
 
 class ShopDeliveryInfo {
-  final ShopData? shop;
+  final MerchantData? shop;
   final String? deliveryDate;
   final String? deliveryTime;
   final List<ShopDelivery>? shopDeliveries;
@@ -17,7 +17,7 @@ class ShopDeliveryInfo {
   });
 
   ShopDeliveryInfo copyWith({
-    ShopData? shop,
+    MerchantData? shop,
     String? deliveryDate,
     String? deliveryTime,
     List<ShopDelivery>? shopDeliveries,

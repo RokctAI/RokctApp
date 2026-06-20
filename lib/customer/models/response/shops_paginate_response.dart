@@ -1,9 +1,9 @@
 import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
-import 'package:rokctapp/customer/models/data/shop_data.dart';
+import 'package:rokctapp/customer/models/data/merchant_data.dart';
 
 class ShopsPaginateResponse {
   ShopsPaginateResponse({
-    List<ShopData>? data,
+    List<MerchantData>? data,
     // Links? links,
     Meta? meta,
   }) {
@@ -16,19 +16,19 @@ class ShopsPaginateResponse {
     if (json['data'] != null) {
       _data = [];
       json['data'].forEach((v) {
-        _data?.add(ShopData.fromJson(v));
+        _data?.add(MerchantData.fromJson(v));
       });
     }
     // _links = json['links'] != null ? Links.fromJson(json['links']) : null;
     _meta = json['meta'] != null ? Meta.fromJson(json['meta']) : null;
   }
 
-  List<ShopData>? _data;
+  List<MerchantData>? _data;
   // Links? _links;
   Meta? _meta;
 
   ShopsPaginateResponse copyWith({
-    List<ShopData>? data,
+    List<MerchantData>? data,
     // Links? links,
     Meta? meta,
   }) => ShopsPaginateResponse(
@@ -37,7 +37,7 @@ class ShopsPaginateResponse {
     meta: meta ?? _meta,
   );
 
-  List<ShopData>? get data => _data;
+  List<MerchantData>? get data => _data;
 
   // Links? get links => _links;
 
