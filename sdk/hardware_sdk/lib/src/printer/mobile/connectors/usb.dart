@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
-import '../models/data/printer_device.dart';
+import 'package:hardware_sdk/src/printer/mobile/models/data/printer_device.dart';
 
 class UsbConnector {
   static final UsbConnector _instance = UsbConnector._internal();
@@ -18,11 +18,11 @@ class UsbConnector {
   Future<List<PrinterDevice>> getDevices() async {
     if (!Platform.isAndroid) return [];
     try {
-      final List<Dyn>? result = await _channel.invokeMethod('getDevices');
+      final List<dynamic>? result = await _channel.invokeMethod('getDevices');
       if (result == null) return [];
 
       return result.map((e) {
-        final Map<Dyn, Dyn> map = e as Map<Dyn, Dyn>;
+        final Map<dynamic, dynamic> map = e as Map<dynamic, dynamic>;
         final String vId = map['vendorId']?.toString() ?? '0';
         final String pId = map['productId']?.toString() ?? '0';
         return PrinterDevice(
@@ -80,5 +80,3 @@ class UsbConnector {
     }
   }
 }
-
-typedef Dyn = dynamic;

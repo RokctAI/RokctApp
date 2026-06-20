@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:hardware_sdk/hardware_sdk.dart';
-import 'package:rokctapp/printer/providers/billing_printer_state.dart';
+import 'billing_printer_state.dart';
 
 class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
   final PrinterManager _printerManager = PrinterManager();
@@ -11,9 +11,10 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
     init();
   }
 
-  void init() {
-    final mac = LocalStorage.getPrinterMac();
-    final name = LocalStorage.getPrinterName();
+  Future<void> init() async {
+    final prefs = await SharedPreferences.getInstance();
+    final mac = prefs.getString('printer_mac');
+    final name = prefs.getString('printer_name');
     state = state.copyWith(
       status: PrinterStatus.initial,
       connectedMac: mac,
@@ -51,8 +52,9 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
     );
     final response = await _printerManager.connect(mac);
     if (response.isSuccess) {
-      LocalStorage.setPrinterMac(mac);
-      LocalStorage.setPrinterName(name);
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('printer_mac', mac);
+      await prefs.setString('printer_name', name);
       state = state.copyWith(
         status: PrinterStatus.connected,
         connectedMac: mac,
@@ -69,8 +71,9 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
   Future<void> disconnect() async {
     final response = await _printerManager.disconnect();
     if (response.isSuccess) {
-      LocalStorage.removePrinterMac();
-      LocalStorage.removePrinterName();
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove('printer_mac');
+      await prefs.remove('printer_name');
       state = state.copyWith(
         status: PrinterStatus.disconnected,
         connectedMac: null,
@@ -99,7 +102,7 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
     required String address1,
     required String address2,
     required String phone,
-    required List<Map<String, Dyn>> items,
+    required List<Map<String, dynamic>> items,
     required double total,
     required String footer,
   }) async {
@@ -121,7 +124,5 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
 
 final billingPrinterProvider =
     StateNotifierProvider<BillingPrinterNotifier, BillingPrinterState>((ref) {
-      return BillingPrinterNotifier();
-    });
-
-typedef Dyn = dynamic;
+  return BillingPrinterNotifier();
+});

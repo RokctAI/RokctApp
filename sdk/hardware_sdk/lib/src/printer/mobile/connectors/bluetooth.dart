@@ -1,6 +1,6 @@
 import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
 import 'package:permission_handler/permission_handler.dart';
-import '../models/data/printer_device.dart';
+import 'package:hardware_sdk/src/printer/mobile/models/data/printer_device.dart';
 
 class BluetoothConnector {
   static final BluetoothConnector _instance = BluetoothConnector._internal();

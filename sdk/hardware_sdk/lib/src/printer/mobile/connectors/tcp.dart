@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
-import '../models/data/printer_device.dart';
+import 'package:hardware_sdk/src/printer/mobile/models/data/printer_device.dart';
 
 class TcpConnector {
   static final TcpConnector _instance = TcpConnector._internal();

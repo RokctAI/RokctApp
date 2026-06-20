@@ -13,8 +13,17 @@ dependencies:
   flutter_riverpod: ^2.6.1
   permission_handler: ^12.0.1
   mobile_scanner: ^6.0.4
+  shared_preferences: ^2.5.4
+  freezed_annotation: any
+  rxdart: any
+  network_info_plus: any
+  ping_discover_network_forked: any
+  flutter_pos_printer_platform_image_3: any
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  freezed: any
+  build_runner: ^2.4.8

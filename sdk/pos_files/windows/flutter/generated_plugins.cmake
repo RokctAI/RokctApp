@@ -10,6 +10,8 @@ list(APPEND FLUTTER_PLUGIN_LIST
   firebase_core
   flutter_pos_printer_platform_image_3
   geolocator_windows
+  permission_handler_windows
+  print_bluetooth_thermal
   url_launcher_windows
 )
 

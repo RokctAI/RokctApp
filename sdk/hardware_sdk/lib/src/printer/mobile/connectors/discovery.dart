@@ -1,7 +1,7 @@
-import 'models/data/printer_device.dart';
-import 'mobile/bluetooth_connector.dart';
-import 'desktop/tcp_connector.dart';
-import 'desktop/usb_connector.dart';
+import 'package:hardware_sdk/src/printer/mobile/models/data/printer_device.dart';
+import 'bluetooth.dart';
+import 'tcp.dart';
+import 'usb.dart';
 
 class PrinterDiscovery {
   static final PrinterDiscovery _instance = PrinterDiscovery._internal();

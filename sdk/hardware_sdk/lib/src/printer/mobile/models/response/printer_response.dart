@@ -1,7 +1,7 @@
 class PrinterResponse {
   final bool isSuccess;
   final String? message;
-  final Dyn data;
+  final dynamic data;
 
   PrinterResponse({required this.isSuccess, this.message, this.data});
 
@@ -10,5 +10,3 @@ class PrinterResponse {
   factory PrinterResponse.failure(String message) =>
       PrinterResponse(isSuccess: false, message: message);
 }
-
-typedef Dyn = dynamic;

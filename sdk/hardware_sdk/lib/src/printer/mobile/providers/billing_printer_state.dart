@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hardware_sdk/hardware_sdk.dart';
+import 'package:hardware_sdk/src/printer/mobile/models/data/printer_device.dart';
+
 part 'billing_printer_state.freezed.dart';
 
 enum PrinterStatus {

@@ -2,11 +2,7 @@ import 'models/response/printer_response.dart';
 import 'models/data/esc_pos.dart';
 import 'models/data/printer_device.dart';
 import 'models/request/print_receipt_request.dart';
-
-import 'mobile/bluetooth_connector.dart';
-import 'desktop/tcp_connector.dart';
-import 'desktop/usb_connector.dart';
-import 'discovery.dart';
+import 'connectors/connectors.dart';
 import 'package:intl/intl.dart';
 
 class PrinterManager {
