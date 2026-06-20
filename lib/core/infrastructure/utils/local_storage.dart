@@ -257,11 +257,16 @@ abstract class LocalStorage {
 
   // Offline capabilities
   static Future<void> setOfflineUser(Map<String, Dyn>? data) async {
-    await CoreLocalStorage.preferences?.setString(StorageKeys.keyOfflineUser, jsonEncode(data));
+    await CoreLocalStorage.preferences?.setString(
+      StorageKeys.keyOfflineUser,
+      jsonEncode(data),
+    );
   }
 
   static Map<String, Dyn>? getOfflineUser() {
-    final data = CoreLocalStorage.preferences?.getString(StorageKeys.keyOfflineUser);
+    final data = CoreLocalStorage.preferences?.getString(
+      StorageKeys.keyOfflineUser,
+    );
     return data != null ? jsonDecode(data) : null;
   }
 
@@ -277,7 +282,10 @@ abstract class LocalStorage {
 
   static List<Dyn> getOfflineQueue() {
     final List<String> strings =
-        CoreLocalStorage.preferences?.getStringList(StorageKeys.keyOfflineQueue) ?? [];
+        CoreLocalStorage.preferences?.getStringList(
+          StorageKeys.keyOfflineQueue,
+        ) ??
+        [];
     return strings.map((s) => jsonDecode(s)).toList();
   }
 
@@ -289,7 +297,10 @@ abstract class LocalStorage {
       CoreLocalStorage.preferences?.getInt('sync_error_count') ?? 0;
 
   static Future<void> setLastSyncError(String? error) async {
-    await CoreLocalStorage.preferences?.setString('last_sync_error', error ?? '');
+    await CoreLocalStorage.preferences?.setString(
+      'last_sync_error',
+      error ?? '',
+    );
   }
 
   static String getLastSyncError() =>

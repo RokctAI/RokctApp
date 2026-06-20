@@ -158,11 +158,11 @@ class LoginNotifier extends Notifier<LoginState> {
             return;
           }
 
-           LocalStorage.setToken(data.data?.accessToken ?? '');
-           if (LocalStorage.isTokenExpired) {
-             debugPrint('Token is expired');
-           }
-           await getProfileDetails(context);
+          LocalStorage.setToken(data.data?.accessToken ?? '');
+          if (LocalStorage.isTokenExpired) {
+            debugPrint('Token is expired');
+          }
+          await getProfileDetails(context);
 
           if (currentFlavor == AppFlavor.manager) {
             if (user?.role == 'seller') seller?.call();
