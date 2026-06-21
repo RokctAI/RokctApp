@@ -1,9 +1,0 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:rokctapp/manager/application/foods/foods_state.dart';
-import 'package:rokctapp/manager/application/foods/foods_notifier.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-
-final foodsProvider = StateNotifierProvider<FoodsNotifier, FoodsState>(
-  (ref) => FoodsNotifier(managerProductRepository),
-);
