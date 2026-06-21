@@ -18,7 +18,11 @@ class SearchNotifier extends Notifier<SearchState> {
     state = state.copyWith(searchHistory: list, search: "");
   }
 
-  void setSelectCategory(int index, BuildContext context, {String? categoryId}) {
+  void setSelectCategory(
+    int index,
+    BuildContext context, {
+    String? categoryId,
+  }) {
     if (state.selectIndexCategory == index) {
       state = state.copyWith(selectIndexCategory: -1);
     } else {

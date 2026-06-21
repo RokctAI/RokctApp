@@ -97,7 +97,8 @@ class OrdersRepository implements OrdersInterface {
   }
 
   @override
-  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page, {
+  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(
+    int page, {
     DateTime? start,
     DateTime? end,
     List<String>? status,
