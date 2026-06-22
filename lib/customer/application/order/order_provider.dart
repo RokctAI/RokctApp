@@ -4,4 +4,3 @@ import 'package:orders_sdk/orders_sdk.dart';
 final orderProvider = NotifierProvider<OrderNotifier, OrderState>(
   () => OrderNotifier(),
 );
-

@@ -212,11 +212,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
     String? shopId,
     required int page,
   }) async {
-    return getProductsPaginate(
-      shopId: shopId,
-      page: page,
-      orderBy: 'rating',
-    );
+    return getProductsPaginate(shopId: shopId, page: page, orderBy: 'rating');
   }
 
   @override
@@ -233,7 +229,8 @@ class ProductsRepository implements ProductsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<ProductsPaginateResponse>> getProductsShopByCategoryPaginate({
+  Future<ApiResult<ProductsPaginateResponse>>
+  getProductsShopByCategoryPaginate({
     String? shopId,
     List<String>? brands,
     int? sortIndex,
