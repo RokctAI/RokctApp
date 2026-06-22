@@ -18,7 +18,7 @@ dependencies:
   products_sdk:
     path: ../products_sdk
   image_picker: ^1.1.2
-  image_cropper: ^8.0.2
+  image_cropper: ^11.0.0
 description: Active user profile models, directories, search interfaces, and client
   management.
 dev_dependencies:

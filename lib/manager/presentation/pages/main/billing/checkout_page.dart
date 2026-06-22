@@ -1,18 +1,18 @@
-import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+
+
+import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
-import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart';
-import 'package:rokctapp/application/pos/pos_provider.dart';
+import 'package:rokctapp/manager/application/order_cart/order_cart_provider.dart';
+
 import 'package:hardware_sdk/hardware_sdk.dart';
-import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/core/presentation/theme/app_style.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+
+
 import 'package:rokctapp/core/infrastructure/utils/pay_verification_helper.dart';
 
 class ManagerCheckoutPage extends ConsumerStatefulWidget {

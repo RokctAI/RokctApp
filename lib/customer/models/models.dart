@@ -6,7 +6,7 @@ export 'package:rokctapp/customer/models/response/single_brand_response.dart';
 export 'package:rokctapp/customer/models/data/brand_data.dart';
 export 'package:rokctapp/customer/models/response/banners_paginate_response.dart';
 export 'package:rokctapp/customer/models/response/shops_paginate_response.dart';
-export 'package:rokctapp/customer/models/data/merchant_data.dart';
+export 'package:merchants_sdk/merchants_sdk.dart';
 export 'package:rokctapp/customer/models/response/addresses_response.dart';
 export 'package:rokctapp/customer/models/data/location.dart';
 export 'package:rokctapp/customer/models/data/local_address_data.dart';

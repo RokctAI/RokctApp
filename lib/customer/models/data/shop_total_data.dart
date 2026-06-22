@@ -1,5 +1,5 @@
 import 'package:rokctapp/customer/models/data/cart_product_data.dart';
-import 'package:rokctapp/customer/models/data/merchant_data.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class ShopTotalData {
   final MerchantData shopData;

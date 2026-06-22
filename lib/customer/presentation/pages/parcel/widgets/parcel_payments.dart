@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/application/payment_methods/payment_provider.dart';
-import 'package:rokctapp/core/application/payment_methods/payment_state.dart';
+import 'package:payments_sdk/payments_sdk.dart';
 import 'package:rokctapp/customer/models/data/payment_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/application/payment_methods/payment_notifier.dart';
+import 'package:payments_sdk/payments_sdk.dart';
 
 import 'package:rokctapp/customer/presentation/components/components.dart';
 

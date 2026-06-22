@@ -6,7 +6,7 @@ export 'package:rokctapp/manager/infrastructure/models/data/group.dart';
 export 'package:rokctapp/manager/infrastructure/models/data/extras.dart';
 export 'package:rokctapp/core/infrastructure/models/data/language.dart';
 export 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
-export 'package:rokctapp/manager/infrastructure/models/data/merchant_data.dart';
+export 'package:merchants_sdk/merchants_sdk.dart';
 export 'package:rokctapp/manager/infrastructure/models/data/shop_data.dart';
 export 'package:rokctapp/manager/infrastructure/models/data/unit_data.dart';
 export 'package:rokctapp/manager/infrastructure/models/data/order_data.dart';

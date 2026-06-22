@@ -10,7 +10,6 @@
 // import 'package:rokctapp/customer/application/shop_order/shop_order_provider.dart';
 // import 'package:rokctapp/core/infrastructure/utils/services.dart';
 // // // // import 'package:rokctapp/customer/presentation/pages/shop/cart/cart_order_page.dart';
-// import 'package:rokctapp/presentation/pages/shop/widgets/make_tab_bar.dart';
 // import 'package:rokctapp/core/presentation/theme/theme.dart';
 //
 // import 'package:rokctapp/customer/models/models.dart';

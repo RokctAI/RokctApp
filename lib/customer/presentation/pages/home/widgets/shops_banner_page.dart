@@ -8,7 +8,7 @@ import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/customer/presentation/pages/home/home_one/widget/market_one_item.dart';
 import 'package:rokctapp/customer/presentation/pages/home/home_three/widgets/market_three_item.dart';
-import 'package:rokctapp/customer/models/data/merchant_data.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/presentation/pages/home/home_two/widget/market_two_item.dart';

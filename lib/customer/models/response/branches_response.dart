@@ -1,5 +1,5 @@
 import 'package:rokctapp/customer/models/data/order_body_data.dart';
-import 'package:rokctapp/customer/models/data/merchant_data.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 import 'package:rokctapp/customer/models/data/links.dart';
 import 'package:rokctapp/core/infrastructure/models/data/meta.dart';

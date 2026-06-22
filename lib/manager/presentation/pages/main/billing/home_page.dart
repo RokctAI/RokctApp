@@ -1,14 +1,14 @@
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart';
-import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/manager/application/order_cart/order_cart_provider.dart';
+import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/driver/presentation/component/common_image.dart';
 import 'package:rokctapp/core/presentation/theme/app_style.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+
+
 import 'package:rokctapp/manager/presentation/pages/main/billing/checkout_page.dart';
 
 class ManagerBillingPage extends ConsumerStatefulWidget {
