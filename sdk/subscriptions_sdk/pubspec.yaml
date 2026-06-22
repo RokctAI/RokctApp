@@ -17,8 +17,8 @@ dependencies:
   payments_sdk:
     path: ../payments_sdk
   flutter_riverpod: ^2.4.9
-  freezed_annotation: ^2.4.1
-  auto_route: ^7.8.4
+  freezed_annotation: ^3.1.0
+  auto_route: ^11.1.0
   pull_to_refresh: ^2.0.0
   dio: ^5.4.0
 

@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/merchant_data.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class SingleShopResponse {
   SingleShopResponse({

@@ -2,7 +2,7 @@ import 'package:rokctapp/driver/infrastructure/models/data/addon_data.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/core/infrastructure/models/data/payment_data.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/user_data.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/merchant_data.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 
 class OrderData {

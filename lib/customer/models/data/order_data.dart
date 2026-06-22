@@ -1,7 +1,7 @@
 import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/data/product_data.dart';
-import 'package:rokctapp/customer/models/data/merchant_data.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
 import 'package:rokctapp/customer/models/data/review_data.dart';
 import 'package:rokctapp/customer/models/data/coupon_data.dart';

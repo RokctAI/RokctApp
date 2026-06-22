@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/application/order/order_state.dart';
+import 'package:orders_sdk/orders_sdk.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';

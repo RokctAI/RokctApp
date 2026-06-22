@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/customer/models/data/filter_model.dart';
 import 'package:rokctapp/customer/models/data/take_data.dart';
 
-import 'package:rokctapp/customer/models/data/merchant_data.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 part 'filter_state.freezed.dart';
 

@@ -8,7 +8,7 @@ import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/customer/models/data/filter_model.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 
-import 'package:rokctapp/customer/models/data/merchant_data.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/core/application/filter/filter_state.dart';
 
 class FilterNotifier extends Notifier<FilterState> {

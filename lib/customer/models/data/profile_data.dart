@@ -1,7 +1,7 @@
 import 'package:rokctapp/customer/models/data/address_new_data.dart';
 
 import 'package:rokctapp/core/infrastructure/models/data/notification_data.dart';
-import 'package:rokctapp/customer/models/data/merchant_data.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 
 class ProfileData {

@@ -1,6 +1,10 @@
+import 'package:auth_sdk/auth_sdk.dart' as auth_sdk;
+import 'package:users_sdk/users_sdk.dart' as users_sdk;
+import 'package:flutter_remix/flutter_remix.dart';
+import 'package:rokctapp/core/infrastructure/firebase_service/firebase_service.dart';
 import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -160,10 +164,108 @@ void main() async {
   runApp(
     ProviderScope(
       overrides: [
-        sdk.paymentsRepositoryProvider.overrideWithValue(managerPaymentRepositoryNew),
-        sdk.connectivityProvider.overrideWithValue(AppConnectivity.connectivity),
-        sdk.snackBarProvider.overrideWithValue((context, message) => AppHelpers.showCheckTopSnackBar(context, message)),
-        sdk.noConnectionSnackBarProvider.overrideWithValue(AppHelpers.showNoConnectionSnackBar),
+        auth_sdk.authRepositoryProvider.overrideWithValue(
+          authRepository as auth_sdk.AuthRepositoryFacade,
+        ),
+        auth_sdk.isPhoneFirebaseProvider.overrideWithValue(
+          AppConstants.isPhoneFirebase,
+        ),
+        auth_sdk.getFlavorProvider.overrideWithValue(
+          () => AppConstants.flavor.name,
+        ),
+        auth_sdk.firebaseSocialLoginProvider.overrideWithValue((
+          context,
+          icon,
+        ) async {
+          if (icon == FlutterRemix.google_fill) {
+            final res = await FirebaseService.socialGoogle();
+            return res.fold((l) => l, (r) {
+              AppHelpers.showCheckTopSnackBar(context, r.toString());
+              return null;
+            });
+          } else if (icon == FlutterRemix.apple_fill) {
+            final res = await FirebaseService.socialApple();
+            return res.fold((l) => l, (r) {
+              AppHelpers.showCheckTopSnackBar(context, r.toString());
+              return null;
+            });
+          } else if (icon == FlutterRemix.facebook_fill) {
+            final res = await FirebaseService.socialFacebook();
+            return res.fold((l) => l, (r) {
+              AppHelpers.showCheckTopSnackBar(context, r.toString());
+              return null;
+            });
+          }
+          return null;
+        }),
+        auth_sdk.firebaseSendOtpProvider.overrideWithValue(({
+          required phone,
+          required onSuccess,
+          required onError,
+        }) async {
+          await FirebaseService.sendCode(
+            phone: phone,
+            onSuccess: onSuccess,
+            onError: onError,
+          );
+        }),
+        auth_sdk.firebaseVerifyPhoneProvider.overrideWithValue(({
+          required context,
+          required smsCode,
+          required verificationId,
+          required onSuccess,
+          required onError,
+        }) async {
+          final res = await FirebaseService.checkCode(
+            verificationId: verificationId,
+            code: smsCode,
+          );
+          res.when(
+            success: (data) => onSuccess(),
+            failure: (err, _) => onError(err.toString()),
+          );
+        }),
+        auth_sdk.authNavigationProvider.overrideWithValue((context, user) {
+          appRouter.pushPath('/main');
+        }),
+        auth_sdk.fetchMyShopProvider.overrideWithValue(({
+          required afterFetched,
+        }) {
+          afterFetched();
+        }),
+        users_sdk.userRepositoryProvider.overrideWithValue(
+          userRepository as users_sdk.UserRepositoryFacade,
+        ),
+        users_sdk.settingsRepositoryProvider.overrideWithValue(
+          settingsRepository,
+        ),
+        users_sdk.logoutNavigationProvider.overrideWithValue((context) {
+          appRouter.pushPath('/login');
+        }),
+        users_sdk.getSelectedCurrencyProvider.overrideWithValue(
+          () => LocalStorage.getSelectedCurrency(),
+        ),
+        users_sdk.logoutStorageProvider.overrideWithValue(() async {
+          LocalStorage.logout();
+        }),
+        users_sdk.galleryRepositoryProvider.overrideWithValue(
+          galleryRepository,
+        ),
+        users_sdk.shopsRepositoryProvider.overrideWithValue(shopsRepository),
+
+        sdk.paymentsRepositoryProvider.overrideWithValue(
+          managerPaymentRepositoryNew,
+        ),
+        sdk.connectivityProvider.overrideWithValue(
+          AppConnectivity.connectivity,
+        ),
+        sdk.snackBarProvider.overrideWithValue(
+          (context, message) =>
+              AppHelpers.showCheckTopSnackBar(context, message),
+        ),
+        sdk.noConnectionSnackBarProvider.overrideWithValue(
+          AppHelpers.showNoConnectionSnackBar,
+        ),
         sdk.translationProvider.overrideWithValue(AppHelpers.getTranslation),
         sub_sdk.subscriptionProvider.overrideWith((ref) {
           return sub_sdk.SubscriptionNotifier(
@@ -171,12 +273,12 @@ void main() async {
             managerPaymentRepositoryNew,
             getWalletPrice: () => LocalStorage.getUser()?.wallet?.price ?? 0,
             onNavigateToWebView: (context, url) async {
-              await ref.read(appRouterProvider).push(ManagerWebViewRoute(url: url));
+              await appRouter.push(null as dynamic);
             },
             onError: (context, message) {
-              AppHelpers.errorSnackBar(context, text: message);
+              AppHelpers.showCheckTopSnackBar(context, message);
             },
-            getTranslation: (key) => AppHelpers.getTranslation(key),
+            getTranslation: (key) => AppHelpers.getTranslation(key) as dynamic,
           );
         }),
       ],
