@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import 'dart:io';
 import 'package:intl/intl.dart';
+import 'package:uuid/uuid.dart';
 import 'package:comms_sdk/comms_sdk.dart';
+import 'package:table_calendar/table_calendar.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:path_provider/path_provider.dart';
 
 class TodoPage extends StatefulWidget {
   const TodoPage({super.key});
@@ -17,22 +22,33 @@ class _TodoPageState extends State<TodoPage> {
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _categoryController = TextEditingController();
   final TextEditingController _subtaskController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
 
   DateTime? _selectedDeadline;
   bool _isReminderSet = false;
   String _selectedPriority = 'Medium';
   String _filterStatus = 'All'; // All, Pending, Completed
+  String _sortBy = 'Created'; // Created, Deadline, Priority
+  String _recurrence = 'None'; // None, Daily, Weekly, Monthly
+  bool _showCalendar = false;
+  DateTime _focusedDay = DateTime.now();
+  DateTime? _selectedDay;
+
   late SharedPreferences _prefs;
-  int? _editingId; // Track by ID instead of index
+  String? _editingId;
 
   String? _selectedCategory;
   List<Map<String, dynamic>> _currentSubtasks = [];
 
   final List<String> _priorities = ['Low', 'Medium', 'High'];
+  final List<String> _recurrences = ['None', 'Daily', 'Weekly', 'Monthly'];
+  final List<String> _sortOptions = ['Created', 'Deadline', 'Priority'];
+  final Uuid _uuid = const Uuid();
 
   @override
   void initState() {
     super.initState();
+    _selectedDay = _focusedDay;
     _initNotifications();
     _loadTodos();
   }
@@ -57,6 +73,21 @@ class _TodoPageState extends State<TodoPage> {
     await _prefs.setString('todos', json.encode(_todos));
   }
 
+  Future<void> _exportData() async {
+    try {
+        final directory = await getApplicationDocumentsDirectory();
+        final file = File('${directory.path}/todos_backup.json');
+        await file.writeAsString(json.encode(_todos));
+        await Share.shareXFiles([XFile(file.path)], text: 'My Todo Backup');
+    } catch (e) {
+        debugPrint('Error exporting data: $e');
+    }
+  }
+
+  int _getNotificationId(String uuidStr) {
+      return uuidStr.hashCode.abs() % 100000;
+  }
+
   void _saveTask() {
     if (_controller.text.trim().isEmpty) return;
 
@@ -68,12 +99,13 @@ class _TodoPageState extends State<TodoPage> {
 
     setState(() {
       if (_editingId != null) {
-        // Updating existing by ID
+        // Updating existing by UUID
         final index = _todos.indexWhere((t) => t['id'] == _editingId);
         if (index != -1) {
-          final int id = _editingId!;
+          final String id = _editingId!;
+          final int notifId = _getNotificationId(id);
 
-          LocalNotifications.cancelNotification(id);
+          LocalNotifications.cancelNotification(notifId);
 
           _todos[index] = {
             'id': id,
@@ -83,12 +115,14 @@ class _TodoPageState extends State<TodoPage> {
             'reminder': _isReminderSet,
             'priority': _selectedPriority,
             'category': category,
-            'subtasks': List<Map<String, dynamic>>.from(_currentSubtasks),
+            'recurrence': _recurrence,
+            'createdAt': _todos[index]['createdAt'] ?? DateTime.now().toIso8601String(),
+            'subtasks': _currentSubtasks.map((s) => Map<String,dynamic>.from(s)).toList(),
           };
 
           if (_isReminderSet && _selectedDeadline != null) {
             LocalNotifications.scheduleNotification(
-              id: id,
+              id: notifId,
               title: 'Task Reminder',
               body: title,
               scheduledDate: _selectedDeadline!,
@@ -98,7 +132,8 @@ class _TodoPageState extends State<TodoPage> {
         _editingId = null;
       } else {
         // Adding new
-        final int id = DateTime.now().millisecondsSinceEpoch.remainder(100000);
+        final String id = _uuid.v4();
+        final int notifId = _getNotificationId(id);
         _todos.add({
           'id': id,
           'title': title,
@@ -107,12 +142,14 @@ class _TodoPageState extends State<TodoPage> {
           'reminder': _isReminderSet,
           'priority': _selectedPriority,
           'category': category,
-          'subtasks': List<Map<String, dynamic>>.from(_currentSubtasks),
+          'recurrence': _recurrence,
+          'createdAt': DateTime.now().toIso8601String(),
+          'subtasks': _currentSubtasks.map((s) => Map<String,dynamic>.from(s)).toList(),
         });
 
         if (_isReminderSet && _selectedDeadline != null) {
           LocalNotifications.scheduleNotification(
-            id: id,
+            id: notifId,
             title: 'Task Reminder',
             body: title,
             scheduledDate: _selectedDeadline!,
@@ -127,6 +164,7 @@ class _TodoPageState extends State<TodoPage> {
       _selectedDeadline = null;
       _isReminderSet = false;
       _selectedPriority = 'Medium';
+      _recurrence = 'None';
       _selectedCategory = null;
       _currentSubtasks = [];
     });
@@ -167,12 +205,13 @@ class _TodoPageState extends State<TodoPage> {
       _controller.text = task['title'];
       _selectedPriority = task['priority'] ?? 'Medium';
       _isReminderSet = task['reminder'] ?? false;
+      _recurrence = task['recurrence'] ?? 'None';
       _selectedCategory = task['category'];
       _categoryController.text = task['category'] ?? '';
 
-      // Load Subtasks
+      // Deep Copy Subtasks
       if (task['subtasks'] != null) {
-          _currentSubtasks = List<Map<String, dynamic>>.from(task['subtasks']);
+          _currentSubtasks = (task['subtasks'] as List).map((s) => Map<String,dynamic>.from(s)).toList();
       } else {
           _currentSubtasks = [];
       }
@@ -194,40 +233,92 @@ class _TodoPageState extends State<TodoPage> {
       _selectedDeadline = null;
       _isReminderSet = false;
       _selectedPriority = 'Medium';
+      _recurrence = 'None';
       _selectedCategory = null;
       _currentSubtasks = [];
     });
   }
 
+  void _handleRecurrence(Map<String, dynamic> task) {
+      final String recurrence = task['recurrence'] ?? 'None';
+      if (recurrence == 'None' || task['deadline'] == null) return;
+
+      final DateTime currentDeadline = DateTime.parse(task['deadline']);
+      DateTime nextDeadline;
+
+      if (recurrence == 'Daily') {
+          nextDeadline = currentDeadline.add(const Duration(days: 1));
+      } else if (recurrence == 'Weekly') {
+          nextDeadline = currentDeadline.add(const Duration(days: 7));
+      } else if (recurrence == 'Monthly') {
+          nextDeadline = DateTime(currentDeadline.year, currentDeadline.month + 1, currentDeadline.day, currentDeadline.hour, currentDeadline.minute);
+      } else {
+          return;
+      }
+
+      final String newId = _uuid.v4();
+      final int notifId = _getNotificationId(newId);
+      final bool hasReminder = task['reminder'] ?? false;
+
+      _todos.add({
+          'id': newId,
+          'title': task['title'],
+          'isDone': false,
+          'deadline': nextDeadline.toIso8601String(),
+          'reminder': hasReminder,
+          'priority': task['priority'],
+          'category': task['category'],
+          'recurrence': recurrence,
+          'createdAt': DateTime.now().toIso8601String(),
+          'subtasks': (task['subtasks'] as List?)?.map((s) {
+              final copy = Map<String,dynamic>.from(s);
+              copy['isDone'] = false;
+              return copy;
+          }).toList() ?? [],
+      });
+
+      if (hasReminder) {
+          LocalNotifications.scheduleNotification(
+            id: notifId,
+            title: 'Task Reminder',
+            body: task['title'],
+            scheduledDate: nextDeadline,
+          );
+      }
+  }
+
   void _toggleTodo(int index) {
-    final int id = _todos[index]['id'] ?? 0;
+    final String idStr = _todos[index]['id'] ?? '';
+    final int notifId = _getNotificationId(idStr);
+
     setState(() {
       _todos[index]['isDone'] = !_todos[index]['isDone'];
+
+      if (_todos[index]['isDone']) {
+         LocalNotifications.cancelNotification(notifId);
+         _handleRecurrence(_todos[index]);
+      } else {
+         final bool hasReminder = _todos[index]['reminder'] ?? false;
+         final String? deadlineStr = _todos[index]['deadline'];
+         if (hasReminder && deadlineStr != null) {
+             final DateTime deadlineDate = DateTime.parse(deadlineStr);
+             if (deadlineDate.isAfter(DateTime.now())) {
+                LocalNotifications.scheduleNotification(
+                  id: notifId,
+                  title: 'Task Reminder',
+                  body: _todos[index]['title'],
+                  scheduledDate: deadlineDate,
+                );
+             }
+         }
+      }
     });
     _saveTodos();
-
-    if (_todos[index]['isDone']) {
-      LocalNotifications.cancelNotification(id);
-    } else {
-       final bool hasReminder = _todos[index]['reminder'] ?? false;
-       final String? deadlineStr = _todos[index]['deadline'];
-       if (hasReminder && deadlineStr != null) {
-           final DateTime deadlineDate = DateTime.parse(deadlineStr);
-           if (deadlineDate.isAfter(DateTime.now())) {
-              LocalNotifications.scheduleNotification(
-                id: id,
-                title: 'Task Reminder',
-                body: _todos[index]['title'],
-                scheduledDate: deadlineDate,
-              );
-           }
-       }
-    }
   }
 
   void _removeTodo(int index) {
-    final int id = _todos[index]['id'] ?? 0;
-    LocalNotifications.cancelNotification(id);
+    final String idStr = _todos[index]['id'] ?? '';
+    LocalNotifications.cancelNotification(_getNotificationId(idStr));
 
     setState(() {
       _todos.removeAt(index);
@@ -278,16 +369,73 @@ class _TodoPageState extends State<TodoPage> {
     }
   }
 
+  int _priorityWeight(String priority) {
+      if (priority == 'High') return 3;
+      if (priority == 'Medium') return 2;
+      return 1;
+  }
+
+  List<MapEntry<int, Map<String, dynamic>>> _getFilteredAndSortedTodos() {
+      // 1. Filter
+      var filtered = _todos.asMap().entries.where((entry) {
+        final todo = entry.value;
+        if (_filterStatus == 'Pending' && todo['isDone'] == true) return false;
+        if (_filterStatus == 'Completed' && todo['isDone'] == false) return false;
+
+        final query = _searchController.text.toLowerCase();
+        if (query.isNotEmpty) {
+            final title = (todo['title'] as String).toLowerCase();
+            final cat = (todo['category'] as String?)?.toLowerCase() ?? '';
+            if (!title.contains(query) && !cat.contains(query)) return false;
+        }
+
+        if (_showCalendar && _selectedDay != null) {
+            final deadlineStr = todo['deadline'] as String?;
+            if (deadlineStr == null) return false;
+            final dDate = DateTime.parse(deadlineStr);
+            if (!isSameDay(dDate, _selectedDay)) return false;
+        }
+
+        return true;
+      }).toList();
+
+      // 2. Sort
+      filtered.sort((a, b) {
+          final ta = a.value;
+          final tb = b.value;
+
+          if (_sortBy == 'Priority') {
+              final wa = _priorityWeight(ta['priority'] ?? 'Medium');
+              final wb = _priorityWeight(tb['priority'] ?? 'Medium');
+              if (wa != wb) return wb.compareTo(wa); // Descending
+          } else if (_sortBy == 'Deadline') {
+              final daStr = ta['deadline'] as String?;
+              final dbStr = tb['deadline'] as String?;
+              if (daStr != null && dbStr != null) {
+                  return DateTime.parse(daStr).compareTo(DateTime.parse(dbStr));
+              } else if (daStr != null) {
+                  return -1;
+              } else if (dbStr != null) {
+                  return 1;
+              }
+          }
+
+          // Default fallback to Created
+          final caStr = ta['createdAt'] as String?;
+          final cbStr = tb['createdAt'] as String?;
+          if (caStr != null && cbStr != null) {
+              return DateTime.parse(cbStr).compareTo(DateTime.parse(caStr)); // Newest first
+          }
+          return 0;
+      });
+
+      return filtered;
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-
-    // Filter todos
-    final displayedTodos = _todos.asMap().entries.where((entry) {
-      if (_filterStatus == 'Pending') return !entry.value['isDone'];
-      if (_filterStatus == 'Completed') return entry.value['isDone'];
-      return true; // All
-    }).toList();
+    final displayedTodos = _getFilteredAndSortedTodos();
 
     return Scaffold(
       appBar: AppBar(
@@ -295,30 +443,95 @@ class _TodoPageState extends State<TodoPage> {
           'Todo & Task Manager',
           style: TextStyle(color: colors.onSurface, fontSize: 18),
         ),
+        actions: [
+            IconButton(
+                icon: Icon(_showCalendar ? Icons.list : Icons.calendar_month),
+                onPressed: () => setState(() => _showCalendar = !_showCalendar),
+            ),
+            IconButton(
+                icon: const Icon(Icons.download),
+                onPressed: _exportData,
+                tooltip: 'Backup Data',
+            )
+        ],
       ),
       body: Column(
         children: [
-          // Filter Chips
+          // Top Controls (Search, Filters, Sorting)
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            child: Row(
-              children: ['All', 'Pending', 'Completed'].map((status) {
-                return Padding(
-                  padding: EdgeInsets.only(right: 8.w),
-                  child: ChoiceChip(
-                    label: Text(status),
-                    selected: _filterStatus == status,
-                    onSelected: (selected) {
-                      setState(() {
-                        _filterStatus = status;
-                      });
-                    },
-                    selectedColor: colors.primary.withOpacity(0.2),
+            child: Column(
+              children: [
+                 TextField(
+                  controller: _searchController,
+                  decoration: InputDecoration(
+                    hintText: 'Search tasks or categories...',
+                    prefixIcon: const Icon(Icons.search),
+                    filled: true,
+                    fillColor: colors.surfaceContainerHighest.withOpacity(0.5),
+                    isDense: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.r),
+                      borderSide: BorderSide.none,
+                    ),
                   ),
-                );
-              }).toList(),
+                  onChanged: (val) => setState((){}),
+                ),
+                8.verticalSpace,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: ['All', 'Pending', 'Completed'].map((status) {
+                        return Padding(
+                          padding: EdgeInsets.only(right: 4.w),
+                          child: ChoiceChip(
+                            label: Text(status, style: TextStyle(fontSize: 12.sp)),
+                            selected: _filterStatus == status,
+                            onSelected: (selected) {
+                              setState(() => _filterStatus = status);
+                            },
+                            padding: EdgeInsets.zero,
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                    DropdownButton<String>(
+                      value: _sortBy,
+                      underline: const SizedBox(),
+                      icon: Icon(Icons.sort, size: 16.r),
+                      items: _sortOptions.map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text('Sort: $value', style: TextStyle(fontSize: 12.sp)),
+                        );
+                      }).toList(),
+                      onChanged: (newValue) {
+                        if (newValue != null) {
+                          setState(() => _sortBy = newValue);
+                        }
+                      },
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
+
+          if (_showCalendar)
+             TableCalendar(
+                firstDay: DateTime.utc(2020, 10, 16),
+                lastDay: DateTime.utc(2030, 3, 14),
+                focusedDay: _focusedDay,
+                selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+                onDaySelected: (selectedDay, focusedDay) {
+                    setState(() {
+                        _selectedDay = selectedDay;
+                        _focusedDay = focusedDay;
+                    });
+                },
+                calendarFormat: CalendarFormat.week,
+             ),
 
           // Form Area
           Container(
@@ -327,7 +540,6 @@ class _TodoPageState extends State<TodoPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Title and Add Button
                 Row(
                   children: [
                     Expanded(
@@ -344,7 +556,6 @@ class _TodoPageState extends State<TodoPage> {
                           ),
                           contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                         ),
-                        style: TextStyle(color: colors.onSurface),
                       ),
                     ),
                     8.horizontalSpace,
@@ -360,24 +571,48 @@ class _TodoPageState extends State<TodoPage> {
                 ),
                 8.verticalSpace,
 
-                // Category Input
-                TextField(
-                  controller: _categoryController,
-                  decoration: InputDecoration(
-                    hintText: 'Category (e.g. Work, Personal)',
-                    hintStyle: TextStyle(color: colors.onSurface.withOpacity(0.5), fontSize: 13.sp),
-                    filled: true,
-                    fillColor: colors.surfaceContainerHighest,
-                    isDense: true,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8.r),
-                      borderSide: BorderSide.none,
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: _categoryController,
+                        decoration: InputDecoration(
+                          hintText: 'Category',
+                          hintStyle: TextStyle(color: colors.onSurface.withOpacity(0.5), fontSize: 13.sp),
+                          filled: true,
+                          fillColor: colors.surfaceContainerHighest,
+                          isDense: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.r),
+                            borderSide: BorderSide.none,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                    8.horizontalSpace,
+                    Expanded(
+                      child: DropdownButtonFormField<String>(
+                          value: _recurrence,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: colors.surfaceContainerHighest,
+                              isDense: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.r),
+                                borderSide: BorderSide.none,
+                              ),
+                              contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h)
+                          ),
+                          items: _recurrences.map((r) => DropdownMenuItem(value: r, child: Text(r, style: TextStyle(fontSize: 13.sp)))).toList(),
+                          onChanged: (val) {
+                              if (val != null) setState(() => _recurrence = val);
+                          },
+                      )
+                    )
+                  ],
                 ),
                 8.verticalSpace,
 
-                // Subtasks input inside the form
                 Row(
                   children: [
                     Expanded(
@@ -432,7 +667,6 @@ class _TodoPageState extends State<TodoPage> {
                   ),
                 8.verticalSpace,
 
-                // Options Row
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -505,6 +739,7 @@ class _TodoPageState extends State<TodoPage> {
                 final bool hasReminder = todo['reminder'] ?? false;
                 final String priority = todo['priority'] ?? 'Medium';
                 final String? category = todo['category'];
+                final String recurrence = todo['recurrence'] ?? 'None';
                 final List<Map<String, dynamic>> subtasks =
                     List<Map<String, dynamic>>.from(todo['subtasks'] ?? []);
 
@@ -546,17 +781,24 @@ class _TodoPageState extends State<TodoPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           4.verticalSpace,
-                          Row(
+                          Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            spacing: 8.w,
+                            runSpacing: 4.h,
                             children: [
-                              Icon(Icons.flag, size: 14.r, color: _getPriorityColor(priority, colors)),
-                              4.horizontalSpace,
-                              Text(
-                                priority,
-                                style: TextStyle(fontSize: 12.sp, color: _getPriorityColor(priority, colors)),
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(Icons.flag, size: 14.r, color: _getPriorityColor(priority, colors)),
+                                  4.horizontalSpace,
+                                  Text(
+                                    priority,
+                                    style: TextStyle(fontSize: 12.sp, color: _getPriorityColor(priority, colors)),
+                                  ),
+                                ]
                               ),
 
-                              if (category != null && category.isNotEmpty) ...[
-                                8.horizontalSpace,
+                              if (category != null && category.isNotEmpty)
                                 Container(
                                   padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
                                   decoration: BoxDecoration(
@@ -567,26 +809,29 @@ class _TodoPageState extends State<TodoPage> {
                                     category,
                                     style: TextStyle(fontSize: 10.sp, color: colors.onSecondaryContainer),
                                   )
-                                )
-                              ],
-
-                              if (formattedDeadline != null) ...[
-                                12.horizontalSpace,
-                                Icon(Icons.timer_outlined, size: 14.r, color: colors.onSurfaceVariant),
-                                4.horizontalSpace,
-                                Text(
-                                  formattedDeadline,
-                                  style: TextStyle(
-                                    color: colors.onSurfaceVariant,
-                                    fontSize: 12.sp,
-                                  ),
                                 ),
-                              ],
 
-                              if (hasReminder && formattedDeadline != null) ...[
-                                8.horizontalSpace,
+                               if (recurrence != 'None')
+                                  Icon(Icons.repeat, size: 14.r, color: colors.tertiary),
+
+                              if (formattedDeadline != null)
+                                Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                        Icon(Icons.timer_outlined, size: 14.r, color: colors.onSurfaceVariant),
+                                        4.horizontalSpace,
+                                        Text(
+                                          formattedDeadline,
+                                          style: TextStyle(
+                                            color: colors.onSurfaceVariant,
+                                            fontSize: 12.sp,
+                                          ),
+                                        ),
+                                    ],
+                                ),
+
+                              if (hasReminder && formattedDeadline != null)
                                 Icon(Icons.notifications_active, size: 14.r, color: colors.primary),
-                              ]
                             ],
                           ),
                         ],

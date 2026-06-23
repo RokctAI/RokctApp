@@ -15,3 +15,7 @@ dependencies:
   intl: ^0.20.2
   comms_sdk:
     path: ../comms_sdk
+  uuid: ^4.5.3
+  share_plus: ^13.1.0
+  path_provider: ^2.1.6
+  table_calendar: ^3.2.0
