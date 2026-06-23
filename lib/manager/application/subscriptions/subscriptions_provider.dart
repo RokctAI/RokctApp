@@ -21,5 +21,3 @@ final subscriptionProvider = sdk.subscriptionProvider.overrideWith((ref) {
   );
 });
 final managerSubscriptionProvider = subscriptionProvider;
-
-
