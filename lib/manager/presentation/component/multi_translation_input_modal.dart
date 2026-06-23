@@ -13,15 +13,7 @@ import 'package:rokctapp/manager/presentation/component/helper/modal_wrap.dart';
 import 'package:rokctapp/manager/presentation/component/loading/loading.dart';
 import 'package:rokctapp/manager/presentation/component/text_fields/underlined_text_field.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-
-        SnackBarType;
+    hide AppConstants, UploadType, SnackBarType;
 
 class MultiTranslationInputModal extends ConsumerStatefulWidget {
   final AiTranslationModel model;

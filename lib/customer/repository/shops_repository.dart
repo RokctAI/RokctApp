@@ -104,7 +104,9 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<BranchResponse>> getShopBranch({required String uuid}) async {
+  Future<ApiResult<BranchResponse>> getShopBranch({
+    required String uuid,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       client.options.connectTimeout = const Duration(seconds: 30);

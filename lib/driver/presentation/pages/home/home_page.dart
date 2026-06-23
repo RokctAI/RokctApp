@@ -25,14 +25,7 @@ import 'package:rokctapp/driver/presentation/pages/home/bottom_sheet_screen.dart
 import 'package:rokctapp/driver/presentation/pages/home/delivery_bottom_sheet.dart';
 import 'package:rokctapp/driver/presentation/pages/home/parcel_bottom_sheet.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-        OrderStatus;
+    hide AppConstants, UploadType, OrderStatus;
 
 @RoutePage(name: 'DriverHomeRoute')
 class DriverHomePage extends ConsumerStatefulWidget {

@@ -13,15 +13,7 @@ import 'package:rokctapp/manager/application/providers.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/income/app_bar_screen.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-
-        SnackBarType;
+    hide AppConstants, UploadType, SnackBarType;
 
 @RoutePage(name: 'ManagerIncomeRoute')
 class ManagerIncomePage extends ConsumerStatefulWidget {
