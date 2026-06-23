@@ -4,9 +4,9 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/phone_number.dart';
-import 'package:rokctapp/manager/application/profile/profile_notifier.dart';
-import 'package:rokctapp/manager/application/profile/profile_provider.dart';
-import 'package:rokctapp/manager/application/profile/profile_state.dart';
+import 'package:users_sdk/src/application/manager/profile/profile_notifier.dart';
+import 'package:users_sdk/src/application/manager/profile/profile_provider.dart';
+import 'package:users_sdk/src/application/manager/profile/profile_state.dart';
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/presentation/pages/become_seller/widgets/address_selector.dart';
@@ -20,12 +20,12 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
     hide
         AppConstants,
-        TrKeys,
-        AppValidators,
-        LocalStorage,
-        Enums,
+
+
+
+
         UploadType,
-        OrderStatus,
+
         SnackBarType;
 
 @RoutePage(name: 'ManagerCreateShopRoute')

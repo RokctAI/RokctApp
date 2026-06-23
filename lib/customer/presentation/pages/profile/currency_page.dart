@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/core/application/currency/currency_provider.dart';
-import 'package:rokctapp/customer/application/profile/profile_provider.dart';
-import 'package:rokctapp/customer/application/shop_order/shop_order_provider.dart';
+import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
+import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 

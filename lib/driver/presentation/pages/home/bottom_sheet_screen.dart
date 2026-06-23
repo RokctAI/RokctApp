@@ -4,7 +4,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:rokctapp/driver/application/profile/provider/profile_settings_provider.dart';
+import 'package:users_sdk/src/application/driver/profile/provider/profile_settings_provider.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';

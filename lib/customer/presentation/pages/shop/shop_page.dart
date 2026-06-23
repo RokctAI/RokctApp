@@ -7,7 +7,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/application/shop/shop_notifier.dart';
+import 'package:merchants_sdk/src/application/customer/shop/shop_notifier.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/application/like/like_notifier.dart';
@@ -19,8 +19,8 @@ import 'package:rokctapp/customer/presentation/pages/shop/widgets/shimmer_produc
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-import 'package:rokctapp/customer/application/shop/shop_provider.dart';
-import 'package:rokctapp/customer/application/shop_order/shop_order_provider.dart';
+import 'package:merchants_sdk/src/application/customer/shop/shop_provider.dart';
+import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/customer/models/response/all_products_response.dart';
 import 'package:rokctapp/customer/presentation/components/components.dart';
 

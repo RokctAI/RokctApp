@@ -5,7 +5,7 @@ import 'package:rokctapp/customer/models/data/blog_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/pages/profile/select_blog_page.dart';
 
-import 'package:rokctapp/customer/application/profile/profile_provider.dart';
+import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 

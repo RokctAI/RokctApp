@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/driver/application/order/all_order/order_provider.dart';
+import 'package:orders_sdk/src/application/driver/order/all_order/order_provider.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';

@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:share_plus/share_plus.dart';
 
-import 'package:rokctapp/customer/application/profile/profile_provider.dart';
+import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
 import 'package:rokctapp/core/infrastructure/utils/app_helpers.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';

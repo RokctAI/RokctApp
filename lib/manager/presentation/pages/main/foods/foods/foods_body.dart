@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/manager/application/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
+import 'package:products_sdk/src/application/manager/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
 
 import 'package:rokctapp/manager/presentation/pages/main/foods/edit/edit_product_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';

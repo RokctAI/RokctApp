@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
-import 'package:rokctapp/manager/application/order_cart/order_cart_provider.dart';
+import 'package:orders_sdk/src/application/manager/order_cart/order_cart_provider.dart';
 
 import 'package:hardware_sdk/hardware_sdk.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';

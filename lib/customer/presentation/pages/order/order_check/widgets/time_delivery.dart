@@ -4,13 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 import 'package:intl/intl.dart';
-import 'package:rokctapp/customer/application/order/order_provider.dart';
+import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
 import 'package:orders_sdk/orders_sdk.dart';
-import 'package:rokctapp/customer/application/order_time/time_state.dart';
+import 'package:orders_sdk/src/application/customer/order_time/time_state.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/customer/application/order_time/time_notifier.dart';
-import 'package:rokctapp/customer/application/order_time/time_provider.dart';
+import 'package:orders_sdk/src/application/customer/order_time/time_notifier.dart';
+import 'package:orders_sdk/src/application/customer/order_time/time_provider.dart';
 
 import 'package:rokctapp/customer/presentation/components/components.dart';
 
