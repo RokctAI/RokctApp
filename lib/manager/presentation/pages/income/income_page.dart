@@ -15,12 +15,12 @@ import 'package:rokctapp/manager/presentation/pages/income/app_bar_screen.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
     hide
         AppConstants,
-        TrKeys,
-        AppValidators,
-        LocalStorage,
-        Enums,
+
+
+
+
         UploadType,
-        OrderStatus,
+
         SnackBarType;
 
 @RoutePage(name: 'ManagerIncomeRoute')

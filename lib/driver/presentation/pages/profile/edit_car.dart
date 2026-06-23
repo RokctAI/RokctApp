@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/driver/application/profile/notifier/profile_edit_notifier.dart';
-import 'package:rokctapp/driver/application/profile/notifier/profile_image_notifier.dart';
-import 'package:rokctapp/driver/application/profile/provider/profile_edit_provider.dart';
-import 'package:rokctapp/driver/application/profile/provider/profile_image_provider.dart';
-import 'package:rokctapp/driver/application/profile/state/profile_edit_state.dart';
-import 'package:rokctapp/driver/application/profile/state/profile_image_state.dart';
+import 'package:users_sdk/src/application/driver/profile/notifier/profile_edit_notifier.dart';
+import 'package:users_sdk/src/application/driver/profile/notifier/profile_image_notifier.dart';
+import 'package:users_sdk/src/application/driver/profile/provider/profile_edit_provider.dart';
+import 'package:users_sdk/src/application/driver/profile/provider/profile_image_provider.dart';
+import 'package:users_sdk/src/application/driver/profile/state/profile_edit_state.dart';
+import 'package:users_sdk/src/application/driver/profile/state/profile_image_state.dart';
 import 'package:rokctapp/driver/infrastructure/services/img_service.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';

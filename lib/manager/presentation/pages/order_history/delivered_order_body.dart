@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import 'package:rokctapp/manager/application/order/order_provider.dart';
+import 'package:orders_sdk/src/application/manager/order/order_provider.dart';
 import 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/manager/presentation/component/list_items/order_item.dart';
 import 'package:rokctapp/manager/presentation/component/loading/loading_list.dart';

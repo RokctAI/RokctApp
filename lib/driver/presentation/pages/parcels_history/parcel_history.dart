@@ -4,7 +4,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/driver/application/parcel/parcel_provider.dart';
+import 'package:orders_sdk/src/application/driver/parcel/parcel_provider.dart';
 import 'package:rokctapp/driver/presentation/pages/parcel/parcel_item.dart';
 
 import 'package:rokctapp/driver/infrastructure/services/services.dart';

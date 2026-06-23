@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:rokctapp/manager/application/order_cart/order_cart_provider.dart';
+import 'package:orders_sdk/src/application/manager/order_cart/order_cart_provider.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/driver/presentation/component/common_image.dart';
 import 'package:rokctapp/core/presentation/theme/app_style.dart';

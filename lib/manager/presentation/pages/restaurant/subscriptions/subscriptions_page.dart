@@ -4,7 +4,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/manager/application/subscriptions/subscriptions_provider.dart';
+import 'package:merchants_sdk/src/application/manager/subscriptions/subscriptions_provider.dart';
 import 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
 import 'package:rokctapp/manager/infrastructure/services/tr_keys.dart';

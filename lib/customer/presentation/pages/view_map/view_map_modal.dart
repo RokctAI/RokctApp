@@ -6,7 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/customer/application/home/home_provider.dart';
 import 'package:rokctapp/customer/application/map/view_map_provider.dart';
-import 'package:rokctapp/customer/application/profile/profile_provider.dart';
+import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
 import 'package:rokctapp/customer/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';

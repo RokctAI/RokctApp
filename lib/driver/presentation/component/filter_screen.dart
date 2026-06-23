@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/driver/application/parcel/parcel_provider.dart';
+import 'package:orders_sdk/src/application/driver/parcel/parcel_provider.dart';
 import 'package:rokctapp/driver/application/statistics/statistics_provider.dart';
 
-import 'package:rokctapp/driver/application/order/all_order/order_provider.dart';
+import 'package:orders_sdk/src/application/driver/order/all_order/order_provider.dart';
 import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
 import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';

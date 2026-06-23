@@ -6,7 +6,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:rokctapp/customer/application/parcel/parcel_provider.dart';
+import 'package:orders_sdk/src/application/customer/parcel/parcel_provider.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/customer/presentation/pages/parcel/widgets/recipient_widget.dart';
 import 'package:rokctapp/customer/presentation/pages/parcel/widgets/sender_widget.dart';
