@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
-import 'dart:io';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 import 'package:comms_sdk/comms_sdk.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:share_plus/share_plus.dart';
-import 'package:path_provider/path_provider.dart';
+import 'dart:math';
+
+import '../../../../lib/src/domain/interface/todo_repository_facade.dart';
+import '../../../../lib/src/infrastructure/repositories/todo_repository_impl.dart';
 
 class TodoPage extends StatefulWidget {
   const TodoPage({super.key});
@@ -18,6 +17,8 @@ class TodoPage extends StatefulWidget {
 }
 
 class _TodoPageState extends State<TodoPage> {
+  final TodoRepositoryFacade _repository = TodoRepositoryImpl();
+
   List<Map<String, dynamic>> _todos = [];
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _categoryController = TextEditingController();
@@ -34,7 +35,6 @@ class _TodoPageState extends State<TodoPage> {
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
 
-  late SharedPreferences _prefs;
   String? _editingId;
 
   String? _selectedCategory;
@@ -58,34 +58,20 @@ class _TodoPageState extends State<TodoPage> {
   }
 
   Future<void> _loadTodos() async {
-    _prefs = await SharedPreferences.getInstance();
-    final String? todosString = _prefs.getString('todos');
-    if (todosString != null) {
-      if (mounted) {
-        setState(() {
-          _todos = List<Map<String, dynamic>>.from(json.decode(todosString));
-        });
-      }
+    final todos = await _repository.loadTodos();
+    if (mounted) {
+      setState(() {
+        _todos = todos;
+      });
     }
   }
 
   Future<void> _saveTodos() async {
-    await _prefs.setString('todos', json.encode(_todos));
+    await _repository.saveTodos(_todos);
   }
 
   Future<void> _exportData() async {
-    try {
-        final directory = await getApplicationDocumentsDirectory();
-        final file = File('${directory.path}/todos_backup.json');
-        await file.writeAsString(json.encode(_todos));
-        await Share.shareXFiles([XFile(file.path)], text: 'My Todo Backup');
-    } catch (e) {
-        debugPrint('Error exporting data: $e');
-    }
-  }
-
-  int _getNotificationId(String uuidStr) {
-      return uuidStr.hashCode.abs() % 100000;
+    await _repository.exportTodos(_todos);
   }
 
   void _saveTask() {
@@ -103,12 +89,13 @@ class _TodoPageState extends State<TodoPage> {
         final index = _todos.indexWhere((t) => t['id'] == _editingId);
         if (index != -1) {
           final String id = _editingId!;
-          final int notifId = _getNotificationId(id);
+          final int notifId = _todos[index]['notifId'] ?? Random().nextInt(100000);
 
           LocalNotifications.cancelNotification(notifId);
 
           _todos[index] = {
             'id': id,
+            'notifId': notifId,
             'title': title,
             'isDone': _todos[index]['isDone'],
             'deadline': deadlineStr,
@@ -133,9 +120,10 @@ class _TodoPageState extends State<TodoPage> {
       } else {
         // Adding new
         final String id = _uuid.v4();
-        final int notifId = _getNotificationId(id);
+        final int notifId = Random().nextInt(100000);
         _todos.add({
           'id': id,
+          'notifId': notifId,
           'title': title,
           'isDone': false,
           'deadline': deadlineStr,
@@ -257,11 +245,12 @@ class _TodoPageState extends State<TodoPage> {
       }
 
       final String newId = _uuid.v4();
-      final int notifId = _getNotificationId(newId);
+      final int notifId = Random().nextInt(100000);
       final bool hasReminder = task['reminder'] ?? false;
 
       _todos.add({
           'id': newId,
+          'notifId': notifId,
           'title': task['title'],
           'isDone': false,
           'deadline': nextDeadline.toIso8601String(),
@@ -288,8 +277,7 @@ class _TodoPageState extends State<TodoPage> {
   }
 
   void _toggleTodo(int index) {
-    final String idStr = _todos[index]['id'] ?? '';
-    final int notifId = _getNotificationId(idStr);
+    final int notifId = _todos[index]['notifId'] ?? Random().nextInt(100000);
 
     setState(() {
       _todos[index]['isDone'] = !_todos[index]['isDone'];
@@ -317,8 +305,7 @@ class _TodoPageState extends State<TodoPage> {
   }
 
   void _removeTodo(int index) {
-    final String idStr = _todos[index]['id'] ?? '';
-    LocalNotifications.cancelNotification(_getNotificationId(idStr));
+    LocalNotifications.cancelNotification(_todos[index]['notifId'] ?? 0);
 
     setState(() {
       _todos.removeAt(index);
