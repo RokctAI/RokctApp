@@ -1,0 +1,12 @@
+name: comms_sdk
+description: "Communications SDK handling local notifications, push notifications, emails, and SMS."
+version: 1.0.0
+publish_to: 'none'
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: ">=3.10.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_local_notifications: ^17.1.2
+  timezone: ^0.9.3
