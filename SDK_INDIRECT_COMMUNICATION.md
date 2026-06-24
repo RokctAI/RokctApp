@@ -5,6 +5,7 @@ This document outlines the architectural patterns and mechanisms used to facilit
 ## Principles of Decoupling
 To achieve a fully decoupled monorepo architecture, the following principles are enforced:
 - **No Direct Imports:** Domain SDKs (like `orders_sdk` or `payments_sdk`) should not directly import classes from other domain SDKs unless explicitly defined as a dependency in `pubspec.yaml` (and even then, strictly limited).
+- **Explicit Third-Party Dependencies:** If an SDK relies on a third-party package (e.g., `shared_preferences`, `drift` for local databases, or `flutter_riverpod`), it **must** explicitly list that dependency in its own `pubspec.yaml`. Even though multiple SDKs might write to the same device storage or database conceptually, the code to access those stores requires the package dependency to be defined locally within each SDK.
 - **Inversion of Control (IoC):** Host applications (the shell) resolve dependencies at runtime using Riverpod (`.overrideWith`) and dependency injection providers.
 - **Event-Driven Side Effects:** Modules publish state changes (e.g., via a processing engine or event bus) rather than directly triggering side effects in other domains.
 
