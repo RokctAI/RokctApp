@@ -11,14 +11,7 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/driver/application/home/home_state.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-        OrderStatus;
+    hide AppConstants, UploadType, OrderStatus;
 
 class HomeNotifier extends StateNotifier<HomeState> {
   HomeNotifier() : super(const HomeState());

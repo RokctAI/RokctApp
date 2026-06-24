@@ -6,15 +6,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-
-        SnackBarType;
+    hide AppConstants, UploadType, SnackBarType;
 
 class ShopFormFields extends StatelessWidget {
   final TextEditingController descController;

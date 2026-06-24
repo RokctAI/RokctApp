@@ -49,12 +49,12 @@ class TableBookingData implements ProcessingContract {
 
   @override
   Map<String, dynamic> get metadata => {
-        'bookingId': bookingId,
-        'userId': userId,
-        'tableId': tableId,
-        'startDate': startDate?.toIso8601String(),
-        'endDate': endDate?.toIso8601String(),
-      };
+    'bookingId': bookingId,
+    'userId': userId,
+    'tableId': tableId,
+    'startDate': startDate?.toIso8601String(),
+    'endDate': endDate?.toIso8601String(),
+  };
 
   @override
   DateTime get updatedAt => endDate ?? DateTime.now();

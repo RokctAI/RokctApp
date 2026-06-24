@@ -8,7 +8,6 @@ import 'package:rokctapp/manager/presentation/component/buttons/custom_button.da
 import 'package:rokctapp/driver/presentation/component/common_image.dart';
 import 'package:rokctapp/core/presentation/theme/app_style.dart';
 
-
 import 'package:rokctapp/manager/presentation/pages/main/billing/checkout_page.dart';
 
 class ManagerBillingPage extends ConsumerStatefulWidget {

@@ -88,10 +88,8 @@ import 'package:rokctapp/driver/infrastructure/repositories/auth_repository_impl
 // Manager Interfaces
 import 'package:rokctapp/manager/domain/interface/notification.dart'
     as manager_notif_int;
-import 'package:payments_sdk/payments_sdk.dart'
-    as manager_payment_int;
-import 'package:subscriptions_sdk/subscriptions_sdk.dart'
-    as manager_sub_int;
+import 'package:payments_sdk/payments_sdk.dart' as manager_payment_int;
+import 'package:subscriptions_sdk/subscriptions_sdk.dart' as manager_sub_int;
 import 'package:rokctapp/manager/domain/interface/table.dart'
     as manager_table_int;
 import 'package:rokctapp/manager/domain/interface/auth.dart'
@@ -110,10 +108,8 @@ import 'package:rokctapp/manager/domain/interface/products.dart'
     as manager_products_int;
 
 // Manager Implementations
-import 'package:payments_sdk/payments_sdk.dart'
-    as manager_payment_impl;
-import 'package:subscriptions_sdk/subscriptions_sdk.dart'
-    as manager_sub_impl;
+import 'package:payments_sdk/payments_sdk.dart' as manager_payment_impl;
+import 'package:subscriptions_sdk/subscriptions_sdk.dart' as manager_sub_impl;
 import 'package:rokctapp/manager/infrastructure/repositories/auth_repository.dart'
     as manager_auth_impl;
 import 'package:rokctapp/manager/infrastructure/repositories/table_repository.dart'
@@ -232,7 +228,8 @@ Future<void> setUpDependencies() async {
       dioHttp.client(requireAuth: true),
       localeCallback: () => LocalStorage.getLanguage()?.locale,
       walletUuidCallback: () => LocalStorage.getUser()?.wallet?.uuid,
-      currencyIdCallback: () => LocalStorage.getSelectedCurrency()?.id?.toString(),
+      currencyIdCallback: () =>
+          LocalStorage.getSelectedCurrency()?.id?.toString(),
     ),
   );
   getIt.registerSingleton<manager_sub_int.SubscriptionsFacade>(
