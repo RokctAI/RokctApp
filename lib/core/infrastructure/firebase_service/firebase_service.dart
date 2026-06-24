@@ -85,13 +85,13 @@ abstract class FirebaseService {
               user.accessToken?.tokenString ?? "",
             );
 
-       final userObj = await FirebaseAuth.instance.signInWithCredential(
-         credential,
-       );
-       if (LocalStorage.isTokenExpired) {
-         debugPrint('Token is expired');
-       }
-       return left(userObj);
+      final userObj = await FirebaseAuth.instance.signInWithCredential(
+        credential,
+      );
+      if (LocalStorage.isTokenExpired) {
+        debugPrint('Token is expired');
+      }
+      return left(userObj);
     } catch (e) {
       return right(e.toString());
     }

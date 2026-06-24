@@ -7,7 +7,6 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
-
 class TableRepository extends TableInterface {
   @override
   Future<ApiResult<ShopSection>> createNewSection({

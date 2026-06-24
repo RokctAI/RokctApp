@@ -12,15 +12,7 @@ import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/order_history/canceled_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/order_history/delivered_order_body.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-
-        SnackBarType;
+    hide AppConstants, UploadType, SnackBarType;
 
 @RoutePage(name: 'ManagerOrderHistoryRoute')
 class ManagerOrderHistoryPage extends ConsumerStatefulWidget {
