@@ -9,6 +9,8 @@ import 'package:drift/drift.dart';
 import 'package:uuid/uuid.dart';
 
 import 'app_database.dart';
+// import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
+// import 'package:rokctapp/customer/models/data/profile_data.dart';
 
 
 class BackgroundSyncService {
@@ -129,14 +131,14 @@ class BackgroundSyncService {
           final token =
               responseData['data']?['access_token'] ?? responseData['token'];
           if (token != null) {
-            // await LocalStorage.setToken(token);
-            // LocalStorage.setIsGuest(false);
-            // LocalStorage.deleteOfflineUser();
+            // // await LocalStorage.setToken(token);
+            // // LocalStorage.setIsGuest(false);
+            // // LocalStorage.deleteOfflineUser();
 
             final userData =
                 responseData['data']?['user'] ?? responseData['user'];
             if (userData != null) {
-              // await LocalStorage.setUser(ProfileData.fromJson(userData));
+              // // await LocalStorage.setUser(ProfileData.fromJson(userData));
             }
           }
         }
