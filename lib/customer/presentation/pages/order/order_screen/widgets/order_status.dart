@@ -11,7 +11,6 @@ import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_screen/widgets/order_status_item.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
-
 class OrderStatusScreen extends StatelessWidget {
   final OrderStatus status;
   final bool parcel;

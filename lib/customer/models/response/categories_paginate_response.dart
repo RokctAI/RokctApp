@@ -20,13 +20,8 @@ class CategoriesPaginateResponse {
   List<CategoryData>? _data;
   Meta? _meta;
 
-  CategoriesPaginateResponse copyWith({
-    List<CategoryData>? data,
-    Meta? meta,
-  }) => CategoriesPaginateResponse(
-    data: data ?? _data,
-    meta: meta ?? _meta,
-  );
+  CategoriesPaginateResponse copyWith({List<CategoryData>? data, Meta? meta}) =>
+      CategoriesPaginateResponse(data: data ?? _data, meta: meta ?? _meta);
 
   List<CategoryData>? get data => _data;
   Meta? get meta => _meta;
@@ -72,7 +67,7 @@ class CategoryData {
   CategoryData.fromJson(dynamic json) {
     _id = json['id']?.toString();
     _uuid = json['uuid'];
-    _keywords = json['keywords']; 
+    _keywords = json['keywords'];
     _parentId = json['parent_id']?.toString();
     _type = json['type'];
     _img = json['img'];
@@ -144,7 +139,7 @@ class CategoryData {
     final map = <String, Dyn>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
-    map['keywords'] = _keywords; 
+    map['keywords'] = _keywords;
     map['parent_id'] = _parentId;
     map['type'] = _type;
     map['img'] = _img;

@@ -9,14 +9,7 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/infrastructure/services/services.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-        OrderStatus;
+    hide AppConstants, UploadType, OrderStatus;
 
 @RoutePage(name: 'DriverDeliveryZoneRoute')
 class DriverDeliveryZonePage extends ConsumerStatefulWidget {

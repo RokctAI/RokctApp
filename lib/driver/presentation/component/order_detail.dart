@@ -16,14 +16,7 @@ import 'package:rokctapp/driver/presentation/component/buttons/custom_button.dar
 import 'package:rokctapp/driver/presentation/component/image_dialog.dart';
 import 'package:rokctapp/driver/presentation/component/order_item.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-        OrderStatus;
+    hide AppConstants, UploadType, OrderStatus;
 
 class OrderDetail extends StatelessWidget {
   final OrderDetailData order;

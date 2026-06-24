@@ -23,15 +23,7 @@ import 'package:rokctapp/manager/presentation/pages/main/foods/addons/create/cre
 import 'package:rokctapp/manager/infrastructure/services/services.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/extras/create/create_extras_group_modal.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-
-        SnackBarType;
+    hide AppConstants, UploadType, SnackBarType;
 
 @RoutePage(name: 'ManagerMainRoute')
 class ManagerMainPage extends StatefulWidget {
