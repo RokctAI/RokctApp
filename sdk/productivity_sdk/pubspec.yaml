@@ -11,3 +11,12 @@ dependencies:
   shared_preferences: ^2.5.4
   processing_sdk:
     path: ../processing_sdk
+  flutter_screenutil: ^5.9.3
+  intl: ^0.20.2
+  comms_sdk:
+    path: ../comms_sdk
+  uuid: ^4.5.3
+  share_plus: ^12.0.1
+  path_provider: ^2.1.6
+  table_calendar: ^3.2.0
+  drift: ^2.34.0
