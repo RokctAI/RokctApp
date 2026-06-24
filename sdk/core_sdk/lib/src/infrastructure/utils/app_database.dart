@@ -1,4 +1,4 @@
-// import 'package:rokctapp/manager/infrastructure/models/data/table_bookings_data.dart' hide Table;
+import 'package:rokctapp/manager/infrastructure/models/data/table_bookings_data.dart' hide Table;
 import 'dart:convert';
 import 'dart:io';
 import 'package:drift/drift.dart' as drift;
