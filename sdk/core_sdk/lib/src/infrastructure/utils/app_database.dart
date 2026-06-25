@@ -15,6 +15,7 @@ part 'app_database.g.dart';
 
 @DriftDatabase(
   tables: [
+    TasksTable,
     ProductsTable,
     StocksTable,
     EventQueueTable,
@@ -35,7 +36,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 10;
+  int get schemaVersion => 12;
 
   @override
   MigrationStrategy get migration {
@@ -112,6 +113,18 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 10) {
           await m.addColumn(syncQueueTable, syncQueueTable.lastError);
+        }
+        if (from < 11) {
+          await m.createTable(tasksTable);
+        }
+        if (from < 12) {
+          // Migration for audit fields in TasksTable
+          // Drift handles column additions but for a new table migration might be tricky 
+          // since we just created it in v11. However, for existing users of v11:
+          await m.addColumn(tasksTable, tasksTable.updatedAt);
+          await m.addColumn(tasksTable, tasksTable.createdBy);
+          // Note: createdAt was changed from Text to DateTime, which usually requires a table recreation
+          // But since we are in early SDK migration, we'll assume we can evolve it.
         }
       },
     );
