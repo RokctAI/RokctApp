@@ -117,6 +117,7 @@ To ensure data representation remains accurate across different user types, we e
 > When moving or copying source/template files from SDKs to the host application shell:
 > * **Package Name Extraction**: Always read the application's package name from its `pubspec.yaml` (e.g. `name: rokctapp`).
 > * **Full-Path Usage**: Replace all relative import and export statements (e.g., `import '../../utils.dart'`) with full package-path imports (e.g., `import 'package:rokctapp/core/utils/utils.dart'`) referencing the extracted package name to ensure correct and standardized compile resolution.
+> * **Template-to-Template Dependencies**: If a template file imports another file that is also being moved to the app shell (e.g., one template importing another template), the relative import must be replaced with a full package import using the host application's package name.
 > * **Installer Automation**: The SDK installer engine (`sdk_composer.py` / `sdk_installer_base.py`) must respect and automate this rule. When deploying template code or linking packages, the installer must parse the host application's name and programmatically rewrite imports and exports.
 
 > [!IMPORTANT]
@@ -152,6 +153,25 @@ To ensure data representation remains accurate across different user types, we e
 > * **Manager (Write-Authoritative)**: The Manager dashboard owns all write-heavy catalog operations (creating/editing products, updating stock counts, setting up brands/categories, translations, and store metadata).
 > * **POS (Read-Optimized)**: The POS frontend is currently a read-only consumer of product and stock queries (optimized for fast checkout math and order placement) and lacks catalog editing views.
 > * **Extensibility Design**: The underlying `products_sdk` will still expose the write/edit repository interfaces (e.g. `updateProduct`, `updateStock`). This allows us to easily unlock inventory editing directly inside the POS desktop app in the future when a user with the `manager` or `seller` role logs in.
+
+> [!IMPORTANT]
+> **Rule 8: SDK Template Import Standardization**
+> When creating or updating files in an SDK's `templates/` directory:
+> * **Ownership Note**: Files within the `templates/` directory are hosted within the SDK for distribution, but are NOT owned by the SDK. They are treated as blueprints that the installer moves into the host application shell.
+> * **No Relative Imports**: Never use relative imports (e.g., `import '../../lib/...'`) to reference SDK source code.
+> * **Package Imports**: Always use full package imports (e.g., `import 'package:productivity_sdk/productivity_sdk.dart'`).
+> * **Export Requirement**: Ensure the SDK's main entry point (e.g., `lib/productivity_sdk.dart`) exports all classes and interfaces needed by the templates.
+> This ensures that when templates are moved to the host application, they remain resolvable.
+
+> [!IMPORTANT]
+> **Rule 9: Standardized SDK Directory Structure**
+> All SDKs must strictly adhere to the following directory structure to ensure consistency across the monorepo:
+> * **`lib/src/application/{feature_name}/`**: Contains feature-specific application logic, including Riverpod providers, state classes, and application services.
+> * **`lib/src/models/data/`**: Contains core data entities and domain models.
+> * **`lib/src/models/request/`**: Contains API request payloads and DTOs.
+> * **`lib/src/models/response/`**: Contains API response envelopes and DTOs.
+> * **`lib/src/domain/interface/`**: Contains abstract repository facades and business logic contracts.
+> * **`lib/src/infrastructure/repositories/`**: Contains concrete implementations of the repository facades.
 
 ---
 
