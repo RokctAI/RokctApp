@@ -50,3 +50,7 @@ final setWalletDataProvider = Provider<Future<void> Function(dynamic)>(
 final urlToFileProvider = Provider<Future<dynamic> Function(String)>(
   (ref) => throw UnimplementedError(),
 );
+
+final appDatabaseProvider = Provider<AppDatabase>((ref) {
+  return AppDatabase();
+});

@@ -61,36 +61,10 @@ class TodoRepositoryImpl implements TodoRepositoryFacade {
       debugPrint('Error saving todos: $e');
     }
   }
-    return [];
-  }
-
-  @override
-  Future<void> saveTodos(List<Map<String, dynamic>> todos) async {
-    try {
-      await _database.transaction(() async {
-        for (final todo in todos) {
-          await _database.into(_database.tasksTable).insertOnConflictUpdate(
-            _database.TasksTableCompanion.insert(
-              id: Value(todo['id'] ?? const Uuid().v4()),
-              title: Value(todo['title'] ?? ''),
-              description: Value(todo['description']),
-              isCompleted: Value(todo['isDone'] ?? false),
-              dueDate: Value(todo['deadline'] != null 
-                ? DateTime.tryParse(todo['deadline']) 
-                : null),
-              createdAt: Value(todo['createdAt']),
-              data: Value(jsonEncode(todo)),
-            ),
-          );
-        }
-      });
-    } catch (e) {
-      debugPrint('Error saving todos: $e');
-    }
-  }
 
   @override
   Future<void> exportTodos(List<Map<String, dynamic>> todos) async {
+
     try {
       final directory = await getApplicationDocumentsDirectory();
       final file = File('${directory.path}/todos_backup.json');
