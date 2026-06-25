@@ -6,11 +6,15 @@ class AppConnectivity {
 }
 
 class AppHelpers {
-  static void Function(BuildContext, String) showCheckTopSnackBar = (context, msg) {};
+  static void Function(BuildContext, String) showCheckTopSnackBar =
+      (context, msg) {};
   static void Function(BuildContext) showNoConnectionSnackBar = (context) {};
-  static void Function(BuildContext, String) showCheckTopSnackBarInfo = (context, msg) {};
-  static void Function(BuildContext, String) showCheckTopSnackBarDone = (context, msg) {};
-  static bool Function(dynamic, dynamic) checkYesterday = (date, nextDate) => false;
+  static void Function(BuildContext, String) showCheckTopSnackBarInfo =
+      (context, msg) {};
+  static void Function(BuildContext, String) showCheckTopSnackBarDone =
+      (context, msg) {};
+  static bool Function(dynamic, dynamic) checkYesterday = (date, nextDate) =>
+      false;
   static String Function(String) getTranslation = (key) => key;
 }
 
@@ -49,7 +53,7 @@ extension BuildContextPop on BuildContext {
   void maybePop(BuildContext context) {
     Navigator.of(context).pop();
   }
-  
+
   // router and replaceRoute
   dynamic get router => this;
   void replaceRoute(dynamic route) {
@@ -78,7 +82,8 @@ extension TimeOfDayExtension on TimeOfDay {
 extension StringTimeExtension on String? {
   TimeOfDay get toNextTime {
     return TimeOfDay(
-      hour: int.tryParse(
+      hour:
+          int.tryParse(
             this?.substring(
                   (this?.indexOf("-") ?? 0) + 2,
                   (this?.lastIndexOf(":") ?? 0),
@@ -86,7 +91,11 @@ extension StringTimeExtension on String? {
                 '',
           ) ??
           0,
-      minute: int.tryParse(this?.substring((this?.lastIndexOf(":") ?? 0) + 1) ?? '') ?? 0,
+      minute:
+          int.tryParse(
+            this?.substring((this?.lastIndexOf(":") ?? 0) + 1) ?? '',
+          ) ??
+          0,
     );
   }
 
@@ -101,7 +110,6 @@ extension StringTimeExtension on String? {
     }
     return const TimeOfDay(hour: 0, minute: 0);
   }
-
 }
 
 extension DateTimeExtension on DateTime {

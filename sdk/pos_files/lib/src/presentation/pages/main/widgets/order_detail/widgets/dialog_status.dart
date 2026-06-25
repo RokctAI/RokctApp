@@ -11,7 +11,6 @@ import 'package:admin_desktop/src/presentation/theme/theme.dart';
 import '../order_riverpod/order_details_provider.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
-
 class DialogStatus extends StatelessWidget {
   final OrderStatus orderStatus;
   const DialogStatus({super.key, required this.orderStatus});

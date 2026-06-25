@@ -148,14 +148,13 @@ class BluetoothPrinterConnector
           ? flutterPrinterChannel.invokeMethod('getBluetoothLeList')
           : flutterPrinterChannel.invokeMethod('getBluetoothList');
 
-      await for (dynamic data
-          in _methodStream
-              .where((m) => m.method == "ScanResult")
-              .map((m) => m.arguments)
-              .takeUntil(Rx.merge(killStreams))
-              // .takeUntil(TimerStream(3, Duration(seconds: 5)))
-              .doOnDone(stopScan)
-              .map((message) => message)) {
+      await for (dynamic data in _methodStream
+          .where((m) => m.method == "ScanResult")
+          .map((m) => m.arguments)
+          .takeUntil(Rx.merge(killStreams))
+          // .takeUntil(TimerStream(3, Duration(seconds: 5)))
+          .doOnDone(stopScan)
+          .map((message) => message)) {
         var device = PrinterDevice(
           name: data['name'] as String,
           address: data['address'] as String?,
@@ -173,13 +172,12 @@ class BluetoothPrinterConnector
         rethrow;
       }
 
-      await for (dynamic data
-          in _methodStream
-              .where((m) => m.method == "ScanResult")
-              .map((m) => m.arguments)
-              .takeUntil(Rx.merge(killStreams))
-              .doOnDone(stopScan)
-              .map((message) => message)) {
+      await for (dynamic data in _methodStream
+          .where((m) => m.method == "ScanResult")
+          .map((m) => m.arguments)
+          .takeUntil(Rx.merge(killStreams))
+          .doOnDone(stopScan)
+          .map((message) => message)) {
         debugPrint('Scan result: $data');
         final device = PrinterDevice(
           name: data['name'] as String,

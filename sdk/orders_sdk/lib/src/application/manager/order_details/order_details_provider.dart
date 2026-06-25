@@ -4,7 +4,7 @@ import 'package:rokctapp/manager/infrastructure/models/models.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 
 final orderDetailsProvider =
-    StateNotifierProvider<OrderDetailsNotifier<OrderData>, OrderDetailsState<OrderData>>(
-      (ref) => OrderDetailsNotifier<OrderData>(managerOrdersRepository),
-    );
-
+    StateNotifierProvider<
+      OrderDetailsNotifier<OrderData>,
+      OrderDetailsState<OrderData>
+    >((ref) => OrderDetailsNotifier<OrderData>(managerOrdersRepository));

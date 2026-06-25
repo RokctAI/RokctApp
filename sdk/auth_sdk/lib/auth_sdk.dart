@@ -19,4 +19,3 @@ export 'src/application/auth/confirmation/register_confirmation_notifier.dart';
 export 'src/application/auth/reset_password/reset_password_provider.dart';
 export 'src/application/auth/reset_password/reset_password_state.dart';
 export 'src/application/auth/reset_password/reset_password_notifier.dart';
-

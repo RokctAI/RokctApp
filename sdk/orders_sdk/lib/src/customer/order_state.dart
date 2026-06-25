@@ -3,10 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:orders_sdk/src/customer/models/models.dart';
 
-
-
-
-
 part 'order_state.freezed.dart';
 
 @freezed

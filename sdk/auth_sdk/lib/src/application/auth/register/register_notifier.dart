@@ -10,13 +10,11 @@ import 'package:auth_sdk/auth_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-
 import 'package:users_sdk/users_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
 import 'register_state.dart';
 import '../../auth_providers.dart';
-
 
 class RegisterNotifier extends Notifier<RegisterState> {
   @override
@@ -98,7 +96,9 @@ class RegisterNotifier extends Notifier<RegisterState> {
         return;
       }
       state = state.copyWith(isLoading: true, isSuccess: false);
-      final response = await ref.read(authRepositoryProvider).sigUp(email: state.email);
+      final response = await ref
+          .read(authRepositoryProvider)
+          .sigUp(email: state.email);
       response.when(
         success: (data) async {
           state = state.copyWith(isLoading: false, isSuccess: true);
@@ -107,10 +107,12 @@ class RegisterNotifier extends Notifier<RegisterState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false, isSuccess: false);
           if (status == 400) {
-            ref.read(snackBarProvider).call(
-              context,
-              ref.read(translationProvider).call(TrKeys.emailAlreadyExists),
-            );
+            ref
+                .read(snackBarProvider)
+                .call(
+                  context,
+                  ref.read(translationProvider).call(TrKeys.emailAlreadyExists),
+                );
           } else {
             ref.read(snackBarProvider).call(context, failure);
           }
@@ -131,27 +133,30 @@ class RegisterNotifier extends Notifier<RegisterState> {
     if (connected) {
       state = state.copyWith(isLoading: true, isSuccess: false);
       if (ref.read(isPhoneFirebaseProvider)) {
-        ref.read(firebaseSendOtpProvider).call(
-          phone: state.email,
-          onSuccess: (id) {
-            state = state.copyWith(
-              verificationId: id,
+        ref
+            .read(firebaseSendOtpProvider)
+            .call(
               phone: state.email,
-              isLoading: false,
-              isSuccess: true,
+              onSuccess: (id) {
+                state = state.copyWith(
+                  verificationId: id,
+                  phone: state.email,
+                  isLoading: false,
+                  isSuccess: true,
+                );
+                onSuccess(id);
+              },
+              onError: (r) {
+                ref
+                    .read(snackBarProvider)
+                    .call(context, ref.read(translationProvider).call(r));
+                state = state.copyWith(isLoading: false, isSuccess: false);
+              },
             );
-            onSuccess(id);
-          },
-          onError: (r) {
-            ref.read(snackBarProvider).call(
-              context,
-              ref.read(translationProvider).call(r),
-            );
-            state = state.copyWith(isLoading: false, isSuccess: false);
-          },
-        );
       } else {
-        final response = await ref.read(authRepositoryProvider).sendOtp(phone: state.email);
+        final response = await ref
+            .read(authRepositoryProvider)
+            .sendOtp(phone: state.email);
         response.when(
           success: (success) {
             state = state.copyWith(
@@ -190,26 +195,28 @@ class RegisterNotifier extends Notifier<RegisterState> {
         return;
       }
       state = state.copyWith(isLoading: true);
-      final response = await ref.read(authRepositoryProvider).sigUpWithData(
-        user: UserModel(
-          email: state.email,
-          firstname: state.firstName,
-          lastname: state.lastName,
-          phone: state.phone,
-          password: state.password,
-          confirmPassword: state.confirmPassword,
-          referral: state.referral,
-        ),
-      );
+      final response = await ref
+          .read(authRepositoryProvider)
+          .sigUpWithData(
+            user: UserModel(
+              email: state.email,
+              firstname: state.firstName,
+              lastname: state.lastName,
+              phone: state.phone,
+              password: state.password,
+              confirmPassword: state.confirmPassword,
+              referral: state.referral,
+            ),
+          );
       response.when(
-         success: (data) async {
-           state = state.copyWith(isLoading: false);
-           await ref.read(setTokenProvider).call(data.token ?? '');
-           if (ref.read(isTokenExpiredProvider).call()) {
-             debugPrint('Token is expired');
-           }
-           ref.read(authNavigationProvider).call(context, null);
-         },
+        success: (data) async {
+          state = state.copyWith(isLoading: false);
+          await ref.read(setTokenProvider).call(data.token ?? '');
+          if (ref.read(isTokenExpiredProvider).call()) {
+            debugPrint('Token is expired');
+          }
+          ref.read(authNavigationProvider).call(context, null);
+        },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           ref.read(snackBarProvider).call(context, failure);
@@ -237,34 +244,38 @@ class RegisterNotifier extends Notifier<RegisterState> {
         return;
       }
       state = state.copyWith(isLoading: true);
-      final response = await ref.read(authRepositoryProvider).sigUpWithPhone(
-        user: UserModel(
-          email: state.email,
-          firstname: state.firstName,
-          lastname: state.lastName,
-          phone: state.phone,
-          password: state.password,
-          confirmPassword: state.confirmPassword,
-          referral: state.referral,
-        ),
-      );
+      final response = await ref
+          .read(authRepositoryProvider)
+          .sigUpWithPhone(
+            user: UserModel(
+              email: state.email,
+              firstname: state.firstName,
+              lastname: state.lastName,
+              phone: state.phone,
+              password: state.password,
+              confirmPassword: state.confirmPassword,
+              referral: state.referral,
+            ),
+          );
 
-       response.when(
-         success: (data) async {
-           state = state.copyWith(isLoading: false);
-           await ref.read(setTokenProvider).call(data.token ?? '');
-           if (ref.read(isTokenExpiredProvider).call()) {
-             debugPrint('Token is expired');
-           }
-           ref.read(authNavigationProvider).call(context, data.user);
-         },
+      response.when(
+        success: (data) async {
+          state = state.copyWith(isLoading: false);
+          await ref.read(setTokenProvider).call(data.token ?? '');
+          if (ref.read(isTokenExpiredProvider).call()) {
+            debugPrint('Token is expired');
+          }
+          ref.read(authNavigationProvider).call(context, data.user);
+        },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
-            ref.read(snackBarProvider).call(
-              context,
-              ref.read(translationProvider).call(TrKeys.referralIncorrect),
-            );
+            ref
+                .read(snackBarProvider)
+                .call(
+                  context,
+                  ref.read(translationProvider).call(TrKeys.referralIncorrect),
+                );
           } else {
             ref.read(snackBarProvider).call(context, failure);
           }
@@ -292,17 +303,19 @@ class RegisterNotifier extends Notifier<RegisterState> {
         return;
       }
       state = state.copyWith(isLoading: true);
-      final response = await ref.read(userRepositoryProvider).editProfile(
-        user: EditProfile(
-          // email: state.email,
-          firstname: state.firstName,
-          lastname: state.lastName,
-          phone: state.email,
-          password: state.password,
-          confirmPassword: state.confirmPassword,
-          referral: state.referral,
-        ),
-      );
+      final response = await ref
+          .read(userRepositoryProvider)
+          .editProfile(
+            user: EditProfile(
+              // email: state.email,
+              firstname: state.firstName,
+              lastname: state.lastName,
+              phone: state.email,
+              password: state.password,
+              confirmPassword: state.confirmPassword,
+              referral: state.referral,
+            ),
+          );
 
       response.when(
         success: (data) async {
@@ -312,12 +325,18 @@ class RegisterNotifier extends Notifier<RegisterState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
-            ref.read(snackBarProvider).call(
-              context,
-              ref.read(translationProvider).call(
-                ref.read(translationProvider).call(TrKeys.referralIncorrect),
-              ),
-            );
+            ref
+                .read(snackBarProvider)
+                .call(
+                  context,
+                  ref
+                      .read(translationProvider)
+                      .call(
+                        ref
+                            .read(translationProvider)
+                            .call(TrKeys.referralIncorrect),
+                      ),
+                );
           } else {
             ref.read(snackBarProvider).call(context, failure);
           }
@@ -335,7 +354,6 @@ class RegisterNotifier extends Notifier<RegisterState> {
     await ref.read(firebaseSocialLoginProvider).call(context, type);
     state = state.copyWith(isLoading: false);
   }
-
 }
 
 typedef Dyn = dynamic;

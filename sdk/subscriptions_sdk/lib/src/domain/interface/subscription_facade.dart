@@ -3,7 +3,10 @@ import 'package:wallet_sdk/wallet_sdk.dart';
 import '../../models/response/subscriptions_response.dart';
 
 abstract class SubscriptionsFacade {
-  Future<ApiResult<SubscriptionResponse>> getSubscriptions({required int page, String? locale});
+  Future<ApiResult<SubscriptionResponse>> getSubscriptions({
+    required int page,
+    String? locale,
+  });
 
   Future<ApiResult> purchaseSubscription({
     required int id,

@@ -1,8 +1,6 @@
 import 'package:orders_sdk/src/driver/models/models.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
-
 part 'order_state.freezed.dart';
 
 @freezed

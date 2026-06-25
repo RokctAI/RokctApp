@@ -52,7 +52,9 @@ class Stock {
     _cartCount = json['cart_count'] ?? 0;
     _tax = json['tax'];
     _totalPrice = json['total_price'];
-    _shopBonus = json['bonus_shop']?.toString() == "true" || json['bonus_shop']?.toString() == "1";
+    _shopBonus =
+        json['bonus_shop']?.toString() == "true" ||
+        json['bonus_shop']?.toString() == "1";
     _product = json['product'];
     _extras = json['stock_extras'] ?? json['extras'];
     _localGroups = [];

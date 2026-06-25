@@ -1,7 +1,5 @@
 import 'dart:async';
 
-
-
 import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,7 +9,6 @@ import 'package:core_sdk/core_sdk.dart';
 import 'package:users_sdk/users_sdk.dart';
 import 'reset_password_state.dart';
 import '../../auth_providers.dart';
-
 
 class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
   @override
@@ -56,21 +53,25 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
         state = state.copyWith(isLoading: false, isSuccess: false);
         return;
       }
-      await ref.read(firebaseSendOtpProvider).call(
-        phone: state.email.trim(),
-        onSuccess: (verificationId) {
-          state = state.copyWith(
-            phone: state.email,
-            isLoading: false,
-            verifyId: verificationId,
-            isSuccess: true,
+      await ref
+          .read(firebaseSendOtpProvider)
+          .call(
+            phone: state.email.trim(),
+            onSuccess: (verificationId) {
+              state = state.copyWith(
+                phone: state.email,
+                isLoading: false,
+                verifyId: verificationId,
+                isSuccess: true,
+              );
+            },
+            onError: (e) {
+              ref
+                  .read(snackBarProvider)
+                  .call(context, ref.read(translationProvider).call(e));
+              state = state.copyWith(isLoading: false, isSuccess: false);
+            },
           );
-        },
-        onError: (e) {
-          ref.read(snackBarProvider).call(context, ref.read(translationProvider).call(e));
-          state = state.copyWith(isLoading: false, isSuccess: false);
-        },
-      );
     } else {
       if (context.mounted) {
         ref.read(noConnectionSnackBarProvider).call(context);
@@ -82,9 +83,9 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
     final connected = await ref.read(connectivityProvider).call();
     if (connected) {
       state = state.copyWith(isLoading: true, isSuccess: false);
-      final response = await ref.read(authRepositoryProvider).forgotPassword(
-        email: state.email.trim(),
-      );
+      final response = await ref
+          .read(authRepositoryProvider)
+          .forgotPassword(email: state.email.trim());
       response.when(
         success: (data) async {
           state = state.copyWith(
@@ -99,24 +100,33 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
             isEmailError: true,
             isSuccess: false,
           );
-          ref.read(snackBarProvider).call(
-            context,
-            ref.read(translationProvider).call(status.toString()),
-          );
+          ref
+              .read(snackBarProvider)
+              .call(
+                context,
+                ref.read(translationProvider).call(status.toString()),
+              );
           debugPrint('==> send otp failure: $failure');
         },
       );
     } else {
       if (context.mounted) {
-        ref.read(snackBarProvider).call(
-          context,
-          ref.read(translationProvider).call(TrKeys.checkYourNetworkConnection),
-        );
+        ref
+            .read(snackBarProvider)
+            .call(
+              context,
+              ref
+                  .read(translationProvider)
+                  .call(TrKeys.checkYourNetworkConnection),
+            );
       }
     }
   }
 
-  Future<void> setResetPassword(BuildContext context, {required void Function() onSuccess}) async {
+  Future<void> setResetPassword(
+    BuildContext context, {
+    required void Function() onSuccess,
+  }) async {
     final connected = await ref.read(connectivityProvider).call();
     if (connected) {
       if (!CoreValidators.isValidPassword(state.password)) {
@@ -131,10 +141,12 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
         return;
       }
       state = state.copyWith(isLoading: true, isSuccess: false);
-      final response = await ref.read(userRepositoryProvider).updatePassword(
-        password: state.password,
-        passwordConfirmation: state.confirmPassword,
-      );
+      final response = await ref
+          .read(userRepositoryProvider)
+          .updatePassword(
+            password: state.password,
+            passwordConfirmation: state.confirmPassword,
+          );
       response.when(
         success: (data) async {
           state = state.copyWith(isLoading: false, isSuccess: true);
@@ -143,10 +155,12 @@ class ResetPasswordNotifier extends Notifier<ResetPasswordState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false, isSuccess: false);
           if (status == 400) {
-            ref.read(snackBarProvider).call(
-              context,
-              ref.read(translationProvider).call(TrKeys.emailIsNotValid),
-            );
+            ref
+                .read(snackBarProvider)
+                .call(
+                  context,
+                  ref.read(translationProvider).call(TrKeys.emailIsNotValid),
+                );
           } else {
             ref.read(snackBarProvider).call(context, failure);
           }

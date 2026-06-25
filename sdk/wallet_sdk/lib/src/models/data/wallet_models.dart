@@ -5,9 +5,7 @@ class PaymentsResponse {
 
   factory PaymentsResponse.fromJson(dynamic json) {
     if (json == null) return PaymentsResponse();
-    return PaymentsResponse(
-      data: json['data'] is List ? json['data'] : null,
-    );
+    return PaymentsResponse(data: json['data'] is List ? json['data'] : null);
   }
 }
 
@@ -18,9 +16,7 @@ class TransactionsResponse {
 
   factory TransactionsResponse.fromJson(dynamic json) {
     if (json == null) return TransactionsResponse();
-    return TransactionsResponse(
-      data: json['data'],
-    );
+    return TransactionsResponse(data: json['data']);
   }
 }
 
@@ -44,9 +40,7 @@ class MaksekeskusResponse {
 
   factory MaksekeskusResponse.fromJson(dynamic json) {
     if (json == null) return MaksekeskusResponse();
-    return MaksekeskusResponse(
-      url: json['url'],
-    );
+    return MaksekeskusResponse(url: json['url']);
   }
 }
 

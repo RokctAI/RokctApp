@@ -15,9 +15,9 @@ class PaymentRepository implements PaymentsFacade {
     String? Function()? localeCallback,
     String? Function()? walletUuidCallback,
     String? Function()? currencyIdCallback,
-  })  : _localeCallback = localeCallback,
-        _walletUuidCallback = walletUuidCallback,
-        _currencyIdCallback = currencyIdCallback;
+  }) : _localeCallback = localeCallback,
+       _walletUuidCallback = walletUuidCallback,
+       _currencyIdCallback = currencyIdCallback;
 
   @override
   Future<ApiResult<PaymentsResponse>> getPayments() async {

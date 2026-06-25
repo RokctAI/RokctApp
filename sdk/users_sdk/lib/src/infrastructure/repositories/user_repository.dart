@@ -17,7 +17,6 @@ import 'package:users_sdk/src/models/response/profile_response.dart';
 import 'package:users_sdk/src/models/request/edit_profile.dart';
 import 'package:users_sdk/src/models/data/blog_data.dart';
 
-
 class UserRepository implements UserRepositoryFacade {
   final Dio _dio;
   final dynamic Function()? _getSelectedCurrency;
@@ -29,16 +28,15 @@ class UserRepository implements UserRepositoryFacade {
     dynamic Function()? getSelectedCurrency,
     dynamic Function()? getLanguage,
     Future<void> Function()? logoutStorage,
-  })  : _getSelectedCurrency = getSelectedCurrency,
-        _getLanguage = getLanguage,
-        _logoutStorage = logoutStorage;
+  }) : _getSelectedCurrency = getSelectedCurrency,
+       _getLanguage = getLanguage,
+       _logoutStorage = logoutStorage;
   @override
   Future<ApiResult<ProfileResponse>> getProfileDetails() async {
     try {
       final currency = _getSelectedCurrency?.call();
       final data = {
-        if (currency != null)
-          'currency_id': currency.id,
+        if (currency != null) 'currency_id': currency.id,
         "lang": _getLanguage?.call()?.locale ?? "en",
       };
       final client = _dio;
@@ -50,7 +48,9 @@ class UserRepository implements UserRepositoryFacade {
     } catch (e) {
       debugPrint('==> get user details failure: $e');
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -61,8 +61,7 @@ class UserRepository implements UserRepositoryFacade {
     try {
       final currency = _getSelectedCurrency?.call();
       final data = {
-        if (currency != null)
-          'currency_id': currency.id,
+        if (currency != null) 'currency_id': currency.id,
         "lang": _getLanguage?.call()?.locale ?? "en",
       };
 
@@ -77,7 +76,9 @@ class UserRepository implements UserRepositoryFacade {
     } catch (e) {
       debugPrint('==> get referral details failure: $e');
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -99,7 +100,9 @@ class UserRepository implements UserRepositoryFacade {
     } catch (e) {
       debugPrint('==> update profile details failure: $e');
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -124,7 +127,9 @@ class UserRepository implements UserRepositoryFacade {
     } catch (e) {
       debugPrint('==> update profile image failure: $e');
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -149,7 +154,9 @@ class UserRepository implements UserRepositoryFacade {
     } catch (e) {
       debugPrint('==> update password failure: $e'); // environment
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -162,8 +169,7 @@ class UserRepository implements UserRepositoryFacade {
     final currency = _getSelectedCurrency?.call();
     final data = {
       'page': page,
-      if (currency != null)
-        'currency_id': currency.id,
+      if (currency != null) 'currency_id': currency.id,
       "lang": _getLanguage?.call()?.locale ?? "en",
     };
     try {
@@ -178,7 +184,9 @@ class UserRepository implements UserRepositoryFacade {
     } catch (e) {
       debugPrint('==> get wallet histories failure: $e');
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -197,7 +205,9 @@ class UserRepository implements UserRepositoryFacade {
     } catch (e) {
       debugPrint('==> update firebase token failure: $e'); // environment
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -211,7 +221,9 @@ class UserRepository implements UserRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -226,7 +238,9 @@ class UserRepository implements UserRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -243,7 +257,9 @@ class UserRepository implements UserRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -263,7 +279,9 @@ class UserRepository implements UserRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -277,7 +295,9 @@ class UserRepository implements UserRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -291,7 +311,9 @@ class UserRepository implements UserRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -316,7 +338,9 @@ class UserRepository implements UserRepositoryFacade {
       );
     } catch (e) {
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -337,7 +361,9 @@ class UserRepository implements UserRepositoryFacade {
       return ApiResult.success(data: CareerData.fromJson(raw));
     } catch (e) {
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -363,7 +389,9 @@ class UserRepository implements UserRepositoryFacade {
     } catch (e) {
       return Future.value(
         ApiResult.failure(
-          error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+          error: NetworkExceptions.getErrorMessage(
+            NetworkExceptions.getDioException(e),
+          ),
           statusCode: NetworkExceptions.getDioStatus(e),
         ),
       );
@@ -381,7 +409,9 @@ class UserRepository implements UserRepositoryFacade {
     } catch (e) {
       return Future.value(
         ApiResult.failure(
-          error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+          error: NetworkExceptions.getErrorMessage(
+            NetworkExceptions.getDioException(e),
+          ),
           statusCode: NetworkExceptions.getDioStatus(e),
         ),
       );
@@ -406,7 +436,9 @@ class UserRepository implements UserRepositoryFacade {
     } catch (e) {
       return Future.value(
         ApiResult.failure(
-          error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+          error: NetworkExceptions.getErrorMessage(
+            NetworkExceptions.getDioException(e),
+          ),
           statusCode: NetworkExceptions.getDioStatus(e),
         ),
       );

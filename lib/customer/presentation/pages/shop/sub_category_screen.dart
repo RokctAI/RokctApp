@@ -5,8 +5,8 @@
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:merchants_sdk/src/application/customer/shop/shop_notifier.dart';
-// import 'package:merchants_sdk/src/application/customer/shop/shop_provider.dart';
+// import 'package:rokctapp/customer/application/shop/shop_notifier.dart';
+// import 'package:rokctapp/customer/application/shop/shop_provider.dart';
 // import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
 // import 'package:rokctapp/core/infrastructure/utils/services.dart';
 // // // // import 'package:rokctapp/customer/presentation/pages/shop/cart/cart_order_page.dart';

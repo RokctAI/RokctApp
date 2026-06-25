@@ -13,7 +13,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
-import 'package:payments_sdk/src/application/core/payment_methods/payment_provider.dart';
+import 'package:rokctapp/core/application/payment_methods/payment_provider.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_check/order_check.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/rating_page.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_map.dart';
@@ -24,7 +24,6 @@ import 'package:orders_sdk/orders_sdk.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/refund_info.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_screen/widgets/order_status.dart';
 import 'package:orders_sdk/orders_sdk.dart';
-
 
 import 'package:rokctapp/customer/presentation/components/components.dart';
 

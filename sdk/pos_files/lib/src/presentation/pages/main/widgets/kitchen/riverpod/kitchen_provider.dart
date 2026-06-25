@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kitchen_sdk/kitchen_sdk.dart';
 import 'package:admin_desktop/src/models/data/order_data.dart';
 
-final kitchenProvider = StateNotifierProvider<KitchenNotifier<OrderData>, KitchenState<OrderData>>(
-  (ref) => KitchenNotifier<OrderData>(ordersRepository),
-);
-
+final kitchenProvider =
+    StateNotifierProvider<KitchenNotifier<OrderData>, KitchenState<OrderData>>(
+      (ref) => KitchenNotifier<OrderData>(ordersRepository),
+    );

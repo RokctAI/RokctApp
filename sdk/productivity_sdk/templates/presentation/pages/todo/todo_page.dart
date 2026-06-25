@@ -89,7 +89,8 @@ class _TodoPageState extends State<TodoPage> {
         final index = _todos.indexWhere((t) => t['id'] == _editingId);
         if (index != -1) {
           final String id = _editingId!;
-          final int notifId = _todos[index]['notifId'] ?? Random().nextInt(100000);
+          final int notifId =
+              _todos[index]['notifId'] ?? Random().nextInt(100000);
 
           LocalNotifications.cancelNotification(notifId);
 
@@ -103,8 +104,11 @@ class _TodoPageState extends State<TodoPage> {
             'priority': _selectedPriority,
             'category': category,
             'recurrence': _recurrence,
-            'createdAt': _todos[index]['createdAt'] ?? DateTime.now().toIso8601String(),
-            'subtasks': _currentSubtasks.map((s) => Map<String,dynamic>.from(s)).toList(),
+            'createdAt':
+                _todos[index]['createdAt'] ?? DateTime.now().toIso8601String(),
+            'subtasks': _currentSubtasks
+                .map((s) => Map<String, dynamic>.from(s))
+                .toList(),
           };
 
           if (_isReminderSet && _selectedDeadline != null) {
@@ -132,7 +136,9 @@ class _TodoPageState extends State<TodoPage> {
           'category': category,
           'recurrence': _recurrence,
           'createdAt': DateTime.now().toIso8601String(),
-          'subtasks': _currentSubtasks.map((s) => Map<String,dynamic>.from(s)).toList(),
+          'subtasks': _currentSubtasks
+              .map((s) => Map<String, dynamic>.from(s))
+              .toList(),
         });
 
         if (_isReminderSet && _selectedDeadline != null) {
@@ -173,17 +179,21 @@ class _TodoPageState extends State<TodoPage> {
 
   void _toggleSubtaskStatus(int taskIndex, int subtaskIndex) {
     setState(() {
-      final subtasks = List<Map<String, dynamic>>.from(_todos[taskIndex]['subtasks'] ?? []);
-      subtasks[subtaskIndex]['isDone'] = !(subtasks[subtaskIndex]['isDone'] ?? false);
+      final subtasks = List<Map<String, dynamic>>.from(
+        _todos[taskIndex]['subtasks'] ?? [],
+      );
+      subtasks[subtaskIndex]['isDone'] =
+          !(subtasks[subtaskIndex]['isDone'] ?? false);
       _todos[taskIndex]['subtasks'] = subtasks;
     });
     _saveTodos();
   }
 
   void _toggleFormSubtaskStatus(int subtaskIndex) {
-      setState(() {
-         _currentSubtasks[subtaskIndex]['isDone'] = !(_currentSubtasks[subtaskIndex]['isDone'] ?? false);
-      });
+    setState(() {
+      _currentSubtasks[subtaskIndex]['isDone'] =
+          !(_currentSubtasks[subtaskIndex]['isDone'] ?? false);
+    });
   }
 
   void _startEditing(int index) {
@@ -199,9 +209,11 @@ class _TodoPageState extends State<TodoPage> {
 
       // Deep Copy Subtasks
       if (task['subtasks'] != null) {
-          _currentSubtasks = (task['subtasks'] as List).map((s) => Map<String,dynamic>.from(s)).toList();
+        _currentSubtasks = (task['subtasks'] as List)
+            .map((s) => Map<String, dynamic>.from(s))
+            .toList();
       } else {
-          _currentSubtasks = [];
+        _currentSubtasks = [];
       }
 
       if (task['deadline'] != null) {
@@ -228,52 +240,60 @@ class _TodoPageState extends State<TodoPage> {
   }
 
   void _handleRecurrence(Map<String, dynamic> task) {
-      final String recurrence = task['recurrence'] ?? 'None';
-      if (recurrence == 'None' || task['deadline'] == null) return;
+    final String recurrence = task['recurrence'] ?? 'None';
+    if (recurrence == 'None' || task['deadline'] == null) return;
 
-      final DateTime currentDeadline = DateTime.parse(task['deadline']);
-      DateTime nextDeadline;
+    final DateTime currentDeadline = DateTime.parse(task['deadline']);
+    DateTime nextDeadline;
 
-      if (recurrence == 'Daily') {
-          nextDeadline = currentDeadline.add(const Duration(days: 1));
-      } else if (recurrence == 'Weekly') {
-          nextDeadline = currentDeadline.add(const Duration(days: 7));
-      } else if (recurrence == 'Monthly') {
-          nextDeadline = DateTime(currentDeadline.year, currentDeadline.month + 1, currentDeadline.day, currentDeadline.hour, currentDeadline.minute);
-      } else {
-          return;
-      }
+    if (recurrence == 'Daily') {
+      nextDeadline = currentDeadline.add(const Duration(days: 1));
+    } else if (recurrence == 'Weekly') {
+      nextDeadline = currentDeadline.add(const Duration(days: 7));
+    } else if (recurrence == 'Monthly') {
+      nextDeadline = DateTime(
+        currentDeadline.year,
+        currentDeadline.month + 1,
+        currentDeadline.day,
+        currentDeadline.hour,
+        currentDeadline.minute,
+      );
+    } else {
+      return;
+    }
 
-      final String newId = _uuid.v4();
-      final int notifId = Random().nextInt(100000);
-      final bool hasReminder = task['reminder'] ?? false;
+    final String newId = _uuid.v4();
+    final int notifId = Random().nextInt(100000);
+    final bool hasReminder = task['reminder'] ?? false;
 
-      _todos.add({
-          'id': newId,
-          'notifId': notifId,
-          'title': task['title'],
-          'isDone': false,
-          'deadline': nextDeadline.toIso8601String(),
-          'reminder': hasReminder,
-          'priority': task['priority'],
-          'category': task['category'],
-          'recurrence': recurrence,
-          'createdAt': DateTime.now().toIso8601String(),
-          'subtasks': (task['subtasks'] as List?)?.map((s) {
-              final copy = Map<String,dynamic>.from(s);
-              copy['isDone'] = false;
-              return copy;
-          }).toList() ?? [],
-      });
+    _todos.add({
+      'id': newId,
+      'notifId': notifId,
+      'title': task['title'],
+      'isDone': false,
+      'deadline': nextDeadline.toIso8601String(),
+      'reminder': hasReminder,
+      'priority': task['priority'],
+      'category': task['category'],
+      'recurrence': recurrence,
+      'createdAt': DateTime.now().toIso8601String(),
+      'subtasks':
+          (task['subtasks'] as List?)?.map((s) {
+            final copy = Map<String, dynamic>.from(s);
+            copy['isDone'] = false;
+            return copy;
+          }).toList() ??
+          [],
+    });
 
-      if (hasReminder) {
-          LocalNotifications.scheduleNotification(
-            id: notifId,
-            title: 'Task Reminder',
-            body: task['title'],
-            scheduledDate: nextDeadline,
-          );
-      }
+    if (hasReminder) {
+      LocalNotifications.scheduleNotification(
+        id: notifId,
+        title: 'Task Reminder',
+        body: task['title'],
+        scheduledDate: nextDeadline,
+      );
+    }
   }
 
   void _toggleTodo(int index) {
@@ -283,22 +303,22 @@ class _TodoPageState extends State<TodoPage> {
       _todos[index]['isDone'] = !_todos[index]['isDone'];
 
       if (_todos[index]['isDone']) {
-         LocalNotifications.cancelNotification(notifId);
-         _handleRecurrence(_todos[index]);
+        LocalNotifications.cancelNotification(notifId);
+        _handleRecurrence(_todos[index]);
       } else {
-         final bool hasReminder = _todos[index]['reminder'] ?? false;
-         final String? deadlineStr = _todos[index]['deadline'];
-         if (hasReminder && deadlineStr != null) {
-             final DateTime deadlineDate = DateTime.parse(deadlineStr);
-             if (deadlineDate.isAfter(DateTime.now())) {
-                LocalNotifications.scheduleNotification(
-                  id: notifId,
-                  title: 'Task Reminder',
-                  body: _todos[index]['title'],
-                  scheduledDate: deadlineDate,
-                );
-             }
-         }
+        final bool hasReminder = _todos[index]['reminder'] ?? false;
+        final String? deadlineStr = _todos[index]['deadline'];
+        if (hasReminder && deadlineStr != null) {
+          final DateTime deadlineDate = DateTime.parse(deadlineStr);
+          if (deadlineDate.isAfter(DateTime.now())) {
+            LocalNotifications.scheduleNotification(
+              id: notifId,
+              title: 'Task Reminder',
+              body: _todos[index]['title'],
+              scheduledDate: deadlineDate,
+            );
+          }
+        }
       }
     });
     _saveTodos();
@@ -357,66 +377,68 @@ class _TodoPageState extends State<TodoPage> {
   }
 
   int _priorityWeight(String priority) {
-      if (priority == 'High') return 3;
-      if (priority == 'Medium') return 2;
-      return 1;
+    if (priority == 'High') return 3;
+    if (priority == 'Medium') return 2;
+    return 1;
   }
 
   List<MapEntry<int, Map<String, dynamic>>> _getFilteredAndSortedTodos() {
-      // 1. Filter
-      var filtered = _todos.asMap().entries.where((entry) {
-        final todo = entry.value;
-        if (_filterStatus == 'Pending' && todo['isDone'] == true) return false;
-        if (_filterStatus == 'Completed' && todo['isDone'] == false) return false;
+    // 1. Filter
+    var filtered = _todos.asMap().entries.where((entry) {
+      final todo = entry.value;
+      if (_filterStatus == 'Pending' && todo['isDone'] == true) return false;
+      if (_filterStatus == 'Completed' && todo['isDone'] == false) return false;
 
-        final query = _searchController.text.toLowerCase();
-        if (query.isNotEmpty) {
-            final title = (todo['title'] as String).toLowerCase();
-            final cat = (todo['category'] as String?)?.toLowerCase() ?? '';
-            if (!title.contains(query) && !cat.contains(query)) return false;
+      final query = _searchController.text.toLowerCase();
+      if (query.isNotEmpty) {
+        final title = (todo['title'] as String).toLowerCase();
+        final cat = (todo['category'] as String?)?.toLowerCase() ?? '';
+        if (!title.contains(query) && !cat.contains(query)) return false;
+      }
+
+      if (_showCalendar && _selectedDay != null) {
+        final deadlineStr = todo['deadline'] as String?;
+        if (deadlineStr == null) return false;
+        final dDate = DateTime.parse(deadlineStr);
+        if (!isSameDay(dDate, _selectedDay)) return false;
+      }
+
+      return true;
+    }).toList();
+
+    // 2. Sort
+    filtered.sort((a, b) {
+      final ta = a.value;
+      final tb = b.value;
+
+      if (_sortBy == 'Priority') {
+        final wa = _priorityWeight(ta['priority'] ?? 'Medium');
+        final wb = _priorityWeight(tb['priority'] ?? 'Medium');
+        if (wa != wb) return wb.compareTo(wa); // Descending
+      } else if (_sortBy == 'Deadline') {
+        final daStr = ta['deadline'] as String?;
+        final dbStr = tb['deadline'] as String?;
+        if (daStr != null && dbStr != null) {
+          return DateTime.parse(daStr).compareTo(DateTime.parse(dbStr));
+        } else if (daStr != null) {
+          return -1;
+        } else if (dbStr != null) {
+          return 1;
         }
+      }
 
-        if (_showCalendar && _selectedDay != null) {
-            final deadlineStr = todo['deadline'] as String?;
-            if (deadlineStr == null) return false;
-            final dDate = DateTime.parse(deadlineStr);
-            if (!isSameDay(dDate, _selectedDay)) return false;
-        }
+      // Default fallback to Created
+      final caStr = ta['createdAt'] as String?;
+      final cbStr = tb['createdAt'] as String?;
+      if (caStr != null && cbStr != null) {
+        return DateTime.parse(
+          cbStr,
+        ).compareTo(DateTime.parse(caStr)); // Newest first
+      }
+      return 0;
+    });
 
-        return true;
-      }).toList();
-
-      // 2. Sort
-      filtered.sort((a, b) {
-          final ta = a.value;
-          final tb = b.value;
-
-          if (_sortBy == 'Priority') {
-              final wa = _priorityWeight(ta['priority'] ?? 'Medium');
-              final wb = _priorityWeight(tb['priority'] ?? 'Medium');
-              if (wa != wb) return wb.compareTo(wa); // Descending
-          } else if (_sortBy == 'Deadline') {
-              final daStr = ta['deadline'] as String?;
-              final dbStr = tb['deadline'] as String?;
-              if (daStr != null && dbStr != null) {
-                  return DateTime.parse(daStr).compareTo(DateTime.parse(dbStr));
-              } else if (daStr != null) {
-                  return -1;
-              } else if (dbStr != null) {
-                  return 1;
-              }
-          }
-
-          // Default fallback to Created
-          final caStr = ta['createdAt'] as String?;
-          final cbStr = tb['createdAt'] as String?;
-          if (caStr != null && cbStr != null) {
-              return DateTime.parse(cbStr).compareTo(DateTime.parse(caStr)); // Newest first
-          }
-          return 0;
-      });
-
-      return filtered;
+    return filtered;
   }
 
   @override
@@ -431,15 +453,15 @@ class _TodoPageState extends State<TodoPage> {
           style: TextStyle(color: colors.onSurface, fontSize: 18),
         ),
         actions: [
-            IconButton(
-                icon: Icon(_showCalendar ? Icons.list : Icons.calendar_month),
-                onPressed: () => setState(() => _showCalendar = !_showCalendar),
-            ),
-            IconButton(
-                icon: const Icon(Icons.download),
-                onPressed: _exportData,
-                tooltip: 'Backup Data',
-            )
+          IconButton(
+            icon: Icon(_showCalendar ? Icons.list : Icons.calendar_month),
+            onPressed: () => setState(() => _showCalendar = !_showCalendar),
+          ),
+          IconButton(
+            icon: const Icon(Icons.download),
+            onPressed: _exportData,
+            tooltip: 'Backup Data',
+          ),
         ],
       ),
       body: Column(
@@ -449,7 +471,7 @@ class _TodoPageState extends State<TodoPage> {
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             child: Column(
               children: [
-                 TextField(
+                TextField(
                   controller: _searchController,
                   decoration: InputDecoration(
                     hintText: 'Search tasks or categories...',
@@ -462,7 +484,7 @@ class _TodoPageState extends State<TodoPage> {
                       borderSide: BorderSide.none,
                     ),
                   ),
-                  onChanged: (val) => setState((){}),
+                  onChanged: (val) => setState(() {}),
                 ),
                 8.verticalSpace,
                 Row(
@@ -473,7 +495,10 @@ class _TodoPageState extends State<TodoPage> {
                         return Padding(
                           padding: EdgeInsets.only(right: 4.w),
                           child: ChoiceChip(
-                            label: Text(status, style: TextStyle(fontSize: 12.sp)),
+                            label: Text(
+                              status,
+                              style: TextStyle(fontSize: 12.sp),
+                            ),
                             selected: _filterStatus == status,
                             onSelected: (selected) {
                               setState(() => _filterStatus = status);
@@ -490,7 +515,10 @@ class _TodoPageState extends State<TodoPage> {
                       items: _sortOptions.map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
-                          child: Text('Sort: $value', style: TextStyle(fontSize: 12.sp)),
+                          child: Text(
+                            'Sort: $value',
+                            style: TextStyle(fontSize: 12.sp),
+                          ),
                         );
                       }).toList(),
                       onChanged: (newValue) {
@@ -506,19 +534,19 @@ class _TodoPageState extends State<TodoPage> {
           ),
 
           if (_showCalendar)
-             TableCalendar(
-                firstDay: DateTime.utc(2020, 10, 16),
-                lastDay: DateTime.utc(2030, 3, 14),
-                focusedDay: _focusedDay,
-                selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-                onDaySelected: (selectedDay, focusedDay) {
-                    setState(() {
-                        _selectedDay = selectedDay;
-                        _focusedDay = focusedDay;
-                    });
-                },
-                calendarFormat: CalendarFormat.week,
-             ),
+            TableCalendar(
+              firstDay: DateTime.utc(2020, 10, 16),
+              lastDay: DateTime.utc(2030, 3, 14),
+              focusedDay: _focusedDay,
+              selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+              onDaySelected: (selectedDay, focusedDay) {
+                setState(() {
+                  _selectedDay = selectedDay;
+                  _focusedDay = focusedDay;
+                });
+              },
+              calendarFormat: CalendarFormat.week,
+            ),
 
           // Form Area
           Container(
@@ -533,24 +561,33 @@ class _TodoPageState extends State<TodoPage> {
                       child: TextField(
                         controller: _controller,
                         decoration: InputDecoration(
-                          hintText: _editingId != null ? 'Edit task title' : 'Add a new task',
-                          hintStyle: TextStyle(color: colors.onSurface.withOpacity(0.5)),
+                          hintText: _editingId != null
+                              ? 'Edit task title'
+                              : 'Add a new task',
+                          hintStyle: TextStyle(
+                            color: colors.onSurface.withOpacity(0.5),
+                          ),
                           filled: true,
                           fillColor: colors.surfaceContainerHighest,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.r),
                             borderSide: BorderSide.none,
                           ),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 16.w,
+                            vertical: 12.h,
+                          ),
                         ),
                       ),
                     ),
                     8.horizontalSpace,
                     IconButton(
                       icon: Icon(
-                        _editingId != null ? Icons.check_circle : Icons.add_circle,
+                        _editingId != null
+                            ? Icons.check_circle
+                            : Icons.add_circle,
                         color: colors.primary,
-                        size: 40.r
+                        size: 40.r,
                       ),
                       onPressed: _saveTask,
                     ),
@@ -565,7 +602,10 @@ class _TodoPageState extends State<TodoPage> {
                         controller: _categoryController,
                         decoration: InputDecoration(
                           hintText: 'Category',
-                          hintStyle: TextStyle(color: colors.onSurface.withOpacity(0.5), fontSize: 13.sp),
+                          hintStyle: TextStyle(
+                            color: colors.onSurface.withOpacity(0.5),
+                            fontSize: 13.sp,
+                          ),
                           filled: true,
                           fillColor: colors.surfaceContainerHighest,
                           isDense: true,
@@ -579,23 +619,36 @@ class _TodoPageState extends State<TodoPage> {
                     8.horizontalSpace,
                     Expanded(
                       child: DropdownButtonFormField<String>(
-                          value: _recurrence,
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: colors.surfaceContainerHighest,
-                              isDense: true,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8.r),
-                                borderSide: BorderSide.none,
-                              ),
-                              contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h)
+                        value: _recurrence,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: colors.surfaceContainerHighest,
+                          isDense: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.r),
+                            borderSide: BorderSide.none,
                           ),
-                          items: _recurrences.map((r) => DropdownMenuItem(value: r, child: Text(r, style: TextStyle(fontSize: 13.sp)))).toList(),
-                          onChanged: (val) {
-                              if (val != null) setState(() => _recurrence = val);
-                          },
-                      )
-                    )
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 12.w,
+                            vertical: 8.h,
+                          ),
+                        ),
+                        items: _recurrences
+                            .map(
+                              (r) => DropdownMenuItem(
+                                value: r,
+                                child: Text(
+                                  r,
+                                  style: TextStyle(fontSize: 13.sp),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (val) {
+                          if (val != null) setState(() => _recurrence = val);
+                        },
+                      ),
+                    ),
                   ],
                 ),
                 8.verticalSpace,
@@ -607,7 +660,10 @@ class _TodoPageState extends State<TodoPage> {
                         controller: _subtaskController,
                         decoration: InputDecoration(
                           hintText: 'Add a subtask...',
-                          hintStyle: TextStyle(color: colors.onSurface.withOpacity(0.5), fontSize: 13.sp),
+                          hintStyle: TextStyle(
+                            color: colors.onSurface.withOpacity(0.5),
+                            fontSize: 13.sp,
+                          ),
                           filled: true,
                           fillColor: colors.surfaceContainerHighest,
                           isDense: true,
@@ -622,33 +678,39 @@ class _TodoPageState extends State<TodoPage> {
                     IconButton(
                       icon: Icon(Icons.add, size: 24.r, color: colors.primary),
                       onPressed: _addSubtask,
-                    )
+                    ),
                   ],
                 ),
                 if (_currentSubtasks.isNotEmpty)
                   Container(
                     margin: EdgeInsets.only(top: 4.h),
                     decoration: BoxDecoration(
-                      border: Border.all(color: colors.outline.withOpacity(0.2)),
+                      border: Border.all(
+                        color: colors.outline.withOpacity(0.2),
+                      ),
                       borderRadius: BorderRadius.circular(8.r),
                     ),
                     child: Column(
                       children: _currentSubtasks.asMap().entries.map((entry) {
-                         return CheckboxListTile(
-                            dense: true,
-                            controlAffinity: ListTileControlAffinity.leading,
-                            value: entry.value['isDone'] ?? false,
-                            onChanged: (val) => _toggleFormSubtaskStatus(entry.key),
-                            title: Text(entry.value['title'], style: TextStyle(fontSize: 13.sp)),
-                            secondary: IconButton(
-                                icon: Icon(Icons.close, size: 16.r),
-                                onPressed: () {
-                                   setState(() {
-                                       _currentSubtasks.removeAt(entry.key);
-                                   });
-                                }
-                            ),
-                         );
+                        return CheckboxListTile(
+                          dense: true,
+                          controlAffinity: ListTileControlAffinity.leading,
+                          value: entry.value['isDone'] ?? false,
+                          onChanged: (val) =>
+                              _toggleFormSubtaskStatus(entry.key),
+                          title: Text(
+                            entry.value['title'],
+                            style: TextStyle(fontSize: 13.sp),
+                          ),
+                          secondary: IconButton(
+                            icon: Icon(Icons.close, size: 16.r),
+                            onPressed: () {
+                              setState(() {
+                                _currentSubtasks.removeAt(entry.key);
+                              });
+                            },
+                          ),
+                        );
                       }).toList(),
                     ),
                   ),
@@ -660,7 +722,11 @@ class _TodoPageState extends State<TodoPage> {
                     DropdownButton<String>(
                       value: _selectedPriority,
                       underline: const SizedBox(),
-                      icon: Icon(Icons.flag, size: 18.r, color: _getPriorityColor(_selectedPriority, colors)),
+                      icon: Icon(
+                        Icons.flag,
+                        size: 18.r,
+                        color: _getPriorityColor(_selectedPriority, colors),
+                      ),
                       items: _priorities.map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -682,7 +748,9 @@ class _TodoPageState extends State<TodoPage> {
                       label: Text(
                         _selectedDeadline == null
                             ? 'Deadline'
-                            : DateFormat('MMM dd, hh:mm a').format(_selectedDeadline!),
+                            : DateFormat(
+                                'MMM dd, hh:mm a',
+                              ).format(_selectedDeadline!),
                         style: TextStyle(fontSize: 13.sp),
                       ),
                     ),
@@ -706,7 +774,10 @@ class _TodoPageState extends State<TodoPage> {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: _cancelEditing,
-                      child: Text('Cancel Edit', style: TextStyle(color: colors.error)),
+                      child: Text(
+                        'Cancel Edit',
+                        style: TextStyle(color: colors.error),
+                      ),
                     ),
                   ),
               ],
@@ -733,7 +804,9 @@ class _TodoPageState extends State<TodoPage> {
                 String? formattedDeadline;
                 if (deadlineStr != null) {
                   final DateTime deadlineDate = DateTime.parse(deadlineStr);
-                  formattedDeadline = DateFormat('MMM dd, hh:mm a').format(deadlineDate);
+                  formattedDeadline = DateFormat(
+                    'MMM dd, hh:mm a',
+                  ).format(deadlineDate);
                 }
 
                 return Container(
@@ -744,7 +817,9 @@ class _TodoPageState extends State<TodoPage> {
                     border: Border.all(color: colors.outline.withOpacity(0.1)),
                   ),
                   child: Theme(
-                    data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                    data: Theme.of(
+                      context,
+                    ).copyWith(dividerColor: Colors.transparent),
                     child: ExpansionTile(
                       leading: Checkbox(
                         value: isDone,
@@ -760,7 +835,9 @@ class _TodoPageState extends State<TodoPage> {
                           style: TextStyle(
                             color: colors.onSurface,
                             fontWeight: FontWeight.w500,
-                            decoration: isDone ? TextDecoration.lineThrough : null,
+                            decoration: isDone
+                                ? TextDecoration.lineThrough
+                                : null,
                           ),
                         ),
                       ),
@@ -776,49 +853,77 @@ class _TodoPageState extends State<TodoPage> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(Icons.flag, size: 14.r, color: _getPriorityColor(priority, colors)),
+                                  Icon(
+                                    Icons.flag,
+                                    size: 14.r,
+                                    color: _getPriorityColor(priority, colors),
+                                  ),
                                   4.horizontalSpace,
                                   Text(
                                     priority,
-                                    style: TextStyle(fontSize: 12.sp, color: _getPriorityColor(priority, colors)),
+                                    style: TextStyle(
+                                      fontSize: 12.sp,
+                                      color: _getPriorityColor(
+                                        priority,
+                                        colors,
+                                      ),
+                                    ),
                                   ),
-                                ]
+                                ],
                               ),
 
                               if (category != null && category.isNotEmpty)
                                 Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 6.w,
+                                    vertical: 2.h,
+                                  ),
                                   decoration: BoxDecoration(
                                     color: colors.secondaryContainer,
-                                    borderRadius: BorderRadius.circular(4.r)
+                                    borderRadius: BorderRadius.circular(4.r),
                                   ),
                                   child: Text(
                                     category,
-                                    style: TextStyle(fontSize: 10.sp, color: colors.onSecondaryContainer),
-                                  )
+                                    style: TextStyle(
+                                      fontSize: 10.sp,
+                                      color: colors.onSecondaryContainer,
+                                    ),
+                                  ),
                                 ),
 
-                               if (recurrence != 'None')
-                                  Icon(Icons.repeat, size: 14.r, color: colors.tertiary),
+                              if (recurrence != 'None')
+                                Icon(
+                                  Icons.repeat,
+                                  size: 14.r,
+                                  color: colors.tertiary,
+                                ),
 
                               if (formattedDeadline != null)
                                 Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                        Icon(Icons.timer_outlined, size: 14.r, color: colors.onSurfaceVariant),
-                                        4.horizontalSpace,
-                                        Text(
-                                          formattedDeadline,
-                                          style: TextStyle(
-                                            color: colors.onSurfaceVariant,
-                                            fontSize: 12.sp,
-                                          ),
-                                        ),
-                                    ],
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Icons.timer_outlined,
+                                      size: 14.r,
+                                      color: colors.onSurfaceVariant,
+                                    ),
+                                    4.horizontalSpace,
+                                    Text(
+                                      formattedDeadline,
+                                      style: TextStyle(
+                                        color: colors.onSurfaceVariant,
+                                        fontSize: 12.sp,
+                                      ),
+                                    ),
+                                  ],
                                 ),
 
                               if (hasReminder && formattedDeadline != null)
-                                Icon(Icons.notifications_active, size: 14.r, color: colors.primary),
+                                Icon(
+                                  Icons.notifications_active,
+                                  size: 14.r,
+                                  color: colors.primary,
+                                ),
                             ],
                           ),
                         ],
@@ -827,30 +932,42 @@ class _TodoPageState extends State<TodoPage> {
                         icon: Icon(Icons.delete_outline, color: colors.error),
                         onPressed: () => _removeTodo(originalIndex),
                       ),
-                      children: subtasks.isEmpty ? [] : [
-                        Padding(
-                          padding: EdgeInsets.only(left: 32.w, right: 16.w, bottom: 8.h),
-                          child: Column(
-                            children: subtasks.asMap().entries.map((st) {
-                              return CheckboxListTile(
-                                dense: true,
-                                controlAffinity: ListTileControlAffinity.leading,
-                                value: st.value['isDone'] ?? false,
-                                onChanged: (val) {
-                                  _toggleSubtaskStatus(originalIndex, st.key);
-                                },
-                                title: Text(
-                                  st.value['title'],
-                                  style: TextStyle(
-                                     fontSize: 13.sp,
-                                     decoration: st.value['isDone'] == true ? TextDecoration.lineThrough : null
-                                  )
+                      children: subtasks.isEmpty
+                          ? []
+                          : [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: 32.w,
+                                  right: 16.w,
+                                  bottom: 8.h,
                                 ),
-                              );
-                            }).toList(),
-                          )
-                        )
-                      ],
+                                child: Column(
+                                  children: subtasks.asMap().entries.map((st) {
+                                    return CheckboxListTile(
+                                      dense: true,
+                                      controlAffinity:
+                                          ListTileControlAffinity.leading,
+                                      value: st.value['isDone'] ?? false,
+                                      onChanged: (val) {
+                                        _toggleSubtaskStatus(
+                                          originalIndex,
+                                          st.key,
+                                        );
+                                      },
+                                      title: Text(
+                                        st.value['title'],
+                                        style: TextStyle(
+                                          fontSize: 13.sp,
+                                          decoration: st.value['isDone'] == true
+                                              ? TextDecoration.lineThrough
+                                              : null,
+                                        ),
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              ),
+                            ],
                     ),
                   ),
                 );

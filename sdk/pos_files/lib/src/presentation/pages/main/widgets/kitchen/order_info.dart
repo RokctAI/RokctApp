@@ -14,7 +14,6 @@ import 'package:admin_desktop/src/core/utils/app_helpers.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 import '../../../../components/components.dart';
 
-
 class OrderInfo extends ConsumerStatefulWidget {
   const OrderInfo({super.key});
 

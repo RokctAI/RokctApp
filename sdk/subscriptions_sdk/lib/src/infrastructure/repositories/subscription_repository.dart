@@ -11,7 +11,7 @@ class SubscriptionsRepository implements SubscriptionsFacade {
   final String? Function()? _localeCallback;
 
   SubscriptionsRepository(this._client, {String? Function()? localeCallback})
-      : _localeCallback = localeCallback;
+    : _localeCallback = localeCallback;
 
   @override
   Future<ApiResult<SubscriptionResponse>> getSubscriptions({

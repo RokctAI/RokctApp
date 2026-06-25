@@ -105,7 +105,9 @@ class Product {
       img: json?["img"],
       minQty: json?["min_qty"],
       maxQty: json?["max_qty"],
-      translation: json?["translation"] == null ? null : Translation.fromJson(json?["translation"]),
+      translation: json?["translation"] == null
+          ? null
+          : Translation.fromJson(json?["translation"]),
       stock: json?["stock"] == null ? null : Stocks.fromJson(json?["stock"]),
       reviews: [],
     );

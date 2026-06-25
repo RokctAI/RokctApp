@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
@@ -8,19 +7,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-
-
-
-
-
-
 import 'package:intl/intl.dart';
 import 'package:orders_sdk/src/customer/models/models.dart';
 import 'order_notifier_dependencies.dart';
 import 'order_state.dart';
-
-
-
 
 class OrderNotifier extends Notifier<OrderState> {
   @override
@@ -54,9 +44,8 @@ class OrderNotifier extends Notifier<OrderState> {
       if (state.orderData?.deliveryMan?.id == null) {
         return;
       }
-      final response = await DependencyManager.ordersRepository.getDriverLocation(
-        '${state.orderData?.deliveryMan?.id ?? ""}',
-      );
+      final response = await DependencyManager.ordersRepository
+          .getDriverLocation('${state.orderData?.deliveryMan?.id ?? ""}');
       response.when(
         success: (data) async {
           Map<MarkerId, Marker> list = Map.from(state.markers);
@@ -252,7 +241,9 @@ class OrderNotifier extends Notifier<OrderState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isLoading: true);
-      final response = await DependencyManager.shopsRepository.getSingleShop(uuid: uuid);
+      final response = await DependencyManager.shopsRepository.getSingleShop(
+        uuid: uuid,
+      );
       response.when(
         success: (data) async {
           state = state.copyWith(isLoading: false, shopData: data.data);
@@ -288,7 +279,9 @@ class OrderNotifier extends Notifier<OrderState> {
   Future<void> fetchShopBranch(BuildContext context, String shopId) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
-       final response = await DependencyManager.shopsRepository.getShopBranch(uuid: shopId);
+      final response = await DependencyManager.shopsRepository.getShopBranch(
+        uuid: shopId,
+      );
       response.when(
         success: (data) async {
           state = state.copyWith(branches: data.data);
@@ -464,7 +457,8 @@ class OrderNotifier extends Notifier<OrderState> {
               );
               return;
             }
-            final response = await DependencyManager.ordersRepository.createOrder(data);
+            final response = await DependencyManager.ordersRepository
+                .createOrder(data);
             response.when(
               success: (data) async {
                 state = state.copyWith(
@@ -553,7 +547,9 @@ class OrderNotifier extends Notifier<OrderState> {
       ///eref@fsdf.ff
       ///4242424242424242
       ///04/44
-      final response = await DependencyManager.ordersRepository.createOrder(data);
+      final response = await DependencyManager.ordersRepository.createOrder(
+        data,
+      );
       response.when(
         success: (data) async {
           state = state.copyWith(
@@ -677,7 +673,9 @@ class OrderNotifier extends Notifier<OrderState> {
       if (!isRefresh) {
         state = state.copyWith(isLoading: true, isMapLoading: true);
       }
-      final response = await DependencyManager.ordersRepository.getSingleOrder(orderId);
+      final response = await DependencyManager.ordersRepository.getSingleOrder(
+        orderId,
+      );
       response.when(
         success: (data) async {
           if (!isRefresh) {
@@ -761,7 +759,9 @@ class OrderNotifier extends Notifier<OrderState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isButtonLoading: true);
-      final response = await DependencyManager.ordersRepository.cancelOrder(orderId);
+      final response = await DependencyManager.ordersRepository.cancelOrder(
+        orderId,
+      );
       response.when(
         success: (data) async {
           state = state.copyWith(isButtonLoading: false);
@@ -852,7 +852,10 @@ class OrderNotifier extends Notifier<OrderState> {
   }) async {
     if (await AppConnectivity.connectivity()) {
       state = state.copyWith(polylineCoordinates: []);
-      final response = await DependencyManager.drawRepository.getRouting(start: start, end: end);
+      final response = await DependencyManager.drawRepository.getRouting(
+        start: start,
+        end: end,
+      );
       response.when(
         success: (data) {
           List<LatLng> list = [];

@@ -6,19 +6,27 @@ import 'package:payments_sdk/payments_sdk.dart';
 import 'subscriptions_state.dart';
 import 'subscriptions_notifier.dart';
 
-final subscriptionRepositoryProvider = Provider<SubscriptionsFacade>((ref) => throw UnimplementedError());
-final paymentsRepositoryProvider = Provider<PaymentsFacade>((ref) => throw UnimplementedError());
+final subscriptionRepositoryProvider = Provider<SubscriptionsFacade>(
+  (ref) => throw UnimplementedError(),
+);
+final paymentsRepositoryProvider = Provider<PaymentsFacade>(
+  (ref) => throw UnimplementedError(),
+);
 
 final walletPriceProvider = Provider<num Function()>(
   (ref) => throw UnimplementedError('walletPriceProvider is not overridden'),
 );
 
-final navigateToWebViewProvider = Provider<Future<void> Function(BuildContext, String)>(
-  (ref) => throw UnimplementedError('navigateToWebViewProvider is not overridden'),
-);
+final navigateToWebViewProvider =
+    Provider<Future<void> Function(BuildContext, String)>(
+      (ref) => throw UnimplementedError(
+        'navigateToWebViewProvider is not overridden',
+      ),
+    );
 
 final errorNotificationProvider = Provider<void Function(BuildContext, String)>(
-  (ref) => throw UnimplementedError('errorNotificationProvider is not overridden'),
+  (ref) =>
+      throw UnimplementedError('errorNotificationProvider is not overridden'),
 );
 
 final translationProvider = Provider<String Function(String)>(
@@ -27,12 +35,12 @@ final translationProvider = Provider<String Function(String)>(
 
 final subscriptionProvider =
     StateNotifierProvider<SubscriptionNotifier, SubscriptionState>(
-  (ref) => SubscriptionNotifier(
-    ref.watch(subscriptionRepositoryProvider),
-    ref.watch(paymentsRepositoryProvider),
-    getWalletPrice: ref.watch(walletPriceProvider),
-    onNavigateToWebView: ref.watch(navigateToWebViewProvider),
-    onError: ref.watch(errorNotificationProvider),
-    getTranslation: ref.watch(translationProvider),
-  ),
-);
+      (ref) => SubscriptionNotifier(
+        ref.watch(subscriptionRepositoryProvider),
+        ref.watch(paymentsRepositoryProvider),
+        getWalletPrice: ref.watch(walletPriceProvider),
+        onNavigateToWebView: ref.watch(navigateToWebViewProvider),
+        onError: ref.watch(errorNotificationProvider),
+        getTranslation: ref.watch(translationProvider),
+      ),
+    );

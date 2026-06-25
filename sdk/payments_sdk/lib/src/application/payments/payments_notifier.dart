@@ -33,10 +33,12 @@ class PaymentNotifier extends Notifier<PaymentState> {
         },
         failure: (failure, status) {
           state = state.copyWith(isPaymentsLoading: false);
-          ref.read(snackBarProvider).call(
-            context,
-            ref.read(translationProvider).call(status.toString()),
-          );
+          ref
+              .read(snackBarProvider)
+              .call(
+                context,
+                ref.read(translationProvider).call(status.toString()),
+              );
         },
       );
     } else {

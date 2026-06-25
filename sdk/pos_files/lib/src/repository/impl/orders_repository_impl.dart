@@ -8,7 +8,6 @@ import 'package:admin_desktop/src/models/models.dart';
 import '../repository.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
-
 class OrdersRepositoryImpl extends OrdersRepository {
   @override
   Future<ApiResult<CreateOrderResponse>> createOrder(

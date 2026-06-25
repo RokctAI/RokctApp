@@ -3,7 +3,6 @@ class LocalStorage {
   static dynamic getLanguage() => null;
 }
 
-
 class CartRequest {
   final String? shopId;
   final String? cartId;

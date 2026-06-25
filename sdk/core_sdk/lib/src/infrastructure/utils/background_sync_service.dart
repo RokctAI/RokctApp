@@ -1,6 +1,5 @@
 // Trace ID propagation context
 
-
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
@@ -12,7 +11,6 @@ import 'app_database.dart';
 import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
 import 'package:rokctapp/customer/models/data/profile_data.dart';
 
-
 class BackgroundSyncService {
   final AppDatabase database;
   final dynamic httpService;
@@ -23,12 +21,8 @@ class BackgroundSyncService {
   }
 
   void _initConnectivityListener() {
-    InternetConnection().onStatusChange.listen((
-      InternetStatus status,
-    ) {
+    InternetConnection().onStatusChange.listen((InternetStatus status) {
       if (status == InternetStatus.connected) {
-
-
         processQueue();
       }
     });
@@ -58,9 +52,7 @@ class BackgroundSyncService {
 
     try {
       final connectivityResult = await InternetConnection().internetStatus;
-      if (connectivityResult != InternetStatus.connected
-
-          ) {
+      if (connectivityResult != InternetStatus.connected) {
         return; // No network
       }
 
@@ -104,10 +96,10 @@ class BackgroundSyncService {
 
   Future<SyncResult> _sendRequestWithStatus(SyncQueueEntity request) async {
     try {
-       final client = httpService.client(requireAuth: true);
-       client.options.connectTimeout = const Duration(seconds: 30);
-       client.options.receiveTimeout = const Duration(seconds: 30);
-       final data = jsonDecode(request.payload);
+      final client = httpService.client(requireAuth: true);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
+      final data = jsonDecode(request.payload);
 
       final options = Options(
         method: request.method,

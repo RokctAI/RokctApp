@@ -14,7 +14,7 @@ import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 
-import 'package:merchants_sdk/src/application/customer/shop/shop_provider.dart';
+import 'package:rokctapp/customer/application/shop/shop_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:rokctapp/customer/presentation/pages/shop/group_order/widgets/check_status_dialog.dart';
 import 'package:rokctapp/customer/presentation/pages/shop/group_order/widgets/group_item.dart';

@@ -41,12 +41,12 @@ class TaskModel implements ProcessingContract {
 
   @override
   Map<String, dynamic> get metadata => {
-        'title': title,
-        'description': description,
-        'tags': tags,
-        'assignedTo': assignedTo,
-        'checklistId': checklistId,
-      };
+    'title': title,
+    'description': description,
+    'tags': tags,
+    'assignedTo': assignedTo,
+    'checklistId': checklistId,
+  };
 
   @override
   DateTime get updatedAt => lastUpdated;
@@ -118,7 +118,8 @@ class TaskModel implements ProcessingContract {
 
   String toJson() => json.encode(toMap());
 
-  factory TaskModel.fromJson(String source) => TaskModel.fromMap(json.decode(source));
+  factory TaskModel.fromJson(String source) =>
+      TaskModel.fromMap(json.decode(source));
 
   static List<TaskModel> decodeList(String jsonString) {
     final List<dynamic> decoded = json.decode(jsonString);
@@ -141,11 +142,7 @@ class TaskChecklistItem {
     this.isCompleted = false,
   });
 
-  TaskChecklistItem copyWith({
-    String? id,
-    String? title,
-    bool? isCompleted,
-  }) {
+  TaskChecklistItem copyWith({String? id, String? title, bool? isCompleted}) {
     return TaskChecklistItem(
       id: id ?? this.id,
       title: title ?? this.title,
@@ -154,11 +151,7 @@ class TaskChecklistItem {
   }
 
   Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'title': title,
-      'isCompleted': isCompleted,
-    };
+    return {'id': id, 'title': title, 'isCompleted': isCompleted};
   }
 
   factory TaskChecklistItem.fromMap(Map<String, dynamic> map) {

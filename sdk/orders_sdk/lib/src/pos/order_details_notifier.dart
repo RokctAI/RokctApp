@@ -6,11 +6,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_details_state.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
-class PosOrderDetailsNotifier<T> extends StateNotifier<PosOrderDetailsState<T>> {
+class PosOrderDetailsNotifier<T>
+    extends StateNotifier<PosOrderDetailsState<T>> {
   final dynamic _ordersRepository;
   final dynamic _usersRepository;
 
-  PosOrderDetailsNotifier(this._ordersRepository, this._usersRepository) : super(const PosOrderDetailsState());
+  PosOrderDetailsNotifier(this._ordersRepository, this._usersRepository)
+    : super(const PosOrderDetailsState());
   Timer? _searchUsersTimer;
 
   Future<void> updateOrderStatus({

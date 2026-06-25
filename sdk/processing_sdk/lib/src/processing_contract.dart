@@ -92,9 +92,11 @@ class ProcessingStateChangedEvent {
 /// Generalized orchestration engine that validates and executes state transitions.
 class ProcessingEngine {
   // Broadcaster for lifecycle events
-  final _eventController = StreamController<ProcessingStateChangedEvent>.broadcast();
+  final _eventController =
+      StreamController<ProcessingStateChangedEvent>.broadcast();
 
-  Stream<ProcessingStateChangedEvent> get eventStream => _eventController.stream;
+  Stream<ProcessingStateChangedEvent> get eventStream =>
+      _eventController.stream;
 
   /// Defines allowed transition paths. If the transition path isn't defined here, it is blocked.
   bool isValidTransition(ProcessingState from, ProcessingState to) {
@@ -109,13 +111,15 @@ class ProcessingEngine {
 
     switch (from) {
       case ProcessingState.draft:
-        return to == ProcessingState.submitted || to == ProcessingState.cancelled;
+        return to == ProcessingState.submitted ||
+            to == ProcessingState.cancelled;
       case ProcessingState.submitted:
         return to == ProcessingState.accepted ||
             to == ProcessingState.failed ||
             to == ProcessingState.cancelled;
       case ProcessingState.accepted:
-        return to == ProcessingState.processing || to == ProcessingState.cancelled;
+        return to == ProcessingState.processing ||
+            to == ProcessingState.cancelled;
       case ProcessingState.processing:
         return to == ProcessingState.ready ||
             to == ProcessingState.dispatched ||
@@ -141,7 +145,10 @@ class ProcessingEngine {
   }
 
   /// Transitions a contract to a new state if valid.
-  GenericContract transition(ProcessingContract contract, ProcessingState newState) {
+  GenericContract transition(
+    ProcessingContract contract,
+    ProcessingState newState,
+  ) {
     final previousState = contract.currentState;
 
     if (!isValidTransition(previousState, newState)) {

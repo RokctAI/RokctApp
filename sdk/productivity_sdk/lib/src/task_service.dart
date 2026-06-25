@@ -7,7 +7,8 @@ class TaskService {
   final ProcessingEngine _processingEngine = ProcessingEngine();
 
   /// Expose lifecycle state-changed events for tasks
-  Stream<ProcessingStateChangedEvent> get taskEvents => _processingEngine.eventStream;
+  Stream<ProcessingStateChangedEvent> get taskEvents =>
+      _processingEngine.eventStream;
 
   Future<List<TaskModel>> getTasks() async {
     final prefs = await SharedPreferences.getInstance();
@@ -40,7 +41,10 @@ class TaskService {
     }
 
     final currentTask = tasks[index];
-    final transitionedContract = _processingEngine.transition(currentTask, newState);
+    final transitionedContract = _processingEngine.transition(
+      currentTask,
+      newState,
+    );
 
     final updatedTask = currentTask.copyWith(
       status: transitionedContract.currentState,

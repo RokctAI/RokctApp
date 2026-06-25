@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -130,7 +128,9 @@ class ProfileNotifier extends Notifier<ProfileState> {
         if (refreshController == null) {
           state = state.copyWith(isLoading: true);
         }
-        final response = await ref.read(userRepositoryProvider).getProfileDetails();
+        final response = await ref
+            .read(userRepositoryProvider)
+            .getProfileDetails();
         response.when(
           success: (data) async {
             await ref.read(setWalletDataProvider).call(data.data?.wallet);
@@ -138,13 +138,18 @@ class ProfileNotifier extends Notifier<ProfileState> {
             if ((data.data?.addresses?.isNotEmpty ?? false) &&
                 (data.data?.addresses?.first.location?.length == 2)) {
               final activeModel = (data.data!.addresses!
-                  .map((e) => e is AddressNewModel ? e : AddressNewModel.fromJson(e))
+                  .map(
+                    (e) =>
+                        e is AddressNewModel ? e : AddressNewModel.fromJson(e),
+                  )
                   .firstWhere(
                     (element) => element.active ?? false,
                     orElse: () => AddressNewModel(),
                   ));
               if (activeModel.id != null) {
-                await ref.read(setAddressSelectedProvider).call(activeModel.toAddress());
+                await ref
+                    .read(setAddressSelectedProvider)
+                    .call(activeModel.toAddress());
               }
             }
             state = state.copyWith(isLoading: false, userData: data.data);
@@ -180,7 +185,9 @@ class ProfileNotifier extends Notifier<ProfileState> {
         if (refreshController == null) {
           state = state.copyWith(isReferralLoading: true);
         }
-        final response = await ref.read(userRepositoryProvider).getReferralDetails();
+        final response = await ref
+            .read(userRepositoryProvider)
+            .getReferralDetails();
         response.when(
           success: (data) async {
             if (refreshController == null) {
@@ -249,7 +256,9 @@ class ProfileNotifier extends Notifier<ProfileState> {
         if (refreshController == null) {
           state = state.copyWith(isLoadingHistory: true);
         }
-        final response = await ref.read(userRepositoryProvider).getWalletHistories(1);
+        final response = await ref
+            .read(userRepositoryProvider)
+            .getWalletHistories(1);
         response.when(
           success: (data) async {
             if (refreshController == null) {
@@ -284,7 +293,9 @@ class ProfileNotifier extends Notifier<ProfileState> {
     if (ref.read(getTokenProvider).call().isNotEmpty) {
       final connected = await ref.read(connectivityProvider).call();
       if (connected) {
-        final response = await ref.read(userRepositoryProvider).getWalletHistories(++page);
+        final response = await ref
+            .read(userRepositoryProvider)
+            .getWalletHistories(++page);
         response.when(
           success: (data) async {
             List<WalletData> list = List.from(state.walletHistory ?? []);
@@ -336,10 +347,9 @@ class ProfileNotifier extends Notifier<ProfileState> {
       String? logoImage;
       String? backgroundImage;
       List<String>? files;
-      final logoResponse = await ref.read(galleryRepositoryProvider).uploadImage(
-        state.logoImage,
-        UploadType.shopsLogo,
-      );
+      final logoResponse = await ref
+          .read(galleryRepositoryProvider)
+          .uploadImage(state.logoImage, UploadType.shopsLogo);
       logoResponse.when(
         success: (data) {
           logoImage = data.imageData?.title;
@@ -349,10 +359,9 @@ class ProfileNotifier extends Notifier<ProfileState> {
           ref.read(snackBarProvider).call(context, failure);
         },
       );
-      final backgroundResponse = await ref.read(galleryRepositoryProvider).uploadImage(
-        state.bgImage,
-        UploadType.shopsBack,
-      );
+      final backgroundResponse = await ref
+          .read(galleryRepositoryProvider)
+          .uploadImage(state.bgImage, UploadType.shopsBack);
       backgroundResponse.when(
         success: (data) {
           backgroundImage = data.imageData?.title;
@@ -362,10 +371,9 @@ class ProfileNotifier extends Notifier<ProfileState> {
           ref.read(snackBarProvider).call(context, failure);
         },
       );
-      final fileResponse = await ref.read(galleryRepositoryProvider).uploadMultiImage(
-        state.filepath,
-        UploadType.shopsBack,
-      );
+      final fileResponse = await ref
+          .read(galleryRepositoryProvider)
+          .uploadMultiImage(state.filepath, UploadType.shopsBack);
       fileResponse.when(
         success: (data) {
           files = data.data?.title;
@@ -375,22 +383,24 @@ class ProfileNotifier extends Notifier<ProfileState> {
           ref.read(snackBarProvider).call(context, failure);
         },
       );
-      final response = await ref.read(shopsRepositoryProvider).createShop(
-        logoImage: logoImage,
-        documents: files ?? [],
-        backgroundImage: backgroundImage,
-        tax: double.tryParse(tax) ?? 0,
-        deliveryTo: double.tryParse(deliveryTo) ?? 0,
-        deliveryFrom: double.tryParse(deliveryFrom) ?? 0,
-        deliveryType: deliveryType,
-        phone: phone,
-        name: name,
-        description: desc,
-        startPrice: double.tryParse(startPrice) ?? 0,
-        perKm: double.tryParse(perKm) ?? 0,
-        address: address,
-        category: categoryId,
-      );
+      final response = await ref
+          .read(shopsRepositoryProvider)
+          .createShop(
+            logoImage: logoImage,
+            documents: files ?? [],
+            backgroundImage: backgroundImage,
+            tax: double.tryParse(tax) ?? 0,
+            deliveryTo: double.tryParse(deliveryTo) ?? 0,
+            deliveryFrom: double.tryParse(deliveryFrom) ?? 0,
+            deliveryType: deliveryType,
+            phone: phone,
+            name: name,
+            description: desc,
+            startPrice: double.tryParse(startPrice) ?? 0,
+            perKm: double.tryParse(perKm) ?? 0,
+            address: address,
+            category: categoryId,
+          );
       response.when(
         success: (data) {
           state = state.copyWith(isSaveLoading: false);
@@ -407,10 +417,14 @@ class ProfileNotifier extends Notifier<ProfileState> {
       );
     } else {
       if (context.mounted) {
-        ref.read(snackBarProvider).call(
-          context,
-          ref.read(translationProvider).call(TrKeys.checkYourNetworkConnection),
-        );
+        ref
+            .read(snackBarProvider)
+            .call(
+              context,
+              ref
+                  .read(translationProvider)
+                  .call(TrKeys.checkYourNetworkConnection),
+            );
       }
     }
   }
@@ -444,7 +458,9 @@ class ProfileNotifier extends Notifier<ProfileState> {
   void getAbout() async {
     state = state.copyWith(isLoading: true);
 
-    final response = await ref.read(userRepositoryProvider).getAbout(page: ++page);
+    final response = await ref
+        .read(userRepositoryProvider)
+        .getAbout(page: ++page);
     response.when(
       success: (data) {
         state = state.copyWith(isLoading: false, about: data.data);

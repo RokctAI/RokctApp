@@ -102,10 +102,10 @@ class BackgroundSyncService {
 
   Future<SyncResult> _sendRequestWithStatus(SyncQueueEntity request) async {
     try {
-       final client = httpService.client(requireAuth: true);
-       client.options.connectTimeout = const Duration(seconds: 30);
-       client.options.receiveTimeout = const Duration(seconds: 30);
-       final data = jsonDecode(request.payload);
+      final client = httpService.client(requireAuth: true);
+      client.options.connectTimeout = const Duration(seconds: 30);
+      client.options.receiveTimeout = const Duration(seconds: 30);
+      final data = jsonDecode(request.payload);
 
       final options = Options(
         method: request.method,

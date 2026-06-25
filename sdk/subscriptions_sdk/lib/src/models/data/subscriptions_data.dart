@@ -67,31 +67,40 @@ class SubscriptionData {
     subscriptionId: subscriptionId ?? this.subscriptionId,
   );
 
-  factory SubscriptionData.fromJson(Map<String, dynamic> json) => SubscriptionData(
-    id: json["id"],
-    type: json["type"],
-    price: json["price"],
-    month: json["month"],
-    active: json["active"] == 1 || json["active"] == true || json["active"] == "1" || json["active"]?.toString().toLowerCase() == "true",
-    title: json["title"],
-    productLimit: json["product_limit"],
-    orderLimit: json["order_limit"],
-    createdAt: json["created_at"] == null
-        ? null
-        : DateTime.tryParse(json["created_at"])?.toLocal(),
-    updatedAt: json["updated_at"] == null
-        ? null
-        : DateTime.tryParse(json["updated_at"])?.toLocal(),
-    expiredAt: json["expired_at"] == null
-        ? null
-        : DateTime.tryParse(json["expired_at"]),
-    withReport: json["with_report"] == 1 || json["with_report"] == true || json["with_report"] == "1" || json["with_report"]?.toString().toLowerCase() == "true",
-    shopId: json["shop_id"],
-    subscription: json["subscription"] == null
-        ? null
-        : SubscriptionData.fromJson(json["subscription"]),
-    subscriptionId: json["subscription_id"],
-  );
+  factory SubscriptionData.fromJson(Map<String, dynamic> json) =>
+      SubscriptionData(
+        id: json["id"],
+        type: json["type"],
+        price: json["price"],
+        month: json["month"],
+        active:
+            json["active"] == 1 ||
+            json["active"] == true ||
+            json["active"] == "1" ||
+            json["active"]?.toString().toLowerCase() == "true",
+        title: json["title"],
+        productLimit: json["product_limit"],
+        orderLimit: json["order_limit"],
+        createdAt: json["created_at"] == null
+            ? null
+            : DateTime.tryParse(json["created_at"])?.toLocal(),
+        updatedAt: json["updated_at"] == null
+            ? null
+            : DateTime.tryParse(json["updated_at"])?.toLocal(),
+        expiredAt: json["expired_at"] == null
+            ? null
+            : DateTime.tryParse(json["expired_at"]),
+        withReport:
+            json["with_report"] == 1 ||
+            json["with_report"] == true ||
+            json["with_report"] == "1" ||
+            json["with_report"]?.toString().toLowerCase() == "true",
+        shopId: json["shop_id"],
+        subscription: json["subscription"] == null
+            ? null
+            : SubscriptionData.fromJson(json["subscription"]),
+        subscriptionId: json["subscription_id"],
+      );
 
   Map<String, dynamic> toJson() => {
     "id": id,

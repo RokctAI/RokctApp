@@ -12,8 +12,6 @@ import '../../models/response/blog_response.dart';
 import '../../models/response/career_response.dart';
 import '../../models/data/blog_data.dart';
 
-
-
 part 'profile_state.freezed.dart';
 
 @freezed

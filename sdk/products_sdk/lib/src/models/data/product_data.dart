@@ -413,7 +413,12 @@ class Brand {
 }
 
 class Category {
-  Category({String? id, String? uuid, String? parentId, Translation? translation}) {
+  Category({
+    String? id,
+    String? uuid,
+    String? parentId,
+    Translation? translation,
+  }) {
     _id = id;
     _uuid = uuid;
     _parentId = parentId;
@@ -988,4 +993,3 @@ class Properties {
 }
 
 typedef Dyn = dynamic;
-

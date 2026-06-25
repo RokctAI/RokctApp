@@ -77,7 +77,6 @@ class MerchantData implements MerchantEntity {
   List<ShopClosedDate>? shopClosedDate;
   List<ShopPayment?>? shopPayments;
 
-  
   @override
   String? get title => translation?.title;
 
@@ -127,8 +126,8 @@ class MerchantData implements MerchantEntity {
       open: openValue,
       verify:
           (json["verify"].runtimeType == int
-               ? (json["verify"] == 1)
-               : json["verify"]) ??
+              ? (json["verify"] == 1)
+              : json["verify"]) ??
           false,
       openTime: json["open_time"] ?? "00:00",
       closeTime: json["close_time"] ?? "00:00",
@@ -499,4 +498,3 @@ class TagsModel {
 }
 
 typedef Dyn = dynamic;
-

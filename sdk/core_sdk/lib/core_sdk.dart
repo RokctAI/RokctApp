@@ -16,7 +16,6 @@ export 'src/validators.dart';
 export 'src/language_data.dart' hide Dyn;
 export 'src/enums.dart';
 
-
 export 'src/infrastructure/utils/app_database.dart' hide Dyn;
 export 'src/infrastructure/utils/drift_tables.dart';
 export 'src/infrastructure/utils/background_sync_service.dart' hide Dyn;

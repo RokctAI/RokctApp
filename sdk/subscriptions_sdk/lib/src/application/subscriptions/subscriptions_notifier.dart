@@ -12,7 +12,8 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
   final SubscriptionsFacade _subscriptionRepository;
   final PaymentsFacade _paymentsRepo;
   final num Function()? _getWalletPrice;
-  final Future<void> Function(BuildContext context, String url)? _onNavigateToWebView;
+  final Future<void> Function(BuildContext context, String url)?
+  _onNavigateToWebView;
   final void Function(BuildContext context, String message)? _onError;
   final String Function(String key)? _getTranslation;
 
@@ -22,14 +23,15 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
     this._subscriptionRepository,
     this._paymentsRepo, {
     num Function()? getWalletPrice,
-    Future<void> Function(BuildContext context, String url)? onNavigateToWebView,
+    Future<void> Function(BuildContext context, String url)?
+    onNavigateToWebView,
     void Function(BuildContext context, String message)? onError,
     String Function(String key)? getTranslation,
-  })  : _getWalletPrice = getWalletPrice,
-        _onNavigateToWebView = onNavigateToWebView,
-        _onError = onError,
-        _getTranslation = getTranslation,
-        super(const SubscriptionState());
+  }) : _getWalletPrice = getWalletPrice,
+       _onNavigateToWebView = onNavigateToWebView,
+       _onError = onError,
+       _getTranslation = getTranslation,
+       super(const SubscriptionState());
 
   Future<void> fetchSubscriptions({
     BuildContext? context,

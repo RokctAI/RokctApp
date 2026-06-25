@@ -88,18 +88,22 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
           await updateProfileImage(context, state.imagePath);
         }
       }
-      final response = await ref.read(userRepositoryProvider).editProfile(
-        user: EditProfile(
-          firstname: state.firstName.isEmpty ? user.firstname : state.firstName,
-          lastname: state.lastName.isEmpty ? user.lastname : state.lastName,
-          birthday: state.birth.isEmpty ? user.birthday : state.birth,
-          phone: user.phone ?? state.phone,
-          email: state.email.isEmpty ? user.email : state.email,
-          secondPhone: state.secondPhone,
-          images: state.url.isEmpty ? user.img ?? "" : state.url,
-          gender: state.gender.isEmpty ? user.gender : state.gender,
-        ),
-      );
+      final response = await ref
+          .read(userRepositoryProvider)
+          .editProfile(
+            user: EditProfile(
+              firstname: state.firstName.isEmpty
+                  ? user.firstname
+                  : state.firstName,
+              lastname: state.lastName.isEmpty ? user.lastname : state.lastName,
+              birthday: state.birth.isEmpty ? user.birthday : state.birth,
+              phone: user.phone ?? state.phone,
+              email: state.email.isEmpty ? user.email : state.email,
+              secondPhone: state.secondPhone,
+              images: state.url.isEmpty ? user.img ?? "" : state.url,
+              gender: state.gender.isEmpty ? user.gender : state.gender,
+            ),
+          );
       response.when(
         success: (data) async {
           await ref.read(setUserProvider).call(data.data);
@@ -114,18 +118,24 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
         },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
-          ref.read(snackBarProvider).call(
-            context,
-            ref.read(translationProvider).call(status.toString()),
-          );
+          ref
+              .read(snackBarProvider)
+              .call(
+                context,
+                ref.read(translationProvider).call(status.toString()),
+              );
         },
       );
     } else {
       if (context.mounted) {
-        ref.read(snackBarProvider).call(
-          context,
-          ref.read(translationProvider).call(TrKeys.checkYourNetworkConnection),
-        );
+        ref
+            .read(snackBarProvider)
+            .call(
+              context,
+              ref
+                  .read(translationProvider)
+                  .call(TrKeys.checkYourNetworkConnection),
+            );
       }
     }
   }
@@ -134,10 +144,9 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
     final connected = await ref.read(connectivityProvider).call();
     if (connected) {
       String? url;
-      final imageResponse = await ref.read(galleryRepositoryProvider).uploadImage(
-        path,
-        UploadType.users,
-      );
+      final imageResponse = await ref
+          .read(galleryRepositoryProvider)
+          .uploadImage(path, UploadType.users);
       imageResponse.when(
         success: (data) {
           url = data.imageData?.title;
@@ -146,19 +155,25 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           debugPrint('==> upload profile image failure: $failure');
-          ref.read(snackBarProvider).call(
-            context,
-            ref.read(translationProvider).call(status.toString()),
-          );
+          ref
+              .read(snackBarProvider)
+              .call(
+                context,
+                ref.read(translationProvider).call(status.toString()),
+              );
         },
       );
     } else {
       if (context.mounted) {
         state = state.copyWith(isLoading: false);
-        ref.read(snackBarProvider).call(
-          context,
-          ref.read(translationProvider).call(TrKeys.checkYourNetworkConnection),
-        );
+        ref
+            .read(snackBarProvider)
+            .call(
+              context,
+              ref
+                  .read(translationProvider)
+                  .call(TrKeys.checkYourNetworkConnection),
+            );
       }
     }
   }

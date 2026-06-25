@@ -41,24 +41,25 @@ class AddressNewModel {
     active: active ?? this.active,
   );
 
-  factory AddressNewModel.fromJson(Map<String, dynamic> json) => AddressNewModel(
-    id: json["id"],
-    title: json["title"],
-    userId: json["user_id"],
-    active: json["active"] is int ? json["active"] == 1 : json["active"],
-    address: json["address"] == null && json["address"].runtimeType == List
-        ? null
-        : AddressInformation.fromJson(json["address"]),
-    location: json["location"] == null
-        ? []
-        : List.from(json["location"]!.map((x) => x)),
-    createdAt: json["created_at"] == null
-        ? null
-        : DateTime.parse(json["created_at"]),
-    updatedAt: json["updated_at"] == null
-        ? null
-        : DateTime.parse(json["updated_at"]),
-  );
+  factory AddressNewModel.fromJson(Map<String, dynamic> json) =>
+      AddressNewModel(
+        id: json["id"],
+        title: json["title"],
+        userId: json["user_id"],
+        active: json["active"] is int ? json["active"] == 1 : json["active"],
+        address: json["address"] == null && json["address"].runtimeType == List
+            ? null
+            : AddressInformation.fromJson(json["address"]),
+        location: json["location"] == null
+            ? []
+            : List.from(json["location"]!.map((x) => x)),
+        createdAt: json["created_at"] == null
+            ? null
+            : DateTime.parse(json["created_at"]),
+        updatedAt: json["updated_at"] == null
+            ? null
+            : DateTime.parse(json["updated_at"]),
+      );
 
   Map<String, dynamic> toJson() => {
     "id": id,
@@ -66,7 +67,9 @@ class AddressNewModel {
     "active": 1,
     "user_id": userId,
     "address": address?.toJson(),
-    "location": location == null ? [] : List<dynamic>.from(location!.map((x) => x)),
+    "location": location == null
+        ? []
+        : List<dynamic>.from(location!.map((x) => x)),
     "created_at": createdAt?.toIso8601String(),
     "updated_at": updatedAt?.toIso8601String(),
   };

@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 import 'package:core_sdk/core_sdk.dart';
 import '../../models/data/links.dart';
 import '../../models/data/career_data.dart';

@@ -4,10 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_details_state.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
-class ManagerOrderDetailsNotifier extends StateNotifier<ManagerOrderDetailsState> {
+class ManagerOrderDetailsNotifier
+    extends StateNotifier<ManagerOrderDetailsState> {
   final dynamic _ordersRepository;
 
-  ManagerOrderDetailsNotifier(this._ordersRepository) : super(const ManagerOrderDetailsState());
+  ManagerOrderDetailsNotifier(this._ordersRepository)
+    : super(const ManagerOrderDetailsState());
 
   Future<void> updateOrderStatus(
     BuildContext context, {
@@ -40,7 +42,9 @@ class ManagerOrderDetailsNotifier extends StateNotifier<ManagerOrderDetailsState
     final bool isChecked = detail.isChecked ?? false;
     final updatedDetail = detail.copyWith(isChecked: !isChecked);
     orderDetails[index] = updatedDetail;
-    final order = state.order?.copyWith(details: orderDetails?.cast<OrderDetail>());
+    final order = state.order?.copyWith(
+      details: orderDetails?.cast<OrderDetail>(),
+    );
     state = state.copyWith(order: order);
   }
 

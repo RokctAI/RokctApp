@@ -1,4 +1,3 @@
-
 import 'package:dartz/dartz.dart';
 
 import 'package:flutter/material.dart';
@@ -14,7 +13,6 @@ import 'package:core_sdk/core_sdk.dart';
 
 import 'login_state.dart';
 import '../../auth_providers.dart';
-
 
 class LoginNotifier extends Notifier<LoginState> {
   @override
@@ -72,7 +70,9 @@ class LoginNotifier extends Notifier<LoginState> {
     } else {
       final connect = await ref.read(connectivityProvider).call();
       if (connect) {
-        final response = await ref.read(settingsRepositoryProvider).getLanguages();
+        final response = await ref
+            .read(settingsRepositoryProvider)
+            .getLanguages();
         response.when(
           success: (data) {
             state = state.copyWith(list: data.data ?? []);
@@ -132,19 +132,20 @@ class LoginNotifier extends Notifier<LoginState> {
         return;
       }
       state = state.copyWith(isLoading: true);
-      final response = await ref.read(authRepositoryProvider).login(
-        email: state.email,
-        phone: state.phone,
-        password: state.password,
-      );
+      final response = await ref
+          .read(authRepositoryProvider)
+          .login(
+            email: state.email,
+            phone: state.phone,
+            password: state.password,
+          );
       response.when(
         success: (data) async {
           final user = data.data?.user;
           final currentFlavor = ref.read(getFlavorProvider).call();
 
           // Role-based validation
-          if (currentFlavor == 'driver' &&
-              user?.role != 'deliveryman') {
+          if (currentFlavor == 'driver' && user?.role != 'deliveryman') {
             state = state.copyWith(isLoading: false);
             youAreNotDeliveryman?.call();
             return;
@@ -158,17 +159,19 @@ class LoginNotifier extends Notifier<LoginState> {
             return;
           }
 
-           await ref.read(setTokenProvider).call(data.data?.accessToken ?? '');
-           if (ref.read(isTokenExpiredProvider).call()) {
-             debugPrint('Token is expired');
-           }
-           await getProfileDetails(context);
+          await ref.read(setTokenProvider).call(data.data?.accessToken ?? '');
+          if (ref.read(isTokenExpiredProvider).call()) {
+            debugPrint('Token is expired');
+          }
+          await getProfileDetails(context);
 
           if (currentFlavor == 'manager') {
             if (user?.role == 'seller') seller?.call();
             if (user?.role == 'admin') admin?.call();
 
-            ref.read(fetchMyShopProvider).call(
+            ref
+                .read(fetchMyShopProvider)
+                .call(
                   afterFetched: () {
                     state = state.copyWith(isLoading: false);
                     loginSuccess?.call();
@@ -200,7 +203,6 @@ class LoginNotifier extends Notifier<LoginState> {
     await ref.read(firebaseSocialLoginProvider).call(context, type);
     state = state.copyWith(isLoading: false);
   }
-
 }
 
 typedef Dyn = dynamic;

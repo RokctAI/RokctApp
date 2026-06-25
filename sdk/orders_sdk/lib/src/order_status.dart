@@ -34,7 +34,10 @@ extension OrderStatusProcessingMapping on OrderStatus {
     }
   }
 
-  static OrderStatus fromProcessingState(ProcessingState state, {bool useManagerFormat = false}) {
+  static OrderStatus fromProcessingState(
+    ProcessingState state, {
+    bool useManagerFormat = false,
+  }) {
     switch (state) {
       case ProcessingState.draft:
       case ProcessingState.submitted:

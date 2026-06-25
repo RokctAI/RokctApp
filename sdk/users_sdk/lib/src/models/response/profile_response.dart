@@ -1,4 +1,3 @@
-
 import 'package:profile_sdk/profile_sdk.dart';
 
 class ProfileResponse {

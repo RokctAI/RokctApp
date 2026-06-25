@@ -1,6 +1,5 @@
 import 'dart:async';
 
-
 import 'package:orders_sdk/orders_sdk.dart';
 
 import 'package:kitchen_sdk/src/domain/kitchen_repository.dart';
@@ -9,7 +8,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'kitchen_state.dart';
 import 'package:orders_sdk/orders_sdk.dart';
-
 
 class KitchenNotifier<T> extends StateNotifier<KitchenState<T>> {
   final KitchenRepository<dynamic, dynamic, OrderStatus> _ordersRepository;
@@ -127,12 +125,13 @@ class KitchenNotifier<T> extends StateNotifier<KitchenState<T>> {
     );
     response.when(
       success: (data) {
-        List<T> orders = isRefresh || state.query.isNotEmpty
-            ? []
-            : List.from(state.orders);
+        List<T> orders =
+            isRefresh || state.query.isNotEmpty ? [] : List.from(state.orders);
         final List<T> newOrders = data.orders ?? [];
         for (T element in data.orders ?? []) {
-          if (!orders.map((item) => ((item as dynamic).id)).contains(((element as dynamic).id))) {
+          if (!orders
+              .map((item) => ((item as dynamic).id))
+              .contains(((element as dynamic).id))) {
             orders.add(element);
           }
         }
@@ -183,16 +182,17 @@ class KitchenNotifier<T> extends StateNotifier<KitchenState<T>> {
 
   Future<void> changeStatus({String? status}) async {
     T? newOrder = (state.selectOrder as dynamic)?.copyWith(
-      status:
+      status: status ??
           status ??
-          status ?? ((state.selectOrder as dynamic)?.status as String),
+          ((state.selectOrder as dynamic)?.status as String),
     );
     state = state.copyWith(selectOrder: newOrder);
 
     List<T> orders = List.from(state.orders);
 
     for (int i = 0; i < orders.length; i++) {
-      if (((orders[i] as dynamic).id) == ((state.selectOrder as dynamic)?.id as int?)) {
+      if (((orders[i] as dynamic).id) ==
+          ((state.selectOrder as dynamic)?.id as int?)) {
         orders.removeAt(i);
         orders.insert(i, newOrder as T);
       }
@@ -201,9 +201,12 @@ class KitchenNotifier<T> extends StateNotifier<KitchenState<T>> {
     state = state.copyWith(orders: orders);
 
     await _ordersRepository.updateOrderStatusKitchen(
-      status: OrderStatusProcessingMapping.fromProcessingState(
-        OrderStatus.values.firstWhere((e) => e.toString().split('.').last == ((state.selectOrder as dynamic)?.status as String)).toProcessingState()
-      ),
+      status: OrderStatusProcessingMapping.fromProcessingState(OrderStatus
+          .values
+          .firstWhere((e) =>
+              e.toString().split('.').last ==
+              ((state.selectOrder as dynamic)?.status as String))
+          .toProcessingState()),
       orderId: ((state.selectOrder as dynamic)?.id as int?),
     );
     _page = 0;

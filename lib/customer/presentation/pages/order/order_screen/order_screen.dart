@@ -22,7 +22,7 @@ import 'package:rokctapp/core/infrastructure/constants/constants.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:payments_sdk/src/application/core/payment_methods/payment_provider.dart';
+import 'package:rokctapp/core/application/payment_methods/payment_provider.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_check/order_check.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_map.dart';

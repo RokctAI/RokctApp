@@ -27,7 +27,9 @@ class AuthRepository implements AuthRepositoryFacade {
     } catch (e) {
       debugPrint('==> login failure: $e');
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -57,7 +59,9 @@ class AuthRepository implements AuthRepositoryFacade {
     } catch (e) {
       debugPrint('==> login with social failure: $e');
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -87,7 +91,9 @@ class AuthRepository implements AuthRepositoryFacade {
     } catch (e) {
       debugPrint('==> login with google failure: $e');
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -103,7 +109,9 @@ class AuthRepository implements AuthRepositoryFacade {
     } catch (e) {
       debugPrint('==> send otp failure: $e');
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -122,7 +130,9 @@ class AuthRepository implements AuthRepositoryFacade {
     } catch (e) {
       debugPrint('==> verify email failure: $e');
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -145,7 +155,9 @@ class AuthRepository implements AuthRepositoryFacade {
     } catch (e) {
       debugPrint('==> verify email failure: $e');
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -172,7 +184,9 @@ class AuthRepository implements AuthRepositoryFacade {
     } catch (e) {
       debugPrint('==> forgot password failure: $e'); // environment
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -195,7 +209,9 @@ class AuthRepository implements AuthRepositoryFacade {
     } catch (e) {
       debugPrint('==> forgot password confirm failure: $e'); // environment
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -218,7 +234,9 @@ class AuthRepository implements AuthRepositoryFacade {
     } catch (e) {
       debugPrint('==> forgot password confirm failure: $e'); // environment
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -236,7 +254,9 @@ class AuthRepository implements AuthRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -253,7 +273,9 @@ class AuthRepository implements AuthRepositoryFacade {
       return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
     } catch (e) {
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
@@ -272,7 +294,9 @@ class AuthRepository implements AuthRepositoryFacade {
       return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
     } catch (e) {
       return ApiResult.failure(
-        error: NetworkExceptions.getErrorMessage(NetworkExceptions.getDioException(e)),
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }

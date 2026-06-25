@@ -191,7 +191,6 @@ sealed class NetworkExceptions {
   }
 }
 
-
 class RequestCancelled extends NetworkExceptions {
   const RequestCancelled();
 }

@@ -2,7 +2,8 @@ sealed class ApiResult<T> {
   const ApiResult();
 
   const factory ApiResult.success({required T data}) = Success<T>;
-  const factory ApiResult.failure({required String error, int? statusCode}) = Failure<T>;
+  const factory ApiResult.failure({required String error, int? statusCode}) =
+      Failure<T>;
 
   R when<R>({
     required R Function(T data) success,

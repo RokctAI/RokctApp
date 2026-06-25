@@ -12,7 +12,6 @@ import '../../models/request/edit_profile.dart';
 import '../../models/data/blog_data.dart';
 import '../../models/response/profile_response.dart';
 
-
 abstract class UserRepositoryFacade {
   Future<ApiResult<ProfileResponse>> getProfileDetails();
 

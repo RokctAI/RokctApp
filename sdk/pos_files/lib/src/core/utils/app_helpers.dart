@@ -15,7 +15,6 @@ import '../constants/constants.dart';
 import 'local_storage.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
-
 class AppHelpers {
   AppHelpers._();
 

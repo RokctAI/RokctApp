@@ -26,7 +26,7 @@ class _DesktopScannerListenerState extends State<DesktopScannerListener> {
   void _handleKeyEvent(KeyEvent event) {
     if (event is KeyDownEvent) {
       final String? character = event.character;
-      
+
       _timer?.cancel();
 
       if (event.logicalKey == LogicalKeyboardKey.enter) {

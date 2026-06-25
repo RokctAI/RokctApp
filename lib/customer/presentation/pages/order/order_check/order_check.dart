@@ -10,7 +10,7 @@ import 'package:orders_sdk/orders_sdk.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 import 'package:orders_sdk/src/application/customer/orders_list/orders_list_notifier.dart';
-import 'package:payments_sdk/src/application/core/payment_methods/payment_provider.dart';
+import 'package:rokctapp/core/application/payment_methods/payment_provider.dart';
 import 'package:payments_sdk/payments_sdk.dart';
 import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
 import 'package:users_sdk/src/application/customer/customer_profile/profile_state.dart';
