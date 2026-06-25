@@ -1,6 +1,7 @@
 // Trace ID propagation context
 export 'package:rokctapp/manager/infrastructure/services/enums.dart';
-export 'package:rokctapp/manager/infrastructure/services/tr_keys.dart' hide TrKeys;
+export 'package:rokctapp/manager/infrastructure/services/tr_keys.dart'
+    hide TrKeys;
 export 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
 export 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
 export 'package:rokctapp/manager/infrastructure/services/app_validators.dart';

@@ -18,14 +18,7 @@ import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/driver/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-        OrderStatus;
+    hide AppConstants, UploadType, OrderStatus;
 
 class ParcelOrderPage extends StatelessWidget {
   final ParcelOrder? parcel;

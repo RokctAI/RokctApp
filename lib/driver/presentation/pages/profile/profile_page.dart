@@ -18,14 +18,7 @@ import 'package:rokctapp/core/infrastructure/models/data/language.dart'
 import 'package:rokctapp/driver/presentation/pages/profile/widgets/logout_modal.dart';
 import 'package:rokctapp/driver/presentation/pages/profile/widgets/sections_item.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-        OrderStatus;
+    hide AppConstants, UploadType, OrderStatus;
 
 @RoutePage(name: 'DriverProfileRoute')
 class DriverProfilePage extends ConsumerStatefulWidget {

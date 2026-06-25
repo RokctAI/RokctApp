@@ -95,4 +95,3 @@ export 'package:rokctapp/manager/infrastructure/models/response/wallet_histories
 export 'package:rokctapp/manager/infrastructure/models/response/ai_translation_response.dart';
 export 'package:rokctapp/manager/infrastructure/models/response/maksekeskus_response.dart';
 export 'package:rokctapp/manager/infrastructure/models/response/non_exist_payment_response.dart';
-
