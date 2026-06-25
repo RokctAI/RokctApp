@@ -4,10 +4,9 @@ import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 import 'package:comms_sdk/comms_sdk.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:productivity_sdk/productivity_sdk.dart';
 import 'dart:math';
-
-import '../../../../lib/src/domain/interface/todo_repository_facade.dart';
-import '../../../../lib/src/infrastructure/repositories/todo_repository_impl.dart';
 
 class TodoPage extends StatefulWidget {
   const TodoPage({super.key});
@@ -17,7 +16,7 @@ class TodoPage extends StatefulWidget {
 }
 
 class _TodoPageState extends State<TodoPage> {
-  final TodoRepositoryFacade _repository = TodoRepositoryImpl();
+  late final TodoRepositoryFacade _repository;
 
   List<Map<String, dynamic>> _todos = [];
   final TextEditingController _controller = TextEditingController();
@@ -48,6 +47,7 @@ class _TodoPageState extends State<TodoPage> {
   @override
   void initState() {
     super.initState();
+    _repository = TodoRepositoryImpl(AppDatabase());
     _selectedDay = _focusedDay;
     _initNotifications();
     _loadTodos();
