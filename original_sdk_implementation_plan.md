@@ -33,7 +33,7 @@ To achieve clean separation of concerns and enable multi-platform deployment (e.
 | SDK Name | Responsibility | Key Components | Status |
 | :--- | :--- | :--- | :--- |
 | **`core_sdk`** | Common utilities, storage, and networking foundation. | `HttpService`, `CoreLocalStorage`, standard API error envelopes. | **Done (Migrated)** |
-| **`auth_sdk`** | Authentication, token lifecycle, and role-based permissions. | Login, registration, OTP, `UserRole`, session validity, OAuth. | **Initialized (Providers Pending)** |
+| **`auth_sdk`** | Authentication, token lifecycle, and role-based permissions. | Login, registration, OTP, `UserRole`, session validity, OAuth. | **Initialized (Providers Pending) - [!] Empty auth.dart found, needs investigation** |
 | **`users_sdk`** | Active user profile management, address books, client directories, and guest registrations. | `UsersRepository`, user search mechanisms, profile update payloads, address models. | **Initialized (Providers Pending)** |
 | **`profile_sdk`** | Shared raw user profile data models and state schemas. | `ProfileData` model and core response schema mappings. | **Done (Migrated)** |
 | **`payments_sdk`** | Payment gateway wrappers, card registration, transaction status polling, and checkout flows. | PayFast, Stripe, transaction polling mechanisms. | **Done (Migrated)** |
