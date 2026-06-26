@@ -1,0 +1,42 @@
+{
+  "name": "order_sdk",
+  "version": "1.0.0",
+  "installs": [
+    {
+      "from": "templates/pages/customer/order",
+      "to": "lib/customer/presentation/pages/order"
+    },
+    {
+      "from": "templates/pages/customer/product",
+      "to": "lib/customer/presentation/pages/product"
+    },
+    {
+      "from": "templates/pages/customer/shop",
+      "to": "lib/customer/presentation/pages/shop"
+    },
+    {
+      "from": "templates/pages/driver/orders",
+      "to": "lib/driver/presentation/pages/orders"
+    },
+    {
+      "from": "templates/pages/manager/order_history",
+      "to": "lib/manager/presentation/pages/order_history"
+    },
+    {
+      "from": "templates/pages/manager/food",
+      "to": "lib/manager/presentation/pages/food"
+    },
+    {
+      "from": "templates/pages/manager/billing",
+      "to": "lib/manager/presentation/pages/main/billing"
+    },
+    {
+      "from": "templates/pages/manager/main",
+      "to": "lib/manager/presentation/pages/main"
+    }
+  ]
+}
+  ]
+
+
+}

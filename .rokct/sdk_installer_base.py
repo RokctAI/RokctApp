@@ -8,6 +8,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATE_FILE = os.path.join(PROJECT_ROOT, ".rokct", "install_state.json")
 ROUTER_FILE = os.path.join(PROJECT_ROOT, "lib", "core", "presentation", "routes", "app_router.dart")
 MAIN_FILE = os.path.join(PROJECT_ROOT, "lib", "main.dart")
+DB_FILE = os.path.join(PROJECT_ROOT, "sdk", "core_sdk", "lib", "src", "infrastructure", "utils", "app_database.dart")
 
 def file_hash(path):
     if not os.path.exists(path):
@@ -32,8 +33,38 @@ def save_state(state):
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(state, f, indent=2)
 
+def resolve_sdk_path(sdk_name):
+    # 1. Try resolving via .dart_tool/package_config.json (for pub-fetched SDKs)
+    package_config_path = os.path.join(PROJECT_ROOT, ".dart_tool", "package_config.json")
+    if os.path.exists(package_config_path):
+        try:
+            with open(package_config_path, "r", encoding="utf-8") as f:
+                config = json.load(f)
+                # In package_config.json v2, "packages" is a list of packages
+                packages = config.get("packages", [])
+                for pkg in packages:
+                    if pkg.get("name") == sdk_name:
+                        root_uri = pkg.get("rootUri")
+                        if root_uri:
+                            if root_uri.startswith("file:///"):
+                                return root_uri.replace("file:///", "").replace("/", os.sep)
+                            return root_uri
+        except Exception as e:
+            print(f"  [!] Error reading package_config.json: {e}")
+
+    # 2. Fallback to local sdk/ directory (for monorepo development)
+    local_path = os.path.join(PROJECT_ROOT, "sdk", sdk_name)
+    if os.path.exists(local_path):
+        return local_path
+
+    return None
+
 def install_sdk_files_and_routes(sdk_name):
-    sdk_path = os.path.join(PROJECT_ROOT, "sdk", sdk_name)
+    sdk_path = resolve_sdk_path(sdk_name)
+    if not sdk_path:
+        print(f"[-] Could not resolve path for SDK: {sdk_name}")
+        return False
+
     manifest_path = os.path.join(sdk_path, "manifest.json")
     
     if not os.path.exists(manifest_path):
@@ -88,12 +119,18 @@ def install_sdk_files_and_routes(sdk_name):
             package_state["files"][rel_dest] = upstream_hash
             print(f"  [+] COPY: {rel_dest}")
             
+    # Extract and store database definitions if present
+    db_config = manifest.get("database")
+    if db_config:
+        package_state["database"] = db_config
+
     state["packages"][sdk_name] = package_state
     save_state(state)
     
-    # 2. Update Routing & Main DI Registrations
+    # 2. Update Routing, Main DI & Database Registrations
     update_router_table()
     update_main_dependencies()
+    update_database_registration()
     return True
 
 def update_router_table():
@@ -191,6 +228,89 @@ def update_main_dependencies():
         f.write(content)
     print("[*] Successfully updated main.dart with generated SDK imports and DI registrations.")
 
+def update_database_registration():
+    if not os.path.exists(DB_FILE):
+        print(f"[-] app_database.dart file not found: {DB_FILE}")
+        return
+
+    state = load_state()
+    all_imports = set()
+    all_tables = []
+    migration_steps = []
+    max_version = 12
+
+    # Loop through packages and aggregate definitions to avoid overriding
+    for pkg_name, pkg_data in state.get("packages", {}).items():
+        db_config = pkg_data.get("database")
+        if not db_config:
+            continue
+
+        tables = db_config.get("tables", [])
+        for tbl in tables:
+            t_class = tbl.get("class")
+            t_imp = tbl.get("import")
+            if t_class:
+                all_tables.append(f"    {t_class},")
+            if t_imp:
+                all_imports.add(f"import '{t_imp}';")
+
+        migration = db_config.get("migration", {})
+        version = migration.get("version")
+        step = migration.get("step")
+        if version and step:
+            try:
+                ver_int = int(version)
+                if ver_int > max_version:
+                    max_version = ver_int
+                migration_steps.append(f"        {step}")
+            except Exception:
+                pass
+
+    with open(DB_FILE, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # 1. Inject imports
+    imports_block = "\n".join(sorted(list(all_imports)))
+    imports_replacement = f"// @generated-database-imports-start\n{imports_block}\n// @generated-database-imports-end"
+    content = re.sub(
+        r"// @generated-database-imports-start.*?// @generated-database-imports-end",
+        imports_replacement,
+        content,
+        flags=re.DOTALL
+    )
+
+    # 2. Inject tables
+    tables_block = "\n".join(all_tables)
+    tables_replacement = f"    // @generated-database-tables-start\n{tables_block}\n    // @generated-database-tables-end"
+    content = re.sub(
+        r"    // @generated-database-tables-start.*?    // @generated-database-tables-end",
+        tables_replacement,
+        content,
+        flags=re.DOTALL
+    )
+
+    # 3. Inject schemaVersion dynamically
+    content = re.sub(
+        r"int get schemaVersion => \d+;",
+        f"int get schemaVersion => {max_version};",
+        content
+    )
+
+    # 4. Inject migrations
+    migrations_block = "\n".join(migration_steps)
+    migrations_replacement = f"        // @generated-database-migrations-start\n{migrations_block}\n        // @generated-database-migrations-end"
+    content = re.sub(
+        r"        // @generated-database-migrations-start.*?        // @generated-database-migrations-end",
+        migrations_replacement,
+        content,
+        flags=re.DOTALL
+    )
+
+    with open(DB_FILE, "w", encoding="utf-8") as f:
+        f.write(content)
+    print(f"[*] Successfully updated app_database.dart. Set schemaVersion to {max_version}.")
+
 if __name__ == "__main__":
     update_router_table()
     update_main_dependencies()
+    update_database_registration()

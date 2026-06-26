@@ -30,13 +30,14 @@ part 'app_database.g.dart';
     UserTable,
     BannersTable,
     NotificationsTable,
+    PolarisDraftTable,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 12;
+  int get schemaVersion => 13;
 
   @override
   MigrationStrategy get migration {
@@ -118,14 +119,13 @@ class AppDatabase extends _$AppDatabase {
           await m.createTable(tasksTable);
         }
         if (from < 12) {
-          // Migration for audit fields in TasksTable
-          // Drift handles column additions but for a new table migration might be tricky 
-          // since we just created it in v11. However, for existing users of v11:
           await m.addColumn(tasksTable, tasksTable.updatedAt);
           await m.addColumn(tasksTable, tasksTable.createdBy);
-          // Note: createdAt was changed from Text to DateTime, which usually requires a table recreation
-          // But since we are in early SDK migration, we'll assume we can evolve it.
         }
+        if (from < 13) {
+          await m.createTable(polarisDraftTable);
+        }
+      },
       },
     );
   }
@@ -550,6 +550,36 @@ class AppDatabase extends _$AppDatabase {
       userTable,
     )..where((t) => t.role.equals('seller') | t.role.equals('manager'))).get();
     return manager.isNotEmpty;
+  }
+
+  // Polaris Draft Storage
+  Future<void> upsertPolarisDraft(String id, String jsonData) async {
+    await into(polarisDraftTable).insertOnConflictUpdate(
+      PolarisDraftTableCompanion.insert(
+        id: id,
+        data: jsonData,
+      ),
+    );
+  }
+
+  Future<String?> getPolarisDraft(String id) async {
+    final query = select(polarisDraftTable)..where((t) => t.id.equals(id));
+    final result = await query.getSingleOrNull();
+    return result?.data;
+  }
+
+  Future<void> clearPolarisDraft(String id) async {
+    await (delete(polarisDraftTable)..where((t) => t.id.equals(id))).go();
+  }
+
+  Future<String?> getPolarisDraft(String id) async {
+    final query = select(polarisDraftTable)..where((t) => t.id.equals(id));
+    final result = await query.getSingleOrNull();
+    return result?.data;
+  }
+
+  Future<void> clearPolarisDraft(String id) async {
+    await (delete(polarisDraftTable)..where((t) => t.id.equals(id))).go();
   }
 }
 

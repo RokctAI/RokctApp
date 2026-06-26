@@ -1,0 +1,18 @@
+{
+  "name": "subscriptions_sdk",
+  "version": "1.0.0",
+  "installs": [
+    {
+      "from": "templates/presentation/pages/subscriptions",
+      "to": "lib/manager/presentation/pages/restaurant/subscriptions"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/manager-subscriptions",
+      "page": "ManagerSubscriptionsRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/manager/presentation/pages/restaurant/subscriptions/subscriptions_page.dart"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "name": "profile_sdk",
+  "version": "1.0.0",
+  "installs": [
+    {
+      "from": "templates/pages",
+      "to": "lib/customer/presentation/pages/profile"
+    },
+    {
+      "from": "templates/pages/add_address",
+      "to": "lib/manager/presentation/pages/add_address.dart"
+    },
+    {
+      "from": "templates/pages/become_seller",
+      "to": "lib/manager/presentation/pages/become_seller"
+    },
+    {
+      "from": "templates/pages/restaurant",
+      "to": "lib/manager/presentation/pages/restaurant"
+    },
+    {
+      "from": "templates/pages/profile",
+      "to": "lib/driver/presentation/pages/profile"
+    },
+    {
+      "from": "templates/pages/setting",
+      "to": "lib/customer/presentation/pages/setting"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/setting",
+      "page": "SettingRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/setting/setting_page.dart"
+    },
+    {
+      "path": "/ProfilePage",
+      "page": "ProfileRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/profile/profile_page.dart"
+    },
+    {
+      "path": "/wallet_history",
+      "page": "WalletHistoryRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/profile/wallet_history.dart"
+    },
+    {
+      "path": "/create_shop",
+      "page": "CreateShopRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/profile/become_seller/create_shop.dart"
+    },
+    {
+      "path": "/share_referral",
+      "page": "ShareReferralRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/profile/share_referral_page.dart"
+    },
+    {
+      "path": "/share_referral_faq",
+      "page": "ShareReferralFaqRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/profile/share_referral_faq.dart"
+    },
+    {
+      "path": "/notification_list_page",
+      "page": "NotificationListRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/profile/notification_page.dart"
+    },
+    {
+      "path": "/address_list_page",
+      "page": "AddressListRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/profile/address_list.dart"
+    },
+    {
+      "path": "/driver/profile",
+      "page": "DriverProfileRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/driver/presentation/pages/profile/profile_page.dart"
+    },
+    {
+      "path": "/driver/list-notification",
+      "page": "DriverNotificationListRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/driver/presentation/pages/profile/notification_list_page.dart"
+    },
+    {
+      "path": "/driver/delivery-zone",
+      "page": "DriverDeliveryZoneRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/driver/presentation/pages/profile/delivery_zone/delivery_zone_page.dart"
+    },
+    {
+      "path": "/manager/delivery-zone",
+      "page": "ManagerDeliveryZoneRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/manager/presentation/pages/restaurant/delivery_zone/delivery_zone_page.dart"
+    },
+    {
+      "path": "/manager/list-notification",
+      "page": "ManagerNotificationListRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/manager/presentation/pages/restaurant/notification_list_page.dart"
+    },
+    {
+      "path": "/manager/become_seller",
+      "page": "ManagerCreateShopRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/manager/presentation/pages/become_seller/become_seller.dart"
+    }
+  ]
+}

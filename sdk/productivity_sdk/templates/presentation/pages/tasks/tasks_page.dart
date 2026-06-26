@@ -6,16 +6,18 @@ import 'package:comms_sdk/comms_sdk.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:productivity_sdk/productivity_sdk.dart';
+import 'package:auto_route/auto_route.dart';
 import 'dart:math';
 
-class TodoPage extends StatefulWidget {
-  const TodoPage({super.key});
+@RoutePage()
+class TasksPage extends StatefulWidget {
+  const TasksPage({super.key});
 
   @override
-  State<TodoPage> createState() => _TodoPageState();
+  State<TasksPage> createState() => _TasksPageState();
 }
 
-class _TodoPageState extends State<TodoPage> {
+class _TasksPageState extends State<TasksPage> {
   late final TodoRepositoryFacade _repository;
 
   List<Map<String, dynamic>> _todos = [];
@@ -449,7 +451,7 @@ class _TodoPageState extends State<TodoPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Todo & Task Manager',
+          'Tasks & Productivity Manager',
           style: TextStyle(color: colors.onSurface, fontSize: 18),
         ),
         actions: [

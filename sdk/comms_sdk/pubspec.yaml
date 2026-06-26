@@ -10,3 +10,6 @@ dependencies:
     sdk: flutter
   flutter_local_notifications: ^17.1.2
   timezone: ^0.9.3
+  flutter_riverpod: ^2.6.1
+  core_sdk:
+    path: ../core_sdk
