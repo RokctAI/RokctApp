@@ -1,5 +1,5 @@
 export 'package:rokctapp/driver/application/home/home_provider.dart';
-export 'package:rokctapp/driver/application/splash/splash_provider.dart';
+export 'package:core_sdk/core_sdk.dart';
 export 'package:orders_sdk/src/application/driver/push_order/push_order_provider.dart';
 export 'package:rokctapp/driver/application/story/story_provider.dart';
 export 'package:rokctapp/driver/application/app/app_provider.dart';
@@ -7,6 +7,6 @@ export 'package:users_sdk/src/application/driver/profile/provider/profile_edit_p
 export 'package:users_sdk/src/application/driver/profile/provider/profile_image_provider.dart';
 export 'package:users_sdk/src/application/driver/profile/provider/profile_settings_provider.dart';
 export 'package:rokctapp/driver/application/driver/driver_provider.dart';
-export 'package:rokctapp/core/application/auth/auth.dart';
+export 'package:auth_sdk/auth_sdk.dart';
 export 'package:orders_sdk/src/application/driver/order/all_order/order_provider.dart';
 export 'package:orders_sdk/src/application/driver/order/all_order/order_notifier.dart';

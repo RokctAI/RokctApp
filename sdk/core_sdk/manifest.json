@@ -1,0 +1,36 @@
+{
+  "name": "core_sdk",
+  "version": "1.0.0",
+  "installs": [
+    {
+      "from": "templates/presentation/pages/initial",
+      "to": "lib/core/presentation/pages/initial"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/splash",
+      "page": "SplashRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/core/presentation/pages/initial/splash/splash_page.dart"
+    },
+    {
+      "path": "/no-connection",
+      "page": "NoConnectionRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/core/presentation/pages/initial/no_connection/no_connection_page.dart"
+    },
+    {
+      "path": "/ui-type",
+      "page": "UiTypeRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/core/presentation/pages/initial/ui_type/ui_type_page.dart"
+    },
+    {
+      "path": "/permission-location",
+      "page": "PermissionLocationRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/core/presentation/pages/initial/location/permission_location.dart"
+    }
+  ]
+}

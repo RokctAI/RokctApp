@@ -1,9 +1,9 @@
 export 'package:rokctapp/manager/application/main/main_provider.dart';
 export 'package:products_sdk/src/application/manager/foods/foods_provider.dart';
 export 'package:orders_sdk/src/application/manager/order/order_provider.dart';
-export 'package:rokctapp/manager/application/splash/splash_provider.dart';
+export 'package:core_sdk/core_sdk.dart';
 export 'package:users_sdk/src/application/manager/profile/profile_provider.dart';
-export 'package:rokctapp/core/application/auth/auth.dart';
+export 'package:auth_sdk/auth_sdk.dart';
 export 'package:products_sdk/src/application/manager/product/products_provider.dart';
 export 'package:orders_sdk/src/application/manager/order/create_order_provider.dart';
 export 'package:orders_sdk/src/application/manager/order_cart/order_cart_provider.dart';
@@ -15,7 +15,7 @@ export 'package:products_sdk/src/application/manager/foods/filter/foods_filter_p
 export 'package:rokctapp/manager/application/main/orders/new/new_orders_provider.dart';
 export 'package:orders_sdk/src/application/manager/order_details/order_details_provider.dart';
 export 'package:orders_sdk/src/application/manager/order_products/order_products_provider.dart';
-export 'package:rokctapp/manager/application/main/orders/appbar/home_appbar_provider.dart';
+export 'package:orders_sdk/orders_sdk.dart';
 export 'package:rokctapp/manager/application/main/orders/ready/ready_orders_provider.dart';
 export 'package:orders_sdk/src/application/manager/order/shipping/user/order_user_provider.dart';
 export 'package:products_sdk/src/application/manager/main/foods/addons/edit/edit_addon_provider.dart';
@@ -53,4 +53,4 @@ export 'package:products_sdk/src/application/manager/main/foods/extras/details/e
 export 'package:products_sdk/src/application/manager/main/foods/extras/details/new_item/create_new_group_item_provider.dart';
 export 'package:products_sdk/src/application/manager/main/foods/extras/details/delete_item/delete_extras_item_provider.dart';
 export 'package:products_sdk/src/application/manager/categories/categories_provider.dart';
-export 'package:rokctapp/manager/application/ai_translation/ai_translation_provider.dart';
+export 'package:agent_sdk/agent_sdk.dart';

@@ -1,0 +1,119 @@
+{
+  "name": "delivery_sdk",
+  "version": "1.0.0",
+  "installs": [
+    {
+      "from": "templates/presentation/pages/customer/parcel",
+      "to": "lib/customer/presentation/pages/parcel"
+    },
+    {
+      "from": "templates/presentation/pages/driver/home",
+      "to": "lib/driver/presentation/pages/home"
+    },
+    {
+      "from": "templates/presentation/pages/driver/push_order",
+      "to": "lib/driver/presentation/pages/push_order"
+    },
+    {
+      "from": "templates/presentation/pages/driver/stores",
+      "to": "lib/driver/presentation/pages/stores"
+    },
+    {
+      "from": "templates/presentation/pages/driver/free_lunch",
+      "to": "lib/driver/presentation/pages/free_lunch"
+    },
+    {
+      "from": "templates/presentation/pages/driver/parcels_history",
+      "to": "lib/driver/presentation/pages/parcels_history"
+    },
+    {
+      "from": "templates/presentation/pages/driver/parcel",
+      "to": "lib/driver/presentation/pages/parcel"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/parcel_page",
+      "page": "ParcelRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/parcel/parcel_page.dart"
+    },
+    {
+      "path": "/info_screen",
+      "page": "InfoRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/parcel/widgets/info_screen.dart"
+    },
+    {
+      "path": "/parcel_list_page",
+      "page": "ParcelListRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/parcel/parcel_list_page.dart"
+    },
+    {
+      "path": "/parcel_progress_page",
+      "page": "ParcelProgressRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/parcel/parcel_order_page.dart"
+    },
+    {
+      "path": "/driver/home",
+      "page": "DriverHomeRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/driver/presentation/pages/home/home_page.dart"
+    },
+    {
+      "path": "/driver/story",
+      "page": "DriverStoryRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/driver/presentation/pages/stores/story_page.dart"
+    },
+    {
+      "path": "/driver/parcels",
+      "page": "DriverParcelsRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/driver/presentation/pages/parcel/parcels_page.dart"
+    }
+  ]
+}
+
+  ],
+  "routes": [
+    {
+      "path": "/parcel_page",
+      "page": "ParcelRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/parcel/parcel_page.dart"
+    },
+    {
+      "path": "/info_screen",
+      "page": "InfoRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/parcel/widgets/info_screen.dart"
+    },
+    {
+      "path": "/parcel_list_page",
+      "page": "ParcelListRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/parcel/parcel_list_page.dart"
+    },
+    {
+      "path": "/parcel_progress_page",
+      "page": "ParcelProgressRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/parcel/parcel_order_page.dart"
+    },
+    {
+      "path": "/driver/home",
+      "page": "DriverHomeRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/driver/presentation/pages/home/home_page.dart"
+    },
+    {
+      "path": "/driver/story",
+      "page": "DriverStoryRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/driver/presentation/pages/stores/story_page.dart"
+    }
+  ]
+}

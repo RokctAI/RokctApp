@@ -32,8 +32,32 @@ def save_state(state):
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(state, f, indent=2)
 
+def resolve_sdk_path(sdk_name):
+    # 1. Try resolving via .dart_tool/package_config.json (for pub-fetched SDKs)
+    package_config_path = os.path.join(PROJECT_ROOT, ".dart_tool", "package_config.json")
+    if os.path.exists(package_config_path):
+        try:
+            with open(package_config_path, "r", encoding="utf-8") as f:
+                config = json.load(f)
+                package_data = config.get("packages", {}).get(sdk_name)
+                if package_data and "root" in package_data:
+                    return package_data["root"]
+        except Exception as e:
+            print(f"  [!] Error reading package_config.json: {e}")
+
+    # 2. Fallback to local sdk/ directory (for monorepo development)
+    local_path = os.path.join(PROJECT_ROOT, "sdk", sdk_name)
+    if os.path.exists(local_path):
+        return local_path
+
+    return None
+
 def install_sdk_files_and_routes(sdk_name):
-    sdk_path = os.path.join(PROJECT_ROOT, "sdk", sdk_name)
+    sdk_path = resolve_sdk_path(sdk_name)
+    if not sdk_path:
+        print(f"[-] Could not resolve path for SDK: {sdk_name}")
+        return False
+
     manifest_path = os.path.join(sdk_path, "manifest.json")
     
     if not os.path.exists(manifest_path):
