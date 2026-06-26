@@ -22,3 +22,4 @@ export 'src/application/profile/profile_notifier.dart';
 export 'src/application/edit_profile/edit_profile_provider.dart';
 export 'src/application/edit_profile/edit_profile_state.dart';
 export 'src/application/edit_profile/edit_profile_notifier.dart';
+export "src/di/users_di.dart";

@@ -10,3 +10,4 @@ export 'src/driver/order_state.dart'
 export 'src/driver/order_notifier.dart' hide OrderNotifier;
 export 'src/customer/order_state.dart';
 export 'src/customer/order_notifier.dart';
+export "src/di/orders_di.dart";

@@ -7,3 +7,4 @@ export 'src/infrastructure/repositories/subscription_repository.dart';
 export 'src/application/subscriptions/subscriptions_state.dart';
 export 'src/application/subscriptions/subscriptions_notifier.dart';
 export 'src/application/subscriptions/subscriptions_provider.dart';
+export "src/di/subscriptions_di.dart";

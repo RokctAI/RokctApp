@@ -1,11 +1,47 @@
 import os
 import sys
 import subprocess
+import json
 
 PROJECT_ROOT = os.getcwd()
 
+def resolve_sdk_path():
+    config_path = os.path.join(PROJECT_ROOT, ".dart_tool", "package_config.json")
+    sdks = []
+    if os.path.exists(config_path):
+        try:
+            with open(config_path, "r", encoding="utf-8") as f:
+                config = json.load(f)
+                # Filter for SDK packages (usually end in _sdk)
+                sdks = [name for name in config.get("packages", {}).keys() if name.endswith("_sdk")]
+        except Exception as e:
+            print(f"[!] Error reading package_config.json: {e}")
+    
+    # Also include local sdk/ directory for monorepo development
+    sdk_root = os.path.join(PROJECT_ROOT, "sdk")
+    if os.path.isdir(sdk_root):
+        local_sdks = [d for d in os.listdir(sdk_root) if os.path.isdir(os.path.join(sdk_root, d))]
+        sdks.extend(local_sdks)
+    
+    return sorted(list(set(sdks)))
+
 def run_installer(sdk_name):
-    sdk_path = os.path.join(PROJECT_ROOT, "sdk", sdk_name)
+    # Use the same resolution logic as installer_base to find install.py
+    package_config_path = os.path.join(PROJECT_ROOT, ".dart_tool", "package_config.json")
+    sdk_path = None
+    if os.path.exists(package_config_path):
+        try:
+            with open(package_config_path, "r", encoding="utf-8") as f:
+                config = json.load(f)
+                package_data = config.get("packages", {}).get(sdk_name)
+                if package_data and "root" in package_data:
+                    sdk_path = package_data["root"]
+        except:
+            pass
+    
+    if not sdk_path:
+        sdk_path = os.path.join(PROJECT_ROOT, "sdk", sdk_name)
+        
     installer_script = os.path.join(sdk_path, "install.py")
     
     if not os.path.exists(installer_script):
@@ -27,14 +63,12 @@ def run_installer(sdk_name):
         sys.exit(1)
 
 def main():
-    sdk_root = os.path.join(PROJECT_ROOT, "sdk")
-    if not os.path.isdir(sdk_root):
-        print("[-] sdk directory not found.")
-        sys.exit(1)
-        
     if len(sys.argv) < 2:
-        # Run installers for all SDKs in /sdk/
-        sdks = [d for d in os.listdir(sdk_root) if os.path.isdir(os.path.join(sdk_root, d))]
+        # Resolve all available SDKs from pub cache and local folder
+        sdks = resolve_sdk_path()
+        if not sdks:
+            print("[-] No SDKs found in .dart_tool/package_config.json or sdk/ directory.")
+            sys.exit(1)
         for sdk in sdks:
             run_installer(sdk)
     else:
