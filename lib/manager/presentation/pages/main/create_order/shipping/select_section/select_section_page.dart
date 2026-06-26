@@ -10,15 +10,7 @@ import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/s
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-
-        SnackBarType;
+    hide AppConstants, UploadType, SnackBarType;
 
 @RoutePage(name: 'ManagerSelectSectionRoute')
 class ManagerSelectSectionPage extends ConsumerStatefulWidget {

@@ -1,5 +1,3 @@
-
-
 import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,7 +9,6 @@ import 'package:orders_sdk/src/application/manager/order_cart/order_cart_provide
 import 'package:hardware_sdk/hardware_sdk.dart';
 import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
 import 'package:rokctapp/core/presentation/theme/app_style.dart';
-
 
 import 'package:rokctapp/core/infrastructure/utils/pay_verification_helper.dart';
 

@@ -15,16 +15,8 @@ import 'package:rokctapp/manager/infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/manager/app_constants.dart';
 import 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
 import 'package:rokctapp/core/infrastructure/constants/constants.dart'
-    hide SignUpType, ExtrasType,  SnackBarType
-    hide
-        AppConstants,
-
-
-
-
-        UploadType,
-
-        SnackBarType;
+    hide SignUpType, ExtrasType, SnackBarType
+    hide AppConstants, UploadType, SnackBarType;
 
 class AppHelpers {
   AppHelpers._();

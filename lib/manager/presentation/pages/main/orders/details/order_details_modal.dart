@@ -16,7 +16,6 @@ import 'package:rokctapp/manager/presentation/pages/main/orders/details/image_di
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/price_information.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
-
 class OrderDetailsModal extends ConsumerStatefulWidget {
   final OrderData order;
   final bool? isHistoryOrder;
