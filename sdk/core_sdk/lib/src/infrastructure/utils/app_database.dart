@@ -17,20 +17,10 @@ part 'app_database.g.dart';
 
 @DriftDatabase(
   tables: [
-    ProductsTable,
-    StocksTable,
     EventQueueTable,
-    OrdersTable,
-    OrderItemsTable,
-    ShopTable,
-    CategoriesTable,
-    SettingsTable,
-    BillingCartTable,
     SyncQueueTable,
     AbandonedSyncQueueTable,
-    UserTable,
-    BannersTable,
-    NotificationsTable,
+    SettingsTable,
     // @generated-database-tables-start
     // @generated-database-tables-end
   ],
@@ -126,26 +116,10 @@ class AppDatabase extends _$AppDatabase {
   // Generic getter to abstract out Drift Tables
   TableInfo<drift.Table, Dyn> getTable(String boxName) {
     switch (boxName) {
-      case 'products':
-        return productsTable;
-      case 'orders':
-        return ordersTable;
-      case 'shop':
-        return shopTable;
-      case 'categories':
-        return categoriesTable;
       case 'settings':
         return settingsTable;
-      case 'billing_cart':
-        return billingCartTable;
-      case 'stocks':
-        return stocksTable;
       case 'events':
         return eventQueueTable;
-      case 'banners':
-        return bannersTable;
-      case 'notifications':
-        return notificationsTable;
       default:
         throw ArgumentError('Unknown box name: $boxName');
     }
@@ -474,75 +448,10 @@ class AppDatabase extends _$AppDatabase {
   }
 
   String _dataColumn(dynamic row) {
-    if (row is ProductEntity) return row.data;
-    if (row is OrderEntity) return row.data;
-    if (row is ShopEntity) return row.data;
-    if (row is CategoryEntity) return row.data;
     if (row is SettingEntity) return row.data;
-    if (row is BillingCartEntity) return row.data;
-    if (row is UserEntity) return row.data;
-    if (row is BannerEntity) return row.data;
-    if (row is NotificationEntity) return row.data;
+    // @generated-database-datacolumn-start
+    // @generated-database-datacolumn-end
     throw ArgumentError('Unknown row type');
-  }
-
-  // ─── High-Quality Notification Helpers ───
-
-  Future<void> upsertNotification(Map<String, Dyn> json) async {
-    final int id =
-        int.tryParse(
-          json['notification_id']?.toString() ?? json['id']?.toString() ?? '0',
-        ) ??
-        0;
-    if (id == 0) return;
-
-    await into(notificationsTable).insertOnConflictUpdate(
-      NotificationsTableCompanion.insert(
-        id: Value(id),
-        data: jsonEncode(json),
-        readAt: Value(DateTime.tryParse(json['read_at'] ?? '')),
-      ),
-    );
-  }
-
-  Future<List<NotificationEntity>> getNotificationsLocally() async {
-    return (select(notificationsTable)..orderBy([
-          (t) => OrderingTerm(expression: t.id, mode: OrderingMode.desc),
-        ]))
-        .get();
-  }
-
-  // ─── User Helpers ───
-
-  Future<void> upsertUser(Map<String, Dyn> json, {String? password}) async {
-    final id = json['uuid'] ?? json['id']?.toString() ?? '';
-    if (id.isEmpty) return;
-
-    await into(userTable).insertOnConflictUpdate(
-      UserTableCompanion.insert(
-        id: id,
-        email: Value(json['email']?.toString()),
-        phone: Value(json['phone']?.toString()),
-        role: Value(json['role']?.toString() ?? 'customer'),
-        password: Value(password),
-        data: jsonEncode(json),
-        lastLogin: Value(DateTime.now()),
-      ),
-    );
-  }
-
-  Future<UserEntity?> getLocalUser(String identifier) async {
-    return (select(userTable)..where(
-          (t) => t.email.equals(identifier) | t.phone.equals(identifier),
-        ))
-        .getSingleOrNull();
-  }
-
-  Future<bool> hasManagerAccount() async {
-    final manager = await (select(
-      userTable,
-    )..where((t) => t.role.equals('seller') | t.role.equals('manager'))).get();
-    return manager.isNotEmpty;
   }
 }
 

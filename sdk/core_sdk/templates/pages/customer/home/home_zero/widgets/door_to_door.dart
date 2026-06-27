@@ -1,0 +1,57 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
+
+import 'package:rokctapp/presentation/theme/theme.dart';
+
+class DoorToDoor extends StatelessWidget {
+  const DoorToDoor({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(16.r),
+      padding: EdgeInsets.all(30.r),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: AppStyle.doorColor,
+        borderRadius: BorderRadius.circular(24.r),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppHelpers.getTranslation(TrKeys.doorToDoor),
+            style: AppStyle.interSemi(size: 42),
+          ),
+          10.verticalSpace,
+          Text(
+            AppHelpers.getTranslation(TrKeys.yourPersonalDoor),
+            style: AppStyle.interRegular(size: 16),
+          ),
+          20.verticalSpace,
+          Image.asset("assets/images/door.png"),
+          10.verticalSpace,
+          CustomButton(
+            title: AppHelpers.getTranslation(TrKeys.learnMore),
+            onPressed: () {
+              if (LocalStorage.getToken().isEmpty) {
+                context.router.pushNamed('/login');
+                return;
+              }
+              context.router.pushNamed('/parcel_page');
+              return;
+            },
+            background: AppStyle.transparent,
+            borderColor: AppStyle.black,
+          ),
+        ],
+      ),
+    );
+  }
+}

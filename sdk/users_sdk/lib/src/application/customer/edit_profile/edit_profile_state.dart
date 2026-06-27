@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:auth_sdk/auth_sdk.dart';
-import 'package:profile_sdk/profile_sdk.dart';
+import 'package:users_sdk/users_sdk.dart';
 
 part 'edit_profile_state.freezed.dart';
 

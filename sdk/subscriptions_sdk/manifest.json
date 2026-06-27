@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "installs": [
     {
-      "from": "templates/presentation/pages/subscriptions",
+      "from": "templates/pages/subscriptions",
       "to": "lib/manager/presentation/pages/restaurant/subscriptions"
     }
   ],

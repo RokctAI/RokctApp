@@ -13,3 +13,6 @@ dependencies:
   products_sdk:
     path: ../products_sdk
 
+
+dependency_overrides:
+  http: ^1.2.0

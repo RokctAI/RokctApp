@@ -1,0 +1,2 @@
+library loyalty_sdk;
+

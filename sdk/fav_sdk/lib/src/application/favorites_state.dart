@@ -1,13 +1,14 @@
-import 'package:flutter/foundation.dart';
-@immutable
-class FavoritesState {
-  final bool isLoading;
-  final List<int> savedIds;
-  const FavoritesState({this.isLoading = false, this.savedIds = const []});
-  FavoritesState copyWith({bool? isLoading, List<int>? savedIds}) {
-    return FavoritesState(
-      isLoading: isLoading ?? this.isLoading,
-      savedIds: savedIds ?? this.savedIds,
-    );
-  }
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:rokctapp/customer/models/models.dart';
+
+part 'favorites_state.freezed.dart';
+
+@freezed
+sealed class FavoritesState with _$FavoritesState {
+  const factory FavoritesState({
+    @Default(true) bool isShopLoading,
+    @Default([]) List<MerchantData> shops,
+  }) = _FavoritesState;
+
+  const FavoritesState._();
 }

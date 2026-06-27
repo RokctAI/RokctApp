@@ -21,8 +21,8 @@
 ## Lessons Learned
 *(Agent to append new lessons here when a mistake is made or a correction is received)*
 
-*   **[Date]** - [Lesson]
 *   **2026-06-21** - UI Migration TrKeys Deferral: Defer modularizing `tr_keys.dart` into individual SDKs until we migrate the UI layer. For now, they remain centralized in `core_sdk`.
+*   **2026-06-29** - Modular Database Design Rule: Do not hardcode drift tables or companion queries from other SDKs inside `core_sdk`'s `app_database.dart` (or its helper methods like `_createInsertable` and `_idColumn`). All SDK-specific tables MUST be declared in their respective `manifest.json` database block and injected dynamically during installation, and CRUD queries must be managed natively in those SDKs.
 
 
 ## Safe ID

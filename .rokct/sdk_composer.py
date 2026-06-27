@@ -62,27 +62,59 @@ def run_installer(sdk_name):
         result = subprocess.run(
             [sys.executable, installer_script],
             cwd=PROJECT_ROOT,
-            capture_output=False,
+            capture_output=True,
             text=True,
             check=True
         )
         print(f"[+] Installer for {sdk_name} completed successfully.")
     except subprocess.CalledProcessError as e:
-        print(f"[!] Installer for {sdk_name} failed: {e}")
+        log_dir = os.path.join(PROJECT_ROOT, ".rokct", "agent", "logs")
+        os.makedirs(log_dir, exist_ok=True)
+        log_file = os.path.join(log_dir, f"{sdk_name}_install_error.log")
+        with open(log_file, "w", encoding="utf-8") as lf:
+            lf.write(f"Command: {' '.join(e.cmd)}\n")
+            lf.write(f"Exit Code: {e.returncode}\n")
+            lf.write(f"Stdout:\n{e.stdout}\n")
+            lf.write(f"Stderr:\n{e.stderr}\n")
+        print(f"[!] Installer for {sdk_name} failed. Error log written to: .rokct/agent/logs/{sdk_name}_install_error.log")
         sys.exit(1)
 
 def main():
+    composer_path = os.path.join(PROJECT_ROOT, "composer.json")
+    
     if len(sys.argv) < 2:
-        # Resolve all available SDKs from pub cache and local folder
-        sdks = resolve_sdk_path()
+        if os.path.exists(composer_path):
+            # Read active SDKs from composer.json configuration
+            try:
+                with open(composer_path, "r", encoding="utf-8") as f:
+                    config = json.load(f)
+                    sdks = config.get("sdks", [])
+                print(f"[*] Reading active SDK list from composer.json: {sdks}")
+            except Exception as e:
+                print(f"[!] Error reading composer.json: {e}. Resolving all packages.")
+                sdks = resolve_sdk_path()
+        else:
+            # Fallback to resolving all available SDKs
+            sdks = resolve_sdk_path()
+            
         if not sdks:
-            print("[-] No SDKs found in .dart_tool/package_config.json or sdk/ directory.")
+            print("[-] No SDKs found to install.")
             sys.exit(1)
+            
+        # Ensure core_sdk is always sorted and installed first
+        if "core_sdk" in sdks:
+            sdks.remove("core_sdk")
+            sdks.insert(0, "core_sdk")
+            
         for sdk in sdks:
             run_installer(sdk)
     else:
         # Run installer for specified SDK lists
-        for sdk in sys.argv[1:]:
+        requested_sdks = sys.argv[1:]
+        if "core_sdk" in requested_sdks:
+            requested_sdks.remove("core_sdk")
+            requested_sdks.insert(0, "core_sdk")
+        for sdk in requested_sdks:
             run_installer(sdk)
 
 if __name__ == "__main__":

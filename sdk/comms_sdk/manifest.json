@@ -5,6 +5,26 @@
     {
       "from": "templates/pages/chat",
       "to": "lib/core/presentation/pages/chat"
+    },
+    {
+      "from": "templates/pages/customer/notification_page.dart",
+      "to": "lib/customer/presentation/pages/profile/notification_page.dart"
+    },
+    {
+      "from": "templates/pages/customer/setting/notification_page.dart",
+      "to": "lib/customer/presentation/pages/setting/notification_page.dart"
+    },
+    {
+      "from": "templates/pages/customer/setting/setting/notification_page.dart",
+      "to": "lib/customer/presentation/pages/setting/setting/notification_page.dart"
+    },
+    {
+      "from": "templates/pages/driver/profile/notification_list_page.dart",
+      "to": "lib/driver/presentation/pages/profile/notification_list_page.dart"
+    },
+    {
+      "from": "templates/pages/manager/restaurant/notification_list_page.dart",
+      "to": "lib/manager/presentation/pages/restaurant/notification_list_page.dart"
     }
   ],
   "routes": [
@@ -13,6 +33,55 @@
       "page": "ChatRoute.page",
       "type": "MaterialRoute",
       "import": "package:rokctapp/core/presentation/pages/chat/chat_page.dart"
+    }
+  ],
+  "database": {
+    "tables": [
+      {
+        "class": "NotificationsTable",
+        "import": "package:comms_sdk/src/infrastructure/utils/drift_tables.dart"
+      }
+    ],
+    "migration": {
+      "version": 12,
+      "step": "if (from < 9) { await m.createTable(notificationsTable); }"
+    }
+  },
+  "integrations": [
+    {
+      "target": "lib/customer/presentation/pages/profile/profile_page.dart",
+      "placeholder": "// @profile-page-imports",
+      "replacement": "import 'package:comms_sdk/comms_sdk.dart';"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/profile_page.dart",
+      "placeholder": "// @profile-page-notification-timer",
+      "replacement": "_timer = Timer.periodic(AppConstants.timeRefresh, (_) {\n      ref.read(notificationProvider.notifier).fetchCount(context);\n    });"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-chat-item",
+      "replacement": "if (_isAuth) ProfileItem(colors: colors, title: TrKeys.chatWithAdmin, icon: FlutterRemix.chat_1_line, onTap: () => context.pushRoute(ChatRoute(roleId: \"admin\", name: \"Admin\")),),"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-notification-item",
+      "replacement": "ProfileItem(colors: colors, title: TrKeys.notifications, icon: FlutterRemix.notification_2_line, isCount: true, count: (notificationCount ?? 0).toString(), onTap: () => context.pushRoute(const NotificationListRoute()),),"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-viewport-imports",
+      "replacement": "import '../about_page.dart';\nimport '../blog_page.dart';\nimport '../careers/careers_page.dart';"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-careers-item",
+      "replacement": "ProfileItem(colors: colors, title: TrKeys.careers, icon: FlutterRemix.empathize_line, onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => CareerPage()),),),"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-blogs-item",
+      "replacement": "ProfileItem(colors: colors, title: TrKeys.blogs, icon: FlutterRemix.article_line, onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => BlogPage()),),),"
     }
   ]
 }

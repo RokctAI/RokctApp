@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/infrastructure/utils/services.dart';
 import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_place/google_place.dart';
+import 'package:core_sdk/src/infrastructure/services/places/places_service.dart';
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 
@@ -38,8 +38,8 @@ class _MapSearchPageState extends State<MapSearchPage> {
                     isBorder: true,
                     hintText: AppHelpers.getTranslation(TrKeys.search),
                     onChanged: (title) async {
-                      final res = await googlePlace.autocomplete.get(title);
-                      searchResult = res?.predictions ?? [];
+                      final res = await googlePlaces.getAutocomplete(title);
+                      searchResult = res;
                       setState(() {});
                     },
                   ),
@@ -51,15 +51,13 @@ class _MapSearchPageState extends State<MapSearchPage> {
                         return InkWell(
                           onTap: () async {
                             final placeId = searchResult[index].placeId;
-                            final details = await googlePlace.details.get(
-                              placeId!,
+                            final details = await googlePlaces.getPlaceDetails(
+                              placeId,
                             );
-                            final location =
-                                details?.result?.geometry?.location;
 
                             if (context.mounted) {
                               context.maybePop(
-                                LatLng(location?.lat ?? 0, location?.lng ?? 0),
+                                LatLng(details?.latitude ?? 0.0, details?.longitude ?? 0.0),
                               );
                             }
                           },
@@ -68,20 +66,14 @@ class _MapSearchPageState extends State<MapSearchPage> {
                             children: [
                               22.verticalSpace,
                               Text(
-                                searchResult[index]
-                                        .structuredFormatting
-                                        ?.mainText ??
-                                    "",
+                                searchResult[index].mainText,
                                 style: AppStyle.interNormal(
                                   size: 14,
                                   color: colors.textBlack,
                                 ),
                               ),
                               Text(
-                                searchResult[index]
-                                        .structuredFormatting
-                                        ?.secondaryText ??
-                                    "",
+                                searchResult[index].secondaryText,
                                 style: AppStyle.interNormal(size: 14),
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,

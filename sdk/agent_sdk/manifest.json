@@ -1,0 +1,11 @@
+{
+  "name": "agent_sdk",
+  "version": "1.0.0",
+  "installs": [
+    {
+      "from": "templates/pages",
+      "to": "lib/pages/agent_sdk"
+    }
+  ],
+  "routes": []
+}

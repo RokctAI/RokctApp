@@ -3,32 +3,36 @@
   "version": "1.0.0",
   "installs": [
     {
-      "from": "templates/presentation/pages/customer/parcel",
+      "from": "templates/pages/customer/parcel",
       "to": "lib/customer/presentation/pages/parcel"
     },
     {
-      "from": "templates/presentation/pages/driver/home",
+      "from": "templates/pages/driver/home",
       "to": "lib/driver/presentation/pages/home"
     },
     {
-      "from": "templates/presentation/pages/driver/push_order",
+      "from": "templates/pages/driver/push_order",
       "to": "lib/driver/presentation/pages/push_order"
     },
     {
-      "from": "templates/presentation/pages/driver/stores",
+      "from": "templates/pages/driver/stores",
       "to": "lib/driver/presentation/pages/stores"
     },
     {
-      "from": "templates/presentation/pages/driver/free_lunch",
+      "from": "templates/pages/driver/free_lunch",
       "to": "lib/driver/presentation/pages/free_lunch"
     },
     {
-      "from": "templates/presentation/pages/driver/parcels_history",
+      "from": "templates/pages/driver/parcels_history",
       "to": "lib/driver/presentation/pages/parcels_history"
     },
     {
-      "from": "templates/presentation/pages/driver/parcel",
+      "from": "templates/pages/driver/parcel",
       "to": "lib/driver/presentation/pages/parcel"
+    },
+    {
+      "from": "templates/pages/customer/become",
+      "to": "lib/customer/presentation/pages/profile/become_driver"
     }
   ],
   "routes": [
@@ -73,6 +77,34 @@
       "page": "DriverParcelsRoute.page",
       "type": "CupertinoRoute",
       "import": "package:rokctapp/driver/presentation/pages/parcel/parcels_page.dart"
+    },
+    {
+      "path": "/become_driver",
+      "page": "BecomeDriverRoute.page",
+      "type": "MaterialRoute",
+      "import": "package:rokctapp/customer/presentation/pages/profile/become_driver/become_driver.dart"
+    }
+  ],
+  "integrations": [
+    {
+      "target": "lib/customer/presentation/pages/main/main_page.dart",
+      "placeholder": "// @main-page-imports",
+      "replacement": "import 'package:rokctapp/customer/presentation/pages/parcel/parcel_page.dart';"
+    },
+    {
+      "target": "lib/customer/presentation/pages/main/main_page.dart",
+      "placeholder": "// @main-tab-zero-1",
+      "replacement": "(AppHelpers.getParcel()) ? IndexedStackChild(child: ParcelPage(isBackButton: false), preload: true,) : IndexedStackChild(child: SearchPage(isBackButton: false)),"
+    },
+    {
+      "target": "lib/customer/presentation/pages/main/main_page.dart",
+      "placeholder": "// @main-tab-four-1",
+      "replacement": "(AppHelpers.getParcel()) ? IndexedStackChild(child: ParcelPage(isBackButton: false), preload: true,) : IndexedStackChild(child: SearchPage(isBackButton: false)),"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-become-driver-item",
+      "replacement": "ProfileItem(colors: colors, title: TrKeys.becomeDriver, icon: FlutterRemix.user_received_2_line, onTap: () => context.pushRoute(const BecomeDriverRoute()),),"
     }
   ]
 }

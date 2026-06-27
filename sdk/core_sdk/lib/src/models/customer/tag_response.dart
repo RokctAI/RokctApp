@@ -1,0 +1,68 @@
+import 'package:orders_sdk/orders_sdk.dart';
+
+class TagResponse {
+  TagResponse({
+    List<TakeModel>? data,
+    // Links? links,
+  }) {
+    _data = data;
+  }
+
+  TagResponse.fromJson(dynamic json) {
+    if (json['data'] != null) {
+      _data = [];
+      json['data'].forEach((v) {
+        _data?.add(TakeModel.fromJson(v));
+      });
+    }
+  }
+
+  List<TakeModel>? _data;
+
+  List<TakeModel>? get data => _data;
+}
+
+class PriceModel {
+  PriceModel({
+    required this.timestamp,
+    required this.status,
+    required this.message,
+    required this.data,
+  });
+
+  DateTime timestamp;
+  bool status;
+  String message;
+  PriceRangeData data;
+
+  factory PriceModel.fromJson(Map<String, Dyn> json) => PriceModel(
+    timestamp:
+        DateTime.tryParse(json["timestamp"])?.toLocal() ?? DateTime.now(),
+    status: json["status"],
+    message: json["message"],
+    data: PriceRangeData.fromJson(json["data"]),
+  );
+
+  Map<String, Dyn> toJson() => {
+    "timestamp": timestamp.toIso8601String(),
+    "status": status,
+    "message": message,
+    "data": data.toJson(),
+  };
+}
+
+class PriceRangeData {
+  PriceRangeData({required this.min, required this.max});
+
+  double min;
+  double max;
+
+  factory PriceRangeData.fromJson(Map<String, Dyn> json) => PriceRangeData(
+    min: double.tryParse(json["min"].toString()) ?? 1,
+    max: double.tryParse(json["max"].toString()) ?? 100,
+  );
+
+  Map<String, Dyn> toJson() => {"min": min, "max": max};
+}
+
+typedef Dyn = dynamic;

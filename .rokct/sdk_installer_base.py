@@ -19,7 +19,31 @@ def file_hash(path):
             hasher.update(chunk)
     return hasher.hexdigest()
 
+def bootstrap_core_if_missing():
+    # If lib/main.dart is missing, we must bootstrap core files from core_sdk templates first
+    if not os.path.exists(MAIN_FILE):
+        core_sdk_path = os.path.join(PROJECT_ROOT, "sdk", "core_sdk")
+        manifest_path = os.path.join(core_sdk_path, "manifest.json")
+        if os.path.exists(manifest_path):
+            print("[*] Bootstrapping missing core baseline files from core_sdk templates...")
+            with open(manifest_path, "r", encoding="utf-8") as f:
+                manifest = json.load(f)
+            for entry in manifest.get("installs", []):
+                from_rel = entry.get("from")
+                to_rel = entry.get("to")
+                src_path = os.path.join(core_sdk_path, from_rel)
+                dest_path = os.path.join(PROJECT_ROOT, to_rel)
+                if os.path.exists(src_path):
+                    if os.path.isdir(src_path):
+                        if os.path.exists(dest_path):
+                            shutil.rmtree(dest_path)
+                        shutil.copytree(src_path, dest_path)
+                    else:
+                        os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                        shutil.copy2(src_path, dest_path)
+
 def load_state():
+    bootstrap_core_if_missing()
     if os.path.exists(STATE_FILE):
         try:
             with open(STATE_FILE, "r", encoding="utf-8") as f:
@@ -128,13 +152,16 @@ def install_sdk_files_and_routes(sdk_name):
 
             os.makedirs(os.path.dirname(file_dest), exist_ok=True)
             
-            # Read contents, prepend banner, and write to dest
-            with open(file_src, "r", encoding="utf-8") as fs:
-                content = fs.read()
+            # Copy binary files directly, text files with banner prepended
+            is_text = file_dest.endswith((".dart", ".yaml", ".json", ".txt", ".md", ".gradle", ".properties"))
+            
+            if is_text:
+                with open(file_src, "r", encoding="utf-8", errors="ignore") as fs:
+                    content = fs.read()
 
-            # Prepend developer warning banner for dart files above first import/export/part
-            if file_dest.endswith(".dart"):
-                banner = f"""// ==========================================
+                # Prepend developer warning banner for dart files above first import/export/part
+                if file_dest.endswith(".dart"):
+                    banner = f"""// ==========================================
 // [GENERATED TEMPLATE FILE]
 // This file was installed from: {sdk_name}
 // Feel free to modify and customize this code.
@@ -143,18 +170,20 @@ def install_sdk_files_and_routes(sdk_name):
 // ==========================================
 
 """
-                lines = content.splitlines(keepends=True)
-                insert_idx = 0
-                for idx, line in enumerate(lines):
-                    trimmed = line.strip()
-                    if trimmed.startswith("import ") or trimmed.startswith("export ") or trimmed.startswith("part ") or trimmed.startswith("part '") or trimmed.startswith("part \""):
-                        insert_idx = idx
-                        break
-                lines.insert(insert_idx, banner)
-                content = "".join(lines)
+                    lines = content.splitlines(keepends=True)
+                    insert_idx = 0
+                    for idx, line in enumerate(lines):
+                        trimmed = line.strip()
+                        if trimmed.startswith("import ") or trimmed.startswith("export ") or trimmed.startswith("part ") or trimmed.startswith("part '") or trimmed.startswith("part \""):
+                            insert_idx = idx
+                            break
+                    lines.insert(insert_idx, banner)
+                    content = "".join(lines)
 
-            with open(file_dest, "w", encoding="utf-8") as fd:
-                fd.write(content)
+                with open(file_dest, "w", encoding="utf-8") as fd:
+                    fd.write(content)
+            else:
+                shutil.copy2(file_src, file_dest)
 
             # Store the resulting file's hash in state
             package_state["files"][rel_dest] = file_hash(file_dest)
@@ -241,6 +270,8 @@ def update_main_dependencies():
     
     # Generate imports and register statements for all active packages
     for pkg_name in sorted(state.get("packages", {}).keys()):
+        if pkg_name == "core_sdk":
+            continue
         # Shared SDK import and dependency call
         sdk_imports.append(f"import 'package:{pkg_name}/{pkg_name}.dart';")
         # Format className as CamelCase (e.g. auth_sdk -> AuthSdkDependencies)
@@ -282,6 +313,7 @@ def update_database_registration():
     state = load_state()
     all_imports = set()
     all_tables = []
+    all_datacolumns = []
     migration_steps = []
     max_version = 12
 
@@ -295,10 +327,13 @@ def update_database_registration():
         for tbl in tables:
             t_class = tbl.get("class")
             t_imp = tbl.get("import")
+            t_entity = tbl.get("entity")
             if t_class:
                 all_tables.append(f"    {t_class},")
             if t_imp:
                 all_imports.add(f"import '{t_imp}';")
+            if t_entity:
+                all_datacolumns.append(f"    if (row is {t_entity}) return row.data;")
 
         migration = db_config.get("migration", {})
         version = migration.get("version")
@@ -335,14 +370,24 @@ def update_database_registration():
         flags=re.DOTALL
     )
 
-    # 3. Inject schemaVersion dynamically
+    # 3. Inject data columns
+    datacolumn_block = "\n".join(all_datacolumns)
+    datacolumn_replacement = f"    // @generated-database-datacolumn-start\n{datacolumn_block}\n    // @generated-database-datacolumn-end"
+    content = re.sub(
+        r"    // @generated-database-datacolumn-start.*?    // @generated-database-datacolumn-end",
+        datacolumn_replacement,
+        content,
+        flags=re.DOTALL
+    )
+
+    # 4. Inject schemaVersion dynamically
     content = re.sub(
         r"int get schemaVersion => \d+;",
         f"int get schemaVersion => {max_version};",
         content
     )
 
-    # 4. Inject migrations
+    # 5. Inject migrations
     migrations_block = "\n".join(migration_steps)
     migrations_replacement = f"        // @generated-database-migrations-start\n{migrations_block}\n        // @generated-database-migrations-end"
     content = re.sub(

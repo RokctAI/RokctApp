@@ -16,11 +16,11 @@ dependencies:
     path: ../wallet_sdk
   payments_sdk:
     path: ../payments_sdk
-  flutter_riverpod: ^2.4.9
+  flutter_riverpod: ^2.6.1
   freezed_annotation: ^3.1.0
   auto_route: ^11.1.0
   pull_to_refresh: ^2.0.0
-  dio: ^5.4.0
+  dio: ^5.9.0
 
 dev_dependencies:
   flutter_test:
@@ -28,3 +28,6 @@ dev_dependencies:
   build_runner: ^2.4.8
   freezed: ^2.4.7
 
+
+dependency_overrides:
+  http: ^1.2.0

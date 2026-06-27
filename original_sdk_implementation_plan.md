@@ -4,7 +4,7 @@ This plan defines the architectural boundaries, dependency graph, and implementa
 
 > [!IMPORTANT]
 > **Implementation Sequence Note**: As per user instruction, we will implement the **`productivity_sdk`** first because it is the simplest, followed by the **`processing_sdk`**.
-> **Translation Keys Deferral Note**: Individual SDK translation keys (`tr_keys.dart` segregation) will be deferred until the UI layer is migrated. Until then, translation keys remain centralized in `core_sdk`.
+> **Translation Keys, Constants, Assets & Native Deferral Note**: Individual SDK translation keys (`tr_keys.dart` segregation), assets constants (`app_assets.dart` segregation), global constants merging (`app_constants.dart`), and native/assets folders (`android/`, `ios/`, `assets/`) will be deferred until the UI layer is migrated. Until then, translation keys, assets, and flavor constants remain centralized in `core_sdk`, and native folders will move to `core_sdk` templates last.
 
 
 ---
@@ -162,6 +162,13 @@ To ensure data representation remains accurate across different user types, we e
 > * **Package Imports**: Always use full package imports (e.g., `import 'package:productivity_sdk/productivity_sdk.dart'`).
 > * **Export Requirement**: Ensure the SDK's main entry point (e.g., `lib/productivity_sdk.dart`) exports all classes and interfaces needed by the templates.
 > This ensures that when templates are moved to the host application, they remain resolvable.
+> 
+> > [!IMPORTANT]
+> > **Rule 10: Dynamic Widget Layout Injection Strategy**
+> > Optional feature widgets (such as charts, analytics summaries, or custom payment cards) must be decoupled from the core layouts (like profile screens or order logs) to prevent compile errors when optional packages are not installed:
+> > * **Core Blueprint Ownership**: Base screens/templates (e.g. `order_history`, `more_orders.dart`) will reside inside their domain-authoritative SDK template sets (like `orders_sdk`).
+> > * **Post-Install Widget Injections**: The installer's widget layout injection parser (`update_layout_integrations()`) will handle inserting optional card configurations (e.g. `more_orders` dashboard details) dynamically at post-install runtime using specific layout placeholders.
+> > * **Execution Phase Deferral**: The mass cleanup of layout couplings (removing direct references and replacing them with dynamic shell placeholder injection hooks) will be deferred until the final integration phase after all backend model relocations are complete.
 
 > [!IMPORTANT]
 > **Rule 9: Standardized SDK Directory Structure**
@@ -172,6 +179,10 @@ To ensure data representation remains accurate across different user types, we e
 > * **`lib/src/models/response/`**: Contains API response envelopes and DTOs.
 > * **`lib/src/domain/interface/`**: Contains abstract repository facades and business logic contracts.
 > * **`lib/src/infrastructure/repositories/`**: Contains concrete implementations of the repository facades.
+> 
+> > [!IMPORTANT]
+> > **Rule 11: Developer Theme compilation constraints**
+> > To ensure compile-time resolution for SDK developers during intermediate stages, package classes that require theme assets or styles (like marker loaders) are allowed to temporarily import style references from the local package templates folder (e.g. `import '../../../../templates/theme/theme.dart'`). This will be resolved natively once the package is installed into the app shell.
 
 ---
 

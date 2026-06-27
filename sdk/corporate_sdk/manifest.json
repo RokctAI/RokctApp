@@ -1,0 +1,11 @@
+{
+  "name": "corporate_sdk",
+  "version": "1.0.0",
+  "installs": [
+    {
+      "from": "templates/pages",
+      "to": "lib/pages/corporate_sdk"
+    }
+  ],
+  "routes": []
+}

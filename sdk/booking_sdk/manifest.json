@@ -1,0 +1,22 @@
+{
+  "name": "booking_sdk",
+  "version": "1.0.0",
+  "installs": [
+    {
+      "from": "templates/pages/customer/reservation_shops.dart",
+      "to": "lib/customer/presentation/pages/profile/reservation_shops.dart"
+    }
+  ],
+  "integrations": [
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-viewport-imports",
+      "replacement": "import '../reservation_shops.dart';"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-reservation-item",
+      "replacement": "if (AppHelpers.getReservationEnable()) ProfileItem(colors: colors, title: TrKeys.reservation, icon: FlutterRemix.reserved_line, onTap: () => AppHelpers.showAlertDialog(context: context, backgroundColor: theme.colors.backgroundColor, child: SizedBox(child: ReservationShops(colors: theme.colors)),),),"
+    }
+  ]
+}

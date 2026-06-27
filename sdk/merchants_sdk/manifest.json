@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "installs": [
     {
-      "from": "templates/presentation/pages/become_seller",
-      "to": "lib/manager/presentation/pages/become_seller"
+      "from": "templates/pages/become_seller",
+      "to": "lib/customer/presentation/pages/profile/become_seller"
     }
   ],
   "routes": [
@@ -12,7 +12,14 @@
       "path": "/become-seller",
       "page": "BecomeSellerRoute.page",
       "type": "MaterialRoute",
-      "import": "package:rokctapp/manager/presentation/pages/become_seller/become_seller.dart"
+      "import": "package:rokctapp/customer/presentation/pages/profile/become_seller/become_seller.dart"
+    }
+  ],
+  "integrations": [
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-become-seller-item",
+      "replacement": "ProfileItem(colors: colors, title: TrKeys.becomeSeller, icon: FlutterRemix.user_star_line, onTap: () => context.pushRoute(const CreateShopRoute()),),"
     }
   ]
 }

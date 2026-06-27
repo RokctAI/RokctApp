@@ -17,3 +17,6 @@ dependencies:
   sensors_plus: ^5.0.1
   get_it: ^9.2.0
 
+
+dependency_overrides:
+  http: ^1.2.0

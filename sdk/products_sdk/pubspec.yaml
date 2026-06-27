@@ -14,3 +14,6 @@ dependencies:
     path: ../core_sdk
   merchants_sdk:
     path: ../merchants_sdk
+
+dependency_overrides:
+  http: ^1.2.0

@@ -1,3 +1,4 @@
+import 'package:core_sdk/src/infrastructure/utils/app_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

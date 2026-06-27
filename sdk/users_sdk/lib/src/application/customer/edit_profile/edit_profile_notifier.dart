@@ -4,7 +4,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:auth_sdk/auth_sdk.dart';
-import 'package:profile_sdk/profile_sdk.dart';
+import 'package:users_sdk/users_sdk.dart';
 import '../users_providers.dart';
 import '../../models/request/edit_profile.dart';
 import 'edit_profile_state.dart';

@@ -1,0 +1,101 @@
+{
+  "name": "rokctapp_composer",
+  "version": "1.0.0",
+  "description": "Configuration list of active and inactive SDKs for RokctApp installation",
+  "sdks": [
+    {
+      "name": "core_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/core_sdk"
+    },
+    {
+      "name": "auth_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/auth_sdk"
+    },
+    {
+      "name": "users_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/users_sdk"
+    },
+    {
+      "name": "merchants_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/merchants_sdk"
+    },
+    {
+      "name": "products_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/products_sdk"
+    },
+    {
+      "name": "orders_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/orders_sdk"
+    },
+    {
+      "name": "fav_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/fav_sdk"
+    },
+    {
+      "name": "wallet_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/wallet_sdk"
+    },
+    {
+      "name": "promotions_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/promotions_sdk"
+    },
+    {
+      "name": "corporate_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/corporate_sdk"
+    },
+    {
+      "name": "subscriptions_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/subscriptions_sdk"
+    },
+    {
+      "name": "agent_sdk",
+      "enabled": false,
+      "source": "git",
+      "git": "git@github.com:rokctai/agent_sdk.git",
+      "ref": "main"
+    },
+    {
+      "name": "betassist_sdk",
+      "enabled": false,
+      "source": "git",
+      "git": "git@github.com:rokctai/betassist_sdk.git",
+      "ref": "main"
+    },
+    {
+      "name": "weather_sdk",
+      "enabled": false,
+      "source": "git",
+      "git": "git@github.com:rokctai/weather_sdk.git",
+      "ref": "main"
+    },
+    {
+      "name": "zones_sdk",
+      "enabled": false,
+      "source": "git",
+      "git": "git@github.com:rokctai/zones_sdk.git",
+      "ref": "main"
+    }
+  ]
+}

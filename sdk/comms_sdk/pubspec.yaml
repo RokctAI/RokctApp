@@ -13,3 +13,6 @@ dependencies:
   flutter_riverpod: ^2.6.1
   core_sdk:
     path: ../core_sdk
+
+dependency_overrides:
+  http: ^1.2.0

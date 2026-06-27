@@ -1,5 +1,6 @@
 library wallet_sdk;
 
-export 'src/models/data/payment_data.dart';
-export 'src/models/data/wallet_models.dart';
-export "src/di/wallet_di.dart";
+export 'src/models/customer/payment_data.dart';
+export 'src/models/customer/refund_data.dart';
+export 'src/models/customer/wallet_histories_response.dart';
+export 'src/models/customer/wallet_models.dart';

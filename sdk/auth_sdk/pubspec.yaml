@@ -9,8 +9,6 @@ dependencies:
   freezed_annotation: ^3.1.0
   users_sdk:
     path: ../users_sdk
-  profile_sdk:
-    path: ../profile_sdk
   flutter_remix: ^0.0.3
 description: Authentication and User Identity SDK
 dev_dependencies:
@@ -24,3 +22,6 @@ environment:
 name: auth_sdk
 publish_to: none
 version: 1.0.0
+
+dependency_overrides:
+  http: ^1.2.0

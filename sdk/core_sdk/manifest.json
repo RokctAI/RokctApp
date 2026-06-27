@@ -3,8 +3,60 @@
   "version": "1.0.0",
   "installs": [
     {
-      "from": "templates/presentation/pages/initial",
+      "from": "templates/pages/initial",
       "to": "lib/core/presentation/pages/initial"
+    },
+    {
+      "from": "templates/di/dependency_manager.dart",
+      "to": "lib/core/domain/di/dependency_manager.dart"
+    },
+    {
+      "from": "templates/pages/search",
+      "to": "lib/core/presentation/pages/search"
+    },
+    {
+      "from": "templates/theme",
+      "to": "lib/core/presentation/theme"
+    },
+    {
+      "from": "templates/routes",
+      "to": "lib/core/presentation/routes"
+    },
+    {
+      "from": "templates/components",
+      "to": "lib/core/presentation/components"
+    },
+    {
+      "from": "templates/app_assets.dart",
+      "to": "lib/core/presentation/app_assets.dart"
+    },
+    {
+      "from": "templates/app_widget.dart",
+      "to": "lib/core/presentation/app_widget.dart"
+    },
+    {
+      "from": "templates/phoenix_widget.dart",
+      "to": "lib/core/presentation/phoenix_widget.dart"
+    },
+    {
+      "from": "templates/main.dart",
+      "to": "lib/main.dart"
+    },
+    {
+      "from": "templates/pubspec.yaml",
+      "to": "pubspec.yaml"
+    },
+    {
+      "from": "templates/android",
+      "to": "android"
+    },
+    {
+      "from": "templates/ios",
+      "to": "ios"
+    },
+    {
+      "from": "templates/assets",
+      "to": "assets"
     }
   ],
   "routes": [

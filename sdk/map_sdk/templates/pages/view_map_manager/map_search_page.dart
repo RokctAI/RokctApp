@@ -1,7 +1,4 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_place/google_place.dart';
+import 'package:core_sdk/src/infrastructure/services/places/places_service.dart';
 
 import 'package:rokctapp/core/domain/di/dependency_manager.dart';
 import 'package:rokctapp/manager/presentation/component/text_fields/search_text_field.dart';
@@ -31,8 +28,8 @@ class _MapSearchPageState extends State<ManagerMapSearchPage> {
                 //autofocus: true,
                 isBorder: true,
                 onChanged: (title) async {
-                  final res = await googlePlace.autocomplete.get(title);
-                  searchResult = res?.predictions ?? [];
+                  final res = await googlePlaces.getAutocomplete(title);
+                  searchResult = res;
                   setState(() {});
                 },
               ),
@@ -50,17 +47,11 @@ class _MapSearchPageState extends State<ManagerMapSearchPage> {
                         children: [
                           22.verticalSpace,
                           Text(
-                            searchResult[index]
-                                    .structuredFormatting
-                                    ?.mainText ??
-                                "",
+                            searchResult[index].mainText,
                             style: AppStyle.interNormal(size: 14),
                           ),
                           Text(
-                            searchResult[index]
-                                    .structuredFormatting
-                                    ?.secondaryText ??
-                                "",
+                            searchResult[index].secondaryText,
                             style: AppStyle.interNormal(size: 14),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,

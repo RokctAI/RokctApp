@@ -26,8 +26,6 @@ dependencies:
     path: ../core_sdk
   auth_sdk:
     path: ../auth_sdk
-  profile_sdk:
-    path: ../profile_sdk
   wallet_sdk:
     path: ../wallet_sdk
 
@@ -113,3 +111,6 @@ flutter:
     - assets/
     - assets/images/
     - assets/audio/
+
+dependency_overrides:
+  http: ^1.2.0

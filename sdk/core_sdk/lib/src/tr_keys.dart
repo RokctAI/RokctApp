@@ -1,4 +1,9 @@
 class TrKeys {
+  static const String successfullyCompleted = 'successfullyCompleted';
+  static const String infoMessage = 'infoMessage';
+  static const String maxQtyShouldBeGreaterThanMinQty = 'maxQtyShouldBeGreaterThanMinQty';
+  static const String minQuantityError = 'minQuantityError';
+  static const String selectTime = 'selectTime';
   TrKeys._();
 
   static const String termsAndConditions = 'terms';

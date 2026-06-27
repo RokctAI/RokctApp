@@ -4,7 +4,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:auth_sdk/auth_sdk.dart';
 
-import 'package:profile_sdk/profile_sdk.dart';
+import 'package:users_sdk/users_sdk.dart';
 import '../../domain/interface/user_repository_facade.dart';
 import '../../models/data/address_new_model.dart';
 import '../../models/data/links.dart';

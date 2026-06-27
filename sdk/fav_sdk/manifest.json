@@ -14,5 +14,34 @@
       "type": "MaterialRoute",
       "import": "package:rokctapp/customer/presentation/pages/like/like_page.dart"
     }
+  ],
+  "database": {
+    "tables": [
+      {
+        "class": "ShopTable",
+        "import": "package:fav_sdk/src/infrastructure/utils/drift_tables.dart"
+      }
+    ],
+    "migration": {
+      "version": 12,
+      "step": "if (from < 6) { await m.createTable(shopTable); }"
+    }
+  },
+  "integrations": [
+    {
+      "target": "lib/customer/presentation/pages/profile/profile_page.dart",
+      "placeholder": "// @profile-page-imports",
+      "replacement": "import 'package:fav_sdk/fav_sdk.dart';"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/profile_page.dart",
+      "placeholder": "// @profile-page-refresh-items",
+      "replacement": "ref.read(shopFavoritesProvider.notifier).fetchLikeShop(context);"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-liked-item",
+      "replacement": "ProfileItem(colors: colors, title: TrKeys.liked, icon: FlutterRemix.heart_3_line, onTap: () => context.pushRoute(LikeRoute()),),"
+    }
   ]
 }

@@ -1,42 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:rokctapp/core/domain/handlers/handlers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:core_sdk/core_sdk.dart';
-import 'favorites_state.dart';
+import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:rokctapp/core/infrastructure/utils/services.dart';
+
+import 'package:rokctapp/customer/application/favorites/favorites_state.dart';
 
 class FavoritesNotifier extends Notifier<FavoritesState> {
-  final String _favoriteType;
-  FavoritesNotifier(this._favoriteType);
-
   @override
-  FavoritesState build() {
-    final saved = _loadSavedIds();
-    return FavoritesState(savedIds: saved);
-  }
+  FavoritesState build() => const FavoritesState();
 
-  List<int> _loadSavedIds() {
-    if (_favoriteType == "shop") {
-      return LocalStorage.getSavedShopsList();
-    }
-    return [];
-  }
-
-  void _saveIds(List<int> ids) {
-    if (_favoriteType == "shop") {
-      LocalStorage.setSavedShopsList(ids);
-    }
-  }
-
-  void toggle(int id) {
-    final list = List<int>.from(state.savedIds);
-    if (list.contains(id)) {
-      list.remove(id);
+  Future<void> fetchFavoritesShop(BuildContext context) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isShopLoading: true);
+      final list = LocalStorage.getSavedShopsList();
+      if (list.isNotEmpty) {
+        final response = await shopsRepository.getShopsByIds(list);
+        response.when(
+          success: (data) async {
+            state = state.copyWith(
+              isShopLoading: false,
+              shops: data.data ?? [],
+            );
+          },
+          failure: (failure, status) {
+            state = state.copyWith(isShopLoading: false);
+            AppHelpers.showCheckTopSnackBar(context, failure);
+          },
+        );
+      } else {
+        state = state.copyWith(isShopLoading: false, shops: []);
+      }
     } else {
-      list.add(id);
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
     }
-    state = state.copyWith(savedIds: list);
-    _saveIds(list);
-  }
-
-  bool isFavorite(int id) {
-    return state.savedIds.contains(id);
   }
 }

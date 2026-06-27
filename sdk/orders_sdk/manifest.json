@@ -33,6 +33,81 @@
     {
       "from": "templates/pages/manager/main",
       "to": "lib/manager/presentation/pages/main"
+    },
+    {
+      "from": "templates/pages/driver/order_history",
+      "to": "lib/driver/presentation/pages/order_history"
+    },
+    {
+      "from": "templates/pages/driver/home/widgets/foods_page.dart",
+      "to": "lib/driver/presentation/pages/home/widgets/foods_page.dart"
+    }
+  ],
+  "database": {
+    "tables": [
+      {
+        "class": "OrdersTable",
+        "import": "package:orders_sdk/src/infrastructure/utils/drift_tables.dart"
+      },
+      {
+        "class": "OrderItemsTable",
+        "import": "package:orders_sdk/src/infrastructure/utils/drift_tables.dart"
+      },
+      {
+        "class": "BillingCartTable",
+        "import": "package:orders_sdk/src/infrastructure/utils/drift_tables.dart"
+      }
+    ],
+    "migration": {
+      "version": 12,
+      "step": "if (from < 4) { await m.createTable(ordersTable); await m.createTable(orderItemsTable); } if (from < 5) { await m.createTable(billingCartTable); }"
+    }
+  },
+  "integrations": [
+    {
+      "target": "lib/customer/presentation/pages/profile/profile_page.dart",
+      "placeholder": "// @profile-page-imports",
+      "replacement": "import 'package:orders_sdk/src/application/customer/orders_list/orders_list_provider.dart';\nimport 'package:orders_sdk/src/application/customer/parcels_list/parcel_list_provider.dart';\nimport 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-orders-imports",
+      "replacement": "import 'package:orders_sdk/src/application/customer/orders_list/orders_list_provider.dart';\nimport 'package:orders_sdk/src/application/customer/parcels_list/parcel_list_provider.dart';"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/profile_page.dart",
+      "placeholder": "// @profile-page-orders-fetch",
+      "replacement": "ref.read(ordersListProvider.notifier).fetchActiveOrders(context);\n    ref.read(parcelListProvider.notifier).fetchActiveOrders(context);"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/profile_page.dart",
+      "placeholder": "// @profile-page-refresh-items",
+      "replacement": "ref.read(shopOrderProvider.notifier).getCart(context, () {});"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/profile_page.dart",
+      "placeholder": "// @profile-page-refresh-orders",
+      "replacement": "ref.read(ordersListProvider.notifier).fetchActiveOrders(context);"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-orders-item",
+      "replacement": "ProfileItem(colors: colors, title: TrKeys.order, icon: FlutterRemix.history_line, isCount: true, count: ref.watch(ordersListProvider).totalActiveCount.toString(), onTap: () => context.pushRoute(const OrdersListRoute()),),"
+    },
+    {
+      "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
+      "placeholder": "// @profile-parcels-item",
+      "replacement": "if (AppHelpers.getParcel()) ProfileItem(colors: colors, title: TrKeys.parcels, icon: FlutterRemix.archive_line, isCount: true, count: ref.watch(parcelListProvider).totalActiveCount.toString(), onTap: () => context.pushRoute(const ParcelListRoute()),),"
+    },
+    {
+      "target": "lib/driver/presentation/pages/home/delivery_bottom_sheet.dart",
+      "placeholder": "// @delivery-foods-page-import",
+      "replacement": "import 'package:rokctapp/driver/presentation/pages/home/widgets/foods_page.dart';"
+    },
+    {
+      "target": "lib/driver/presentation/pages/home/delivery_bottom_sheet.dart",
+      "placeholder": "// @delivery-foods-page-modal",
+      "replacement": "AppHelpers.showCustomModalBottomSheet(context: context, modal: FoodsPage(order: widget.order), isDarkMode: false,);"
     }
   ]
 }

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "installs": [
     {
-      "from": "templates/presentation/pages/tasks",
+      "from": "templates/pages/tasks",
       "to": "lib/manager/presentation/pages/tasks"
     }
   ],

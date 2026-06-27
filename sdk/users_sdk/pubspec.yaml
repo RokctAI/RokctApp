@@ -11,8 +11,6 @@ dependencies:
   pull_to_refresh: ^2.0.0
   wallet_sdk:
     path: ../wallet_sdk
-  profile_sdk:
-    path: ../profile_sdk
   auth_sdk:
     path: ../auth_sdk
   products_sdk:
@@ -32,3 +30,7 @@ environment:
 name: users_sdk
 publish_to: none
 version: 1.0.0
+
+dependency_overrides:
+  freezed_annotation: 2.4.4
+  http: ^1.2.0
