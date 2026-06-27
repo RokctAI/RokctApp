@@ -1,7 +1,13 @@
 import 'package:get_it/get_it.dart';
+import '../infrastructure/repositories/mock_polaris_repository_impl.dart';
+import '../domain/interface/polaris_repository_facade.dart';
 
 class PolarisSdkDependencies {
   static void register(GetIt getIt) {
-    // TODO: Register dependencies for polaris_sdk
+    if (!getIt.isRegistered<PolarisRepositoryFacade>()) {
+      getIt.registerLazySingleton<PolarisRepositoryFacade>(
+        () => MockPolarisRepositoryImpl(),
+      );
+    }
   }
 }

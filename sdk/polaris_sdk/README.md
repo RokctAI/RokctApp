@@ -1,39 +1,86 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Polaris SDK
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Polaris is the group's microlending product, built as an injectable Flutter SDK. It provides injectable UI cards and a full multi-step loan application journey. Backend management is handled remotely; this SDK calculates breakdowns offline and allows users to apply.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- **Injectable UI**: Cards like `PolarisLoanStatusCard` and `PolarisApplyCard` that you can place into any host app page.
+- **Offline Loan Calculation**: Pure functional breakdown computation without needing network calls.
+- **Multi-step Flow**: Full application journey including affordability checks, details confirmation, document uploads (UI), and contract review.
+- **State Management**: Uses `flutter_riverpod` internally to persist drafts and synchronize state.
 
-## Getting started
+## Integration Principles
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+The SDK expects to be injected with dependencies during initialization. It avoids directly importing host app components, such as `wallet_sdk` or `auth_sdk`. Instead, it uses bridges and session configurations.
 
-## Usage
+## Getting Started
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### 1. Define Bridges
+
+Create instances of `PolarisWalletBridge` in your host application:
 
 ```dart
-const like = 'sample';
+class MyWalletBridge implements PolarisWalletBridge {
+  @override
+  Future<void> onLoanDisbursed(double amount, String reference) async {
+    // Write to your wallet SDK
+  }
+  // Implement other callbacks...
+}
 ```
 
-## Additional information
+### 2. Initialization
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Before using Polaris widgets, call `PolarisSDK.initialize` typically after login:
+
+```dart
+PolarisSDK.initialize(
+  config: PolarisConfig(
+    minLoanAmount: 100,
+    maxLoanAmount: 5000,
+    minTermDays: 7,
+    maxTermDays: 30,
+    initiationFeeRate: 0.15,
+    serviceFeeFlat: 86.00,
+    interestRatePerDay: 0.001,
+    vatRate: 0.15,
+    maxInitiationFee: 1150.00,
+  ),
+  session: PolarisSession(
+    userId: '123',
+    authToken: 'token123',
+    hasActiveLoan: false,
+    isEligibleToApply: true,
+  ),
+  walletBridge: MyWalletBridge(),
+  userPrefill: PolarisUserPrefill(
+    firstName: 'Jane',
+    lastName: 'Doe',
+  ),
+);
+```
+
+### 3. Inject Cards
+
+Once initialized, inject the cards where needed.
+
+```dart
+// In a generic Profile or Wallet page
+PolarisApplyCard(
+  onApply: () {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => const PolarisApplicationPage(),
+    ));
+  },
+)
+
+PolarisLoanStatusCard()
+```
+
+### 4. Updating Session
+
+If a user logs in, out, or their eligibility changes:
+
+```dart
+PolarisSDK.instance.onSessionChanged(newSession);
+```

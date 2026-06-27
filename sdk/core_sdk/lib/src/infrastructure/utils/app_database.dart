@@ -119,7 +119,7 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 12) {
           // Migration for audit fields in TasksTable
-          // Drift handles column additions but for a new table migration might be tricky 
+          // Drift handles column additions but for a new table migration might be tricky
           // since we just created it in v11. However, for existing users of v11:
           await m.addColumn(tasksTable, tasksTable.updatedAt);
           await m.addColumn(tasksTable, tasksTable.createdBy);
@@ -550,6 +550,23 @@ class AppDatabase extends _$AppDatabase {
       userTable,
     )..where((t) => t.role.equals('seller') | t.role.equals('manager'))).get();
     return manager.isNotEmpty;
+  }
+
+  // Polaris Draft Storage
+  Future<void> upsertPolarisDraft(String id, String jsonData) async {
+    await into(polarisDraftTable).insertOnConflictUpdate(
+      PolarisDraftTableCompanion(id: Value(id), data: Value(jsonData)),
+    );
+  }
+
+  Future<String?> getPolarisDraft(String id) async {
+    final query = select(polarisDraftTable)..where((t) => t.id.equals(id));
+    final result = await query.getSingleOrNull();
+    return result?.data;
+  }
+
+  Future<void> clearPolarisDraft(String id) async {
+    await (delete(polarisDraftTable)..where((t) => t.id.equals(id))).go();
   }
 }
 
