@@ -1,26 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../application/polaris/polaris_provider.dart';
-import '../../application/polaris/polaris_state.dart';
-import '../../models/data/polaris_models.dart';
-import '../widgets/steps/step_1_affordability.dart';
-import '../widgets/steps/step_2_personal_details.dart';
-import '../widgets/steps/step_3_document_upload.dart';
-import '../widgets/steps/step_4_contract_review.dart';
-import '../widgets/steps/step_5_consent_submission.dart';
-import '../widgets/steps/step_6_outcome.dart';
+import 'package:polaris_sdk/polaris_sdk.dart';
+import 'package:auto_route/auto_route.dart';
 
-class PolarisApplicationPage extends ConsumerStatefulWidget {
-  const PolarisApplicationPage({Key? key}) : super(key: key);
+@RoutePage()
+class AppPage extends ConsumerStatefulWidget {
+  const AppPage({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<PolarisApplicationPage> createState() =>
-      _PolarisApplicationPageState();
+  ConsumerState<AppPage> createState() =>
+      _AppPageState();
 }
 
-class _PolarisApplicationPageState
-    extends ConsumerState<PolarisApplicationPage> {
-  // Assuming a mocked "pending" status initially for the outcome step once submitted
+class _AppPageState
+    extends ConsumerState<AppPage> {
   LoanApplicationStatus _finalStatus = LoanApplicationStatus.pending;
 
   void _nextStep() {
@@ -53,7 +46,6 @@ class _PolarisApplicationPageState
       body: SafeArea(
         child: Column(
           children: [
-            // Progress Indicator
             if (currentStep < 5)
               LinearProgressIndicator(value: (currentStep + 1) / 6.0),
             Expanded(child: _buildStep(currentStep)),
@@ -64,6 +56,7 @@ class _PolarisApplicationPageState
   }
 
   Widget _buildStep(int stepIndex) {
+    // Note: Widgets are imported/used from package:polaris_sdk/polaris_sdk.dart
     switch (stepIndex) {
       case 0:
         return Step1Affordability(onNext: _nextStep, onCancel: _onCancel);
@@ -76,9 +69,8 @@ class _PolarisApplicationPageState
       case 4:
         return Step5ConsentSubmission(
           onNext: () {
-            // In a real app we'd fetch the status or it might be returned directly
             setState(() {
-              _finalStatus = LoanApplicationStatus.pending; // Mock outcome
+              _finalStatus = LoanApplicationStatus.pending;
             });
             _nextStep();
           },

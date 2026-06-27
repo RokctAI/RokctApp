@@ -11,11 +11,12 @@ import 'package:sqlite3/sqlite3.dart';
 import 'package:sqlite3_flutter_libs/sqlite3_flutter_libs.dart';
 import 'package:uuid/uuid.dart';
 import 'drift_tables.dart';
+// @generated-database-imports-start
+// @generated-database-imports-end
 part 'app_database.g.dart';
 
 @DriftDatabase(
   tables: [
-    TasksTable,
     ProductsTable,
     StocksTable,
     EventQueueTable,
@@ -30,14 +31,15 @@ part 'app_database.g.dart';
     UserTable,
     BannersTable,
     NotificationsTable,
-    PolarisDraftTable,
+    // @generated-database-tables-start
+    // @generated-database-tables-end
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 13;
+  int get schemaVersion => 12;
 
   @override
   MigrationStrategy get migration {
@@ -115,17 +117,8 @@ class AppDatabase extends _$AppDatabase {
         if (from < 10) {
           await m.addColumn(syncQueueTable, syncQueueTable.lastError);
         }
-        if (from < 11) {
-          await m.createTable(tasksTable);
-        }
-        if (from < 12) {
-          await m.addColumn(tasksTable, tasksTable.updatedAt);
-          await m.addColumn(tasksTable, tasksTable.createdBy);
-        }
-        if (from < 13) {
-          await m.createTable(polarisDraftTable);
-        }
-      },
+        // @generated-database-migrations-start
+        // @generated-database-migrations-end
       },
     );
   }
@@ -550,36 +543,6 @@ class AppDatabase extends _$AppDatabase {
       userTable,
     )..where((t) => t.role.equals('seller') | t.role.equals('manager'))).get();
     return manager.isNotEmpty;
-  }
-
-  // Polaris Draft Storage
-  Future<void> upsertPolarisDraft(String id, String jsonData) async {
-    await into(polarisDraftTable).insertOnConflictUpdate(
-      PolarisDraftTableCompanion.insert(
-        id: id,
-        data: jsonData,
-      ),
-    );
-  }
-
-  Future<String?> getPolarisDraft(String id) async {
-    final query = select(polarisDraftTable)..where((t) => t.id.equals(id));
-    final result = await query.getSingleOrNull();
-    return result?.data;
-  }
-
-  Future<void> clearPolarisDraft(String id) async {
-    await (delete(polarisDraftTable)..where((t) => t.id.equals(id))).go();
-  }
-
-  Future<String?> getPolarisDraft(String id) async {
-    final query = select(polarisDraftTable)..where((t) => t.id.equals(id));
-    final result = await query.getSingleOrNull();
-    return result?.data;
-  }
-
-  Future<void> clearPolarisDraft(String id) async {
-    await (delete(polarisDraftTable)..where((t) => t.id.equals(id))).go();
   }
 }
 

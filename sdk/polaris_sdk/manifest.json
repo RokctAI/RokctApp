@@ -1,0 +1,47 @@
+{
+  "name": "polaris_sdk",
+  "version": "1.0.0",
+  "installs": [
+    {
+      "from": "templates/pages/polaris",
+      "to": "lib/manager/presentation/pages/polaris"
+    }
+  ],
+  "database": {
+    "tables": [
+      {
+        "class": "PolarisDraftTable",
+        "import": "package:polaris_sdk/polaris_sdk.dart"
+      }
+    ],
+    "migration": {
+      "version": 13,
+      "step": "if (from < 13) { await m.createTable(polarisDraftTable); }"
+    }
+  },
+  "routes": [
+    {
+      "path": "/polaris-application",
+      "page": "AppRoute.page",
+      "type": "CupertinoRoute",
+      "import": "package:rokctapp/manager/presentation/pages/polaris/app_page.dart"
+    }
+  ],
+  "integrations": [
+    {
+      "target": "lib/customer/presentation/pages/profile/profile_page.dart",
+      "placeholder": "// @polaris-apply-card",
+      "replacement": "if (ref.watch(polarisSessionProvider).isEligibleToApply) const ApplyCard(onApply: ...)"
+    },
+    {
+      "target": "lib/manager/presentation/pages/restaurant/restaurant_page.dart",
+      "placeholder": "// @polaris-status-card",
+      "replacement": "const LoanStatusCard()"
+    },
+    {
+      "target": "lib/driver/presentation/pages/profile/profile_page.dart",
+      "placeholder": "// @polaris-apply-card",
+      "replacement": "if (ref.watch(polarisSessionProvider).isEligibleToApply) const ApplyCard(onApply: ...)"
+    }
+  ]
+}

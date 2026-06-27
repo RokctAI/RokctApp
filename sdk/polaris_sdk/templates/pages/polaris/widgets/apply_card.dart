@@ -1,20 +1,17 @@
-import '../../../polaris_sdk.dart';
+import 'package:polaris_sdk/polaris_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../core/polaris_sdk_core.dart';
-import '../../application/polaris/polaris_provider.dart';
-import '../../application/polaris/polaris_state.dart';
 
-class PolarisApplyCard extends ConsumerStatefulWidget {
+class ApplyCard extends ConsumerStatefulWidget {
   final VoidCallback onApply;
 
-  const PolarisApplyCard({Key? key, required this.onApply}) : super(key: key);
+  const ApplyCard({Key? key, required this.onApply}) : super(key: key);
 
   @override
-  ConsumerState<PolarisApplyCard> createState() => _PolarisApplyCardState();
+  ConsumerState<ApplyCard> createState() => _ApplyCardState();
 }
 
-class _PolarisApplyCardState extends ConsumerState<PolarisApplyCard>
+class _ApplyCardState extends ConsumerState<ApplyCard>
     with SingleTickerProviderStateMixin {
   bool _expanded = false;
 

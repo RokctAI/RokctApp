@@ -48,6 +48,8 @@ def resolve_sdk_path(sdk_name):
                         if root_uri:
                             if root_uri.startswith("file:///"):
                                 return root_uri.replace("file:///", "").replace("/", os.sep)
+                            elif root_uri.startswith(".."):
+                                return os.path.abspath(os.path.join(PROJECT_ROOT, ".dart_tool", root_uri))
                             return root_uri
         except Exception as e:
             print(f"  [!] Error reading package_config.json: {e}")
@@ -114,15 +116,59 @@ def install_sdk_files_and_routes(sdk_name):
             
         for file_src, file_dest, rel_dest in files_to_sync:
             upstream_hash = file_hash(file_src)
+            
+            # Check if file already exists in host and check for modifications
+            if os.path.exists(file_dest):
+                current_dest_hash = file_hash(file_dest)
+                last_known_hash = package_state.get("files", {}).get(rel_dest)
+                if last_known_hash and current_dest_hash != last_known_hash:
+                    # User modified the template file, skip and warn
+                    print(f"  [!] WARNING: {rel_dest} has been modified by a developer. Skipping overwrite to prevent data loss. Please merge changes manually.")
+                    continue
+
             os.makedirs(os.path.dirname(file_dest), exist_ok=True)
-            shutil.copy2(file_src, file_dest)
-            package_state["files"][rel_dest] = upstream_hash
+            
+            # Read contents, prepend banner, and write to dest
+            with open(file_src, "r", encoding="utf-8") as fs:
+                content = fs.read()
+
+            # Prepend developer warning banner for dart files above first import/export/part
+            if file_dest.endswith(".dart"):
+                banner = f"""// ==========================================
+// [GENERATED TEMPLATE FILE]
+// This file was installed from: {sdk_name}
+// Feel free to modify and customize this code.
+// Note: If you edit this file, the SDK installer will detect your changes
+// and automatically skip overwriting it during future upgrades.
+// ==========================================
+
+"""
+                lines = content.splitlines(keepends=True)
+                insert_idx = 0
+                for idx, line in enumerate(lines):
+                    trimmed = line.strip()
+                    if trimmed.startswith("import ") or trimmed.startswith("export ") or trimmed.startswith("part ") or trimmed.startswith("part '") or trimmed.startswith("part \""):
+                        insert_idx = idx
+                        break
+                lines.insert(insert_idx, banner)
+                content = "".join(lines)
+
+            with open(file_dest, "w", encoding="utf-8") as fd:
+                fd.write(content)
+
+            # Store the resulting file's hash in state
+            package_state["files"][rel_dest] = file_hash(file_dest)
             print(f"  [+] COPY: {rel_dest}")
             
     # Extract and store database definitions if present
     db_config = manifest.get("database")
     if db_config:
         package_state["database"] = db_config
+
+    # Extract and store layout integrations if present
+    integrations_config = manifest.get("integrations")
+    if integrations_config:
+        package_state["integrations"] = integrations_config
 
     state["packages"][sdk_name] = package_state
     save_state(state)
@@ -310,7 +356,49 @@ def update_database_registration():
         f.write(content)
     print(f"[*] Successfully updated app_database.dart. Set schemaVersion to {max_version}.")
 
+def update_layout_integrations():
+    state = load_state()
+    # Track layout file adjustments to rewrite them exactly once
+    file_changes = {}
+
+    for pkg_name, pkg_data in state.get("packages", {}).items():
+        integrations = pkg_data.get("integrations", [])
+        for integration in integrations:
+            target_rel = integration.get("target")
+            placeholder = integration.get("placeholder")
+            replacement = integration.get("replacement")
+            
+            if not target_rel or not placeholder or not replacement:
+                continue
+            
+            target_abs = os.path.join(PROJECT_ROOT, target_rel)
+            if not os.path.exists(target_abs):
+                continue
+                
+            # Read current file text (either original or accumulated in loop)
+            content = file_changes.get(target_abs)
+            if content is None:
+                with open(target_abs, "r", encoding="utf-8") as f:
+                    content = f.read()
+            
+            # Prevent double injection: Check if replacement is already in file
+            if replacement in content:
+                continue
+                
+            # Replace placeholder while preserving it for future updates
+            replacement_block = f"{placeholder}\n{replacement}"
+            content = content.replace(placeholder, replacement_block)
+            file_changes[target_abs] = content
+
+    # Write changes back
+    for path, content in file_changes.items():
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(content)
+        rel_path = os.path.relpath(path, PROJECT_ROOT).replace("\\", "/")
+        print(f"[*] Applied widget layout integration in: {rel_path}")
+
 if __name__ == "__main__":
     update_router_table()
     update_main_dependencies()
     update_database_registration()
+    update_layout_integrations()

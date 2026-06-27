@@ -7,6 +7,18 @@
       "to": "lib/manager/presentation/pages/tasks"
     }
   ],
+  "database": {
+    "tables": [
+      {
+        "class": "TasksTable",
+        "import": "package:productivity_sdk/productivity_sdk.dart"
+      }
+    ],
+    "migration": {
+      "version": 13,
+      "step": "if (from < 13) { await m.createTable(tasksTable); }"
+    }
+  },
   "routes": [
     {
       "path": "/tasks",

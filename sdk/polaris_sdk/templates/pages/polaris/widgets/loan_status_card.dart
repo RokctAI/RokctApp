@@ -1,12 +1,9 @@
-import '../../../polaris_sdk.dart';
+import 'package:polaris_sdk/polaris_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../core/polaris_sdk_core.dart';
-import '../../application/polaris/polaris_provider.dart';
-import '../../application/polaris/polaris_state.dart';
 
-class PolarisLoanStatusCard extends ConsumerWidget {
-  const PolarisLoanStatusCard({Key? key}) : super(key: key);
+class LoanStatusCard extends ConsumerWidget {
+  const LoanStatusCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

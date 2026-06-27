@@ -40,6 +40,8 @@ def run_installer(sdk_name):
                         if root_uri:
                             if root_uri.startswith("file:///"):
                                 sdk_path = root_uri.replace("file:///", "").replace("/", os.sep)
+                            elif root_uri.startswith(".."):
+                                sdk_path = os.path.abspath(os.path.join(PROJECT_ROOT, ".dart_tool", root_uri))
                             else:
                                 sdk_path = root_uri
                             break

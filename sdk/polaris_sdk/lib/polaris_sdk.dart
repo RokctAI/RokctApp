@@ -1,5 +1,6 @@
 library polaris_sdk;
 
+export 'src/infrastructure/database/polaris_draft_table.dart';
 export 'src/models/data/polaris_models.dart';
 export 'src/domain/bridges/polaris_wallet_bridge.dart';
 export 'src/application/polaris/polaris_provider.dart';
