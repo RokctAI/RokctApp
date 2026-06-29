@@ -1,5 +1,5 @@
 // Trace ID propagation context
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:intl/intl.dart';
 
 abstract class TimeService {

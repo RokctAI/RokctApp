@@ -35,7 +35,7 @@ class StatisticsOrderResponse {
     data: data ?? this.data,
   );
 
-  factory StatisticsOrderResponse.fromJson(Map<String, Dyn> json) =>
+  factory StatisticsOrderResponse.fromJson(Map<String, dynamic> json) =>
       StatisticsOrderResponse(
         timestamp: json["timestamp"] == null
             ? null
@@ -49,11 +49,11 @@ class StatisticsOrderResponse {
             : [],
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
-    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -98,7 +98,7 @@ class StatisticsOrder {
     products: products ?? this.products,
   );
 
-  factory StatisticsOrder.fromJson(Map<String, Dyn> json) => StatisticsOrder(
+  factory StatisticsOrder.fromJson(Map<String, dynamic> json) => StatisticsOrder(
     id: json["id"],
     status: json["status"],
     firstname: json["firstname"],
@@ -111,7 +111,7 @@ class StatisticsOrder {
         : List<String>.from(json["products"]!.map((x) => x)),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "status": status,
     "firstname": firstname,
@@ -119,8 +119,7 @@ class StatisticsOrder {
     "active": active,
     "quantity": quantity,
     "price": price,
-    "products": products == null ? [] : List<Dyn>.from(products!.map((x) => x)),
+    "products": products == null ? [] : List<dynamic>.from(products!.map((x) => x)),
   };
 }
 
-typedef Dyn = dynamic;

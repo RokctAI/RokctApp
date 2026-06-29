@@ -25,7 +25,7 @@ class ParcelCalculateResponse {
     data: data ?? this.data,
   );
 
-  factory ParcelCalculateResponse.fromJson(Map<String, Dyn> json) =>
+  factory ParcelCalculateResponse.fromJson(Map<String, dynamic> json) =>
       ParcelCalculateResponse(
         timestamp: json["timestamp"] == null
             ? null
@@ -35,7 +35,7 @@ class ParcelCalculateResponse {
         data: json["data"] == null ? null : Data.fromJson(json["data"]),
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
@@ -52,10 +52,9 @@ class Data {
   Data copyWith({num? price, num? km}) =>
       Data(price: price ?? this.price, km: km ?? this.km);
 
-  factory Data.fromJson(Map<String, Dyn> json) =>
+  factory Data.fromJson(Map<String, dynamic> json) =>
       Data(price: json["price"], km: json["km"]);
 
-  Map<String, Dyn> toJson() => {"price": price, "km": km};
+  Map<String, dynamic> toJson() => {"price": price, "km": km};
 }
 
-typedef Dyn = dynamic;

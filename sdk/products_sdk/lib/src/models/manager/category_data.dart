@@ -116,8 +116,8 @@ class CategoryData {
 
   List<CategoryData>? get children => _children;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['shopId'] = _shopId;
     map['uuid'] = _uuid;
@@ -140,4 +140,3 @@ class CategoryData {
   }
 }
 
-typedef Dyn = dynamic;

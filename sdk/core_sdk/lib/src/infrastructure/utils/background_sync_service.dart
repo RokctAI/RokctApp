@@ -31,7 +31,7 @@ class BackgroundSyncService {
   Future<void> enqueueRequest(
     String url,
     String method,
-    Map<String, Dyn> payload,
+    Map<String, dynamic> payload,
   ) async {
     final uuid = const Uuid().v4();
     final companion = SyncQueueTableCompanion.insert(
@@ -167,4 +167,3 @@ class SyncResult {
   const SyncResult({required this.success, this.remove = false, this.error});
 }
 
-typedef Dyn = dynamic;

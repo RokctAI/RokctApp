@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/driver/domain/interface/orders.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_paginate_response.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, OrderStatus;
 
 class OrdersRepository implements DriverOrdersRepository {
@@ -166,7 +166,7 @@ class OrdersRepository implements DriverOrdersRepository {
   }
 
   @override
-  Future<ApiResult<Dyn>> setCurrentOrder(int? orderId) async {
+  Future<ApiResult<dynamic>> setCurrentOrder(int? orderId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -202,7 +202,7 @@ class OrdersRepository implements DriverOrdersRepository {
   }
 
   @override
-  Future<ApiResult<Dyn>> updateOrder(int? orderId, String? status) async {
+  Future<ApiResult<dynamic>> updateOrder(int? orderId, String? status) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -220,7 +220,7 @@ class OrdersRepository implements DriverOrdersRepository {
   }
 
   @override
-  Future<ApiResult<Dyn>> uploadImage(int? orderId, String? image) async {
+  Future<ApiResult<dynamic>> uploadImage(int? orderId, String? image) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -296,4 +296,3 @@ class OrdersRepository implements DriverOrdersRepository {
   }
 }
 
-typedef Dyn = dynamic;

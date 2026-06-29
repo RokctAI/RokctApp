@@ -63,8 +63,8 @@ class AddressData {
 
   bool? get active => _active;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['title'] = _title;
     map['address'] = _address;
@@ -77,4 +77,3 @@ class AddressData {
   }
 }
 
-typedef Dyn = dynamic;

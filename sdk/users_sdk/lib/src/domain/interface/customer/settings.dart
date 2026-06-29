@@ -1,7 +1,7 @@
 import 'package:rokctapp/customer/models/data/help_data.dart';
 import 'package:rokctapp/customer/models/data/notification_list_data.dart';
 
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
 import 'package:rokctapp/customer/models/models.dart';
 
@@ -14,7 +14,7 @@ abstract class SettingsRepositoryFacade {
 
   Future<ApiResult<NotificationsListModel>> getNotificationList();
 
-  Future<ApiResult<Dyn>> updateNotification(
+  Future<ApiResult<dynamic>> updateNotification(
     List<NotificationData>? notifications,
   );
 
@@ -35,4 +35,3 @@ abstract class SettingsRepositoryFacade {
   Future<ApiResult<void>> reportClientError(String title, String error);
 }
 
-typedef Dyn = dynamic;

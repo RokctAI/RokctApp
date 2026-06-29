@@ -7,7 +7,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:drift/drift.dart';
 import 'package:uuid/uuid.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/infrastructure/utils/app_database.dart';
 import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
 
@@ -35,7 +35,7 @@ class BackgroundSyncService {
   Future<void> enqueueRequest(
     String url,
     String method,
-    Map<String, Dyn> payload,
+    Map<String, dynamic> payload,
   ) async {
     final uuid = const Uuid().v4();
     final companion = SyncQueueTableCompanion.insert(
@@ -173,4 +173,3 @@ class SyncResult {
   const SyncResult({required this.success, this.remove = false, this.error});
 }
 
-typedef Dyn = dynamic;

@@ -16,8 +16,8 @@ class CalculateResponse {
 
   NeedntData? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_data != null) {
       map['data'] = _data?.toJson();
     }
@@ -41,8 +41,8 @@ class NeedntData {
 
   CalculatedData? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_data != null) {
       map['data'] = _data?.toJson();
     }
@@ -140,8 +140,8 @@ class CalculatedData {
 
   num? get couponPrice => _couponPrice;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_stocks != null) {
       map['stocks'] = _stocks?.map((v) => v.toJson()).toList();
     }
@@ -157,4 +157,3 @@ class CalculatedData {
   }
 }
 
-typedef Dyn = dynamic;

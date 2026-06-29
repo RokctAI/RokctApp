@@ -38,8 +38,8 @@ class BlogsPaginateResponse {
 
   Meta? get meta => _meta;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }
@@ -135,8 +135,8 @@ class Meta {
 
   int? get total => _total;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['current_page'] = _currentPage;
     map['from'] = _from;
     map['last_page'] = _lastPage;
@@ -164,7 +164,7 @@ class Links {
     _active = json['active'];
   }
 
-  Dyn _url;
+  dynamic _url;
   String? _label;
   bool? _active;
 
@@ -174,14 +174,14 @@ class Links {
     active: active ?? _active,
   );
 
-  Dyn get url => _url;
+  dynamic get url => _url;
 
   String? get label => _label;
 
   bool? get active => _active;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['url'] = _url;
     map['label'] = _label;
     map['active'] = _active;
@@ -189,4 +189,3 @@ class Links {
   }
 }
 
-typedef Dyn = dynamic;

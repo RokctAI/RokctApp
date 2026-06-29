@@ -10,7 +10,7 @@ import 'package:rokctapp/driver/presentation/component/buttons/custom_button.dar
 import 'package:rokctapp/driver/presentation/component/maps_list.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/driver/presentation/pages/home/widgets/approve_dialog.dart';
 import 'package:rokctapp/driver/presentation/pages/home/widgets/rate_customer.dart';
 

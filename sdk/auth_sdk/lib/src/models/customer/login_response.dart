@@ -45,8 +45,8 @@ class LoginResponse {
 
   UserData? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;
@@ -90,8 +90,8 @@ class UserData {
 
   UserModel? get user => _user;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['access_token'] = _accessToken; // environment
     map['token_type'] = _tokenType; // environment
     if (_user != null) {
@@ -101,4 +101,3 @@ class UserData {
   }
 }
 
-typedef Dyn = dynamic;

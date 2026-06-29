@@ -243,7 +243,7 @@ class AuthRepository implements AuthRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<Dyn>> sigUp({required String email}) async {
+  Future<ApiResult<dynamic>> sigUp({required String email}) async {
     final data = SignUpRequest(email: email.replaceAll('+', ""));
     try {
       final client = _dio;
@@ -303,4 +303,3 @@ class AuthRepository implements AuthRepositoryFacade {
   }
 }
 
-typedef Dyn = dynamic;

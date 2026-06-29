@@ -45,8 +45,8 @@ class VerifyPhoneResponse {
 
   VerifyData? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;
@@ -78,8 +78,8 @@ class VerifyData {
 
   ProfileData? get user => _user;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['token'] = _token; // environment
     if (_user != null) {
       map['user'] = _user?.toJson();
@@ -88,4 +88,3 @@ class VerifyData {
   }
 }
 
-typedef Dyn = dynamic;

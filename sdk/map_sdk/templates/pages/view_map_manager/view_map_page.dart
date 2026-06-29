@@ -10,14 +10,14 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:rokctapp/manager/application/map/view_map_notifier.dart';
 import 'package:rokctapp/manager/application/map/view_map_provider.dart';
 import 'package:rokctapp/manager/application/map/view_map_state.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+import 'package:core_sdk/core_sdk.dart'
     hide
         AppConstants,
         TrKeys,
@@ -54,7 +54,7 @@ class _ViewMapPageState extends ConsumerState<ManagerViewMapPage> {
   final GeolocatorPlatform _geolocatorPlatform = GeolocatorPlatform.instance;
   GoogleMapController? googleMapController;
   CameraPosition? cameraPosition;
-  Dyn check;
+  dynamic check;
   late LatLng latLng;
 
   @override
@@ -445,4 +445,3 @@ class _ViewMapPageState extends ConsumerState<ManagerViewMapPage> {
   }
 }
 
-typedef Dyn = dynamic;

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/manager/domain/interface/table.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
 class TableRepository extends TableInterface {
   @override
-  Future<ApiResult<ShopSection>> createNewSection({
+  Future<ApiResult<MerchantSection>> createNewSection({
     required String name,
     required num area,
   }) async {
@@ -24,7 +24,7 @@ class TableRepository extends TableInterface {
         },
       );
       return ApiResult.success(
-        data: ShopSection.fromJson(response.data["data"]),
+        data: MerchantSection.fromJson(response.data["data"]),
       );
     } catch (e) {
       debugPrint('==> get createNewSection failure: $e');
@@ -36,7 +36,7 @@ class TableRepository extends TableInterface {
   }
 
   @override
-  Future<ApiResult<ShopSectionResponse>> getSection({
+  Future<ApiResult<MerchantSectionResponse>> getSection({
     int? page,
     String? query,
   }) async {
@@ -53,7 +53,7 @@ class TableRepository extends TableInterface {
         queryParameters: data,
       );
       return ApiResult.success(
-        data: ShopSectionResponse.fromJson(response.data),
+        data: MerchantSectionResponse.fromJson(response.data),
         // data: TableResponse.fromJson(mapData),
       );
     } catch (e) {
@@ -66,7 +66,7 @@ class TableRepository extends TableInterface {
   }
 
   @override
-  Future<ApiResult<Dyn>> createNewTable({
+  Future<ApiResult<dynamic>> createNewTable({
     required TableModel tableModel,
   }) async {
     try {
@@ -247,7 +247,7 @@ class TableRepository extends TableInterface {
   }
 
   @override
-  Future<ApiResult<Dyn>> setBookings({
+  Future<ApiResult<dynamic>> setBookings({
     int? bookingId,
     int? tableId,
     DateTime? startDate,
@@ -384,4 +384,3 @@ class TableRepository extends TableInterface {
   }
 }
 
-typedef Dyn = dynamic;

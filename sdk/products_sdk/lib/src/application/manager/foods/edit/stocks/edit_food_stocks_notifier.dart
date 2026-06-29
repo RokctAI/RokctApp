@@ -1,10 +1,10 @@
-import 'package:rokctapp/manager/domain/interface/interfaces.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 import 'package:products_sdk/src/application/manager/foods/edit/stocks/edit_food_stocks_state.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {

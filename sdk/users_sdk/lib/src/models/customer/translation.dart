@@ -59,8 +59,8 @@ class Translation {
 
   String? get address => _address;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['locale'] = _locale;
     map['title'] = _title;
@@ -71,4 +71,3 @@ class Translation {
   }
 }
 
-typedef Dyn = dynamic;

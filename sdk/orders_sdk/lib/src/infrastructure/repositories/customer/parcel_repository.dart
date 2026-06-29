@@ -1,13 +1,13 @@
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:intl/intl.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/domain/interface/parcel.dart';
 import 'package:rokctapp/customer/models/models.dart';
 import 'package:rokctapp/customer/models/response/parcel_paginate_response.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:payfast/payfast.dart';
 
 class ParcelRepository implements ParcelRepositoryFacade {

@@ -26,7 +26,7 @@ class CheckPhoneResponse {
     data: data ?? this.data,
   );
 
-  factory CheckPhoneResponse.fromJson(Map<String, Dyn> json) =>
+  factory CheckPhoneResponse.fromJson(Map<String, dynamic> json) =>
       CheckPhoneResponse(
         timestamp: json["timestamp"] == null
             ? null
@@ -38,7 +38,7 @@ class CheckPhoneResponse {
             : CheckPhoneData.fromJson(json["data"]),
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
@@ -54,10 +54,9 @@ class CheckPhoneData {
   CheckPhoneData copyWith({bool? exist}) =>
       CheckPhoneData(exist: exist ?? this.exist);
 
-  factory CheckPhoneData.fromJson(Map<String, Dyn> json) =>
+  factory CheckPhoneData.fromJson(Map<String, dynamic> json) =>
       CheckPhoneData(exist: json["exist"]);
 
-  Map<String, Dyn> toJson() => {"exist": exist};
+  Map<String, dynamic> toJson() => {"exist": exist};
 }
 
-typedef Dyn = dynamic;

@@ -67,8 +67,8 @@ class BrandData {
 
   String? get updatedAt => _updatedAt;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['title'] = _title;
     map['active'] = _active;
@@ -80,4 +80,3 @@ class BrandData {
   }
 }
 
-typedef Dyn = dynamic;

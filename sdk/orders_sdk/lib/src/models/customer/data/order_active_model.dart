@@ -75,11 +75,11 @@ class OrderActiveModel {
   List<OrderProduct>? details;
   List<RefundModel>? refunds;
   TransactionData? transaction;
-  Dyn review;
-  List<Dyn>? ponumHistories;
+  dynamic review;
+  List<dynamic>? ponumHistories;
   OrderStatusesData? orderStatusesData;
 
-  factory OrderActiveModel.fromJson(Map<String, Dyn> json) => OrderActiveModel(
+  factory OrderActiveModel.fromJson(Map<String, dynamic> json) => OrderActiveModel(
     id: json["data"]["id"],
     userId: json["data"]["user_id"],
     afterDeliveredImage: json["data"]["image_after_delivered"],
@@ -142,7 +142,7 @@ class OrderActiveModel {
     review: json["data"]["review"],
   );
 
-  factory OrderActiveModel.fromJsonWithoutData(Map<String, Dyn> json) {
+  factory OrderActiveModel.fromJsonWithoutData(Map<String, dynamic> json) {
     return OrderActiveModel(
       id: json["id"] ?? 0,
       userId: json["user_id"],
@@ -233,8 +233,8 @@ class OrderActiveModel {
     List<OrderProduct>? details,
     List<RefundModel>? refunds,
     TransactionData? transaction,
-    Dyn review,
-    List<Dyn>? ponumHistories,
+    dynamic review,
+    List<dynamic>? ponumHistories,
     OrderStatusesData? orderStatusesData,
   }) => OrderActiveModel(
     id: id ?? this.id,
@@ -274,8 +274,8 @@ class OrderActiveModel {
     orderStatusesData: orderStatusesData ?? this.orderStatusesData,
   );
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = id;
     map['user_id'] = userId;
     map['image_after_delivered'] = afterDeliveredImage;
@@ -370,7 +370,7 @@ class OrderProduct {
   Stocks? stock;
   List<Addons>? addons;
 
-  factory OrderProduct.fromJson(Map<String, Dyn> json) {
+  factory OrderProduct.fromJson(Map<String, dynamic> json) {
     return OrderProduct(
       id: json["id"] ?? 0,
       orderId: json["order_id"],
@@ -403,7 +403,7 @@ class OrderProduct {
     );
   }
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "order_id": orderId,
     "stock_id": stockId,
@@ -429,15 +429,15 @@ class CurrencyModel {
 
   CurrencyModel({this.id, this.symbol, this.title, this.active});
 
-  CurrencyModel.fromJson(Map<String, Dyn> json) {
+  CurrencyModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     symbol = json['symbol'];
     title = json['title'];
     active = json['active'];
   }
 
-  Map<String, Dyn> toJson() {
-    final Map<String, Dyn> data = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['symbol'] = symbol;
     data['title'] = title;
@@ -464,8 +464,8 @@ class OrderStatusesData {
 
   OrderStatusesEditDate? get statuses => _statuses;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_statuses != null) {
       map['statuses'] = _statuses?.toJson();
     }
@@ -534,8 +534,8 @@ class OrderStatusesEditDate {
 
   String? get delivered => _delivered;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['new'] = _new;
     map['accepted'] = _accepted;
     map['cooking'] = _cooking;
@@ -545,4 +545,3 @@ class OrderStatusesEditDate {
   }
 }
 
-typedef Dyn = dynamic;

@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:products_sdk/src/application/manager/foods/edit/stocks/addons/edit_food_addons_state.dart';
 import 'package:products_sdk/src/application/manager/foods/edit/stocks/addons/edit_food_addons_notifier.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 final editFoodAddonsProvider =
     StateNotifierProvider<EditFoodAddonsNotifier, EditFoodAddonsState>(

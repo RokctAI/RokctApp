@@ -10,8 +10,8 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/details/widgets/food_price_widget.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/details/widgets/w_ingredient.dart';
 
 class FoodDetailsModal extends ConsumerStatefulWidget {

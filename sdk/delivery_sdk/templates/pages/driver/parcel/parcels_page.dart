@@ -8,7 +8,7 @@ import 'package:rokctapp/driver/application/parcel/parcel_notifier.dart';
 import 'package:rokctapp/driver/application/parcel/parcel_provider.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
 
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/parcel/parcel_item.dart';

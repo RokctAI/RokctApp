@@ -102,8 +102,8 @@ class _ChatPageState extends ConsumerState<ChatPage> {
                           final List<ChatMessageData> messages = docs.map((
                             doc,
                           ) {
-                            final Map<String, Dyn> data =
-                                doc.data() as Map<String, Dyn>;
+                            final Map<String, dynamic> data =
+                                doc.data() as Map<String, dynamic>;
 
                             if (data['unread'] && data['sender'] == 0) {
                               _fireStore
@@ -216,4 +216,3 @@ class _ChatPageState extends ConsumerState<ChatPage> {
 // String@sdf.dsf
 // 04/44
 
-typedef Dyn = dynamic;

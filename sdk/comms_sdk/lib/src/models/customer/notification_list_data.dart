@@ -11,7 +11,7 @@ class NotificationsListModel {
 
   List<NotificationData>? data;
 
-  factory NotificationsListModel.fromJson(Map<String, Dyn> json) =>
+  factory NotificationsListModel.fromJson(Map<String, dynamic> json) =>
       NotificationsListModel(
         data: json["data"] == null
             ? []
@@ -20,8 +20,8 @@ class NotificationsListModel {
               ),
       );
 
-  Map<String, Dyn> toJson() => {
-    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
+  Map<String, dynamic> toJson() => {
+    "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -42,7 +42,7 @@ class NotificationData {
   DateTime? updatedAt;
   List<String?>? payload;
 
-  factory NotificationData.fromJson(Map<String, Dyn> json) => NotificationData(
+  factory NotificationData.fromJson(Map<String, dynamic> json) => NotificationData(
     id: json["id"],
     type: json["type"],
     createdAt: DateTime.tryParse(json["created_at"])?.toLocal(),
@@ -55,7 +55,7 @@ class NotificationData {
         : List<String?>.from(json["payload"]!.map((x) => x)),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "type": type,
     "created_at": createdAt?.toIso8601String(),
@@ -64,8 +64,7 @@ class NotificationData {
         ? []
         : payload == null
         ? []
-        : List<Dyn>.from(payload!.map((x) => x)),
+        : List<dynamic>.from(payload!.map((x) => x)),
   };
 }
 
-typedef Dyn = dynamic;

@@ -51,8 +51,8 @@ class SettingsData {
 
   String? get updatedAt => _updatedAt;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['key'] = _key; // environment
     map['value'] = _value;
@@ -62,4 +62,3 @@ class SettingsData {
   }
 }
 
-typedef Dyn = dynamic;

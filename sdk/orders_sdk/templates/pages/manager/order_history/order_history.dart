@@ -8,10 +8,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/manager/presentation/pages/order_history/canceled_orders_body.dart';
 import 'package:rokctapp/manager/presentation/pages/order_history/delivered_order_body.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, SnackBarType;
 
 @RoutePage(name: 'ManagerOrderHistoryRoute')

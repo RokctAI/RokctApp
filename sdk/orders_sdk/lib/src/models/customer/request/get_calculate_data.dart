@@ -24,12 +24,12 @@ class GetCalculateModel {
   num? totalShopTax;
   num? totalPrice;
   num? totalDiscount;
-  Dyn bonusShop;
+  dynamic bonusShop;
   num? deliveryFee;
   num? serviceFee;
   num? couponPrice;
 
-  factory GetCalculateModel.fromJson(Map<String, Dyn> json) =>
+  factory GetCalculateModel.fromJson(Map<String, dynamic> json) =>
       GetCalculateModel(
         totalTax: json["total_tax"],
         price: json["price"],
@@ -42,7 +42,7 @@ class GetCalculateModel {
         couponPrice: json["coupon_price"],
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "total_tax": totalTax,
     "price": price,
     "total_shop_tax": totalShopTax,
@@ -55,4 +55,3 @@ class GetCalculateModel {
   };
 }
 
-typedef Dyn = dynamic;

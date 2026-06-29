@@ -1,6 +1,6 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 abstract class UsersInterface {
   Future<ApiResult<ProfileResponse>> createUser({
@@ -31,7 +31,7 @@ abstract class UsersInterface {
     String? uuid,
   });
 
-  Future<ApiResult<SingleShopResponse>> updateShop({
+  Future<ApiResult<SingleMerchantResponse>> updateShop({
     String? tax,
     num? percentage,
     String? phone,
@@ -53,9 +53,9 @@ abstract class UsersInterface {
     int? page,
   });
 
-  Future<ApiResult<SingleShopResponse>> getMyShop();
+  Future<ApiResult<SingleMerchantResponse>> getMyShop();
 
-  Future<ApiResult<Dyn>> setOnlineOffline();
+  Future<ApiResult<dynamic>> setOnlineOffline();
 
   Future<ApiResult<ProfileResponse>> getProfileDetails();
 
@@ -73,7 +73,6 @@ abstract class UsersInterface {
 
   Future<ApiResult<void>> updateFirebaseToken(String? token);
 
-  Future<ApiResult<Dyn>> deleteAccount();
+  Future<ApiResult<dynamic>> deleteAccount();
 }
 
-typedef Dyn = dynamic;

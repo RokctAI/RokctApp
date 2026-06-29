@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:orders_sdk/src/application/manager/order_cart/order_cart_state.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class OrderCartNotifier extends StateNotifier<OrderCartState> {
   OrderCartNotifier() : super(const OrderCartState());
@@ -96,3 +96,4 @@ class OrderCartNotifier extends StateNotifier<OrderCartState> {
     }
   }
 }
+

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/models/models.dart';
 
 abstract class AppStyle {

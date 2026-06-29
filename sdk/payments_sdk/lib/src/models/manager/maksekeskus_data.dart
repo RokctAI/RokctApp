@@ -67,7 +67,7 @@ class MaksekeskusData {
     deliveryPointId: deliveryPointId ?? this.deliveryPointId,
   );
 
-  factory MaksekeskusData.fromJson(Map<String, Dyn> json) => MaksekeskusData(
+  factory MaksekeskusData.fromJson(Map<String, dynamic> json) => MaksekeskusData(
     methods: json["methods"] == null
         ? []
         : List<Method>.from(json["methods"]!.map((x) => Method.fromJson(x))),
@@ -87,10 +87,10 @@ class MaksekeskusData {
     deliveryPointId: json["delivery_point_id"],
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "methods": methods == null
         ? []
-        : List<Dyn>.from(methods!.map((x) => x.toJson())),
+        : List<dynamic>.from(methods!.map((x) => x.toJson())),
     "payment_id": paymentId,
     "model_type": modelType,
     "model_id": modelId,
@@ -149,7 +149,7 @@ class Method {
     url: url ?? this.url,
   );
 
-  factory Method.fromJson(Map<String, Dyn> json) => Method(
+  factory Method.fromJson(Map<String, dynamic> json) => Method(
     channel: json["channel"],
     countries: json["countries"] == null
         ? []
@@ -162,11 +162,11 @@ class Method {
     url: json["url"],
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "channel": channel,
     "countries": countries == null
         ? []
-        : List<Dyn>.from(countries!.map((x) => x)),
+        : List<dynamic>.from(countries!.map((x) => x)),
     "country": country,
     "display_name": displayName,
     "logo_url": logoUrl,
@@ -176,4 +176,3 @@ class Method {
   };
 }
 
-typedef Dyn = dynamic;

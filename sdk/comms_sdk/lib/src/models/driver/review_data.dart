@@ -90,8 +90,8 @@ class ReviewData {
 
   UserData? get user => _user;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['reviewable_id'] = _reviewableId;
     map['rating'] = _rating;
@@ -170,8 +170,8 @@ class Galleries {
 
   String? get basePath => _basePath;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['title'] = _title;
     map['type'] = _type;
@@ -182,4 +182,3 @@ class Galleries {
   }
 }
 
-typedef Dyn = dynamic;

@@ -8,7 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/driver/presentation/pages/profile/widgets/edit_profile_modal.dart';
 import 'package:rokctapp/driver/application/providers.dart';
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
@@ -17,7 +17,7 @@ import 'package:rokctapp/core/infrastructure/models/data/language.dart'
     as core_lang;
 import 'package:rokctapp/driver/presentation/pages/profile/widgets/logout_modal.dart';
 import 'package:rokctapp/driver/presentation/pages/profile/widgets/sections_item.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, OrderStatus;
 
 @RoutePage(name: 'DriverProfileRoute')

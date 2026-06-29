@@ -158,8 +158,8 @@ class ProfileData {
 
   Wallet? get wallet => _wallet;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['firstname'] = _firstname;
@@ -258,8 +258,8 @@ class Wallet {
 
   CurrencyData? get currency => _currency;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['uuid'] = _uuid;
     map['user_id'] = _userId;
     map['currency_id'] = _currencyId;
@@ -273,4 +273,3 @@ class Wallet {
   }
 }
 
-typedef Dyn = dynamic;

@@ -84,8 +84,8 @@ class ReviewData {
 
   UserData? get user => _user;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['reviewable_id'] = _reviewableId;
     map['rating'] = _rating;
@@ -102,4 +102,3 @@ class ReviewData {
   }
 }
 
-typedef Dyn = dynamic;

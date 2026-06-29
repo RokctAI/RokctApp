@@ -5,7 +5,7 @@ import 'package:products_sdk/src/application/customer/product/product_notifier.d
 import 'package:products_sdk/src/application/customer/product/product_state.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_notifier.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_state.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';

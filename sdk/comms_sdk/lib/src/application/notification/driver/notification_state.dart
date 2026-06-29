@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/driver/infrastructure/models/models.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 
 part 'notification_state.freezed.dart';
 

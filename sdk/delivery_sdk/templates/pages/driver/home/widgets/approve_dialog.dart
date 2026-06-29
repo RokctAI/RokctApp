@@ -6,10 +6,10 @@ import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 
 import 'package:rokctapp/driver/application/providers.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+import 'package:core_sdk/core_sdk.dart'
     hide
         AppConstants,
         TrKeys,

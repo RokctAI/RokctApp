@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 part 'edit_food_stocks_state.freezed.dart';
 

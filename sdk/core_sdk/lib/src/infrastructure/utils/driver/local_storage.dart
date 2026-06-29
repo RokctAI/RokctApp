@@ -2,7 +2,7 @@
 import 'dart:convert';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/driver/app_constants.dart';
-import 'package:rokctapp/driver/infrastructure/models/models.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/driver/infrastructure/services/storage_keys.dart';
 import 'package:rokctapp/core/local_storage.dart';
 
@@ -39,10 +39,10 @@ class LocalStorage {
   static List<SettingsData> getSettingsList() =>
       CoreLocalStorage.getSettingsList();
 
-  static Future<void> setTranslations(Map<String, Dyn>? translations) async =>
+  static Future<void> setTranslations(Map<String, dynamic>? translations) async =>
       CoreLocalStorage.setTranslations(translations);
 
-  static Map<String, Dyn> getTranslations() =>
+  static Map<String, dynamic> getTranslations() =>
       CoreLocalStorage.getTranslations();
 
   static Future<void> setAppThemeMode(bool isDarkMode) async {
@@ -213,4 +213,3 @@ class LocalStorage {
   }
 }
 
-typedef Dyn = dynamic;

@@ -1,7 +1,7 @@
 import 'package:flutter_remix/flutter_remix.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 abstract class AppConstants {
   static const bool autoTrn = bool.fromEnvironment('AUTO_TRN');

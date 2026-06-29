@@ -1,10 +1,10 @@
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 
 abstract class DriverParcelRepository {
   Future<ApiResult<ParcelOrder>> showParcel(int id);
 
-  Future<ApiResult<Dyn>> setCurrentOrder(int? orderId);
+  Future<ApiResult<dynamic>> setCurrentOrder(int? orderId);
 
   Future<ApiResult<List<ParcelOrder>>> getActiveOrders(int page);
 
@@ -16,7 +16,7 @@ abstract class DriverParcelRepository {
     DateTime? end,
   });
 
-  Future<ApiResult<Dyn>> updateParcel(int? parcelId, String? status);
+  Future<ApiResult<dynamic>> updateParcel(int? parcelId, String? status);
 
   Future<ApiResult<void>> addReviewParcel(
     num orderId, {
@@ -27,4 +27,3 @@ abstract class DriverParcelRepository {
   Future<ApiResult<ParcelOrder>> setParcel(String orderId);
 }
 
-typedef Dyn = dynamic;

@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
-import 'package:rokctapp/driver/domain/interface/interfaces.dart';
-import 'package:rokctapp/driver/infrastructure/models/models.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 
 class UserRepositoryImpl implements DriverUserRepository {
   @override
@@ -421,7 +421,7 @@ class UserRepositoryImpl implements DriverUserRepository {
   Future<ApiResult<void>> updateDeliveryZones({
     required List<LatLng> points,
   }) async {
-    List<Map<String, Dyn>> tapped = [];
+    List<Map<String, dynamic>> tapped = [];
     for (final point in points) {
       final location = {'0': point.latitude, '1': point.longitude};
       tapped.add(location);
@@ -470,4 +470,3 @@ class UserRepositoryImpl implements DriverUserRepository {
   }
 }
 
-typedef Dyn = dynamic;

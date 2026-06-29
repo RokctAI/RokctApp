@@ -1,5 +1,5 @@
 import 'package:rokctapp/customer/models/response/categories_paginate_response.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 abstract class CategoriesRepositoryFacade {
   Future<ApiResult<CategoriesPaginateResponse>> getAllCategories({

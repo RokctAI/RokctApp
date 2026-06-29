@@ -191,8 +191,8 @@ class UserData {
 
   String? get conPassword => _confirmPassword;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['firstname'] = _firstname;
@@ -203,8 +203,8 @@ class UserData {
     map['gender'] = _gender;
     map['delivery_man_delivery_zone'] = _deliveryZone == null
         ? []
-        : List<Dyn>.from(
-            _deliveryZone!.map((x) => List<Dyn>.from(x.map((x) => x))),
+        : List<dynamic>.from(
+            _deliveryZone!.map((x) => List<dynamic>.from(x.map((x) => x))),
           );
     map["assign_reviews_avg_rating"] = _rate;
     map['email_verified_at'] = _emailVerifiedAt;
@@ -305,8 +305,8 @@ class Wallet {
 
   CurrencyData? get currency => _currency;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['uuid'] = _uuid;
     map['user_id'] = _userId;
     map['currency_id'] = _currencyId;
@@ -321,4 +321,3 @@ class Wallet {
   }
 }
 
-typedef Dyn = dynamic;

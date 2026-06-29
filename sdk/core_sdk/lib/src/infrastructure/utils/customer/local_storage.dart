@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:rokctapp/core/infrastructure/models/data/language.dart';
 import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
 import 'package:rokctapp/core/infrastructure/constants/storage_keys.dart';
 import 'package:rokctapp/core/local_storage.dart';
@@ -211,10 +211,10 @@ abstract class LocalStorage {
 
   static void deleteSettingsList() => CoreLocalStorage.deleteSettingsList();
 
-  static Future<void> setTranslations(Map<String, Dyn>? translations) async =>
+  static Future<void> setTranslations(Map<String, dynamic>? translations) async =>
       CoreLocalStorage.setTranslations(translations);
 
-  static Map<String, Dyn> getTranslations() =>
+  static Map<String, dynamic> getTranslations() =>
       CoreLocalStorage.getTranslations();
 
   static void deleteTranslations() => CoreLocalStorage.deleteTranslations();
@@ -256,14 +256,14 @@ abstract class LocalStorage {
   static void deleteLangLtr() => CoreLocalStorage.deleteLangLtr();
 
   // Offline capabilities
-  static Future<void> setOfflineUser(Map<String, Dyn>? data) async {
+  static Future<void> setOfflineUser(Map<String, dynamic>? data) async {
     await CoreLocalStorage.preferences?.setString(
       StorageKeys.keyOfflineUser,
       jsonEncode(data),
     );
   }
 
-  static Map<String, Dyn>? getOfflineUser() {
+  static Map<String, dynamic>? getOfflineUser() {
     final data = CoreLocalStorage.preferences?.getString(
       StorageKeys.keyOfflineUser,
     );
@@ -273,14 +273,14 @@ abstract class LocalStorage {
   static void deleteOfflineUser() =>
       CoreLocalStorage.preferences?.remove(StorageKeys.keyOfflineUser);
 
-  static Future<void> setOfflineQueue(List<Dyn> items) async {
+  static Future<void> setOfflineQueue(List<dynamic> items) async {
     await CoreLocalStorage.preferences?.setStringList(
       StorageKeys.keyOfflineQueue,
       items.map((item) => jsonEncode(item)).toList(),
     );
   }
 
-  static List<Dyn> getOfflineQueue() {
+  static List<dynamic> getOfflineQueue() {
     final List<String> strings =
         CoreLocalStorage.preferences?.getStringList(
           StorageKeys.keyOfflineQueue,
@@ -338,4 +338,3 @@ abstract class LocalStorage {
   static void deleteVisitorUuid() => CoreLocalStorage.deleteVisitorUuid();
 }
 
-typedef Dyn = dynamic;

@@ -1,11 +1,11 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
-import 'package:rokctapp/manager/domain/interface/interfaces.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
 class OrdersRepository implements OrdersInterface {
@@ -65,9 +65,9 @@ class OrdersRepository implements OrdersInterface {
     String? floor,
     String? house,
   }) async {
-    List<Map<String, Dyn>> products = [];
+    List<Map<String, dynamic>> products = [];
     for (final stock in stocks) {
-      List<Map<String, Dyn>> addons = [];
+      List<Map<String, dynamic>> addons = [];
       for (AddonData addon
           in stock.addons?.where((e) => e.active ?? false) ?? []) {
         addons.add({
@@ -336,4 +336,4 @@ class OrdersRepository implements OrdersInterface {
   }
 }
 
-typedef Dyn = dynamic;
+

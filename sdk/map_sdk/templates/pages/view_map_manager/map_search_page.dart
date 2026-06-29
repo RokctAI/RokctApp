@@ -1,6 +1,6 @@
 import 'package:core_sdk/src/infrastructure/services/places/places_service.dart';
 
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/manager/presentation/component/text_fields/search_text_field.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 

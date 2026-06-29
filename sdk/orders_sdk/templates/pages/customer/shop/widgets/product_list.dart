@@ -7,7 +7,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rokctapp/customer/models/models.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:merchants_sdk/src/application/customer/shop/shop_provider.dart';
 import 'package:merchants_sdk/src/application/customer/shop/shop_state.dart';

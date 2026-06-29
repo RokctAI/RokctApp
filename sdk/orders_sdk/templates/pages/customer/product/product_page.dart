@@ -11,7 +11,7 @@ import 'package:orders_sdk/src/application/customer/shop_order/shop_order_notifi
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/customer/models/data/product_data.dart';
 import 'package:rokctapp/customer/models/data/review_data.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/customer/presentation/pages/product/widgets/w_ingredient.dart';
 import 'package:rokctapp/core/presentation/theme/color_set.dart';

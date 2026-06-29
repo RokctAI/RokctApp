@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/driver/application/statistics/statistics_provider.dart';
 import 'package:rokctapp/driver/application/statistics/statistics_state.dart';
 
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/income/app_bar_screen.dart';

@@ -1,13 +1,13 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 import 'package:orders_sdk/src/application/manager/order/shipping/section/section_state.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class SectionNotifier extends StateNotifier<SectionState> {
   String _query = '';
@@ -40,7 +40,7 @@ class SectionNotifier extends StateNotifier<SectionState> {
     );
     response.when(
       success: (data) {
-        final List<ShopSection> sections = data.data ?? [];
+        final List<MerchantSection> sections = data.data ?? [];
         state = state.copyWith(sections: sections, isLoading: false);
         _hasMore = sections.length >= 14;
       },
@@ -73,7 +73,7 @@ class SectionNotifier extends StateNotifier<SectionState> {
     );
     response.when(
       success: (data) {
-        List<ShopSection> sections = List.from(state.sections);
+        List<MerchantSection> sections = List.from(state.sections);
         sections.addAll(data.data ?? []);
         _hasMore = (data.data?.length ?? 0) >= 14;
         state = state.copyWith(sections: sections);
@@ -95,7 +95,7 @@ class SectionNotifier extends StateNotifier<SectionState> {
     );
     response.when(
       success: (data) {
-        final List<ShopSection> sections = data.data ?? [];
+        final List<MerchantSection> sections = data.data ?? [];
         state = state.copyWith(sections: sections);
         _hasMore = sections.length >= 14;
         refreshController?.refreshCompleted();
@@ -128,8 +128,8 @@ class SectionNotifier extends StateNotifier<SectionState> {
     );
     response.when(
       success: (data) {
-        final List<ShopSection> sections = data.data ?? [];
-        ShopSection? selectSection;
+        final List<MerchantSection> sections = data.data ?? [];
+        MerchantSection? selectSection;
         if (sections.isNotEmpty) {
           selectSection = sections[0];
         }
@@ -151,3 +151,4 @@ class SectionNotifier extends StateNotifier<SectionState> {
     );
   }
 }
+

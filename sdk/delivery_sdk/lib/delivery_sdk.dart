@@ -23,6 +23,6 @@ export 'src/models/customer/parcel_calculate_response.dart';
 export 'src/models/customer/parcel_order.dart';
 export 'src/models/customer/parcel_paginate_response.dart';
 export 'src/models/customer/parcel_response.dart';
-export 'src/models/customer/shop_delivery.dart';
+export 'src/models/customer/merchant_delivery.dart';
 export 'src/models/driver/request_model_data.dart';
 export 'src/models/driver/request_model_response.dart';

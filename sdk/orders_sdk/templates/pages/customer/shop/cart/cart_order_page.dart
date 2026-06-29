@@ -12,7 +12,7 @@ import 'package:rokctapp/customer/application/shop/shop_provider.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_notifier.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_state.dart';
 import 'package:rokctapp/customer/models/data/cart_data.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/presentation/pages/shop/group_order/widgets/check_status_dialog.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';

@@ -1,10 +1,10 @@
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
-import 'package:rokctapp/core/domain/interface/draw.dart';
-import 'package:rokctapp/core/infrastructure/models/response/draw_routing_response.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:zones_sdk/src/domain/interface/customer/draw.dart';
+import 'package:zones_sdk/src/models/customer/draw_routing_response.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class DrawRepository implements DrawRepositoryFacade {
   @override

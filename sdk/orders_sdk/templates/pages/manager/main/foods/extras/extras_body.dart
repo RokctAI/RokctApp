@@ -8,7 +8,7 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/extras/details/extras_group_details_modal.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class ExtrasBody extends StatelessWidget {
   final RefreshController refreshController;

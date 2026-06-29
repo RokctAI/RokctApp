@@ -1,7 +1,7 @@
 import 'package:rokctapp/customer/models/models.dart';
 import 'package:rokctapp/core/infrastructure/models/response/multi_gallery_upload_response.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 abstract class GalleryRepositoryFacade {
   Future<ApiResult<GalleryUploadResponse>> uploadImage(

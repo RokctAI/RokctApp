@@ -18,7 +18,7 @@ class DeliveryZonePaginate {
     data: data ?? this.data,
   );
 
-  factory DeliveryZonePaginate.fromJson(Map<String, Dyn> json) =>
+  factory DeliveryZonePaginate.fromJson(Map<String, dynamic> json) =>
       DeliveryZonePaginate(
         timestamp: json["timestamp"] == null
             ? null
@@ -34,14 +34,13 @@ class DeliveryZonePaginate {
               ),
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
     "data": data == null
         ? []
-        : List<Dyn>.from(data!.map((x) => List<Dyn>.from(x.map((x) => x)))),
+        : List<dynamic>.from(data!.map((x) => List<dynamic>.from(x.map((x) => x)))),
   };
 }
 
-typedef Dyn = dynamic;

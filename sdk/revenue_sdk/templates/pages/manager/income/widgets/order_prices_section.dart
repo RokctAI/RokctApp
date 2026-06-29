@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 // @income-more-orders-import
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class OrderPricesSection extends StatelessWidget {
   final DateTime? endTime;

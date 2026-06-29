@@ -8,8 +8,8 @@ import 'package:rokctapp/manager/presentation/pages/main/foods/addons/edit/edit_
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class EditAddonModal extends StatefulWidget {
   final ProductData addon;

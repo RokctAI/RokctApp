@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/driver/domain/interface/notification.dart';
-import 'package:rokctapp/driver/infrastructure/models/models.dart';
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 
 class NotificationRepositoryImpl extends DriverNotificationRepository {
   @override
@@ -53,7 +53,7 @@ class NotificationRepositoryImpl extends DriverNotificationRepository {
   }
 
   @override
-  Future<ApiResult<Dyn>> readOne({int? id}) async {
+  Future<ApiResult<dynamic>> readOne({int? id}) async {
     final data = {
       if (id != null) '$id': id,
       'lang': LocalStorage.getLanguage()?.locale,
@@ -115,4 +115,3 @@ class NotificationRepositoryImpl extends DriverNotificationRepository {
   }
 }
 
-typedef Dyn = dynamic;

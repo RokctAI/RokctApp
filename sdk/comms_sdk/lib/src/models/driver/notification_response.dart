@@ -9,7 +9,7 @@ class NotificationResponse {
   NotificationResponse copyWith({List<NotificationModel>? data}) =>
       NotificationResponse(data: data ?? this.data);
 
-  factory NotificationResponse.fromJson(Map<String, Dyn> json) =>
+  factory NotificationResponse.fromJson(Map<String, dynamic> json) =>
       NotificationResponse(
         data: json["data"] == null
             ? []
@@ -18,8 +18,8 @@ class NotificationResponse {
               ),
       );
 
-  Map<String, Dyn> toJson() => {
-    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
+  Map<String, dynamic> toJson() => {
+    "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
   };
 }
 
@@ -81,7 +81,7 @@ class NotificationModel {
   );
 
   factory NotificationModel.fromJson(
-    Map<String, Dyn> json,
+    Map<String, dynamic> json,
   ) => NotificationModel(
     id: json["id"],
     type: json["type"],
@@ -103,7 +103,7 @@ class NotificationModel {
     blogData: json["blog"] == null ? null : BlogData.fromJson(json["blog"]),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "type": type,
     "title": title,
@@ -155,7 +155,7 @@ class Client {
     img: img ?? this.img,
   );
 
-  factory Client.fromJson(Map<String, Dyn> json) => Client(
+  factory Client.fromJson(Map<String, dynamic> json) => Client(
     id: json["id"],
     firstname: json["firstname"],
     lastname: json["lastname"],
@@ -165,7 +165,7 @@ class Client {
     img: json["img"],
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "firstname": firstname,
     "lastname": lastname,
@@ -190,13 +190,12 @@ class NotificationData {
         status: status ?? this.status,
       );
 
-  factory NotificationData.fromJson(Map<String, Dyn> json) => NotificationData(
+  factory NotificationData.fromJson(Map<String, dynamic> json) => NotificationData(
     id: int.tryParse(json["id"].toString()),
     type: json["type"],
     status: json["status"],
   );
 
-  Map<String, Dyn> toJson() => {"id": id, "type": type, "status": status};
+  Map<String, dynamic> toJson() => {"id": id, "type": type, "status": status};
 }
 
-typedef Dyn = dynamic;

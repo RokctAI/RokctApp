@@ -1,4 +1,4 @@
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/infrastructure/models/data/count_of_notifications_data.dart';
 import 'package:rokctapp/customer/models/response/notification_response.dart';
 
@@ -7,11 +7,10 @@ abstract class NotificationRepositoryFacade {
 
   Future<ApiResult<NotificationResponse>> getAllNotifications();
 
-  Future<ApiResult<Dyn>> readOne({int? id});
+  Future<ApiResult<dynamic>> readOne({int? id});
 
   Future<ApiResult<NotificationResponse>> readAll();
 
   Future<ApiResult<CountNotificationModel>> getCount();
 }
 
-typedef Dyn = dynamic;

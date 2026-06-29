@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:rokctapp/driver/infrastructure/models/models.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 
 part 'profile_settings_state.freezed.dart';
 

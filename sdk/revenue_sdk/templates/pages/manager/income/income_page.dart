@@ -10,9 +10,9 @@ import 'package:rokctapp/manager/presentation/pages/income/widgets/chart.dart';
 import 'package:rokctapp/manager/presentation/pages/income/widgets/statistics_section.dart';
 import 'package:rokctapp/manager/presentation/pages/income/widgets/order_prices_section.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/manager/presentation/pages/income/app_bar_screen.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, SnackBarType;
 
 @RoutePage(name: 'ManagerIncomeRoute')

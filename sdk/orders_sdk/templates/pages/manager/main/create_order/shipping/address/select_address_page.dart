@@ -8,12 +8,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/address/searched_location_item.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, SnackBarType;
 
 @RoutePage(name: 'ManagerSelectAddressRoute')

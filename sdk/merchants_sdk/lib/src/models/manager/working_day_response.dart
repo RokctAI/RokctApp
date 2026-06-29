@@ -20,7 +20,7 @@ class WorkingDayResponse {
     required this.data,
   });
 
-  factory WorkingDayResponse.fromJson(Map<String, Dyn> json) =>
+  factory WorkingDayResponse.fromJson(Map<String, dynamic> json) =>
       WorkingDayResponse(
         timestamp: DateTime.parse(json["timestamp"]),
         status: json["status"],
@@ -28,7 +28,7 @@ class WorkingDayResponse {
         data: WorkingDayData.fromJson(json["data"]),
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "timestamp": timestamp.toIso8601String(),
     "status": status,
     "message": message,
@@ -36,4 +36,3 @@ class WorkingDayResponse {
   };
 }
 
-typedef Dyn = dynamic;

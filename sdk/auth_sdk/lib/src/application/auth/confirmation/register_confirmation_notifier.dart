@@ -364,7 +364,7 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
     final connected = await ref.read(connectivityProvider).call();
     if (connected) {
       state = state.copyWith(isResending: true);
-      late ApiResult<Dyn> response;
+      late ApiResult<dynamic> response;
       if (isResetPassword) {
         response = await ref.read(authRepositoryProvider).forgotPassword(email: email.trim());
       } else {
@@ -559,4 +559,3 @@ class RegisterConfirmationNotifier extends Notifier<RegisterConfirmationState> {
   }
 }
 
-typedef Dyn = dynamic;

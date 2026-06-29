@@ -23,7 +23,7 @@ class MultiGalleryUploadResponse {
     data: data ?? this.data,
   );
 
-  factory MultiGalleryUploadResponse.fromJson(Map<String, Dyn> json) =>
+  factory MultiGalleryUploadResponse.fromJson(Map<String, dynamic> json) =>
       MultiGalleryUploadResponse(
         timestamp: json["timestamp"] == null
             ? null
@@ -35,7 +35,7 @@ class MultiGalleryUploadResponse {
             : MultiGalleryUploadData.fromJson(json["data"]),
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
@@ -55,7 +55,7 @@ class MultiGalleryUploadData {
         type: type ?? this.type,
       );
 
-  factory MultiGalleryUploadData.fromJson(Map<String, Dyn> json) =>
+  factory MultiGalleryUploadData.fromJson(Map<String, dynamic> json) =>
       MultiGalleryUploadData(
         title: json["title"] == null
             ? []
@@ -63,10 +63,9 @@ class MultiGalleryUploadData {
         type: json["type"],
       );
 
-  Map<String, Dyn> toJson() => {
-    "title": title == null ? [] : List<Dyn>.from(title!.map((x) => x)),
+  Map<String, dynamic> toJson() => {
+    "title": title == null ? [] : List<dynamic>.from(title!.map((x) => x)),
     "type": type,
   };
 }
 
-typedef Dyn = dynamic;

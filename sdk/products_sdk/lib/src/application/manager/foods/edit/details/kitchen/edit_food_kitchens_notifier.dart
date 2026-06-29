@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:products_sdk/src/application/manager/foods/edit/details/kitchen/edit_food_kitchens_state.dart';
-import 'package:rokctapp/manager/domain/interface/interfaces.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
   final CatalogInterface _catalogRepository;

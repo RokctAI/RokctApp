@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 part 'order_payment_state.freezed.dart';
 
@@ -16,3 +16,4 @@ sealed class OrderPaymentState with _$OrderPaymentState {
 
   const OrderPaymentState._();
 }
+

@@ -23,7 +23,7 @@ class ReferralModel {
     this.translation,
   });
 
-  ReferralModel.fromJson(Map<String, Dyn> json) {
+  ReferralModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     active = json['active'];
     priceFrom = json['price_from'];
@@ -37,8 +37,8 @@ class ReferralModel {
         : null;
   }
 
-  Map<String, Dyn> toJson() {
-    final Map<String, Dyn> data = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['active'] = active;
     data['price_from'] = priceFrom;
@@ -54,4 +54,3 @@ class ReferralModel {
   }
 }
 
-typedef Dyn = dynamic;

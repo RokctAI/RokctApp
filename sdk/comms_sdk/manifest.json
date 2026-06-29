@@ -23,8 +23,8 @@
       "to": "lib/driver/presentation/pages/profile/notification_list_page.dart"
     },
     {
-      "from": "templates/pages/manager/restaurant/notification_list_page.dart",
-      "to": "lib/manager/presentation/pages/restaurant/notification_list_page.dart"
+      "from": "templates/pages/manager/merchant/notification_list_page.dart",
+      "to": "lib/manager/presentation/pages/merchant/notification_list_page.dart"
     }
   ],
   "routes": [

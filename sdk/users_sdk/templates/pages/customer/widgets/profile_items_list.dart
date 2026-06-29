@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 // @profile-orders-imports
 import 'package:rokctapp/customer/models/models.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 // @profile-viewport-imports
 import '../edit_profile_page.dart';
 import '../language_page.dart';

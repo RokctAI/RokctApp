@@ -19,8 +19,8 @@ class CartRequest {
     this.userUuid,
   });
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (shopId != null) map["shop_id"] = shopId;
     if (cartId != null) map["cart_id"] = cartId;
     if (userUuid != null) map["user_cart_uuid"] = userUuid;
@@ -32,8 +32,8 @@ class CartRequest {
     return map;
   }
 
-  Map<String, Dyn> toJsonInsert() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJsonInsert() {
+    final map = <String, dynamic>{};
     if (shopId != null) map["shop_id"] = shopId;
     map["lang"] = LocalStorage.getLanguage()?.locale;
     map["rate"] = LocalStorage.getSelectedCurrency()?.rate ?? 1;
@@ -44,10 +44,10 @@ class CartRequest {
     return map;
   }
 
-  List<Map<String, Dyn>> toJsonCart() {
-    List<Map<String, Dyn>> list = [];
+  List<Map<String, dynamic>> toJsonCart() {
+    List<Map<String, dynamic>> list = [];
     carts?.forEach((element) {
-      final map = <String, Dyn>{};
+      final map = <String, dynamic>{};
       map["stock_id"] = element.stockId;
       map["quantity"] = element.quantity;
       if (element.parentId != null) map["parent_id"] = element.parentId;
@@ -62,4 +62,3 @@ class CartRequest {
   }
 }
 
-typedef Dyn = dynamic;

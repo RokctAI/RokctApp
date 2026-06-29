@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
-import 'package:rokctapp/manager/domain/interface/interfaces.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class UsersRepository implements UsersInterface {
   @override
@@ -117,7 +117,7 @@ class UsersRepository implements UsersInterface {
   Future<ApiResult<void>> updateDeliveryZones({
     required List<LatLng> points,
   }) async {
-    List<Map<String, Dyn>> tapped = [];
+    List<Map<String, dynamic>> tapped = [];
     for (final point in points) {
       final location = {'0': point.latitude, '1': point.longitude};
       tapped.add(location);
@@ -167,7 +167,7 @@ class UsersRepository implements UsersInterface {
     required List<ShopWorkingDays> workingDays,
     String? uuid,
   }) async {
-    List<Map<String, Dyn>> days = [];
+    List<Map<String, dynamic>> days = [];
     for (final workingDay in workingDays) {
       final data = {
         'day': workingDay.day,
@@ -196,7 +196,7 @@ class UsersRepository implements UsersInterface {
   }
 
   @override
-  Future<ApiResult<SingleShopResponse>> updateShop({
+  Future<ApiResult<SingleMerchantResponse>> updateShop({
     String? tax,
     num? percentage,
     String? phone,
@@ -260,7 +260,7 @@ class UsersRepository implements UsersInterface {
         data: data,
       );
       return ApiResult.success(
-        data: SingleShopResponse.fromJson(response.data),
+        data: SingleMerchantResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> update shop failure: $e');
@@ -302,7 +302,7 @@ class UsersRepository implements UsersInterface {
   }
 
   @override
-  Future<ApiResult<SingleShopResponse>> getMyShop() async {
+  Future<ApiResult<SingleMerchantResponse>> getMyShop() async {
     final data = {
       'lang': LocalStorage.getLanguage()?.locale,
       'currency_id': LocalStorage.getSelectedCurrency()?.id,
@@ -314,7 +314,7 @@ class UsersRepository implements UsersInterface {
         queryParameters: data,
       );
       return ApiResult.success(
-        data: SingleShopResponse.fromJson(response.data),
+        data: SingleMerchantResponse.fromJson(response.data),
       );
     } catch (e, s) {
       debugPrint('===> error fetching my shop $e, $s');
@@ -326,7 +326,7 @@ class UsersRepository implements UsersInterface {
   }
 
   @override
-  Future<ApiResult<Dyn>> setOnlineOffline() async {
+  Future<ApiResult<dynamic>> setOnlineOffline() async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post('/api/v1/dashboard/seller/shops/working/status');
@@ -461,4 +461,3 @@ class UsersRepository implements UsersInterface {
   }
 }
 
-typedef Dyn = dynamic;

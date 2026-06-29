@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:app_links/app_links.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 // Removed unused imports
 import 'package:rokctapp/core/presentation/routes/app_router.dart';

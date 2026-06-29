@@ -53,8 +53,8 @@ class CartProductData {
 
   Stocks? get selectedStock => _selectedStock;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['price'] = _price;
     map['quantity'] = _quantity;
     map['image_url'] = _imageUrl;
@@ -66,4 +66,3 @@ class CartProductData {
   }
 }
 
-typedef Dyn = dynamic;

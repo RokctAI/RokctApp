@@ -1,5 +1,5 @@
-import 'package:orders_sdk/src/customer/models/data/order_data.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
+﻿import 'package:orders_sdk/src/customer/models/data/order_data.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:orders_sdk/src/customer/order_notifier_dependencies.dart';
 
 class OrderBodyData {
@@ -145,3 +145,4 @@ class ProductOrder {
     return "{\"stock_id\":$stockId, \"price\":$price, \"qty\":$quantity, \"tax\":$tax, \"discount\":$discount, \"total_price\":$totalPrice}";
   }
 }
+

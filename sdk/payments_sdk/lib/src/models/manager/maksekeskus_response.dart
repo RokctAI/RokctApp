@@ -20,7 +20,7 @@ class MaksekeskusResponse {
     data: data ?? this.data,
   );
 
-  factory MaksekeskusResponse.fromJson(Map<String, Dyn> json) =>
+  factory MaksekeskusResponse.fromJson(Map<String, dynamic> json) =>
       MaksekeskusResponse(
         timestamp: json["timestamp"] == null
             ? null
@@ -32,7 +32,7 @@ class MaksekeskusResponse {
             : MaksekeskusData.fromJson(json["data"]),
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
@@ -40,4 +40,3 @@ class MaksekeskusResponse {
   };
 }
 
-typedef Dyn = dynamic;

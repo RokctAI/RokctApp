@@ -10,8 +10,8 @@ import 'package:rokctapp/manager/application/main/orders/cooking/cooking_orders_
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/image_dialog.dart';
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/price_information.dart';
 import 'package:orders_sdk/orders_sdk.dart';

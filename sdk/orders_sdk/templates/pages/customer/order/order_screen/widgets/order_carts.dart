@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';
 import 'package:rokctapp/customer/presentation/pages/shop/cart/widgets/cart_order_item.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';

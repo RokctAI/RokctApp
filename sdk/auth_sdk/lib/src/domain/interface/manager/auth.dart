@@ -1,5 +1,5 @@
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 abstract class AuthInterface {
   Future<ApiResult<LoginResponse>> login({
@@ -14,7 +14,7 @@ abstract class AuthInterface {
     required String avatar,
   });
 
-  Future<ApiResult<Dyn>> signUp({required String email});
+  Future<ApiResult<dynamic>> signUp({required String email});
 
   Future<ApiResult<VerifyData>> sigUpWithData({required UserModel user});
 
@@ -45,4 +45,3 @@ abstract class AuthInterface {
   Future<ApiResult<CheckPhoneResponse>> checkPhone({required String phone});
 }
 
-typedef Dyn = dynamic;

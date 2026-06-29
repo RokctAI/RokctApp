@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:rokctapp/core/infrastructure/models/data/language.dart';
 
 class AiTranslationRequest {

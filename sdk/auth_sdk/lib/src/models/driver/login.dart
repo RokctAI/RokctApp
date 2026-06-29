@@ -4,12 +4,11 @@ class LoginModel {
 
   LoginModel({required this.email, required this.password});
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['email'] = email;
     map['password'] = password; // environment
     return map;
   }
 }
 
-typedef Dyn = dynamic;

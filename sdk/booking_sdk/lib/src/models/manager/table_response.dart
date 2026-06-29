@@ -8,23 +8,22 @@ class TableResponse {
 
   TableResponse({this.timestamp, this.status, this.message, this.data});
 
-  TableResponse.fromJson(Map<String, Dyn> json) {
+  TableResponse.fromJson(Map<String, dynamic> json) {
     timestamp = json['timestamp'];
     status = json['status'];
     message = json['message'];
     data = List<TableData>.from(json["data"].map((x) => TableData.fromJson(x)));
   }
 
-  Map<String, Dyn> toJson() {
-    final Map<String, Dyn> data = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['timestamp'] = timestamp;
     data['status'] = status;
     data['message'] = message;
     if (this.data != null) {
-      data['data'] = List<Dyn>.from(this.data!.map((x) => x.toJson()));
+      data['data'] = List<dynamic>.from(this.data!.map((x) => x.toJson()));
     }
     return data;
   }
 }
 
-typedef Dyn = dynamic;

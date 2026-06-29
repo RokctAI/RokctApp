@@ -31,7 +31,7 @@ class NonExistPayment {
     updatedAt: updatedAt ?? this.updatedAt,
   );
 
-  factory NonExistPayment.fromJson(Map<String, Dyn> json) => NonExistPayment(
+  factory NonExistPayment.fromJson(Map<String, dynamic> json) => NonExistPayment(
     id: json["id"],
     tag: json["tag"],
     input: json["input"],
@@ -44,7 +44,7 @@ class NonExistPayment {
         : DateTime.tryParse(json["updated_at"])?.toLocal(),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "tag": tag,
     "input": input,
@@ -54,4 +54,3 @@ class NonExistPayment {
   };
 }
 
-typedef Dyn = dynamic;

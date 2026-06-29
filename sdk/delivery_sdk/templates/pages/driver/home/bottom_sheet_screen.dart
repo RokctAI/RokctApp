@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rokctapp/driver/application/profile/provider/profile_settings_provider.dart';
 
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 // @delivery-driver-stories-import
 

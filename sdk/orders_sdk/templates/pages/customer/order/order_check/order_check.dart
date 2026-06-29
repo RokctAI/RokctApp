@@ -3,7 +3,7 @@ import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/application/map/view_map_provider.dart';
 import 'package:rokctapp/customer/application/map/view_map_state.dart';
 import 'package:orders_sdk/orders_sdk.dart';
@@ -18,7 +18,7 @@ import 'package:orders_sdk/src/application/customer/shop_order/shop_order_notifi
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_state.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_check/price_information.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/auto_order_modal.dart';

@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/shop_data.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class DeliveryZonePaginate {
   DeliveryZonePaginate({List<DeliveryZoneData>? data}) {
@@ -21,8 +21,8 @@ class DeliveryZonePaginate {
 
   List<DeliveryZoneData>? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }
@@ -31,18 +31,18 @@ class DeliveryZonePaginate {
 }
 
 class DeliveryZoneData {
-  DeliveryZoneData({int? id, List<List<double>>? address, ShopData? shop}) {
+  DeliveryZoneData({int? id, List<List<double>>? address, MerchantData? shop}) {
     _id = id;
     _address = address;
     _shop = shop;
   }
 
   DeliveryZoneData.fromJson(dynamic json) {
-    final List<Dyn>? addresses = json['address'];
+    final List<dynamic>? addresses = json['address'];
     final List<List<double>> parsedAddresses = [];
     if (addresses != null) {
       for (int i = 0; i < addresses.length; i++) {
-        final List<Dyn> item = addresses[i];
+        final List<dynamic> item = addresses[i];
         List<double> items = [];
         for (int j = 0; j < item.length; j++) {
           items.add(double.parse(item[j].toString()));
@@ -52,17 +52,17 @@ class DeliveryZoneData {
     }
     _id = json['id'];
     _address = parsedAddresses;
-    _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
+    _shop = json['shop'] != null ? MerchantData.fromJson(json['shop']) : null;
   }
 
   int? _id;
   List<List<double>>? _address;
-  ShopData? _shop;
+  MerchantData? _shop;
 
   DeliveryZoneData copyWith({
     int? id,
     List<List<double>>? address,
-    ShopData? shop,
+    MerchantData? shop,
   }) => DeliveryZoneData(
     id: id ?? _id,
     address: address ?? _address,
@@ -73,10 +73,10 @@ class DeliveryZoneData {
 
   List<List<double>>? get address => _address;
 
-  ShopData? get shop => _shop;
+  MerchantData? get shop => _shop;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['address'] = _address;
     if (_shop != null) {
@@ -86,4 +86,4 @@ class DeliveryZoneData {
   }
 }
 
-typedef Dyn = dynamic;
+

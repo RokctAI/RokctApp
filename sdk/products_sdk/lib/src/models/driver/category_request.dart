@@ -5,8 +5,8 @@ class CategoryModel {
 
   CategoryModel({required this.page});
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
     map["page"] = page;
     map["perPage"] = 10;
@@ -14,4 +14,3 @@ class CategoryModel {
   }
 }
 
-typedef Dyn = dynamic;

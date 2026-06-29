@@ -31,8 +31,8 @@ class AddressInformation {
 
   String? get floor => _floor;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['address'] = _address;
     map['house'] = _house;
     map['floor'] = _floor;
@@ -40,4 +40,3 @@ class AddressInformation {
   }
 }
 
-typedef Dyn = dynamic;

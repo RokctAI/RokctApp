@@ -44,8 +44,8 @@ class BrandsPaginateResponse {
 
   Meta? get meta => _meta;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }
@@ -59,4 +59,3 @@ class BrandsPaginateResponse {
   }
 }
 
-typedef Dyn = dynamic;

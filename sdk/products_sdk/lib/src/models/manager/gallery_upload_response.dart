@@ -16,8 +16,8 @@ class GalleryUploadResponse {
 
   ImageData? get imageData => _imageData;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_imageData != null) {
       map['data'] = _imageData?.toJson();
     }
@@ -25,4 +25,3 @@ class GalleryUploadResponse {
   }
 }
 
-typedef Dyn = dynamic;

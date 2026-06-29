@@ -9,7 +9,7 @@ class TableData {
   bool? active;
   String? createdAt;
   String? updatedAt;
-  ShopSection? shopSection;
+  MerchantSection? shopSection;
 
   TableData({
     this.id,
@@ -33,7 +33,7 @@ class TableData {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     shopSection = json['shop_section'] != null
-        ? ShopSection.fromJson(json['shop_section'])
+        ? MerchantSection.fromJson(json['shop_section'])
         : null;
   }
 
@@ -54,7 +54,7 @@ class TableData {
   }
 }
 
-class ShopSection {
+class MerchantSection {
   int? id;
   int? shopId;
   String? area;
@@ -63,7 +63,7 @@ class ShopSection {
   String? updatedAt;
   Translation? translation;
 
-  ShopSection({
+  MerchantSection({
     this.id,
     this.shopId,
     this.area,
@@ -73,7 +73,7 @@ class ShopSection {
     this.translation,
   });
 
-  ShopSection.fromJson(Map<String, dynamic> json) {
+  MerchantSection.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     shopId = json['shop_id'];
     area = json['area'];

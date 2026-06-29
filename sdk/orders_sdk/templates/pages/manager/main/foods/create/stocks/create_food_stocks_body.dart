@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/presentation/pages/main/foods/create/stocks/cre
 import 'package:rokctapp/manager/presentation/pages/main/foods/create/stocks/create_food_edit_extras_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class CreateFoodStocksBody extends ConsumerStatefulWidget {
   const CreateFoodStocksBody({super.key});

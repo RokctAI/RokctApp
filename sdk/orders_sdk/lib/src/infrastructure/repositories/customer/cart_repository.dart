@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/domain/interface/cart.dart';
 import 'package:rokctapp/customer/models/data/cart_data.dart';
 import 'package:rokctapp/customer/models/request/cart_request.dart';
 
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class CartRepository implements CartRepositoryFacade {
   @override
@@ -158,7 +158,7 @@ class CartRepository implements CartRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<Dyn>> changeStatus({
+  Future<ApiResult<dynamic>> changeStatus({
     required String? userUuid,
     required String? cartId,
   }) async {
@@ -179,7 +179,7 @@ class CartRepository implements CartRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<Dyn>> deleteUser({
+  Future<ApiResult<dynamic>> deleteUser({
     required int cartId,
     required String userId,
   }) async {
@@ -201,7 +201,7 @@ class CartRepository implements CartRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<Dyn>> startGroupOrder({required int cartId}) async {
+  Future<ApiResult<dynamic>> startGroupOrder({required int cartId}) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post('/api/v1/dashboard/user/cart/set-group/$cartId');
@@ -242,4 +242,3 @@ class CartRepository implements CartRepositoryFacade {
   }
 }
 
-typedef Dyn = dynamic;

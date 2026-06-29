@@ -72,8 +72,8 @@ class CartProductData {
 
   Stocks? get selectedStock => _selectedStock;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map["shop_id"] = _shopId;
     map['id'] = _id;
     map['price'] = _price;
@@ -87,4 +87,3 @@ class CartProductData {
   }
 }
 
-typedef Dyn = dynamic;

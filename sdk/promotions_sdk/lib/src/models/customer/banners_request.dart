@@ -1,5 +1,5 @@
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class BannersRequest {
   final int page;
@@ -7,8 +7,8 @@ class BannersRequest {
 
   BannersRequest({required this.page, this.perPage = 4});
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map["page"] = page;
     map["perPage"] = perPage;
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
@@ -24,4 +24,3 @@ class BannersRequest {
   }
 }
 
-typedef Dyn = dynamic;

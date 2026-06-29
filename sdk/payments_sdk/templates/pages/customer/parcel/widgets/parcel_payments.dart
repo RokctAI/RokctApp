@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:payments_sdk/src/application/core/payment_methods/payment_provider.dart';
 import 'package:payments_sdk/payments_sdk.dart';
 import 'package:rokctapp/customer/models/data/payment_data.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:payments_sdk/payments_sdk.dart';
 

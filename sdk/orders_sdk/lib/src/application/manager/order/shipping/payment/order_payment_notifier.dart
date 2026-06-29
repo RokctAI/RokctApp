@@ -1,13 +1,13 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:orders_sdk/src/application/manager/order/shipping/payment/order_payment_state.dart';
-import 'package:rokctapp/manager/domain/interface/interfaces.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
   final OrdersInterface _ordersRepository;
@@ -110,3 +110,4 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
     );
   }
 }
+

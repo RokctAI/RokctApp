@@ -8,13 +8,13 @@ import 'package:jiffy/jiffy.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:comms_sdk/comms_sdk.dart';
-import 'package:rokctapp/driver/infrastructure/models/models.dart';
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/driver/presentation/component/common_app_bar.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, OrderStatus;
 
 @RoutePage(name: 'DriverNotificationListRoute')

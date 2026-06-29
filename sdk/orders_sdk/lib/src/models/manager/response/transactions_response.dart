@@ -45,8 +45,8 @@ class TransactionsResponse {
 
   TransactionData? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;
@@ -139,8 +139,8 @@ class TransactionData {
 
   List<TransactionDetails>? get details => _details;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['user_id'] = _userId;
     map['price'] = _price;
@@ -248,8 +248,8 @@ class TransactionDetails {
 
   String? get updatedAt => _updatedAt;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['shop_id'] = _shopId;
     map['delivery_fee'] = _deliveryFee;
@@ -264,4 +264,3 @@ class TransactionDetails {
   }
 }
 
-typedef Dyn = dynamic;

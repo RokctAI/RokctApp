@@ -5,8 +5,8 @@ import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/customer/application/home/home_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 

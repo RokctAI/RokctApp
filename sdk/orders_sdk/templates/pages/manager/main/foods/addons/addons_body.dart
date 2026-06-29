@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/presentation/pages/main/foods/addons/widgets/ad
 import 'package:rokctapp/manager/presentation/pages/main/foods/addons/edit/edit_addon_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class AddonsBody extends StatelessWidget {
   final RefreshController addonsController;

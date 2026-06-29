@@ -40,8 +40,8 @@ class WalletHistoriesResponse {
 
   Meta? get meta => _meta;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }
@@ -166,8 +166,8 @@ class WalletData {
 
   UserModel? get user => _user;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['wallet_uuid'] = _walletUuid;
@@ -188,4 +188,3 @@ class WalletData {
   }
 }
 
-typedef Dyn = dynamic;

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/io.dart';
 
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/models/data/order_active_model.dart';
 import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
 

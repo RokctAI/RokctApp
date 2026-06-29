@@ -35,7 +35,7 @@ class PriceModel {
   String message;
   PriceRangeData data;
 
-  factory PriceModel.fromJson(Map<String, Dyn> json) => PriceModel(
+  factory PriceModel.fromJson(Map<String, dynamic> json) => PriceModel(
     timestamp:
         DateTime.tryParse(json["timestamp"])?.toLocal() ?? DateTime.now(),
     status: json["status"],
@@ -43,7 +43,7 @@ class PriceModel {
     data: PriceRangeData.fromJson(json["data"]),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "timestamp": timestamp.toIso8601String(),
     "status": status,
     "message": message,
@@ -57,12 +57,11 @@ class PriceRangeData {
   double min;
   double max;
 
-  factory PriceRangeData.fromJson(Map<String, Dyn> json) => PriceRangeData(
+  factory PriceRangeData.fromJson(Map<String, dynamic> json) => PriceRangeData(
     min: double.tryParse(json["min"].toString()) ?? 1,
     max: double.tryParse(json["max"].toString()) ?? 100,
   );
 
-  Map<String, Dyn> toJson() => {"min": min, "max": max};
+  Map<String, dynamic> toJson() => {"min": min, "max": max};
 }
 
-typedef Dyn = dynamic;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 
@@ -157,7 +157,7 @@ class OrderStatusScreen extends StatelessWidget {
   }
 
   Widget _buildStatusItem({
-    required Dyn icon,
+    required dynamic icon,
     Color? bgColor,
     Color? iconColor,
     bool? isActive,
@@ -194,4 +194,3 @@ class OrderStatusScreen extends StatelessWidget {
   }
 }
 
-typedef Dyn = dynamic;

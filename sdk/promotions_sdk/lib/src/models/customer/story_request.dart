@@ -1,14 +1,14 @@
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class StoryRequest {
   final int page;
 
   StoryRequest({required this.page});
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map["page"] = page;
     map["perPage"] = 5;
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
@@ -24,4 +24,3 @@ class StoryRequest {
   }
 }
 
-typedef Dyn = dynamic;

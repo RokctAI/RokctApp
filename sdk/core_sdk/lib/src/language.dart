@@ -67,8 +67,8 @@ class LanguageData {
 
   String? get img => _img;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['title'] = _title;
     map['locale'] = _locale;
@@ -80,4 +80,3 @@ class LanguageData {
   }
 }
 
-typedef Dyn = dynamic;

@@ -1,4 +1,4 @@
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/models/models.dart';
 
 abstract class ProductsRepositoryFacade {

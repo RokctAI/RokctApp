@@ -2,17 +2,17 @@ import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/domain/interface/shops.dart';
 import 'package:rokctapp/customer/models/models.dart';
 
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class ShopsRepository implements ShopsRepositoryFacade {
   @override
-  Future<ApiResult<ShopsPaginateResponse>> searchShops({
+  Future<ApiResult<MerchantsPaginateResponse>> searchShops({
     required String text,
     String? categoryId,
   }) async {
@@ -26,7 +26,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
         queryParameters: data.toJson(),
       );
       return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
+        data: MerchantsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> search shops failure: $e');
@@ -38,7 +38,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<ShopsPaginateResponse>> getNearbyShops(
+  Future<ApiResult<MerchantsPaginateResponse>> getNearbyShops(
     double latitude,
     double longitude,
   ) async {
@@ -52,7 +52,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
         queryParameters: data,
       );
       return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
+        data: MerchantsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get nearby shops failure: $e');
@@ -64,14 +64,14 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<ShopsPaginateResponse>> getAllShops(
+  Future<ApiResult<MerchantsPaginateResponse>> getAllShops(
     int page, {
     String? categoryId,
     FilterModel? filterModel,
     required bool isOpen,
     bool? verify,
   }) async {
-    final data = ShopRequest(
+    final data = MerchantRequest(
       page: page,
       categoryId: categoryId,
       price: filterModel?.price,
@@ -92,7 +92,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
         queryParameters: data.toJson(),
       );
       return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
+        data: MerchantsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get all shops failure: $e');
@@ -124,10 +124,10 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<SingleShopResponse>> getSingleShop({
+  Future<ApiResult<SingleMerchantResponse>> getSingleShop({
     required String uuid,
   }) async {
-    final data = OnlyShopRequest();
+    final data = OnlyMerchantRequest();
     try {
       final client = dioHttp.client(requireAuth: false);
       client.options.connectTimeout = const Duration(seconds: 30);
@@ -137,7 +137,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
         queryParameters: data.toJson(),
       );
       return ApiResult.success(
-        data: SingleShopResponse.fromJson(response.data),
+        data: SingleMerchantResponse.fromJson(response.data),
       );
     } catch (e) {
       return ApiResult.failure(
@@ -148,7 +148,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<Dyn>> joinOrder({
+  Future<ApiResult<dynamic>> joinOrder({
     required String shopId,
     required String name,
     required String cartId,
@@ -169,7 +169,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<ShopsPaginateResponse>> getShopFilter({
+  Future<ApiResult<MerchantsPaginateResponse>> getShopFilter({
     String? categoryId,
     required int page,
     String? subCategoryId,
@@ -196,7 +196,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
         queryParameters: data,
       );
       return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
+        data: MerchantsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get work filter shops failure: $e');
@@ -208,7 +208,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<ShopsPaginateResponse>> getPickupShops() async {
+  Future<ApiResult<MerchantsPaginateResponse>> getPickupShops() async {
     final data = {
       'delivery': 'pickup',
       'perPage': 100,
@@ -221,7 +221,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
         queryParameters: data,
       );
       return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
+        data: MerchantsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get pickup shops failure: $e');
@@ -233,10 +233,10 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<ShopsPaginateResponse>> getShopsByIds(
+  Future<ApiResult<MerchantsPaginateResponse>> getShopsByIds(
     List<String> shopIds,
   ) async {
-    final data = <String, Dyn>{'lang': LocalStorage.getLanguage()?.locale};
+    final data = <String, dynamic>{'lang': LocalStorage.getLanguage()?.locale};
     for (int i = 0; i < shopIds.length; i++) {
       data['shops[$i]'] = shopIds[i];
     }
@@ -249,7 +249,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
         queryParameters: data,
       );
       return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
+        data: MerchantsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get shops by ids failure: $e');
@@ -314,8 +314,8 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<ShopsPaginateResponse>> getShopsRecommend(int page) async {
-    final data = ShopRequest(page: page, onlyOpen: true);
+  Future<ApiResult<MerchantsPaginateResponse>> getShopsRecommend(int page) async {
+    final data = MerchantRequest(page: page, onlyOpen: true);
     try {
       final client = dioHttp.client(requireAuth: false);
       client.options.connectTimeout = const Duration(seconds: 30);
@@ -325,7 +325,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
         queryParameters: data.toJson(),
       );
       return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
+        data: MerchantsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get all shops recommend failure: $e');
@@ -361,7 +361,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
   Future<ApiResult<TagResponse>> getTags(String categoryId) async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final data = <String, Dyn>{
+      final data = <String, dynamic>{
         'lang': LocalStorage.getLanguage()?.locale ?? "en",
         'category_id': categoryId,
       };
@@ -386,11 +386,11 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final data = <String, Dyn>{
+      final data = <String, dynamic>{
         'address[latitude]': location.latitude,
         'address[longitude]': location.longitude,
       };
-      Dyn response;
+      dynamic response;
       if (shopId == null) {
         response = await client.get(
           '/api/v1/rest/shop//delivery-zone/check/distance',
@@ -438,4 +438,4 @@ class ShopsRepository implements ShopsRepositoryFacade {
   }
 }
 
-typedef Dyn = dynamic;
+

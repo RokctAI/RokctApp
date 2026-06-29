@@ -47,8 +47,8 @@ class SingleAddressResponse {
 
   AddressNewModel? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;
@@ -59,4 +59,3 @@ class SingleAddressResponse {
   }
 }
 
-typedef Dyn = dynamic;

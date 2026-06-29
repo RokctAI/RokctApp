@@ -1,6 +1,6 @@
 import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/local_location_data.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/shop_delivery.dart';
+import 'package:rokctapp/driver/infrastructure/models/data/merchant_delivery.dart';
 
 class MerchantData {
   MerchantData({
@@ -25,10 +25,10 @@ class MerchantData {
     String? ratingAvg,
     String? createdAt,
     String? updatedAt,
-    Dyn deletedAt,
+    dynamic deletedAt,
     Translation? translation,
     Seller? seller,
-    List<ShopDelivery>? deliveries,
+    List<MerchantDelivery>? deliveries,
   }) {
     _id = id;
     _uuid = uuid;
@@ -97,7 +97,7 @@ class MerchantData {
     if (json['deliveries'] != null) {
       _deliveries = [];
       json['deliveries'].forEach((v) {
-        _deliveries?.add(ShopDelivery.fromJson(v));
+        _deliveries?.add(MerchantDelivery.fromJson(v));
       });
     }
   }
@@ -123,10 +123,10 @@ class MerchantData {
   String? _ratingAvg;
   String? _createdAt;
   String? _updatedAt;
-  Dyn _deletedAt;
+  dynamic _deletedAt;
   Translation? _translation;
   Seller? _seller;
-  List<ShopDelivery>? _deliveries;
+  List<MerchantDelivery>? _deliveries;
 
   MerchantData copyWith({
     int? id,
@@ -150,10 +150,10 @@ class MerchantData {
     String? ratingAvg,
     String? createdAt,
     String? updatedAt,
-    Dyn deletedAt,
+    dynamic deletedAt,
     Translation? translation,
     Seller? seller,
-    List<ShopDelivery>? deliveries,
+    List<MerchantDelivery>? deliveries,
   }) => MerchantData(
     id: id ?? _id,
     uuid: uuid ?? _uuid,
@@ -224,16 +224,16 @@ class MerchantData {
 
   String? get updatedAt => _updatedAt;
 
-  Dyn get deletedAt => _deletedAt;
+  dynamic get deletedAt => _deletedAt;
 
   Translation? get translation => _translation;
 
   Seller? get seller => _seller;
 
-  List<ShopDelivery>? get deliveries => _deliveries;
+  List<MerchantDelivery>? get deliveries => _deliveries;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['user_id'] = _userId;
@@ -311,8 +311,8 @@ class Seller {
 
   String? get role => _role;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['firstname'] = _firstname;
     map['lastname'] = _lastname;
@@ -321,4 +321,3 @@ class Seller {
   }
 }
 
-typedef Dyn = dynamic;

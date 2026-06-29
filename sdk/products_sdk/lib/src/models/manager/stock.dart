@@ -197,8 +197,8 @@ class Stock {
 
   List<AddonData>? get localAddons => _localAddons;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['countable_id'] = _countableId;
     map['price'] = _price;
@@ -308,8 +308,8 @@ class AddonData {
 
   Stock? get stock => _stock;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['stock_id'] = _stockId;
     map['addon_id'] = _addonId;
@@ -320,4 +320,3 @@ class AddonData {
   }
 }
 
-typedef Dyn = dynamic;

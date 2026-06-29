@@ -22,7 +22,7 @@ class BranchResponse {
     meta: meta ?? this.meta,
   );
 
-  factory BranchResponse.fromJson(Map<String, Dyn> json) => BranchResponse(
+  factory BranchResponse.fromJson(Map<String, dynamic> json) => BranchResponse(
     data: json["data"] == null
         ? []
         : List<BranchModel>.from(
@@ -32,8 +32,8 @@ class BranchResponse {
     meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
   );
 
-  Map<String, Dyn> toJson() => {
-    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
+  Map<String, dynamic> toJson() => {
+    "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
     "links": links?.toJson(),
     "meta": meta?.toJson(),
   };
@@ -80,7 +80,7 @@ class BranchModel {
     locales: locales ?? this.locales,
   );
 
-  factory BranchModel.fromJson(Map<String, Dyn> json) => BranchModel(
+  factory BranchModel.fromJson(Map<String, dynamic> json) => BranchModel(
     id: json["id"],
     address: json["address"] == null
         ? null
@@ -100,7 +100,7 @@ class BranchModel {
         : Translation.fromJson(json["translation"]),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "address": address?.toJson(),
     "location": location?.toJson(),
@@ -108,8 +108,7 @@ class BranchModel {
     "updated_at": updatedAt?.toIso8601String(),
     "shop": shop?.toJson(),
     "translation": translation?.toJson(),
-    "locales": locales == null ? [] : List<Dyn>.from(locales!.map((x) => x)),
+    "locales": locales == null ? [] : List<dynamic>.from(locales!.map((x) => x)),
   };
 }
 
-typedef Dyn = dynamic;

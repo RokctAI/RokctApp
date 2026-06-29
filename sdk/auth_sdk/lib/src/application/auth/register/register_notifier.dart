@@ -356,4 +356,3 @@ class RegisterNotifier extends Notifier<RegisterState> {
   }
 }
 
-typedef Dyn = dynamic;

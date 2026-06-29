@@ -17,16 +17,15 @@ class TableBookingResponse {
 
   TableBookingResponse({required this.data});
 
-  factory TableBookingResponse.fromJson(Map<String, Dyn> json) =>
+  factory TableBookingResponse.fromJson(Map<String, dynamic> json) =>
       TableBookingResponse(
         data: List<TableBookingData>.from(
           json["data"].map((x) => TableBookingData.fromJson(x)),
         ),
       );
 
-  Map<String, Dyn> toJson() => {
-    "data": List<Dyn>.from(data.map((x) => x.toJson())),
+  Map<String, dynamic> toJson() => {
+    "data": List<dynamic>.from(data.map((x) => x.toJson())),
   };
 }
 
-typedef Dyn = dynamic;

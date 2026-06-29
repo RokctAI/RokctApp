@@ -45,8 +45,8 @@ class AiTranslationResponse {
 
   AiTranslationData? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;
@@ -81,12 +81,11 @@ class AiTranslationData {
 
   String? get description => _description;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['title'] = _title;
     map['description'] = _description;
     return map;
   }
 }
 
-typedef Dyn = dynamic;

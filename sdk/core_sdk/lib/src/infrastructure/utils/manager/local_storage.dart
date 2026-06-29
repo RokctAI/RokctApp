@@ -75,10 +75,10 @@ class LocalStorage {
   static List<SettingsData> getSettingsList() =>
       CoreLocalStorage.getSettingsList();
 
-  static Future<void> setTranslations(Map<String, Dyn>? translations) async =>
+  static Future<void> setTranslations(Map<String, dynamic>? translations) async =>
       CoreLocalStorage.setTranslations(translations);
 
-  static Map<String, Dyn> getTranslations({String? locale}) =>
+  static Map<String, dynamic> getTranslations({String? locale}) =>
       CoreLocalStorage.getTranslations(locale: locale);
 
   static Future<void> setAppThemeMode(bool isDarkMode) async {
@@ -251,4 +251,3 @@ class LocalStorage {
   }
 }
 
-typedef Dyn = dynamic;

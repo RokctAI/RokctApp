@@ -1,0 +1,60 @@
+import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+
+class MerchantsPaginateResponse {
+  MerchantsPaginateResponse({
+    List<MerchantData>? data,
+    // Links? links,
+    Meta? meta,
+  }) {
+    _data = data;
+    // _links = links;
+    _meta = meta;
+  }
+
+  MerchantsPaginateResponse.fromJson(dynamic json) {
+    if (json['data'] != null) {
+      _data = [];
+      json['data'].forEach((v) {
+        _data?.add(MerchantData.fromJson(v));
+      });
+    }
+    // _links = json['links'] != null ? Links.fromJson(json['links']) : null;
+    _meta = json['meta'] != null ? Meta.fromJson(json['meta']) : null;
+  }
+
+  List<MerchantData>? _data;
+  // Links? _links;
+  Meta? _meta;
+
+  MerchantsPaginateResponse copyWith({
+    List<MerchantData>? data,
+    // Links? links,
+    Meta? meta,
+  }) => MerchantsPaginateResponse(
+    data: data ?? _data,
+    // links: links ?? _links,
+    meta: meta ?? _meta,
+  );
+
+  List<MerchantData>? get data => _data;
+
+  // Links? get links => _links;
+
+  Meta? get meta => _meta;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    if (_data != null) {
+      map['data'] = _data?.map((v) => v.toJson()).toList();
+    }
+    // if (_links != null) {
+    //   map['links'] = _links?.toJson();
+    // }
+    if (_meta != null) {
+      map['meta'] = _meta?.toJson();
+    }
+    return map;
+  }
+}
+

@@ -12,9 +12,9 @@ class BlogResponse {
     // required this.meta,
   });
 
-  factory BlogResponse.fromJson(Map<String, Dyn> json) {
+  factory BlogResponse.fromJson(Map<String, dynamic> json) {
     return BlogResponse(
-      data: (json['data'] as List<Dyn>? ?? [])
+      data: (json['data'] as List<dynamic>? ?? [])
           .map((e) => BlogData.fromJson(e))
           .toList(),
       links: Links.fromJson(json['links'] ?? {}),
@@ -23,4 +23,3 @@ class BlogResponse {
   }
 }
 
-typedef Dyn = dynamic;

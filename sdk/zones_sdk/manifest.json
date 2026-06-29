@@ -7,8 +7,8 @@
       "to": "lib/driver/presentation/pages/profile/delivery_zone/delivery_zone_page.dart"
     },
     {
-      "from": "templates/pages/manager/restaurant/delivery_zone/delivery_zone_page.dart",
-      "to": "lib/manager/presentation/pages/restaurant/delivery_zone/delivery_zone_page.dart"
+      "from": "templates/pages/manager/merchant/delivery_zone/delivery_zone_page.dart",
+      "to": "lib/manager/presentation/pages/merchant/delivery_zone/delivery_zone_page.dart"
     }
   ],
   "routes": []

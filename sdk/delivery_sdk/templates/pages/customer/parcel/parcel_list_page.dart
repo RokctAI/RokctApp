@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:orders_sdk/src/application/customer/parcels_list/parcel_list_notifier.dart';
 import 'package:orders_sdk/src/application/customer/parcels_list/parcel_list_provider.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/presentation/pages/parcel/parcel_item.dart';

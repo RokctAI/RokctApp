@@ -38,7 +38,7 @@ class RepeatData {
 
   String toRawJson() => json.encode(toJson());
 
-  factory RepeatData.fromJson(Map<String, Dyn> json) => RepeatData(
+  factory RepeatData.fromJson(Map<String, dynamic> json) => RepeatData(
     id: json["id"],
     orderId: json["order_id"],
     from: json["from"],
@@ -47,7 +47,7 @@ class RepeatData {
     updatedAt: json["updated_at"],
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "order_id": orderId,
     "from": from,
@@ -57,4 +57,3 @@ class RepeatData {
   };
 }
 
-typedef Dyn = dynamic;

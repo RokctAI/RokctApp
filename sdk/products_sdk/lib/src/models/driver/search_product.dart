@@ -6,8 +6,8 @@ class SearchProductModel {
 
   SearchProductModel({required this.text, required this.page});
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map["search"] = text;
     map["perPage"] = 10;
     map["page"] = page;
@@ -16,4 +16,3 @@ class SearchProductModel {
   }
 }
 
-typedef Dyn = dynamic;

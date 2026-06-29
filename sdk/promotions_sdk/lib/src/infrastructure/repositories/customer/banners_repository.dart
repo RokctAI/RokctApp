@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/domain/interface/banners.dart';
 import 'package:rokctapp/customer/models/models.dart';
 import 'package:rokctapp/customer/models/request/banners_request.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class BannersRepository implements BannersRepositoryFacade {
   @override

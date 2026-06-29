@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 part 'order_user_state.freezed.dart';
 
@@ -17,3 +17,4 @@ sealed class OrderUserState with _$OrderUserState {
 
   const OrderUserState._();
 }
+

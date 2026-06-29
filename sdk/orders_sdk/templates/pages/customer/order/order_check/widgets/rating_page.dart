@@ -7,7 +7,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
 import 'package:orders_sdk/src/application/customer/parcel/parcel_provider.dart';
 import 'package:rokctapp/core/application/select/select_provider.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/payment_method.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';

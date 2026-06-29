@@ -1,8 +1,8 @@
-import 'package:flutter/widgets.dart';
+﻿import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:orders_sdk/src/application/manager/order/shipping/address/order/order_address_state.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class OrderAddressNotifier extends StateNotifier<OrderAddressState> {
   OrderAddressNotifier()
@@ -25,3 +25,4 @@ class OrderAddressNotifier extends StateNotifier<OrderAddressState> {
     state = state.copyWith(location: location);
   }
 }
+

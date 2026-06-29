@@ -3,7 +3,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:share_plus/share_plus.dart';
 
 import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';

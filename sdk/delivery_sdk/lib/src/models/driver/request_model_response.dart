@@ -26,7 +26,7 @@ class RequestModelResponse {
     meta: meta ?? this.meta,
   );
 
-  factory RequestModelResponse.fromJson(Map<String, Dyn> json) =>
+  factory RequestModelResponse.fromJson(Map<String, dynamic> json) =>
       RequestModelResponse(
         data: json["data"] == null
             ? []
@@ -37,11 +37,10 @@ class RequestModelResponse {
         meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
       );
 
-  Map<String, Dyn> toJson() => {
-    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
+  Map<String, dynamic> toJson() => {
+    "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
     "links": links?.toJson(),
     "meta": meta?.toJson(),
   };
 }
 
-typedef Dyn = dynamic;

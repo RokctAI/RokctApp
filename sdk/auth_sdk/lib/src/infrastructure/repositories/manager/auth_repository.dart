@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
-import 'package:rokctapp/manager/domain/interface/interfaces.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class AuthRepository implements AuthInterface {
   @override
@@ -191,7 +191,7 @@ class AuthRepository implements AuthInterface {
   }
 
   @override
-  Future<ApiResult<Dyn>> signUp({required String email}) async {
+  Future<ApiResult<dynamic>> signUp({required String email}) async {
     final data = SignUpRequest(email: email);
     try {
       final client = dioHttp.client(requireAuth: false);
@@ -269,4 +269,3 @@ class AuthRepository implements AuthInterface {
   }
 }
 
-typedef Dyn = dynamic;

@@ -7,11 +7,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:merchants_sdk/src/application/customer/shop/shop_provider.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_map.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 import 'package:rokctapp/customer/presentation/components/components.dart';
 

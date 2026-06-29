@@ -75,8 +75,8 @@ class CurrencyData {
 
   String? get position => _position;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['symbol'] = _symbol;
     map['title'] = _title;
@@ -89,4 +89,3 @@ class CurrencyData {
   }
 }
 
-typedef Dyn = dynamic;

@@ -77,8 +77,8 @@ class Group {
 
   List<Extras>? get extraValues => _extraValues;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['shop_id'] = _shopId;
     map['type'] = _type;
@@ -92,4 +92,3 @@ class Group {
   }
 }
 
-typedef Dyn = dynamic;

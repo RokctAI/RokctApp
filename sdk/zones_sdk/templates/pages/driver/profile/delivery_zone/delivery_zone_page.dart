@@ -7,8 +7,8 @@ import 'package:rokctapp/driver/application/delivery_zone/delivery_zone_provider
 
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+import 'package:delivery_sdk/delivery_sdk.dart';
+import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, OrderStatus;
 
 @RoutePage(name: 'DriverDeliveryZoneRoute')

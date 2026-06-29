@@ -9,7 +9,7 @@ class TableData {
   bool? active;
   String? createdAt;
   String? updatedAt;
-  ShopSection? shopSection;
+  MerchantSection? shopSection;
 
   TableData({
     this.id,
@@ -23,7 +23,7 @@ class TableData {
     this.shopSection,
   });
 
-  TableData.fromJson(Map<String, Dyn> json) {
+  TableData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     shopSectionId = json['shop_section_id'];
@@ -33,12 +33,12 @@ class TableData {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     shopSection = json['shop_section'] != null
-        ? ShopSection.fromJson(json['shop_section'])
+        ? MerchantSection.fromJson(json['shop_section'])
         : null;
   }
 
-  Map<String, Dyn> toJson() {
-    final Map<String, Dyn> data = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
     data['shop_section_id'] = shopSectionId;
@@ -54,7 +54,7 @@ class TableData {
   }
 }
 
-class ShopSection {
+class MerchantSection {
   int? id;
   int? shopId;
   String? area;
@@ -63,7 +63,7 @@ class ShopSection {
   String? updatedAt;
   Translation? translation;
 
-  ShopSection({
+  MerchantSection({
     this.id,
     this.shopId,
     this.area,
@@ -73,7 +73,7 @@ class ShopSection {
     this.translation,
   });
 
-  ShopSection.fromJson(Map<String, Dyn> json) {
+  MerchantSection.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     shopId = json['shop_id'];
     area = json['area'];
@@ -85,8 +85,8 @@ class ShopSection {
         : null;
   }
 
-  Map<String, Dyn> toJson() {
-    final Map<String, Dyn> data = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['shop_id'] = shopId;
     data['area'] = area;
@@ -100,4 +100,3 @@ class ShopSection {
   }
 }
 
-typedef Dyn = dynamic;

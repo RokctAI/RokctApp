@@ -13,7 +13,7 @@ import 'package:users_sdk/src/application/driver/profile/state/profile_edit_stat
 import 'package:users_sdk/src/application/driver/profile/state/profile_image_state.dart';
 import 'package:rokctapp/driver/infrastructure/services/img_service.dart';
 
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 

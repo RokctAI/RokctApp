@@ -54,7 +54,7 @@ class RequestModelData {
     updatedAt: updatedAt ?? this.updatedAt,
   );
 
-  factory RequestModelData.fromJson(Map<String, Dyn> json) => RequestModelData(
+  factory RequestModelData.fromJson(Map<String, dynamic> json) => RequestModelData(
     id: json["id"],
     modelId: json["model_id"],
     modelType: json["model_type"],
@@ -74,7 +74,7 @@ class RequestModelData {
         : DateTime.parse(json["updated_at"]),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "model_id": modelId,
     "model_type": modelType,
@@ -150,7 +150,7 @@ class CarData {
     location: location ?? this.location,
   );
 
-  factory CarData.fromJson(Map<String, Dyn> json) => CarData(
+  factory CarData.fromJson(Map<String, dynamic> json) => CarData(
     kg: json["kg"],
     role: json["role"],
     brand: json["brand"],
@@ -168,7 +168,7 @@ class CarData {
         : Location.fromJson(json["location"]),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "kg": kg,
     "role": role,
     "brand": brand,
@@ -185,4 +185,3 @@ class CarData {
   };
 }
 
-typedef Dyn = dynamic;

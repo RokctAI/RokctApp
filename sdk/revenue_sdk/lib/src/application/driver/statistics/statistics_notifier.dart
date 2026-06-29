@@ -1,13 +1,13 @@
 import 'package:charts_flutter/flutter.dart';
-import 'package:rokctapp/driver/infrastructure/models/models.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/driver/application/statistics/statistics_state.dart';
-import 'package:rokctapp/driver/domain/interface/interfaces.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 
 class StatisticsNotifier extends StateNotifier<StatisticsState> {
   final DriverUserRepository _userRepository;

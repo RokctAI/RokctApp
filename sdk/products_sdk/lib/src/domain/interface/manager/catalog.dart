@@ -1,5 +1,5 @@
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 abstract class CatalogInterface {
   Future<ApiResult<UnitsPaginateResponse>> getUnits();

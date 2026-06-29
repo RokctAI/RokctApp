@@ -9,7 +9,7 @@ import 'package:rokctapp/customer/application/map/view_map_provider.dart';
 import 'package:rokctapp/customer/application/profile/profile_provider.dart';
 import 'package:rokctapp/customer/models/models.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 
 import 'package:rokctapp/customer/presentation/components/components.dart';

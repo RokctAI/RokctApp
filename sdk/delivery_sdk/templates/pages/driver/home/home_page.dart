@@ -10,13 +10,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/driver/presentation/component/loading.dart';
 import 'package:rokctapp/driver/presentation/pages/pages.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:rokctapp/driver/application/providers.dart';
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/main.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
@@ -24,7 +24,7 @@ import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/driver/presentation/pages/home/bottom_sheet_screen.dart';
 import 'package:rokctapp/driver/presentation/pages/home/delivery_bottom_sheet.dart';
 import 'package:rokctapp/driver/presentation/pages/home/parcel_bottom_sheet.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+import 'package:core_sdk/core_sdk.dart'
     hide
         AppConstants,
         TrKeys,
@@ -55,7 +55,7 @@ class _HomePageState extends ConsumerState<DriverHomePage> {
         AppConstants.demoLongitude),
   );
   Position? currentLocation;
-  Dyn check;
+  dynamic check;
   final _delayed = Delayed(milliseconds: 36000);
 
   Future<void> setCustomMarkerIcon() async {
@@ -566,4 +566,3 @@ class _HomePageState extends ConsumerState<DriverHomePage> {
   }
 }
 
-typedef Dyn = dynamic;

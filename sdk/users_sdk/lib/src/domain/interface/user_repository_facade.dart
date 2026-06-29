@@ -25,20 +25,20 @@ abstract class UserRepositoryFacade {
 
   Future<ApiResult<BlogData>> getSingleBlog(String uuid);
 
-  Future<ApiResult<Dyn>> saveLocation({required AddressNewModel? address});
+  Future<ApiResult<dynamic>> saveLocation({required AddressNewModel? address});
 
-  Future<ApiResult<Dyn>> updateLocation({
+  Future<ApiResult<dynamic>> updateLocation({
     required AddressNewModel? address,
     required int? addressId,
   });
 
-  Future<ApiResult<Dyn>> setActiveAddress({required int id});
+  Future<ApiResult<dynamic>> setActiveAddress({required int id});
 
-  Future<ApiResult<Dyn>> deleteAddress({required int id});
+  Future<ApiResult<dynamic>> deleteAddress({required int id});
 
-  Future<ApiResult<Dyn>> deleteAccount();
+  Future<ApiResult<dynamic>> deleteAccount();
 
-  Future<ApiResult<Dyn>> logoutAccount({required String fcm});
+  Future<ApiResult<dynamic>> logoutAccount({required String fcm});
 
   Future<ApiResult<ProfileResponse>> editProfile({required EditProfile? user});
 
@@ -59,4 +59,3 @@ abstract class UserRepositoryFacade {
   Future<ApiResult<void>> updateFirebaseToken(String? token);
 }
 
-typedef Dyn = dynamic;

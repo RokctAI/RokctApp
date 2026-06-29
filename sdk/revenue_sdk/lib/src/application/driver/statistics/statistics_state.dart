@@ -1,5 +1,5 @@
 import 'package:charts_flutter/flutter.dart';
-import 'package:rokctapp/driver/infrastructure/models/models.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'statistics_state.freezed.dart';

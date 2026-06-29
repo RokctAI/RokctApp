@@ -23,7 +23,7 @@ class BonusModel {
   DateTime? expiredAt;
   BonusStock? bonusStock;
 
-  factory BonusModel.fromJson(Map<String, Dyn>? json) {
+  factory BonusModel.fromJson(Map<String, dynamic>? json) {
     return BonusModel(
       bonusableType: json?["bonusable_type"],
       bonusableId: json?["bonusable_id"],
@@ -38,7 +38,7 @@ class BonusModel {
     );
   }
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "bonusable_type": bonusableType,
     "bonusable_id": bonusableId,
     "bonus_quantity": bonusQuantity,
@@ -71,7 +71,7 @@ class BonusStock {
   num? totalPrice;
   ProductData? product;
 
-  factory BonusStock.fromJson(Map<String, Dyn> json) => BonusStock(
+  factory BonusStock.fromJson(Map<String, dynamic> json) => BonusStock(
     id: json["id"],
     countableId: json["countable_id"],
     price: json["price"],
@@ -83,7 +83,7 @@ class BonusStock {
         : null,
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "countable_id": countableId,
     "price": price,
@@ -93,4 +93,3 @@ class BonusStock {
   };
 }
 
-typedef Dyn = dynamic;

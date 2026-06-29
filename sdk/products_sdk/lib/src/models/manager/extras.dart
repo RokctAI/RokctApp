@@ -63,8 +63,8 @@ class Extras {
 
   bool? get active => _active;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['extra_group_id'] = _extraGroupId;
     map['value'] = _value;
@@ -102,12 +102,11 @@ class StockPivot {
 
   int? get extraValueId => _extraValueId;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['stock_id'] = _stockId;
     map['extra_value_id'] = _extraValueId;
     return map;
   }
 }
 
-typedef Dyn = dynamic;

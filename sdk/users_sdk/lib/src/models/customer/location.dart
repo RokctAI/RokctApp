@@ -22,12 +22,11 @@ class LocationModel {
 
   double? get longitude => _longitude;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['latitude'] = _latitude;
     map['longitude'] = _longitude;
     return map;
   }
 }
 
-typedef Dyn = dynamic;

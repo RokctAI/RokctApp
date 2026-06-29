@@ -95,8 +95,8 @@ class BlogData {
 
   Translation? get translation => _translation;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['user_id'] = _userId;
@@ -113,4 +113,3 @@ class BlogData {
   }
 }
 
-typedef Dyn = dynamic;

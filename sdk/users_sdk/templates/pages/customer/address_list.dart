@@ -8,7 +8,7 @@ import 'package:users_sdk/src/application/customer/customer_profile/profile_prov
 import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/customer/models/data/location.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 
 import 'package:rokctapp/core/presentation/theme/theme.dart';

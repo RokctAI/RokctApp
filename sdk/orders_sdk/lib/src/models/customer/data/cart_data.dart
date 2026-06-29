@@ -27,7 +27,7 @@ class CartModel {
     data: data ?? this.data,
   );
 
-  factory CartModel.fromJson(Map<String, Dyn> json) => CartModel(
+  factory CartModel.fromJson(Map<String, dynamic> json) => CartModel(
     timestamp: DateTime.tryParse(json["timestamp"])?.toLocal(),
     status: json["status"].runtimeType == int
         ? (json["status"] == 1)
@@ -36,7 +36,7 @@ class CartModel {
     data: Cart.fromJson(json["data"]),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
@@ -103,7 +103,7 @@ class Cart {
     userCarts: userCarts ?? userCarts,
   );
 
-  factory Cart.fromJson(Map<String, Dyn> json) => Cart(
+  factory Cart.fromJson(Map<String, dynamic> json) => Cart(
     id: json["id"],
     ownerId: json["owner_id"],
     shopId: json["shop_id"],
@@ -125,7 +125,7 @@ class Cart {
     ),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "owner_id": ownerId,
     "shop_id": shopId,
@@ -136,7 +136,7 @@ class Cart {
     "rate": rate,
     "created_at": createdAt?.toIso8601String(),
     "updated_at": updatedAt?.toIso8601String(),
-    "user_carts": List<Dyn>.from(userCarts!.map((x) => x.toJson())),
+    "user_carts": List<dynamic>.from(userCarts!.map((x) => x.toJson())),
   };
 }
 
@@ -177,7 +177,7 @@ class UserCart {
     cartDetails: cartDetails ?? this.cartDetails,
   );
 
-  factory UserCart.fromJson(Map<String, Dyn> json) {
+  factory UserCart.fromJson(Map<String, dynamic> json) {
     return UserCart(
       id: json["id"],
       cartId: json["cart_id"],
@@ -195,14 +195,14 @@ class UserCart {
     );
   }
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "cart_id": cartId,
     "user_id": userId,
     "status": status,
     "name": name,
     "uuid": uuid,
-    "cartDetails": List<Dyn>.from(cartDetails!.map((x) => x.toJson())),
+    "cartDetails": List<dynamic>.from(cartDetails!.map((x) => x.toJson())),
   };
 }
 
@@ -245,7 +245,7 @@ class CartDetail {
     addons: addons ?? this.addons,
   );
 
-  factory CartDetail.fromJson(Map<String, Dyn> json) => CartDetail(
+  factory CartDetail.fromJson(Map<String, dynamic> json) => CartDetail(
     id: json["id"],
     quantity: json["quantity"],
     bonus: json["bonus"].runtimeType == int
@@ -267,7 +267,7 @@ class CartDetail {
     stock: json["stock"] != null ? Stocks.fromJson(json["stock"]) : null,
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "quantity": quantity,
     "bonus": bonus,
@@ -277,4 +277,3 @@ class CartDetail {
   };
 }
 
-typedef Dyn = dynamic;

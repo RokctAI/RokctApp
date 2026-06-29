@@ -1,9 +1,9 @@
 import 'package:rokctapp/customer/models/data/order_active_model.dart';
 import 'package:rokctapp/customer/models/data/refund_data.dart';
 import 'package:rokctapp/customer/models/models.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/models/data/get_calculate_data.dart';
 
 abstract class OrdersInterface {

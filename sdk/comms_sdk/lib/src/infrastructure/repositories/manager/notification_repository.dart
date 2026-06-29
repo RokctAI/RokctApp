@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/manager/domain/interface/notification.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class NotificationRepository extends NotificationInterface {
   @override
@@ -53,7 +53,7 @@ class NotificationRepository extends NotificationInterface {
   }
 
   @override
-  Future<ApiResult<Dyn>> readOne({int? id}) async {
+  Future<ApiResult<dynamic>> readOne({int? id}) async {
     final data = {
       if (id != null) '$id': id,
       'lang': LocalStorage.getLanguage()?.locale,
@@ -115,4 +115,3 @@ class NotificationRepository extends NotificationInterface {
   }
 }
 
-typedef Dyn = dynamic;

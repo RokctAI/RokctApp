@@ -1,4 +1,4 @@
-import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class DeliveryZonePaginate {
   DeliveryZonePaginate({List<DeliveryZoneData>? data}) {
@@ -21,8 +21,8 @@ class DeliveryZonePaginate {
 
   List<DeliveryZoneData>? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }
@@ -38,11 +38,11 @@ class DeliveryZoneData {
   }
 
   DeliveryZoneData.fromJson(dynamic json) {
-    final List<Dyn>? addresses = json['address'];
+    final List<dynamic>? addresses = json['address'];
     final List<List<double>> parsedAddresses = [];
     if (addresses != null) {
       for (int i = 0; i < addresses.length; i++) {
-        final List<Dyn> item = addresses[i];
+        final List<dynamic> item = addresses[i];
         List<double> items = [];
         for (int j = 0; j < item.length; j++) {
           items.add(double.parse(item[j].toString()));
@@ -75,8 +75,8 @@ class DeliveryZoneData {
 
   MerchantData? get shop => _shop;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['address'] = _address;
     if (_shop != null) {
@@ -86,4 +86,3 @@ class DeliveryZoneData {
   }
 }
 
-typedef Dyn = dynamic;

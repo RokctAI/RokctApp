@@ -44,7 +44,7 @@ class AddressNewModel {
     active: active ?? this.active,
   );
 
-  factory AddressNewModel.fromJson(Map<String, Dyn> json) => AddressNewModel(
+  factory AddressNewModel.fromJson(Map<String, dynamic> json) => AddressNewModel(
     id: json["id"],
     title: json["title"],
     userId: json["user_id"],
@@ -63,13 +63,13 @@ class AddressNewModel {
         : DateTime.parse(json["updated_at"]),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     if (title != null && (title?.isNotEmpty ?? false)) "title": title,
     "active": 1,
     "user_id": userId,
     "address": address?.toJson(),
-    "location": location == null ? [] : List<Dyn>.from(location!.map((x) => x)),
+    "location": location == null ? [] : List<dynamic>.from(location!.map((x) => x)),
     "created_at": createdAt?.toIso8601String(),
     "updated_at": updatedAt?.toIso8601String(),
   };
@@ -84,4 +84,3 @@ class AddressNewModel {
   );
 }
 
-typedef Dyn = dynamic;

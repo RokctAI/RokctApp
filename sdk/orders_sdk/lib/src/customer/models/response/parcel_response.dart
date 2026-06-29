@@ -18,7 +18,7 @@ class ParcelTypeResponse {
     meta: meta ?? this.meta,
   );
 
-  factory ParcelTypeResponse.fromJson(Map<String, Dyn> json) =>
+  factory ParcelTypeResponse.fromJson(Map<String, dynamic> json) =>
       ParcelTypeResponse(
         data: json["data"] == null
             ? []
@@ -29,8 +29,8 @@ class ParcelTypeResponse {
         meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
       );
 
-  Map<String, Dyn> toJson() => {
-    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
+  Map<String, dynamic> toJson() => {
+    "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
     "links": links?.toJson(),
     "meta": meta?.toJson(),
   };
@@ -109,7 +109,7 @@ class TypeModel {
     options: options ?? this.options,
   );
 
-  factory TypeModel.fromJson(Map<String, Dyn> json) => TypeModel(
+  factory TypeModel.fromJson(Map<String, dynamic> json) => TypeModel(
     id: json["id"],
     type: json["type"],
     img: json["img"],
@@ -134,7 +134,7 @@ class TypeModel {
         : List<Option>.from(json["options"]!.map((x) => Option.fromJson(x))),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "type": type,
     "img": img,
@@ -152,7 +152,7 @@ class TypeModel {
     "updated_at": updatedAt?.toIso8601String(),
     "options": options == null
         ? []
-        : List<Dyn>.from(options!.map((x) => x.toJson())),
+        : List<dynamic>.from(options!.map((x) => x.toJson())),
   };
 }
 
@@ -176,7 +176,7 @@ class Option {
     translation: translation ?? this.translation,
   );
 
-  factory Option.fromJson(Map<String, Dyn> json) => Option(
+  factory Option.fromJson(Map<String, dynamic> json) => Option(
     id: json["id"],
     createdAt: json["created_at"] == null
         ? null
@@ -189,7 +189,7 @@ class Option {
         : Translation.fromJson(json["translation"]),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "created_at": createdAt?.toIso8601String(),
     "updated_at": updatedAt?.toIso8601String(),
@@ -197,4 +197,3 @@ class Option {
   };
 }
 
-typedef Dyn = dynamic;

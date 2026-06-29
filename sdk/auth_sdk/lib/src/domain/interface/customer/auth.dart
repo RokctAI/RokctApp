@@ -1,7 +1,7 @@
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/models.dart';
 
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 abstract class AuthRepositoryFacade {
   Future<ApiResult<LoginResponse>> login({
@@ -17,7 +17,7 @@ abstract class AuthRepositoryFacade {
     required String avatar,
   });
 
-  Future<ApiResult<Dyn>> sigUp({required String email});
+  Future<ApiResult<dynamic>> sigUp({required String email});
 
   Future<ApiResult<VerifyData>> sigUpWithData({required UserModel user});
 
@@ -53,4 +53,3 @@ abstract class AuthRepositoryFacade {
   });
 }
 
-typedef Dyn = dynamic;

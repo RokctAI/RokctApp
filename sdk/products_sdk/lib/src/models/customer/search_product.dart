@@ -1,12 +1,12 @@
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class SearchProductModel {
   final String text;
   final int page;
   SearchProductModel({required this.text, required this.page});
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map["search"] = text;
     map["perPage"] = 10;
     map["status"] = "published";
@@ -16,4 +16,3 @@ class SearchProductModel {
   }
 }
 
-typedef Dyn = dynamic;

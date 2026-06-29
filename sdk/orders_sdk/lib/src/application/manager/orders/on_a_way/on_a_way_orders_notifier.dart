@@ -1,11 +1,11 @@
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+﻿import 'package:core_sdk/core_sdk.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:orders_sdk/src/application/manager/orders/on_a_way/on_a_way_orders_state.dart';
-import 'package:rokctapp/manager/domain/interface/interfaces.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class OnAWayOrdersNotifier extends StateNotifier<OnAWayOrdersState> {
   final OrdersInterface _ordersRepository;
@@ -76,3 +76,4 @@ class OnAWayOrdersNotifier extends StateNotifier<OnAWayOrdersState> {
     );
   }
 }
+

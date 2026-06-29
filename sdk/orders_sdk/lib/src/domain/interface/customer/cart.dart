@@ -1,6 +1,6 @@
 import 'package:rokctapp/customer/models/data/cart_data.dart';
 import 'package:rokctapp/customer/models/request/cart_request.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 abstract class CartRepositoryFacade {
   Future<ApiResult<CartModel>> getCart();
@@ -11,16 +11,16 @@ abstract class CartRepositoryFacade {
     String? cartUuid,
   );
 
-  Future<ApiResult<Dyn>> startGroupOrder({required int cartId});
+  Future<ApiResult<dynamic>> startGroupOrder({required int cartId});
 
-  Future<ApiResult<Dyn>> changeStatus({
+  Future<ApiResult<dynamic>> changeStatus({
     required String? userUuid,
     required String? cartId,
   });
 
   Future<ApiResult<CartModel>> deleteCart({required int cartId});
 
-  Future<ApiResult<Dyn>> deleteUser({
+  Future<ApiResult<dynamic>> deleteUser({
     required int cartId,
     required String userId,
   });
@@ -39,4 +39,3 @@ abstract class CartRepositoryFacade {
   Future<ApiResult<CartModel>> createCart({required CartRequest cart});
 }
 
-typedef Dyn = dynamic;

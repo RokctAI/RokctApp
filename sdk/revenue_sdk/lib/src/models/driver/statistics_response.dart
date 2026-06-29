@@ -25,8 +25,8 @@ class StatisticsResponse {
     data: data ?? this.data,
   );
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['timestamp'] = timestamp;
     map['status'] = status;
     map['message'] = message;
@@ -70,7 +70,7 @@ class StatisticsData {
   num? readyOrdersCount;
   num? onAWayOrdersCount;
   num? ordersCount;
-  Dyn totalPrice;
+  dynamic totalPrice;
 
   StatisticsData copyWith({
     num? progressOrdersCount,
@@ -81,7 +81,7 @@ class StatisticsData {
     num? readyOrdersCount,
     num? onAWayOrdersCount,
     num? ordersCount,
-    Dyn totalPrice,
+    dynamic totalPrice,
   }) => StatisticsData(
     progressOrdersCount: progressOrdersCount ?? this.progressOrdersCount,
     deliveredOrdersCount: deliveredOrdersCount ?? this.deliveredOrdersCount,
@@ -94,8 +94,8 @@ class StatisticsData {
     totalPrice: totalPrice ?? this.totalPrice,
   );
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['progress_orders_count'] = progressOrdersCount;
     map['delivered_orders_count'] = deliveredOrdersCount;
     map['cancel_orders_count'] = cancelOrdersCount;
@@ -109,4 +109,3 @@ class StatisticsData {
   }
 }
 
-typedef Dyn = dynamic;

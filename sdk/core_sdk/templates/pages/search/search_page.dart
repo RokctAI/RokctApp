@@ -9,7 +9,7 @@ import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/customer/application/home/home_provider.dart';
 import 'package:rokctapp/core/application/search/search_state.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/application/search/search_notifier.dart';
 import 'package:rokctapp/core/application/search/search_provider.dart';

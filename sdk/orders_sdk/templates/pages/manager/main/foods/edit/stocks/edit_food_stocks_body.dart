@@ -6,8 +6,8 @@ import 'package:rokctapp/manager/presentation/pages/main/foods/edit/stocks/edit_
 import 'package:rokctapp/manager/presentation/pages/main/foods/edit/stocks/edit_group_extras_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class EditFoodStocksBody extends ConsumerStatefulWidget {
   final ProductData product;

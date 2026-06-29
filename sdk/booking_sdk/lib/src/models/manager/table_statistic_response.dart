@@ -21,7 +21,7 @@ class TableStatisticResponse {
     required this.data,
   });
 
-  factory TableStatisticResponse.fromJson(Map<String, Dyn> json) =>
+  factory TableStatisticResponse.fromJson(Map<String, dynamic> json) =>
       TableStatisticResponse(
         timestamp: DateTime.parse(json["timestamp"]),
         status: json["status"],
@@ -29,7 +29,7 @@ class TableStatisticResponse {
         data: TableStatisticData.fromJson(json["data"]),
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "timestamp": timestamp.toIso8601String(),
     "status": status,
     "message": message,
@@ -37,4 +37,3 @@ class TableStatisticResponse {
   };
 }
 
-typedef Dyn = dynamic;

@@ -16,8 +16,8 @@ class SingleOrderResponse {
 
   OrderData? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_data != null) {
       map['data'] = _data?.toJson();
     }
@@ -25,4 +25,3 @@ class SingleOrderResponse {
   }
 }
 
-typedef Dyn = dynamic;

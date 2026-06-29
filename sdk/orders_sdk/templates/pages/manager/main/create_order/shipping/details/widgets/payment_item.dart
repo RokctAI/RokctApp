@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class PaymentItem extends StatelessWidget {
   final PaymentData payment;

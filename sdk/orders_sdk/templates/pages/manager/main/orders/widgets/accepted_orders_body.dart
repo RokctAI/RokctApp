@@ -7,7 +7,7 @@ import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/no_order
 import 'package:rokctapp/manager/presentation/pages/main/orders/details/order_details_modal.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class AcceptedOrdersBody extends StatefulWidget {
   final ScrollController? scrollController;

@@ -1,16 +1,15 @@
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 abstract class NotificationInterface {
   Future<ApiResult<NotificationResponse>> getNotifications({int? page});
 
   Future<ApiResult<NotificationResponse>> getAllNotifications();
 
-  Future<ApiResult<Dyn>> readOne({int? id});
+  Future<ApiResult<dynamic>> readOne({int? id});
 
   Future<ApiResult<NotificationResponse>> readAll();
 
   Future<ApiResult<CountNotificationModel>> getCount();
 }
 
-typedef Dyn = dynamic;

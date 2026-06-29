@@ -205,4 +205,3 @@ class LoginNotifier extends Notifier<LoginState> {
   }
 }
 
-typedef Dyn = dynamic;

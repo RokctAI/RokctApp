@@ -17,7 +17,7 @@ class ParcelTypeResponse {
     meta: meta ?? this.meta,
   );
 
-  factory ParcelTypeResponse.fromJson(Map<String, Dyn> json) =>
+  factory ParcelTypeResponse.fromJson(Map<String, dynamic> json) =>
       ParcelTypeResponse(
         data: json["data"] == null
             ? []
@@ -28,8 +28,8 @@ class ParcelTypeResponse {
         meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
       );
 
-  Map<String, Dyn> toJson() => {
-    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
+  Map<String, dynamic> toJson() => {
+    "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
     "links": links?.toJson(),
     "meta": meta?.toJson(),
   };
@@ -108,7 +108,7 @@ class TypeModel {
     options: options ?? this.options,
   );
 
-  factory TypeModel.fromJson(Map<String, Dyn> json) => TypeModel(
+  factory TypeModel.fromJson(Map<String, dynamic> json) => TypeModel(
     id: json["id"],
     type: json["type"],
     img: json["img"],
@@ -133,7 +133,7 @@ class TypeModel {
         : List<Option>.from(json["options"]!.map((x) => Option.fromJson(x))),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "type": type,
     "img": img,
@@ -151,7 +151,7 @@ class TypeModel {
     "updated_at": updatedAt?.toIso8601String(),
     "options": options == null
         ? []
-        : List<Dyn>.from(options!.map((x) => x.toJson())),
+        : List<dynamic>.from(options!.map((x) => x.toJson())),
   };
 }
 
@@ -175,7 +175,7 @@ class Option {
     translation: translation ?? this.translation,
   );
 
-  factory Option.fromJson(Map<String, Dyn> json) => Option(
+  factory Option.fromJson(Map<String, dynamic> json) => Option(
     id: json["id"],
     createdAt: json["created_at"] == null
         ? null
@@ -188,7 +188,7 @@ class Option {
         : Translation.fromJson(json["translation"]),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "created_at": createdAt?.toIso8601String(),
     "updated_at": updatedAt?.toIso8601String(),
@@ -199,26 +199,26 @@ class Option {
 class Links {
   String? first;
   String? last;
-  Dyn prev;
-  Dyn next;
+  dynamic prev;
+  dynamic next;
 
   Links({this.first, this.last, this.prev, this.next});
 
-  Links copyWith({String? first, String? last, Dyn prev, Dyn next}) => Links(
+  Links copyWith({String? first, String? last, dynamic prev, dynamic next}) => Links(
     first: first ?? this.first,
     last: last ?? this.last,
     prev: prev ?? this.prev,
     next: next ?? this.next,
   );
 
-  factory Links.fromJson(Map<String, Dyn> json) => Links(
+  factory Links.fromJson(Map<String, dynamic> json) => Links(
     first: json["first"],
     last: json["last"],
     prev: json["prev"],
     next: json["next"],
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "first": first,
     "last": last,
     "prev": prev,
@@ -267,7 +267,7 @@ class Meta {
     total: total ?? this.total,
   );
 
-  factory Meta.fromJson(Map<String, Dyn> json) => Meta(
+  factory Meta.fromJson(Map<String, dynamic> json) => Meta(
     currentPage: json["current_page"],
     from: json["from"],
     lastPage: json["last_page"],
@@ -280,11 +280,11 @@ class Meta {
     total: json["total"],
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "current_page": currentPage,
     "from": from,
     "last_page": lastPage,
-    "links": links == null ? [] : List<Dyn>.from(links!.map((x) => x.toJson())),
+    "links": links == null ? [] : List<dynamic>.from(links!.map((x) => x.toJson())),
     "path": path,
     "per_page": perPage,
     "to": to,
@@ -305,10 +305,9 @@ class Link {
     active: active ?? this.active,
   );
 
-  factory Link.fromJson(Map<String, Dyn> json) =>
+  factory Link.fromJson(Map<String, dynamic> json) =>
       Link(url: json["url"], label: json["label"], active: json["active"]);
 
-  Map<String, Dyn> toJson() => {"url": url, "label": label, "active": active};
+  Map<String, dynamic> toJson() => {"url": url, "label": label, "active": active};
 }
 
-typedef Dyn = dynamic;

@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 import 'package:osm_nominatim/osm_nominatim.dart';
@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:orders_sdk/src/application/manager/order/shipping/address/select_address_state.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
   Timer? _timer;
@@ -167,3 +167,4 @@ class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
     }
   }
 }
+

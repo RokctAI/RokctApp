@@ -1,4 +1,4 @@
-library core_sdk;
+﻿library core_sdk;
 
 export 'src/domain/handlers/api_result.dart';
 export 'src/domain/handlers/api_result.freezed.dart';
@@ -64,3 +64,4 @@ export 'src/models/customer/repeat_data.dart';
 export 'src/models/customer/tab_bar_model.dart';
 export 'src/models/customer/tag_response.dart';
 export 'src/models/customer/take_data.dart';
+

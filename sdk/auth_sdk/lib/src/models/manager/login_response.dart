@@ -16,8 +16,8 @@ class LoginResponse {
 
   LoginData? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_data != null) {
       map['data'] = _data?.toJson();
     }
@@ -58,8 +58,8 @@ class LoginData {
 
   UserData? get user => _user;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['access_token'] = _accessToken; // environment
     map['token_type'] = _tokenType; // environment
     if (_user != null) {
@@ -69,4 +69,3 @@ class LoginData {
   }
 }
 
-typedef Dyn = dynamic;

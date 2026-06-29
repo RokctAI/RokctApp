@@ -13,9 +13,9 @@ List<List<StoryModel?>?>? storyModelFromJson(dynamic str) => str == null
 String storyModelToJson(List<List<StoryModel?>?>? data) => json.encode(
   data == null
       ? []
-      : List<Dyn>.from(
+      : List<dynamic>.from(
           data.map(
-            (x) => x == null ? [] : List<Dyn>.from(x.map((x) => x!.toJson())),
+            (x) => x == null ? [] : List<dynamic>.from(x.map((x) => x!.toJson())),
           ),
         ),
 );
@@ -41,7 +41,7 @@ class StoryModel {
   DateTime? createdAt;
   DateTime? updatedAt;
 
-  factory StoryModel.fromJson(Map<String, Dyn> json) {
+  factory StoryModel.fromJson(Map<String, dynamic> json) {
     return StoryModel(
       shopId: json["shop_id"],
       logoImg: json["logo_img"],
@@ -54,7 +54,7 @@ class StoryModel {
     );
   }
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "shop_id": shopId,
     "logo_img": logoImg,
     "title": title,
@@ -66,4 +66,3 @@ class StoryModel {
   };
 }
 
-typedef Dyn = dynamic;

@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/customer/presentation/components/components.dart';
 import '../register/register_page.dart';
@@ -19,7 +19,7 @@ import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
 import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
 import 'package:rokctapp/customer/presentation/pages/profile/language_page.dart';
 import 'login_screen.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 @RoutePage()
 class LoginPage extends ConsumerStatefulWidget {

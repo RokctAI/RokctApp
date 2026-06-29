@@ -10,16 +10,15 @@ class CountNotificationModel {
         transaction: transaction ?? this.transaction,
       );
 
-  factory CountNotificationModel.fromJson(Map<String, Dyn> json) =>
+  factory CountNotificationModel.fromJson(Map<String, dynamic> json) =>
       CountNotificationModel(
         notification: json["notification"],
         transaction: json["transaction"],
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "notification": notification,
     "transaction": transaction,
   };
 }
 
-typedef Dyn = dynamic;

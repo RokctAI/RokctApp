@@ -13,7 +13,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/infrastructure/utils/app_helpers.dart';
 
 abstract class FirebaseService {
@@ -28,7 +28,7 @@ abstract class FirebaseService {
     return await firebaseM.getToken() ?? "";
   }
 
-  static Future<Either<UserCredential, Dyn>> socialGoogle() async {
+  static Future<Either<UserCredential, dynamic>> socialGoogle() async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
 
     await googleSignIn.disconnect();
@@ -56,7 +56,7 @@ abstract class FirebaseService {
     }
   }
 
-  static Future<Either<UserCredential, Dyn>> socialFacebook() async {
+  static Future<Either<UserCredential, dynamic>> socialFacebook() async {
     final fb = FacebookAuth.instance;
     try {
       TrackingStatus? status;
@@ -97,7 +97,7 @@ abstract class FirebaseService {
     }
   }
 
-  static Future<Either<UserCredential, Dyn>> socialApple() async {
+  static Future<Either<UserCredential, dynamic>> socialApple() async {
     try {
       final credential = await SignInWithApple.getAppleIDCredential(
         scopes: [
@@ -196,4 +196,3 @@ abstract class FirebaseService {
   }
 }
 
-typedef Dyn = dynamic;

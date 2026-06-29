@@ -6,11 +6,11 @@ class CloseDayResponse {
   CloseDayResponse copyWith({CloseDayData? data}) =>
       CloseDayResponse(data: data ?? this.data);
 
-  factory CloseDayResponse.fromJson(Map<String, Dyn> json) => CloseDayResponse(
+  factory CloseDayResponse.fromJson(Map<String, dynamic> json) => CloseDayResponse(
     data: json["data"] == null ? null : CloseDayData.fromJson(json["data"]),
   );
 
-  Map<String, Dyn> toJson() => {"data": data?.toJson()};
+  Map<String, dynamic> toJson() => {"data": data?.toJson()};
 }
 
 class CloseDayData {
@@ -24,7 +24,7 @@ class CloseDayData {
             bookingShopClosedDate ?? this.bookingShopClosedDate,
       );
 
-  factory CloseDayData.fromJson(Map<String, Dyn> json) => CloseDayData(
+  factory CloseDayData.fromJson(Map<String, dynamic> json) => CloseDayData(
     bookingShopClosedDate: json["booking_shop_closed_date"] == null
         ? []
         : List<BookingShopClosedDate>.from(
@@ -34,10 +34,10 @@ class CloseDayData {
           ),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "booking_shop_closed_date": bookingShopClosedDate == null
         ? []
-        : List<Dyn>.from(bookingShopClosedDate!.map((x) => x.toJson())),
+        : List<dynamic>.from(bookingShopClosedDate!.map((x) => x.toJson())),
   };
 }
 
@@ -50,7 +50,7 @@ class BookingShopClosedDate {
   BookingShopClosedDate copyWith({int? id, DateTime? day}) =>
       BookingShopClosedDate(id: id ?? this.id, day: day ?? this.day);
 
-  factory BookingShopClosedDate.fromJson(Map<String, Dyn> json) =>
+  factory BookingShopClosedDate.fromJson(Map<String, dynamic> json) =>
       BookingShopClosedDate(
         id: json["id"],
         day: json["day"] == null
@@ -58,11 +58,10 @@ class BookingShopClosedDate {
             : DateTime.tryParse(json["day"])?.toLocal(),
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "day":
         "${day!.year.toString().padLeft(4, '0')}-${day!.month.toString().padLeft(2, '0')}-${day!.day.toString().padLeft(2, '0')}",
   };
 }
 
-typedef Dyn = dynamic;

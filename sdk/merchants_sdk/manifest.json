@@ -12,7 +12,7 @@
       "path": "/become-seller",
       "page": "BecomeSellerRoute.page",
       "type": "MaterialRoute",
-      "import": "package:rokctapp/customer/presentation/pages/profile/become_seller/become_seller.dart"
+      "import": "package:rokctapp/customer/presentation/pages/profile/become_seller/become_seller/become_seller.dart"
     }
   ],
   "integrations": [

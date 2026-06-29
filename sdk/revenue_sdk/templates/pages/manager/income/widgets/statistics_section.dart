@@ -6,7 +6,7 @@ import 'package:rokctapp/manager/presentation/pages/income/widgets/statistics_it
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class StatisticsSection extends StatelessWidget {
   const StatisticsSection({super.key});

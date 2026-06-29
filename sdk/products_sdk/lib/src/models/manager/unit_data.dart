@@ -55,8 +55,8 @@ class UnitData {
 
   List<String>? get locales => _locales;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['active'] = _active;
     map['position'] = _position;
@@ -68,4 +68,3 @@ class UnitData {
   }
 }
 
-typedef Dyn = dynamic;

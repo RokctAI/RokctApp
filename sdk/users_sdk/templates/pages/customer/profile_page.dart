@@ -8,8 +8,8 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/customer/application/home/home_provider.dart';
 // @profile-page-imports
 import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'delete_screen.dart';
 import 'widgets/profile_header.dart';
 import 'widgets/profile_items_list.dart';

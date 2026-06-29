@@ -1,15 +1,15 @@
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 abstract class TableInterface {
-  Future<ApiResult<ShopSection>> createNewSection({
+  Future<ApiResult<MerchantSection>> createNewSection({
     required String name,
     required num area,
   });
 
-  Future<ApiResult<ShopSectionResponse>> getSection({int? page, String? query});
+  Future<ApiResult<MerchantSectionResponse>> getSection({int? page, String? query});
 
-  Future<ApiResult<Dyn>> createNewTable({required TableModel tableModel});
+  Future<ApiResult<dynamic>> createNewTable({required TableModel tableModel});
 
   Future<ApiResult<TableResponse>> getTables({
     int? page,
@@ -41,7 +41,7 @@ abstract class TableInterface {
 
   Future<ApiResult<BookingsResponse>> getBookings({int? page});
 
-  Future<ApiResult<Dyn>> setBookings({
+  Future<ApiResult<dynamic>> setBookings({
     int? bookingId,
     int? tableId,
     DateTime? startDate,
@@ -52,7 +52,7 @@ abstract class TableInterface {
 
   Future<ApiResult<CloseDayResponse>> getCloseDay();
 
-  Future<ApiResult<Dyn>> changeOrderStatus({
+  Future<ApiResult<dynamic>> changeOrderStatus({
     required String status,
     required int id,
   });
@@ -63,4 +63,3 @@ abstract class TableInterface {
   });
 }
 
-typedef Dyn = dynamic;

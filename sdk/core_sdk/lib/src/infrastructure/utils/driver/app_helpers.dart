@@ -14,7 +14,7 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/driver/presentation/component/components.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/driver/infrastructure/models/models.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:rokctapp/driver/infrastructure/services/enums.dart';
 import 'package:rokctapp/driver/infrastructure/services/img_service.dart';
 import 'package:rokctapp/driver/infrastructure/services/local_storage.dart';
@@ -191,7 +191,7 @@ class AppHelpers {
   }
 
   static String getTranslation(String trKey) {
-    final Map<String, Dyn> translations = LocalStorage.getTranslations();
+    final Map<String, dynamic> translations = LocalStorage.getTranslations();
     return translations[trKey] ??
         (trKey.isNotEmpty
             ? trKey
@@ -205,7 +205,7 @@ class AppHelpers {
   }
 
   static String getTranslationReverse(String trKey) {
-    final Map<String, Dyn> translations = LocalStorage.getTranslations();
+    final Map<String, dynamic> translations = LocalStorage.getTranslations();
     for (int i = 0; i < translations.values.length; i++) {
       if (trKey == translations.values.elementAt(i)) {
         return translations.keys.elementAt(i);
@@ -488,4 +488,3 @@ class AppHelpers {
   }
 }
 
-typedef Dyn = dynamic;

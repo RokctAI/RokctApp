@@ -11,7 +11,7 @@ import 'package:rokctapp/manager/presentation/pages/main/foods/addons/addons_bod
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class FoodsPage extends ConsumerStatefulWidget {
   const FoodsPage({super.key});

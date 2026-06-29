@@ -11,8 +11,8 @@
       "to": "lib/manager/presentation/pages/add_address.dart"
     },
     {
-      "from": "templates/pages/manager/restaurant",
-      "to": "lib/manager/presentation/pages/restaurant"
+      "from": "templates/pages/manager/merchant",
+      "to": "lib/manager/presentation/pages/merchant"
     },
     {
       "from": "templates/pages/driver/profile",
@@ -94,13 +94,13 @@
       "path": "/manager/delivery-zone",
       "page": "ManagerDeliveryZoneRoute.page",
       "type": "CupertinoRoute",
-      "import": "package:rokctapp/manager/presentation/pages/restaurant/delivery_zone/delivery_zone_page.dart"
+      "import": "package:rokctapp/manager/presentation/pages/merchant/delivery_zone/delivery_zone_page.dart"
     },
     {
       "path": "/manager/list-notification",
       "page": "ManagerNotificationListRoute.page",
       "type": "CupertinoRoute",
-      "import": "package:rokctapp/manager/presentation/pages/restaurant/notification_list_page.dart"
+      "import": "package:rokctapp/manager/presentation/pages/merchant/notification_list_page.dart"
     },
     {
       "path": "/manager/become_seller",

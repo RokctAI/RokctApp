@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class TokenInterceptor extends Interceptor {
   /// Token expiry duration — tokens are considered invalid after this period.

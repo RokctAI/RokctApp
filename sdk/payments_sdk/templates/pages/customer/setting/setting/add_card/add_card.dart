@@ -4,7 +4,7 @@
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:payments_sdk/src/application/customer/add_card/add_card_provider.dart';
-// import 'package:rokctapp/core/infrastructure/utils/services.dart';
+// import 'package:core_sdk/core_sdk.dart';
 // import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 // // // // // import 'package:rokctapp/core/presentation/theme/theme.dart';
 // import 'widgets/add_card.dart';

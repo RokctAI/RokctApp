@@ -15,7 +15,7 @@ import 'package:core_sdk/src/infrastructure/utils/manager/enums.dart';
 import 'package:core_sdk/src/tr_keys.dart';
 import 'package:rokctapp/manager/app_constants.dart';
 import 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart'
+import 'package:core_sdk/core_sdk.dart'
     hide SignUpType, ExtrasType, SnackBarType
     hide AppConstants, UploadType, SnackBarType;
 
@@ -90,7 +90,7 @@ class AppHelpers {
     );
   }
 
-  static List<List<Extras>> cartesian(List<List<Dyn>> args) {
+  static List<List<Extras>> cartesian(List<List<dynamic>> args) {
     List<List<Extras>> r = [];
     int max = args.length - 1;
 
@@ -463,7 +463,7 @@ class AppHelpers {
   }
 
   static String getTranslation(String trKey) {
-    final Map<String, Dyn> translations = LocalStorage.getTranslations();
+    final Map<String, dynamic> translations = LocalStorage.getTranslations();
     if (AppConstants.autoTrn) {
       return (translations[trKey] ??
           (trKey.isNotEmpty
@@ -616,4 +616,3 @@ class AppHelpers {
   }
 }
 
-typedef Dyn = dynamic;

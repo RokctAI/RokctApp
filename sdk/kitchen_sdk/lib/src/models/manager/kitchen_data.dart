@@ -20,7 +20,7 @@ class KitchenModel {
     translation: translation ?? this.translation,
   );
 
-  factory KitchenModel.fromJson(Map<String, Dyn> json) => KitchenModel(
+  factory KitchenModel.fromJson(Map<String, dynamic> json) => KitchenModel(
     id: json["id"],
     active: json["active"],
     shopId: json["shop_id"],
@@ -29,7 +29,7 @@ class KitchenModel {
         : Translation.fromJson(json["translation"]),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "id": id,
     "active": active,
     "shop_id": shopId,
@@ -37,4 +37,3 @@ class KitchenModel {
   };
 }
 
-typedef Dyn = dynamic;

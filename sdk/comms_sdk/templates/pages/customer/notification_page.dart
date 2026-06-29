@@ -6,8 +6,8 @@ import 'package:jiffy/jiffy.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:comms_sdk/comms_sdk.dart';
 import 'package:rokctapp/customer/models/response/notification_response.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 

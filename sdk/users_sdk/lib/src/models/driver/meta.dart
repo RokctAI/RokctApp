@@ -13,11 +13,10 @@ class Meta {
 
   num? get total => _total;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['total'] = _total;
     return map;
   }
 }
 
-typedef Dyn = dynamic;

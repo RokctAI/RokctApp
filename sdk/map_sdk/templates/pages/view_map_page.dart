@@ -12,13 +12,13 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/application/profile/profile_provider.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/models/data/address_information.dart';
 import 'package:rokctapp/customer/models/data/address_new_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
 import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/presentation/pages/view_map/view_map_modal.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
@@ -58,7 +58,7 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
   final GeolocatorPlatform _geolocatorPlatform = GeolocatorPlatform.instance;
   GoogleMapController? googleMapController;
   CameraPosition? cameraPosition;
-  Dyn check;
+  dynamic check;
   late LatLng latLng;
   final Delayed delayed = Delayed(milliseconds: 700);
 
@@ -557,4 +557,3 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
   }
 }
 
-typedef Dyn = dynamic;

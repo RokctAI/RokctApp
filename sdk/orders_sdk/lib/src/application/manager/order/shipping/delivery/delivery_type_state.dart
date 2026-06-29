@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 part 'delivery_type_state.freezed.dart';
 
@@ -11,3 +11,4 @@ sealed class DeliveryTypeState with _$DeliveryTypeState {
 
   const DeliveryTypeState._();
 }
+

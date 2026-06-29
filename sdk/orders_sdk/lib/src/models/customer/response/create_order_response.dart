@@ -43,8 +43,8 @@ class CreateOrderResponse {
 
   CreatedOrder? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;
@@ -124,8 +124,8 @@ class CreatedOrder {
 
   String? get updatedAt => _updatedAt;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['user_id'] = _userId;
     map['price'] = _price;
@@ -137,4 +137,3 @@ class CreatedOrder {
   }
 }
 
-typedef Dyn = dynamic;

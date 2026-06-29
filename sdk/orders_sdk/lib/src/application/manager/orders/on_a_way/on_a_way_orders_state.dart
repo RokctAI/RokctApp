@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 part 'on_a_way_orders_state.freezed.dart';
 
@@ -14,3 +14,4 @@ sealed class OnAWayOrdersState with _$OnAWayOrdersState {
 
   const OnAWayOrdersState._();
 }
+

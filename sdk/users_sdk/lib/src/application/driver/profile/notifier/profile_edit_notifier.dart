@@ -1,12 +1,12 @@
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/driver/domain/interface/interfaces.dart';
-import 'package:rokctapp/driver/infrastructure/models/models.dart';
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:users_sdk/src/application/driver/profile/state/profile_edit_state.dart';
 
 class ProfileEditNotifier extends StateNotifier<ProfileEditState> {

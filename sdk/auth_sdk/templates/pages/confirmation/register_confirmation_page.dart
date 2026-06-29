@@ -8,7 +8,7 @@ import 'package:rokctapp/customer/application/edit_profile/edit_profile_provider
 import 'package:rokctapp/customer/application/profile/profile_provider.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/models.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/presentation/components/components.dart';
 import '../reset/set_password_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';

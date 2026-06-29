@@ -26,8 +26,8 @@ class CategoriesPaginateResponse {
   List<CategoryData>? get data => _data;
   Meta? get meta => _meta;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_data != null) {
       map['data'] = _data?.map((v) => v.toJson()).toList();
     }
@@ -135,8 +135,8 @@ class CategoryData {
   Translation? get translation => _translation;
   List<CategoryData>? get children => _children;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['keywords'] = _keywords;
@@ -156,4 +156,3 @@ class CategoryData {
   }
 }
 
-typedef Dyn = dynamic;

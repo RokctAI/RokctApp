@@ -7,7 +7,7 @@ class OrderCalculate {
 
   OrderCalculate({this.status, this.code, this.data});
 
-  OrderCalculate.fromJson(Map<String, Dyn> json) {
+  OrderCalculate.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     code = json['code'];
     data = json['data'] != null
@@ -15,8 +15,8 @@ class OrderCalculate {
         : null;
   }
 
-  Map<String, Dyn> toJson() {
-    final Map<String, Dyn> data = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['status'] = status;
     data['code'] = code;
     if (this.data != null) {
@@ -51,7 +51,7 @@ class OrderCalculateDetail {
     this.couponPrice,
   });
 
-  OrderCalculateDetail.fromJson(Map<String, Dyn> json) {
+  OrderCalculateDetail.fromJson(Map<String, dynamic> json) {
     totalTax = json['total_tax'];
     price = json['price'];
     totalShopTax = json['total_shop_tax'];
@@ -66,8 +66,8 @@ class OrderCalculateDetail {
         : List<Stock>.from(json["stocks"]!.map((x) => Stock.fromJson(x)));
   }
 
-  Map<String, Dyn> toJson() {
-    final Map<String, Dyn> data = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
     if (stocks != null) {
       data['stocks'] = stocks!.map((v) => v.toJson()).toList();
     }
@@ -84,4 +84,3 @@ class OrderCalculateDetail {
   }
 }
 
-typedef Dyn = dynamic;

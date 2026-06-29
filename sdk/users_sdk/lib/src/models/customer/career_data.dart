@@ -24,7 +24,7 @@ class CareerData {
     this.locales,
   });
 
-  factory CareerData.fromJson(Map<String, Dyn> json) {
+  factory CareerData.fromJson(Map<String, dynamic> json) {
     return CareerData(
       id: json["id"],
       categoryId: json["category_id"],
@@ -57,4 +57,3 @@ class CareerData {
   }
 }
 
-typedef Dyn = dynamic;

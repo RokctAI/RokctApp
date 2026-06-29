@@ -11,7 +11,7 @@ import 'package:rokctapp/core/domain/interface/brands.dart';
 import 'package:rokctapp/core/domain/interface/cart.dart';
 import 'package:rokctapp/core/domain/interface/categories.dart';
 import 'package:rokctapp/core/domain/interface/currencies.dart';
-import 'package:rokctapp/core/domain/interface/draw.dart';
+import 'package:zones_sdk/src/domain/interface/customer/draw.dart';
 import 'package:rokctapp/core/domain/interface/gallery.dart';
 import 'package:rokctapp/core/domain/interface/notification.dart';
 import 'package:rokctapp/core/domain/interface/orders.dart';
@@ -48,9 +48,9 @@ import 'package:rokctapp/customer/repository/shops_repository.dart';
 import 'package:rokctapp/customer/repository/user_repository.dart'
     as customer_user_repo;
 
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
 // Driver Interfaces

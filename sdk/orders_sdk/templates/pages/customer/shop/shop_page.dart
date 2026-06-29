@@ -9,7 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/customer/application/shop/shop_notifier.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/application/like/like_notifier.dart';
 import 'package:rokctapp/customer/application/like/like_provider.dart';
 import 'package:rokctapp/customer/presentation/pages/product/product_page.dart';

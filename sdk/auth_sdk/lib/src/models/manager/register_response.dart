@@ -14,8 +14,8 @@ class RegisterResponse {
 
   RegisterData? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     if (_data != null) {
       map['data'] = _data?.toJson();
     }
@@ -44,12 +44,11 @@ class RegisterData {
 
   String? get phone => _phone;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['verifyId'] = _verifyId;
     map['phone'] = _phone;
     return map;
   }
 }
 
-typedef Dyn = dynamic;

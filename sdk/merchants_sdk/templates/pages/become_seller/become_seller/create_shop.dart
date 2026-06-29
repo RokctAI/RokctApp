@@ -9,8 +9,8 @@ import 'package:lottie/lottie.dart';
 import 'package:users_sdk/src/application/customer/customer_profile/profile_notifier.dart';
 import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
 import 'package:users_sdk/src/application/customer/customer_profile/profile_state.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/routes/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -38,7 +38,7 @@ class _EditRestaurantState extends ConsumerState<CreateShopPage> {
   late TextEditingController deliveryTimeTo;
   late TextEditingController startPrice;
   late TextEditingController pricePerKm;
-  Dyn data;
+  dynamic data;
 
   List list = ["minute", "day", "month"];
 
@@ -613,4 +613,3 @@ class _EditRestaurantState extends ConsumerState<CreateShopPage> {
   }
 }
 
-typedef Dyn = dynamic;

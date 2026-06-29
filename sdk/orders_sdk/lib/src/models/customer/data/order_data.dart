@@ -1,7 +1,7 @@
-import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
+﻿import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/customer/models/data/user.dart';
 import 'package:rokctapp/customer/models/data/product_data.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/customer/models/data/translation.dart';
 import 'package:rokctapp/customer/models/data/review_data.dart';
 import 'package:rokctapp/customer/models/data/coupon_data.dart';
@@ -124,8 +124,8 @@ class OrderData {
 
   ReviewData? get review => _review;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['user_id'] = _userId;
     map['price'] = _price;
@@ -164,7 +164,7 @@ class ShopOrderDetails {
     String? updatedAt,
     List<OrderStocks>? orderStocks,
     CouponData? coupon,
-    Dyn deliveryman,
+    dynamic deliveryman,
     DeliveryType? deliveryType,
     // List<dynamic>? transactions,
     MerchantData? shop,
@@ -232,7 +232,7 @@ class ShopOrderDetails {
   String? _updatedAt;
   List<OrderStocks>? _orderStocks;
   CouponData? _coupon;
-  Dyn _deliveryman;
+  dynamic _deliveryman;
   DeliveryType? _deliveryType;
 
   // List<dynamic>? _transactions;
@@ -251,7 +251,7 @@ class ShopOrderDetails {
     String? updatedAt,
     List<OrderStocks>? orderStocks,
     CouponData? coupon,
-    Dyn deliveryman,
+    dynamic deliveryman,
     DeliveryType? deliveryType,
     // List<dynamic>? transactions,
     MerchantData? shop,
@@ -298,15 +298,15 @@ class ShopOrderDetails {
 
   CouponData? get coupon => _coupon;
 
-  Dyn get deliveryman => _deliveryman;
+  dynamic get deliveryman => _deliveryman;
 
   DeliveryType? get deliveryType => _deliveryType;
 
   // List<dynamic>? get transactions => _transactions;
   MerchantData? get shop => _shop;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['shop_id'] = _shopId;
     map['delivery_fee'] = _deliveryFee;
@@ -427,8 +427,8 @@ class OrderStocks {
 
   Stocks? get stock => _stock;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['stock_id'] = _stockId;
     map['origin_price'] = _originPrice;
@@ -540,8 +540,8 @@ class DeliveryType {
 
   Translation? get translation => _translation;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['shop_id'] = _shopId;
     map['type'] = _type;
@@ -565,4 +565,4 @@ class ProductNote {
   ProductNote({required this.stockId, required this.comment});
 }
 
-typedef Dyn = dynamic;
+

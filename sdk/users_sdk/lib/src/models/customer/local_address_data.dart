@@ -63,7 +63,7 @@ class LocalAddressData {
 
   bool? get isSelected => _isSelected;
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     'address': _address,
     'location': '${_location?.latitude},${_location?.longitude}',
     'active': 1,
@@ -77,4 +77,3 @@ class LocalAddressData {
   }
 }
 
-typedef Dyn = dynamic;

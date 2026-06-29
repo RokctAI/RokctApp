@@ -12,8 +12,8 @@ import 'package:rokctapp/manager/presentation/pages/main/foods/extras/update/upd
 import 'package:rokctapp/manager/presentation/component/components.dart';
 import 'package:rokctapp/manager/presentation/pages/main/foods/extras/details/widgets/create_new_group_item_modal.dart';
 import 'package:rokctapp/manager/application/providers.dart';
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 class ExtrasGroupDetailsModal extends ConsumerStatefulWidget {
   final Group group;

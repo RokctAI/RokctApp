@@ -43,8 +43,8 @@ class GalleryUploadResponse {
 
   ImageData? get imageData => _imageData;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['timestamp'] = _timestamp;
     map['status'] = _status;
     map['message'] = _message;
@@ -76,12 +76,11 @@ class ImageData {
 
   String? get type => _type;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['title'] = _title;
     map['type'] = _type;
     return map;
   }
 }
 
-typedef Dyn = dynamic;

@@ -59,7 +59,7 @@ class AppDatabase extends _$AppDatabase {
           final products = await select(productsTable).get();
           for (final product in products) {
             try {
-              final Map<String, Dyn> data = jsonDecode(product.data);
+              final Map<String, dynamic> data = jsonDecode(product.data);
               await (update(
                 productsTable,
               )..where((t) => t.id.equals(product.id))).write(
@@ -114,7 +114,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   // Generic getter to abstract out Drift Tables
-  TableInfo<drift.Table, Dyn> getTable(String boxName) {
+  TableInfo<drift.Table, dynamic> getTable(String boxName) {
     switch (boxName) {
       case 'settings':
         return settingsTable;
@@ -131,7 +131,7 @@ class AppDatabase extends _$AppDatabase {
   Future<void> putItem(
     String boxName,
     String key,
-    Map<String, Dyn> json,
+    Map<String, dynamic> json,
   ) async {
     final table = getTable(boxName);
     final dataString = jsonEncode(json);
@@ -142,7 +142,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   /// Get an item as Map by key.
-  Future<Map<String, Dyn>?> getItem(String boxName, String key) async {
+  Future<Map<String, dynamic>?> getItem(String boxName, String key) async {
     final table = getTable(boxName);
 
     final query = select(table)
@@ -154,17 +154,17 @@ class AppDatabase extends _$AppDatabase {
     if (result == null) return null;
 
     final dataString = _dataColumn(result);
-    return jsonDecode(dataString) as Map<String, Dyn>;
+    return jsonDecode(dataString) as Map<String, dynamic>;
   }
 
   /// Get all items from a box as a list of Maps.
-  Future<List<Map<String, Dyn>>> getAll(String boxName) async {
+  Future<List<Map<String, dynamic>>> getAll(String boxName) async {
     final table = getTable(boxName);
 
     final results = await select(table).get();
     return results.map((result) {
       final dataString = _dataColumn(result);
-      return jsonDecode(dataString) as Map<String, Dyn>;
+      return jsonDecode(dataString) as Map<String, dynamic>;
     }).toList();
   }
 
@@ -191,7 +191,7 @@ class AppDatabase extends _$AppDatabase {
   Future<int> enqueueSyncRequest({
     required String url,
     required String method,
-    required Map<String, Dyn> payload,
+    required Map<String, dynamic> payload,
   }) {
     return insertSyncRequest(
       SyncQueueTableCompanion.insert(
@@ -279,7 +279,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   /// High-quality upsert that flattens data on the fly
-  Future<void> upsertProduct(Map<String, Dyn> json) async {
+  Future<void> upsertProduct(Map<String, dynamic> json) async {
     final id = json['uuid'] ?? json['id']?.toString() ?? '';
     if (id.isEmpty) return;
 
@@ -299,25 +299,25 @@ class AppDatabase extends _$AppDatabase {
 
   // ─── High-Quality Category Helpers ───
 
-  Future<void> upsertCategory(Map<String, Dyn> json) async {
+  Future<void> upsertCategory(Map<String, dynamic> json) async {
     final id = json['name'] ?? json['id']?.toString() ?? '';
     if (id.isEmpty) return;
     await putItem('categories', id, json);
   }
 
-  Future<List<Map<String, Dyn>>> getCategoriesLocally() async {
+  Future<List<Map<String, dynamic>>> getCategoriesLocally() async {
     return getAll('categories');
   }
 
   // ─── High-Quality Shop Helpers ───
 
-  Future<void> upsertShop(Map<String, Dyn> json) async {
+  Future<void> upsertShop(Map<String, dynamic> json) async {
     final id = json['id']?.toString() ?? json['uuid'] ?? '';
     if (id.isEmpty) return;
     await putItem('shop', id, json);
   }
 
-  Future<List<Map<String, Dyn>>> getShopsLocally({String? categoryId}) async {
+  Future<List<Map<String, dynamic>>> getShopsLocally({String? categoryId}) async {
     final allShops = await getAll('shop');
     if (categoryId != null) {
       return allShops
@@ -329,13 +329,13 @@ class AppDatabase extends _$AppDatabase {
 
   // ─── High-Quality Banner Helpers ───
 
-  Future<void> upsertBanner(Map<String, Dyn> json) async {
+  Future<void> upsertBanner(Map<String, dynamic> json) async {
     final id = json['name'] ?? json['id']?.toString() ?? '';
     if (id.isEmpty) return;
     await putItem('banners', id, json);
   }
 
-  Future<List<Map<String, Dyn>>> getBannersLocally() async {
+  Future<List<Map<String, dynamic>>> getBannersLocally() async {
     return getAll('banners');
   }
 
@@ -352,7 +352,7 @@ class AppDatabase extends _$AppDatabase {
     return query.get();
   }
 
-  Future<void> upsertOrder(Map<String, Dyn> json) async {
+  Future<void> upsertOrder(Map<String, dynamic> json) async {
     final id = json['id']?.toString() ?? json['uuid'] ?? '';
     if (id.isEmpty) return;
 
@@ -392,7 +392,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   // Helper methods to dynamically extract fields and create companions
-  Insertable<Dyn> _createInsertable(String boxName, String id, String data) {
+  Insertable<dynamic> _createInsertable(String boxName, String id, String data) {
     switch (boxName) {
       case 'products':
         return ProductsTableCompanion.insert(id: Value(id), data: data);
@@ -434,7 +434,7 @@ class AppDatabase extends _$AppDatabase {
     }
   }
 
-  Expression<String> _idColumn(TableInfo<drift.Table, Dyn> table) {
+  Expression<String> _idColumn(TableInfo<drift.Table, dynamic> table) {
     if (table is $ProductsTableTable) return table.id;
     if (table is $OrdersTableTable) return table.id;
     if (table is $ShopTableTable) return table.id;
@@ -471,4 +471,3 @@ LazyDatabase _openConnection() {
   });
 }
 
-typedef Dyn = dynamic;

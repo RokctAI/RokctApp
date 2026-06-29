@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:rokctapp/manager/infrastructure/models/models.dart';
+import 'package:merchants_sdk/merchants_sdk.dart';
 
 part 'ai_translation_state.freezed.dart';
 

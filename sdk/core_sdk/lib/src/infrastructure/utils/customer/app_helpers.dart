@@ -13,7 +13,7 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';
 import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/infrastructure/constants/enums.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
@@ -423,7 +423,7 @@ abstract class AppHelpers {
   }
 
   static String getTranslation(String trKey) {
-    final Map<String, Dyn> translations = LocalStorage.getTranslations();
+    final Map<String, dynamic> translations = LocalStorage.getTranslations();
     return translations[trKey] ??
         (trKey.isNotEmpty
             ? trKey
@@ -437,7 +437,7 @@ abstract class AppHelpers {
   }
 
   static String getTranslationReverse(String trKey) {
-    final Map<String, Dyn> translations = LocalStorage.getTranslations();
+    final Map<String, dynamic> translations = LocalStorage.getTranslations();
     for (int i = 0; i < translations.values.length; i++) {
       if (trKey == translations.values.elementAt(i)) {
         return translations.keys.elementAt(i);
@@ -733,4 +733,3 @@ extension ExtendedIterable<E> on Iterable<E> {
   }
 }
 
-typedef Dyn = dynamic;

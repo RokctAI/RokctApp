@@ -16,8 +16,8 @@ class StatisticsResponse {
 
   StatisticsModel? get data => _data;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
 
     if (_data != null) {
       map['data'] = _data?.toJson();
@@ -85,7 +85,7 @@ class StatisticsModel {
     chart: chart ?? this.chart,
   );
 
-  factory StatisticsModel.fromJson(Map<String, Dyn> json) => StatisticsModel(
+  factory StatisticsModel.fromJson(Map<String, dynamic> json) => StatisticsModel(
     lastOrderTotalPrice: json["last_order_total_price"],
     lastOrderIncome: json["last_order_income"],
     totalPrice: json["total_price"],
@@ -103,7 +103,7 @@ class StatisticsModel {
         : List<Chart>.from(json["chart"]!.map((x) => Chart.fromJson(x))),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "last_order_total_price": lastOrderTotalPrice,
     "last_order_income": lastOrderIncome,
     "total_price": totalPrice,
@@ -116,7 +116,7 @@ class StatisticsModel {
     "total_canceled_count": totalCanceledCount,
     "total_delivered_count": totalDeliveredCount,
     "total_today_count": totalTodayCount,
-    "chart": chart == null ? [] : List<Dyn>.from(chart!.map((x) => x.toJson())),
+    "chart": chart == null ? [] : List<dynamic>.from(chart!.map((x) => x.toJson())),
   };
 }
 
@@ -129,18 +129,17 @@ class Chart {
   Chart copyWith({DateTime? time, num? totalPrice}) =>
       Chart(time: time ?? this.time, totalPrice: totalPrice ?? this.totalPrice);
 
-  factory Chart.fromJson(Map<String, Dyn> json) => Chart(
+  factory Chart.fromJson(Map<String, dynamic> json) => Chart(
     time: json["time"] == null
         ? null
         : DateTime.tryParse(json["time"])?.toLocal() ?? DateTime.now(),
     totalPrice: json["total_price"]?.toDouble(),
   );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "time":
         "${time!.year.toString().padLeft(4, '0')}-${time!.month.toString().padLeft(2, '0')}-${time!.day.toString().padLeft(2, '0')}",
     "total_price": totalPrice,
   };
 }
 
-typedef Dyn = dynamic;

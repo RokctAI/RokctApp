@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:rokctapp/core/domain/di/dependency_manager.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/driver/domain/interface/parcel.dart';
 import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/driver/infrastructure/models/response/parcel_paginate_response.dart';
-import 'package:rokctapp/driver/infrastructure/services/services.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:delivery_sdk/delivery_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class ParcelRepository implements DriverParcelRepository {
   @override
@@ -124,7 +124,7 @@ class ParcelRepository implements DriverParcelRepository {
   }
 
   @override
-  Future<ApiResult<Dyn>> setCurrentOrder(int? orderId) async {
+  Future<ApiResult<dynamic>> setCurrentOrder(int? orderId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -141,7 +141,7 @@ class ParcelRepository implements DriverParcelRepository {
   }
 
   @override
-  Future<ApiResult<Dyn>> updateParcel(int? parcelId, String? status) async {
+  Future<ApiResult<dynamic>> updateParcel(int? parcelId, String? status) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -199,4 +199,3 @@ class ParcelRepository implements DriverParcelRepository {
   }
 }
 
-typedef Dyn = dynamic;

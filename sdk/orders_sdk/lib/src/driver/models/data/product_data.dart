@@ -18,7 +18,7 @@ class ProductData {
     String? createdAt,
     String? updatedAt,
     num? ratingAvg,
-    Dyn ordersCount,
+    dynamic ordersCount,
     Translation? translation,
     List<Properties>? properties,
     List<Stocks>? stocks,
@@ -126,7 +126,7 @@ class ProductData {
   String? _createdAt;
   String? _updatedAt;
   num? _ratingAvg;
-  Dyn _ordersCount;
+  dynamic _ordersCount;
   Translation? _translation;
   List<Properties>? _properties;
   List<Stocks>? _stocks;
@@ -154,7 +154,7 @@ class ProductData {
     String? createdAt,
     String? updatedAt,
     num? ratingAvg,
-    Dyn ordersCount,
+    dynamic ordersCount,
     Translation? translation,
     List<Properties>? properties,
     List<Stocks>? stocks,
@@ -222,7 +222,7 @@ class ProductData {
 
   num? get ratingAvg => _ratingAvg;
 
-  Dyn get ordersCount => _ordersCount;
+  dynamic get ordersCount => _ordersCount;
 
   Translation? get translation => _translation;
 
@@ -244,8 +244,8 @@ class ProductData {
 
   List<Galleries>? get galleries => _galleries;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['shop_id'] = _shopId;
@@ -355,8 +355,8 @@ class Unit {
 
   Translation? get translation => _translation;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['active'] = _active;
     map['position'] = _position;
@@ -395,8 +395,8 @@ class Brand {
 
   String? get title => _title;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['title'] = _title;
@@ -446,8 +446,8 @@ class Category {
 
   Translation? get translation => _translation;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['parent_id'] = _parentId;
@@ -643,8 +643,8 @@ class Shop {
 
   Translation? get translation => _translation;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
     map['user_id'] = _userId;
@@ -766,8 +766,8 @@ class Stocks {
 
   ProductData? get product => _product;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['countable_id'] = _countableId;
     map['price'] = _price;
@@ -838,8 +838,8 @@ class Extras {
 
   Group? get group => _group;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['extra_group_id'] = _extraGroupId;
     map['value'] = _value;
@@ -893,8 +893,8 @@ class Group {
 
   Translation? get translation => _translation;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['id'] = _id;
     map['type'] = _type;
     map['active'] = _active;
@@ -935,8 +935,8 @@ class Properties {
 
   String? get value => _value;
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map['locale'] = _locale;
     map['key'] = _key; // environment
     map['value'] = _value;
@@ -944,4 +944,3 @@ class Properties {
   }
 }
 
-typedef Dyn = dynamic;

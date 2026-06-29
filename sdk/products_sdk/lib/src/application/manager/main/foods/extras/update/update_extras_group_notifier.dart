@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/domain/handlers/handlers.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:products_sdk/src/application/manager/main/foods/extras/update/update_extras_group_state.dart';
-import 'package:rokctapp/manager/domain/interface/interfaces.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class UpdateExtrasGroupNotifier extends StateNotifier<UpdateExtrasGroupState> {
   final ProductsInterface _productsRepository;

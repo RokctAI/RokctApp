@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/services/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class UiExtra {
   final int index;

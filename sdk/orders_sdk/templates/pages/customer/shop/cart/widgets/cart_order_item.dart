@@ -7,7 +7,7 @@ import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
 import 'package:rokctapp/customer/models/data/addons_data.dart';
 import 'package:rokctapp/customer/models/data/order_active_model.dart';
 import 'package:rokctapp/customer/models/data/order_data.dart';
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 import 'package:rokctapp/core/presentation/app_assets.dart';
 import 'package:rokctapp/customer/presentation/pages/shop/cart/widgets/note_product.dart';
 import 'package:rokctapp/core/presentation/theme/theme.dart';

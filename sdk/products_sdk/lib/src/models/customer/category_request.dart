@@ -1,14 +1,14 @@
-import 'package:rokctapp/core/infrastructure/utils/services.dart';
+import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/core/infrastructure/constants/constants.dart';
+import 'package:core_sdk/core_sdk.dart';
 
 class CategoryModel {
   final int page;
 
   CategoryModel({required this.page});
 
-  Map<String, Dyn> toJson() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
     map["page"] = page;
     map["type"] = "shop";
@@ -26,12 +26,11 @@ class CategoryModel {
     return map;
   }
 
-  Map<String, Dyn> toJsonShop() {
-    final map = <String, Dyn>{};
+  Map<String, dynamic> toJsonShop() {
+    final map = <String, dynamic>{};
     map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
     map["perPage"] = 100;
     return map;
   }
 }
 
-typedef Dyn = dynamic;

@@ -25,7 +25,7 @@ class NonExistPaymentResponse {
     data: data ?? this.data,
   );
 
-  factory NonExistPaymentResponse.fromJson(Map<String, Dyn> json) =>
+  factory NonExistPaymentResponse.fromJson(Map<String, dynamic> json) =>
       NonExistPaymentResponse(
         timestamp: json["timestamp"] == null
             ? null
@@ -39,12 +39,11 @@ class NonExistPaymentResponse {
               ),
       );
 
-  Map<String, Dyn> toJson() => {
+  Map<String, dynamic> toJson() => {
     "timestamp": timestamp?.toIso8601String(),
     "status": status,
     "message": message,
-    "data": data == null ? [] : List<Dyn>.from(data!.map((x) => x.toJson())),
+    "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
   };
 }
 
-typedef Dyn = dynamic;

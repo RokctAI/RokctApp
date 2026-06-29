@@ -14,7 +14,7 @@ class CareerDataResponse {
 
   CareerDataResponse({this.data, this.links, this.meta});
 
-  factory CareerDataResponse.fromJson(Map<String, Dyn> json) {
+  factory CareerDataResponse.fromJson(Map<String, dynamic> json) {
     return CareerDataResponse(
       data: json["data"] == null
           ? []
@@ -28,4 +28,3 @@ class CareerDataResponse {
   }
 }
 
-typedef Dyn = dynamic;
