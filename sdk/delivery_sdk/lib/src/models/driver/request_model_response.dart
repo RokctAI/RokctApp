@@ -1,7 +1,7 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 
-import 'package:rokctapp/driver/infrastructure/models/data/request_model_data.dart';
-import 'package:rokctapp/driver/infrastructure/models/response/parcel_response.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/request_model_data.dart';
+import 'package:delivery_sdk/src/infrastructure/models/response/parcel_response.dart';
 
 RequestModelResponse requestModelResponseFromJson(String str) =>
     RequestModelResponse.fromJson(json.decode(str));
@@ -43,4 +43,5 @@ class RequestModelResponse {
     "meta": meta?.toJson(),
   };
 }
+
 

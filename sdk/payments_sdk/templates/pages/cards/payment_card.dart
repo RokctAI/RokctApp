@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
-import 'package:rokctapp/infrastructure/services/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:${package}/domain/di/dependency_manager.dart';
+import 'package:${package}/infrastructure/models/data/saved_card.dart';
+import 'package:${package}/infrastructure/services/app_helpers.dart';
+import 'package:${package}/infrastructure/services/tr_keys.dart';
+import 'package:${package}/presentation/theme/theme.dart';
 
 import '../../components/buttons/custom_button.dart';
 

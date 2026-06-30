@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/customer/models/data/address_new_data.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:core_sdk/src/models/data/address_new_data.dart';
 
 part 'view_map_state.freezed.dart';
 
@@ -15,3 +15,4 @@ sealed class ViewMapState with _$ViewMapState {
 
   const ViewMapState._();
 }
+

@@ -6,9 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orders_sdk/src/application/manager/order/shipping/section/section_provider.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 
-import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_section/widgets/section_item.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/create_order/shipping/select_section/widgets/section_item.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, SnackBarType;
 
@@ -116,3 +116,4 @@ class _SelectSectionPageState extends ConsumerState<ManagerSelectSectionPage> {
     );
   }
 }
+

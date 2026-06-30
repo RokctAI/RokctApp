@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
-import 'package:rokctapp/driver/infrastructure/services/app_connectivity.dart';
-import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/parcel_order.dart';
+import 'package:delivery_sdk/src/infrastructure/services/app_connectivity.dart';
+import 'package:delivery_sdk/src/infrastructure/services/app_helpers.dart';
 
-import 'package:rokctapp/driver/application/parcel/parcel_state.dart';
+import 'package:delivery_sdk/src/application/parcel/parcel_state.dart';
 
 class ParcelNotifier extends StateNotifier<ParcelState> {
   final DriverParcelRepository _parcelRepo;
@@ -325,3 +325,4 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     }
   }
 }
+

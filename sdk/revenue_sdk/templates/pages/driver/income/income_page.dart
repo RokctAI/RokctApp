@@ -3,15 +3,15 @@ import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/driver/application/statistics/statistics_provider.dart';
-import 'package:rokctapp/driver/application/statistics/statistics_state.dart';
+import 'package:delivery_sdk/src/application/statistics/statistics_provider.dart';
+import 'package:delivery_sdk/src/application/statistics/statistics_state.dart';
 
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/driver/presentation/pages/income/app_bar_screen.dart';
-import 'package:rokctapp/driver/presentation/pages/income/statistics_screen.dart';
-import 'package:rokctapp/driver/presentation/pages/income/widgets/income_item.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/pages/income/app_bar_screen.dart';
+import 'package:delivery_sdk/src/presentation/pages/income/statistics_screen.dart';
+import 'package:delivery_sdk/src/presentation/pages/income/widgets/income_item.dart';
 
 @RoutePage(name: 'DriverIncomeRoute')
 class DriverIncomePage extends ConsumerStatefulWidget {
@@ -339,3 +339,4 @@ class _IncomePageState extends ConsumerState<DriverIncomePage>
     );
   }
 }
+

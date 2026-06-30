@@ -1,8 +1,8 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/domain/interface/products.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/domain/interface/products.dart';
+import 'package:core_sdk/src/models/models.dart';
 
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
@@ -530,4 +530,5 @@ class ProductsRepository implements ProductsRepositoryFacade {
     );
   }
 }
+
 

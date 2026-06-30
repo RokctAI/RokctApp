@@ -5,14 +5,14 @@
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:rokctapp/customer/application/shop/shop_notifier.dart';
-// import 'package:rokctapp/customer/application/shop/shop_provider.dart';
+// import 'package:core_sdk/src/application/shop/shop_notifier.dart';
+// import 'package:core_sdk/src/application/shop/shop_provider.dart';
 // import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
 // import 'package:core_sdk/core_sdk.dart';
-// // // // import 'package:rokctapp/customer/presentation/pages/shop/cart/cart_order_page.dart';
-// import 'package:rokctapp/core/presentation/theme/theme.dart';
+// // // // import 'package:core_sdk/src/presentation/pages/shop/cart/cart_order_page.dart';
+// import 'package:${package}/core/presentation/theme/theme.dart';
 //
-// import 'package:rokctapp/customer/models/models.dart';
+// import 'package:core_sdk/src/models/models.dart';
 // import 'product_filter.dart';
 // import 'widgets/product_list.dart';
 //
@@ -301,3 +301,4 @@
 //         ));
 //   }
 // }
+

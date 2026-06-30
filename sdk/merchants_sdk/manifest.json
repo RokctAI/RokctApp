@@ -1,6 +1,7 @@
-{
+﻿{
   "name": "merchants_sdk",
   "version": "1.0.0",
+  "home_page": "templates/pages/manager/main/main_page.dart",
   "installs": [
     {
       "from": "templates/pages/become_seller",
@@ -12,7 +13,7 @@
       "path": "/become-seller",
       "page": "BecomeSellerRoute.page",
       "type": "MaterialRoute",
-      "import": "package:rokctapp/customer/presentation/pages/profile/become_seller/become_seller/become_seller.dart"
+      "import": "package:core_sdk/src/presentation/pages/profile/become_seller/become_seller/become_seller.dart"
     }
   ],
   "integrations": [
@@ -20,6 +21,12 @@
       "target": "lib/customer/presentation/pages/profile/widgets/profile_items_list.dart",
       "placeholder": "// @profile-become-seller-item",
       "replacement": "ProfileItem(colors: colors, title: TrKeys.becomeSeller, icon: FlutterRemix.user_star_line, onTap: () => context.pushRoute(const CreateShopRoute()),),"
+    },
+    {
+      "target": "sdk/core_sdk/lib/core_sdk.dart",
+      "placeholder": "// @constants-manager-export",
+      "replacement": "export 'package:merchants_sdk/src/infrastructure/constants/app_constants.dart';"
     }
   ]
 }
+

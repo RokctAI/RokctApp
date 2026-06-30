@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/location.dart';
+﻿import 'package:core_sdk/src/models/data/location.dart';
 
 class AddressData {
   AddressData({
@@ -94,4 +94,5 @@ class AddressData {
     return map;
   }
 }
+
 

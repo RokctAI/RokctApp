@@ -1,4 +1,4 @@
-// Trace ID propagation context
+﻿// Trace ID propagation context
 
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
@@ -8,8 +8,8 @@ import 'package:drift/drift.dart';
 import 'package:uuid/uuid.dart';
 
 import 'app_database.dart';
-import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
-import 'package:rokctapp/customer/models/data/profile_data.dart';
+import 'package:core_sdk/src/infrastructure/utils/local_storage.dart';
+import 'package:core_sdk/src/models/data/profile_data.dart';
 
 class BackgroundSyncService {
   final AppDatabase database;
@@ -166,4 +166,5 @@ class SyncResult {
 
   const SyncResult({required this.success, this.remove = false, this.error});
 }
+
 

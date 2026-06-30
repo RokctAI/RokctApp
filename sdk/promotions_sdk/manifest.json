@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "promotions_sdk",
   "version": "1.0.0",
   "installs": [
@@ -33,7 +33,7 @@
     {
       "target": "lib/driver/presentation/pages/home/bottom_sheet_screen.dart",
       "placeholder": "// @delivery-driver-stories-import",
-      "replacement": "import 'package:rokctapp/driver/presentation/pages/home/widgets/driver_stories.dart';"
+      "replacement": "import 'package:delivery_sdk/src/presentation/pages/home/widgets/driver_stories.dart';"
     },
     {
       "target": "lib/driver/presentation/pages/home/bottom_sheet_screen.dart",

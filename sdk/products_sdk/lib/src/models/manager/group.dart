@@ -1,5 +1,5 @@
-import 'package:rokctapp/manager/infrastructure/models/data/extras.dart';
-import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/extras.dart';
+import 'package:core_sdk/src/infrastructure/models/data/translation.dart';
 
 class Group {
   Group({
@@ -91,4 +91,5 @@ class Group {
     return map;
   }
 }
+
 

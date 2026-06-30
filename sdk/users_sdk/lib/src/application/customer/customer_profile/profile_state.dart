@@ -1,10 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/customer/models/models.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:core_sdk/src/models/models.dart';
 
-import 'package:rokctapp/customer/models/data/translation.dart';
+import 'package:core_sdk/src/models/data/translation.dart';
 
-import 'package:rokctapp/customer/models/data/career_data.dart';
-import 'package:rokctapp/customer/models/response/pages_response.dart';
+import 'package:core_sdk/src/models/data/career_data.dart';
+import 'package:core_sdk/src/models/response/pages_response.dart';
 
 part 'profile_state.freezed.dart';
 
@@ -37,3 +37,4 @@ sealed class ProfileState with _$ProfileState {
 
   const ProfileState._();
 }
+

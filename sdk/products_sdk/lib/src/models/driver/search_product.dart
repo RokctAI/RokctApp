@@ -1,4 +1,4 @@
-import 'package:rokctapp/driver/infrastructure/services/local_storage.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/services/local_storage.dart';
 
 class SearchProductModel {
   final String text;
@@ -15,4 +15,5 @@ class SearchProductModel {
     return map;
   }
 }
+
 

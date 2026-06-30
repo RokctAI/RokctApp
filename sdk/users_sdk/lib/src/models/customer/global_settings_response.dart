@@ -1,4 +1,4 @@
-import 'package:rokctapp/core/infrastructure/models/data/settings_data.dart';
+﻿import 'package:core_sdk/src/infrastructure/models/data/settings_data.dart';
 
 class GlobalSettingsResponse {
   GlobalSettingsResponse({
@@ -61,4 +61,5 @@ class GlobalSettingsResponse {
     return map;
   }
 }
+
 

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/parcel_order.dart';
 
-import 'package:rokctapp/driver/application/providers.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
+import 'package:delivery_sdk/src/application/providers.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide
         AppConstants,
@@ -151,3 +151,4 @@ class ApproveOrderDialog extends StatelessWidget {
     );
   }
 }
+

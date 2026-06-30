@@ -6,11 +6,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'delivery_zone_state.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:users_sdk/users_sdk.dart';
+
+import '../../../../../domain/interface/manager/zone_delivery_interface.dart';
 
 class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
-  final UsersInterface _usersRepository;
+  final ZoneDeliveryInterface _usersRepository;
 
   DeliveryZoneNotifier(this._usersRepository)
     : super(const DeliveryZoneState());

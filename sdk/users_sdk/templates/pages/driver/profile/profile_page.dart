@@ -1,22 +1,22 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:rokctapp/driver/presentation/pages/profile/widgets/edit_profile_modal.dart';
-import 'package:rokctapp/driver/application/providers.dart';
+import 'package:delivery_sdk/src/presentation/pages/profile/widgets/edit_profile_modal.dart';
+import 'package:delivery_sdk/src/application/providers.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/presentation/components/languages_modal.dart';
-import 'package:rokctapp/core/infrastructure/models/data/language.dart'
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/components/languages_modal.dart';
+import 'package:core_sdk/src/infrastructure/models/data/language.dart'
     as core_lang;
-import 'package:rokctapp/driver/presentation/pages/profile/widgets/logout_modal.dart';
-import 'package:rokctapp/driver/presentation/pages/profile/widgets/sections_item.dart';
+import 'package:delivery_sdk/src/presentation/pages/profile/widgets/logout_modal.dart';
+import 'package:delivery_sdk/src/presentation/pages/profile/widgets/sections_item.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, OrderStatus;
 
@@ -472,3 +472,5 @@ class _ProfilePageState extends ConsumerState<DriverProfilePage> {
   //   );
   // }
 }
+
+

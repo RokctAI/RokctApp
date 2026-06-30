@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/core/application/currency/currency_state.dart';
+import 'package:core_sdk/src/application/currency/currency_state.dart';
 
 class CurrencyNotifier extends Notifier<CurrencyState> {
   @override
@@ -50,3 +50,4 @@ class CurrencyNotifier extends Notifier<CurrencyState> {
     state = state.copyWith(index: index);
   }
 }
+

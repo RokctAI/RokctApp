@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class OrderInfo extends StatelessWidget {
   final CustomColorSet colors;
@@ -109,3 +109,4 @@ class OrderInfo extends StatelessWidget {
     );
   }
 }
+

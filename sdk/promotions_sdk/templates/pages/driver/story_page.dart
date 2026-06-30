@@ -5,9 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:rokctapp/driver/application/providers.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/application/providers.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 @RoutePage(name: 'DriverStoryRoute')
 class DriverStoryPage extends ConsumerStatefulWidget {
@@ -265,3 +265,4 @@ class _StoryPageState extends ConsumerState<DriverStoryPage>
     );
   }
 }
+

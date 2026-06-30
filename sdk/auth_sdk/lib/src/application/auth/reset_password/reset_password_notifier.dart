@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:users_sdk/users_sdk.dart';
 import 'reset_password_state.dart';
 import '../../auth_providers.dart';
 

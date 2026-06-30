@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/driver/application/providers.dart';
+import 'package:delivery_sdk/src/application/providers.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class LogoutModal extends StatelessWidget {
   final bool isDeleteAccount;
@@ -77,3 +77,4 @@ class LogoutModal extends StatelessWidget {
     );
   }
 }
+

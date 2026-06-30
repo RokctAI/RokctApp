@@ -10,7 +10,7 @@ import 'package:image/image.dart' as img;
 import 'dart:async';
 import 'dart:math';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class ImageCropperMarker {
   Future<BitmapDescriptor> resizeAndCircle(String? imageURL, int size) async {
@@ -117,3 +117,4 @@ class ImageCropperMarker {
     return canvas;
   }
 }
+

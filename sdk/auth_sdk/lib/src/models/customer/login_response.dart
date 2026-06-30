@@ -1,11 +1,11 @@
-import 'package:users_sdk/src/models/data/user.dart';
+
 
 class LoginResponse {
   LoginResponse({
     String? timestamp,
     bool? status,
     String? message,
-    UserData? data,
+    Map<String, dynamic>? data,
   }) {
     _timestamp = timestamp;
     _status = status;
@@ -17,19 +17,19 @@ class LoginResponse {
     _timestamp = json['timestamp'];
     _status = json['status'];
     _message = json['message'];
-    _data = json['data'] != null ? UserData.fromJson(json['data']) : null;
+    _data = json['data'] != null ? Map<String, dynamic>.fromJson(json['data']) : null;
   }
 
   String? _timestamp;
   bool? _status;
   String? _message;
-  UserData? _data;
+  Map<String, dynamic>? _data;
 
   LoginResponse copyWith({
     String? timestamp,
     bool? status,
     String? message,
-    UserData? data,
+    Map<String, dynamic>? data,
   }) => LoginResponse(
     timestamp: timestamp ?? _timestamp,
     status: status ?? _status,
@@ -43,7 +43,7 @@ class LoginResponse {
 
   String? get message => _message;
 
-  UserData? get data => _data;
+  Map<String, dynamic>? get data => _data;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -57,14 +57,14 @@ class LoginResponse {
   }
 }
 
-class UserData {
-  UserData({String? accessToken, String? tokenType, UserModel? user}) {
+class Map<String, dynamic> {
+  Map<String, dynamic>({String? accessToken, String? tokenType, UserModel? user}) {
     _accessToken = accessToken;
     _tokenType = tokenType;
     _user = user;
   }
 
-  UserData.fromJson(dynamic json) {
+  Map<String, dynamic>.fromJson(dynamic json) {
     _accessToken = json['access_token']; // environment
     _tokenType = json['token_type']; // environment
     _user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
@@ -74,11 +74,11 @@ class UserData {
   String? _tokenType;
   UserModel? _user;
 
-  UserData copyWith({
+  Map<String, dynamic> copyWith({
     String? accessToken,
     String? tokenType,
     UserModel? user,
-  }) => UserData(
+  }) => Map<String, dynamic>(
     accessToken: accessToken ?? _accessToken,
     tokenType: tokenType ?? _tokenType,
     user: user ?? _user,

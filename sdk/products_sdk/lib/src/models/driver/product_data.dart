@@ -1,6 +1,6 @@
-import 'package:rokctapp/driver/infrastructure/models/data/review_data.dart';
-import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/local_location_data.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/review_data.dart';
+import 'package:core_sdk/src/infrastructure/models/data/translation.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/local_location_data.dart';
 
 class ProductData {
   ProductData({
@@ -944,4 +944,5 @@ class Properties {
     return map;
   }
 }
+
 

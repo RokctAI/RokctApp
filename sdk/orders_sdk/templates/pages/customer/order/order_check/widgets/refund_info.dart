@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rokctapp/customer/models/data/refund_data.dart';
+import 'package:core_sdk/src/models/data/refund_data.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class RefundInfoScreen extends StatelessWidget {
   final RefundModel? refundModel;
@@ -161,3 +161,4 @@ class RefundInfoScreen extends StatelessWidget {
     );
   }
 }
+

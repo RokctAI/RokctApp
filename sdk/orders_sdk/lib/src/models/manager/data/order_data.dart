@@ -1,13 +1,13 @@
-﻿import 'package:rokctapp/manager/infrastructure/services/extension.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/services/extension.dart';
 
-import 'package:rokctapp/manager/infrastructure/models/data/kitchen_data.dart';
-import 'package:rokctapp/core/infrastructure/models/data/payment_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/table_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/kitchen_data.dart';
+import 'package:core_sdk/src/infrastructure/models/data/payment_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/stock.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/table_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/user_data.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
+import 'package:core_sdk/src/infrastructure/models/data/currency_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/location_data.dart';
 
 class OrderData {
   OrderData({
@@ -685,5 +685,6 @@ class OrderAddress {
     return map;
   }
 }
+
 
 

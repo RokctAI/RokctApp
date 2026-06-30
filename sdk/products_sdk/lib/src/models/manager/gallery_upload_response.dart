@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/image_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/image_data.dart';
 
 class GalleryUploadResponse {
   GalleryUploadResponse({ImageData? imageData}) {
@@ -24,4 +24,5 @@ class GalleryUploadResponse {
     return map;
   }
 }
+
 

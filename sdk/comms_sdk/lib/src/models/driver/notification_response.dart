@@ -1,5 +1,5 @@
-import 'package:rokctapp/core/infrastructure/models/data/blog_data.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/order_data.dart';
+﻿import 'package:core_sdk/src/infrastructure/models/data/blog_data.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_data.dart';
 
 class NotificationResponse {
   List<NotificationModel>? data;
@@ -198,4 +198,5 @@ class NotificationData {
 
   Map<String, dynamic> toJson() => {"id": id, "type": type, "status": status};
 }
+
 

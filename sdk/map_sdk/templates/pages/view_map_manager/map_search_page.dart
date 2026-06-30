@@ -1,8 +1,8 @@
 import 'package:core_sdk/src/infrastructure/services/places/places_service.dart';
 
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/manager/presentation/component/text_fields/search_text_field.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/text_fields/search_text_field.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 @RoutePage(name: 'ManagerMapSearchRoute')
 class ManagerMapSearchPage extends StatefulWidget {
@@ -70,3 +70,4 @@ class _MapSearchPageState extends State<ManagerMapSearchPage> {
     );
   }
 }
+

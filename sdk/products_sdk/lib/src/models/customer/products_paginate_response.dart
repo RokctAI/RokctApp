@@ -1,5 +1,5 @@
-import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
-import 'package:rokctapp/customer/models/data/product_data.dart';
+﻿import 'package:core_sdk/src/infrastructure/models/data/meta.dart';
+import 'package:core_sdk/src/models/data/product_data.dart';
 
 class ProductsPaginateResponse {
   ProductsPaginateResponse({
@@ -57,4 +57,5 @@ class ProductsPaginateResponse {
     return map;
   }
 }
+
 

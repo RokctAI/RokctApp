@@ -4,7 +4,7 @@
 
 import 'package:orders_sdk/src/customer/models/data/review_data.dart';
 import 'package:orders_sdk/src/customer/models/response/parcel_response.dart';
-import 'package:auth_sdk/auth_sdk.dart';
+
 
 class ParcelOrder {
   int? id;
@@ -29,7 +29,7 @@ class ParcelOrder {
   num? km;
   dynamic deliveryman;
   Currency? currency;
-  UserModel? user;
+  Map<String, dynamic>? user;
   ReviewData? review;
   dynamic transaction;
   TypeModel? type;

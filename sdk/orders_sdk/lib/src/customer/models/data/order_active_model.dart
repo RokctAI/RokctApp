@@ -1,6 +1,6 @@
 import 'package:orders_sdk/src/customer/models/models.dart';
-import 'package:auth_sdk/auth_sdk.dart';
-import 'package:wallet_sdk/wallet_sdk.dart';
+
+
 
 class OrderActiveModel {
   OrderActiveModel({
@@ -51,14 +51,14 @@ class OrderActiveModel {
   num? commissionFee;
   String? status;
   Location? location;
-  AddressModel? address;
+  Map<String, dynamic>? address;
   String? deliveryType;
   num? tips;
   String? afterDeliveredImage;
   num? deliveryFee;
   num? otp;
-  CurrencyModel? currencyModel;
-  UserModel? deliveryMan;
+  Map<String, dynamic>? currencyModel;
+  Map<String, dynamic>? deliveryMan;
   DateTime? deliveryDate;
   String? deliveryTime;
   num? totalDiscount;
@@ -88,7 +88,7 @@ class OrderActiveModel {
     tax: json["data"]["tax"],
     tips: json["data"]["tips"],
     currencyModel: json["data"]["currency"] != null
-        ? CurrencyModel.fromJson(json["data"]["currency"])
+        ? Map<String, dynamic>.from(json["data"]["currency"])
         : null,
     commissionFee: json["data"]["commission_fee"],
     status: json["data"]["status"],
@@ -96,7 +96,7 @@ class OrderActiveModel {
         ? Location.fromJson(json["data"]["location"])
         : null,
     address: json["data"]["address"] != null
-        ? AddressModel.fromJson(json["data"]["address"])
+        ? Map<String, dynamic>.from(json["data"]["address"])
         : null,
     deliveryType: json["data"]["delivery_type"],
     deliveryFee: json["data"]["delivery_fee"],
@@ -104,7 +104,7 @@ class OrderActiveModel {
     minute: json["data"]["minute"],
     otp: json["data"]["otp"],
     deliveryMan: json["data"]["deliveryman"] != null
-        ? UserModel.fromJson(json["data"]["deliveryman"])
+        ? Map<String, dynamic>.from(json["data"]["deliveryman"])
         : null,
     orderStatusesData: json["data"]["data"] != null
         ? OrderStatusesData.fromJson(json["data"]["data"])
@@ -124,7 +124,7 @@ class OrderActiveModel {
         ? RepeatData.fromJson(json["data"]["repeat"])
         : null,
     user: json["data"]["user"] != null
-        ? UserModel.fromJson(json["data"]["user"])
+        ? Map<String, dynamic>.from(json["data"]["user"])
         : null,
     details: List<OrderProduct>.from(
       json["data"]["details"].map((x) => OrderProduct.fromJson(x)),
@@ -152,7 +152,7 @@ class OrderActiveModel {
       tax: json["tax"],
       tips: json["tips"],
       currencyModel: json["currency"] != null
-          ? CurrencyModel.fromJson(json["currency"])
+          ? Map<String, dynamic>.from(json["currency"])
           : null,
       commissionFee: json["commission_fee"],
       status: json["status"],
@@ -170,7 +170,7 @@ class OrderActiveModel {
       otp: json["otp"],
       serviceFee: json["service_fee"],
       deliveryMan: json["deliveryman"] != null
-          ? UserModel.fromJson(json["deliveryman"])
+          ? Map<String, dynamic>.from(json["deliveryman"])
           : null,
       deliveryDate: DateTime.tryParse(json["delivery_date"] ?? '')?.toLocal(),
       deliveryTime: json["delivery_time"],
@@ -185,7 +185,7 @@ class OrderActiveModel {
       repeat: json["repeat"] != null
           ? RepeatData.fromJson(json["repeat"])
           : null,
-      user: json["user"] != null ? UserModel.fromJson(json["user"]) : null,
+      user: json["user"] != null ? Map<String, dynamic>.from(json["user"]) : null,
       details: json["details"] != null
           ? List<OrderProduct>.from(
               json["details"].map((x) => OrderProduct.fromJson(x)),

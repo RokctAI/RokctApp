@@ -1,6 +1,7 @@
-{
+﻿{
   "name": "polaris_sdk",
   "version": "1.0.0",
+  "home_page": "templates/pages/polaris/app_page.dart",
   "installs": [
     {
       "from": "templates/pages/polaris",
@@ -24,7 +25,7 @@
       "path": "/polaris-application",
       "page": "AppRoute.page",
       "type": "CupertinoRoute",
-      "import": "package:rokctapp/manager/presentation/pages/polaris/app_page.dart"
+      "import": "package:merchants_sdk/src/presentation/pages/polaris/app_page.dart"
     }
   ],
   "integrations": [
@@ -45,3 +46,4 @@
     }
   ]
 }
+

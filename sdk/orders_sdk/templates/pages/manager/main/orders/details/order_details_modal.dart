@@ -5,15 +5,15 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/manager/application/main/orders/cooking/cooking_orders_provider.dart';
+import 'package:merchants_sdk/src/application/main/orders/cooking/cooking_orders_provider.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/manager/application/providers.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:merchants_sdk/src/application/providers.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/manager/presentation/pages/main/orders/details/image_dialog.dart';
-import 'package:rokctapp/manager/presentation/pages/main/orders/details/price_information.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/orders/details/image_dialog.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/orders/details/price_information.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
 class OrderDetailsModal extends ConsumerStatefulWidget {
@@ -667,3 +667,4 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
     );
   }
 }
+

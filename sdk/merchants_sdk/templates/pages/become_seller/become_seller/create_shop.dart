@@ -11,14 +11,14 @@ import 'package:users_sdk/src/application/customer/customer_profile/profile_prov
 import 'package:users_sdk/src/application/customer/customer_profile/profile_state.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class CreateShopPage extends ConsumerStatefulWidget {
@@ -612,4 +612,5 @@ class _EditRestaurantState extends ConsumerState<CreateShopPage> {
     );
   }
 }
+
 

@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "wallet_sdk",
   "version": "1.0.0",
   "installs": [
@@ -24,7 +24,7 @@
       "path": "/manager/income",
       "page": "ManagerIncomeRoute.page",
       "type": "CupertinoRoute",
-      "import": "package:rokctapp/manager/presentation/pages/income/income_page.dart"
+      "import": "package:merchants_sdk/src/presentation/pages/income/income_page.dart"
     }
   ],
   "integrations": [
@@ -36,7 +36,7 @@
     {
       "target": "lib/customer/presentation/pages/main/main_page.dart",
       "placeholder": "// @main-page-imports",
-      "replacement": "import 'package:rokctapp/customer/presentation/pages/profile/wallet_history.dart';"
+      "replacement": "import 'package:core_sdk/src/presentation/pages/profile/wallet_history.dart';"
     },
     {
       "target": "lib/customer/presentation/pages/main/main_page.dart",

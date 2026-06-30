@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:users_sdk/src/models/data/user.dart';
 import 'package:auth_sdk/src/models/request/sign_up_request.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:auth_sdk/src/domain/interface/auth_repository_facade.dart';

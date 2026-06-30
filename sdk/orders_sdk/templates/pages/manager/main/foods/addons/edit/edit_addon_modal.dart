@@ -4,10 +4,10 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/manager/presentation/pages/main/foods/addons/edit/edit_addon_units_modal.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/manager/application/providers.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/foods/addons/edit/edit_addon_units_modal.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:merchants_sdk/src/application/providers.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 
@@ -223,3 +223,4 @@ class _EditAddonModalState extends State<EditAddonModal> {
     );
   }
 }
+

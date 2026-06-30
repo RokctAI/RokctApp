@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class SearchedUserItem extends StatelessWidget {
   final UserData user;
@@ -30,3 +30,4 @@ class SearchedUserItem extends StatelessWidget {
     );
   }
 }
+

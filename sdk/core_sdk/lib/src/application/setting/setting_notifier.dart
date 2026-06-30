@@ -1,11 +1,11 @@
-import 'package:core_sdk/core_sdk.dart';
+﻿import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/customer/models/data/notification_list_data.dart';
-import 'package:rokctapp/core/application/setting/setting_state.dart';
+import 'package:core_sdk/src/models/data/notification_list_data.dart';
+import 'package:core_sdk/src/application/setting/setting_state.dart';
 
 class SettingNotifier extends Notifier<SettingState> {
   @override
@@ -65,3 +65,4 @@ class SettingNotifier extends Notifier<SettingState> {
     settingsRepository.updateNotification(state.notifications);
   }
 }
+

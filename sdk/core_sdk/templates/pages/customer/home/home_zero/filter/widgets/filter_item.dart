@@ -1,10 +1,10 @@
-import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:${package}/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/infrastructure/models/data/take_data.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:${package}/infrastructure/models/data/take_data.dart';
+import 'package:${package}/infrastructure/services/utils/app_helpers.dart';
+import 'package:${package}/presentation/theme/theme.dart';
 // ignore_for_file: unrelated_type_equality_checks
 
 // ignore: must_be_immutable

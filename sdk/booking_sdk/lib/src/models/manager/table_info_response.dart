@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/table_info_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/table_info_data.dart';
 
 class TableInfoResponse {
   DateTime timestamp;
@@ -28,4 +28,5 @@ class TableInfoResponse {
     "data": data.toJson(),
   };
 }
+
 

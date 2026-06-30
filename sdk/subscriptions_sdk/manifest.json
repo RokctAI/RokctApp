@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "subscriptions_sdk",
   "version": "1.0.0",
   "installs": [
@@ -12,7 +12,7 @@
       "path": "/manager-subscriptions",
       "page": "ManagerSubscriptionsRoute.page",
       "type": "MaterialRoute",
-      "import": "package:rokctapp/manager/presentation/pages/restaurant/subscriptions/subscriptions_page.dart"
+      "import": "package:merchants_sdk/src/presentation/pages/restaurant/subscriptions/subscriptions_page.dart"
     }
   ]
 }

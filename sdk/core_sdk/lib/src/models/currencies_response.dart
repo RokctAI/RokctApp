@@ -1,4 +1,4 @@
-import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
+﻿import 'package:core_sdk/src/infrastructure/models/data/currency_data.dart';
 
 class CurrenciesResponse {
   CurrenciesResponse({
@@ -61,4 +61,5 @@ class CurrenciesResponse {
     return map;
   }
 }
+
 

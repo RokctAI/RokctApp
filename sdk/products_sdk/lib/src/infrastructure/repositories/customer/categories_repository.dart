@@ -1,6 +1,6 @@
-import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/domain/interface/categories.dart';
-import 'package:rokctapp/customer/models/models.dart';
+﻿import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/src/domain/interface/categories.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
@@ -72,3 +72,4 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
     }
   }
 }
+

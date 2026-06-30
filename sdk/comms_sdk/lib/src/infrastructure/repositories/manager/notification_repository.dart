@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/manager/domain/interface/notification.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/src/domain/interface/notification.dart';
+
+
 
 class NotificationRepository extends NotificationInterface {
   @override
@@ -114,4 +114,5 @@ class NotificationRepository extends NotificationInterface {
     }
   }
 }
+
 

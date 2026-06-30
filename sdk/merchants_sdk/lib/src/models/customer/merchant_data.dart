@@ -1,5 +1,5 @@
-import 'package:rokctapp/customer/models/data/bonus_data.dart';
-import 'package:rokctapp/customer/models/data/translation.dart';
+﻿import 'package:core_sdk/src/models/data/bonus_data.dart';
+import 'package:core_sdk/src/models/data/translation.dart';
 
 class MerchantData {
   MerchantData({
@@ -473,4 +473,5 @@ class TagsModel {
     return data;
   }
 }
+
 

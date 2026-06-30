@@ -6,26 +6,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/models/data/location.dart';
+import 'package:core_sdk/src/models/data/location.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/application/profile/profile_provider.dart';
+import 'package:core_sdk/src/application/profile/profile_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/data/address_information.dart';
-import 'package:rokctapp/customer/models/data/address_new_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
+import 'package:core_sdk/src/models/data/address_information.dart';
+import 'package:core_sdk/src/models/data/address_new_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/address_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/location_data.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/presentation/pages/view_map/view_map_modal.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/customer/application/map/view_map_notifier.dart';
-import 'package:rokctapp/customer/application/map/view_map_provider.dart';
+import 'package:core_sdk/src/presentation/pages/view_map/view_map_modal.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/application/map/view_map_notifier.dart';
+import 'package:core_sdk/src/application/map/view_map_provider.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class ViewMapPage extends ConsumerStatefulWidget {
@@ -556,4 +556,5 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
     );
   }
 }
+
 

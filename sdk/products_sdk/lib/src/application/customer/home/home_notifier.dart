@@ -1,16 +1,16 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/core/domain/interface/banners.dart';
-import 'package:rokctapp/core/domain/interface/categories.dart';
-import 'package:rokctapp/core/domain/interface/shops.dart';
+import 'package:core_sdk/src/domain/interface/banners.dart';
+import 'package:core_sdk/src/domain/interface/categories.dart';
+import 'package:core_sdk/src/domain/interface/shops.dart';
 
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/customer/application/home/home_state.dart';
+import 'package:core_sdk/src/application/home/home_state.dart';
 
 class HomeNotifier extends Notifier<HomeState> {
   CategoriesRepositoryFacade get _categoriesRepository => categoriesRepository;
@@ -708,3 +708,4 @@ class HomeNotifier extends Notifier<HomeState> {
     }
   }
 }
+

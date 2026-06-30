@@ -1,14 +1,14 @@
-import 'package:core_sdk/core_sdk.dart';
+﻿import 'package:core_sdk/core_sdk.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/data/addons_data.dart';
-import 'package:rokctapp/customer/models/data/cart_data.dart';
-import 'package:rokctapp/customer/models/request/cart_request.dart';
+import 'package:core_sdk/src/models/data/addons_data.dart';
+import 'package:core_sdk/src/models/data/cart_data.dart';
+import 'package:core_sdk/src/models/request/cart_request.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/infrastructure/app_links/app_links_service.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:core_sdk/src/infrastructure/app_links/app_links_service.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_state.dart';
 
 class ShopOrderNotifier extends Notifier<ShopOrderState> {
@@ -757,3 +757,4 @@ class ShopOrderNotifier extends Notifier<ShopOrderState> {
     debugPrint("share link shop_order_notifier: ${state.shareLink}");
   }
 }
+

@@ -8,13 +8,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
 
-import 'package:core_sdk/src/presentation/theme/theme.dart';
+
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:core_sdk/src/infrastructure/utils/manager/enums.dart';
 import 'package:core_sdk/src/tr_keys.dart';
-import 'package:rokctapp/manager/app_constants.dart';
-import 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
+import 'package:merchants_sdk/src/app_constants.dart';
+import 'package:merchants_sdk/src/infrastructure/services/local_storage.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide SignUpType, ExtrasType, SnackBarType
     hide AppConstants, UploadType, SnackBarType;
@@ -615,4 +615,5 @@ class AppHelpers {
     }
   }
 }
+
 

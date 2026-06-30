@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class SearchShopShimmer extends StatelessWidget {
   const SearchShopShimmer({super.key});
@@ -58,3 +58,4 @@ class SearchShopShimmer extends StatelessWidget {
     );
   }
 }
+

@@ -4,12 +4,12 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/manager/presentation/pages/main/create_order/details/food_details_modal.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/manager/application/providers.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/create_order/details/food_details_modal.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:merchants_sdk/src/application/providers.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, SnackBarType;
@@ -406,3 +406,4 @@ class _CreateOrderPageState extends ConsumerState<ManagerCreateOrderPage> {
     );
   }
 }
+

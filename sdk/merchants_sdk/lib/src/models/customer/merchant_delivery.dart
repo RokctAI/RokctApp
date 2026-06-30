@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/translation.dart';
+﻿import 'package:core_sdk/src/models/data/translation.dart';
 
 class MerchantDelivery {
   MerchantDelivery({
@@ -112,4 +112,5 @@ class MerchantDelivery {
     return map;
   }
 }
+
 

@@ -1,6 +1,6 @@
-import 'package:merchants_sdk/merchants_sdk.dart';
+﻿
 
-import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
+import 'package:core_sdk/src/infrastructure/models/data/translation.dart';
 
 class CategoryData {
   CategoryData({
@@ -14,7 +14,7 @@ class CategoryData {
     bool? active,
     String? status,
     Translation? translation,
-    MerchantData? shop,
+    Map<String, dynamic>? shop,
     List<CategoryData>? children,
   }) {
     _id = id;
@@ -44,7 +44,7 @@ class CategoryData {
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
         : null;
-    _shop = json['shop'] != null ? MerchantData.fromJson(json['shop']) : null;
+    _shop = json['shop'] != null ? Map<String, dynamic>.from(json['shop']) : null;
     if (json['children'] != null) {
       _children = [];
       json['children'].forEach((v) {
@@ -63,7 +63,7 @@ class CategoryData {
   bool? _active;
   String? _status;
   Translation? _translation;
-  MerchantData? _shop;
+  Map<String, dynamic>? _shop;
   List<CategoryData>? _children;
 
   CategoryData copyWith({
@@ -76,7 +76,7 @@ class CategoryData {
     String? img,
     bool? active,
     String? status,
-    MerchantData? shop,
+    Map<String, dynamic>? shop,
     Translation? translation,
     List<CategoryData>? children,
   }) => CategoryData(
@@ -107,7 +107,7 @@ class CategoryData {
 
   String? get img => _img;
 
-  MerchantData? get shop => _shop;
+  Map<String, dynamic>? get shop => _shop;
 
   bool? get active => _active;
   String? get status => _status;
@@ -139,4 +139,5 @@ class CategoryData {
     return map;
   }
 }
+
 

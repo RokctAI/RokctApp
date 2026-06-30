@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/models/data/product_data.dart';
+import 'package:core_sdk/src/models/data/product_data.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/customer/presentation/pages/product/product_page.dart';
+import 'package:core_sdk/src/presentation/pages/product/product_page.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class ProductItem extends StatelessWidget {
   final ProductData product;
@@ -126,3 +126,4 @@ class ProductItem extends StatelessWidget {
     );
   }
 }
+

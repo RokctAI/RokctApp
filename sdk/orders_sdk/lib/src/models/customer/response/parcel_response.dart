@@ -1,6 +1,6 @@
-import 'package:rokctapp/customer/models/data/links.dart';
-import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
-import 'package:rokctapp/customer/models/data/translation.dart';
+﻿import 'package:core_sdk/src/models/data/links.dart';
+import 'package:core_sdk/src/infrastructure/models/data/meta.dart';
+import 'package:core_sdk/src/models/data/translation.dart';
 
 class ParcelTypeResponse {
   List<TypeModel>? data;
@@ -197,4 +197,5 @@ class Option {
     "translation": translation?.toJson(),
   };
 }
+
 

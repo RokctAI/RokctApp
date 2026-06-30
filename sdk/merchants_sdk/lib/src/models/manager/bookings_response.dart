@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/bookings_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/bookings_data.dart';
 
 class BookingsResponse {
   BookingsData? data;
@@ -9,4 +9,5 @@ class BookingsResponse {
     data: json["data"] == null ? null : BookingsData.fromJson(json["data"]),
   );
 }
+
 

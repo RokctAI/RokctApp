@@ -5,17 +5,17 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/logout_button.dart';
-import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/logout_modal.dart';
-import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/sections_item.dart';
-import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/shop_page_banner.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/phoenix_widget.dart';
-import 'package:rokctapp/core/presentation/components/languages_modal.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/edit_merchant_modal.dart';
-import 'package:rokctapp/manager/application/providers.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/pages/restaurant/widgets/logout_button.dart';
+import 'package:merchants_sdk/src/presentation/pages/restaurant/widgets/logout_modal.dart';
+import 'package:merchants_sdk/src/presentation/pages/restaurant/widgets/sections_item.dart';
+import 'package:merchants_sdk/src/presentation/pages/restaurant/widgets/shop_page_banner.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:core_sdk/src/presentation/phoenix_widget.dart';
+import 'package:core_sdk/src/presentation/components/languages_modal.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:merchants_sdk/src/presentation/pages/restaurant/widgets/edit_merchant_modal.dart';
+import 'package:merchants_sdk/src/application/providers.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, SnackBarType;
@@ -422,3 +422,5 @@ class _MerchantPageState extends ConsumerState<MerchantPage> {
   //   );
   // }
 }
+
+

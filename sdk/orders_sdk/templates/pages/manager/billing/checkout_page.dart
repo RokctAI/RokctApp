@@ -7,10 +7,10 @@ import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:orders_sdk/src/application/manager/order_cart/order_cart_provider.dart';
 
 import 'package:hardware_sdk/hardware_sdk.dart';
-import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:merchants_sdk/src/presentation/component/buttons/custom_button.dart';
+import 'package:${package}/core/presentation/theme/app_style.dart';
 
-import 'package:rokctapp/core/infrastructure/utils/pay_verification_helper.dart';
+import 'package:core_sdk/src/infrastructure/utils/pay_verification_helper.dart';
 
 class ManagerCheckoutPage extends ConsumerStatefulWidget {
   const ManagerCheckoutPage({super.key});
@@ -331,3 +331,4 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
     );
   }
 }
+

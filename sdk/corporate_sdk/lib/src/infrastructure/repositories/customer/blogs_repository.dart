@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/domain/interface/blogs.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/domain/interface/blogs.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
@@ -56,3 +56,4 @@ class BlogsRepository implements BlogsRepositoryFacade {
     }
   }
 }
+

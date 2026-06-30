@@ -36,6 +36,8 @@ dependencies:
     path: ../products_sdk
   comms_sdk:
     path: ../comms_sdk
+  productivity_sdk:
+    path: ../productivity_sdk
   delivery_sdk:
     path: ../delivery_sdk
   orders_sdk:
@@ -44,6 +46,7 @@ dependencies:
     path: ../processing_sdk
   revenue_sdk:
     path: ../revenue_sdk
+
     
 dependency_overrides:
   http: ^1.2.0

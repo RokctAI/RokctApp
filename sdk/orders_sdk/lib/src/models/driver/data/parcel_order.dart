@@ -1,9 +1,9 @@
-// To parse this JSON data, do
+﻿// To parse this JSON data, do
 //
 //     final parcelOrder = parcelOrderFromJson(jsonString);
 
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
-import 'package:rokctapp/driver/infrastructure/models/response/parcel_response.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
+import 'package:delivery_sdk/src/infrastructure/models/response/parcel_response.dart';
 
 class ParcelOrder {
   int? id;
@@ -286,4 +286,5 @@ class Currency {
     "updated_at": updatedAt?.toIso8601String(),
   };
 }
+
 

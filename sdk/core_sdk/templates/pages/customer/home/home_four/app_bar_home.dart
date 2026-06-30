@@ -1,21 +1,21 @@
-import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:${package}/presentation/theme/app_style.dart';
 import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/application/home/home_notifier.dart';
-import 'package:rokctapp/application/home/home_state.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/app_assets.dart';
-import 'package:rokctapp/presentation/components/app_bars/common_app_bar2.dart';
-import 'package:rokctapp/presentation/components/sellect_address_screen.dart';
+import 'package:${package}/application/home/home_notifier.dart';
+import 'package:${package}/application/home/home_state.dart';
+import 'package:${package}/infrastructure/services/utils/app_helpers.dart';
+import 'package:${package}/infrastructure/services/utils/local_storage.dart';
+import 'package:${package}/infrastructure/services/constants/tr_keys.dart';
+import 'package:${package}/infrastructure/services/app_assets.dart';
+import 'package:${package}/presentation/components/app_bars/common_app_bar2.dart';
+import 'package:${package}/presentation/components/sellect_address_screen.dart';
 
-import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:${package}/presentation/theme/theme.dart';
 import 'package:flutter/gestures.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:${package}/app_constants.dart';
 
 class AppBarHome extends ConsumerStatefulWidget {
   final HomeState state;

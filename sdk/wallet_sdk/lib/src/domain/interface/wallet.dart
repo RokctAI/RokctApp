@@ -1,4 +1,4 @@
-import 'package:rokctapp/core/infrastructure/utils/api_result.dart';
+﻿import 'package:core_sdk/src/infrastructure/utils/api_result.dart';
 import '../../models/customer/wallet_histories_response.dart';
 
 abstract class WalletRepository {
@@ -14,3 +14,4 @@ abstract class WalletRepository {
     required num price,
   });
 }
+

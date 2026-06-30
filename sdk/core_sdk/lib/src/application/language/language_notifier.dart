@@ -1,13 +1,13 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
 
-import 'package:rokctapp/core/application/language/language_state.dart';
+import 'package:core_sdk/src/application/language/language_state.dart';
 
 class LanguageNotifier extends Notifier<LanguageState> {
   @override
@@ -88,3 +88,4 @@ class LanguageNotifier extends Notifier<LanguageState> {
     }
   }
 }
+

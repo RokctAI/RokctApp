@@ -1,6 +1,6 @@
 ﻿import 'package:orders_sdk/src/driver/models/data/addon_data.dart';
 import 'package:orders_sdk/src/driver/models/data/order_detail.dart';
-import 'package:wallet_sdk/wallet_sdk.dart';
+
 import 'package:core_sdk/core_sdk.dart' hide Location;
 import 'package:core_sdk/core_sdk.dart';
 

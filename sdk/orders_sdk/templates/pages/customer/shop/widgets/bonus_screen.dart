@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/models/data/bonus_data.dart';
+import 'package:core_sdk/src/models/data/bonus_data.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class BonusScreen extends StatelessWidget {
   final BonusModel? bonus;
@@ -76,3 +76,4 @@ class BonusScreen extends StatelessWidget {
     );
   }
 }
+

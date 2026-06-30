@@ -4,15 +4,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:rokctapp/driver/application/home/home_provider.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
-import 'package:rokctapp/driver/presentation/component/buttons/custom_button.dart';
-import 'package:rokctapp/driver/presentation/component/maps_list.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/application/home/home_provider.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/parcel_order.dart';
+import 'package:delivery_sdk/src/presentation/component/buttons/custom_button.dart';
+import 'package:delivery_sdk/src/presentation/component/maps_list.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/pages/home/widgets/approve_dialog.dart';
-import 'package:rokctapp/driver/presentation/pages/home/widgets/rate_customer.dart';
+import 'package:delivery_sdk/src/presentation/pages/home/widgets/approve_dialog.dart';
+import 'package:delivery_sdk/src/presentation/pages/home/widgets/rate_customer.dart';
 
 class ParcelBottomSheetScreen extends StatelessWidget {
   final ParcelOrder? parcel;
@@ -374,3 +374,4 @@ class ParcelBottomSheetScreen extends StatelessWidget {
     );
   }
 }
+

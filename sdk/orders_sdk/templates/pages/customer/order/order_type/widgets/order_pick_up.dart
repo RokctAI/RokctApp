@@ -6,12 +6,12 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_container.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_type/widgets/order_container.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class OrderPickUp extends ConsumerStatefulWidget {
   final CustomColorSet colors;
@@ -149,3 +149,4 @@ class _OrderPickUpState extends ConsumerState<OrderPickUp> {
     );
   }
 }
+

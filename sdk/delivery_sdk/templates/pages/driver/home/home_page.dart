@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -11,19 +10,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
-import 'package:rokctapp/driver/presentation/component/loading.dart';
-import 'package:rokctapp/driver/presentation/pages/pages.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
+import 'package:delivery_sdk/src/presentation/component/loading.dart';
+import 'package:delivery_sdk/src/presentation/pages/pages.dart';
 import 'package:workmanager/workmanager.dart';
-import 'package:rokctapp/driver/application/providers.dart';
+import 'package:delivery_sdk/src/application/providers.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/main.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/driver/presentation/pages/home/bottom_sheet_screen.dart';
-import 'package:rokctapp/driver/presentation/pages/home/delivery_bottom_sheet.dart';
-import 'package:rokctapp/driver/presentation/pages/home/parcel_bottom_sheet.dart';
+import 'package:${package}/main.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/pages/home/bottom_sheet_screen.dart';
+import 'package:delivery_sdk/src/presentation/pages/home/delivery_bottom_sheet.dart';
+import 'package:delivery_sdk/src/presentation/pages/home/parcel_bottom_sheet.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide
         AppConstants,
@@ -66,68 +65,6 @@ class _HomePageState extends ConsumerState<DriverHomePage> {
   }
 
   Future<void> checkPermission() async {
-    FirebaseMessaging.instance.requestPermission(
-      sound: true,
-      alert: true,
-      badge: false,
-    );
-
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
-      debugPrint("New notification on message: ${jsonEncode(message.data)}");
-      if (message.data["id"] != null && mounted) {
-        AppHelpers.showCheckTopSnackBarInfo(
-          context,
-          "${message.notification?.body}",
-        );
-      }
-      if (message.data["type"] == "new_order") {
-        final res = await driverOrdersRepository.showOrders(
-          int.tryParse(message.data["id"].toString()) ?? 0,
-        );
-        res.when(
-          success: (status) {
-            attachOrder(status.data);
-          },
-          failure: (failure, status) {},
-        );
-      } else if (message.data["type"] == "deliveryman") {
-        final res = await driverOrdersRepository.showOrders(
-          int.tryParse(message.data["id"].toString()) ?? 0,
-        );
-        res.when(
-          success: (status) {
-            newOrder(status.data);
-          },
-          failure: (failure, status) {},
-        );
-      }
-    });
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) async {
-      debugPrint("New notification oped app: ${jsonEncode(message.data)}");
-
-      if (message.data["type"] == "new_order") {
-        final res = await driverOrdersRepository.showOrders(
-          int.tryParse(message.data["id"].toString()) ?? 0,
-        );
-        res.when(
-          success: (status) {
-            attachOrder(status.data);
-          },
-          failure: (failure, status) {},
-        );
-      } else if (message.data["type"] == "deliveryman") {
-        final res = await driverOrdersRepository.showOrders(
-          int.tryParse(message.data["id"].toString()) ?? 0,
-        );
-        res.when(
-          success: (status) {
-            newOrder(status.data);
-          },
-          failure: (failure, status) {},
-        );
-      }
-    });
-
     check = await _geolocatorPlatform.checkPermission();
     if (check == LocationPermission.denied) {
       check = await Geolocator.requestPermission();
@@ -565,4 +502,5 @@ class _HomePageState extends ConsumerState<DriverHomePage> {
     );
   }
 }
+
 

@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/extras.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/extras.dart';
 
 class CreateGroupExtrasResponse {
   CreateGroupExtrasResponse({Extras? data}) {
@@ -24,4 +24,5 @@ class CreateGroupExtrasResponse {
     return map;
   }
 }
+
 

@@ -1,6 +1,6 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+﻿import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/driver/application/story/story_state.dart';
+import 'package:delivery_sdk/src/application/story/story_state.dart';
 
 class StoryNotifier extends StateNotifier<StoryState> {
   StoryNotifier() : super(const StoryState());
@@ -9,3 +9,4 @@ class StoryNotifier extends StateNotifier<StoryState> {
     state = state.copyWith(currentIndex: index);
   }
 }
+

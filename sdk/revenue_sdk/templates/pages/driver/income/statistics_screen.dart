@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/driver/presentation/pages/income/widgets/statistics_item.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/pages/income/widgets/statistics_item.dart';
 
 class StatisticsScreen extends StatelessWidget {
   final String totalOrders;
@@ -147,3 +147,4 @@ class StatisticsScreen extends StatelessWidget {
     );
   }
 }
+

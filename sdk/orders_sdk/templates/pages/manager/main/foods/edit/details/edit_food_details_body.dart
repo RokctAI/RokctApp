@@ -3,13 +3,13 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:products_sdk/src/application/manager/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
-import 'package:rokctapp/manager/application/providers.dart';
+import 'package:merchants_sdk/src/application/providers.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/manager/presentation/pages/main/foods/edit/details/edit_food_kitchens_modal.dart';
-import 'package:rokctapp/manager/presentation/pages/main/foods/edit/details/edit_food_units_modal.dart';
-import 'package:rokctapp/manager/presentation/pages/main/foods/edit/details/edit_food_categories_modal.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/foods/edit/details/edit_food_kitchens_modal.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/foods/edit/details/edit_food_units_modal.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/foods/edit/details/edit_food_categories_modal.dart';
 
 class EditFoodDetailsBody extends StatefulWidget {
   final Function() onSave;
@@ -309,3 +309,4 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
     );
   }
 }
+

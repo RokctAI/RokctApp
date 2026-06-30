@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/order_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/order_data.dart';
 
 class SingleOrderResponse {
   SingleOrderResponse({OrderData? data}) {
@@ -24,4 +24,5 @@ class SingleOrderResponse {
     return map;
   }
 }
+
 

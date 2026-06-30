@@ -1,10 +1,10 @@
-import 'dart:io' show Platform;
+﻿import 'dart:io' show Platform;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
 import 'package:uuid/uuid.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -115,3 +115,4 @@ class SplashNotifier extends Notifier<SplashState> {
     }
   }
 }
+

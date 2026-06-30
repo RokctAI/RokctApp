@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
-import 'package:rokctapp/manager/infrastructure/services/date_service.dart';
-import 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
-import 'package:rokctapp/manager/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/infrastructure/services/app_helpers.dart';
+import 'package:merchants_sdk/src/infrastructure/services/date_service.dart';
+import 'package:merchants_sdk/src/infrastructure/services/local_storage.dart';
+import 'package:merchants_sdk/src/infrastructure/services/tr_keys.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class HaveSubscription extends StatelessWidget {
   const HaveSubscription({super.key});
@@ -93,3 +93,4 @@ class HaveSubscription extends StatelessWidget {
     );
   }
 }
+

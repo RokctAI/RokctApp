@@ -3,12 +3,12 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 import '../reset/reset_password_page.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:auth_sdk/auth_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   final CustomColorSet colors;
@@ -386,3 +386,4 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
     );
   }
 }
+

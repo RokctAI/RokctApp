@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/customer/models/models.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:core_sdk/src/models/models.dart';
 
 part 'currency_state.freezed.dart';
 
@@ -13,3 +13,4 @@ sealed class CurrencyState with _$CurrencyState {
 
   const CurrencyState._();
 }
+

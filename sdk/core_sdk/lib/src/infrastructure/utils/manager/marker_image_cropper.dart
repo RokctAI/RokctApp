@@ -12,7 +12,7 @@ import 'package:image/image.dart' as img;
 import 'dart:async';
 import 'dart:math';
 
-import 'package:core_sdk/src/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class ImageCropperForMarker {
   Future<BitmapDescriptor> resizeAndCircle(String? imageURL, int size) async {

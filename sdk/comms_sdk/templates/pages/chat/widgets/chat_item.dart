@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rokctapp/customer/models/data/chat_message_data.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/models/data/chat_message_data.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 
 class ChatItem extends StatelessWidget {
   final CustomColorSet colors;
@@ -64,3 +64,4 @@ class ChatItem extends StatelessWidget {
     );
   }
 }
+

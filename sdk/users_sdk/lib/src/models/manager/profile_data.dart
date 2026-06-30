@@ -1,7 +1,7 @@
-import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
-import 'package:rokctapp/core/infrastructure/models/data/notification_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/address_data.dart';
+import 'package:core_sdk/src/infrastructure/models/data/notification_data.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
+import 'package:core_sdk/src/infrastructure/models/data/currency_data.dart';
 
 class ProfileData {
   ProfileData({
@@ -308,4 +308,5 @@ class Wallet {
     return map;
   }
 }
+
 

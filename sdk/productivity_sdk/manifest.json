@@ -1,6 +1,7 @@
-{
+﻿{
   "name": "productivity_sdk",
   "version": "1.0.0",
+  "home_page": "templates/pages/tasks/tasks_page.dart",
   "installs": [
     {
       "from": "templates/pages/tasks",
@@ -24,7 +25,7 @@
       "path": "/tasks",
       "page": "TasksRoute.page",
       "type": "CupertinoRoute",
-      "import": "package:rokctapp/manager/presentation/pages/tasks/tasks_page.dart"
+      "import": "package:merchants_sdk/src/presentation/pages/tasks/tasks_page.dart"
     }
   ]
 }

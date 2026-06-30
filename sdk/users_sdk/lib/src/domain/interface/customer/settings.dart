@@ -1,9 +1,9 @@
-import 'package:rokctapp/customer/models/data/help_data.dart';
-import 'package:rokctapp/customer/models/data/notification_list_data.dart';
+﻿import 'package:core_sdk/src/models/data/help_data.dart';
+import 'package:core_sdk/src/models/data/notification_list_data.dart';
 
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/data/translation.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/models/data/translation.dart';
+import 'package:core_sdk/src/models/models.dart';
 
 abstract class SettingsRepositoryFacade {
   Future<ApiResult<GlobalSettingsResponse>> getGlobalSettings();
@@ -34,4 +34,5 @@ abstract class SettingsRepositoryFacade {
 
   Future<ApiResult<void>> reportClientError(String title, String error);
 }
+
 

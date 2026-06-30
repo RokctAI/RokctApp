@@ -1,5 +1,5 @@
-import 'package:rokctapp/core/infrastructure/models/data/language.dart';
-export 'package:rokctapp/core/infrastructure/models/data/language.dart';
+﻿import 'package:core_sdk/src/infrastructure/models/data/language.dart';
+export 'package:core_sdk/src/infrastructure/models/data/language.dart';
 
 class LanguagesResponse {
   LanguagesResponse({
@@ -62,4 +62,5 @@ class LanguagesResponse {
     return map;
   }
 }
+
 

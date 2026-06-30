@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/location_data.dart';
 
 class AddressData {
   AddressData({
@@ -76,4 +76,5 @@ class AddressData {
     return map;
   }
 }
+
 

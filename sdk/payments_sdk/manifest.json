@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "payments_sdk",
   "version": "1.0.0",
   "installs": [],
@@ -20,7 +20,7 @@
     {
       "target": "lib/customer/presentation/pages/parcel/parcel_page.dart",
       "placeholder": "// @parcel-payments-import",
-      "replacement": "import 'package:rokctapp/customer/presentation/pages/parcel/widgets/parcel_payments.dart';"
+      "replacement": "import 'package:core_sdk/src/presentation/pages/parcel/widgets/parcel_payments.dart';"
     },
     {
       "target": "lib/customer/presentation/pages/parcel/parcel_page.dart",
@@ -39,3 +39,4 @@
     }
   ]
 }
+

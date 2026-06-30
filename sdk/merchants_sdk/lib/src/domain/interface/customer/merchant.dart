@@ -1,6 +1,6 @@
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+﻿import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/models/models.dart';
 
 abstract class MerchantRepositoryFacade {
   Future<ApiResult<MerchantsPaginateResponse>> getShopFilter({
@@ -68,4 +68,5 @@ abstract class MerchantRepositoryFacade {
     String? backgroundImage,
   });
 }
+
 

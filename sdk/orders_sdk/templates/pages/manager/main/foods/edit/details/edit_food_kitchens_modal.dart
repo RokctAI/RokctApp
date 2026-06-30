@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:products_sdk/src/application/manager/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class EditFoodKitchensModal extends ConsumerStatefulWidget {
   const EditFoodKitchensModal({super.key});
@@ -75,3 +75,4 @@ class _EditFoodKitchensModalState extends ConsumerState<EditFoodKitchensModal> {
     );
   }
 }
+

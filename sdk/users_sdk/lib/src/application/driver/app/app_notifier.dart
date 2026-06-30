@@ -1,8 +1,8 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+﻿import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/application/app/app_state.dart';
+import 'package:delivery_sdk/src/application/app/app_state.dart';
 
 class AppNotifier extends StateNotifier<AppState> {
   AppNotifier() : super(const AppState()) {
@@ -18,3 +18,4 @@ class AppNotifier extends StateNotifier<AppState> {
     state = state.copyWith(activeLanguage: language);
   }
 }
+

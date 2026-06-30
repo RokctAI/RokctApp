@@ -1,5 +1,5 @@
-import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/user.dart';
+﻿import 'package:core_sdk/src/infrastructure/models/data/meta.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/user.dart';
 
 class WalletHistoriesResponse {
   WalletHistoriesResponse({List<WalletData>? data, Meta? meta}) {
@@ -172,4 +172,5 @@ class WalletData {
     return map;
   }
 }
+
 

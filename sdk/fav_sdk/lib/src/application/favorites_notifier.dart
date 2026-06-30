@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/customer/application/favorites/favorites_state.dart';
+import 'package:core_sdk/src/application/favorites/favorites_state.dart';
 
 class FavoritesNotifier extends Notifier<FavoritesState> {
   @override
@@ -39,3 +39,4 @@ class FavoritesNotifier extends Notifier<FavoritesState> {
     }
   }
 }
+

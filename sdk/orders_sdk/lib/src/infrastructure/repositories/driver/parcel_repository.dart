@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/driver/domain/interface/parcel.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
-import 'package:rokctapp/driver/infrastructure/models/response/parcel_paginate_response.dart';
-import 'package:delivery_sdk/delivery_sdk.dart';
+
+
+import 'package:delivery_sdk/src/infrastructure/models/response/parcel_paginate_response.dart';
+
 import 'package:core_sdk/core_sdk.dart';
 
 class ParcelRepository implements DriverParcelRepository {
@@ -198,4 +198,5 @@ class ParcelRepository implements DriverParcelRepository {
     }
   }
 }
+
 

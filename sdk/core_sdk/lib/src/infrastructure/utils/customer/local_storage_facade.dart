@@ -1,12 +1,12 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:rokctapp/core/infrastructure/models/data/settings_data.dart';
-import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
-import 'package:rokctapp/core/infrastructure/models/data/language.dart';
-import 'package:rokctapp/core/infrastructure/constants/storage_keys.dart';
+import 'package:core_sdk/src/infrastructure/models/data/settings_data.dart';
+import 'package:core_sdk/src/infrastructure/models/data/currency_data.dart';
+import 'package:core_sdk/src/infrastructure/models/data/language.dart';
+import 'package:core_sdk/src/infrastructure/constants/storage_keys.dart';
 
 abstract class CoreLocalStorage {
-  /// Token expiry duration — tokens are considered invalid after this period.
+  /// Token expiry duration â€” tokens are considered invalid after this period.
   static const Duration tokenLifetime = Duration(hours: 24);
   static DateTime? _tokenIssuedAt;
 
@@ -188,3 +188,4 @@ abstract class CoreLocalStorage {
   static bool getIsGuest() =>
       preferences?.getBool(StorageKeys.keyIsGuest) ?? true;
 }
+

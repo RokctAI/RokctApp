@@ -11,11 +11,11 @@ import 'package:users_sdk/src/application/driver/profile/provider/profile_edit_p
 import 'package:users_sdk/src/application/driver/profile/provider/profile_image_provider.dart';
 import 'package:users_sdk/src/application/driver/profile/state/profile_edit_state.dart';
 import 'package:users_sdk/src/application/driver/profile/state/profile_image_state.dart';
-import 'package:rokctapp/driver/infrastructure/services/img_service.dart';
+import 'package:delivery_sdk/src/infrastructure/services/img_service.dart';
 
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class EditCar extends ConsumerStatefulWidget {
   const EditCar({super.key});
@@ -388,3 +388,4 @@ class _EditCarState extends ConsumerState<EditCar> {
     );
   }
 }
+

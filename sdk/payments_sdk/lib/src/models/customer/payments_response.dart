@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/payment_data.dart';
+﻿import 'package:core_sdk/src/models/data/payment_data.dart';
 
 class PaymentsResponse {
   PaymentsResponse({List<PaymentData>? data}) {
@@ -29,4 +29,5 @@ class PaymentsResponse {
     return map;
   }
 }
+
 

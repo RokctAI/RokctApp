@@ -1,6 +1,6 @@
-import 'package:rokctapp/customer/models/data/product_data.dart';
+﻿import 'package:core_sdk/src/models/data/product_data.dart';
 
-import 'package:rokctapp/customer/models/data/translation.dart';
+import 'package:core_sdk/src/models/data/translation.dart';
 
 class CareerData {
   int? id;
@@ -57,4 +57,5 @@ class CareerData {
     );
   }
 }
+
 

@@ -1,6 +1,6 @@
-import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/parcel_order.dart';
 
-import 'package:rokctapp/driver/infrastructure/models/data/meta.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/meta.dart';
 
 class ParcelPaginateResponse {
   ParcelPaginateResponse({List<ParcelOrder>? data, Meta? meta}) {
@@ -39,4 +39,5 @@ class ParcelPaginateResponse {
     return map;
   }
 }
+
 

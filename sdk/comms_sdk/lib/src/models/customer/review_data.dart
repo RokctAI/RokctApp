@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/user.dart';
+﻿import 'package:core_sdk/src/models/data/user.dart';
 
 class ReviewData {
   ReviewData({
@@ -181,4 +181,5 @@ class Galleries {
     return map;
   }
 }
+
 

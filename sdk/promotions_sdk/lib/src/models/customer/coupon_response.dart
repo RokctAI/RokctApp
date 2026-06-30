@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/coupon_data.dart';
+﻿import 'package:core_sdk/src/models/data/coupon_data.dart';
 
 class CouponResponse {
   CouponResponse({
@@ -56,4 +56,5 @@ class CouponResponse {
     return map;
   }
 }
+
 

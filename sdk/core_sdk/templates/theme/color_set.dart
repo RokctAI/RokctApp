@@ -1,7 +1,7 @@
 import 'dart:ui';
-import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
+import 'package:${package}/core/presentation/theme/theme_preference.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class CustomColorSet {
   final Color primary;
@@ -135,3 +135,4 @@ class CustomColorSet {
     return CustomColorSet._create(mode);
   }
 }
+

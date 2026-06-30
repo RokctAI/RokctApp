@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/customer/models/data/parcel_order.dart';
+import 'package:delivery_sdk/src/models/customer/parcel_order.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/application/parcels_list/parcel_list_state.dart';
+import 'package:delivery_sdk/src/application/customer/parcels_list/parcel_list_state.dart';
 
 class ParcelListNotifier extends Notifier<ParcelListState> {
   @override
@@ -177,3 +177,5 @@ class ParcelListNotifier extends Notifier<ParcelListState> {
     }
   }
 }
+
+

@@ -7,12 +7,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:share_plus/share_plus.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class ShareReferralPage extends ConsumerStatefulWidget {
@@ -261,3 +261,4 @@ class _ShareReferralPageState extends ConsumerState<ShareReferralPage> {
     );
   }
 }
+

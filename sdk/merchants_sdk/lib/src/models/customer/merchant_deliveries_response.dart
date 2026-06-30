@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/merchant_delivery.dart';
+﻿import 'package:core_sdk/src/models/data/merchant_delivery.dart';
 
 class MerchantDeliveriesResponse {
   MerchantDeliveriesResponse({List<MerchantDelivery>? data}) {
@@ -29,4 +29,5 @@ class MerchantDeliveriesResponse {
     return map;
   }
 }
+
 

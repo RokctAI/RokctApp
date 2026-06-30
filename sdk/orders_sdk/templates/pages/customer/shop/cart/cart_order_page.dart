@@ -5,23 +5,23 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 import 'package:lottie/lottie.dart';
-import 'package:rokctapp/customer/application/shop/shop_provider.dart';
+import 'package:core_sdk/src/application/shop/shop_provider.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_notifier.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_state.dart';
-import 'package:rokctapp/customer/models/data/cart_data.dart';
+import 'package:core_sdk/src/models/data/cart_data.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/group_order/widgets/check_status_dialog.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/pages/shop/group_order/widgets/check_status_dialog.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/cart/widgets/cart_order_description.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/cart/widgets/cart_order_item.dart';
+import 'package:core_sdk/src/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';
+import 'package:core_sdk/src/presentation/pages/shop/cart/widgets/cart_order_description.dart';
+import 'package:core_sdk/src/presentation/pages/shop/cart/widgets/cart_order_item.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class CartOrderPage extends ConsumerStatefulWidget {
   final bool isGroupOrder;
@@ -472,3 +472,4 @@ class _ShopOrderState extends ConsumerState<CartOrderPage> {
     );
   }
 }
+

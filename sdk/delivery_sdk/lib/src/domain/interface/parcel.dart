@@ -1,8 +1,8 @@
-import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/location_data.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/response/parcel_paginate_response.dart';
+import 'package:core_sdk/src/models/response/parcel_paginate_response.dart';
 
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/models/models.dart';
 
 abstract class ParcelRepositoryFacade {
   Future<ApiResult<ParcelTypeResponse>> getTypes();
@@ -54,3 +54,4 @@ abstract class ParcelRepositoryFacade {
     required int paymentId,
   });
 }
+

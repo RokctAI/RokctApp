@@ -9,8 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:lottie/lottie.dart' as l;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -21,17 +21,17 @@ import 'package:orders_sdk/src/application/customer/shop_order/shop_order_state.
 import 'package:core_sdk/core_sdk.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/application/payment_methods/payment_provider.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/application/payment_methods/payment_provider.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/order_check.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_map.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_type/order_type.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/rating_page.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_screen/widgets/order_carts.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_screen/widgets/order_status.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/order_check.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_type/widgets/order_map.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_type/order_type.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/rating_page.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_screen/widgets/order_carts.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_screen/widgets/order_status.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class OrderPage extends ConsumerStatefulWidget {
@@ -391,3 +391,4 @@ Widget _customLoading() {
     ),
   );
 }
+

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
+import 'package:${package}/core/presentation/theme/theme_preference.dart';
 
-import 'package:rokctapp/core/presentation/theme/color_set.dart'
+import 'package:${package}/core/presentation/theme/color_set.dart'
     show CustomColorSet;
 
 class AppTheme with ChangeNotifier {
@@ -57,3 +57,4 @@ class AppTheme with ChangeNotifier {
     await _preference.setMode(mode);
   }
 }
+

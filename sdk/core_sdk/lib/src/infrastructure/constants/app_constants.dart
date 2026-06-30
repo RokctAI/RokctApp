@@ -1,11 +1,11 @@
-import 'package:flutter_remix/flutter_remix.dart';
+﻿import 'package:flutter_remix/flutter_remix.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
 
 abstract class AppConstants {
-  static const bool autoTrn = bool.fromEnvironment('AUTO_TRN');
   AppConstants._();
+
+  static const bool autoTrn = bool.fromEnvironment('AUTO_TRN');
 
   static const bool isDemo = bool.fromEnvironment(
     'IS_DEMO',
@@ -23,6 +23,7 @@ abstract class AppConstants {
 
   static const bool use24Format = true;
   static const double radius = 16;
+  static const Duration animationDuration = Duration(milliseconds: 375);
 
   // api urls
   static const String baseUrl = String.fromEnvironment('BASE_URL');
@@ -74,6 +75,9 @@ abstract class AppConstants {
   static const String localeCodeEn = 'en';
 
   /// auth phone fields
+  static const bool isSpecificNumberEnabled = bool.fromEnvironment(
+    'IS_SPECIFIC_NUMBER_ENABLED',
+  );
   static const bool isNumberLengthAlwaysSame = bool.fromEnvironment(
     'IS_NUMBER_LENGTH_ALWAYS_SAME',
   );
@@ -121,4 +125,35 @@ abstract class AppConstants {
 
   static const payLater = ["progress", "canceled", "rejected"];
   static const genderList = ["male", "female"];
+
+  /// hero tags
+  static const String heroTagProfileAvatar = 'heroTagProfileAvatar';
+  static const String heroTagAddOrderButton = 'heroTagAddOrderButton';
+  static const String heroTagOrderHistory = 'heroTagOrderHistory';
+  static const String heroTagIncomePage = 'heroTagIncomePage';
+
+  /// app package names
+  static const String customerAndroidPackageName = String.fromEnvironment(
+    'CUSTOMER_ANDROID_PACKAGE_NAME',
+  );
+  static const String customerIosPackageName = String.fromEnvironment(
+    'CUSTOMER_IOS_PACKAGE_NAME',
+  );
+  static const String driverAndroidPackageName = String.fromEnvironment(
+    'DRIVER_ANDROID_PACKAGE_NAME',
+  );
+  static const String driverIosPackageName = String.fromEnvironment(
+    'DRIVER_IOS_PACKAGE_NAME',
+  );
+  static const String managerAndroidPackageName = String.fromEnvironment(
+    'MANAGER_ANDROID_PACKAGE_NAME',
+  );
+  static const String managerIosPackageName = String.fromEnvironment(
+    'MANAGER_IOS_PACKAGE_NAME',
+  );
+
+  /// manager settings
+  static bool playMusicOnOrderStatusChange = true;
+  static bool keepPlayingOnNewOrder = false;
 }
+

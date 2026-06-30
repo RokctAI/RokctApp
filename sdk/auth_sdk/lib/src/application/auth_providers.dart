@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/interface/auth_repository_facade.dart';
-import 'package:users_sdk/users_sdk.dart';
 
 final authRepositoryProvider = Provider<AuthRepositoryFacade>(
   (ref) => throw UnimplementedError(),

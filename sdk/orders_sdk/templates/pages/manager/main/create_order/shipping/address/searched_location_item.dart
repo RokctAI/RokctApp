@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:osm_nominatim/osm_nominatim.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class SearchedLocationItem extends StatelessWidget {
   final Place place;
@@ -66,3 +66,4 @@ class SearchedLocationItem extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/category_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/category_data.dart';
 
 class CategoriesPaginateResponse {
   CategoriesPaginateResponse({List<CategoryData>? data}) {
@@ -29,4 +29,5 @@ class CategoriesPaginateResponse {
     return map;
   }
 }
+
 

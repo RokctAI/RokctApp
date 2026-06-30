@@ -1,6 +1,7 @@
-{
+﻿{
   "name": "core_sdk",
   "version": "1.0.0",
+  "home_page": "templates/pages/customer/main/main_page.dart",
   "installs": [
     {
       "from": "templates/pages/initial",
@@ -25,6 +26,14 @@
     {
       "from": "templates/components",
       "to": "lib/core/presentation/components"
+    },
+    {
+      "from": "templates/widgets",
+      "to": "lib/core/presentation/widgets"
+    },
+    {
+      "from": "templates/presentation/pages/launch/widgets/glance_card.dart",
+      "to": "lib/core/presentation/pages/launch/widgets/glance_card.dart"
     },
     {
       "from": "templates/app_assets.dart",
@@ -64,25 +73,48 @@
       "path": "/splash",
       "page": "SplashRoute.page",
       "type": "MaterialRoute",
-      "import": "package:rokctapp/core/presentation/pages/initial/splash/splash_page.dart"
+      "import": "package:core_sdk/src/presentation/pages/initial/splash/splash_page.dart"
     },
     {
       "path": "/no-connection",
       "page": "NoConnectionRoute.page",
       "type": "MaterialRoute",
-      "import": "package:rokctapp/core/presentation/pages/initial/no_connection/no_connection_page.dart"
+      "import": "package:core_sdk/src/presentation/pages/initial/no_connection/no_connection_page.dart"
     },
     {
       "path": "/ui-type",
       "page": "UiTypeRoute.page",
       "type": "MaterialRoute",
-      "import": "package:rokctapp/core/presentation/pages/initial/ui_type/ui_type_page.dart"
+      "import": "package:core_sdk/src/presentation/pages/initial/ui_type/ui_type_page.dart"
     },
     {
       "path": "/permission-location",
       "page": "PermissionLocationRoute.page",
       "type": "MaterialRoute",
-      "import": "package:rokctapp/core/presentation/pages/initial/location/permission_location.dart"
+      "import": "package:core_sdk/src/presentation/pages/initial/location/permission_location.dart"
+    }
+  ],
+  "integrations": [
+    {
+      "target": "lib/core/presentation/pages/launch/home.dart",
+      "placeholder": "// @launcher-glance-imports",
+      "replacement": "import 'widgets/glance_card.dart';"
+    },
+    {
+      "target": "lib/core/presentation/pages/launch/home.dart",
+      "placeholder": "// @launcher-glance",
+      "replacement": "const GlanceCard(),"
+    },
+    {
+      "target": "lib/core/presentation/pages/launch/home.dart",
+      "placeholder": "// @launcher-user-avatar-imports",
+      "replacement": "import 'package:core_sdk/core_sdk.dart';"
+    },
+    {
+      "target": "lib/core/presentation/pages/launch/home.dart",
+      "placeholder": "// @launcher-user-avatar",
+      "replacement": "UserAvatar(imageUrl: userData?.img, onTap: () => context.pushRouteNamed('/ProfilePage'),)"
     }
   ]
 }
+

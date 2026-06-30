@@ -1,14 +1,14 @@
-import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:${package}/presentation/theme/app_style.dart';
 import 'dart:ui';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/infrastructure/models/data/story_data.dart';
-import 'package:rokctapp/presentation/components/custom_network_image.dart';
-import 'package:rokctapp/presentation/components/shop_avarat.dart';
+import 'package:${package}/infrastructure/models/data/story_data.dart';
+import 'package:${package}/presentation/components/custom_network_image.dart';
+import 'package:${package}/presentation/components/shop_avarat.dart';
 
-import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:${package}/presentation/theme/theme.dart';
 
 class ShopBarItem extends StatelessWidget {
   final RefreshController controller;

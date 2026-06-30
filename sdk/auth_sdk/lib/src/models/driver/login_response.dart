@@ -1,4 +1,4 @@
-import 'package:rokctapp/driver/infrastructure/models/data/user_data.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/user_data.dart';
 
 class LoginResponse {
   LoginResponse({
@@ -100,4 +100,5 @@ class LoginData {
     return map;
   }
 }
+
 

@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/models/models.dart';
 
 part 'merchant_state.freezed.dart';
 
@@ -47,3 +47,4 @@ sealed class MerchantState with _$MerchantState {
 
   const MerchantState._();
 }
+

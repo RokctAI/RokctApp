@@ -1,10 +1,10 @@
-import 'package:core_sdk/core_sdk.dart';
+﻿import 'package:core_sdk/core_sdk.dart';
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
 
 import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
@@ -136,3 +136,4 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
     }
   }
 }
+

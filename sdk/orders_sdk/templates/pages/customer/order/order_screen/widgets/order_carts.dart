@@ -5,12 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/cart/widgets/cart_order_item.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';
+import 'package:core_sdk/src/presentation/pages/shop/cart/widgets/cart_order_item.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class OrderCarts extends StatefulWidget {
   final double lat;
@@ -285,3 +285,4 @@ class _OrderCartsState extends State<OrderCarts> {
     );
   }
 }
+

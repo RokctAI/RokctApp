@@ -1,5 +1,5 @@
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/user_data.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/user_data.dart';
 
 class RequestModelData {
   int? id;
@@ -184,4 +184,5 @@ class CarData {
     "location": location?.toJson(),
   };
 }
+
 

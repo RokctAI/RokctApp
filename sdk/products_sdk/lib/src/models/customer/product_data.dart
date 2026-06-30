@@ -1,8 +1,8 @@
-import 'package:rokctapp/customer/models/data/addons_data.dart';
-import 'package:rokctapp/customer/models/data/bonus_data.dart';
-import 'package:rokctapp/customer/models/models.dart';
+﻿import 'package:core_sdk/src/models/data/addons_data.dart';
+import 'package:core_sdk/src/models/data/bonus_data.dart';
+import 'package:core_sdk/src/models/models.dart';
 
-import 'package:rokctapp/customer/models/data/translation.dart';
+import 'package:core_sdk/src/models/data/translation.dart';
 
 class ProductData {
   ProductData({
@@ -841,4 +841,5 @@ class DiscountData {
     "updated_at": updatedAt?.toIso8601String(),
   };
 }
+
 

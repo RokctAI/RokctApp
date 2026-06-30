@@ -3,12 +3,12 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_screen/widgets/order_status_item.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_screen/widgets/order_status_item.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 
 class OrderStatusScreen extends StatelessWidget {
@@ -193,4 +193,5 @@ class OrderStatusScreen extends StatelessWidget {
     );
   }
 }
+
 

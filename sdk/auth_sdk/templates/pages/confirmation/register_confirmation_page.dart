@@ -4,17 +4,17 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/application/edit_profile/edit_profile_provider.dart';
-import 'package:rokctapp/customer/application/profile/profile_provider.dart';
-import 'package:rokctapp/customer/models/data/user.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/application/edit_profile/edit_profile_provider.dart';
+import 'package:core_sdk/src/application/profile/profile_provider.dart';
+import 'package:core_sdk/src/models/data/user.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 import '../reset/set_password_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:auth_sdk/auth_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
 import '../register/register_page.dart';
 
 @RoutePage()
@@ -295,3 +295,4 @@ class _RegisterConfirmationPageState
     );
   }
 }
+

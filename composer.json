@@ -1,0 +1,63 @@
+{
+  "name": "rokctapp_composer",
+  "version": "1.0.0",
+  "package_name": "betassist",
+  "description": "Configuration list of active SDKs for the BetAssist sporting app",
+  "sdks": [
+    {
+      "name": "betassist_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/betassist_sdk",
+      "home_sdk": true
+    },
+    {
+      "name": "fav_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/fav_sdk"
+    },
+    {
+      "name": "core_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/core_sdk"
+    },
+    {
+      "name": "auth_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/auth_sdk"
+    },
+    {
+      "name": "users_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/users_sdk"
+    },
+    {
+      "name": "wallet_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/wallet_sdk"
+    },
+    {
+      "name": "comms_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/comms_sdk"
+    },
+    {
+      "name": "processing_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/processing_sdk"
+    },
+    {
+      "name": "corporate_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/corporate_sdk"
+    }
+  ]
+}

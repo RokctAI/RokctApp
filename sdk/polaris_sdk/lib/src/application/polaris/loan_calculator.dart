@@ -1,4 +1,4 @@
-import '../../models/data/polaris_models.dart';
+import 'package:polaris_sdk/src/models/customer/polaris_models.dart';
 
 class LoanCalculator {
   /// Pure function to calculate a loan breakdown. No side effects.

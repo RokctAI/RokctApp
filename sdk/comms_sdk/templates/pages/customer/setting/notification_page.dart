@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/application/setting/setting_notifier.dart';
+import 'package:core_sdk/src/application/setting/setting_notifier.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/core/application/setting/setting_provider.dart';
+import 'package:core_sdk/src/application/setting/setting_provider.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class NotificationPage extends ConsumerStatefulWidget {
   const NotificationPage({super.key});
@@ -71,3 +71,4 @@ class _NotificationPageState extends ConsumerState<NotificationPage> {
           );
   }
 }
+

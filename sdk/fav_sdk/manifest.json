@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "fav_sdk",
   "version": "1.0.0",
   "installs": [
@@ -12,7 +12,7 @@
       "path": "/like_page",
       "page": "LikeRoute.page",
       "type": "MaterialRoute",
-      "import": "package:rokctapp/customer/presentation/pages/like/like_page.dart"
+      "import": "package:core_sdk/src/presentation/pages/like/like_page.dart"
     }
   ],
   "database": {

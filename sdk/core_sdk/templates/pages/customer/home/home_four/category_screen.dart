@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/application/home/home_notifier.dart';
-import 'package:rokctapp/application/home/home_state.dart';
-import 'package:rokctapp/presentation/pages/home/home_four/shimmer/category_shimmer.dart';
+import 'package:${package}/application/home/home_notifier.dart';
+import 'package:${package}/application/home/home_state.dart';
+import 'package:${package}/presentation/pages/home/home_four/shimmer/category_shimmer.dart';
 import 'tab_bar_item.dart';
 
 class CategoryScreen extends StatelessWidget {

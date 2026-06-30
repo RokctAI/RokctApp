@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/user_data.dart';
 
 class LoginResponse {
   LoginResponse({LoginData? data}) {
@@ -68,4 +68,5 @@ class LoginData {
     return map;
   }
 }
+
 

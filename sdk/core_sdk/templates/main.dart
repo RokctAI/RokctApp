@@ -1,11 +1,11 @@
-import 'package:core_sdk/src/presentation/theme/app_style.dart';
+import 'package:${package}/core/presentation/theme/app_style.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:core_sdk/src/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'di/dependency_manager.dart';
 import 'app_widget.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -103,6 +103,9 @@ void main() async {
   );
 
   setUpDependencies();
+  
+  // Initialize Notification Service
+  await NotificationService().initialize();
 
   runApp(
     ProviderScope(

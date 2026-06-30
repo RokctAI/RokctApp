@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/customer/models/data/notification_list_data.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:core_sdk/src/models/data/notification_list_data.dart';
 
 part 'setting_state.freezed.dart';
 
@@ -12,3 +12,4 @@ sealed class SettingState with _$SettingState {
 
   const SettingState._();
 }
+

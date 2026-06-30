@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/translation.dart';
+﻿import 'package:core_sdk/src/models/data/translation.dart';
 
 class ReferralModel {
   int? id;
@@ -53,4 +53,5 @@ class ReferralModel {
     return data;
   }
 }
+
 

@@ -1,8 +1,8 @@
-import 'package:orders_sdk/orders_sdk.dart';
+
 
 class TagResponse {
   TagResponse({
-    List<TakeModel>? data,
+    List<Map<String, dynamic>>? data,
     // Links? links,
   }) {
     _data = data;
@@ -12,14 +12,14 @@ class TagResponse {
     if (json['data'] != null) {
       _data = [];
       json['data'].forEach((v) {
-        _data?.add(TakeModel.fromJson(v));
+        _data?.add(Map<String, dynamic>.from(v));
       });
     }
   }
 
-  List<TakeModel>? _data;
+  List<Map<String, dynamic>>? _data;
 
-  List<TakeModel>? get data => _data;
+  List<Map<String, dynamic>>? get data => _data;
 }
 
 class PriceModel {

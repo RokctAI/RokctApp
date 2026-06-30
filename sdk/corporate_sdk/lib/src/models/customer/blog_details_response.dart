@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/blog_data.dart';
+﻿import 'package:core_sdk/src/models/data/blog_data.dart';
 
 class BlogDetailsResponse {
   BlogDetailsResponse({
@@ -56,4 +56,5 @@ class BlogDetailsResponse {
     return map;
   }
 }
+
 

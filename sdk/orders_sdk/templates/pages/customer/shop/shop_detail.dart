@@ -8,12 +8,12 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:merchants_sdk/src/application/customer/shop/shop_provider.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_map.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_type/widgets/order_map.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class ShopDetailPage extends ConsumerStatefulWidget {
@@ -344,3 +344,4 @@ class _ShopDetailPageState extends ConsumerState<ShopDetailPage> {
     );
   }
 }
+

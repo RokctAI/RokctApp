@@ -1,4 +1,4 @@
-import 'package:merchants_sdk/merchants_sdk.dart';
+
 
 class DeliveryZonePaginate {
   DeliveryZonePaginate({List<DeliveryZoneData>? data}) {
@@ -52,17 +52,17 @@ class DeliveryZoneData {
     }
     _id = json['id'];
     _address = parsedAddresses;
-    _shop = json['shop'] != null ? MerchantData.fromJson(json['shop']) : null;
+    _shop = json['shop'] != null ? Map<String, dynamic>.from(json['shop']) : null;
   }
 
   int? _id;
   List<List<double>>? _address;
-  MerchantData? _shop;
+  Map<String, dynamic>? _shop;
 
   DeliveryZoneData copyWith({
     int? id,
     List<List<double>>? address,
-    MerchantData? shop,
+    Map<String, dynamic>? shop,
   }) => DeliveryZoneData(
     id: id ?? _id,
     address: address ?? _address,
@@ -73,7 +73,7 @@ class DeliveryZoneData {
 
   List<List<double>>? get address => _address;
 
-  MerchantData? get shop => _shop;
+  Map<String, dynamic>? get shop => _shop;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

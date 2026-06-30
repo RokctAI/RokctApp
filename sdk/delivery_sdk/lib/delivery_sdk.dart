@@ -1,19 +1,16 @@
-import 'package:get_it/get_it.dart';
 library delivery_sdk;
 
-
+import 'package:get_it/get_it.dart';
+import 'src/domain/interface/driver_parcel.dart';
 
 // Domain Interfaces
-
-
 // Global DI Getters
 ParcelRepositoryFacade get parcelRepository => GetIt.instance.get<ParcelRepositoryFacade>();
-driver_parcel_int.DriverParcelRepository get driverParcelRepository => GetIt.instance.get<driver_parcel_int.DriverParcelRepository>();
+DriverParcelRepository get driverParcelRepository => GetIt.instance.get<DriverParcelRepository>();
 
 export 'src/domain/interface/driver_parcel.dart';
 export 'src/domain/interface/parcel.dart';
 export 'src/models/customer/delivery_models.dart';
-export 'src/models/customer/delivery_zone_data.dart';
 export 'src/models/customer/delivery_zone_paginate.dart';
 export 'src/models/customer/local_location.dart';
 export 'src/models/customer/local_location_data.dart';

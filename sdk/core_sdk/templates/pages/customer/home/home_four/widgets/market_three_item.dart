@@ -1,15 +1,15 @@
-import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:${package}/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/badge_item.dart';
-import 'package:rokctapp/presentation/components/bonus_discount_popular.dart';
-import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:${package}/infrastructure/models/data/shop_data.dart';
+import 'package:${package}/infrastructure/services/utils/app_helpers.dart';
+import 'package:${package}/infrastructure/services/constants/tr_keys.dart';
+import 'package:${package}/presentation/components/badge_item.dart';
+import 'package:${package}/presentation/components/bonus_discount_popular.dart';
+import 'package:${package}/presentation/components/custom_network_image.dart';
 
-import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:${package}/presentation/theme/theme.dart';
 
 class MarketThreeItem extends StatelessWidget {
   final ShopData shop;

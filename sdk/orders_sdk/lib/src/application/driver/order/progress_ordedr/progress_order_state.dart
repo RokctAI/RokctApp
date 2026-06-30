@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
 
 part 'progress_order_state.freezed.dart';
 
@@ -14,3 +14,4 @@ sealed class ProgressOrderState with _$ProgressOrderState {
 
   const ProgressOrderState._();
 }
+

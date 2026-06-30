@@ -7,11 +7,11 @@ import 'package:core_sdk/core_sdk.dart';
 import 'package:share_plus/share_plus.dart';
 
 import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
-import 'package:rokctapp/core/infrastructure/utils/app_helpers.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/infrastructure/utils/app_helpers.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class SelectBlogPage extends ConsumerStatefulWidget {
   final String blogUuid;
@@ -107,3 +107,4 @@ class _SelectBlogPageState extends ConsumerState<SelectBlogPage> {
     );
   }
 }
+

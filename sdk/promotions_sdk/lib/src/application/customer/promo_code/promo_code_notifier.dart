@@ -1,10 +1,10 @@
-import 'package:core_sdk/core_sdk.dart';
+﻿import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/application/promo_code/promo_code_state.dart';
+import 'package:core_sdk/src/application/promo_code/promo_code_state.dart';
 
 class PromoCodeNotifier extends Notifier<PromoCodeState> {
   @override
@@ -41,3 +41,4 @@ class PromoCodeNotifier extends Notifier<PromoCodeState> {
     }
   }
 }
+

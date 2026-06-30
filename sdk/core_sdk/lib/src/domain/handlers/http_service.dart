@@ -1,8 +1,8 @@
-// Trace ID propagation context
+﻿// Trace ID propagation context
 import 'package:dio/dio.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/core/domain/handlers/token_interceptor.dart';
+import 'package:core_sdk/src/domain/handlers/token_interceptor.dart';
 
 class HttpService {
   Dio client({bool requireAuth = false, bool routing = false}) =>
@@ -31,3 +31,4 @@ class HttpService {
           ),
         );
 }
+

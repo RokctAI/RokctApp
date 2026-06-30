@@ -1,4 +1,4 @@
-import 'package:rokctapp/driver/infrastructure/models/data/product_data.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/product_data.dart';
 
 class CartProductData {
   CartProductData({
@@ -65,4 +65,5 @@ class CartProductData {
     return map;
   }
 }
+
 

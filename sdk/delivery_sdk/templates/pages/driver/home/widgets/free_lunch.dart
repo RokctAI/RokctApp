@@ -1,10 +1,10 @@
-import 'package:rokctapp/core/presentation/app_assets.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/driver/presentation/pages/pages.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/pages/pages.dart';
 
 class FreeLunch extends StatelessWidget {
   const FreeLunch({super.key});
@@ -43,3 +43,4 @@ class FreeLunch extends StatelessWidget {
     );
   }
 }
+

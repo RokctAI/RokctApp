@@ -7,25 +7,25 @@ import 'package:flutter_remix/flutter_remix.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/application/shop/shop_notifier.dart';
+import 'package:core_sdk/src/application/shop/shop_notifier.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/application/like/like_notifier.dart';
-import 'package:rokctapp/customer/application/like/like_provider.dart';
-import 'package:rokctapp/customer/presentation/pages/product/product_page.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/widgets/category_tab_bar.widget.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/widgets/product_list.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/widgets/shimmer_product_list.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/application/like/like_notifier.dart';
+import 'package:core_sdk/src/application/like/like_provider.dart';
+import 'package:core_sdk/src/presentation/pages/product/product_page.dart';
+import 'package:core_sdk/src/presentation/pages/shop/widgets/category_tab_bar.widget.dart';
+import 'package:core_sdk/src/presentation/pages/shop/widgets/product_list.dart';
+import 'package:core_sdk/src/presentation/pages/shop/widgets/shimmer_product_list.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-import 'package:rokctapp/customer/application/shop/shop_provider.dart';
+import 'package:core_sdk/src/application/shop/shop_provider.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/customer/models/response/all_products_response.dart';
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/models/response/all_products_response.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
-import 'package:rokctapp/customer/presentation/pages/shop/cart/cart_order_page.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/widgets/shop_page_avatar.dart';
+import 'package:core_sdk/src/presentation/pages/shop/cart/cart_order_page.dart';
+import 'package:core_sdk/src/presentation/pages/shop/widgets/shop_page_avatar.dart';
 
 @RoutePage()
 class ShopPage extends ConsumerStatefulWidget {
@@ -585,3 +585,4 @@ class _CategoryTabBarDelegate extends SliverPersistentHeaderDelegate {
     return true;
   }
 }
+

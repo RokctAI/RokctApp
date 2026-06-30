@@ -3,6 +3,7 @@ import json
 import shutil
 import hashlib
 import re
+import subprocess
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATE_FILE = os.path.join(PROJECT_ROOT, ".rokct", "install_state.json")
@@ -19,54 +20,140 @@ def file_hash(path):
             hasher.update(chunk)
     return hasher.hexdigest()
 
-def bootstrap_core_if_missing():
-    # If lib/main.dart is missing, we must bootstrap core files from core_sdk templates first
-    if not os.path.exists(MAIN_FILE):
-        core_sdk_path = os.path.join(PROJECT_ROOT, "sdk", "core_sdk")
-        manifest_path = os.path.join(core_sdk_path, "manifest.json")
-        if os.path.exists(manifest_path):
-            print("[*] Bootstrapping missing core baseline files from core_sdk templates...")
-            with open(manifest_path, "r", encoding="utf-8") as f:
-                manifest = json.load(f)
-            for entry in manifest.get("installs", []):
-                from_rel = entry.get("from")
-                to_rel = entry.get("to")
-                src_path = os.path.join(core_sdk_path, from_rel)
-                dest_path = os.path.join(PROJECT_ROOT, to_rel)
-                if os.path.exists(src_path):
-                    if os.path.isdir(src_path):
-                        if os.path.exists(dest_path):
-                            shutil.rmtree(dest_path)
-                        shutil.copytree(src_path, dest_path)
-                    else:
-                        os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-                        shutil.copy2(src_path, dest_path)
+def resolve_home_sdk():
+    sdk_root = os.path.join(PROJECT_ROOT, "sdk")
+    if os.path.isdir(sdk_root):
+        for sdk_name in os.listdir(sdk_root):
+            manifest_path = os.path.join(sdk_root, sdk_name, "manifest.json")
+            if os.path.exists(manifest_path):
+                try:
+                    with open(manifest_path, "r", encoding="utf-8-sig") as f:
+                        manifest = json.load(f)
+                        if manifest.get("home_sdk") is True:
+                            return sdk_name
+                except Exception:
+                    pass
+    return "core_sdk"
+
+def initialize_flutter_project():
+    # If pubspec.yaml exists, we assume the project is already initialized
+    pubspec_path = os.path.join(PROJECT_ROOT, "pubspec.yaml")
+    if os.path.exists(pubspec_path):
+        return
+
+    package_name = get_project_package_name()
+    print(f"[*] Project not initialized. Running 'flutter create' as {package_name}...")
+    try:
+        # Run flutter create in the current directory
+        # --project-name ensures the internal package name is correct
+        subprocess.run(["flutter", "create", "--project-name", package_name, "."], check=True, shell=True)
+    except subprocess.CalledProcessError as e:
+        print(f"[-] Critical Error: 'flutter create' failed: {e}")
+    except FileNotFoundError:
+        print("[-] Critical Error: 'flutter' command not found. Please ensure Flutter is installed and in your PATH.")
+
+def bootstrap_home_sdk_if_missing(state):
+    # We bootstrap if the project was just created (default files) or is completely empty
+    # We check for a specific marker or just always run it if we are in bootstrap mode.
+    # To avoid infinite loops, we'll check if we've already bootstrapped this version.
+    
+    home_sdk_name = resolve_home_sdk()
+    home_sdk_path = os.path.join(PROJECT_ROOT, "sdk", home_sdk_name)
+    manifest_path = os.path.join(home_sdk_path, "manifest.json")
+    
+    if not os.path.exists(manifest_path):
+        return
+    
+    # We use a flag or check if the default flutter create main.dart is still there
+    # For simplicity, we'll run bootstrap if we are missing our specialized files.
+    # A better way is to check if we've recorded a successful bootstrap in state.
+    if state.get("bootstrapped_home_sdk") == home_sdk_name:
+        return
+
+    print(f"[*] Bootstrapping baseline files from {home_sdk_name} templates...")
+    with open(manifest_path, "r", encoding="utf-8-sig") as f:
+        manifest = json.load(f)
+    for entry in manifest.get("installs", []):
+        from_rel = entry.get("from")
+        to_rel = entry.get("to")
+        src_path = os.path.join(home_sdk_path, from_rel)
+        dest_path = os.path.join(PROJECT_ROOT, to_rel)
+        if os.path.exists(src_path):
+            if os.path.isdir(src_path):
+                if os.path.exists(dest_path):
+                    shutil.rmtree(dest_path)
+                shutil.copytree(src_path, dest_path)
+            else:
+                os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                if src_path.endswith((".dart", ".yaml", ".json", ".txt", ".md", ".gradle", ".properties")):
+                    with open(src_path, "r", encoding="utf-8", errors="ignore") as fs:
+                        content = fs.read()
+                    content = content.replace("${package}", get_project_package_name())
+                    with open(dest_path, "w", encoding="utf-8") as fd:
+                        fd.write(content)
+                else:
+                    shutil.copy2(src_path, dest_path)
+    
+    # Mark as bootstrapped
+    state["bootstrapped_home_sdk"] = home_sdk_name
+    save_state(state)
 
 def load_state():
-    bootstrap_core_if_missing()
+    # 1. Initialize basic flutter structure if missing
+    initialize_flutter_project()
+    
+    # 2. Overlay Home SDK templates
+    state = {"packages": {}}
     if os.path.exists(STATE_FILE):
         try:
             with open(STATE_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
+                state = json.load(f)
         except Exception:
             pass
-    return {"packages": {}}
+    
+    bootstrap_home_sdk_if_missing(state)
+    
+    return state
 
 def save_state(state):
     os.makedirs(os.path.dirname(STATE_FILE), exist_ok=True)
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(state, f, indent=2)
 
+def get_project_package_name():
+    # 1. Try to get package name from the root composer.json
+    composer_json_path = os.path.join(PROJECT_ROOT, "composer.json")
+    if os.path.exists(composer_json_path):
+        try:
+            with open(composer_json_path, "r", encoding="utf-8-sig") as f:
+                composer_data = json.load(f)
+            if "package_name" in composer_data:
+                return composer_data["package_name"]
+        except Exception:
+            pass
+
+    # 2. Fallback to pubspec.yaml
+    pubspec_path = os.path.join(PROJECT_ROOT, "pubspec.yaml")
+    if os.path.exists(pubspec_path):
+        try:
+            with open(pubspec_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    if line.startswith("name:"):
+                        return line.split(":", 1)[1].strip()
+        except Exception:
+            pass
+    return "rokctapp"
+
 def resolve_sdk_path(sdk_name):
     # 1. Try resolving via .dart_tool/package_config.json (for pub-fetched SDKs)
     package_config_path = os.path.join(PROJECT_ROOT, ".dart_tool", "package_config.json")
     if os.path.exists(package_config_path):
         try:
-            with open(package_config_path, "r", encoding="utf-8") as f:
+            with open(package_config_path, "r", encoding="utf-8-sig") as f:
                 config = json.load(f)
-                # In package_config.json v2, "packages" is a list of packages
-                packages = config.get("packages", [])
-                for pkg in packages:
+            # In package_config.json v2, "packages" is a list of packages
+            packages = config.get("packages", [])
+            for pkg in packages:
                     if pkg.get("name") == sdk_name:
                         root_uri = pkg.get("rootUri")
                         if root_uri:
@@ -97,7 +184,7 @@ def install_sdk_files_and_routes(sdk_name):
         print(f"[-] No manifest found for {sdk_name}")
         return False
         
-    with open(manifest_path, "r", encoding="utf-8") as f:
+    with open(manifest_path, "r", encoding="utf-8-sig") as f:
         manifest = json.load(f)
         
     version = manifest.get("version", "1.0.0")
@@ -158,6 +245,7 @@ def install_sdk_files_and_routes(sdk_name):
             if is_text:
                 with open(file_src, "r", encoding="utf-8", errors="ignore") as fs:
                     content = fs.read()
+                    content = content.replace("${package}", get_project_package_name())
 
                 # Prepend developer warning banner for dart files above first import/export/part
                 if file_dest.endswith(".dart"):

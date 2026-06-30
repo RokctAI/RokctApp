@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/customer/models/data/addons_data.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/models/data/addons_data.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/infrastructure/app_links/app_links_service.dart';
-import 'package:rokctapp/customer/models/request/cart_request.dart';
+import 'package:core_sdk/src/infrastructure/app_links/app_links_service.dart';
+import 'package:core_sdk/src/models/request/cart_request.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:products_sdk/src/application/customer/product/product_state.dart';
@@ -403,3 +403,4 @@ class ProductNotifier extends Notifier<ProductState> {
     );
   }
 }
+

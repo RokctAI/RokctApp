@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:polaris_sdk/src/models/data/polaris_models.dart';
+﻿import 'package:flutter_test/flutter_test.dart';
+import 'package:polaris_sdk/src/models/customer/polaris_models.dart';
 import 'package:polaris_sdk/src/application/polaris/loan_calculator.dart';
 
 void main() {
@@ -93,3 +93,4 @@ void main() {
     });
   });
 }
+

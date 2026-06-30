@@ -3,14 +3,14 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/customer/models/response/all_products_response.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/widgets/bonus_screen.dart';
+import 'package:core_sdk/src/models/response/all_products_response.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
+import 'package:core_sdk/src/presentation/pages/shop/widgets/bonus_screen.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class ShopProductItem extends StatelessWidget {
   final Product product;
@@ -159,3 +159,4 @@ class ShopProductItem extends StatelessWidget {
     );
   }
 }
+

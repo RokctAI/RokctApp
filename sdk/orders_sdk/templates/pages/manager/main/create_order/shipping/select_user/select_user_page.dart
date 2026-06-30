@@ -4,11 +4,11 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_user/widgets/user_item.dart';
-import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/select_user/widgets/create_user_modal.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/manager/application/providers.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/create_order/shipping/select_user/widgets/user_item.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/create_order/shipping/select_user/widgets/create_user_modal.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:merchants_sdk/src/application/providers.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, SnackBarType;
@@ -132,3 +132,4 @@ class _SelectUserPageState extends ConsumerState<ManagerSelectUserPage> {
     );
   }
 }
+

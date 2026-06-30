@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/maksekeskus_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/maksekeskus_data.dart';
 
 class MaksekeskusResponse {
   DateTime? timestamp;
@@ -39,4 +39,5 @@ class MaksekeskusResponse {
     "data": data?.toJson(),
   };
 }
+
 

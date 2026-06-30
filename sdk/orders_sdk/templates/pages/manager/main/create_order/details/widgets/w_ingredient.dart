@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/manager/presentation/component/title_icon.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/title_icon.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/manager/presentation/pages/main/create_order/details/widgets/ingredient_item.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/create_order/details/widgets/ingredient_item.dart';
 
 class WIngredientScreen extends StatelessWidget {
   final List<AddonData> list;
@@ -64,3 +64,4 @@ class WIngredientScreen extends StatelessWidget {
           );
   }
 }
+

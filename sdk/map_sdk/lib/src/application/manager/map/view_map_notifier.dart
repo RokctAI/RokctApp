@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/manager/presentation/pages/add_address.dart';
-import 'package:rokctapp/manager/application/map/view_map_state.dart';
+import 'package:merchants_sdk/src/presentation/pages/add_address.dart';
+import 'package:merchants_sdk/src/application/map/view_map_state.dart';
 
 class ViewMapNotifier extends StateNotifier<ViewMapState> {
   ViewMapNotifier() : super(const ViewMapState());
@@ -26,3 +26,4 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     state = state.copyWith(isLoading: true);
   }
 }
+

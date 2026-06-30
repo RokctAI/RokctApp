@@ -1,0 +1,58 @@
+{
+  "name": "rokctapp_composer",
+  "version": "1.0.0",
+  "package_name": "launcher",
+  "description": "Configuration list of active SDKs for minilauncher",
+  "sdks": [
+    {
+      "name": "core_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/core_sdk"
+    },
+    {
+      "name": "auth_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/auth_sdk"
+    },
+    {
+      "name": "users_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/users_sdk"
+    },
+    {
+      "name": "launch_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/launch_sdk",
+      "home_sdk": true
+    },
+    {
+      "name": "comms_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/comms_sdk"
+    },
+    {
+      "name": "processing_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/processing_sdk"
+    },
+    {
+      "name": "corporate_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/corporate_sdk"
+    },
+    {
+      "name": "agent_sdk",
+      "enabled": false,
+      "source": "local",
+      "path": "sdk/agent_sdk",
+      "_comment": "Disabled as per requirements"
+    }
+  ]
+}

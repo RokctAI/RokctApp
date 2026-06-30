@@ -6,12 +6,12 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:orders_sdk/src/application/customer/orders_list/orders_list_notifier.dart';
 import 'package:orders_sdk/src/application/customer/orders_list/orders_list_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/customer/presentation/pages/order/widgets/orders_item.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/presentation/pages/order/widgets/orders_item.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class OrdersListPage extends ConsumerStatefulWidget {
@@ -237,3 +237,4 @@ Widget _resultEmpty(CustomColorSet colors) {
     ],
   );
 }
+

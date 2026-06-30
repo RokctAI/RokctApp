@@ -5,16 +5,16 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:merchants_sdk/src/application/manager/subscriptions/subscriptions_provider.dart';
-import 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
-import 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
-import 'package:rokctapp/manager/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/manager/presentation/component/custom_app_bar.dart';
-import 'package:rokctapp/manager/presentation/component/helper/no_data_info.dart';
-import 'package:rokctapp/manager/presentation/component/loading/loading_grid.dart';
-import 'package:rokctapp/manager/presentation/pages/restaurant/subscriptions/widgets/have_subscription.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/manager/presentation/pages/restaurant/subscriptions/widgets/payment_dialog.dart';
-import 'package:rokctapp/manager/presentation/pages/restaurant/subscriptions/widgets/subscriptions_item.dart';
+import 'package:merchants_sdk/src/infrastructure/services/app_helpers.dart';
+import 'package:merchants_sdk/src/infrastructure/services/local_storage.dart';
+import 'package:merchants_sdk/src/infrastructure/services/tr_keys.dart';
+import 'package:merchants_sdk/src/presentation/component/custom_app_bar.dart';
+import 'package:merchants_sdk/src/presentation/component/helper/no_data_info.dart';
+import 'package:merchants_sdk/src/presentation/component/loading/loading_grid.dart';
+import 'package:merchants_sdk/src/presentation/pages/restaurant/subscriptions/widgets/have_subscription.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/pages/restaurant/subscriptions/widgets/payment_dialog.dart';
+import 'package:merchants_sdk/src/presentation/pages/restaurant/subscriptions/widgets/subscriptions_item.dart';
 
 @RoutePage(name: 'ManagerSubscriptionsRoute')
 class ManagerSubscriptionsPage extends ConsumerStatefulWidget {
@@ -172,3 +172,4 @@ class _SubscriptionsPageState extends ConsumerState<ManagerSubscriptionsPage> {
     );
   }
 }
+

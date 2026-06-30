@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/domain/interface/address.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/domain/interface/address.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
@@ -58,3 +58,4 @@ class AddressRepository implements AddressRepositoryFacade {
     }
   }
 }
+

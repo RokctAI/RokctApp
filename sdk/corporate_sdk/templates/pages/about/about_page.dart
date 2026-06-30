@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/models/response/pages_response.dart';
+import 'package:core_sdk/src/models/response/pages_response.dart';
 import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
-import 'package:rokctapp/core/infrastructure/utils/app_helpers.dart';
-import 'package:rokctapp/core/infrastructure/constants/tr_keys.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/infrastructure/utils/app_helpers.dart';
+import 'package:core_sdk/src/infrastructure/constants/tr_keys.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class AboutPage extends ConsumerStatefulWidget {
   const AboutPage({super.key});
@@ -82,3 +82,4 @@ class _AboutPageState extends ConsumerState<AboutPage> {
     );
   }
 }
+

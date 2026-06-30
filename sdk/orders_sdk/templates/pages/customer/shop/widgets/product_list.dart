@@ -4,17 +4,17 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 import 'package:lottie/lottie.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:merchants_sdk/src/application/customer/shop/shop_provider.dart';
 import 'package:merchants_sdk/src/application/customer/shop/shop_state.dart';
-import 'package:rokctapp/customer/presentation/pages/product/product_page.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/widgets/shop_product_item.dart';
+import 'package:core_sdk/src/presentation/pages/product/product_page.dart';
+import 'package:core_sdk/src/presentation/pages/shop/widgets/shop_product_item.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 extension MyExtension1 on Iterable<Product> {
   List<Product> search(ShopState state) {
@@ -173,3 +173,4 @@ class _ProductsListState extends ConsumerState<ProductsList> {
     );
   }
 }
+

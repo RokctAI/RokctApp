@@ -4,10 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/models.dart';
-import 'package:rokctapp/core/infrastructure/models/request/edit_profile.dart';
+import 'package:core_sdk/src/models/models.dart';
+import 'package:core_sdk/src/infrastructure/models/request/edit_profile.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:users_sdk/src/application/customer/customer_edit_profile/edit_profile_state.dart';
 
 class EditProfileNotifier extends Notifier<EditProfileState> {
@@ -163,3 +163,4 @@ class EditProfileNotifier extends Notifier<EditProfileState> {
     }
   }
 }
+

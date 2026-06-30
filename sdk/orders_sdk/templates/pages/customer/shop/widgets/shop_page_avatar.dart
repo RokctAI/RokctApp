@@ -9,18 +9,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/group_order/group_order.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
+import 'package:core_sdk/src/presentation/pages/shop/group_order/group_order.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/customer/models/data/bonus_data.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/widgets/bonus_screen.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/widgets/shop_description_item.dart';
+import 'package:core_sdk/src/models/data/bonus_data.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/presentation/pages/shop/widgets/bonus_screen.dart';
+import 'package:core_sdk/src/presentation/pages/shop/widgets/shop_description_item.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class ShopPageAvatar extends StatelessWidget {
   final MerchantData shop;
@@ -515,3 +515,4 @@ class ShopPageAvatar extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,4 @@
-import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
+﻿import 'package:core_sdk/src/infrastructure/models/data/meta.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 
 class MerchantsPaginateResponse {
@@ -57,4 +57,5 @@ class MerchantsPaginateResponse {
     return map;
   }
 }
+
 

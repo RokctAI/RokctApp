@@ -4,20 +4,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:orders_sdk/src/application/manager/order_cart/order_cart_provider.dart';
-import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
-import 'package:rokctapp/driver/presentation/component/common_image.dart';
-import 'package:rokctapp/core/presentation/theme/app_style.dart';
+import 'package:merchants_sdk/src/presentation/component/buttons/custom_button.dart';
+import 'package:delivery_sdk/src/presentation/component/common_image.dart';
+import 'package:${package}/core/presentation/theme/app_style.dart';
 
-import 'package:rokctapp/manager/presentation/pages/main/billing/checkout_page.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/billing/checkout_page.dart';
 
-class ManagerBillingPage extends ConsumerStatefulWidget {
-  const ManagerBillingPage({super.key});
+class BillingPage extends ConsumerStatefulWidget {
+  const BillingPage({super.key});
 
   @override
-  ConsumerState<ManagerBillingPage> createState() => _ManagerBillingPageState();
+  ConsumerState<BillingPage> createState() => _BillingPageState();
 }
 
-class _ManagerBillingPageState extends ConsumerState<ManagerBillingPage> {
+class _BillingPageState extends ConsumerState<BillingPage> {
   final MobileScannerController scannerController = MobileScannerController();
 
   @override
@@ -219,3 +219,4 @@ class _ManagerBillingPageState extends ConsumerState<ManagerBillingPage> {
     );
   }
 }
+

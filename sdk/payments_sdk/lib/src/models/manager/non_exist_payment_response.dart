@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/non_exist_payment.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/non_exist_payment.dart';
 
 class NonExistPaymentResponse {
   DateTime? timestamp;
@@ -46,4 +46,5 @@ class NonExistPaymentResponse {
     "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
   };
 }
+
 

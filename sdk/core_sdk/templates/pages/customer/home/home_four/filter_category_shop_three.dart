@@ -1,23 +1,23 @@
-import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:${package}/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/application/home/home_notifier.dart';
-import 'package:rokctapp/application/home/home_state.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
-import 'package:rokctapp/presentation/components/title_icon.dart';
-import 'package:rokctapp/presentation/pages/home/home_four/filter/filter_page.dart';
+import 'package:${package}/application/home/home_notifier.dart';
+import 'package:${package}/application/home/home_state.dart';
+import 'package:${package}/infrastructure/services/utils/app_helpers.dart';
+import 'package:${package}/infrastructure/services/constants/tr_keys.dart';
+import 'package:${package}/presentation/components/buttons/animation_button_effect.dart';
+import 'package:${package}/presentation/components/loading.dart';
+import 'package:${package}/presentation/components/title_icon.dart';
+import 'package:${package}/presentation/pages/home/home_four/filter/filter_page.dart';
 
-import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:${package}/presentation/theme/theme.dart';
 import 'shimmer/news_shop_shimmer.dart';
 import 'widgets/market_three_item.dart';
 import 'widgets/tab_bar_item_three.dart';
-import 'package:rokctapp/presentation/components/badges/empty_badge.dart';
+import 'package:${package}/presentation/components/badges/empty_badge.dart';
 
 class FilterCategoryShopThree extends StatelessWidget {
   final HomeState state;

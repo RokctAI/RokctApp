@@ -1,10 +1,10 @@
-﻿import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
-import 'package:rokctapp/customer/models/data/user.dart';
-import 'package:rokctapp/customer/models/data/product_data.dart';
+﻿import 'package:core_sdk/src/infrastructure/models/data/currency_data.dart';
+import 'package:core_sdk/src/models/data/user.dart';
+import 'package:core_sdk/src/models/data/product_data.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/data/translation.dart';
-import 'package:rokctapp/customer/models/data/review_data.dart';
-import 'package:rokctapp/customer/models/data/coupon_data.dart';
+import 'package:core_sdk/src/models/data/translation.dart';
+import 'package:core_sdk/src/models/data/review_data.dart';
+import 'package:core_sdk/src/models/data/coupon_data.dart';
 
 class OrderData {
   OrderData({
@@ -564,5 +564,6 @@ class ProductNote {
 
   ProductNote({required this.stockId, required this.comment});
 }
+
 
 

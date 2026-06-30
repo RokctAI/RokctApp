@@ -1,8 +1,8 @@
-import 'package:rokctapp/customer/models/data/refund_data.dart';
-import 'package:rokctapp/customer/models/data/user.dart';
-import 'package:rokctapp/customer/models/data/repeat_data.dart';
-import 'package:rokctapp/customer/models/models.dart';
-import 'package:rokctapp/customer/models/data/addons_data.dart';
+﻿import 'package:core_sdk/src/models/data/refund_data.dart';
+import 'package:core_sdk/src/models/data/user.dart';
+import 'package:core_sdk/src/models/data/repeat_data.dart';
+import 'package:core_sdk/src/models/models.dart';
+import 'package:core_sdk/src/models/data/addons_data.dart';
 
 class OrderActiveModel {
   OrderActiveModel({
@@ -544,4 +544,5 @@ class OrderStatusesEditDate {
     return map;
   }
 }
+
 

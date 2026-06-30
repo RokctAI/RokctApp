@@ -1,8 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:comms_sdk/src/infrastructure/services/notification_service.dart';
 
-import 'package:comms_sdk/comms_sdk.dart';
-
-final notificationProvider =
-    NotifierProvider<NotificationNotifier, NotificationState>(
-      () => NotificationNotifier(),
-    );
+final notificationServiceProvider = Provider<NotificationService>((ref) {
+  return NotificationService();
+});

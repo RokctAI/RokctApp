@@ -1,0 +1,107 @@
+{
+  "name": "rokctapp_composer",
+  "version": "1.0.0",
+  "package_name": "rokctapp",
+  "description": "Configuration list of active SDKs for launch_manager",
+  "sdks": [
+    {
+      "name": "core_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/core_sdk"
+    },
+    {
+      "name": "auth_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/auth_sdk"
+    },
+    {
+      "name": "users_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/users_sdk"
+    },
+    {
+      "name": "merchants_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/merchants_sdk"
+    },
+    {
+      "name": "products_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/products_sdk"
+    },
+    {
+      "name": "orders_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/orders_sdk"
+    },
+    {
+      "name": "payments_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/payments_sdk"
+    },
+    {
+      "name": "subscriptions_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/subscriptions_sdk"
+    },
+    {
+      "name": "comms_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/comms_sdk"
+    },
+    {
+      "name": "processing_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/processing_sdk"
+    },
+    {
+      "name": "productivity_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/productivity_sdk",
+      "_comment": "Included but not present in original apps"
+    },
+    {
+      "name": "corporate_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/corporate_sdk"
+    },
+    {
+      "name": "launch_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/launch_sdk",
+      "home_sdk": true
+    },
+    {
+      "name": "map_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/map_sdk"
+    },
+    {
+      "name": "weather_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/weather_sdk"
+    },
+    {
+      "name": "agent_sdk",
+      "enabled": false,
+      "source": "local",
+      "path": "sdk/agent_sdk",
+      "_comment": "Disabled as per requirements"
+    }
+  ]
+}

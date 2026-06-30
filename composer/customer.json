@@ -1,0 +1,112 @@
+{
+  "name": "rokctapp_composer",
+  "version": "1.0.0",
+  "package_name": "customer",
+  "description": "Configuration list of active SDKs for paas_customer",
+  "sdks": [
+    {
+      "name": "core_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/core_sdk",
+      "home_sdk": true
+    },
+    {
+      "name": "auth_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/auth_sdk"
+    },
+    {
+      "name": "users_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/users_sdk"
+    },
+    {
+      "name": "merchants_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/merchants_sdk"
+    },
+    {
+      "name": "products_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/products_sdk"
+    },
+    {
+      "name": "orders_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/orders_sdk"
+    },
+    {
+      "name": "fav_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/fav_sdk"
+    },
+    {
+      "name": "wallet_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/wallet_sdk"
+    },
+    {
+      "name": "payments_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/payments_sdk"
+    },
+    {
+      "name": "delivery_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/delivery_sdk"
+    },
+    {
+      "name": "comms_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/comms_sdk"
+    },
+    {
+      "name": "corporate_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/corporate_sdk"
+    },
+    {
+      "name": "processing_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/processing_sdk"
+    },
+    {
+      "name": "map_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/map_sdk"
+    },
+    {
+      "name": "promotions_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/promotions_sdk"
+    },
+    {
+      "name": "loyalty_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/loyalty_sdk"
+    },
+    {
+      "name": "agent_sdk",
+      "enabled": false,
+      "source": "local",
+      "path": "sdk/agent_sdk",
+      "_comment": "Disabled as per requirements"
+    }
+  ]
+}

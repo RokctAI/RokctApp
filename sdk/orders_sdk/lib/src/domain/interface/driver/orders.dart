@@ -1,5 +1,5 @@
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/order_paginate_response.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_paginate_response.dart';
 
 import 'package:core_sdk/core_sdk.dart';
 
@@ -37,4 +37,5 @@ abstract class DriverOrdersRepository {
 
   Future<ApiResult<OrderDetailModel>> setOrder(String orderId);
 }
+
 

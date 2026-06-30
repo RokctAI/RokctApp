@@ -1,4 +1,4 @@
-import '../../models/data/polaris_models.dart';
+﻿import 'package:polaris_sdk/src/models/customer/polaris_models.dart';
 
 abstract class PolarisRepositoryFacade {
   Future<LoanEligibility> checkEligibility(String userId);
@@ -7,3 +7,4 @@ abstract class PolarisRepositoryFacade {
   Future<LoanApplicationStatus> getApplicationStatus(String applicationId);
   Future<List<LoanTransaction>> getLoanHistory(String userId);
 }
+

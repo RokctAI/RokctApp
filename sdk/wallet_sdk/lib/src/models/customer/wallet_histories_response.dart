@@ -1,6 +1,6 @@
-import 'package:rokctapp/customer/models/data/links.dart';
-import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
-import 'package:rokctapp/customer/models/data/user.dart';
+﻿import 'package:core_sdk/src/models/data/links.dart';
+import 'package:core_sdk/src/infrastructure/models/data/meta.dart';
+import 'package:core_sdk/src/models/data/user.dart';
 
 class WalletHistoriesResponse {
   WalletHistoriesResponse({List<WalletData>? data, Links? links, Meta? meta}) {
@@ -187,4 +187,5 @@ class WalletData {
     return map;
   }
 }
+
 

@@ -1,7 +1,7 @@
-import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:${package}/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:${package}/presentation/theme/theme.dart';
 
 class TabBarItemThree extends StatelessWidget {
   final bool isShopTabBar;

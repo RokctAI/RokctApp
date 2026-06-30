@@ -10,7 +10,6 @@ import 'package:auth_sdk/auth_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:users_sdk/users_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
 import 'register_state.dart';

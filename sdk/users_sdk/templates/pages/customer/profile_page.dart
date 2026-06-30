@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/customer/application/home/home_provider.dart';
+import 'package:core_sdk/src/application/home/home_provider.dart';
 // @profile-page-imports
 import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
@@ -13,9 +13,9 @@ import 'package:core_sdk/core_sdk.dart';
 import 'delete_screen.dart';
 import 'widgets/profile_header.dart';
 import 'widgets/profile_items_list.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class ProfilePage extends ConsumerStatefulWidget {
@@ -172,3 +172,4 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
     );
   }
 }
+

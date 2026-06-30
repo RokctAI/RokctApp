@@ -1,5 +1,5 @@
-import 'dart:convert';
-import 'package:rokctapp/manager/infrastructure/models/data/working_day_data.dart';
+﻿import 'dart:convert';
+import 'package:merchants_sdk/src/infrastructure/models/data/working_day_data.dart';
 
 WorkingDayResponse workingDayResponseFromJson(String str) =>
     WorkingDayResponse.fromJson(json.decode(str));
@@ -35,4 +35,5 @@ class WorkingDayResponse {
     "data": data.toJson(),
   };
 }
+
 

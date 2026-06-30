@@ -6,14 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
 import 'package:orders_sdk/src/application/customer/parcel/parcel_provider.dart';
-import 'package:rokctapp/core/application/select/select_provider.dart';
+import 'package:core_sdk/src/application/select/select_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/payment_method.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/payment_method.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class RatingPage extends ConsumerStatefulWidget {
   final bool parcel;
@@ -305,3 +305,4 @@ class _RatingPageState extends ConsumerState<RatingPage> {
     );
   }
 }
+

@@ -1,13 +1,13 @@
-// Trace ID propagation context
+﻿// Trace ID propagation context
 import 'dart:convert';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/driver/app_constants.dart';
-import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/infrastructure/services/storage_keys.dart';
-import 'package:rokctapp/core/local_storage.dart';
+import 'package:delivery_sdk/src/app_constants.dart';
+
+import 'package:delivery_sdk/src/infrastructure/services/storage_keys.dart';
+import 'package:core_sdk/src/local_storage.dart';
 
 class LocalStorage {
-  /// Token expiry duration — tokens are considered invalid after this period.
+  /// Token expiry duration â€” tokens are considered invalid after this period.
   static const Duration tokenLifetime = Duration(hours: 24);
   static DateTime? _tokenIssuedAt;
 
@@ -212,4 +212,5 @@ class LocalStorage {
     _deleteOnline();
   }
 }
+
 

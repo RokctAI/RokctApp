@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/table_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/table_data.dart';
 
 class TableResponse {
   String? timestamp;
@@ -26,4 +26,5 @@ class TableResponse {
     return data;
   }
 }
+
 

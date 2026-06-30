@@ -4,14 +4,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/manager/presentation/pages/income/widgets/chart.dart';
-import 'package:rokctapp/manager/presentation/pages/income/widgets/statistics_section.dart';
-import 'package:rokctapp/manager/presentation/pages/income/widgets/order_prices_section.dart';
-import 'package:rokctapp/manager/application/providers.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:merchants_sdk/src/presentation/pages/income/widgets/chart.dart';
+import 'package:merchants_sdk/src/presentation/pages/income/widgets/statistics_section.dart';
+import 'package:merchants_sdk/src/presentation/pages/income/widgets/order_prices_section.dart';
+import 'package:merchants_sdk/src/application/providers.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/manager/presentation/pages/income/app_bar_screen.dart';
+import 'package:merchants_sdk/src/presentation/pages/income/app_bar_screen.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, SnackBarType;
 
@@ -196,3 +196,4 @@ class _IncomePageState extends ConsumerState<ManagerIncomePage>
     );
   }
 }
+

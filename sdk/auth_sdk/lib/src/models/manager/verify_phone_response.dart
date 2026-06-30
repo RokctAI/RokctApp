@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/user_data.dart';
 
 class VerifyPhoneResponse {
   VerifyPhoneResponse({VerifyData? data}) {
@@ -56,4 +56,5 @@ class VerifyData {
     return map;
   }
 }
+
 

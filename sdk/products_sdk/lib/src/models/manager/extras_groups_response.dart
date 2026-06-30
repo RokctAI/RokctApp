@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/group.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/group.dart';
 
 class ExtrasGroupsResponse {
   ExtrasGroupsResponse({List<Group>? data}) {
@@ -29,4 +29,5 @@ class ExtrasGroupsResponse {
     return map;
   }
 }
+
 

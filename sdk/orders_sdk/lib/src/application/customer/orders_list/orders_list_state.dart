@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/customer/models/data/order_active_model.dart';
-import 'package:rokctapp/customer/models/data/refund_data.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:core_sdk/src/models/data/order_active_model.dart';
+import 'package:core_sdk/src/models/data/refund_data.dart';
 
 part 'orders_list_state.freezed.dart';
 
@@ -18,3 +18,4 @@ sealed class OrdersListState with _$OrdersListState {
 
   const OrdersListState._();
 }
+

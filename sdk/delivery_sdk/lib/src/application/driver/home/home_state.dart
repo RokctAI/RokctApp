@@ -1,7 +1,7 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/parcel_order.dart';
 
 part 'home_state.freezed.dart';
 
@@ -23,3 +23,4 @@ sealed class HomeState with _$HomeState {
 
   const HomeState._();
 }
+

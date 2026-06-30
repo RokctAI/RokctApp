@@ -1,4 +1,4 @@
-import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
+﻿import 'package:core_sdk/src/infrastructure/utils/local_storage.dart';
 
 class CartRequest {
   final String? shopId;
@@ -61,4 +61,5 @@ class CartRequest {
     return list;
   }
 }
+
 

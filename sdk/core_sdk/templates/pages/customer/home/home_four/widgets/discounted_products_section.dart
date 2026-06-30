@@ -1,16 +1,16 @@
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:${package}/infrastructure/models/data/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:${package}/application/shop_order/shop_order_provider.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/presentation/pages/product/product_page.dart';
-import 'package:rokctapp/utils/products/brand_utils.dart';
-import 'package:rokctapp/utils/products/product_card.dart';
-import 'package:rokctapp/utils/products/product_utils.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:${package}/infrastructure/services/utils/app_helpers.dart';
+import 'package:${package}/presentation/pages/product/product_page.dart';
+import 'package:${package}/utils/products/brand_utils.dart';
+import 'package:${package}/utils/products/product_card.dart';
+import 'package:${package}/utils/products/product_utils.dart';
+import 'package:${package}/infrastructure/models/data/product_data.dart';
 
 class DiscountedProductsSection extends ConsumerWidget {
   final List<ProductData> products;

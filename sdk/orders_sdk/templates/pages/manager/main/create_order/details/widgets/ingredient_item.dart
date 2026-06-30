@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/manager/presentation/component/custom_checkbox.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/custom_checkbox.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class IngredientItem extends ConsumerWidget {
   final VoidCallback onTap;
@@ -95,3 +95,4 @@ class IngredientItem extends ConsumerWidget {
     );
   }
 }
+

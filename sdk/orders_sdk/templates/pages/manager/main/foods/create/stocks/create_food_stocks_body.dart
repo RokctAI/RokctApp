@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/manager/presentation/pages/main/foods/create/stocks/create_food_addons_modal.dart';
-import 'package:rokctapp/manager/presentation/pages/main/foods/create/stocks/create_food_edit_extras_modal.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/manager/application/providers.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/foods/create/stocks/create_food_addons_modal.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/foods/create/stocks/create_food_edit_extras_modal.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:merchants_sdk/src/application/providers.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 
 class CreateFoodStocksBody extends ConsumerStatefulWidget {
@@ -152,3 +152,4 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
     );
   }
 }
+

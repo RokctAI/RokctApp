@@ -3,10 +3,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/driver/application/delivery_zone/delivery_zone_provider.dart';
+import 'package:delivery_sdk/src/application/delivery_zone/delivery_zone_provider.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, OrderStatus;
@@ -97,3 +97,4 @@ class _DeliveryZonePageState extends ConsumerState<DriverDeliveryZonePage> {
     );
   }
 }
+

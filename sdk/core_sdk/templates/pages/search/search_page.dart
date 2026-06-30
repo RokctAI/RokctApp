@@ -4,24 +4,24 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/customer/application/home/home_provider.dart';
-import 'package:rokctapp/core/application/search/search_state.dart';
+import 'package:core_sdk/src/application/home/home_provider.dart';
+import 'package:core_sdk/src/application/search/search_state.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/application/search/search_notifier.dart';
-import 'package:rokctapp/core/application/search/search_provider.dart';
-import 'package:rokctapp/core/application/main/main_provider.dart';
-import 'package:rokctapp/core/presentation/pages/search/shimmer/category_shimmer.dart';
-import 'package:rokctapp/core/presentation/pages/search/shimmer/search_product_shimmer.dart';
-import 'package:rokctapp/core/presentation/pages/search/shimmer/search_shop_shimmer.dart';
-import 'package:rokctapp/core/presentation/pages/search/widgets/product_item.dart';
-import 'package:rokctapp/core/presentation/pages/search/widgets/restaurant_item.dart';
-import 'package:rokctapp/core/presentation/pages/search/widgets/search_result.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/application/search/search_notifier.dart';
+import 'package:core_sdk/src/application/search/search_provider.dart';
+import 'package:core_sdk/src/application/main/main_provider.dart';
+import 'package:core_sdk/src/presentation/pages/search/shimmer/category_shimmer.dart';
+import 'package:core_sdk/src/presentation/pages/search/shimmer/search_product_shimmer.dart';
+import 'package:core_sdk/src/presentation/pages/search/shimmer/search_shop_shimmer.dart';
+import 'package:core_sdk/src/presentation/pages/search/widgets/product_item.dart';
+import 'package:core_sdk/src/presentation/pages/search/widgets/restaurant_item.dart';
+import 'package:core_sdk/src/presentation/pages/search/widgets/search_result.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class SearchPage extends ConsumerStatefulWidget {
@@ -446,3 +446,4 @@ class _SearchPageState extends ConsumerState<SearchPage> {
     );
   }
 }
+

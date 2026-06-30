@@ -1,5 +1,5 @@
-import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/core/infrastructure/models/data/language.dart';
+﻿import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:core_sdk/src/infrastructure/models/data/language.dart';
 
 class AiTranslationRequest {
   final AiTranslationModel model;
@@ -23,3 +23,4 @@ class AiTranslationRequest {
     };
   }
 }
+

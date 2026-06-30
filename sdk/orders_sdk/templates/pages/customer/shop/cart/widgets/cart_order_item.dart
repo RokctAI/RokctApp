@@ -4,17 +4,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
-import 'package:rokctapp/customer/models/data/addons_data.dart';
-import 'package:rokctapp/customer/models/data/order_active_model.dart';
-import 'package:rokctapp/customer/models/data/order_data.dart';
+import 'package:core_sdk/src/models/data/addons_data.dart';
+import 'package:core_sdk/src/models/data/order_active_model.dart';
+import 'package:core_sdk/src/models/data/order_data.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/cart/widgets/note_product.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/customer/models/data/cart_data.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
+import 'package:core_sdk/src/presentation/pages/shop/cart/widgets/note_product.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/models/data/cart_data.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class CartOrderItem extends StatelessWidget {
   final CartDetail? cart;
@@ -481,3 +481,4 @@ class CartOrderItem extends StatelessWidget {
     );
   }
 }
+

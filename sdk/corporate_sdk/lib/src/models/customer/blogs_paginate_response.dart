@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/blog_data.dart';
+﻿import 'package:core_sdk/src/models/data/blog_data.dart';
 
 class BlogsPaginateResponse {
   BlogsPaginateResponse({List<BlogData>? data, Links? links, Meta? meta}) {
@@ -188,4 +188,5 @@ class Links {
     return map;
   }
 }
+
 

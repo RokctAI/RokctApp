@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/stock.dart';
 
 class OrderCalculate {
   bool? status;
@@ -83,4 +83,5 @@ class OrderCalculateDetail {
     return data;
   }
 }
+
 

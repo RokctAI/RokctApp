@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:lottie/lottie.dart';
 
-import 'package:rokctapp/customer/application/home/home_provider.dart';
-import 'package:rokctapp/customer/models/models.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:core_sdk/src/application/home/home_provider.dart';
+import 'package:core_sdk/src/models/models.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/location_data.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
 
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class PermissionLocationPage extends ConsumerStatefulWidget {
@@ -413,3 +413,4 @@ class _PermissionLocationPageState
     }
   }
 }
+

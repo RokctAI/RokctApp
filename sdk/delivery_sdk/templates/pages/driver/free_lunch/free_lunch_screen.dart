@@ -4,9 +4,9 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/driver/presentation/pages/free_lunch/bar_code_screen.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/pages/free_lunch/bar_code_screen.dart';
 
 class FreeLunchScreen extends StatelessWidget {
   const FreeLunchScreen({super.key});
@@ -152,3 +152,4 @@ class FreeLunchScreen extends StatelessWidget {
     );
   }
 }
+

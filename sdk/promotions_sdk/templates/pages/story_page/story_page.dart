@@ -6,13 +6,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/customer/application/home/home_provider.dart';
-import 'package:rokctapp/customer/models/data/story_data.dart';
+import 'package:core_sdk/src/application/home/home_provider.dart';
+import 'package:core_sdk/src/models/data/story_data.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class StoryListPage extends StatefulWidget {
@@ -466,3 +466,4 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
     );
   }
 }
+

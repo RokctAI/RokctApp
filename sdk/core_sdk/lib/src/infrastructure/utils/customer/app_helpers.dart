@@ -5,17 +5,17 @@ import 'package:dio/dio.dart'; // Timeout: configured centrally in HttpService
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/infrastructure/utils/extension.dart';
+import 'package:core_sdk/src/infrastructure/utils/extension.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:intl/intl.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/infrastructure/utils/local_storage.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/infrastructure/constants/enums.dart';
-import 'package:orders_sdk/orders_sdk.dart';
+import 'package:core_sdk/src/infrastructure/constants/enums.dart';
+
 
 abstract class AppHelpers {
   AppHelpers._();
@@ -732,4 +732,5 @@ extension ExtendedIterable<E> on Iterable<E> {
     return map((e) => f(e, i++));
   }
 }
+
 

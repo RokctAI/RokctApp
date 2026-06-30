@@ -1,51 +1,51 @@
-import 'package:get_it/get_it.dart';
+﻿import 'package:get_it/get_it.dart';
 import 'package:core_sdk/src/infrastructure/services/places/places_service.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
 
 // Core Interfaces
-import 'package:rokctapp/core/domain/interface/address.dart';
-import 'package:rokctapp/core/domain/interface/auth.dart';
-import 'package:rokctapp/core/domain/interface/banners.dart';
-import 'package:rokctapp/core/domain/interface/blogs.dart';
-import 'package:rokctapp/core/domain/interface/brands.dart';
-import 'package:rokctapp/core/domain/interface/cart.dart';
-import 'package:rokctapp/core/domain/interface/categories.dart';
-import 'package:rokctapp/core/domain/interface/currencies.dart';
+import 'package:core_sdk/src/domain/interface/address.dart';
+import 'package:core_sdk/src/domain/interface/auth.dart';
+import 'package:core_sdk/src/domain/interface/banners.dart';
+import 'package:core_sdk/src/domain/interface/blogs.dart';
+import 'package:core_sdk/src/domain/interface/brands.dart';
+import 'package:core_sdk/src/domain/interface/cart.dart';
+import 'package:core_sdk/src/domain/interface/categories.dart';
+import 'package:core_sdk/src/domain/interface/currencies.dart';
 import 'package:zones_sdk/src/domain/interface/customer/draw.dart';
-import 'package:rokctapp/core/domain/interface/gallery.dart';
-import 'package:rokctapp/core/domain/interface/notification.dart';
-import 'package:rokctapp/core/domain/interface/orders.dart';
-import 'package:rokctapp/core/domain/interface/parcel.dart';
-import 'package:rokctapp/core/domain/interface/payments.dart';
-import 'package:rokctapp/core/domain/interface/products.dart';
-import 'package:rokctapp/core/domain/interface/settings.dart';
-import 'package:rokctapp/core/domain/interface/shops.dart';
-import 'package:rokctapp/core/domain/interface/user.dart';
+import 'package:core_sdk/src/domain/interface/gallery.dart';
+import 'package:core_sdk/src/domain/interface/notification.dart';
+import 'package:core_sdk/src/domain/interface/orders.dart';
+import 'package:core_sdk/src/domain/interface/parcel.dart';
+import 'package:core_sdk/src/domain/interface/payments.dart';
+import 'package:core_sdk/src/domain/interface/products.dart';
+import 'package:core_sdk/src/domain/interface/settings.dart';
+import 'package:core_sdk/src/domain/interface/shops.dart';
+import 'package:core_sdk/src/domain/interface/user.dart';
 
 // Customer Implementations
-import 'package:rokctapp/customer/repository/address_repository.dart';
-import 'package:rokctapp/customer/repository/auth_repository.dart';
-import 'package:rokctapp/customer/repository/banners_repository.dart';
-import 'package:rokctapp/customer/repository/blogs_repository.dart';
-import 'package:rokctapp/customer/repository/brands_repository.dart';
-import 'package:rokctapp/customer/repository/cart_repository.dart';
-import 'package:rokctapp/customer/repository/categories_repository.dart';
-import 'package:rokctapp/customer/repository/currencies_repository.dart';
-import 'package:rokctapp/customer/repository/draw_repository.dart'
+import 'package:core_sdk/src/repository/address_repository.dart';
+import 'package:core_sdk/src/repository/auth_repository.dart';
+import 'package:core_sdk/src/repository/banners_repository.dart';
+import 'package:core_sdk/src/repository/blogs_repository.dart';
+import 'package:core_sdk/src/repository/brands_repository.dart';
+import 'package:core_sdk/src/repository/cart_repository.dart';
+import 'package:core_sdk/src/repository/categories_repository.dart';
+import 'package:core_sdk/src/repository/currencies_repository.dart';
+import 'package:core_sdk/src/repository/draw_repository.dart'
     as customer_draw_repo;
-import 'package:rokctapp/customer/repository/gallery_repository.dart';
-import 'package:rokctapp/customer/repository/notification_repository.dart'
+import 'package:core_sdk/src/repository/gallery_repository.dart';
+import 'package:core_sdk/src/repository/notification_repository.dart'
     as customer_notif_repo;
-import 'package:rokctapp/customer/repository/orders_repository.dart'
+import 'package:core_sdk/src/repository/orders_repository.dart'
     as customer_orders_repo;
-import 'package:rokctapp/customer/repository/parcel_repository.dart'
+import 'package:core_sdk/src/repository/parcel_repository.dart'
     as customer_parcel_repo;
-import 'package:rokctapp/customer/repository/payments_repository.dart';
-import 'package:rokctapp/customer/repository/products_repository.dart';
-import 'package:rokctapp/customer/repository/settings_repository.dart'
+import 'package:core_sdk/src/repository/payments_repository.dart';
+import 'package:core_sdk/src/repository/products_repository.dart';
+import 'package:core_sdk/src/repository/settings_repository.dart'
     as customer_settings_repo;
-import 'package:rokctapp/customer/repository/shops_repository.dart';
-import 'package:rokctapp/customer/repository/user_repository.dart'
+import 'package:core_sdk/src/repository/shops_repository.dart';
+import 'package:core_sdk/src/repository/user_repository.dart'
     as customer_user_repo;
 
 import 'package:core_sdk/core_sdk.dart';
@@ -54,79 +54,79 @@ import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
 // Driver Interfaces
-import 'package:rokctapp/driver/domain/interface/notification.dart'
+import 'package:delivery_sdk/src/domain/interface/notification.dart'
     as driver_notif_int;
-import 'package:rokctapp/driver/domain/interface/parcel.dart'
+import 'package:delivery_sdk/src/domain/interface/parcel.dart'
     as driver_parcel_int;
-import 'package:rokctapp/driver/domain/interface/orders.dart'
+import 'package:delivery_sdk/src/domain/interface/orders.dart'
     as driver_orders_int;
-import 'package:rokctapp/driver/domain/interface/settings_repository.dart'
+import 'package:delivery_sdk/src/domain/interface/settings_repository.dart'
     as driver_settings_int;
-import 'package:rokctapp/driver/domain/interface/draw_repository.dart'
+import 'package:delivery_sdk/src/domain/interface/draw_repository.dart'
     as driver_draw_int;
-import 'package:rokctapp/driver/domain/interface/user_repository.dart'
+import 'package:delivery_sdk/src/domain/interface/user_repository.dart'
     as driver_user_int;
-import 'package:rokctapp/driver/domain/interface/auth_repository.dart'
+import 'package:delivery_sdk/src/domain/interface/auth_repository.dart'
     as driver_auth_int;
 
 // Driver Implementations
-import 'package:rokctapp/driver/infrastructure/repositories/notification_repository.dart'
+import 'package:delivery_sdk/src/infrastructure/repositories/notification_repository.dart'
     as driver_notif_impl;
-import 'package:rokctapp/driver/infrastructure/repositories/parcel_repository.dart'
+import 'package:delivery_sdk/src/infrastructure/repositories/parcel_repository.dart'
     as driver_parcel_impl;
-import 'package:rokctapp/driver/infrastructure/repositories/orders_repository.dart'
+import 'package:delivery_sdk/src/infrastructure/repositories/orders_repository.dart'
     as driver_orders_impl;
-import 'package:rokctapp/driver/infrastructure/repositories/settings_repository_impl.dart'
+import 'package:delivery_sdk/src/infrastructure/repositories/settings_repository_impl.dart'
     as driver_settings_impl;
-import 'package:rokctapp/driver/infrastructure/repositories/draw_repository_impl.dart'
+import 'package:delivery_sdk/src/infrastructure/repositories/draw_repository_impl.dart'
     as driver_draw_impl;
-import 'package:rokctapp/driver/infrastructure/repositories/user_repository_impl.dart'
+import 'package:delivery_sdk/src/infrastructure/repositories/user_repository_impl.dart'
     as driver_user_impl;
-import 'package:rokctapp/driver/infrastructure/repositories/auth_repository_impl.dart'
+import 'package:delivery_sdk/src/infrastructure/repositories/auth_repository_impl.dart'
     as driver_auth_impl;
 
 // Manager Interfaces
-import 'package:rokctapp/manager/domain/interface/notification.dart'
+import 'package:merchants_sdk/src/domain/interface/notification.dart'
     as manager_notif_int;
 import 'package:payments_sdk/payments_sdk.dart' as manager_payment_int;
 import 'package:subscriptions_sdk/subscriptions_sdk.dart' as manager_sub_int;
-import 'package:rokctapp/manager/domain/interface/table.dart'
+import 'package:merchants_sdk/src/domain/interface/table.dart'
     as manager_table_int;
-import 'package:rokctapp/manager/domain/interface/auth.dart'
+import 'package:merchants_sdk/src/domain/interface/auth.dart'
     as manager_auth_int;
-import 'package:rokctapp/manager/domain/interface/users.dart'
+import 'package:merchants_sdk/src/domain/interface/users.dart'
     as manager_users_int;
-import 'package:rokctapp/manager/domain/interface/shops.dart'
+import 'package:merchants_sdk/src/domain/interface/shops.dart'
     as manager_shops_int;
-import 'package:rokctapp/manager/domain/interface/orders.dart'
+import 'package:merchants_sdk/src/domain/interface/orders.dart'
     as manager_orders_int;
-import 'package:rokctapp/manager/domain/interface/catalog.dart'
+import 'package:merchants_sdk/src/domain/interface/catalog.dart'
     as manager_catalog_int;
-import 'package:rokctapp/manager/domain/interface/settings.dart'
+import 'package:merchants_sdk/src/domain/interface/settings.dart'
     as manager_settings_int;
-import 'package:rokctapp/manager/domain/interface/products.dart'
+import 'package:merchants_sdk/src/domain/interface/products.dart'
     as manager_products_int;
 
 // Manager Implementations
 import 'package:payments_sdk/payments_sdk.dart' as manager_payment_impl;
 import 'package:subscriptions_sdk/subscriptions_sdk.dart' as manager_sub_impl;
-import 'package:rokctapp/manager/infrastructure/repositories/auth_repository.dart'
+import 'package:merchants_sdk/src/infrastructure/repositories/auth_repository.dart'
     as manager_auth_impl;
-import 'package:rokctapp/manager/infrastructure/repositories/table_repository.dart'
+import 'package:merchants_sdk/src/infrastructure/repositories/table_repository.dart'
     as manager_table_impl;
-import 'package:rokctapp/manager/infrastructure/repositories/users_repository.dart'
+import 'package:merchants_sdk/src/infrastructure/repositories/users_repository.dart'
     as manager_users_impl;
-import 'package:rokctapp/manager/infrastructure/repositories/shops_repository.dart'
+import 'package:merchants_sdk/src/infrastructure/repositories/shops_repository.dart'
     as manager_shops_impl;
-import 'package:rokctapp/manager/infrastructure/repositories/orders_repository.dart'
+import 'package:merchants_sdk/src/infrastructure/repositories/orders_repository.dart'
     as manager_orders_impl;
-import 'package:rokctapp/manager/infrastructure/repositories/catalog_repository.dart'
+import 'package:merchants_sdk/src/infrastructure/repositories/catalog_repository.dart'
     as manager_catalog_impl;
-import 'package:rokctapp/manager/infrastructure/repositories/settings_repository.dart'
+import 'package:merchants_sdk/src/infrastructure/repositories/settings_repository.dart'
     as manager_settings_impl;
-import 'package:rokctapp/manager/infrastructure/repositories/products_repository.dart'
+import 'package:merchants_sdk/src/infrastructure/repositories/products_repository.dart'
     as manager_products_impl;
-import 'package:rokctapp/manager/infrastructure/repositories/notification_repository.dart'
+import 'package:merchants_sdk/src/infrastructure/repositories/notification_repository.dart'
     as manager_notif_impl;
 
 final GetIt getIt = GetIt.instance;
@@ -313,3 +313,4 @@ manager_sub_int.SubscriptionsFacade get managerSubscriptionRepository =>
     getIt.get<manager_sub_int.SubscriptionsFacade>();
 manager_payment_int.PaymentsFacade get managerPaymentRepositoryNew =>
     getIt.get<manager_payment_int.PaymentsFacade>();
+

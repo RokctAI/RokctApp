@@ -9,10 +9,10 @@ import 'package:core_sdk/core_sdk.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:orders_sdk/src/application/customer/auto_order/auto_order_provider.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
-import 'package:rokctapp/customer/models/data/repeat_data.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/models/data/repeat_data.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class AutoOrderModal extends ConsumerStatefulWidget {
   final int orderId;
@@ -328,3 +328,4 @@ class _AutoOrderModalState extends ConsumerState<AutoOrderModal> {
     );
   }
 }
+

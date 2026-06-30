@@ -1,18 +1,18 @@
-import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:${package}/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/application/home/home_notifier.dart';
-import 'package:rokctapp/application/home/home_provider.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
-import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
-import 'package:rokctapp/presentation/components/market_item.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:${package}/infrastructure/services/constants/tr_keys.dart';
+import 'package:${package}/application/home/home_notifier.dart';
+import 'package:${package}/application/home/home_provider.dart';
+import 'package:${package}/infrastructure/services/utils/app_helpers.dart';
+import 'package:${package}/presentation/components/app_bars/common_app_bar.dart';
+import 'package:${package}/presentation/components/buttons/pop_button.dart';
+import 'package:${package}/presentation/components/market_item.dart';
+import 'package:${package}/presentation/theme/theme.dart';
 import 'market_two_item.dart';
 import 'recommended_item.dart';
 

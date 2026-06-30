@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/parcel_order.dart';
 
 part 'parcel_state.freezed.dart';
 
@@ -22,3 +22,4 @@ sealed class ParcelState with _$ParcelState {
 
   const ParcelState._();
 }
+

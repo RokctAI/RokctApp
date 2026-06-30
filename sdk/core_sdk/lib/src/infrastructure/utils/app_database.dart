@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/table_bookings_data.dart'
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/table_bookings_data.dart'
     hide Table;
 import 'dart:convert';
 import 'dart:io';
@@ -125,8 +125,8 @@ class AppDatabase extends _$AppDatabase {
     }
   }
 
-  // ─── Generic CRUD helpers to replace HiveDatabase ───
-
+  // -------------------------------------------------- Generic CRUD helpers to replace HiveDatabase --------------------------------------------------
+  
   /// Save a JSON-serializable item by key.
   Future<void> putItem(
     String boxName,
@@ -183,7 +183,7 @@ class AppDatabase extends _$AppDatabase {
     return delete(table).go();
   }
 
-  // ─── Sync Queue Helpers ───
+  // -------------------------------------------------- Sync Queue Helpers --------------------------------------------------
   Future<int> insertSyncRequest(SyncQueueTableCompanion request) {
     return into(syncQueueTable).insert(request);
   }
@@ -256,7 +256,7 @@ class AppDatabase extends _$AppDatabase {
     }
   }
 
-  // ─── High-Quality Product Helpers ───
+  // -------------------------------------------------- High-Quality Product Helpers --------------------------------------------------
 
   /// Search products locally using flattened columns
   Future<List<ProductEntity>> searchProducts({
@@ -297,7 +297,7 @@ class AppDatabase extends _$AppDatabase {
     );
   }
 
-  // ─── High-Quality Category Helpers ───
+  // -------------------------------------------------- High-Quality Category Helpers --------------------------------------------------
 
   Future<void> upsertCategory(Map<String, dynamic> json) async {
     final id = json['name'] ?? json['id']?.toString() ?? '';
@@ -309,7 +309,7 @@ class AppDatabase extends _$AppDatabase {
     return getAll('categories');
   }
 
-  // ─── High-Quality Shop Helpers ───
+  // -------------------------------------------------- High-Quality Shop Helpers --------------------------------------------------
 
   Future<void> upsertShop(Map<String, dynamic> json) async {
     final id = json['id']?.toString() ?? json['uuid'] ?? '';
@@ -327,7 +327,7 @@ class AppDatabase extends _$AppDatabase {
     return allShops;
   }
 
-  // ─── High-Quality Banner Helpers ───
+  // -------------------------------------------------- High-Quality Banner Helpers --------------------------------------------------
 
   Future<void> upsertBanner(Map<String, dynamic> json) async {
     final id = json['name'] ?? json['id']?.toString() ?? '';
@@ -339,7 +339,7 @@ class AppDatabase extends _$AppDatabase {
     return getAll('banners');
   }
 
-  // ─── High-Quality Order Helpers ───
+  // -------------------------------------------------- High-Quality Order Helpers --------------------------------------------------
 
   Future<List<OrderEntity>> getOrdersLocally({String? status}) async {
     final query = select(ordersTable);
@@ -470,4 +470,5 @@ LazyDatabase _openConnection() {
     return NativeDatabase.createInBackground(file);
   });
 }
+
 

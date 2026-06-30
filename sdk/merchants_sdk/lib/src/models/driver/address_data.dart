@@ -1,4 +1,4 @@
-import 'package:rokctapp/driver/infrastructure/models/data/local_location_data.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/local_location_data.dart';
 
 class AddressData {
   AddressData({
@@ -94,4 +94,5 @@ class AddressData {
     return map;
   }
 }
+
 

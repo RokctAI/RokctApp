@@ -1,19 +1,19 @@
-import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:${package}/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
-import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:${package}/infrastructure/models/data/shop_data.dart';
+import 'package:${package}/presentation/components/custom_network_image.dart';
 
-import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
-//import 'package:rokctapp/presentation/pages/home_two/widget/two_bonus_discount.dart';
-import 'package:rokctapp/presentation/components/badges/delivery_fee_badge.dart';
-import 'package:rokctapp/presentation/components/badges/distance_badge.dart';
-import 'package:rokctapp/presentation/components/badges/order_time_badge.dart';
-import 'package:rokctapp/presentation/components/badges/rating_badge.dart';
-import 'package:rokctapp/presentation/components/badges/storelogo_badge.dart';
-import 'package:rokctapp/presentation/components/bonus_discount_popular.dart';
+import 'package:${package}/app_constants.dart';
+import 'package:${package}/presentation/theme/theme.dart';
+//import 'package:${package}/presentation/pages/home_two/widget/two_bonus_discount.dart';
+import 'package:${package}/presentation/components/badges/delivery_fee_badge.dart';
+import 'package:${package}/presentation/components/badges/distance_badge.dart';
+import 'package:${package}/presentation/components/badges/order_time_badge.dart';
+import 'package:${package}/presentation/components/badges/rating_badge.dart';
+import 'package:${package}/presentation/components/badges/storelogo_badge.dart';
+import 'package:${package}/presentation/components/bonus_discount_popular.dart';
 
 class MarketTwoItem extends StatelessWidget {
   final ShopData shop;

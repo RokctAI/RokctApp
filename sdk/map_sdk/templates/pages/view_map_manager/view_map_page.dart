@@ -7,16 +7,9 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
-import 'package:rokctapp/manager/application/map/view_map_notifier.dart';
-import 'package:rokctapp/manager/application/map/view_map_provider.dart';
-import 'package:rokctapp/manager/application/map/view_map_state.dart';
-import 'package:core_sdk/core_sdk.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/application/map/view_map_notifier.dart';
+import 'package:merchants_sdk/src/application/map/view_map_provider.dart';
+import 'package:merchants_sdk/src/application/map/view_map_state.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide
         AppConstants,
@@ -27,6 +20,11 @@ import 'package:core_sdk/core_sdk.dart'
         UploadType,
         OrderStatus,
         SnackBarType;
+import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 @RoutePage(name: 'ManagerViewMapRoute')
 class ManagerViewMapPage extends ConsumerStatefulWidget {
@@ -444,4 +442,5 @@ class _ViewMapPageState extends ConsumerState<ManagerViewMapPage> {
     );
   }
 }
+
 

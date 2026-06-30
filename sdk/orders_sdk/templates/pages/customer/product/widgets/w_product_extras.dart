@@ -4,12 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:core_sdk/core_sdk.dart';
 
 import 'package:products_sdk/src/application/customer/product/product_provider.dart';
-import 'package:rokctapp/customer/models/data/typed_extra.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/models/data/typed_extra.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class WProductExtras extends ConsumerWidget {
   const WProductExtras({super.key});
@@ -113,3 +113,4 @@ class WProductExtras extends ConsumerWidget {
     );
   }
 }
+

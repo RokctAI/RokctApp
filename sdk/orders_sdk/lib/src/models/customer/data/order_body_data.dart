@@ -1,4 +1,4 @@
-﻿import 'package:rokctapp/customer/models/data/order_data.dart';
+﻿import 'package:core_sdk/src/models/data/order_data.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 
@@ -145,4 +145,5 @@ class ProductOrder {
     return "{\"stock_id\":$stockId, \"price\":$price, \"qty\":$quantity, \"tax\":$tax, \"discount\":$discount, \"total_price\":$totalPrice}";
   }
 }
+
 

@@ -10,9 +10,9 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:comms_sdk/comms_sdk.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/manager/presentation/pages/main/orders/details/order_details_modal.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/orders/details/order_details_modal.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, SnackBarType;
 
@@ -262,3 +262,4 @@ class _NotificationListPageState
     );
   }
 }
+

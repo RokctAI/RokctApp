@@ -1,5 +1,5 @@
-import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/models.dart';
+﻿import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/src/models/models.dart';
 
 abstract class ProductsRepositoryFacade {
   Future<ApiResult<ProductsPaginateResponse>> searchProducts({
@@ -93,3 +93,4 @@ abstract class ProductsRepositoryFacade {
     int? page,
   });
 }
+

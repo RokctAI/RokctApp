@@ -1,10 +1,10 @@
-import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/location_data.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/domain/interface/shops.dart';
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/domain/interface/shops.dart';
+import 'package:core_sdk/src/models/models.dart';
 
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
@@ -437,5 +437,6 @@ class ShopsRepository implements ShopsRepositoryFacade {
     }
   }
 }
+
 
 

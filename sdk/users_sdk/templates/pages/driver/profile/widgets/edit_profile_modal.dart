@@ -8,12 +8,12 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
-import 'package:rokctapp/driver/application/providers.dart';
+import 'package:delivery_sdk/src/application/providers.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/driver/presentation/component/loading.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/driver/presentation/pages/profile/edit_car.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:delivery_sdk/src/presentation/component/loading.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/pages/profile/edit_car.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, OrderStatus;
 
@@ -387,3 +387,4 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
           );
   }
 }
+

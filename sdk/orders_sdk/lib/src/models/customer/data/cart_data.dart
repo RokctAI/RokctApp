@@ -1,7 +1,7 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 
-import 'package:rokctapp/customer/models/data/addons_data.dart';
-import 'package:rokctapp/customer/models/data/product_data.dart';
+import 'package:core_sdk/src/models/data/addons_data.dart';
+import 'package:core_sdk/src/models/data/product_data.dart';
 
 CartModel cartFromJson(String str) => CartModel.fromJson(json.decode(str));
 
@@ -276,4 +276,5 @@ class CartDetail {
     "stock": stock?.toJson(),
   };
 }
+
 

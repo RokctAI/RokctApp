@@ -1,5 +1,5 @@
-import 'package:rokctapp/customer/models/data/blog_data.dart';
-import 'package:rokctapp/customer/models/data/help_data.dart';
+﻿import 'package:core_sdk/src/models/data/blog_data.dart';
+import 'package:core_sdk/src/models/data/help_data.dart';
 
 class BlogResponse {
   final List<BlogData> data;
@@ -22,4 +22,5 @@ class BlogResponse {
     );
   }
 }
+
 

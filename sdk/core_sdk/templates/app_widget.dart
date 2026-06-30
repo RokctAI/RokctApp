@@ -5,35 +5,82 @@ import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/app_theme.dart';
+import 'package:comms_sdk/comms_sdk.dart';
+import 'package:${package}/core/presentation/theme/app_theme.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/core/application/app/app_provider.dart';
-import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/application/app/app_provider.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:provider/provider.dart' as provider;
-import 'package:rokctapp/customer/presentation/components/custom_range_slider.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:core_sdk/src/presentation/components/custom_range_slider.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
 
-class AppWidget extends ConsumerWidget {
-  AppWidget({super.key});
+class AppWidget extends ConsumerStatefulWidget {
+  const AppWidget({super.key});
 
+  @override
+  ConsumerState<AppWidget> createState() => _AppWidgetState();
+}
+
+class _AppWidgetState extends ConsumerState<AppWidget> {
   final appRouter = AppRouter();
+  StreamSubscription? _notificationSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    _initNotificationListener();
+  }
+
+  void _initNotificationListener() {
+    final notificationService = NotificationService();
+    _notificationSubscription = notificationService.events.listen((event) {
+      _handleNotificationEvent(event);
+    });
+  }
+
+  void _handleNotificationEvent(NotificationEvent event) {
+    switch (event.action) {
+      case NotificationAction.showSnackBar:
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          type: SnackBarType.success,
+          text: "${event.title} ${event.body}",
+        );
+        break;
+      case NotificationAction.navigateToOrderProgress:
+        final orderId = event.data?['id']?.toString();
+        if (orderId != null) {
+          context.router.pushNamed('/orderProgress', queryParameters: {'orderId': orderId});
+        }
+        break;
+      case NotificationAction.navigateToBlog:
+        final uuid = event.data?['uuid'];
+        if (uuid != null) {
+          launch("${AppConstants.webUrl}/blog/$uuid");
+        }
+        break;
+      default:
+        break;
+    }
+  }
+
+  @override
+  void dispose() {
+    _notificationSubscription?.cancel();
+    super.dispose();
+  }
 
   Future fetchSetting() async {
     final connect = await AppConnectivity.connectivity();
     if (connect) {
-      // Fetch settings for all three roles to ensure local cache is populated
-      // Customer/Core
       settingsRepository.getGlobalSettings();
       await settingsRepository.getLanguages();
       await settingsRepository.getMobileTranslations();
 
-      // Driver
       await driverSettingsRepository.getGlobalSettings();
       await driverSettingsRepository.getLanguages();
       await driverSettingsRepository.getTranslations();
 
-      // Manager
       managerSettingsRepository.getGlobalSettings();
       await managerSettingsRepository.getLanguages();
       await managerSettingsRepository.getTranslations();
@@ -41,7 +88,7 @@ class AppWidget extends ConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final state = ref.watch(appProvider);
     return FutureBuilder(
       future: Future.wait([
@@ -99,4 +146,5 @@ class AppWidget extends ConsumerWidget {
     );
   }
 }
+
 

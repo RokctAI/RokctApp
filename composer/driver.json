@@ -1,0 +1,76 @@
+{
+  "name": "rokctapp_composer",
+  "version": "1.0.0",
+  "package_name": "driver",
+  "description": "Configuration list of active SDKs for paas_driver",
+  "sdks": [
+    {
+      "name": "core_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/core_sdk"
+    },
+    {
+      "name": "auth_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/auth_sdk"
+    },
+    {
+      "name": "users_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/users_sdk"
+    },
+    {
+      "name": "orders_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/orders_sdk"
+    },
+    {
+      "name": "delivery_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/delivery_sdk",
+      "home_sdk": true
+    },
+    {
+      "name": "comms_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/comms_sdk"
+    },
+    {
+      "name": "processing_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/processing_sdk"
+    },
+    {
+      "name": "corporate_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/corporate_sdk"
+    },
+    {
+      "name": "map_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/map_sdk"
+    },
+    {
+      "name": "zones_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/zones_sdk"
+    },
+    {
+      "name": "agent_sdk",
+      "enabled": false,
+      "source": "local",
+      "path": "sdk/agent_sdk",
+      "_comment": "Disabled as per requirements"
+    }
+  ]
+}

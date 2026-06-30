@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'package:orders_sdk/src/application/manager/order/order_provider.dart';
-import 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
-import 'package:rokctapp/manager/presentation/component/list_items/order_item.dart';
-import 'package:rokctapp/manager/presentation/component/loading/loading_list.dart';
-import 'package:rokctapp/manager/presentation/pages/main/orders/details/order_details_modal.dart';
-import 'package:rokctapp/manager/presentation/pages/main/orders/widgets/no_orders.dart';
+import 'package:merchants_sdk/src/infrastructure/services/app_helpers.dart';
+import 'package:merchants_sdk/src/presentation/component/list_items/order_item.dart';
+import 'package:merchants_sdk/src/presentation/component/loading/loading_list.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/orders/details/order_details_modal.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/orders/widgets/no_orders.dart';
 
 class CanceledOrdersBody extends ConsumerStatefulWidget {
   final RefreshController refreshController;
@@ -68,3 +68,4 @@ class _CanceledOrdersBodyState extends ConsumerState<CanceledOrdersBody> {
     );
   }
 }
+

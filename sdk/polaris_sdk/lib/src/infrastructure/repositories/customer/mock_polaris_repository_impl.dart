@@ -1,5 +1,5 @@
-import 'dart:math';
-import '../../models/data/polaris_models.dart';
+﻿import 'dart:math';
+import 'package:polaris_sdk/src/models/customer/polaris_models.dart';
 import '../../domain/interface/polaris_repository_facade.dart';
 
 class MockPolarisRepositoryImpl implements PolarisRepositoryFacade {
@@ -62,3 +62,4 @@ class MockPolarisRepositoryImpl implements PolarisRepositoryFacade {
     return [];
   }
 }
+

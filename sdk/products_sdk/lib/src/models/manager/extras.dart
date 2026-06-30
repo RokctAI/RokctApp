@@ -1,6 +1,6 @@
-import 'package:rokctapp/manager/infrastructure/services/extension.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/services/extension.dart';
 
-import 'package:rokctapp/manager/infrastructure/models/data/group.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/group.dart';
 
 class Extras {
   Extras({
@@ -109,4 +109,5 @@ class StockPivot {
     return map;
   }
 }
+
 

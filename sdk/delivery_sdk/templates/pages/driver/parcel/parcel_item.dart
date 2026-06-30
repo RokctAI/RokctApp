@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/parcel_order.dart';
 
 import 'package:intl/intl.dart' as intl;
-import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
-import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/driver/presentation/pages/parcel/parcel_order.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/infrastructure/services/app_helpers.dart';
+import 'package:delivery_sdk/src/infrastructure/services/tr_keys.dart';
+import 'package:delivery_sdk/src/presentation/pages/parcel/parcel_order.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class ParcelItem extends StatelessWidget {
   final ParcelOrder? parcel;
@@ -94,3 +94,4 @@ class ParcelItem extends StatelessWidget {
     );
   }
 }
+

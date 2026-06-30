@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/location_data.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -7,14 +7,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:orders_sdk/src/application/customer/parcel/parcel_notifier.dart';
 import 'package:orders_sdk/src/application/customer/parcel/parcel_state.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/customer/models/models.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/customer/presentation/pages/parcel/widgets/custom_expanded.dart';
+import 'package:core_sdk/src/models/models.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/presentation/pages/parcel/widgets/custom_expanded.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class SenderWidget extends StatelessWidget {
   final ParcelState state;
@@ -172,3 +172,4 @@ class SenderWidget extends StatelessWidget {
     );
   }
 }
+

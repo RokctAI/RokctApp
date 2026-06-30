@@ -1,11 +1,11 @@
-import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/models.dart';
-import 'package:rokctapp/core/infrastructure/models/request/edit_profile.dart';
-import 'package:rokctapp/customer/models/response/blog_response.dart';
-import 'package:rokctapp/customer/models/response/pages_response.dart';
+﻿import 'package:core_sdk/core_sdk.dart';
+import 'package:core_sdk/src/models/models.dart';
+import 'package:core_sdk/src/infrastructure/models/request/edit_profile.dart';
+import 'package:core_sdk/src/models/response/blog_response.dart';
+import 'package:core_sdk/src/models/response/pages_response.dart';
 
-import 'package:rokctapp/customer/models/data/career_data.dart';
-import 'package:rokctapp/customer/models/response/career_response.dart';
+import 'package:core_sdk/src/models/data/career_data.dart';
+import 'package:core_sdk/src/models/response/career_response.dart';
 
 abstract class UserRepositoryFacade {
   Future<ApiResult<ProfileResponse>> getProfileDetails();
@@ -53,4 +53,5 @@ abstract class UserRepositoryFacade {
 
   Future<ApiResult<void>> updateFirebaseToken(String? token);
 }
+
 

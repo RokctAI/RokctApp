@@ -3,22 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/presentation/pages/home/widgets/banner_item.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/presentation/pages/home/widgets/banner_item.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:order_sdk/order_sdk.dart';
 
 import 'package:fav_sdk/fav_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/presentation/pages/home/home_three/shimmer/banner_shimmer.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/application/main/main_provider.dart';
-import 'package:rokctapp/customer/presentation/pages/home/home_one/widget/market_one_item.dart';
-import 'package:rokctapp/customer/presentation/pages/home/home_three/widgets/market_three_item.dart';
-import 'package:rokctapp/customer/presentation/pages/home/home_two/widget/market_two_item.dart';
-import 'package:rokctapp/customer/presentation/pages/home/shimmer/all_shop_shimmer.dart';
+import 'package:core_sdk/src/presentation/pages/home/home_three/shimmer/banner_shimmer.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/application/main/main_provider.dart';
+import 'package:core_sdk/src/presentation/pages/home/home_one/widget/market_one_item.dart';
+import 'package:core_sdk/src/presentation/pages/home/home_three/widgets/market_three_item.dart';
+import 'package:core_sdk/src/presentation/pages/home/home_two/widget/market_two_item.dart';
+import 'package:core_sdk/src/presentation/pages/home/shimmer/all_shop_shimmer.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class LikePage extends ConsumerStatefulWidget {
@@ -210,3 +210,4 @@ class _LikePageState extends ConsumerState<LikePage> {
     );
   }
 }
+

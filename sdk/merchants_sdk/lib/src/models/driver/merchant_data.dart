@@ -1,6 +1,6 @@
-import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/local_location_data.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/merchant_delivery.dart';
+﻿import 'package:core_sdk/src/infrastructure/models/data/translation.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/local_location_data.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/merchant_delivery.dart';
 
 class MerchantData {
   MerchantData({
@@ -320,4 +320,5 @@ class Seller {
     return map;
   }
 }
+
 

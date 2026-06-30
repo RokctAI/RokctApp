@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
-import 'package:rokctapp/customer/models/data/translation.dart';
+import 'package:core_sdk/src/models/data/translation.dart';
 
 class AllProductsResponse {
   DateTime? timestamp;
@@ -342,4 +342,5 @@ class Stock {
     "bonus": bonus,
   };
 }
+
 

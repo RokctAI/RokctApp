@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/customer/models/data/filter_model.dart';
-import 'package:rokctapp/customer/models/data/take_data.dart';
+import 'package:core_sdk/src/models/data/filter_model.dart';
+import 'package:core_sdk/src/models/data/take_data.dart';
 
-import 'package:merchants_sdk/merchants_sdk.dart';
+
 
 part 'filter_state.freezed.dart';
 
@@ -22,7 +22,7 @@ sealed class FilterState with _$FilterState {
     @Default(true) bool isShopLoading,
     @Default(true) bool isRestaurantLoading,
     @Default(RangeValues(1, 100)) RangeValues rangeValues,
-    @Default([]) List<MerchantData> shops,
+    @Default([]) List<Map<String, dynamic>> shops,
     @Default([]) List<TakeModel> tags,
     @Default([]) List<int> prices,
     @Default([]) List<MerchantData> restaurant,
@@ -30,3 +30,4 @@ sealed class FilterState with _$FilterState {
 
   const FilterState._();
 }
+

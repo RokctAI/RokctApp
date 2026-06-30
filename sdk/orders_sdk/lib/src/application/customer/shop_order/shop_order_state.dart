@@ -1,7 +1,7 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:rokctapp/customer/models/data/cart_data.dart';
-import 'package:rokctapp/customer/models/data/cart_product_data.dart';
+import 'package:core_sdk/src/models/data/cart_data.dart';
+import 'package:core_sdk/src/models/data/cart_product_data.dart';
 
 part 'shop_order_state.freezed.dart';
 
@@ -23,3 +23,4 @@ sealed class ShopOrderState with _$ShopOrderState {
 
   const ShopOrderState._();
 }
+

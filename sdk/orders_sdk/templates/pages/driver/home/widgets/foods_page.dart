@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/driver/application/order/all_order/order_provider.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
+import 'package:delivery_sdk/src/application/order/all_order/order_provider.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
 
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/driver/presentation/component/loading.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:delivery_sdk/src/presentation/component/loading.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class FoodsPage extends ConsumerStatefulWidget {
   final OrderDetailData order;
@@ -200,3 +200,4 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
           );
   }
 }
+

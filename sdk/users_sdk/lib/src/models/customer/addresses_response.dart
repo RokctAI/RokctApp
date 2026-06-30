@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/address_new_data.dart';
+﻿import 'package:core_sdk/src/models/data/address_new_data.dart';
 
 class AddressesResponse {
   AddressesResponse({
@@ -61,4 +61,5 @@ class AddressesResponse {
     return map;
   }
 }
+
 

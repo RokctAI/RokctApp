@@ -1,7 +1,7 @@
-import 'package:core_sdk/core_sdk.dart';
+﻿import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
-import 'package:rokctapp/customer/models/data/translation.dart';
+import 'package:core_sdk/src/infrastructure/models/data/meta.dart';
+import 'package:core_sdk/src/models/data/translation.dart';
 
 class BannersPaginateResponse {
   BannersPaginateResponse({List<BannerData>? data, Meta? meta}) {
@@ -158,4 +158,5 @@ class BannerData {
     return map;
   }
 }
+
 

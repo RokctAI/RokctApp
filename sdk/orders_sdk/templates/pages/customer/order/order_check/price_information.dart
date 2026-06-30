@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/title_price.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/title_price.dart';
 
 class PriceInformation extends StatelessWidget {
   final bool isOrder;
@@ -120,3 +120,4 @@ class PriceInformation extends StatelessWidget {
     );
   }
 }
+

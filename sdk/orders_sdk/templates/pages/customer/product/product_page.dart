@@ -6,25 +6,25 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:products_sdk/src/application/customer/product/product_notifier.dart';
 import 'package:products_sdk/src/application/customer/product/product_provider.dart';
 import 'package:products_sdk/src/application/customer/product/product_state.dart';
-import 'package:rokctapp/customer/application/shop/shop_provider.dart';
+import 'package:core_sdk/src/application/shop/shop_provider.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_notifier.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/customer/models/data/product_data.dart';
-import 'package:rokctapp/customer/models/data/review_data.dart';
+import 'package:core_sdk/src/models/data/product_data.dart';
+import 'package:core_sdk/src/models/data/review_data.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/customer/presentation/pages/product/widgets/w_ingredient.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/customer/application/shop/shop_state.dart';
-import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/widgets/bonus_screen.dart';
-import 'package:rokctapp/customer/presentation/pages/product/widgets/images_list_one.dart';
-import 'package:rokctapp/customer/presentation/pages/product/widgets/p_main_button.dart';
-import 'package:rokctapp/customer/presentation/pages/product/widgets/w_product_extras.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
+import 'package:core_sdk/src/presentation/pages/product/widgets/w_ingredient.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/application/shop/shop_state.dart';
+import 'package:${package}/core/presentation/theme/theme_preference.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
+import 'package:core_sdk/src/presentation/pages/shop/widgets/bonus_screen.dart';
+import 'package:core_sdk/src/presentation/pages/product/widgets/images_list_one.dart';
+import 'package:core_sdk/src/presentation/pages/product/widgets/p_main_button.dart';
+import 'package:core_sdk/src/presentation/pages/product/widgets/w_product_extras.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class ProductScreen extends ConsumerStatefulWidget {
   final ProductData? data;
@@ -472,3 +472,4 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
     );
   }
 }
+

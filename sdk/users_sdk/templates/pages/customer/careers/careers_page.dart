@@ -4,12 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'career_data_page.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/customer/models/data/career_data.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/models/data/career_data.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class CareerPage extends ConsumerStatefulWidget {
   const CareerPage({super.key});
@@ -116,3 +116,4 @@ class _CareerDataPageState extends ConsumerState<CareerPage> {
     );
   }
 }
+

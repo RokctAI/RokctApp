@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
-import 'package:rokctapp/infrastructure/services/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
-import 'package:rokctapp/presentation/components/title_icon.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/utils/payfast/payfast_webview.dart';
+import 'package:${package}/domain/di/dependency_manager.dart';
+import 'package:${package}/infrastructure/models/data/saved_card.dart';
+import 'package:${package}/infrastructure/services/app_helpers.dart';
+import 'package:${package}/infrastructure/services/local_storage.dart';
+import 'package:${package}/infrastructure/services/tr_keys.dart';
+import 'package:${package}/presentation/components/keyboard_dismisser.dart';
+import 'package:${package}/presentation/components/title_icon.dart';
+import 'package:${package}/presentation/theme/theme.dart';
+import 'package:${package}/utils/payfast/payfast_webview.dart';
 
 import '../../cards/payment_card.dart';
 

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
+import 'package:${package}/core/presentation/theme/theme_preference.dart';
 
 abstract class AppMapThemes {
   AppMapThemes._();
@@ -207,3 +207,4 @@ abstract class AppMapThemes {
     },
   ];
 }
+

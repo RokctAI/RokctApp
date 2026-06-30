@@ -1,9 +1,9 @@
-import 'package:rokctapp/customer/models/data/order_body_data.dart';
+﻿import 'package:core_sdk/src/models/data/order_body_data.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 
-import 'package:rokctapp/customer/models/data/links.dart';
-import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
-import 'package:rokctapp/customer/models/data/translation.dart';
+import 'package:core_sdk/src/models/data/links.dart';
+import 'package:core_sdk/src/infrastructure/models/data/meta.dart';
+import 'package:core_sdk/src/models/data/translation.dart';
 
 class BranchResponse {
   BranchResponse({this.data, this.links, this.meta});
@@ -111,4 +111,5 @@ class BranchModel {
     "locales": locales == null ? [] : List<dynamic>.from(locales!.map((x) => x)),
   };
 }
+
 

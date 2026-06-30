@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/core/infrastructure/models/data/count_of_notifications_data.dart';
-import 'package:rokctapp/customer/models/response/notification_response.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:core_sdk/src/infrastructure/models/data/count_of_notifications_data.dart';
+import 'package:core_sdk/src/models/response/notification_response.dart';
 
 part 'notification_state.freezed.dart';
 
@@ -15,3 +15,4 @@ sealed class NotificationState with _$NotificationState {
 
   const NotificationState._();
 }
+

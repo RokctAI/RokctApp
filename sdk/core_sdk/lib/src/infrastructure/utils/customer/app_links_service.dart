@@ -1,4 +1,4 @@
-// Trace ID propagation context
+﻿// Trace ID propagation context
 import 'dart:async';
 import 'dart:developer';
 import 'package:app_links/app_links.dart';
@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 
 // Removed unused imports
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
 
 abstract class AppLinksService {
   AppLinksService._();
@@ -143,3 +143,4 @@ abstract class AppLinksService {
     return uri.toString();
   }
 }
+

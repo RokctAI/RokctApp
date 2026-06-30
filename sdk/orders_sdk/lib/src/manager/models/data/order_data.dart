@@ -1,5 +1,5 @@
 ﻿import 'package:core_sdk/core_sdk.dart';
-import 'package:wallet_sdk/wallet_sdk.dart';
+
 import 'package:core_sdk/core_sdk.dart';
 import 'package:orders_sdk/src/manager/models/data/kitchen_data.dart';
 import 'package:orders_sdk/src/manager/models/data/stock.dart';

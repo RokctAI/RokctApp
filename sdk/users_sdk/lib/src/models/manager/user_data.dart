@@ -1,6 +1,6 @@
-import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
-import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
+﻿import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/address_data.dart';
+import 'package:core_sdk/src/infrastructure/models/data/currency_data.dart';
 
 class UserData {
   UserData({
@@ -254,4 +254,5 @@ class Wallet {
     return map;
   }
 }
+
 

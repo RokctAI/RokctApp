@@ -1,13 +1,13 @@
-import 'package:rokctapp/core/presentation/app_assets.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:rokctapp/driver/application/profile/provider/profile_settings_provider.dart';
+import 'package:delivery_sdk/src/application/profile/provider/profile_settings_provider.dart';
 
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 // @delivery-driver-stories-import
 
 class BottomSheetScreen extends StatefulWidget {
@@ -202,3 +202,4 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
     );
   }
 }
+

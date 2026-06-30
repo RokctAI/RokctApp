@@ -1,5 +1,5 @@
 // Trace ID propagation context
-import 'package:delivery_sdk/delivery_sdk.dart';
+
 
 class AppValidators {
   static bool isValidEmail(String email) => RegExp(

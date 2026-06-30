@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
+
 
 part 'notification_state.freezed.dart';
 

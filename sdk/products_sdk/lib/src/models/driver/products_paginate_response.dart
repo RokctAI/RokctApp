@@ -1,5 +1,5 @@
-import 'package:rokctapp/driver/infrastructure/models/data/meta.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/product_data.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/meta.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/product_data.dart';
 
 class ProductsPaginateResponse {
   ProductsPaginateResponse({List<ProductData>? data, Meta? meta}) {
@@ -53,4 +53,5 @@ class ProductsPaginateResponse {
     return map;
   }
 }
+
 

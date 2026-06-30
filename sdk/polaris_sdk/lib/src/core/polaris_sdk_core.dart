@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import '../models/data/polaris_models.dart';
+import 'package:polaris_sdk/src/models/customer/polaris_models.dart';
 import '../domain/bridges/polaris_wallet_bridge.dart';
 import '../domain/interface/polaris_repository_facade.dart';
 import 'package:get_it/get_it.dart';

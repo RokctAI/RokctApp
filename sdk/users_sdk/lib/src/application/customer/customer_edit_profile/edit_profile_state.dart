@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/customer/models/models.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:core_sdk/src/models/models.dart';
 
 part 'edit_profile_state.freezed.dart';
 
@@ -23,3 +23,4 @@ sealed class EditProfileState with _$EditProfileState {
 
   const EditProfileState._();
 }
+

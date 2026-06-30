@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/application/map/view_map_provider.dart';
-import 'package:rokctapp/customer/application/map/view_map_state.dart';
+import 'package:core_sdk/src/application/map/view_map_provider.dart';
+import 'package:core_sdk/src/application/map/view_map_state.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
 import 'package:orders_sdk/orders_sdk.dart';
 import 'package:orders_sdk/src/application/customer/orders_list/orders_list_notifier.dart';
-import 'package:rokctapp/core/application/payment_methods/payment_provider.dart';
+import 'package:core_sdk/src/application/payment_methods/payment_provider.dart';
 import 'package:payments_sdk/payments_sdk.dart';
 import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
 import 'package:users_sdk/src/application/customer/customer_profile/profile_state.dart';
@@ -20,23 +20,23 @@ import 'package:orders_sdk/src/application/customer/shop_order/shop_order_state.
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:orders_sdk/orders_sdk.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/price_information.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/auto_order_modal.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_screen/widgets/image_dialog.dart';
-import 'package:rokctapp/customer/presentation/pages/profile/phone_verify.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/price_information.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/auto_order_modal.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_screen/widgets/image_dialog.dart';
+import 'package:core_sdk/src/presentation/pages/profile/phone_verify.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:orders_sdk/src/application/customer/orders_list/orders_list_provider.dart';
-import 'package:rokctapp/customer/models/data/order_body_data.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/card_and_promo.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/delivery_info.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/order_button.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/order_info.dart';
+import 'package:core_sdk/src/models/data/order_body_data.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/card_and_promo.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/delivery_info.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/order_button.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/order_info.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class OrderCheck extends StatefulWidget {
   final bool isActive;
@@ -417,3 +417,4 @@ class _OrderCheckState extends State<OrderCheck> {
     );
   }
 }
+

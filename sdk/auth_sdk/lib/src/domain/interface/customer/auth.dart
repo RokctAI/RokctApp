@@ -1,5 +1,5 @@
-import 'package:rokctapp/customer/models/data/user.dart';
-import 'package:rokctapp/customer/models/models.dart';
+﻿import 'package:core_sdk/src/models/data/user.dart';
+import 'package:core_sdk/src/models/models.dart';
 
 import 'package:core_sdk/core_sdk.dart';
 
@@ -52,4 +52,5 @@ abstract class AuthRepositoryFacade {
     String? avatar,
   });
 }
+
 

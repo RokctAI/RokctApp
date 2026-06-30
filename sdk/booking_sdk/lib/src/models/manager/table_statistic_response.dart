@@ -1,6 +1,6 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 
-import 'package:rokctapp/manager/infrastructure/models/data/table_statistics_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/table_statistics_data.dart';
 
 TableStatisticResponse tableStatisticResponseFromJson(String str) =>
     TableStatisticResponse.fromJson(json.decode(str));
@@ -36,4 +36,5 @@ class TableStatisticResponse {
     "data": data.toJson(),
   };
 }
+
 

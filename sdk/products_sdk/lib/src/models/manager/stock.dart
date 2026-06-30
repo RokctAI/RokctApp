@@ -1,8 +1,8 @@
-import 'package:rokctapp/manager/infrastructure/services/extension.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/services/extension.dart';
 
-import 'package:rokctapp/manager/infrastructure/models/data/group.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/extras.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/product_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/group.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/extras.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/product_data.dart';
 
 class Stock {
   Stock({
@@ -319,4 +319,5 @@ class AddonData {
     return map;
   }
 }
+
 

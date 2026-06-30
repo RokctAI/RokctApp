@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/product_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/product_data.dart';
 
 class SingleProductResponse {
   SingleProductResponse({ProductData? data}) {
@@ -24,4 +24,5 @@ class SingleProductResponse {
     return map;
   }
 }
+
 

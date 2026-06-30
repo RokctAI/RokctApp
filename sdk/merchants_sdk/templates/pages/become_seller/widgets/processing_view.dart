@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/manager/presentation/pages/restaurant/widgets/logout_modal.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/pages/restaurant/widgets/logout_modal.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class ProcessingView extends StatelessWidget {
   const ProcessingView({super.key});
@@ -82,3 +82,4 @@ class ProcessingView extends StatelessWidget {
     );
   }
 }
+

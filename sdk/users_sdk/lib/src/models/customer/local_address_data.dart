@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/local_location.dart';
+﻿import 'package:core_sdk/src/models/data/local_location.dart';
 
 class LocalAddressData {
   LocalAddressData({
@@ -76,4 +76,5 @@ class LocalAddressData {
     return 'LocalAddressData(title - $title})';
   }
 }
+
 

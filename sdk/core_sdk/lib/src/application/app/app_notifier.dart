@@ -1,7 +1,7 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/customer/models/models.dart';
+﻿import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/application/app/app_state.dart';
+import 'package:core_sdk/src/application/app/app_state.dart';
 
 class AppNotifier extends Notifier<AppState> {
   @override
@@ -31,3 +31,4 @@ class AppNotifier extends Notifier<AppState> {
     );
   }
 }
+

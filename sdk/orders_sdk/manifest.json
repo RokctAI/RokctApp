@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "order_sdk",
   "version": "1.0.0",
   "installs": [
@@ -102,7 +102,7 @@
     {
       "target": "lib/driver/presentation/pages/home/delivery_bottom_sheet.dart",
       "placeholder": "// @delivery-foods-page-import",
-      "replacement": "import 'package:rokctapp/driver/presentation/pages/home/widgets/foods_page.dart';"
+      "replacement": "import 'package:delivery_sdk/src/presentation/pages/home/widgets/foods_page.dart';"
     },
     {
       "target": "lib/driver/presentation/pages/home/delivery_bottom_sheet.dart",

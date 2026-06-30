@@ -1,9 +1,9 @@
 ﻿import 'package:core_sdk/core_sdk.dart';
-import 'package:products_sdk/products_sdk.dart' hide ReviewData, Galleries, dynamic;
+
 import 'package:core_sdk/core_sdk.dart';
 import 'package:orders_sdk/src/customer/models/data/review_data.dart';
 import 'package:orders_sdk/src/customer/models/data/coupon_data.dart';
-import 'package:auth_sdk/auth_sdk.dart';
+
 
 class OrderData {
   OrderData({
@@ -44,9 +44,9 @@ class OrderData {
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
     _currency = json['currency'] != null
-        ? CurrencyData.fromJson(json['currency'])
+        ? Map<String, dynamic>.from(json['currency'])
         : null;
-    _user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
+    _user = json['user'] != null ? Map<String, dynamic>.from(json['user']) : null;
     if (json['details'] != null) {
       _details = [];
       json['details'].forEach((v) {
@@ -54,7 +54,7 @@ class OrderData {
       });
     }
     _review = json['review'] != null
-        ? ReviewData.fromJson(json['review'])
+        ? Map<String, dynamic>.from(json['review'])
         : null;
   }
 

@@ -1,4 +1,4 @@
-import 'package:processing_sdk/processing_sdk.dart';
+
 
 enum ShopStatus { notRequested, newShop, edited, approved, rejected }
 

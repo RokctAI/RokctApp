@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/manager/domain/interface/notification.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:merchants_sdk/src/domain/interface/notification.dart';
+
+
 
 import 'package:comms_sdk/comms_sdk.dart';
 
@@ -131,3 +131,4 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     );
   }
 }
+

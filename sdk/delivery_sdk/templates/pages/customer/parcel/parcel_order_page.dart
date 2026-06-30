@@ -11,15 +11,15 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:orders_sdk/src/application/customer/parcel/parcel_notifier.dart';
 import 'package:orders_sdk/src/application/customer/parcel/parcel_provider.dart';
 import 'package:orders_sdk/src/application/customer/parcel/parcel_state.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/rating_page.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/title_price.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_screen/widgets/order_status.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_type/widgets/order_map.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/rating_page.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/title_price.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_screen/widgets/order_status.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_type/widgets/order_map.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class ParcelProgressPage extends ConsumerStatefulWidget {
@@ -363,3 +363,4 @@ class _ParcelProgressPageState extends ConsumerState<ParcelProgressPage> {
     );
   }
 }
+

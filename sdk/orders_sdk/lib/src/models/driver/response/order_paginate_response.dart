@@ -1,5 +1,5 @@
-import 'package:rokctapp/driver/infrastructure/models/data/meta.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/meta.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
 
 class OrderPaginateResponse {
   OrderPaginateResponse({List<OrderDetailData>? data, Meta? meta}) {
@@ -38,4 +38,5 @@ class OrderPaginateResponse {
     return map;
   }
 }
+
 

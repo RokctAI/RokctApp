@@ -10,10 +10,10 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:comms_sdk/comms_sdk.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/common_app_bar.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/driver/presentation/component/loading.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/component/common_app_bar.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:delivery_sdk/src/presentation/component/loading.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, OrderStatus;
 
@@ -261,3 +261,4 @@ class _NotificationListPageState
     );
   }
 }
+

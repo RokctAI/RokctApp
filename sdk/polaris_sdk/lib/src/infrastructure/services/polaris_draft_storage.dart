@@ -1,6 +1,6 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'package:core_sdk/core_sdk.dart';
-import '../../models/data/polaris_models.dart';
+import 'package:polaris_sdk/src/models/customer/polaris_models.dart';
 
 class PolarisDraftStorage {
   static const String _draftKey = 'polaris_application_draft';
@@ -36,3 +36,4 @@ class PolarisDraftStorage {
     await db.deleteItem('settings', _draftKey);
   }
 }
+

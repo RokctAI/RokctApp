@@ -1,10 +1,10 @@
-// To parse this JSON data, do
+﻿// To parse this JSON data, do
 //
 //     final tableBookingResponse = tableBookingResponseFromJson(jsonString);
 
 import 'dart:convert';
 
-import 'package:rokctapp/manager/infrastructure/models/data/table_bookings_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/table_bookings_data.dart';
 
 TableBookingResponse tableBookingResponseFromJson(String str) =>
     TableBookingResponse.fromJson(json.decode(str));
@@ -28,4 +28,5 @@ class TableBookingResponse {
     "data": List<dynamic>.from(data.map((x) => x.toJson())),
   };
 }
+
 

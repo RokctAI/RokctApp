@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:core_sdk/core_sdk.dart';
@@ -6,7 +6,7 @@ import 'package:polaris_sdk/src/di/polaris_di.dart';
 import 'package:get_it/get_it.dart';
 import 'package:polaris_sdk/src/core/polaris_sdk_core.dart';
 import 'package:polaris_sdk/src/domain/bridges/polaris_wallet_bridge.dart';
-import 'package:polaris_sdk/src/models/data/polaris_models.dart';
+import 'package:polaris_sdk/src/models/customer/polaris_models.dart';
 import 'package:polaris_sdk/src/infrastructure/repositories/mock_polaris_repository_impl.dart';
 import 'package:polaris_sdk/src/presentation/widgets/polaris_apply_card.dart';
 
@@ -91,3 +91,4 @@ void main() {
     expect(find.text('Apply Now'), findsOneWidget);
   });
 }
+

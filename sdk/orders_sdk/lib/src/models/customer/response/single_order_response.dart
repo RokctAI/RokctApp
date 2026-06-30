@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/order_data.dart';
+﻿import 'package:core_sdk/src/models/data/order_data.dart';
 
 class SingleOrderResponse {
   SingleOrderResponse({
@@ -56,4 +56,5 @@ class SingleOrderResponse {
     return map;
   }
 }
+
 

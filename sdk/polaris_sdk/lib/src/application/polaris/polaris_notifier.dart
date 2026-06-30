@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/polaris_sdk_core.dart';
-import '../../models/data/polaris_models.dart';
+import 'package:polaris_sdk/src/models/customer/polaris_models.dart';
 import '../../infrastructure/services/polaris_draft_storage.dart';
 import 'polaris_state.dart';
 

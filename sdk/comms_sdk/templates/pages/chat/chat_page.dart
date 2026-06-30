@@ -8,13 +8,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'chat_provider.dart';
-import 'package:rokctapp/customer/models/data/chat_message_data.dart';
+import 'package:core_sdk/src/models/data/chat_message_data.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/core/presentation/pages/chat/chat/widgets/chat_item.dart';
+import 'package:core_sdk/src/presentation/pages/chat/chat/widgets/chat_item.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class ChatPage extends ConsumerStatefulWidget {
@@ -215,4 +215,5 @@ class _ChatPageState extends ConsumerState<ChatPage> {
 // 42424242424242424242
 // String@sdf.dsf
 // 04/44
+
 

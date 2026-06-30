@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/response/categories_paginate_response.dart';
+﻿import 'package:core_sdk/src/models/response/categories_paginate_response.dart';
 import 'package:core_sdk/core_sdk.dart';
 
 abstract class CategoriesRepositoryFacade {
@@ -14,3 +14,4 @@ abstract class CategoriesRepositoryFacade {
     required String shopId,
   });
 }
+

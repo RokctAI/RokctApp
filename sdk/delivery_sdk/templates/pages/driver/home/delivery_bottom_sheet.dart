@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
 
-import 'package:rokctapp/driver/application/providers.dart';
+import 'package:delivery_sdk/src/application/providers.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/driver/presentation/pages/home/widgets/approve_dialog.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/pages/home/widgets/approve_dialog.dart';
 // @delivery-foods-page-import
-import 'package:rokctapp/driver/presentation/pages/home/widgets/rate_customer.dart';
+import 'package:delivery_sdk/src/presentation/pages/home/widgets/rate_customer.dart';
 
 class DeliverBottomSheetScreen extends StatefulWidget {
   final OrderDetailData order;
@@ -275,3 +275,4 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
     );
   }
 }
+

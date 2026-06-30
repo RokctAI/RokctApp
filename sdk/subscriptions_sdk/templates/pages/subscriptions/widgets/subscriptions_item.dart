@@ -3,8 +3,8 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class SubscriptionsItem extends StatelessWidget {
   final SubscriptionData subscription;
@@ -85,3 +85,4 @@ class SubscriptionsItem extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,4 @@
-import 'package:rokctapp/core/infrastructure/models/data/translation.dart';
+﻿import 'package:core_sdk/src/infrastructure/models/data/translation.dart';
 
 class KitchenModel {
   int? id;
@@ -36,4 +36,5 @@ class KitchenModel {
     "translation": translation?.toJson(),
   };
 }
+
 

@@ -1,4 +1,4 @@
-import 'package:merchants_sdk/merchants_sdk.dart';
+
 
 class NotificationResponse {
   List<NotificationModel>? data;
@@ -33,8 +33,8 @@ class NotificationModel {
   DateTime? updatedAt;
   DateTime? readAt;
   Client? client;
-  OrderData? orderData;
-  BlogData? blogData;
+  Map<String, dynamic>? orderData;
+  Map<String, dynamic>? blogData;
 
   NotificationModel({
     this.id,

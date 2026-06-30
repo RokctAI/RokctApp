@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/domain/interface/notification.dart';
-import 'package:rokctapp/core/infrastructure/models/data/count_of_notifications_data.dart';
-import 'package:rokctapp/customer/models/response/notification_response.dart';
+import 'package:core_sdk/src/domain/interface/notification.dart';
+import 'package:core_sdk/src/infrastructure/models/data/count_of_notifications_data.dart';
+import 'package:core_sdk/src/models/response/notification_response.dart';
 import 'package:core_sdk/core_sdk.dart';
 
 class NotificationRepository extends NotificationRepositoryFacade {
@@ -115,4 +115,5 @@ class NotificationRepository extends NotificationRepositoryFacade {
     }
   }
 }
+
 

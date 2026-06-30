@@ -1,4 +1,4 @@
-import 'package:rokctapp/driver/infrastructure/models/data/user_data.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/user_data.dart';
 
 class ProfileResponse {
   ProfileResponse({
@@ -56,4 +56,5 @@ class ProfileResponse {
     return map;
   }
 }
+
 

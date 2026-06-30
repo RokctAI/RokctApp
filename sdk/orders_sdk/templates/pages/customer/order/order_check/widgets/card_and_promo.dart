@@ -3,14 +3,14 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
-import 'package:rokctapp/core/application/payment_methods/payment_provider.dart';
+import 'package:core_sdk/src/application/payment_methods/payment_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/promo_code.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/promo_code.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/payment_method.dart';
-import 'package:rokctapp/customer/presentation/pages/order/order_check/widgets/order_payment_container.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/payment_method.dart';
+import 'package:core_sdk/src/presentation/pages/order/order_check/widgets/order_payment_container.dart';
 
 class CardAndPromo extends StatelessWidget {
   final CustomColorSet colors;
@@ -119,3 +119,4 @@ class CardAndPromo extends StatelessWidget {
     );
   }
 }
+

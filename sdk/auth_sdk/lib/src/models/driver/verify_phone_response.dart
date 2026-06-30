@@ -1,4 +1,4 @@
-import 'package:rokctapp/driver/infrastructure/models/data/profile_data.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/profile_data.dart';
 
 class VerifyPhoneResponse {
   VerifyPhoneResponse({
@@ -87,4 +87,5 @@ class VerifyData {
     return map;
   }
 }
+
 

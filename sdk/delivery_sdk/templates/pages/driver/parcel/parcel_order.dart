@@ -6,17 +6,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:rokctapp/driver/application/home/home_provider.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
-import 'package:rokctapp/driver/app_constants.dart';
-import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
-import 'package:rokctapp/driver/infrastructure/services/local_storage.dart';
-import 'package:rokctapp/driver/infrastructure/services/marker_image_cropper.dart';
-import 'package:rokctapp/driver/presentation/component/maps_list.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/application/home/home_provider.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/parcel_order.dart';
+import 'package:delivery_sdk/src/app_constants.dart';
+import 'package:delivery_sdk/src/infrastructure/services/app_helpers.dart';
+import 'package:delivery_sdk/src/infrastructure/services/local_storage.dart';
+import 'package:delivery_sdk/src/infrastructure/services/marker_image_cropper.dart';
+import 'package:delivery_sdk/src/presentation/component/maps_list.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/driver/presentation/component/buttons/custom_button.dart';
+import 'package:delivery_sdk/src/infrastructure/services/tr_keys.dart';
+import 'package:delivery_sdk/src/presentation/component/buttons/custom_button.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide
         AppConstants,
@@ -448,3 +448,4 @@ class ParcelOrderPage extends StatelessWidget {
     );
   }
 }
+

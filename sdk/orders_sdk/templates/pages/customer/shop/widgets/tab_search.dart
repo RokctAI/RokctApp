@@ -6,10 +6,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:merchants_sdk/src/application/customer/shop/shop_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
-import 'package:rokctapp/customer/presentation/pages/shop/widgets/category_tab_bar.widget.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
+import 'package:core_sdk/src/presentation/pages/shop/widgets/category_tab_bar.widget.dart';
 
 class TabSearch extends StatelessWidget {
   final TextEditingController? controller;
@@ -146,3 +146,4 @@ class TabSearch extends StatelessWidget {
     );
   }
 }
+

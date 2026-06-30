@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/models.dart';
+﻿import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
 
 abstract class BannersRepositoryFacade {
@@ -16,3 +16,4 @@ abstract class BannersRepositoryFacade {
 
   Future<ApiResult<void>> likeBanner(int? bannerId);
 }
+

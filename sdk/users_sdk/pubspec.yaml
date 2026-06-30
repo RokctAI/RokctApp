@@ -3,7 +3,6 @@ dependencies:
   core_sdk:
     path: ../core_sdk
   dartz: ^0.10.1
-  firebase_messaging: ^16.1.0
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.6.1

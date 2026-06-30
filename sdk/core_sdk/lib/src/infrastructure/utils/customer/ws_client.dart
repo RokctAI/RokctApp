@@ -1,11 +1,11 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/io.dart';
 
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/models/data/order_active_model.dart';
-import 'package:rokctapp/core/infrastructure/utils/local_storage.dart';
+import 'package:core_sdk/src/models/data/order_active_model.dart';
+import 'package:core_sdk/src/infrastructure/utils/local_storage.dart';
 
 class WebSocketConnection {
   IOWebSocketChannel connect(String path) {
@@ -34,7 +34,7 @@ class WebSocketOrderClient {
   });
 
   void connect() {
-    debugPrint('🔌 Connecting...');
+    debugPrint('ðŸ”Œ Connecting...');
   }
 
   void dispose() {
@@ -43,3 +43,4 @@ class WebSocketOrderClient {
     _channel?.sink.close();
   }
 }
+

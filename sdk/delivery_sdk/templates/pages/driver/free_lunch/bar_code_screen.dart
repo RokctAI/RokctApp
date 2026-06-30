@@ -1,6 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:rokctapp/core/presentation/app_assets.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -8,10 +8,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'package:rokctapp/driver/application/providers.dart';
+import 'package:delivery_sdk/src/application/providers.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide
         AppConstants,
@@ -127,3 +127,4 @@ class BarCodeScreen extends StatelessWidget {
     );
   }
 }
+

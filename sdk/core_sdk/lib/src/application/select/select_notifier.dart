@@ -1,5 +1,5 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/core/application/select/select_state.dart';
+﻿import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:core_sdk/src/application/select/select_state.dart';
 
 class SelectNotifier extends Notifier<SelectState> {
   @override
@@ -9,3 +9,4 @@ class SelectNotifier extends Notifier<SelectState> {
     state = state.copyWith(selectedIndex: index);
   }
 }
+

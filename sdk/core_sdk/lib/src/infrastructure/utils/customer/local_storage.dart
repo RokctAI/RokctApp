@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'package:rokctapp/core/infrastructure/models/data/language.dart';
-import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
-import 'package:rokctapp/core/infrastructure/constants/storage_keys.dart';
-import 'package:rokctapp/core/local_storage.dart';
-import 'package:rokctapp/customer/models/data/address_information.dart';
+import 'package:core_sdk/src/infrastructure/models/data/language.dart';
+import 'package:core_sdk/src/infrastructure/models/data/currency_data.dart';
+
+import 'package:${package}/core/presentation/theme/theme_preference.dart';
+import 'package:core_sdk/src/infrastructure/constants/storage_keys.dart';
+import 'package:core_sdk/src/local_storage.dart';
+import 'package:core_sdk/src/models/data/address_information.dart';
 
 abstract class LocalStorage {
   /// Token expiry duration — tokens are considered invalid after this period.
@@ -337,4 +337,5 @@ abstract class LocalStorage {
 
   static void deleteVisitorUuid() => CoreLocalStorage.deleteVisitorUuid();
 }
+
 

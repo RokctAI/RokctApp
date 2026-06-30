@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/stock.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/stock.dart';
 
 class CalculateResponse {
   CalculateResponse({NeedntData? data}) {
@@ -156,4 +156,5 @@ class CalculatedData {
     return map;
   }
 }
+
 

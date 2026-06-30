@@ -1,13 +1,13 @@
-import 'package:core_sdk/core_sdk.dart';
+﻿import 'package:core_sdk/core_sdk.dart';
 import 'package:orders_sdk/src/application/driver/order/delivered_order/delivered_order_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
-import 'package:rokctapp/driver/infrastructure/services/app_connectivity.dart';
-import 'package:rokctapp/driver/infrastructure/services/app_helpers.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
+import 'package:delivery_sdk/src/infrastructure/services/app_connectivity.dart';
+import 'package:delivery_sdk/src/infrastructure/services/app_helpers.dart';
 
 class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
   DeliveredOrderNotifier() : super(const DeliveredOrderState());
@@ -69,3 +69,4 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
     }
   }
 }
+

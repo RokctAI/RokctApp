@@ -1,4 +1,4 @@
-// Trace ID propagation context
+﻿// Trace ID propagation context
 import 'dart:developer';
 import 'dart:io';
 
@@ -6,7 +6,7 @@ import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:comms_sdk/comms_sdk.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -14,7 +14,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/infrastructure/utils/app_helpers.dart';
+import 'package:core_sdk/src/infrastructure/utils/app_helpers.dart';
 
 abstract class FirebaseService {
   FirebaseService._();
@@ -23,9 +23,7 @@ abstract class FirebaseService {
   static final FirebaseAuth auth = FirebaseAuth.instance;
 
   static Future<String> getFcmToken() async {
-    final firebaseM = FirebaseMessaging.instance;
-    firebaseM.requestPermission(sound: true, alert: true, badge: false);
-    return await firebaseM.getToken() ?? "";
+    return (await NotificationService().getFcmToken()) ?? "";
   }
 
   static Future<Either<UserCredential, dynamic>> socialGoogle() async {
@@ -195,4 +193,5 @@ abstract class FirebaseService {
     // );
   }
 }
+
 

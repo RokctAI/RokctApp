@@ -8,11 +8,11 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:orders_sdk/src/application/manager/order/shipping/section/section_provider.dart';
 import 'package:orders_sdk/src/application/manager/order/shipping/table/table_provider.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/manager/presentation/pages/main/create_order/shipping/widgets/delivery_type_item.dart';
-import 'package:rokctapp/manager/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/manager/application/providers.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/pages/main/create_order/shipping/widgets/delivery_type_item.dart';
+import 'package:merchants_sdk/src/presentation/component/components.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:merchants_sdk/src/application/providers.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:core_sdk/core_sdk.dart'
     hide AppConstants, UploadType, SnackBarType;
@@ -481,3 +481,4 @@ class _ShippingAddressPageState extends State<ManagerShippingAddressPage> {
     );
   }
 }
+

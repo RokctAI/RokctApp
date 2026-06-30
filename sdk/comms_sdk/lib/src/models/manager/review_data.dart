@@ -1,5 +1,5 @@
-import 'package:rokctapp/manager/infrastructure/models/data/image_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/user_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/image_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/user_data.dart';
 
 class ReviewData {
   ReviewData({
@@ -101,4 +101,5 @@ class ReviewData {
     return map;
   }
 }
+
 

@@ -1,5 +1,5 @@
-import 'package:rokctapp/customer/models/data/cart_data.dart';
-import 'package:rokctapp/customer/models/request/cart_request.dart';
+﻿import 'package:core_sdk/src/models/data/cart_data.dart';
+import 'package:core_sdk/src/models/request/cart_request.dart';
 import 'package:core_sdk/core_sdk.dart';
 
 abstract class CartRepositoryFacade {
@@ -38,4 +38,5 @@ abstract class CartRepositoryFacade {
 
   Future<ApiResult<CartModel>> createCart({required CartRequest cart});
 }
+
 

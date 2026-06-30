@@ -1,9 +1,9 @@
-﻿import 'package:rokctapp/driver/infrastructure/models/data/addon_data.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
-import 'package:rokctapp/core/infrastructure/models/data/payment_data.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/user_data.dart';
+﻿import 'package:delivery_sdk/src/infrastructure/models/data/addon_data.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
+import 'package:core_sdk/src/infrastructure/models/data/payment_data.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/user_data.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/infrastructure/models/data/currency_data.dart';
+import 'package:core_sdk/src/infrastructure/models/data/currency_data.dart';
 
 class OrderData {
   OrderData({
@@ -590,5 +590,6 @@ class OrderAddress {
     return map;
   }
 }
+
 
 

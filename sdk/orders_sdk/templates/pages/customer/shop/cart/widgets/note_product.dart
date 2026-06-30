@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class NoteProduct extends StatefulWidget {
   final String? comment;
@@ -74,3 +74,4 @@ class _NoteProductState extends State<NoteProduct> {
     );
   }
 }
+

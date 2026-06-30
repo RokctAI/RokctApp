@@ -1,0 +1,29 @@
+Command: C:\Users\sinya\AppData\Local\hermes\hermes-agent\venv\Scripts\python.exe C:\Users\sinya\Desktop\RokctAI\RokctApp\sdk\betassist_sdk\install.py
+Exit Code: 1
+Stdout:
+[*] Project not initialized. Running 'flutter create' as betassist...
+[-] Critical Error: 'flutter' command not found. Please ensure Flutter is installed and in your PATH.
+[*] Bootstrapping baseline files from core_sdk templates...
+
+Stderr:
+Traceback (most recent call last):
+  File "C:\Users\sinya\Desktop\RokctAI\RokctApp\sdk\betassist_sdk\install.py", line 9, in <module>
+    sdk_installer_base.install_sdk_files_and_routes(sdk_name)
+  File "C:\Users\sinya\Desktop\RokctAI\RokctApp\.rokct\sdk_installer_base.py", line 194, in install_sdk_files_and_routes
+    state = load_state()
+            ^^^^^^^^^^^^
+  File "C:\Users\sinya\Desktop\RokctAI\RokctApp\.rokct\sdk_installer_base.py", line 114, in load_state
+    bootstrap_home_sdk_if_missing(state)
+  File "C:\Users\sinya\Desktop\RokctAI\RokctApp\.rokct\sdk_installer_base.py", line 75, in bootstrap_home_sdk_if_missing
+    manifest = json.load(f)
+               ^^^^^^^^^^^^
+  File "C:\Users\sinya\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sinya\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sinya\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\json\decoder.py", line 340, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 121 column 3 (char 3353)
+

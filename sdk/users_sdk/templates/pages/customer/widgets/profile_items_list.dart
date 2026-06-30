@@ -4,16 +4,16 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_sdk/core_sdk.dart';
 // @profile-orders-imports
-import 'package:rokctapp/customer/models/models.dart';
+import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
 // @profile-viewport-imports
 import '../edit_profile_page.dart';
 import '../language_page.dart';
 import '../currency_page.dart';
 import 'profile_item_two.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/app_theme.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/app_theme.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 import 'profile_item.dart';
 
 class ProfileItemsList extends ConsumerWidget {
@@ -179,3 +179,4 @@ class ProfileItemsList extends ConsumerWidget {
     );
   }
 }
+

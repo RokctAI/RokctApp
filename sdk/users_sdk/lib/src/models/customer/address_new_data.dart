@@ -1,7 +1,7 @@
-import 'package:rokctapp/customer/models/data/location.dart';
-import 'package:rokctapp/customer/models/data/address_information.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/address_data.dart';
-import 'package:rokctapp/manager/infrastructure/models/data/location_data.dart';
+﻿import 'package:core_sdk/src/models/data/location.dart';
+import 'package:core_sdk/src/models/data/address_information.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/address_data.dart';
+import 'package:merchants_sdk/src/infrastructure/models/data/location_data.dart';
 
 class AddressNewModel {
   int? id;
@@ -83,4 +83,5 @@ class AddressNewModel {
         : null,
   );
 }
+
 

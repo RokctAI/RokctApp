@@ -3,14 +3,14 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/parcel_order.dart';
 
-import 'package:rokctapp/driver/application/providers.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/order_detail.dart';
+import 'package:delivery_sdk/src/application/providers.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/order_detail.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/driver/presentation/pages/home/widgets/add_comment.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:delivery_sdk/src/presentation/pages/home/widgets/add_comment.dart';
 
 class RateCustomer extends StatefulWidget {
   final OrderDetailData? order;
@@ -136,3 +136,4 @@ class _RateCustomerState extends State<RateCustomer> {
     );
   }
 }
+

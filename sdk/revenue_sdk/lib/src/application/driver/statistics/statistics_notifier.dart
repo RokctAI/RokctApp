@@ -1,12 +1,12 @@
 import 'package:charts_flutter/flutter.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/driver/application/statistics/statistics_state.dart';
+import 'package:delivery_sdk/src/application/statistics/statistics_state.dart';
 import 'package:delivery_sdk/delivery_sdk.dart';
 
 class StatisticsNotifier extends StateNotifier<StatisticsState> {
@@ -142,3 +142,4 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
     state = state.copyWith(list: newList);
   }
 }
+

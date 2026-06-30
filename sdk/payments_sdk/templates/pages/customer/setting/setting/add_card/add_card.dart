@@ -6,7 +6,7 @@
 // import 'package:payments_sdk/src/application/customer/add_card/add_card_provider.dart';
 // import 'package:core_sdk/core_sdk.dart';
 // import 'package:flutter_masked_text2/flutter_masked_text2.dart';
-// // // // // import 'package:rokctapp/core/presentation/theme/theme.dart';
+// // // // // import 'package:${package}/core/presentation/theme/theme.dart';
 // import 'widgets/add_card.dart';
 // import 'widgets/card_clear_dialog.dart';
 //
@@ -195,3 +195,4 @@
 //     );
 //   }
 // }
+

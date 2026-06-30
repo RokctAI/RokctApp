@@ -107,7 +107,8 @@ def main():
             sdks.insert(0, "core_sdk")
             
         for sdk in sdks:
-            run_installer(sdk)
+            sdk_name = sdk["name"] if isinstance(sdk, dict) else sdk
+            run_installer(sdk_name)
     else:
         # Run installer for specified SDK lists
         requested_sdks = sys.argv[1:]
@@ -115,7 +116,8 @@ def main():
             requested_sdks.remove("core_sdk")
             requested_sdks.insert(0, "core_sdk")
         for sdk in requested_sdks:
-            run_installer(sdk)
+            sdk_name = sdk["name"] if isinstance(sdk, dict) else sdk
+            run_installer(sdk_name)
 
 if __name__ == "__main__":
     main()

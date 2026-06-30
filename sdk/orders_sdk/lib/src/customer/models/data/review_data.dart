@@ -1,4 +1,4 @@
-import 'package:auth_sdk/auth_sdk.dart';
+
 
 class ReviewData {
   ReviewData({
@@ -37,7 +37,7 @@ class ReviewData {
         _galleries?.add(Galleries.fromJson(v));
       });
     }
-    _user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
+    _user = json['user'] != null ? Map<String, dynamic>.from(json['user']) : null;
   }
 
   int? _id;

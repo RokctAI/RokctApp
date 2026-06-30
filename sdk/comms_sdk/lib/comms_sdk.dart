@@ -20,3 +20,4 @@ export 'src/models/driver/review_data.dart';
 export 'src/models/manager/notification_response.dart';
 export 'src/models/manager/remote_message_data.dart';
 export 'src/models/manager/review_data.dart';
+export 'src/infrastructure/services/notification_service.dart';

@@ -8,14 +8,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:orders_sdk/src/application/customer/parcel/parcel_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/presentation/pages/parcel/widgets/recipient_widget.dart';
-import 'package:rokctapp/customer/presentation/pages/parcel/widgets/sender_widget.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/customer/presentation/pages/parcel/widgets/info_item.dart';
+import 'package:core_sdk/src/presentation/pages/parcel/widgets/recipient_widget.dart';
+import 'package:core_sdk/src/presentation/pages/parcel/widgets/sender_widget.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/pages/parcel/widgets/info_item.dart';
 // @parcel-payments-import
-import 'package:rokctapp/customer/presentation/pages/parcel/widgets/time_and_type.dart';
+import 'package:core_sdk/src/presentation/pages/parcel/widgets/time_and_type.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 @RoutePage()
 class ParcelPage extends ConsumerStatefulWidget {
@@ -262,3 +262,4 @@ class _ParcelPageState extends ConsumerState<ParcelPage> {
     );
   }
 }
+

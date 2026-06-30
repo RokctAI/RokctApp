@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/kitchen_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/kitchen_data.dart';
 
 class KitchensPaginateResponse {
   KitchensPaginateResponse({List<KitchenModel>? data}) {
@@ -29,4 +29,5 @@ class KitchensPaginateResponse {
     return map;
   }
 }
+
 

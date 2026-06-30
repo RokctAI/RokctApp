@@ -1,4 +1,4 @@
-import 'package:rokctapp/manager/infrastructure/models/data/unit_data.dart';
+﻿import 'package:merchants_sdk/src/infrastructure/models/data/unit_data.dart';
 
 class UnitsPaginateResponse {
   UnitsPaginateResponse({List<UnitData>? data}) {
@@ -29,4 +29,5 @@ class UnitsPaginateResponse {
     return map;
   }
 }
+
 

@@ -1,9 +1,9 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
 
 class AddComment extends StatelessWidget {
   final ValueChanged<String> onChange;
@@ -33,3 +33,4 @@ class AddComment extends StatelessWidget {
     );
   }
 }
+

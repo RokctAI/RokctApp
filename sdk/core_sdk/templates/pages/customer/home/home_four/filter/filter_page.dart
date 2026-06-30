@@ -1,22 +1,22 @@
-import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:${package}/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/filter/filter_notifier.dart';
-import 'package:rokctapp/application/filter/filter_state.dart';
-import 'package:rokctapp/infrastructure/models/data/take_data.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/components/custom_toggle.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
-import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:${package}/application/filter/filter_notifier.dart';
+import 'package:${package}/application/filter/filter_state.dart';
+import 'package:${package}/infrastructure/models/data/take_data.dart';
+import 'package:${package}/infrastructure/services/utils/app_helpers.dart';
+import 'package:${package}/infrastructure/services/utils/local_storage.dart';
+import 'package:${package}/infrastructure/services/constants/tr_keys.dart';
+import 'package:${package}/presentation/components/buttons/custom_button.dart';
+import 'package:${package}/presentation/components/custom_toggle.dart';
+import 'package:${package}/presentation/components/loading.dart';
+import 'package:${package}/presentation/components/title_icon.dart';
 
-import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/application/filter/filter_provider.dart';
-import 'package:rokctapp/presentation/pages/home/home_zero/filter/widgets/filter_item.dart';
+import 'package:${package}/presentation/theme/theme.dart';
+import 'package:${package}/application/filter/filter_provider.dart';
+import 'package:${package}/presentation/pages/home/home_zero/filter/widgets/filter_item.dart';
 
 class FilterPage extends ConsumerStatefulWidget {
   final ScrollController controller;

@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/customer/models/models.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:core_sdk/src/models/models.dart';
 
 part 'product_state.freezed.dart';
 
@@ -24,3 +24,4 @@ sealed class ProductState with _$ProductState {
 
   const ProductState._();
 }
+

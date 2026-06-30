@@ -1,7 +1,7 @@
-// Trace ID propagation handled at geolocator caller level
+﻿// Trace ID propagation handled at geolocator caller level
 import 'package:flutter/material.dart';
-import 'package:rokctapp/core/infrastructure/utils/app_helpers.dart';
-import 'package:rokctapp/core/infrastructure/constants/tr_keys.dart';
+import 'package:core_sdk/src/infrastructure/utils/app_helpers.dart';
+import 'package:core_sdk/src/infrastructure/constants/tr_keys.dart';
 import 'package:geolocator/geolocator.dart';
 
 class LocationService {
@@ -47,3 +47,4 @@ class LocationService {
     return await Geolocator.getCurrentPosition();
   }
 }
+

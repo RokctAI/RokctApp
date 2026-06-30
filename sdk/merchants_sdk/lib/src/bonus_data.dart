@@ -1,4 +1,4 @@
-import 'package:products_sdk/products_sdk.dart';
+
 
 class BonusModel {
   BonusModel({
@@ -69,7 +69,7 @@ class BonusStock {
   num? quantity;
   num? tax;
   num? totalPrice;
-  ProductData? product;
+  Map<String, dynamic>? product;
 
   factory BonusStock.fromJson(Map<String, dynamic> json) => BonusStock(
     id: json["id"],
@@ -78,9 +78,7 @@ class BonusStock {
     quantity: json["quantity"],
     tax: json["tax"],
     totalPrice: json["total_price"],
-    product: json["product"] != null
-        ? ProductData.fromJson(json["product"])
-        : null,
+    product: json["product"] != null ? Map<String, dynamic>.from(json["product"]) : null,
   );
 
   Map<String, dynamic> toJson() => {

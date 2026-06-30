@@ -1,6 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:auto_route/auto_route.dart';
-import 'package:rokctapp/core/infrastructure/app_links/app_links_service.dart';
+import 'package:core_sdk/src/infrastructure/app_links/app_links_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,16 +8,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 import '../register/register_page.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:auth_sdk/auth_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme_preference.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
-import 'package:rokctapp/customer/presentation/pages/profile/language_page.dart';
+import 'package:${package}/core/presentation/theme/theme_preference.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
+import 'package:core_sdk/src/presentation/pages/profile/language_page.dart';
 import 'login_screen.dart';
 import 'package:core_sdk/core_sdk.dart';
 
@@ -151,3 +151,4 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     );
   }
 }
+

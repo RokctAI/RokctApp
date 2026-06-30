@@ -1,4 +1,3 @@
-import 'package:users_sdk/src/models/data/user.dart';
 import 'package:auth_sdk/auth_sdk.dart';
 
 import 'package:core_sdk/core_sdk.dart';

@@ -3,11 +3,11 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:merchants_sdk/src/application/manager/subscriptions/subscriptions_provider.dart';
-import 'package:rokctapp/manager/infrastructure/services/app_helpers.dart';
-import 'package:rokctapp/manager/infrastructure/services/local_storage.dart';
-import 'package:rokctapp/manager/infrastructure/services/tr_keys.dart';
-import 'package:rokctapp/manager/presentation/component/buttons/custom_button.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/infrastructure/services/app_helpers.dart';
+import 'package:merchants_sdk/src/infrastructure/services/local_storage.dart';
+import 'package:merchants_sdk/src/infrastructure/services/tr_keys.dart';
+import 'package:merchants_sdk/src/presentation/component/buttons/custom_button.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class PaymentDialog extends ConsumerWidget {
   const PaymentDialog({super.key});
@@ -37,3 +37,4 @@ class PaymentDialog extends ConsumerWidget {
     );
   }
 }
+

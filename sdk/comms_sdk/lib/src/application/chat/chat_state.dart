@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/customer/models/data/chat_message_data.dart';
+import 'package:core_sdk/src/models/data/chat_message_data.dart';
 
 part 'chat_state.freezed.dart';
 
@@ -16,3 +16,4 @@ sealed class ChatState with _$ChatState {
 
   const ChatState._();
 }
+

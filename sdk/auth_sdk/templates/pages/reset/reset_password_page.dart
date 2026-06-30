@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/customer/presentation/components/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme_wrapper.dart';
-import 'package:rokctapp/customer/models/data/user.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
+import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
+import 'package:core_sdk/src/models/data/user.dart';
 import 'package:core_sdk/core_sdk.dart';
 import '../confirmation/register_confirmation_page.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:auth_sdk/auth_sdk.dart';
 
 @RoutePage()
@@ -229,3 +229,4 @@ class _ResetPasswordPageState extends ConsumerState<ResetPasswordPage>
     );
   }
 }
+

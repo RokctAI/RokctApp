@@ -4,11 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:merchants_sdk/src/application/manager/restaurant/income/statistics/statistics_provider.dart';
-import 'package:rokctapp/manager/presentation/component/filter_screen.dart';
-import 'package:rokctapp/core/presentation/components/helper/modal_drag.dart';
-import 'package:rokctapp/manager/presentation/component/helper/modal_wrap.dart';
-import 'package:rokctapp/manager/presentation/component/loading/loading.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:merchants_sdk/src/presentation/component/filter_screen.dart';
+import 'package:core_sdk/src/presentation/components/helper/modal_drag.dart';
+import 'package:merchants_sdk/src/presentation/component/helper/modal_wrap.dart';
+import 'package:merchants_sdk/src/presentation/component/loading/loading.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 
 class MoreOrders extends ConsumerStatefulWidget {
@@ -321,3 +321,5 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
     );
   }
 }
+
+

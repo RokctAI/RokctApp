@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/customer/models/data/review_data.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/models/data/review_data.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
 class ImagesOneList extends StatelessWidget {
   final List<Galleries>? list;
@@ -46,3 +46,4 @@ class ImagesOneList extends StatelessWidget {
     );
   }
 }
+

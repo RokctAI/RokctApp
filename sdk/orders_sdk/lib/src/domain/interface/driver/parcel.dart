@@ -1,5 +1,5 @@
-import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/driver/infrastructure/models/data/parcel_order.dart';
+﻿import 'package:core_sdk/core_sdk.dart';
+import 'package:delivery_sdk/src/infrastructure/models/data/parcel_order.dart';
 
 abstract class DriverParcelRepository {
   Future<ApiResult<ParcelOrder>> showParcel(int id);
@@ -26,4 +26,5 @@ abstract class DriverParcelRepository {
 
   Future<ApiResult<ParcelOrder>> setParcel(String orderId);
 }
+
 

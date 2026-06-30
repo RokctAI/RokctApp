@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/customer/models/data/help_data.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:core_sdk/src/models/data/help_data.dart';
 
 part 'help_state.freezed.dart';
 
@@ -12,3 +12,4 @@ sealed class HelpState with _$HelpState {
 
   const HelpState._();
 }
+

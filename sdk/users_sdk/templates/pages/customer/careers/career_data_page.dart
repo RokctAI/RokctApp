@@ -7,9 +7,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:users_sdk/src/application/customer/customer_profile/profile_provider.dart';
 
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/routes/app_router.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/routes/app_router.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class CareerDataPage extends ConsumerStatefulWidget {
   final int id;
@@ -142,3 +142,4 @@ class _CareerDataPageState extends ConsumerState<CareerDataPage> {
     );
   }
 }
+

@@ -1,5 +1,5 @@
 import 'package:core_sdk/core_sdk.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
+
 
 abstract class NotificationInterface {
   Future<ApiResult<NotificationResponse>> getNotifications({int? page});

@@ -1,5 +1,5 @@
-import 'package:rokctapp/core/infrastructure/models/data/meta.dart';
-import 'package:rokctapp/customer/models/data/translation.dart';
+﻿import 'package:core_sdk/src/infrastructure/models/data/meta.dart';
+import 'package:core_sdk/src/models/data/translation.dart';
 
 class CategoriesPaginateResponse {
   CategoriesPaginateResponse({List<CategoryData>? data, Meta? meta}) {
@@ -155,4 +155,5 @@ class CategoryData {
     return map;
   }
 }
+
 

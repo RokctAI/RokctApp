@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/models.dart';
+﻿import 'package:core_sdk/src/models/models.dart';
 import 'package:core_sdk/core_sdk.dart';
 
 abstract class BlogsRepositoryFacade {
@@ -6,3 +6,4 @@ abstract class BlogsRepositoryFacade {
 
   Future<ApiResult<BlogDetailsResponse>> getBlogDetails(String uuid);
 }
+

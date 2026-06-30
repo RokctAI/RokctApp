@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/core/presentation/app_assets.dart';
+import 'package:core_sdk/src/presentation/app_assets.dart';
 
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 
 class NoOrders extends StatelessWidget {
@@ -30,3 +30,4 @@ class NoOrders extends StatelessWidget {
     );
   }
 }
+

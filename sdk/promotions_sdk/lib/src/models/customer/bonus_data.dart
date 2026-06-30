@@ -1,4 +1,4 @@
-import 'package:rokctapp/customer/models/data/product_data.dart';
+﻿import 'package:core_sdk/src/models/data/product_data.dart';
 
 class BonusModel {
   BonusModel({
@@ -92,4 +92,5 @@ class BonusStock {
     "total_price": totalPrice,
   };
 }
+
 

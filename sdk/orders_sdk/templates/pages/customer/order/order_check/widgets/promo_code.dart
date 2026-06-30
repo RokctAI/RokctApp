@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orders_sdk/src/application/customer/order/order_provider.dart';
-import 'package:rokctapp/customer/application/promo_code/promo_code_state.dart';
+import 'package:core_sdk/src/application/promo_code/promo_code_state.dart';
 import 'package:core_sdk/core_sdk.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
 
-import 'package:rokctapp/customer/application/promo_code/promo_code_notifier.dart';
-import 'package:rokctapp/customer/application/promo_code/promo_code_provider.dart';
+import 'package:core_sdk/src/application/promo_code/promo_code_notifier.dart';
+import 'package:core_sdk/src/application/promo_code/promo_code_provider.dart';
 import 'package:orders_sdk/src/application/customer/shop_order/shop_order_provider.dart';
 import 'package:core_sdk/core_sdk.dart';
 
-import 'package:rokctapp/core/presentation/theme/color_set.dart';
+import 'package:${package}/core/presentation/theme/color_set.dart';
 
-import 'package:rokctapp/customer/presentation/components/components.dart';
+import 'package:core_sdk/src/presentation/components/components.dart';
 
 class PromoCodeScreen extends ConsumerStatefulWidget {
   final CustomColorSet colors;
@@ -179,3 +179,4 @@ class _PromoCodeState extends ConsumerState<PromoCodeScreen> {
     );
   }
 }
+

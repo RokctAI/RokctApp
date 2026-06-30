@@ -12,13 +12,13 @@ import 'package:intl/intl.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rokctapp/driver/presentation/component/components.dart';
-import 'package:rokctapp/core/presentation/theme/theme.dart';
-import 'package:delivery_sdk/delivery_sdk.dart';
-import 'package:rokctapp/driver/infrastructure/services/enums.dart';
-import 'package:rokctapp/driver/infrastructure/services/img_service.dart';
-import 'package:rokctapp/driver/infrastructure/services/local_storage.dart';
-import 'package:rokctapp/driver/infrastructure/services/tr_keys.dart';
+import 'package:delivery_sdk/src/presentation/component/components.dart';
+import 'package:${package}/core/presentation/theme/theme.dart';
+
+import 'package:delivery_sdk/src/infrastructure/services/enums.dart';
+import 'package:delivery_sdk/src/infrastructure/services/img_service.dart';
+import 'package:delivery_sdk/src/infrastructure/services/local_storage.dart';
+import 'package:delivery_sdk/src/infrastructure/services/tr_keys.dart';
 
 class AppHelpers {
   AppHelpers._();
@@ -487,4 +487,5 @@ class AppHelpers {
     );
   }
 }
+
 
