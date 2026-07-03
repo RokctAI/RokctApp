@@ -17,7 +17,7 @@ dependencies:
 
   dartz: ^0.10.1
   flutter_riverpod: ^2.6.1
-  get_it: ^7.7.0
+  get_it: ^9.2.0
 
 dev_dependencies:
   flutter_test:
