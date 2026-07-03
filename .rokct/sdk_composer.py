@@ -132,8 +132,13 @@ def update_pubspec_dependencies(sdks):
         new_deps = []
         for sdk in sdks:
             sdk_name = sdk["name"] if isinstance(sdk, dict) else sdk
-            if sdk_name not in current_deps:
-                new_deps.append(f"  {sdk_name}:\n    path: sdk/{sdk_name}\n")
+            # Only add if pubspec.yaml exists in the SDK directory
+            sdk_pubspec = os.path.join(PROJECT_ROOT, "sdk", sdk_name, "pubspec.yaml")
+            if os.path.exists(sdk_pubspec):
+                if sdk_name not in current_deps:
+                    new_deps.append(f"  {sdk_name}:\n    path: sdk/{sdk_name}\n")
+            else:
+                print(f"  [-] Skipping {sdk_name} as pubspec.yaml is missing.")
 
         if not new_deps:
             return
