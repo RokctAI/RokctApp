@@ -79,6 +79,28 @@ def run_installer(sdk_name):
         print(f"[!] Installer for {sdk_name} failed. Error log written to: .rokct/agent/logs/{sdk_name}_install_error.log")
         sys.exit(1)
 
+def update_pubspec_name(package_name):
+    pubspec_path = os.path.join(PROJECT_ROOT, "pubspec.yaml")
+    if not os.path.exists(pubspec_path):
+        return
+    
+    try:
+        with open(pubspec_path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        
+        updated = False
+        with open(pubspec_path, "w", encoding="utf-8") as f:
+            for line in lines:
+                if line.startswith("name:"):
+                    f.write(f"name: {package_name}\n")
+                    updated = True
+                else:
+                    f.write(line)
+        if updated:
+            print(f"[*] Updated pubspec.yaml name to: {package_name}")
+    except Exception as e:
+        print(f"[!] Error updating pubspec.yaml name: {e}")
+
 def main():
     composer_path = os.path.join(PROJECT_ROOT, "composer.json")
     
@@ -89,6 +111,9 @@ def main():
                 with open(composer_path, "r", encoding="utf-8") as f:
                     config = json.load(f)
                     sdks = config.get("sdks", [])
+                    package_name = config.get("package_name")
+                    if package_name:
+                        update_pubspec_name(package_name)
                 print(f"[*] Reading active SDK list from composer.json: {sdks}")
             except Exception as e:
                 print(f"[!] Error reading composer.json: {e}. Resolving all packages.")
@@ -96,6 +121,7 @@ def main():
         else:
             # Fallback to resolving all available SDKs
             sdks = resolve_sdk_path()
+
             
         if not sdks:
             print("[-] No SDKs found to install.")
