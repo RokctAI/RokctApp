@@ -1,22 +1,9 @@
 {
   "name": "rokctapp_composer",
   "version": "1.0.0",
-  "package_name": "betassist",
-  "description": "Configuration list of active SDKs for the BetAssist sporting app",
+  "package_name": "manager",
+  "description": "Configuration list of active SDKs for paas_manager",
   "sdks": [
-    {
-      "name": "betassist_sdk",
-      "enabled": true,
-      "source": "local",
-      "path": "sdk/betassist_sdk",
-      "home_sdk": true
-    },
-    {
-      "name": "fav_sdk",
-      "enabled": true,
-      "source": "local",
-      "path": "sdk/fav_sdk"
-    },
     {
       "name": "core_sdk",
       "enabled": true,
@@ -36,10 +23,35 @@
       "path": "sdk/users_sdk"
     },
     {
-      "name": "wallet_sdk",
+      "name": "merchants_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/wallet_sdk"
+      "path": "sdk/merchants_sdk",
+      "home_sdk": true
+    },
+    {
+      "name": "products_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/products_sdk"
+    },
+    {
+      "name": "orders_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/orders_sdk"
+    },
+    {
+      "name": "payments_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/payments_sdk"
+    },
+    {
+      "name": "subscriptions_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/subscriptions_sdk"
     },
     {
       "name": "comms_sdk",
@@ -54,10 +66,36 @@
       "path": "sdk/processing_sdk"
     },
     {
+      "name": "productivity_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/productivity_sdk",
+      "_comment": "Included but not present in original apps"
+    },
+    {
       "name": "corporate_sdk",
       "enabled": true,
       "source": "local",
       "path": "sdk/corporate_sdk"
+    },
+    {
+      "name": "promotions_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/promotions_sdk"
+    },
+    {
+      "name": "map_sdk",
+      "enabled": true,
+      "source": "local",
+      "path": "sdk/map_sdk"
+    },
+    {
+      "name": "agent_sdk",
+      "enabled": false,
+      "source": "local",
+      "path": "sdk/agent_sdk",
+      "_comment": "Disabled as per requirements"
     }
   ]
 }

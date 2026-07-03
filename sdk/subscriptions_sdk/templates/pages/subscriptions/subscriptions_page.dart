@@ -1,20 +1,20 @@
-import 'package:auto_route/auto_route.dart';
+﻿import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:merchants_sdk/src/application/manager/subscriptions/subscriptions_provider.dart';
+import 'package:subscriptions_sdk/src/application/subscriptions/subscriptions_provider.dart';
 import 'package:merchants_sdk/src/infrastructure/services/app_helpers.dart';
 import 'package:merchants_sdk/src/infrastructure/services/local_storage.dart';
 import 'package:merchants_sdk/src/infrastructure/services/tr_keys.dart';
 import 'package:merchants_sdk/src/presentation/component/custom_app_bar.dart';
-import 'package:merchants_sdk/src/presentation/component/helper/no_data_info.dart';
-import 'package:merchants_sdk/src/presentation/component/loading/loading_grid.dart';
-import 'package:merchants_sdk/src/presentation/pages/restaurant/subscriptions/widgets/have_subscription.dart';
+import 'package:core_sdk/src/presentation/components/helper/no_data_info.dart';
+import 'package:core_sdk/src/presentation/components/loading/loading_grid.dart';
+import 'widgets/have_subscription.dart';
 import 'package:${package}/core/presentation/theme/theme.dart';
-import 'package:merchants_sdk/src/presentation/pages/restaurant/subscriptions/widgets/payment_dialog.dart';
-import 'package:merchants_sdk/src/presentation/pages/restaurant/subscriptions/widgets/subscriptions_item.dart';
+import 'widgets/payment_dialog.dart';
+import 'widgets/subscriptions_item.dart';
 
 @RoutePage(name: 'ManagerSubscriptionsRoute')
 class ManagerSubscriptionsPage extends ConsumerStatefulWidget {
@@ -172,4 +172,5 @@ class _SubscriptionsPageState extends ConsumerState<ManagerSubscriptionsPage> {
     );
   }
 }
+
 

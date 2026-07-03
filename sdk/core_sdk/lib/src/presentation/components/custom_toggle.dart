@@ -7,7 +7,7 @@ import 'package:${package}/core/presentation/theme/theme_wrapper.dart';
 
 class CustomToggle extends StatefulWidget {
   final String title;
-  final VoidCallback onChange;
+  final ValueChanged<bool> onChange;
   final ValueNotifier<bool>? controller;
   final bool isChecked;
 
@@ -27,7 +27,7 @@ class _CustomToggleState extends State<CustomToggle> {
   @override
   void initState() {
     widget.controller?.addListener(() {
-      widget.onChange();
+      widget.onChange(widget.controller!.value);
     });
     super.initState();
   }

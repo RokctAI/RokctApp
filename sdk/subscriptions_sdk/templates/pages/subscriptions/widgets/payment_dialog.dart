@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:merchants_sdk/src/application/manager/subscriptions/subscriptions_provider.dart';
+import 'package:subscriptions_sdk/src/application/subscriptions/subscriptions_provider.dart';
 import 'package:merchants_sdk/src/infrastructure/services/app_helpers.dart';
 import 'package:merchants_sdk/src/infrastructure/services/local_storage.dart';
 import 'package:merchants_sdk/src/infrastructure/services/tr_keys.dart';
@@ -37,4 +37,5 @@ class PaymentDialog extends ConsumerWidget {
     );
   }
 }
+
 

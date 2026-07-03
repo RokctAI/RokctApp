@@ -5,9 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:merchants_sdk/merchants_sdk.dart';
 import 'package:${package}/core/presentation/theme/theme.dart';
-import 'package:merchants_sdk/src/presentation/component/components.dart';
-import 'package:merchants_sdk/src/application/providers.dart';
-import 'package:merchants_sdk/merchants_sdk.dart';
+import 'package:core_sdk/core_sdk.dart';
+import 'package:merchants_sdk/src/application/manager/merchant/merchant_provider.dart';
+import 'package:merchants_sdk/src/application/manager/merchant/working_days/working_days_provider.dart';
+import 'package:core_sdk/src/infrastructure/utils/manager/enums.dart';
+import 'package:${package}/core/presentation/components/manager/list_items/small_weekday_item.dart';
 
 class WorkingTimeModal extends ConsumerStatefulWidget {
   const WorkingTimeModal({super.key});

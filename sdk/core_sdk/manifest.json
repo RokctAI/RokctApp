@@ -32,7 +32,7 @@
       "to": "lib/core/presentation/widgets"
     },
     {
-      "from": "templates/presentation/pages/launch/widgets/glance_card.dart",
+      "from": "templates/pages/launch/widgets/glance_card.dart",
       "to": "lib/core/presentation/pages/launch/widgets/glance_card.dart"
     },
     {
