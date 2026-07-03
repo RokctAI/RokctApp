@@ -2,12 +2,19 @@ import os
 import subprocess
 
 def cleanup():
-    print("[*] Cleaning up unstaged changes...")
+    print("[*] Resetting working tree to last commit...")
     try:
-        subprocess.run(["git", "restore", "."], check=True)
-        print("[+] Unstaged changes cleared.")
+        subprocess.run(["git", "reset", "--hard", "HEAD"], check=True)
+        print("[+] Working tree reset.")
     except subprocess.CalledProcessError as e:
-        print(f"[-] Failed to clear unstaged changes: {e}")
+        print(f"[-] Failed to reset working tree: {e}")
+
+    print("[*] Removing all untracked files (including ignored)...")
+    try:
+        subprocess.run(["git", "clean", "-fdx"], check=True)
+        print("[+] Untracked files and directories removed.")
+    except subprocess.CalledProcessError as e:
+        print(f"[-] Failed to remove untracked files: {e}")
 
     print("[*] Deleting empty folders...")
     deleted_count = 0
