@@ -103,6 +103,7 @@ def update_pubspec_name(package_name):
 
 def main():
     composer_path = os.path.join(PROJECT_ROOT, "composer.json")
+    package_name = None
     
     if len(sys.argv) < 2:
         if os.path.exists(composer_path):
@@ -112,8 +113,6 @@ def main():
                     config = json.load(f)
                     sdks = config.get("sdks", [])
                     package_name = config.get("package_name")
-                    if package_name:
-                        update_pubspec_name(package_name)
                 print(f"[*] Reading active SDK list from composer.json: {sdks}")
             except Exception as e:
                 print(f"[!] Error reading composer.json: {e}. Resolving all packages.")
@@ -121,7 +120,6 @@ def main():
         else:
             # Fallback to resolving all available SDKs
             sdks = resolve_sdk_path()
-
             
         if not sdks:
             print("[-] No SDKs found to install.")
@@ -135,6 +133,19 @@ def main():
         for sdk in sdks:
             sdk_name = sdk["name"] if isinstance(sdk, dict) else sdk
             run_installer(sdk_name)
+    else:
+        # Run installer for specified SDK lists
+        requested_sdks = sys.argv[1:]
+        if "core_sdk" in requested_sdks:
+            requested_sdks.remove("core_sdk")
+            requested_sdks.insert(0, "core_sdk")
+        for sdk in requested_sdks:
+            sdk_name = sdk["name"] if isinstance(sdk, dict) else sdk
+            run_installer(sdk_name)
+
+    if package_name:
+        update_pubspec_name(package_name)
+
     else:
         # Run installer for specified SDK lists
         requested_sdks = sys.argv[1:]
