@@ -101,9 +101,56 @@ def update_pubspec_name(package_name):
     except Exception as e:
         print(f"[!] Error updating pubspec.yaml name: {e}")
 
+def update_pubspec_dependencies(sdks):
+    pubspec_path = os.path.join(PROJECT_ROOT, "pubspec.yaml")
+    if not os.path.exists(pubspec_path):
+        return
+    
+    try:
+        with open(pubspec_path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        
+        dependencies_start = -1
+        for i, line in enumerate(lines):
+            if line.strip() == "dependencies:":
+                dependencies_start = i
+                break
+        
+        if dependencies_start == -1:
+            print("[!] Could not find 'dependencies:' section in pubspec.yaml")
+            return
+
+        # Extract current dependencies to avoid duplicates
+        current_deps = set()
+        for line in lines[dependencies_start+1:]:
+            if line.startswith(" "):
+                dep = line.strip().split(":")[0]
+                current_deps.add(dep)
+            elif line.strip() == "" or not line.startswith(" "):
+                break
+
+        new_deps = []
+        for sdk in sdks:
+            sdk_name = sdk["name"] if isinstance(sdk, dict) else sdk
+            if sdk_name not in current_deps:
+                new_deps.append(f"  {sdk_name}:\n    path: sdk/{sdk_name}\n")
+
+        if not new_deps:
+            return
+
+        # Insert new dependencies after 'dependencies:'
+        lines.insert(dependencies_start + 1, "".join(new_deps))
+        
+        with open(pubspec_path, "w", encoding="utf-8") as f:
+            f.writelines(lines)
+        print(f"[*] Added {len(new_deps)} SDK dependencies to pubspec.yaml")
+    except Exception as e:
+        print(f"[!] Error updating pubspec.yaml dependencies: {e}")
+
 def main():
     composer_path = os.path.join(PROJECT_ROOT, "composer.json")
     package_name = None
+    sdks_to_install = []
     
     if len(sys.argv) < 2:
         if os.path.exists(composer_path):
@@ -114,23 +161,31 @@ def main():
                     sdks = config.get("sdks", [])
                     package_name = config.get("package_name")
                 print(f"[*] Reading active SDK list from composer.json: {sdks}")
+                sdks_to_install = sdks
             except Exception as e:
                 print(f"[!] Error reading composer.json: {e}. Resolving all packages.")
-                sdks = resolve_sdk_path()
+                sdks_to_install = resolve_sdk_path()
         else:
             # Fallback to resolving all available SDKs
-            sdks = resolve_sdk_path()
+            sdks_to_install = resolve_sdk_path()
             
-        if not sdks:
+        if not sdks_to_install:
             print("[-] No SDKs found to install.")
             sys.exit(1)
             
         # Ensure core_sdk is always sorted and installed first
-        if "core_sdk" in sdks:
-            sdks.remove("core_sdk")
-            sdks.insert(0, "core_sdk")
-            
-        for sdk in sdks:
+        if "core_sdk" in [s["name"] if isinstance(s, dict) else s for s in sdks_to_install]:
+            # Handle both list of strings and list of dicts
+            core_idx = -1
+            for i, s in enumerate(sdks_to_install):
+                if (isinstance(s, dict) and s["name"] == "core_sdk") or s == "core_sdk":
+                    core_idx = i
+                    break
+            if core_idx != -1:
+                core_sdk = sdks_to_install.pop(core_idx)
+                sdks_to_install.insert(0, core_sdk)
+                
+        for sdk in sdks_to_install:
             sdk_name = sdk["name"] if isinstance(sdk, dict) else sdk
             run_installer(sdk_name)
     else:
@@ -145,16 +200,10 @@ def main():
 
     if package_name:
         update_pubspec_name(package_name)
+    
+    if sdks_to_install:
+        update_pubspec_dependencies(sdks_to_install)
 
-    else:
-        # Run installer for specified SDK lists
-        requested_sdks = sys.argv[1:]
-        if "core_sdk" in requested_sdks:
-            requested_sdks.remove("core_sdk")
-            requested_sdks.insert(0, "core_sdk")
-        for sdk in requested_sdks:
-            sdk_name = sdk["name"] if isinstance(sdk, dict) else sdk
-            run_installer(sdk_name)
 
 if __name__ == "__main__":
     main()
