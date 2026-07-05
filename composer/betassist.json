@@ -26,14 +26,18 @@
     {
       "name": "auth_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/auth_sdk"
+      "source": "git",
+      "git": "https://github.com/RokctAI/Users",
+      "path": "../Users/auth/dart",
+      "ref": "main"
     },
     {
       "name": "users_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/users_sdk"
+      "source": "git",
+      "git": "https://github.com/RokctAI/Users",
+      "path": "../Users/users/dart",
+      "ref": "main"
     },
     {
       "name": "wallet_sdk",

@@ -13,33 +13,43 @@
     {
       "name": "auth_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "../SDKs/auth/dart"
+      "source": "git",
+      "git": "https://github.com/RokctAI/Users",
+      "path": "../Users/auth/dart",
+      "ref": "main"
     },
     {
       "name": "users_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "../SDKs/users/dart"
+      "source": "git",
+      "git": "https://github.com/RokctAI/Users",
+      "path": "../Users/users/dart",
+      "ref": "main"
     },
     {
       "name": "merchants_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "../SDKs/merchants/dart",
-      "home_sdk": true
+      "source": "git",
+      "path": "../commerce/merchants/dart",
+      "home_sdk": true,
+      "git": "https://github.com/RokctAI/commerce",
+      "ref": "main"
     },
     {
       "name": "products_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "../SDKs/products/dart"
+      "source": "git",
+      "path": "../commerce/products/dart",
+      "git": "https://github.com/RokctAI/commerce",
+      "ref": "main"
     },
     {
       "name": "orders_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "../SDKs/orders/dart"
+      "source": "git",
+      "path": "../commerce/orders/dart",
+      "git": "https://github.com/RokctAI/commerce",
+      "ref": "main"
     },
     {
       "name": "payments_sdk",
@@ -81,14 +91,18 @@
     {
       "name": "promotions_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "../SDKs/promotions/dart"
+      "source": "git",
+      "path": "../commerce/promotions/dart",
+      "git": "https://github.com/RokctAI/commerce",
+      "ref": "main"
     },
     {
       "name": "map_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "../SDKs/map/dart"
+      "source": "git",
+      "path": "../zones/map/dart",
+      "git": "https://github.com/RokctAI/zones",
+      "ref": "main"
     },
     {
       "name": "agent_sdk",

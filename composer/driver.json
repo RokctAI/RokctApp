@@ -13,27 +13,35 @@
     {
       "name": "auth_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/auth_sdk"
+      "source": "git",
+      "path": "../Users/auth/dart",
+      "git": "https://github.com/RokctAI/Users",
+      "ref": "main"
     },
     {
       "name": "users_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/users_sdk"
+      "source": "git",
+      "path": "../Users/users/dart",
+      "git": "https://github.com/RokctAI/Users",
+      "ref": "main"
     },
     {
       "name": "orders_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/orders_sdk"
+      "source": "git",
+      "path": "../commerce/orders/dart",
+      "git": "https://github.com/RokctAI/commerce",
+      "ref": "main"
     },
     {
       "name": "delivery_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/delivery_sdk",
-      "home_sdk": true
+      "source": "git",
+      "path": "../zones/delivery/dart",
+      "home_sdk": true,
+      "git": "https://github.com/RokctAI/zones",
+      "ref": "main"
     },
     {
       "name": "comms_sdk",
@@ -56,14 +64,18 @@
     {
       "name": "map_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/map_sdk"
+      "source": "git",
+      "path": "../zones/map/dart",
+      "git": "https://github.com/RokctAI/zones",
+      "ref": "main"
     },
     {
       "name": "zones_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/zones_sdk"
+      "source": "git",
+      "path": "../zones/zones/dart",
+      "git": "https://github.com/RokctAI/zones",
+      "ref": "main"
     },
     {
       "name": "agent_sdk",

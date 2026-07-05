@@ -13,33 +13,59 @@
     {
       "name": "auth_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/auth_sdk"
+      "source": "git",
+      "path": "../Users/auth/dart",
+      "git": "https://github.com/RokctAI/Users",
+      "ref": "main"
     },
     {
       "name": "users_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/users_sdk"
+      "source": "git",
+      "path": "../Users/users/dart",
+      "git": "https://github.com/RokctAI/Users",
+      "ref": "main"
     },
     {
       "name": "merchants_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/merchants_sdk",
-      "home_sdk": true
+      "source": "git",
+      "path": "../commerce/merchants/dart",
+      "home_sdk": true,
+      "git": "https://github.com/RokctAI/commerce",
+      "ref": "main"
     },
     {
       "name": "products_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/products_sdk"
+      "source": "git",
+      "path": "../commerce/products/dart",
+      "git": "https://github.com/RokctAI/commerce",
+      "ref": "main"
     },
     {
       "name": "orders_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/orders_sdk"
+      "source": "git",
+      "path": "../commerce/orders/dart",
+      "git": "https://github.com/RokctAI/commerce",
+      "ref": "main"
+    },
+    {
+      "name": "kitchen_sdk",
+      "enabled": true,
+      "source": "git",
+      "git": "https://github.com/RokctAI/commerce",
+      "path": "../commerce/kitchen/dart",
+      "ref": "main"
+    },
+    {
+      "name": "hardware_sdk",
+      "enabled": true,
+      "source": "git",
+      "git": "https://github.com/RokctAI/hardware",
+      "path": "../hardware/hardware/dart",
+      "ref": "main"
     },
     {
       "name": "payments_sdk",
@@ -81,14 +107,18 @@
     {
       "name": "promotions_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/promotions_sdk"
+      "source": "git",
+      "path": "../commerce/promotions/dart",
+      "git": "https://github.com/RokctAI/commerce",
+      "ref": "main"
     },
     {
       "name": "map_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/map_sdk"
+      "source": "git",
+      "path": "../zones/map/dart",
+      "git": "https://github.com/RokctAI/zones",
+      "ref": "main"
     },
     {
       "name": "agent_sdk",

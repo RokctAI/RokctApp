@@ -13,14 +13,18 @@
     {
       "name": "auth_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/auth_sdk"
+      "source": "git",
+      "path": "../Users/auth/dart",
+      "git": "https://github.com/RokctAI/Users",
+      "ref": "main"
     },
     {
       "name": "users_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/users_sdk"
+      "source": "git",
+      "path": "../Users/users/dart",
+      "git": "https://github.com/RokctAI/Users",
+      "ref": "main"
     },
     {
       "name": "launch_sdk",
