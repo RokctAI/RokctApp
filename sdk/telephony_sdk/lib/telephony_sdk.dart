@@ -1,2 +1,0 @@
-library telephony_sdk;
-

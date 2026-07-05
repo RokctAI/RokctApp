@@ -8,93 +8,93 @@
       "name": "core_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/core_sdk"
+      "path": "../SDKs/core/dart"
     },
     {
       "name": "auth_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/auth_sdk"
+      "path": "../SDKs/auth/dart"
     },
     {
       "name": "users_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/users_sdk"
+      "path": "../SDKs/users/dart"
     },
     {
       "name": "merchants_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/merchants_sdk",
+      "path": "../SDKs/merchants/dart",
       "home_sdk": true
     },
     {
       "name": "products_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/products_sdk"
+      "path": "../SDKs/products/dart"
     },
     {
       "name": "orders_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/orders_sdk"
+      "path": "../SDKs/orders/dart"
     },
     {
       "name": "payments_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/payments_sdk"
+      "path": "../SDKs/payments/dart"
     },
     {
       "name": "subscriptions_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/subscriptions_sdk"
+      "path": "../SDKs/subscriptions/dart"
     },
     {
       "name": "comms_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/comms_sdk"
+      "path": "../SDKs/comms/dart"
     },
     {
       "name": "processing_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/processing_sdk"
+      "path": "../SDKs/processing/dart"
     },
     {
       "name": "productivity_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/productivity_sdk",
+      "path": "../SDKs/productivity/dart",
       "_comment": "Included but not present in original apps"
     },
     {
       "name": "corporate_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/corporate_sdk"
+      "path": "../SDKs/corporate/dart"
     },
     {
       "name": "promotions_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/promotions_sdk"
+      "path": "../SDKs/promotions/dart"
     },
     {
       "name": "map_sdk",
       "enabled": true,
       "source": "local",
-      "path": "sdk/map_sdk"
+      "path": "../SDKs/map/dart"
     },
     {
       "name": "agent_sdk",
       "enabled": false,
       "source": "local",
-      "path": "sdk/agent_sdk",
+      "path": "../SDKs/agent/dart",
       "_comment": "Disabled as per requirements"
     }
   ]

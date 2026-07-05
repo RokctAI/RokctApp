@@ -25,28 +25,37 @@ def resolve_sdk_path():
     
     return sorted(list(set(sdks)))
 
-def run_installer(sdk_name):
-    # Use the same resolution logic as installer_base to find install.py
-    package_config_path = os.path.join(PROJECT_ROOT, ".dart_tool", "package_config.json")
+def run_installer(sdk_config):
+    # Handle both list of strings and list of dicts
+    sdk_name = sdk_config["name"] if isinstance(sdk_config, dict) else sdk_config
+    raw_path = sdk_config.get("path") if isinstance(sdk_config, dict) else None
+    
     sdk_path = None
-    if os.path.exists(package_config_path):
-        try:
-            with open(package_config_path, "r", encoding="utf-8") as f:
-                config = json.load(f)
-                packages = config.get("packages", [])
-                for pkg in packages:
-                    if pkg.get("name") == sdk_name:
-                        root_uri = pkg.get("rootUri")
-                        if root_uri:
-                            if root_uri.startswith("file:///"):
-                                sdk_path = root_uri.replace("file:///", "").replace("/", os.sep)
-                            elif root_uri.startswith(".."):
-                                sdk_path = os.path.abspath(os.path.join(PROJECT_ROOT, ".dart_tool", root_uri))
-                            else:
-                                sdk_path = root_uri
-                            break
-        except:
-            pass
+    if raw_path:
+        # Resolve relative paths relative to PROJECT_ROOT
+        sdk_path = os.path.abspath(os.path.join(PROJECT_ROOT, raw_path))
+
+    # Use the same resolution logic as installer_base to find install.py
+    if not sdk_path:
+        package_config_path = os.path.join(PROJECT_ROOT, ".dart_tool", "package_config.json")
+        if os.path.exists(package_config_path):
+            try:
+                with open(package_config_path, "r", encoding="utf-8") as f:
+                    config = json.load(f)
+                    packages = config.get("packages", [])
+                    for pkg in packages:
+                        if pkg.get("name") == sdk_name:
+                            root_uri = pkg.get("rootUri")
+                            if root_uri:
+                                if root_uri.startswith("file:///"):
+                                    sdk_path = root_uri.replace("file:///", "").replace("/", os.sep)
+                                elif root_uri.startswith(".."):
+                                    sdk_path = os.path.abspath(os.path.join(PROJECT_ROOT, ".dart_tool", root_uri))
+                                else:
+                                    sdk_path = root_uri
+                                break
+            except:
+                pass
     
     if not sdk_path:
         sdk_path = os.path.join(PROJECT_ROOT, "sdk", sdk_name)
@@ -54,7 +63,7 @@ def run_installer(sdk_name):
     installer_script = os.path.join(sdk_path, "install.py")
     
     if not os.path.exists(installer_script):
-        print(f"[-] No install.py found for SDK: {sdk_name}. Skipping.")
+        print(f"[-] No install.py found for SDK: {sdk_name} at {sdk_path}. Skipping.")
         return
         
     print(f"\n[*] Executing Installer for {sdk_name}...")
@@ -119,38 +128,61 @@ def update_pubspec_dependencies(sdks):
         if dependencies_start == -1:
             print("[!] Could not find 'dependencies:' section in pubspec.yaml")
             return
-
-        # Extract current dependencies to avoid duplicates
-        current_deps = set()
-        for line in lines[dependencies_start+1:]:
+        
+        # Find where the SDK dependencies end (first line that doesn't start with a space)
+        dependencies_end = dependencies_start + 1
+        while dependencies_end < len(lines) and (lines[dependencies_end].startswith(" ") or lines[dependencies_end].strip() == ""):
+            dependencies_end += 1
+            
+        # But wait, there are other dependencies like dio, http etc.
+        # We should only remove those that look like SDKs (end with _sdk)
+        # Or better, just identify the current list of SDKs and remove them.
+        
+        new_lines = lines[:dependencies_start + 1]
+        
+        # Keep non-SDK dependencies
+        for line in lines[dependencies_start + 1:]:
             if line.startswith(" "):
-                dep = line.strip().split(":")[0]
-                current_deps.add(dep)
-            elif line.strip() == "" or not line.startswith(" "):
+                dep_name = line.strip().split(":")[0]
+                if not dep_name.endswith("_sdk"):
+                    new_lines.append(line)
+            elif line.strip() == "":
+                new_lines.append(line)
+            else:
+                # We've reached the end of the dependencies section
+                new_lines.extend(lines[lines.index(line):])
                 break
-
-        new_deps = []
+        
+        # Now add the SDKs from composer.json
+        sdk_deps = []
         for sdk in sdks:
             sdk_name = sdk["name"] if isinstance(sdk, dict) else sdk
-            # Only add if pubspec.yaml exists in the SDK directory
-            sdk_pubspec = os.path.join(PROJECT_ROOT, "sdk", sdk_name, "pubspec.yaml")
-            if os.path.exists(sdk_pubspec):
-                if sdk_name not in current_deps:
-                    new_deps.append(f"  {sdk_name}:\n    path: sdk/{sdk_name}\n")
+            raw_path = sdk.get("path") if isinstance(sdk, dict) else os.path.join("sdk", sdk_name)
+            # Convert to relative path for pubspec.yaml if it's absolute
+            pubspec_path_val = raw_path
+            if os.path.isabs(raw_path):
+                try:
+                    pubspec_path_val = os.path.relpath(raw_path, PROJECT_ROOT)
+                except ValueError:
+                    pass
+            
+            sdk_pubspec = os.path.join(PROJECT_ROOT if not raw_path.startswith("..") else os.path.dirname(PROJECT_ROOT), raw_path, "pubspec.yaml")
+            # The above is messy. Let's just use the resolved path to check existence.
+            resolved_path = os.path.abspath(os.path.join(PROJECT_ROOT, raw_path))
+            if os.path.exists(os.path.join(resolved_path, "pubspec.yaml")):
+                sdk_deps.append(f"  {sdk_name}:\n    path: {pubspec_path_val}\n")
             else:
-                print(f"  [-] Skipping {sdk_name} as pubspec.yaml is missing.")
-
-        if not new_deps:
-            return
-
-        # Insert new dependencies after 'dependencies:'
-        lines.insert(dependencies_start + 1, "".join(new_deps))
+                print(f"  [-] Skipping {sdk_name} as pubspec.yaml is missing at {resolved_path}.")
         
+        if sdk_deps:
+            new_lines.insert(dependencies_start + 1, "".join(sdk_deps))
+            
         with open(pubspec_path, "w", encoding="utf-8") as f:
-            f.writelines(lines)
-        print(f"[*] Added {len(new_deps)} SDK dependencies to pubspec.yaml")
+            f.writelines(new_lines)
+        print(f"[*] Updated SDK dependencies in pubspec.yaml")
     except Exception as e:
         print(f"[!] Error updating pubspec.yaml dependencies: {e}")
+
 
 def main():
     composer_path = os.path.join(PROJECT_ROOT, "composer.json")
@@ -191,8 +223,7 @@ def main():
                 sdks_to_install.insert(0, core_sdk)
                 
         for sdk in sdks_to_install:
-            sdk_name = sdk["name"] if isinstance(sdk, dict) else sdk
-            run_installer(sdk_name)
+            run_installer(sdk)
     else:
         # Run installer for specified SDK lists
         requested_sdks = sys.argv[1:]
