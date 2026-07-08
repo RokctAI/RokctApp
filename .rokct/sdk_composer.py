@@ -98,9 +98,14 @@ def resolve_and_cache_sdks(sdks):
             else:
                 print(f"[!] Error: Path {subpath} not found in cloned repository {git_url}")
                 
-        # Clean up temp repo folder
+        # Clean up temp repo folder securely handling Windows read-only git files
+        def remove_readonly(func, path, excinfo):
+            import stat
+            os.chmod(path, stat.S_IWRITE)
+            func(path)
+            
         if os.path.exists(temp_repo_dir):
-            shutil.rmtree(temp_repo_dir)
+            shutil.rmtree(temp_repo_dir, onerror=remove_readonly)
             
     # Process Local SDKs
     for sdk in local_sdks:
