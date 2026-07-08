@@ -2,32 +2,35 @@ import os
 import sys
 import subprocess
 import json
+import shutil
 
 PROJECT_ROOT = os.getcwd()
 
-def resolve_sdk_path():
-    config_path = os.path.join(PROJECT_ROOT, ".dart_tool", "package_config.json")
-    sdks = []
-    if os.path.exists(config_path):
-        try:
-            with open(config_path, "r", encoding="utf-8") as f:
-                config = json.load(f)
-                packages = config.get("packages", [])
-                sdks = [pkg.get("name") for pkg in packages if pkg.get("name", "").endswith("_sdk")]
-        except Exception as e:
-            print(f"[!] Error reading package_config.json: {e}")
-    
-    # Also include local sdk/ directory for monorepo development
-    sdk_root = os.path.join(PROJECT_ROOT, "sdk")
-    if os.path.isdir(sdk_root):
-        local_sdks = [d for d in os.listdir(sdk_root) if os.path.isdir(os.path.join(sdk_root, d))]
-        sdks.extend(local_sdks)
-    
-    return sorted(list(set(sdks)))
+def clean_sdk_name(name):
+    if name.endswith("_sdk"):
+        return name[:-4]
+    if name.endswith("_sdks"):
+        return name[:-5]
+    return name
+
+def extract_repo_name(git_url):
+    url_path = git_url.rstrip("/")
+    if url_path.endswith(".git"):
+        url_path = url_path[:-4]
+    return os.path.basename(url_path)
+
+def get_subpath_in_repo(local_path, repo_name):
+    normalized = local_path.replace("\\", "/").strip("/")
+    parts = normalized.split("/")
+    for idx, part in enumerate(parts):
+        if part.lower() == repo_name.lower():
+            return "/".join(parts[idx+1:])
+    if len(parts) >= 2:
+        return "/".join(parts[-2:])
+    return normalized
 
 def check_git_availability(git_url):
     try:
-        # Use git ls-remote to check if the repository is reachable without downloading it
         result = subprocess.run(
             ["git", "ls-remote", "--exit-code", "-h", git_url, "HEAD"],
             stdout=subprocess.DEVNULL,
@@ -38,38 +41,88 @@ def check_git_availability(git_url):
     except Exception:
         return False
 
-def resolve_active_path(sdk_config):
-    if not isinstance(sdk_config, dict):
-        return os.path.abspath(os.path.join(PROJECT_ROOT, "sdk", sdk_config))
-        
-    sdk_name = sdk_config["name"]
-    local_path = sdk_config.get("path")
-    git_url = sdk_config.get("git")
-    ref = sdk_config.get("ref", "main")
+def resolve_and_cache_sdks(sdks):
+    cache_base = os.path.join(PROJECT_ROOT, ".rokct", "cache")
+    os.makedirs(cache_base, exist_ok=True)
     
-    if git_url:
-        print(f"[*] Checking availability of remote repository for {sdk_name}...")
-        if check_git_availability(git_url):
-            cache_dir = os.path.abspath(os.path.join(PROJECT_ROOT, ".rokct", "cache", sdk_name))
-            print(f"[+] Remote repository available. Cloning/updating into cache: {cache_dir}")
-            try:
-                os.makedirs(os.path.dirname(cache_dir), exist_ok=True)
-                if os.path.exists(cache_dir):
-                    subprocess.run(["git", "fetch"], cwd=cache_dir, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                    subprocess.run(["git", "checkout", ref], cwd=cache_dir, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                    subprocess.run(["git", "pull", "origin", ref], cwd=cache_dir, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                else:
-                    subprocess.run(["git", "clone", "-b", ref, "--depth", "1", git_url, cache_dir], check=True)
-                return cache_dir
-            except Exception as e:
-                print(f"[!] Error syncing git repository: {e}. Falling back to local path.")
-        else:
-            print(f"[!] Remote repository for {sdk_name} not available yet. Falling back to local path.")
+    git_groups = {}
+    local_sdks = []
+    
+    for sdk in sdks:
+        if not isinstance(sdk, dict):
+            local_sdks.append({
+                "name": sdk,
+                "path": f"../SDKs/{clean_sdk_name(sdk)}/dart"
+            })
+            continue
             
-    if local_path:
-        return os.path.abspath(os.path.join(PROJECT_ROOT, local_path))
+        source = sdk.get("source", "local")
+        if source == "git" and sdk.get("git"):
+            git_url = sdk["git"]
+            if git_url not in git_groups:
+                git_groups[git_url] = []
+            git_groups[git_url].append(sdk)
+        else:
+            local_sdks.append(sdk)
+            
+    # Process Git Groups
+    for git_url, group_sdks in git_groups.items():
+        repo_name = extract_repo_name(git_url)
+        temp_repo_dir = os.path.join(cache_base, f"{repo_name}_sdk")
         
-    return os.path.abspath(os.path.join(PROJECT_ROOT, "sdk", sdk_name))
+        ref = group_sdks[0].get("ref", "main")
+        print(f"[*] Fetching repository {git_url} into {temp_repo_dir}...")
+        try:
+            if os.path.exists(temp_repo_dir):
+                shutil.rmtree(temp_repo_dir)
+            subprocess.run(["git", "clone", "-b", ref, "--depth", "1", git_url, temp_repo_dir], check=True)
+        except Exception as e:
+            print(f"[!] Failed to clone {git_url}: {e}")
+            sys.exit(1)
+            
+        # Extract each SDK
+        for sdk in group_sdks:
+            sdk_name = sdk["name"]
+            clean_name = clean_sdk_name(sdk_name)
+            target_dir = os.path.join(cache_base, clean_name)
+            
+            local_path = sdk.get("path", "")
+            subpath = get_subpath_in_repo(local_path, repo_name)
+            src_dir = os.path.join(temp_repo_dir, *subpath.split("/"))
+            
+            if os.path.exists(src_dir):
+                print(f"[+] Extracting {sdk_name} from {subpath} to {target_dir}...")
+                if os.path.exists(target_dir):
+                    shutil.rmtree(target_dir)
+                shutil.copytree(src_dir, target_dir)
+            else:
+                print(f"[!] Error: Path {subpath} not found in cloned repository {git_url}")
+                
+        # Clean up temp repo folder
+        if os.path.exists(temp_repo_dir):
+            shutil.rmtree(temp_repo_dir)
+            
+    # Process Local SDKs
+    for sdk in local_sdks:
+        sdk_name = sdk["name"]
+        clean_name = clean_sdk_name(sdk_name)
+        target_dir = os.path.join(cache_base, clean_name)
+        
+        local_path = sdk.get("path")
+        if local_path:
+            src_dir = os.path.abspath(os.path.join(PROJECT_ROOT, local_path))
+            if os.path.exists(src_dir):
+                print(f"[+] Copying local {sdk_name} from {local_path} to {target_dir}...")
+                if os.path.exists(target_dir):
+                    shutil.rmtree(target_dir)
+                shutil.copytree(src_dir, target_dir)
+            else:
+                print(f"[-] Local path {local_path} for {sdk_name} does not exist. Skipping.")
+
+def resolve_active_path(sdk_config):
+    sdk_name = sdk_config["name"] if isinstance(sdk_config, dict) else sdk_config
+    clean_name = clean_sdk_name(sdk_name)
+    return os.path.abspath(os.path.join(PROJECT_ROOT, ".rokct", "cache", clean_name))
 
 def run_installer(sdk_config):
     sdk_name = sdk_config["name"] if isinstance(sdk_config, dict) else sdk_config
@@ -166,7 +219,6 @@ def update_pubspec_dependencies(sdks):
                 break
             i += 1
         
-        # Now add the SDKs from composer.json
         sdk_deps = []
         for sdk in sdks:
             sdk_name = sdk["name"] if isinstance(sdk, dict) else sdk
@@ -197,45 +249,42 @@ def main():
     package_name = None
     sdks_to_install = []
     
-    if len(sys.argv) < 2:
-        if os.path.exists(composer_path):
-            try:
-                with open(composer_path, "r", encoding="utf-8") as f:
-                    config = json.load(f)
-                sdks = [s for s in config.get("sdks", []) if isinstance(s, dict) and s.get("enabled", True)]
-                package_name = config.get("package_name")
-                print(f"[*] Reading active SDK list from composer.json: {sdks}")
-                sdks_to_install = sdks
-            except Exception as e:
-                print(f"[!] Error reading composer.json: {e}. Resolving all packages.")
-                sdks_to_install = resolve_sdk_path()
-        else:
-            sdks_to_install = resolve_sdk_path()
+    if os.path.exists(composer_path):
+        try:
+            with open(composer_path, "r", encoding="utf-8") as f:
+                config = json.load(f)
+            sdks_to_install = [s for s in config.get("sdks", []) if isinstance(s, dict) and s.get("enabled", True)]
+            package_name = config.get("package_name")
+            print(f"[*] Reading active SDK list from composer.json: {sdks_to_install}")
+        except Exception as e:
+            print(f"[!] Error reading composer.json: {e}.")
+            sys.exit(1)
             
+    if len(sys.argv) < 2:
         if not sdks_to_install:
             print("[-] No SDKs found to install.")
             sys.exit(1)
-            
-        if "core_sdk" in [s["name"] if isinstance(s, dict) else s for s in sdks_to_install]:
-            core_idx = -1
-            for i, s in enumerate(sdks_to_install):
-                if (isinstance(s, dict) and s["name"] == "core_sdk") or s == "core_sdk":
-                    core_idx = i
-                    break
-            if core_idx != -1:
-                core_sdk = sdks_to_install.pop(core_idx)
-                sdks_to_install.insert(0, core_sdk)
-                
-        for sdk in sdks_to_install:
-            run_installer(sdk)
     else:
-        requested_sdks = sys.argv[1:]
-        if "core_sdk" in requested_sdks:
-            requested_sdks.remove("core_sdk")
-            requested_sdks.insert(0, "core_sdk")
-        for sdk in requested_sdks:
-            run_installer(sdk)
-
+        requested_names = sys.argv[1:]
+        sdks_to_install = [s for s in sdks_to_install if s["name"] in requested_names]
+        
+    if "core_sdk" in [s["name"] if isinstance(s, dict) else s for s in sdks_to_install]:
+        core_idx = -1
+        for i, s in enumerate(sdks_to_install):
+            if (isinstance(s, dict) and s["name"] == "core_sdk") or s == "core_sdk":
+                core_idx = i
+                break
+        if core_idx != -1:
+            core_sdk = sdks_to_install.pop(core_idx)
+            sdks_to_install.insert(0, core_sdk)
+            
+    # Cache all SDKs in one consolidated fetch pass
+    resolve_and_cache_sdks(sdks_to_install)
+    
+    # Run the installers
+    for sdk in sdks_to_install:
+        run_installer(sdk)
+        
     if package_name:
         update_pubspec_name(package_name)
     
