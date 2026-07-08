@@ -7,8 +7,10 @@
     {
       "name": "core_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "../SDKs/core/dart"
+      "source": "git",
+      "git": "https://github.com/RokctAI/core",
+      "path": "../core/dart",
+      "ref": "main"
     },
     {
       "name": "auth_sdk",
