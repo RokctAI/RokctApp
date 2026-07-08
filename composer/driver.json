@@ -7,8 +7,10 @@
     {
       "name": "core_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/core_sdk"
+      "source": "git",
+      "git": "https://github.com/RokctAI/core",
+      "path": "../core/core/dart",
+      "ref": "main"
     },
     {
       "name": "auth_sdk",
@@ -46,20 +48,26 @@
     {
       "name": "comms_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/comms_sdk"
+      "source": "git",
+      "git": "https://github.com/RokctAI/core",
+      "path": "../core/comms/dart",
+      "ref": "main"
     },
     {
       "name": "processing_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/processing_sdk"
+      "source": "git",
+      "git": "https://github.com/RokctAI/productivity",
+      "path": "../productivity/processing/dart",
+      "ref": "main"
     },
     {
       "name": "corporate_sdk",
       "enabled": true,
-      "source": "local",
-      "path": "sdk/corporate_sdk"
+      "source": "git",
+      "git": "https://github.com/RokctAI/corporate",
+      "path": "../corporate/corporate/dart",
+      "ref": "main"
     },
     {
       "name": "map_sdk",
@@ -80,8 +88,10 @@
     {
       "name": "agent_sdk",
       "enabled": false,
-      "source": "local",
-      "path": "sdk/agent_sdk",
+      "source": "git",
+      "git": "https://github.com/RokctAI/agent",
+      "path": "../agent/agent/dart",
+      "ref": "main",
       "_comment": "Disabled as per requirements"
     }
   ]
