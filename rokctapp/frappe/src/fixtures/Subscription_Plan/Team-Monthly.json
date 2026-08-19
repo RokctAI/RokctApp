@@ -1,0 +1,47 @@
+{
+    "allow_self_subscription":  1,
+    "billing_cycle":  "Monthly",
+    "billing_interval":  1,
+    "cost":  40.0,
+    "currency":  "USD",
+    "doctype":  "Subscription Plan",
+    "is_ai":  1,
+    "enable_tenders":  1,
+    "is_per_seat_plan":  1,
+    "base_user_count":  3,
+    "item":  "Team Plan",
+    "plan_name":  "Team (Monthly)",
+    "price_determination":  "Fixed Rate",
+    "trial_period_days":  14,
+    "plan_category":  "rokct",
+    "modules":  [
+                    {
+                        "module":  "rokct"
+                    },
+                    {
+                        "module":  "Memory"
+                    },
+                    {
+                        "module":  "Synaptic Network"
+                    },
+                    {
+                        "module":  "tender"
+                    },
+                    {
+                        "module":  "studio"
+                    }
+                ],
+    "is_free_plan":  0,
+    "features":  [
+                     "Everything in Pro",
+                     "2x Processing Limits",
+                     "Team Projects \u0026 Management",
+                     "Admin Governance Dashboard",
+                     "Personalized Onboarding",
+                     "Centralized Billing",
+                     "TenderAssist",
+                     "Studio (StartupOS)"
+                 ],
+    "plan_type":  "Tenant",
+    "storage_quota_gb":  20
+}

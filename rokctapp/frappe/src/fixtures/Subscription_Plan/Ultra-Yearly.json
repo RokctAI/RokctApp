@@ -1,0 +1,45 @@
+{
+    "allow_self_subscription":  1,
+    "billing_cycle":  "Yearly",
+    "billing_interval":  1,
+    "cost":  800.0,
+    "currency":  "USD",
+    "doctype":  "Subscription Plan",
+    "is_ai":  1,
+    "enable_tenders":  1,
+    "item":  "Ultra Plan",
+    "plan_name":  "Ultra (Yearly)",
+    "price_determination":  "Fixed Rate",
+    "trial_period_days":  14,
+    "plan_category":  "rokct",
+    "modules":  [
+                    {
+                        "module":  "rokct"
+                    },
+                    {
+                        "module":  "Memory"
+                    },
+                    {
+                        "module":  "Synaptic Network"
+                    },
+                    {
+                        "module":  "tender"
+                    },
+                    {
+                        "module":  "studio"
+                    }
+                ],
+    "is_free_plan":  0,
+    "features":  [
+                     "Everything in Pro",
+                     "{model} Max Access",
+                     "Unlimited Chat Agents",
+                     "Unlimited Ultra Search",
+                     "24/7 Direct Dev Team Access",
+                     "Maximum Yearly Savings",
+                     "TenderAssist",
+                     "Studio (StartupOS)"
+                 ],
+    "plan_type":  "Tenant",
+    "storage_quota_gb":  50
+}

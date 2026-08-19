@@ -1,0 +1,33 @@
+{
+    "allow_self_subscription":  1,
+    "billing_cycle":  "Yearly",
+    "billing_interval":  1,
+    "cost":  50.0,
+    "currency":  "USD",
+    "doctype":  "Subscription Plan",
+    "is_ai":  1,
+    "is_free_plan":  0,
+    "item":  "Basic Plan",
+    "plan_name":  "Basic (Yearly)",
+    "price_determination":  "Fixed Rate",
+    "trial_period_days":  14,
+    "plan_category":  "rokct",
+    "modules":  [
+                    {
+                        "module":  "rokct"
+                    },
+                    {
+                        "module":  "Memory"
+                    },
+                    {
+                        "module":  "Synaptic Network"
+                    }
+                ],
+    "features":  [
+                     "Tasks and Notes",
+                     "Perplexity Web search",
+                     "Limited AI Agent access"
+                 ],
+    "plan_type":  "Tenant",
+    "storage_quota_gb":  1
+}

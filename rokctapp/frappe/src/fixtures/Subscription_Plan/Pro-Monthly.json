@@ -1,0 +1,44 @@
+{
+    "allow_self_subscription":  1,
+    "billing_cycle":  "Monthly",
+    "billing_interval":  1,
+    "cost":  20.0,
+    "currency":  "USD",
+    "doctype":  "Subscription Plan",
+    "is_ai":  1,
+    "enable_tenders":  1,
+    "item":  "Pro Plan",
+    "plan_name":  "Pro (Monthly)",
+    "price_determination":  "Fixed Rate",
+    "trial_period_days":  14,
+    "plan_category":  "rokct",
+    "modules":  [
+                    {
+                        "module":  "rokct"
+                    },
+                    {
+                        "module":  "Memory"
+                    },
+                    {
+                        "module":  "Synaptic Network"
+                    },
+                    {
+                        "module":  "tender"
+                    },
+                    {
+                        "module":  "studio"
+                    }
+                ],
+    "is_free_plan":  0,
+    "features":  [
+                     "Everything in Free",
+                     "Unlimited {model} \u003cspan class=\"text-xs bg-primary text-primary-foreground px-2 py-1 rounded-full\"\u003eNEW\u003c/span\u003e",
+                     "10x more Chat Messages",
+                     "AI Workflows \u003cspan class=\"text-xs bg-primary text-primary-foreground px-2 py-1 rounded-full\"\u003eNEW\u003c/span\u003e",
+                     "Premium AI Models",
+                     "TenderAssist",
+                     "Studio (StartupOS)"
+                 ],
+    "plan_type":  "Tenant",
+    "storage_quota_gb":  10
+}
