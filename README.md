@@ -1,6 +1,6 @@
 # RokctApp
 
-RokctApp is the ROKCT-branded manager: a Flutter shell for small business owners (free local-only app, see `docs/ROKCT_BUSINESS.md`), built on the RokctAI fleet pattern: composed from fleet SDKs at build time via The-Rokct-Protocol composer.
+RokctApp is the ROKCT-branded manager: a Flutter shell for small business owners (free local-only app, see `docs/ROKCT_APP.md`), built on the RokctAI fleet pattern: composed from fleet SDKs at build time via The-Rokct-Protocol composer.
 
 ## Status
 
