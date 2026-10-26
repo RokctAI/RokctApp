@@ -2,7 +2,7 @@
   "name": "rokctapp_composer",
   "version": "1.0.0",
   "package_name": "manager",
-  "description": "Configuration list of active SDKs for the ROKCT-branded manager (free local-only POS). Same SDK set as paas_manager at the time of writing; the two apps may diverge by adding SDKs to their own lists.",
+  "description": "Configuration list of active SDKs for the ROKCT-branded manager (free local-only app). Same SDK set as paas_manager at the time of writing; the two apps may diverge by adding SDKs to their own lists.",
   "sdks": [
     {
       "name": "base_sdk",
