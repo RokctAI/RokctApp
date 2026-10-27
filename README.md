@@ -8,6 +8,4 @@ This repo was wiped of its legacy Foodyman-fork code in this PR. The app scope i
 
 ## Layout
 
-- `composer/` — composer variant templates (including `supacharge.json`) and their README
-- `docs/` — architecture docs (core SDK shared database, offline-first implementation guide, SDK indirect communication, original SDK implementation plan, handoff notes)
 - `.rokct/` — protocol bootstrap (`compose.py`), project memory, decision log, and workspace sync scripts
