@@ -1,22 +1,16 @@
-# Copyright (c) 2026 RokctAI
+# Copyright (c) 2026 ROKCT INTELLIGENCE (PTY) LTD
 #
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published
+# by the Free Software Foundation, version 3.
 #
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
 #
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 # compliance-ignore-file: structural-special-dirs
 import os
@@ -37,9 +31,9 @@ import zipfile
 # Every fetch below is pinned to this commit, so what this script downloads is
 # immutable; the executable targets are additionally SHA-256 verified against
 # EXPECTED_SHA256 before they are written anywhere.
-PROTOCOL_REF = "1be6cb906a5eb582e43f26b26cbecc9dde91f44f"
+PROTOCOL_REF = "a3a5843ad18f3d9d567627a50293776816371b39"
 EXPECTED_SHA256 = {
-    "profiles/local/initiate.py": "96ff250085f9914c192670eaff62db983ae9956a1a9390be3a7c54a2c5b4edfe",
+    "profiles/local/initiate.py": "5bbb1d11b267b1d8b41a9960045606c27e3594b32dc0a0ffdf1bf241fee0d61a",
     "workflows/maintenance.yml": "df37cf18061299ce6d413f3f9f5017882a7bd044e56e15bad24a13b03cff473d",
 }
 GITHUB_RAW_BASE = (
@@ -56,6 +50,23 @@ PROTOCOL_DIR = (
 )
 PROJECT_ROOT = os.getcwd()
 ROKCT_DIR = os.path.join(PROJECT_ROOT, ".rokct")
+
+# An SDK repo declares itself with an (empty is fine) marker at
+# .rokct/config/is_sdk. SDK repos never receive Protocol CI: initiate skips
+# those workflows and deletes any copy already in .github/workflows/.
+SDK_MARKER = os.path.join(ROKCT_DIR, "config", "is_sdk")
+SDK_EXCLUDED_WORKFLOWS = ("sync_workspace.yml", "maintenance.yml")
+
+
+def is_sdk_repo():
+    return os.path.isfile(SDK_MARKER)
+
+
+def remove_workflow(name):
+    path = os.path.join(PROJECT_ROOT, ".github", "workflows", name)
+    if os.path.isfile(path):
+        os.remove(path)
+        print(f"[init] SDK repo: removed .github/workflows/{name}")
 
 
 # The profile file this copy self-updates from. Stays in lockstep with the
@@ -439,6 +450,9 @@ def main():
     # Skipped in CI: GITHUB_TOKEN lacks the `workflows` permission, so any
     # file deployed into .github/workflows/ gets the compose commit-back
     # remote-rejected by GitHub.
+    sdk = is_sdk_repo()
+    if sdk:
+        print("[init] SDK repo (.rokct/config/is_sdk present): Protocol CI disabled")
     if "RokctAI/" in origin_url and not os.environ.get("CI"):
         rok_workflows_src = os.path.join(PROTOCOL_DIR, "workflows", ".rok")
         # Staged under the git-ignored .rokct/tmp/ rather than
@@ -460,6 +474,9 @@ def main():
                 os.makedirs(dst_workflows, exist_ok=True)
                 repo_name = origin_url.split("RokctAI/")[-1].replace(".git", "")
                 for src_name, dst_name in select_rok_workflows(src_dir, repo_name):
+                    if sdk:
+                        remove_workflow(dst_name)
+                        continue
                     shutil.copy2(
                         os.path.join(src_dir, src_name),
                         os.path.join(dst_workflows, dst_name),
@@ -556,7 +573,10 @@ def main():
     ensure_file(
         "workflows/sync_workspace.py", os.path.join(ROKCT_DIR, "sync_workspace.py")
     )
-    if not os.environ.get("CI"):
+    if sdk:
+        for name in SDK_EXCLUDED_WORKFLOWS:
+            remove_workflow(name)
+    elif not os.environ.get("CI"):
         ensure_file(
             "workflows/sync_workspace.yml",
             os.path.join(PROJECT_ROOT, ".github", "workflows", "sync_workspace.yml"),
@@ -603,7 +623,7 @@ def main():
         else:
             print("[init] Standalone mode (no workspace sync)")
             # Only standalone or parent repos get the maintenance workflow (children don't need it)
-            if not os.environ.get("CI"):
+            if not os.environ.get("CI") and not sdk:
                 ensure_file(
                     "workflows/maintenance.yml",
                     os.path.join(
@@ -617,7 +637,11 @@ def main():
         # If config already exists, check if it's a parent (no parent_repo set)
         with open(cfg, "r", encoding="utf-8") as f:
             config_data = json.load(f)
-            if not config_data.get("parent_repo") and not os.environ.get("CI"):
+            if (
+                not config_data.get("parent_repo")
+                and not os.environ.get("CI")
+                and not sdk
+            ):
                 ensure_file(
                     "workflows/maintenance.yml",
                     os.path.join(
