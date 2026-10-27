@@ -15,13 +15,13 @@ exists, or you need to refresh the protocol configuration.
 
 2. **Confirm Setup**:
 
-    * The script will update templates and ensure all required protocol
-      files are present.
+    * The script will update templates and ensure all required
+      protocol files are present.
 
 3. **Done**:
 
-    * The protocol is now initialized/re-initialized. You can proceed to
-      start a new session.
+    * The protocol is now initialized/re-initialized. You can proceed
+      to start a new session.
 
 4. **Session End**:
 
